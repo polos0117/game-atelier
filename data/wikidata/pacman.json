@@ -1,0 +1,917 @@
+{
+ "qid": "Q173626",
+ "fetched": "2026-10-26",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Android"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q388"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Linux"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "리눅스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q135321"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Famicom Disk System"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "패밀리 컴퓨터 디스크 시스템"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q149947"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Midway Games"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "미드웨이 게임즈"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170325"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "PlayStation Portable"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 포터블"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170434"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "DOS"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "도스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q99775"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Commodore 64"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코모도어 64"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q172742"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nintendo Entertainment System"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "패밀리컴퓨터"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q183259"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Super Nintendo Entertainment System"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "슈퍼 패미컴"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14094"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "IPod touch"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아이팟 터치"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q192851"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "arcade video game machine"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아케이드 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q23882"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "ZX Spectrum"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "ZX 스펙트럼"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q201652"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Apple II series"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "애플 II"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q202712"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "IBM Personal Computer"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "IBM PC"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q206261"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Atari 2600"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아타리 2600"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q203992"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Game Boy Color"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "게임보이 컬러"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249075"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Atari 8-bit family"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아타리 8비트 제품군"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q309996"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Namco"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "남코"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q309996"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Namco"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "남코"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q454390"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Texas Instruments TI-99/4A"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q743222"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Atari 5200"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아타리 5200"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q853547"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "MSX"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "MSX"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q918232"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Commodore VIC-20"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "VIC-20"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1061441"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Intellivision"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "인텔리비전"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q4885200"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Windows Phone"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "윈도 폰"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q13717398"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "maze video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "미로 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q100047"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아미가"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q188642"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "게임보이 어드밴스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q751719"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "게임 기어"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1977455"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "네오지오 포켓 컬러"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q5014725"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 4"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q13361286"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "엑스박스 원"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48263"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "엑스박스 360"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1980-05-22T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1980-07-01T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1984-11-02T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1988-10-01T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1993-01-01T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173626"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Pac-Man"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%ED%8C%A9%EB%A7%A8_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "팩맨"
+   }
+  }
+ ]
+}

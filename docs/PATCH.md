@@ -11,6 +11,13 @@
 
 
 
+## 2026-10-26 · claude · 첫 묶음 열 편의 사실 칸 — Wikidata
+- data/game-design.json · data/wikidata/*.json — 열 편의 facts(QID·발매 연도·개발사·배급사·플랫폼·장르·시리즈·모드·위키백과 주소)를 tools/fetch-games.py 로 받았다. QID 는 find 후보 가운데 그 게임 원작의 항목(영어 위키백과 문서가 그 게임 자체인 것 — 시리즈·이식판 항목이 아닌 것)을 골랐다: 팩맨 Q173626 · 테트리스 Q71910 · 슈퍼 마리오 브라더스 Q11168 · 젤다의 전설 Q12395 · 드래곤 퀘스트 Q2313869 · 스트리트 파이터 II Q1133204 · 심시티 Q249854 · 스타크래프트 Q165929 · 마인크래프트 Q49740 · 다크 소울 Q1166232. 받은 연도가 설계표의 시대(era)와 어긋나는 게임은 없다. Wikidata 빈칸: 심시티 발매일·모드, 테트리스 배급사 — 지어내지 않고 비워 두었다(검사기가 경고).
+- tools/fetch-games.py — find 가 이름(별칭 포함)·비디오 게임 하위 갈래까지 보고, 영어 위키백과 문서 이름(「이름」·「이름 (video game)」)으로도 찾는다. 원작이 레이블로는 안 걸렸다(젤다·스타크래프트·다크 소울 후보 0). 후보마다 위키백과 문서 이름을 같이 보여 준다.
+- docs/GAME_CONCEPT.md — 만드는 순서 2·3단계 끝, 정할 것의 Wikidata 빈칸 칸.
+- tests/game-design.py · tests/fetch-games.py — 사실 칸이 찬 뒤에도 돌도록 비운 사본으로 본다. 받은 QID 가 원본(data/wikidata)과 같은지 본다.
+- tests/prompt-screen.cjs — 주소는 화면이 그린 뒤 적으므로 기다렸다 읽는다(한 번 앞 모드를 읽고 실패했다).
+
 ## 2026-10-26 · claude · 생성기 — book 생성기를 게임 몫으로, 일상컷 게임 갈래 넷
 - prompt.html · lib/prompt-ui.js · lib/prompt-game.js · lib/prompt-random.js — book 생성기(폼 초상·개방·일상컷·외형 잠금·무작위·되돌리기·기록·저장)를 옮겼다. 주소는 ?game=, 저장 열쇠 game_prompt_v1. 설계 칸에 능력·그리지 않을 것이 보이고, 게임 한 줄은 Wikidata 에서 받은 연도·개발사만 싣는다(안 받았으면 비운다). book 의 「원작 시대」 자리는 「출시 당시」 — 그 게임이 나온 해 무렵의 현실로 옮긴다(받은 연도, 없으면 시대).
 - lib/prompt-spec.js — BOOK_LINES 를 GAME_LINES 로 바꿨다. 책 몸(책장·제본)·보호 중인 책·각색 줄을 빼고, 모든 갈래에 「게임 속 캐릭터 아님」(NOT ITS CHARACTERS)·게임마다 그리지 않을 것(NEVER DRAW — 설계표 avoid)을, 새 인물에 핵심 조작(CORE PLAY)·시대 감각(ERA LOOK — 옷감·무늬로만, 도트 그림은 아님)을 싣는다. 단계는 타이틀·중반·엔딩, 정한 말은 게임 설계표의 것으로, 과감 노출의 한복 갈래는 뺐다. 가장 긴 프롬프트 786낱말(한도 800).

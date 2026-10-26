@@ -1,0 +1,265 @@
+{
+ "qid": "Q12395",
+ "fetched": "2026-10-26",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q135321"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Famicom Disk System"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "패밀리 컴퓨터 디스크 시스템"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170420"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nintendo Entertainment Analysis & Development"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "닌텐도 EAD"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q172742"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nintendo Entertainment System"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "패밀리컴퓨터"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q8093"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nintendo"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "닌텐도"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q8093"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nintendo"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "닌텐도"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12393"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "The Legend of Zelda"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "젤다의 전설"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q343568"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "action-adventure game"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "액션 어드벤처 게임"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1986-02-21T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1987-08-22T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1987-11-15T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q12395"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda_(video_game)"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EC%A0%A4%EB%8B%A4%EC%9D%98_%EC%A0%84%EC%84%A4_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "젤다의 전설"
+   }
+  }
+ ]
+}

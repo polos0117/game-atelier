@@ -233,18 +233,203 @@
    "title": "팩맨",
    "title_en": "Pac-Man",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
+    "qid": "Q173626",
+    "fetched": "2026-10-26",
+    "year": 1980,
+    "developer": [
+     {
+      "qid": "Q309996",
+      "ko": "남코",
+      "en": "Namco"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q149947",
+      "ko": "미드웨이 게임즈",
+      "en": "Midway Games"
+     },
+     {
+      "qid": "Q309996",
+      "ko": "남코",
+      "en": "Namco"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q100047",
+      "ko": "아미가",
+      "en": null
+     },
+     {
+      "qid": "Q1061441",
+      "ko": "인텔리비전",
+      "en": "Intellivision"
+     },
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q135321",
+      "ko": "패밀리 컴퓨터 디스크 시스템",
+      "en": "Famicom Disk System"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14094",
+      "ko": "아이팟 터치",
+      "en": "IPod touch"
+     },
+     {
+      "qid": "Q170325",
+      "ko": "플레이스테이션 포터블",
+      "en": "PlayStation Portable"
+     },
+     {
+      "qid": "Q170434",
+      "ko": "도스",
+      "en": "DOS"
+     },
+     {
+      "qid": "Q172742",
+      "ko": "패밀리컴퓨터",
+      "en": "Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q183259",
+      "ko": "슈퍼 패미컴",
+      "en": "Super Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q188642",
+      "ko": "게임보이 어드밴스",
+      "en": null
+     },
+     {
+      "qid": "Q192851",
+      "ko": "아케이드 비디오 게임",
+      "en": "arcade video game machine"
+     },
+     {
+      "qid": "Q1977455",
+      "ko": "네오지오 포켓 컬러",
+      "en": null
+     },
+     {
+      "qid": "Q201652",
+      "ko": "애플 II",
+      "en": "Apple II series"
+     },
+     {
+      "qid": "Q202712",
+      "ko": "IBM PC",
+      "en": "IBM Personal Computer"
+     },
+     {
+      "qid": "Q203992",
+      "ko": "게임보이 컬러",
+      "en": "Game Boy Color"
+     },
+     {
+      "qid": "Q206261",
+      "ko": "아타리 2600",
+      "en": "Atari 2600"
+     },
+     {
+      "qid": "Q23882",
+      "ko": "ZX 스펙트럼",
+      "en": "ZX Spectrum"
+     },
+     {
+      "qid": "Q249075",
+      "ko": "아타리 8비트 제품군",
+      "en": "Atari 8-bit family"
+     },
+     {
+      "qid": "Q388",
+      "ko": "리눅스",
+      "en": "Linux"
+     },
+     {
+      "qid": "Q454390",
+      "ko": null,
+      "en": "Texas Instruments TI-99/4A"
+     },
+     {
+      "qid": "Q48263",
+      "ko": "엑스박스 360",
+      "en": null
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q4885200",
+      "ko": "윈도 폰",
+      "en": "Windows Phone"
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q743222",
+      "ko": "아타리 5200",
+      "en": "Atari 5200"
+     },
+     {
+      "qid": "Q751719",
+      "ko": "게임 기어",
+      "en": null
+     },
+     {
+      "qid": "Q853547",
+      "ko": "MSX",
+      "en": "MSX"
+     },
+     {
+      "qid": "Q918232",
+      "ko": "VIC-20",
+      "en": "Commodore VIC-20"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     },
+     {
+      "qid": "Q99775",
+      "ko": "코모도어 64",
+      "en": "Commodore 64"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q13717398",
+      "ko": "미로 게임",
+      "en": "maze video game"
+     }
+    ],
     "series": null,
-    "modes": [],
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
     "wiki": {
-     "ko": null,
-     "en": null
+     "ko": "https://ko.wikipedia.org/wiki/%ED%8C%A9%EB%A7%A8_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/Pac-Man"
     }
    },
    "genre": "미로",
@@ -336,18 +521,157 @@
    "title": "테트리스",
    "title_en": "Tetris",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
+    "qid": "Q71910",
+    "fetched": "2026-10-26",
+    "year": 1984,
+    "developer": [
+     {
+      "qid": "Q1136981",
+      "ko": "바딤 게라시모프",
+      "en": "Vadim Gerasimov"
+     },
+     {
+      "qid": "Q822879",
+      "ko": "블라디미르 포힐코",
+      "en": "Vladimir Pokhilko"
+     },
+     {
+      "qid": "Q92600",
+      "ko": "알렉세이 파지트노프",
+      "en": "Alexey Pajitnov"
+     }
+    ],
     "publisher": [],
-    "platforms": [],
-    "genres": [],
+    "platforms": [
+     {
+      "qid": "Q100047",
+      "ko": "아미가",
+      "en": null
+     },
+     {
+      "qid": "Q1023103",
+      "ko": "CD-i",
+      "en": "Philips CD-i"
+     },
+     {
+      "qid": "Q1048035",
+      "ko": "원더스완 컬러",
+      "en": null
+     },
+     {
+      "qid": "Q10676",
+      "ko": "메가 드라이브",
+      "en": null
+     },
+     {
+      "qid": "Q1282269",
+      "ko": "애플 IIGS",
+      "en": "Apple IIGS"
+     },
+     {
+      "qid": "Q172742",
+      "ko": "패밀리컴퓨터",
+      "en": "Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q183505",
+      "ko": "NEC PC-98",
+      "en": "NEC PC-9800 series"
+     },
+     {
+      "qid": "Q186437",
+      "ko": "게임보이",
+      "en": "Game Boy"
+     },
+     {
+      "qid": "Q188642",
+      "ko": "게임보이 어드밴스",
+      "en": null
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q23882",
+      "ko": "ZX 스펙트럼",
+      "en": "ZX Spectrum"
+     },
+     {
+      "qid": "Q3095025",
+      "ko": null,
+      "en": "MOTO Gamme"
+     },
+     {
+      "qid": "Q342163",
+      "ko": null,
+      "en": "Acorn Electron"
+     },
+     {
+      "qid": "Q43627",
+      "ko": "맥 OS",
+      "en": "Mac operating system"
+     },
+     {
+      "qid": "Q478829",
+      "ko": "암스트레드 CPC",
+      "en": "Amstrad CPC"
+     },
+     {
+      "qid": "Q478833",
+      "ko": null,
+      "en": "Amstrad PCW"
+     },
+     {
+      "qid": "Q627302",
+      "ko": "아타리 ST",
+      "en": "Atari ST"
+     },
+     {
+      "qid": "Q753619",
+      "ko": null,
+      "en": "Atari Falcon"
+     },
+     {
+      "qid": "Q853547",
+      "ko": "MSX",
+      "en": "MSX"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     },
+     {
+      "qid": "Q99775",
+      "ko": "코모도어 64",
+      "en": "Commodore 64"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q54767",
+      "ko": "퍼즐 비디오 게임",
+      "en": "puzzle video game"
+     }
+    ],
     "series": null,
-    "modes": [],
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
     "wiki": {
-     "ko": null,
-     "en": null
+     "ko": "https://ko.wikipedia.org/wiki/%ED%85%8C%ED%8A%B8%EB%A6%AC%EC%8A%A4",
+     "en": "https://en.wikipedia.org/wiki/Tetris"
     }
    },
    "genre": "퍼즐",
@@ -443,18 +767,57 @@
    "title": "슈퍼 마리오 브라더스",
    "title_en": "Super Mario Bros.",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
-    "series": null,
-    "modes": [],
-    "wiki": {
-     "ko": null,
+    "qid": "Q11168",
+    "fetched": "2026-10-26",
+    "year": 1985,
+    "developer": [
+     {
+      "qid": "Q170420",
+      "ko": "닌텐도 EAD",
+      "en": "Nintendo Entertainment Analysis & Development"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q8093",
+      "ko": "닌텐도",
+      "en": "Nintendo"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q172742",
+      "ko": "패밀리컴퓨터",
+      "en": "Nintendo Entertainment System"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q116790414",
+      "ko": null,
+      "en": "2D platform game"
+     }
+    ],
+    "series": {
+     "qid": "Q4802838",
+     "ko": "슈퍼 마리오",
      "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%8A%88%ED%8D%BC_%EB%A7%88%EB%A6%AC%EC%98%A4%EB%B8%8C%EB%9D%BC%EB%8D%94%EC%8A%A4",
+     "en": "https://en.wikipedia.org/wiki/Super_Mario_Bros."
     }
    },
    "genre": "플랫폼",
@@ -547,18 +910,62 @@
    "title": "젤다의 전설",
    "title_en": "The Legend of Zelda",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
-    "series": null,
-    "modes": [],
+    "qid": "Q12395",
+    "fetched": "2026-10-26",
+    "year": 1986,
+    "developer": [
+     {
+      "qid": "Q170420",
+      "ko": "닌텐도 EAD",
+      "en": "Nintendo Entertainment Analysis & Development"
+     },
+     {
+      "qid": "Q8093",
+      "ko": "닌텐도",
+      "en": "Nintendo"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q8093",
+      "ko": "닌텐도",
+      "en": "Nintendo"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q135321",
+      "ko": "패밀리 컴퓨터 디스크 시스템",
+      "en": "Famicom Disk System"
+     },
+     {
+      "qid": "Q172742",
+      "ko": "패밀리컴퓨터",
+      "en": "Nintendo Entertainment System"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q343568",
+      "ko": "액션 어드벤처 게임",
+      "en": "action-adventure game"
+     }
+    ],
+    "series": {
+     "qid": "Q12393",
+     "ko": "젤다의 전설",
+     "en": "The Legend of Zelda"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
     "wiki": {
-     "ko": null,
-     "en": null
+     "ko": "https://ko.wikipedia.org/wiki/%EC%A0%A4%EB%8B%A4%EC%9D%98_%EC%A0%84%EC%84%A4_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/The_Legend_of_Zelda_(video_game)"
     }
    },
    "genre": "어드벤처",
@@ -650,18 +1057,112 @@
    "title": "드래곤 퀘스트",
    "title_en": "Dragon Quest",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
-    "series": null,
-    "modes": [],
+    "qid": "Q2313869",
+    "fetched": "2026-10-26",
+    "year": 1986,
+    "developer": [
+     {
+      "qid": "Q778453",
+      "ko": "춘소프트",
+      "en": "Chunsoft"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q1343212",
+      "ko": "에닉스",
+      "en": "Enix"
+     },
+     {
+      "qid": "Q207784",
+      "ko": "스퀘어 에닉스",
+      "en": "Square Enix"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q11232203",
+      "ko": null,
+      "en": "MSX 2"
+     },
+     {
+      "qid": "Q172742",
+      "ko": "패밀리컴퓨터",
+      "en": "Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q17517",
+      "ko": "휴대 전화",
+      "en": "mobile phone"
+     },
+     {
+      "qid": "Q183259",
+      "ko": "슈퍼 패미컴",
+      "en": "Super Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q203597",
+      "ko": "닌텐도 3DS",
+      "en": "Nintendo 3DS"
+     },
+     {
+      "qid": "Q203992",
+      "ko": "게임보이 컬러",
+      "en": "Game Boy Color"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q8079",
+      "ko": "Wii",
+      "en": "Wii"
+     },
+     {
+      "qid": "Q853547",
+      "ko": "MSX",
+      "en": "MSX"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q744038",
+      "ko": "롤플레잉 비디오 게임",
+      "en": "role-playing video game"
+     }
+    ],
+    "series": {
+     "qid": "Q615908",
+     "ko": "드래곤 퀘스트",
+     "en": "Dragon Quest"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
     "wiki": {
-     "ko": null,
-     "en": null
+     "ko": "https://ko.wikipedia.org/wiki/%EB%93%9C%EB%9E%98%EA%B3%A4_%ED%80%98%EC%8A%A4%ED%8A%B8_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/Dragon_Quest_(video_game)"
     }
    },
    "genre": "RPG",
@@ -757,18 +1258,157 @@
    "title": "스트리트 파이터 II",
    "title_en": "Street Fighter II",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
-    "series": null,
-    "modes": [],
-    "wiki": {
-     "ko": null,
+    "qid": "Q1133204",
+    "fetched": "2026-10-26",
+    "year": 1991,
+    "developer": [
+     {
+      "qid": "Q14428",
+      "ko": "캡콤",
+      "en": "Capcom"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q1172213",
+      "ko": "데이터 이스트",
+      "en": "Data East"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q100047",
+      "ko": "아미가",
+      "en": null
+     },
+     {
+      "qid": "Q1057377",
+      "ko": "PC 엔진",
+      "en": "TurboGrafx-16"
+     },
+     {
+      "qid": "Q10676",
+      "ko": "메가 드라이브",
+      "en": null
+     },
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q10680",
+      "ko": "플레이스테이션 2",
+      "en": null
+     },
+     {
+      "qid": "Q132020",
+      "ko": "엑스박스",
+      "en": null
+     },
+     {
+      "qid": "Q170073",
+      "ko": "엑스박스 라이브",
+      "en": null
+     },
+     {
+      "qid": "Q170434",
+      "ko": "도스",
+      "en": "DOS"
+     },
+     {
+      "qid": "Q17517",
+      "ko": "휴대 전화",
+      "en": "mobile phone"
+     },
+     {
+      "qid": "Q183259",
+      "ko": "슈퍼 패미컴",
+      "en": "Super Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q186437",
+      "ko": "게임보이",
+      "en": "Game Boy"
+     },
+     {
+      "qid": "Q188642",
+      "ko": "게임보이 어드밴스",
+      "en": null
+     },
+     {
+      "qid": "Q192851",
+      "ko": "아케이드 비디오 게임",
+      "en": "arcade video game machine"
+     },
+     {
+      "qid": "Q200912",
+      "ko": "세가 새턴",
+      "en": null
+     },
+     {
+      "qid": "Q209868",
+      "ko": "세가 마스터 시스템",
+      "en": null
+     },
+     {
+      "qid": "Q229429",
+      "ko": "3DO 인터랙티브 멀티플레이어",
+      "en": "3DO"
+     },
+     {
+      "qid": "Q23882",
+      "ko": "ZX 스펙트럼",
+      "en": "ZX Spectrum"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q695161",
+      "ko": "아미가 CD32",
+      "en": "Amiga CD32"
+     },
+     {
+      "qid": "Q751046",
+      "ko": "IBM PC 호환기종",
+      "en": "IBM PC compatible"
+     },
+     {
+      "qid": "Q8079",
+      "ko": "Wii",
+      "en": "Wii"
+     },
+     {
+      "qid": "Q99775",
+      "ko": "코모도어 64",
+      "en": "Commodore 64"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q127602751",
+      "ko": null,
+      "en": "2D fighting game"
+     }
+    ],
+    "series": {
+     "qid": "Q288035",
+     "ko": "스트리트 파이터",
      "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8A%B8%EB%A6%AC%ED%8A%B8_%ED%8C%8C%EC%9D%B4%ED%84%B0_II:_%EB%8D%94_%EC%9B%94%EB%93%9C_%EC%9B%8C%EB%A6%AC%EC%96%B4",
+     "en": "https://en.wikipedia.org/wiki/Street_Fighter_II"
     }
    },
    "genre": "격투",
@@ -861,18 +1501,202 @@
    "title": "심시티",
    "title_en": "SimCity",
    "facts": {
-    "qid": null,
-    "fetched": null,
+    "qid": "Q249854",
+    "fetched": "2026-10-26",
     "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
+    "developer": [
+     {
+      "qid": "Q220317",
+      "ko": "맥시스",
+      "en": "Maxis"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q995863",
+      "ko": "브로더번드",
+      "en": "Broderbund"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q11368",
+      "ko": "유닉스",
+      "en": "Unix"
+     },
+     {
+      "qid": "Q1153036",
+      "ko": "DESQview",
+      "en": "DESQview"
+     },
+     {
+      "qid": "Q13931",
+      "ko": "XO-1",
+      "en": "OLPC XO-1"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14094",
+      "ko": "아이팟 터치",
+      "en": "IPod touch"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q1582628",
+      "ko": null,
+      "en": "NeWS"
+     },
+     {
+      "qid": "Q170434",
+      "ko": "도스",
+      "en": "DOS"
+     },
+     {
+      "qid": "Q178481",
+      "ko": "X 윈도 시스템",
+      "en": "X Window System"
+     },
+     {
+      "qid": "Q183259",
+      "ko": "슈퍼 패미컴",
+      "en": "Super Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q183505",
+      "ko": "NEC PC-98",
+      "en": "NEC PC-9800 series"
+     },
+     {
+      "qid": "Q189794",
+      "ko": "OS/2",
+      "en": null
+     },
+     {
+      "qid": "Q200647",
+      "ko": null,
+      "en": "EPOC"
+     },
+     {
+      "qid": "Q23882",
+      "ko": "ZX 스펙트럼",
+      "en": "ZX Spectrum"
+     },
+     {
+      "qid": "Q251",
+      "ko": "자바",
+      "en": "Java"
+     },
+     {
+      "qid": "Q274582",
+      "ko": "팜 OS",
+      "en": "Palm OS"
+     },
+     {
+      "qid": "Q342163",
+      "ko": null,
+      "en": "Acorn Electron"
+     },
+     {
+      "qid": "Q388",
+      "ko": "리눅스",
+      "en": "Linux"
+     },
+     {
+      "qid": "Q41357",
+      "ko": null,
+      "en": "Acorn Archimedes"
+     },
+     {
+      "qid": "Q478829",
+      "ko": "암스트레드 CPC",
+      "en": "Amstrad CPC"
+     },
+     {
+      "qid": "Q483318",
+      "ko": "심비안 OS",
+      "en": "Symbian"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q5288",
+      "ko": "Tcl",
+      "en": "Tcl"
+     },
+     {
+      "qid": "Q531896",
+      "ko": "FM 타운즈",
+      "en": "FM Towns"
+     },
+     {
+      "qid": "Q616360",
+      "ko": "Tk",
+      "en": "Tk"
+     },
+     {
+      "qid": "Q627302",
+      "ko": "아타리 ST",
+      "en": "Atari ST"
+     },
+     {
+      "qid": "Q6368",
+      "ko": "웹 브라우저",
+      "en": "web browser"
+     },
+     {
+      "qid": "Q749976",
+      "ko": "BBC 마이크로",
+      "en": "BBC Micro"
+     },
+     {
+      "qid": "Q8079",
+      "ko": "Wii",
+      "en": "Wii"
+     },
+     {
+      "qid": "Q955368",
+      "ko": "코모도어 CDTV",
+      "en": "CDTV"
+     },
+     {
+      "qid": "Q99775",
+      "ko": "코모도어 64",
+      "en": "Commodore 64"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1036289",
+      "ko": "건설경영 시뮬레이션 게임",
+      "en": "construction and management simulation"
+     },
+     {
+      "qid": "Q185451",
+      "ko": "전략",
+      "en": "strategy"
+     },
+     {
+      "qid": "Q588289",
+      "ko": "도시 건설 게임",
+      "en": "city-building game"
+     }
+    ],
     "series": null,
     "modes": [],
     "wiki": {
-     "ko": null,
-     "en": null
+     "ko": "https://ko.wikipedia.org/wiki/%EC%8B%AC%EC%8B%9C%ED%8B%B0",
+     "en": "https://en.wikipedia.org/wiki/SimCity"
     }
    },
    "genre": "시뮬레이션",
@@ -964,18 +1788,82 @@
    "title": "스타크래프트",
    "title_en": "StarCraft",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
-    "series": null,
-    "modes": [],
+    "qid": "Q165929",
+    "fetched": "2026-10-26",
+    "year": 1998,
+    "developer": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     },
+     {
+      "qid": "Q8093",
+      "ko": "닌텐도",
+      "en": "Nintendo"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13522376",
+      "ko": "맥 OS의 역사",
+      "en": "Classic Mac OS"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q184839",
+      "ko": "닌텐도 64",
+      "en": "Nintendo 64"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q208189",
+      "ko": "실시간 전략 게임",
+      "en": "real-time strategy"
+     }
+    ],
+    "series": {
+     "qid": "Q290106",
+     "ko": "스타크래프트",
+     "en": "StarCraft"
+    },
+    "modes": [
+     {
+      "qid": "Q1758804",
+      "ko": "코옵 모드",
+      "en": "co-op mode"
+     },
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
     "wiki": {
-     "ko": null,
-     "en": null
+     "ko": "https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%83%80%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8",
+     "en": "https://en.wikipedia.org/wiki/StarCraft_(video_game)"
     }
    },
    "genre": "전략",
@@ -1068,18 +1956,212 @@
    "title": "마인크래프트",
    "title_en": "Minecraft",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
-    "series": null,
-    "modes": [],
+    "qid": "Q49740",
+    "fetched": "2026-10-26",
+    "year": 2011,
+    "developer": [
+     {
+      "qid": "Q1129295",
+      "ko": "Mojang Studios",
+      "en": "Mojang Studios"
+     },
+     {
+      "qid": "Q2283",
+      "ko": "마이크로소프트",
+      "en": "Microsoft"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q73801",
+      "ko": "마이크로소프트 게임 스튜디오",
+      "en": "Xbox Game Studios"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q122761124",
+      "ko": "닌텐도 스위치 2",
+      "en": null
+     },
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1391641",
+      "ko": "오우야",
+      "en": "Ouya"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q143298",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q15089879",
+      "ko": "파이어 OS",
+      "en": null
+     },
+     {
+      "qid": "Q16980",
+      "ko": "ARM 아키텍처",
+      "en": "ARM architecture"
+     },
+     {
+      "qid": "Q17679679",
+      "ko": "뉴 닌텐도 3DS",
+      "en": null
+     },
+     {
+      "qid": "Q188808",
+      "ko": "플레이스테이션 비타",
+      "en": "PlayStation Vita"
+     },
+     {
+      "qid": "Q193321",
+      "ko": "자바 가상 머신",
+      "en": "Java virtual machine"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q203597",
+      "ko": "닌텐도 3DS",
+      "en": "Nintendo 3DS"
+     },
+     {
+      "qid": "Q20965967",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q270285",
+      "ko": "애플 TV",
+      "en": "Apple TV"
+     },
+     {
+      "qid": "Q388",
+      "ko": "리눅스",
+      "en": "Linux"
+     },
+     {
+      "qid": "Q48263",
+      "ko": "엑스박스 360",
+      "en": null
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q4885200",
+      "ko": "윈도 폰",
+      "en": "Windows Phone"
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q56942",
+      "ko": "Wii U",
+      "en": "Wii U"
+     },
+     {
+      "qid": "Q63184502",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q64350339",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q79531",
+      "ko": "크롬OS",
+      "en": "ChromeOS"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     },
+     {
+      "qid": "Q98973368",
+      "ko": "엑스박스 시리즈 X 및 시리즈 S",
+      "en": "Xbox Series X and Series S"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1036289",
+      "ko": "건설경영 시뮬레이션 게임",
+      "en": "construction and management simulation"
+     },
+     {
+      "qid": "Q133287150",
+      "ko": null,
+      "en": "retro-style video game"
+     },
+     {
+      "qid": "Q21030988",
+      "ko": "생존 게임",
+      "en": "survival game"
+     },
+     {
+      "qid": "Q25397095",
+      "ko": "샌드박스 게임",
+      "en": "sandbox game"
+     },
+     {
+      "qid": "Q343568",
+      "ko": "액션 어드벤처 게임",
+      "en": "action-adventure game"
+     }
+    ],
+    "series": {
+     "qid": "Q25445348",
+     "ko": "마인크래프트",
+     "en": "Minecraft"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
     "wiki": {
-     "ko": null,
-     "en": null
+     "ko": "https://ko.wikipedia.org/wiki/%EB%A7%88%EC%9D%B8%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8",
+     "en": "https://en.wikipedia.org/wiki/Minecraft"
     }
    },
    "genre": "샌드박스",
@@ -1172,18 +2254,97 @@
    "title": "다크 소울",
    "title_en": "Dark Souls",
    "facts": {
-    "qid": null,
-    "fetched": null,
-    "year": null,
-    "developer": [],
-    "publisher": [],
-    "platforms": [],
-    "genres": [],
-    "series": null,
-    "modes": [],
+    "qid": "Q1166232",
+    "fetched": "2026-10-26",
+    "year": 2011,
+    "developer": [
+     {
+      "qid": "Q2414469",
+      "ko": "프롬소프트웨어",
+      "en": "FromSoftware"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q2414469",
+      "ko": "프롬소프트웨어",
+      "en": "FromSoftware"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q48263",
+      "ko": "엑스박스 360",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q105475134",
+      "ko": "소울라이크",
+      "en": "soulslike"
+     },
+     {
+      "qid": "Q111184276",
+      "ko": null,
+      "en": "dark fantasy video game"
+     },
+     {
+      "qid": "Q1422746",
+      "ko": "액션 롤플레잉 게임",
+      "en": "action role-playing game"
+     },
+     {
+      "qid": "Q23916",
+      "ko": "어드벤처 게임",
+      "en": "adventure video game"
+     }
+    ],
+    "series": {
+     "qid": "Q99431276",
+     "ko": "다크 소울",
+     "en": "Dark Souls"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
     "wiki": {
-     "ko": null,
-     "en": null
+     "ko": "https://ko.wikipedia.org/wiki/%EB%8B%A4%ED%81%AC_%EC%86%8C%EC%9A%B8_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/Dark_Souls_(video_game)"
     }
    },
    "genre": "액션 RPG",

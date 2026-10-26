@@ -51,6 +51,8 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     /* 5. 개방 */
     await p.click('#mode-open');
     const q = () => p.evaluate(() => Object.fromEntries(new URLSearchParams(location.search)));
+    /* 주소는 화면이 그린 뒤(useEffect) 적는다 — 바로 읽으면 앞 모드가 보일 수 있다 */
+    await p.waitForFunction(() => new URLSearchParams(location.search).get('mode') === 'open');
     assert.deepEqual(await q(), { game: 'tetris', mode: 'open' }, '고른 게임·모드가 주소에');
     t = await out(p);
     assert(t.includes('빈틈없이 맞은 층이 빛으로 터지며') && t.startsWith("INPUT: attach this game's midgame form card image"));
@@ -92,6 +94,7 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert.equal(await p.$eval('#mode-casual', e => e.getAttribute('aria-pressed')), 'true', '새로고침해도 일상컷');
     await p.selectOption('#source', 'dark_souls');
     await p.waitForFunction(() => document.querySelector('#mode-form'));
+    await p.waitForFunction(() => new URLSearchParams(location.search).get('game') === 'dark_souls');
     assert.equal((await q()).game, 'dark_souls', '게임을 바꾸면 주소도');
     assert.equal(await p.$eval('#form', e => e.value), 'title', '다크 소울은 시범 폼(타이틀)에서');
     await p.click('#take-prev');

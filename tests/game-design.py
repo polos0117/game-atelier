@@ -39,17 +39,23 @@ fails(lambda d: d['vocab']['group']['mind'].append('미로'), 'vocab.group')
 fails(lambda d: d['games'][0].update(avoid=[]), 'avoid')
 fails(lambda d: d['games'][0].update(rights=''), 'rights')
 # 사실 칸은 도구만 — 받은 적 없이 연도·개발사가 차 있으면 지어낸 것
-fails(lambda d: d['games'][0]['facts'].update(year=1980), '받은 적 없는')
-fails(lambda d: d['games'][0]['facts'].update(developer=[{'qid': 'Q1', 'ko': None, 'en': 'x'}]), '받은 적 없는')
-fails(lambda d: d['games'][0]['facts']['wiki'].update(en='https://en.wikipedia.org/wiki/X'), '받은 적 없는')
+fails(lambda d: d['games'][0]['facts'].update(fetched=None, year=1980), '받은 적 없는')
+fails(lambda d: d['games'][0]['facts'].update(fetched=None, year=None, developer=[{'qid': 'Q1', 'ko': None, 'en': 'x'}]), '받은 적 없는')
+BLANK = {'qid': None, 'fetched': None, 'year': None, 'developer': [], 'publisher': [], 'platforms': [], 'genres': [], 'series': None, 'modes': [], 'wiki': {'ko': None, 'en': None}}
+fails(lambda d: d['games'][0].update(facts=dict(BLANK, wiki={'ko': None, 'en': 'https://en.wikipedia.org/wiki/X'})), '받은 적 없는')
 fails(lambda d: d['games'][0]['facts'].pop('modes'), 'facts 칸 모양')
 fails(lambda d: d['games'][0]['facts'].update(qid='pacman'), 'Q숫자')
-ok(lambda d: d['games'][0]['facts'].update(qid='Q123'))   # QID 만 고른 것은 괜찮다(pull 전)
+ok(lambda d: d['games'][0].update(facts=dict(BLANK, qid='Q123')))   # QID 만 고른 것은 괜찮다(pull 전)
 d = ok(lambda d: d['games'][0]['facts'].update(fetched='2026-10-26', year=1980))
 # 받은 연도가 시대와 어긋나면 경고만
 d = copy.deepcopy(doc); d['games'][0]['facts'].update(fetched='2026-10-26', year=2015)
 assert G.check(d) == [] and any('시대를 다시 본다' in w for w in G.warnings(d)), G.warnings(d)
-assert any('아직 안 받았다 10편' in w for w in G.warnings(doc)), G.warnings(doc)
+d = copy.deepcopy(doc); [g.update(facts=dict(BLANK)) for g in d['games']]
+assert G.check(d) == [] and any('아직 안 받았다 10편' in w for w in G.warnings(d)), G.warnings(d)
+# 지금 자료는 열 편 다 받았다 — 받은 칸은 Wikidata 원본(data/wikidata/<key>.json)과 같은 QID
+for g in doc['games']:
+    raw = json.loads((ROOT / 'data' / 'wikidata' / (g['key'] + '.json')).read_text(encoding='utf-8'))
+    assert g['facts']['fetched'] and raw['qid'] == g['facts']['qid'], g['key']
 # 시리즈 자매 — 서로 적고 얼굴 윤곽이 같다
 def sisters(d, same_face=True, both=True):
     a, c = d['games'][0], d['games'][1]

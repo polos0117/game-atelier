@@ -1,0 +1,867 @@
+{
+ "qid": "Q249854",
+ "fetched": "2026-10-26",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q251"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Java"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "자바"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q5288"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Tcl"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "Tcl"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6368"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "web browser"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "웹 브라우저"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q388"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Linux"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "리눅스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170434"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "DOS"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "도스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q99775"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Commodore 64"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코모도어 64"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q8079"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Wii"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "Wii"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q183259"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Super Nintendo Entertainment System"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "슈퍼 패미컴"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q178481"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "X Window System"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "X 윈도 시스템"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q183505"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "NEC PC-9800 series"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "NEC PC-98"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q185451"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "strategy"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "전략"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q13931"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "OLPC XO-1"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "XO-1"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14094"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "IPod touch"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아이팟 터치"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q11368"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Unix"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "유닉스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14116"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "macOS"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "macOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q23882"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "ZX Spectrum"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "ZX 스펙트럼"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q200647"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "EPOC"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q41357"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Acorn Archimedes"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220317"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Maxis"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "맥시스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q274582"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Palm OS"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "팜 OS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q342163"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Acorn Electron"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q478829"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Amstrad CPC"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "암스트레드 CPC"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q531896"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "FM Towns"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "FM 타운즈"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q588289"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "city-building game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "도시 건설 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q483318"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Symbian"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "심비안 OS"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q616360"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Tk"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "Tk"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q627302"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Atari ST"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아타리 ST"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q749976"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "BBC Micro"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "BBC 마이크로"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q955368"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "CDTV"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코모도어 CDTV"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q995863"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Broderbund"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "브로더번드"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1036289"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "construction and management simulation"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "건설경영 시뮬레이션 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1153036"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "DESQview"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "DESQview"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1582628"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "NeWS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189794"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "OS/2"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q249854"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/SimCity"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EC%8B%AC%EC%8B%9C%ED%8B%B0"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "심시티"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "SimCity"
+   }
+  }
+ ]
+}

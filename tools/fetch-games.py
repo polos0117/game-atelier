@@ -33,17 +33,23 @@ def sparql_str(s):
 
 
 def find_query(titles_en):
-    """영어 이름 여럿을 질의 하나로. 같은 이름의 이식판·리메이크가 다 나온다 — ?t 로 어느 이름의 후보인지 돌려준다"""
+    """영어 이름 여럿을 질의 하나로. 같은 이름의 이식판·리메이크가 다 나온다 — ?t 로 어느 이름의 후보인지 돌려준다.
+    이름(별칭 포함)이 같은 비디오 게임과, 영어 위키백과 문서 이름이 「이름」·「이름 (video game)」 인 항목을 같이 찾는다 —
+    원작은 레이블이 아니라 문서 이름으로만 걸리는 일이 많다(젤다·다크 소울·스타크래프트). 문서 이름(?wiki)을 같이 보여 준다"""
     if isinstance(titles_en, str):
         titles_en = [titles_en]
-    vals = " ".join(sparql_str(t) + "@en" for t in titles_en)
-    return """SELECT ?t ?item ?ko (MIN(?d) AS ?date) (GROUP_CONCAT(DISTINCT ?pl; separator=", ") AS ?platforms) WHERE {
-  VALUES ?t { %s }
-  ?item rdfs:label ?t ; wdt:P31 wd:%s .
+    pairs = " ".join("(%s %s@en)" % (sparql_str(t), sparql_str(n))
+                     for t in titles_en for n in (t, t + " (video game)"))
+    return """SELECT ?t ?item ?ko ?wiki (MIN(?d) AS ?date) (GROUP_CONCAT(DISTINCT ?pl; separator=", ") AS ?platforms) WHERE {
+  VALUES (?t ?name) { %s }
+  { ?item rdfs:label|skos:altLabel ?name . ?item wdt:P31/wdt:P279* wd:%s . }
+  UNION
+  { ?page schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?name . }
   OPTIONAL { ?item rdfs:label ?ko FILTER(LANG(?ko) = "ko") }
+  OPTIONAL { ?w schema:about ?item ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?wiki . }
   OPTIONAL { ?item wdt:P577 ?d }
   OPTIONAL { ?item wdt:P400 ?p . ?p rdfs:label ?pl FILTER(LANG(?pl) = "en") }
-} GROUP BY ?t ?item ?ko ORDER BY ?t ?date""" % (vals, VIDEO_GAME)
+} GROUP BY ?t ?item ?ko ?wiki ORDER BY ?t ?date""" % (pairs, VIDEO_GAME)
 
 
 def props_query(qids):
@@ -189,8 +195,8 @@ def main(argv):
             print("%s (%s) — 후보 %d%s" % (g["title"], g["title_en"], len(mine),
                                          "  · 지금 facts.qid=" + g["facts"]["qid"] if g["facts"].get("qid") else ""))
             for r in mine:
-                print("  %-10s %s  %s  [%s]" % (qid_of(r["item"]), (r.get("date") or "?")[:10],
-                                              r.get("ko") or "-", r.get("platforms") or ""))
+                print("  %-10s %s  %s  enwiki=%s  [%s]" % (qid_of(r["item"]), (r.get("date") or "?")[:10],
+                                                        r.get("ko") or "-", r.get("wiki") or "-", (r.get("platforms") or "")[:80]))
         print("고른 QID 를 data/game-design.json 의 <key>.facts.qid 에 적고 pull 한다")
         return
     src = None

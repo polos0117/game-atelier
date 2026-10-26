@@ -13,6 +13,12 @@ def mod(name, file):
 F, G = mod('fg', 'fetch-games.py'), mod('gd', 'game-design.py')
 doc = json.loads((ROOT / 'data' / 'game-design.json').read_text(encoding='utf-8'))
 sample = json.loads((ROOT / 'tests' / 'fixtures' / 'wikidata-sample.json').read_text(encoding='utf-8'))
+# 진짜 설계표는 이미 받은 칸이 차 있다 — 검사는 사실 칸을 비운 사본으로 한다
+BLANK = {'qid': None, 'fetched': None, 'year': None, 'developer': [], 'publisher': [], 'platforms': [], 'genres': [],
+         'series': None, 'modes': [], 'wiki': {'ko': None, 'en': None}}
+doc = copy.deepcopy(doc)
+for g in doc['games']:
+    g['facts'] = copy.deepcopy(BLANK)
 
 # 질의문
 q = F.props_query(['Q900001', 'Q900002'])
