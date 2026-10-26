@@ -1,37 +1,57 @@
-/* 공간 풍경 — 배경 그림은 아직 없다(game-atelier-img/backgrounds/ 에 올리면 none 을 그 주소로 바꾼다). 그 전에는 단색 카드로 뜬다 */
-/* Library rooms: scenery belongs to the room, plates sit on an opaque paper surface.
-   Fixed-size CSS backgrounds never participate in layout; no parallax or image-dependent height. */
+/* 공간 풍경 — 그림 파일 없이 CSS 로 그린다(2026-10-26). 공간마다 빛 번짐·무늬 한 겹:
+   오락실은 햇살 분홍·하늘 빛에 화면 격자, 게임방은 네온 두 빛에 주사선, 문방구는 차양 줄무늬, 별장은 나무 바닥결과 스탠드 불빛.
+   그림이 생기면(game-atelier-img/backgrounds/) 맨 아래 겹에 url(...) 을 더한다. 무늬는 옅게 — 글자는 늘 불투명한 카드 위에 앉는다 */
 :root {
-  --room-image:none;
-  --room-paper:var(--bg);--room-rgb:246 242 233;
+  --room-image:
+    radial-gradient(circle at 10% 0%,#ffc9e4 0,#ffc9e400 38%),
+    radial-gradient(circle at 92% 6%,#c6e9ff 0,#c6e9ff00 42%),
+    repeating-linear-gradient(0deg,#b8236f0b 0 1px,#0000 1px 28px),
+    repeating-linear-gradient(90deg,#b8236f0b 0 1px,#0000 1px 28px),
+    linear-gradient(180deg,#fbf0f7,#eef3fc);
+  --room-paper:var(--bg);--room-rgb:246 243 251;
   --room-position:center 42%;--room-mobile-position:65% 34%;
 }
 :root[data-theme="moonlit"] {
-  --room-image:none;
-  --room-rgb:27 32 41;
+  --room-image:
+    radial-gradient(circle at 12% 4%,#ff6ad544 0,#ff6ad500 36%),
+    radial-gradient(circle at 90% 18%,#55d8ea38 0,#55d8ea00 40%),
+    radial-gradient(circle at 50% 110%,#6b4cff30 0,#6b4cff00 45%),
+    repeating-linear-gradient(0deg,#ffffff07 0 1px,#0000 1px 3px),
+    linear-gradient(180deg,#1b1533,#0c0a15);
+  --room-rgb:17 14 28;
 }
 :root[data-theme="hanok"] {
-  --room-image:none;
-  --room-rgb:239 238 230;
+  --room-image:
+    linear-gradient(180deg,#fbf4e600 0,#fbf4e6 120px),
+    repeating-linear-gradient(90deg,#b5341e2e 0 34px,#fffbf300 34px 68px),
+    radial-gradient(circle at 85% 100%,#1d7a7322 0,#1d7a7300 40%),
+    linear-gradient(180deg,#fff7e8,#f6ead2);
+  --room-rgb:251 244 230;
 }
 :root[data-theme="forest"] {
-  --room-image:none;
-  --room-rgb:237 243 232;
+  --room-image:
+    radial-gradient(circle at 82% 4%,#ffd89a66 0,#ffd89a00 38%),
+    radial-gradient(circle at 8% 96%,#2b6f7422 0,#2b6f7400 36%),
+    repeating-linear-gradient(90deg,#7a573814 0 2px,#0000 2px 140px),
+    linear-gradient(180deg,#f2ebdf,#e4d6bf);
+  --room-rgb:242 236 226;
   --room-position:center 47%;--room-mobile-position:68% 38%;
 }
 :root[data-background="off"] {--room-image:none}
 body.dex-page,body.prompt-page {
   background-color:var(--room-paper);
-  background-image:linear-gradient(rgb(var(--room-rgb) / .30),rgb(var(--room-rgb) / .30)),var(--room-image);
+  background-image:var(--room-image);
   background-position:center top;background-size:cover;background-repeat:no-repeat;background-attachment:fixed;
 }
+/* 가운데 판은 반쯤 비친다 — 바탕 풍경이 카드 사이로 보이게(카드는 불투명) */
 .dex-page main,.prompt-page .wrap {
-  max-width:1360px;background:var(--room-paper);
-  box-shadow:0 0 60px #2f251b20;
+  max-width:1360px;background:rgb(var(--room-rgb) / .55);
+  box-shadow:0 0 60px #00000014;
 }
+html[data-background="off"] .dex-page main,html[data-background="off"] .prompt-page .wrap {background:var(--room-paper)}
 .workspace-header {position:relative}
 .workspace-heading .crest-name {font-family:var(--gallery-serif);font-size:12px;font-weight:500;letter-spacing:.03em}
-.appearance-panel {border-radius:5px;box-shadow:0 8px 30px #302d2626}
+.appearance-panel {border-radius:8px;box-shadow:var(--shadow)}
 .appearance-panel .room-control {grid-column:1 / -1}
 .appearance-panel select {border-radius:3px;background:var(--card)}
 .gallery-intro {
@@ -50,9 +70,10 @@ body.dex-page,body.prompt-page {
 .gallery-detail .artwork-panel {background:var(--card2);border:1px solid var(--line);padding-top:6px}
 .gallery-detail .story-panel {padding-bottom:16px}
 .room-preview {display:grid;grid-template-columns:1.15fr 1fr;border:1px solid var(--line);margin:24px 0;background:var(--card)}
-.room-preview-art {min-height:250px;background:var(--card2) var(--room-image) var(--room-position) / cover no-repeat}
+/* 여러 겹 무늬는 background 한 줄(색·그림·자리)에 못 넣는다 — 색이 맨 끝 겹에만 올 수 있어 줄이 통째로 무효가 됐다 */
+.room-preview-art {min-height:250px;background-color:var(--card2);background-image:var(--room-image);background-position:var(--room-position);background-size:cover;background-repeat:no-repeat}
 .room-preview-copy {padding:32px;align-self:center}
-.room-preview-copy h2 {font:500 28px/1.5 var(--gallery-serif);margin:0 0 12px}
+.room-preview-copy h2 {font:700 28px/1.5 var(--gallery-serif,sans-serif);margin:0 0 12px}
 .room-preview-copy>p:not(.editorial-kicker) {color:var(--muted);font-size:13px;line-height:1.9;max-width:38ch}
 .room-choices {display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 8px}
 .room-choice {min-height:44px;padding:9px 12px;border:1px solid var(--line);border-radius:3px;background:var(--bg);color:var(--text);font:inherit;font-size:12px}
@@ -68,10 +89,6 @@ html[data-background="off"] .room-preview {grid-template-columns:1fr}
  .gallery-intro>p {max-width:180px;font-size:11px}
 }
 @media(max-width:599px) {
- :root {--room-image:none}
- :root[data-theme="moonlit"] {--room-image:none}
- :root[data-theme="hanok"] {--room-image:none}
- :root[data-theme="forest"] {--room-image:none}
  .gallery-intro {display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-end;min-height:156px;margin:12px 0 14px;padding:38px 18px 14px;gap:0;
   background-image:linear-gradient(0deg,rgb(var(--room-rgb)) 0%,rgb(var(--room-rgb) / .96) 24%,rgb(var(--room-rgb) / .73) 48%,rgb(var(--room-rgb) / 0) 85%),var(--room-image);
   background-position:center,var(--room-mobile-position);}

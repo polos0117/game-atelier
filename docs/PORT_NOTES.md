@@ -7,10 +7,10 @@
 
 | 파일 | 무엇 | 바꾼 것 |
 |---|---|---|
-| `lib/workspace.css` | 테마 여덟·화면 밀도·껍데기(한 자리만 구른다) | 그대로 |
+| `lib/workspace.css` | 테마·화면 밀도·껍데기(한 자리만 구른다) | 공간 넷의 색을 게임 공방 것으로(2026-10-26), 묶음 색 `--g-*` |
 | `lib/workspace-theme.js` | 테마·배경 고르기 | 열쇠를 `game_room_v1`·`game_background_v1` 로. book 의 옛 열쇠 옮기기는 뺐다 |
 | `lib/workspace-ui.js` | 머리·항해·⚙ 설정·머리 접기·테마 고르개 | 문양을 게임 모양(오락기·모니터·휴대용 게임기 …)으로, 접기 열쇠 `game_header_fold`, `PAGES=['index','prompt']` |
-| `lib/room.css` | 공간 풍경 | 배경 그림 주소를 `none` 으로 — 게임 공방의 풍경 그림은 아직 없다 |
+| `lib/room.css` | 공간 풍경 | 그림 대신 CSS 무늬(빛 번짐·격자·주사선·차양·나무결). 그림이 생기면 맨 아래 겹에 더한다 |
 | `lib/words.js` · `tests/words.cjs` | 낱말 표 — 화면에 말을 박지 않는다 | 게임 낱말. 검사가 옛 상표도 막는다 |
 | `lib/fresh.js` | 새 판 살피기(띠·조용한 다시 받기) | 그대로 |
 | `lib/patch.js` · `tests/patch.cjs` · 첫 화면의 패치 기록 | `docs/PATCH.md` 를 그대로 읽는다 | 그대로 |

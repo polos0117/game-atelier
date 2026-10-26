@@ -1,12 +1,13 @@
 /* Literary gallery: the existing theme tokens and single scroll owner remain authoritative. */
-:root {--gallery-serif:'Noto Serif KR','Batang','Apple Myungjo',Georgia,serif}
+/* 제목 글꼴 — book 은 명조였다. 게임 공방은 굵은 고딕(2026-10-26). 이름(--gallery-serif)은 옮겨 온 자리들이 그대로 부르게 둔다 */
+:root {--gallery-serif:'IBM Plex Sans KR','Pretendard','Apple SD Gothic Neo','Malgun Gothic',system-ui,sans-serif}
 body {font-family:'IBM Plex Sans KR','Pretendard','Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif}
 body.dex-page,body.lab-page {background-image:none}
 .dex-page main,.prompt-page .wrap {max-width:1440px;padding-inline:40px;padding-top:20px}
 .workspace-header {margin-bottom:18px}
 .workspace-heading {height:92px;padding:6px 0 18px}
 .workspace-heading::after,.crest-signature i {display:none}
-.workspace-heading h1 {font-family:var(--gallery-serif);font-size:28px;line-height:1.25;font-weight:700;letter-spacing:-.04em}
+.workspace-heading h1 {font-family:var(--gallery-serif);font-size:28px;line-height:1.25;font-weight:700;letter-spacing:-.03em}
 .workspace-heading p {min-height:0;font-size:12px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}   /* 소개가 두 줄이 되면 화면마다 제목 높이가 달라졌다(690 폭 프롬프트) */
 .workspace-title > div {min-width:0}
 .workspace-title {gap:14px}

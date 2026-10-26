@@ -1,36 +1,44 @@
-/* Shared workspace, paper and oak palette. Room scenery lives in room.css. */
+/* Shared workspace — 게임 공방의 공간 넷(오락실·게임방·문방구·별장 거실) 색. 2026-10-26 book 의 종이·참나무 색에서 바꿨다(대비 4.5:1 이상). Room scenery lives in room.css. */
 :root {
   --void:var(--bg);--panel:var(--card);--rule:var(--line);
   --ink:var(--text);--dim:var(--muted);--plate:var(--accent);
   --ui-font:13px;--ui-small:12px;--ui-height:40px;--ui-pad:8px;--ui-gap:8px;--gap:12px;
 }
 :root, :root[data-theme="sunlit"] {
+  /* 한낮의 오락실 — 햇살 든 오락실, 사탕 같은 분홍·하늘색 */
   color-scheme:light;
-  --bg:#f6f2e9;--deck:#f8f4eb;--card:#fffdf8;--card2:#eae4d7;--text:#302d26;
-  --muted:#655e50;--line:#d7cbb7;--accent:#765034;--accent-soft:#eee1d0;--on-accent:#ffffff;
-  --signal:#53674f;--gold:#966b29;--ok:#3a6b4c;--warn:#875719;--pattern:#76503410;
-  --shadow:0 8px 26px #3a2a1012;
+  --bg:#f6f3fb;--deck:#f8f5fc;--card:#ffffff;--card2:#ece7f5;--text:#241f30;
+  --muted:#5e5670;--line:#d8cfe8;--accent:#b8236f;--accent-soft:#f7dfeb;--on-accent:#ffffff;
+  --signal:#13789a;--gold:#956300;--ok:#23774a;--warn:#a4520e;--pattern:#b8236f10;
+  --g-reflex:#c4285a;--g-growth:#956300;--g-mind:#1a6fb0;--g-explore:#23774a;
+  --shadow:0 8px 26px #3a1f5a14;
 }
 :root[data-theme="moonlit"] {
+  /* 심야 게임방 — 남보라 어둠에 분홍·청록 네온 */
   color-scheme:dark;
-  --bg:#1b2029;--deck:#202630;--card:#252c37;--card2:#303947;--text:#f0ede6;
-  --muted:#bfc5cf;--line:#4c5868;--accent:#dfbd87;--accent-soft:#383b42;--on-accent:#231e17;
-  --signal:#a6bdc6;--gold:#dfbd87;--ok:#9dc4a5;--warn:#e7bf83;--pattern:#dfbd8710;
-  --shadow:0 8px 26px #00000030;
+  --bg:#110e1c;--deck:#151127;--card:#1b1730;--card2:#251f40;--text:#f3effa;
+  --muted:#bdb4d4;--line:#3c345f;--accent:#ff6ad5;--accent-soft:#3b2149;--on-accent:#24101e;
+  --signal:#55d8ea;--gold:#f2c65c;--ok:#7fe3a8;--warn:#f7b56a;--pattern:#ff6ad510;
+  --g-reflex:#ff7a9c;--g-growth:#f2c65c;--g-mind:#6cc7ff;--g-explore:#7fe3a8;
+  --shadow:0 10px 30px #00000059;
 }
 :root[data-theme="hanok"] {
+  /* 골목 문방구 — 누런 종이 바탕, 차양의 토마토 빨강과 민트 */
   color-scheme:light;
-  --bg:#efeee6;--deck:#f3f1e9;--card:#faf9f2;--card2:#e2e4d9;--text:#2d3630;
-  --muted:#586358;--line:#bdc5b6;--accent:#435f4c;--accent-soft:#dce5d9;--on-accent:#ffffff;
-  --signal:#6a5840;--gold:#7e6038;--ok:#3b6349;--warn:#805721;--pattern:#435f4c10;
-  --shadow:0 8px 26px #29342a12;
+  --bg:#fbf4e6;--deck:#fcf6ea;--card:#fffbf3;--card2:#f3e5cb;--text:#33271b;
+  --muted:#6b5a45;--line:#e3cfa9;--accent:#b5341e;--accent-soft:#fae3da;--on-accent:#ffffff;
+  --signal:#1d7a73;--gold:#946207;--ok:#2f7346;--warn:#9a5410;--pattern:#b5341e10;
+  --g-reflex:#b5341e;--g-growth:#946207;--g-mind:#2364a8;--g-explore:#2f7346;
+  --shadow:0 8px 26px #5a321414;
 }
 :root[data-theme="forest"] {
+  /* 별장 거실 — 호두나무 바닥, 스탠드 불빛, 휴대용 게임기의 청록 */
   color-scheme:light;
-  --bg:#edf3e8;--deck:#f1f6ed;--card:#fafcf6;--card2:#dce7d5;--text:#26382b;
-  --muted:#4c604b;--line:#b6c8ab;--accent:#2d6246;--accent-soft:#dbe9d5;--on-accent:#ffffff;
-  --signal:#536d38;--gold:#80612d;--ok:#346344;--warn:#80551f;--pattern:#2d624610;
-  --shadow:0 8px 26px #213d2614;
+  --bg:#f2ece2;--deck:#f5f0e7;--card:#fcf9f3;--card2:#e6dccb;--text:#2b261f;
+  --muted:#5e5546;--line:#d2c4ab;--accent:#2b6f74;--accent-soft:#d6e8e7;--on-accent:#ffffff;
+  --signal:#a14f28;--gold:#86651d;--ok:#3a6b40;--warn:#8f5416;--pattern:#2b6f7410;
+  --g-reflex:#b1443a;--g-growth:#86651d;--g-mind:#2f5f96;--g-explore:#3a6b40;
+  --shadow:0 8px 26px #3a2a1414;
 }
 :root[data-density="relaxed"] {
   --ui-font:15px;--ui-small:13px;--ui-height:46px;--ui-pad:12px;--ui-gap:10px;--gap:14px;
