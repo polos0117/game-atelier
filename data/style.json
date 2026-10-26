@@ -1,0 +1,35 @@
+{
+ "version": 1,
+ "note": "화풍 기록 — 게임별 설계 프롬프트 뒤에 붙이는 공통 화풍 블록. 판을 바꾸면 versions 끝에 새 판을 더하고 current 를 옮긴다. 옛 판은 지우지 않는다(그림 기록이 어느 판으로 만들었는지 가리킨다). text 는 폼·개방, casual 은 일상컷에 싣는다. 전신 2:3·한 명·손가락·캐릭터 아님 같은 조건은 여기가 아니라 생성기 문장(lib/prompt-spec.js 의 GAME_LINES)에 둔다. docs/GAME_CONCEPT.md 7절",
+ "default": "glossy_kr_game",
+ "styles": {
+  "glossy_kr_game": {
+   "name": "한국형 글로시 게임 일러스트",
+   "current": "v1",
+   "versions": [
+    {
+     "v": "v1",
+     "adopted": "2026-10-26",
+     "by": "사용자 채택 (게임 공방 계획서)",
+     "text": "Glossy Korean mobile-game character art with an elegant anime face, smooth dimensional shading, luminous color accents and refined costume and accessory rendering. Keep highlights selective and the figure sharply readable.",
+     "casual": "Glossy Korean mobile-game character art with an elegant anime face, smooth dimensional shading, luminous color accents and refined fabric and accessory rendering. Keep highlights selective and the figure sharply readable.",
+     "check": "glossy Korean mobile-game rendering with selective highlights; an original costume — no character, logo, title lettering or interface from the game.",
+     "reference": {
+      "status": "none",
+      "candidates": [
+       "myth 궁니르 세 장",
+       "atelier 대거L",
+       "pkm 화풍 샘플(2026-09-19)"
+      ],
+      "note": "기준 그림은 시범 그림 세 편을 맞춰 본 뒤 정한다. 그때까지는 문장만"
+     },
+     "why": [
+      "pkm·myth·atelier 에 이미 있는 화풍을 열쇠 그대로 가져와 여러 공방의 그림이 같은 맛으로 보이게 한다",
+      "게임 공방은 장갑이 아니라 옷·장신구라서 myth 문장(ornament)을 바탕으로 끝만 costume and accessory 로 바꿨다",
+      "일상컷은 pkm 일상컷 문장(fabric and accessory)을 쓴다"
+     ]
+    }
+   ]
+  }
+ }
+}

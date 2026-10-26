@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """설계표의 사실 칸(facts)을 Wikidata 에서 받는다. 키도 계정도 필요 없다(docs/GAME_CONCEPT.md 2절).
 
-  python3 tools/fetch-games.py find <key>           — 영어 이름으로 후보 QID 를 보여 주기만 한다
+  python3 tools/fetch-games.py find [<key> ...]     — 영어 이름으로 후보 QID 를 보여 주기만 한다(빼면 전부, 질의 하나)
   python3 tools/fetch-games.py pull [<key> ...]     — facts.qid 가 적힌 게임을 받아 facts 를 채운다(빼면 전부)
   python3 tools/fetch-games.py pull --from <file>   — 저장해 둔 응답으로 채운다(검사·네트워크 없는 자리)
 
@@ -11,9 +11,10 @@ facts.qid 에 적는다 → pull. 원본 응답은 data/wikidata/<key>.json 에 
 표지 이미지는 받지 않는다(색은 사람이 정한다).
 
 질의 예절 — Wikidata 는 돌아가는 프록시를 거친 자동 질의를 막는다. 이 도구는 직접 접속하고, 저장소 주소를 담은
-User-Agent 를 달고, 질의 사이에 쉰다. 크롤러 서비스로 돌려 받지 않는다. 막히면(403) 작업 환경에서
-query.wikidata.org 를 열어 달라고 한다. TLS 검사는 끄지 않는다 — 작업 환경의 CA 묶음(SSL_CERT_FILE)이 있으면 그것을 쓴다."""
-import datetime, json, os, re, ssl, sys, time, urllib.parse, urllib.request
+User-Agent 를 달고, 여러 편을 질의 하나로 묶고, 질의 사이에 쉰다. 너무 잦다고(429) 하면 Retry-After 만큼
+기다렸다 다시 묻는다(2026-10-26 에는 장애 중이라 1분에 한 번이었다). 크롤러 서비스로 돌려 받지 않는다.
+막히면(403) 작업 환경에서 query.wikidata.org 를 열어 달라고 한다. TLS 검사는 끄지 않는다 — 작업 환경의 CA 묶음(SSL_CERT_FILE)이 있으면 그것을 쓴다."""
+import datetime, json, os, re, ssl, sys, time, urllib.error, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "game-design.json")
@@ -31,14 +32,18 @@ def sparql_str(s):
     return '"' + str(s).replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
-def find_query(title_en):
-    return """SELECT ?item ?ko ?en (MIN(?d) AS ?date) (GROUP_CONCAT(DISTINCT ?pl; separator=", ") AS ?platforms) WHERE {
-  ?item rdfs:label %s@en ; wdt:P31 wd:%s .
+def find_query(titles_en):
+    """영어 이름 여럿을 질의 하나로. 같은 이름의 이식판·리메이크가 다 나온다 — ?t 로 어느 이름의 후보인지 돌려준다"""
+    if isinstance(titles_en, str):
+        titles_en = [titles_en]
+    vals = " ".join(sparql_str(t) + "@en" for t in titles_en)
+    return """SELECT ?t ?item ?ko (MIN(?d) AS ?date) (GROUP_CONCAT(DISTINCT ?pl; separator=", ") AS ?platforms) WHERE {
+  VALUES ?t { %s }
+  ?item rdfs:label ?t ; wdt:P31 wd:%s .
   OPTIONAL { ?item rdfs:label ?ko FILTER(LANG(?ko) = "ko") }
-  OPTIONAL { ?item rdfs:label ?en FILTER(LANG(?en) = "en") }
   OPTIONAL { ?item wdt:P577 ?d }
   OPTIONAL { ?item wdt:P400 ?p . ?p rdfs:label ?pl FILTER(LANG(?pl) = "en") }
-} GROUP BY ?item ?ko ?en ORDER BY ?date""" % (sparql_str(title_en), VIDEO_GAME)
+} GROUP BY ?t ?item ?ko ORDER BY ?t ?date""" % (vals, VIDEO_GAME)
 
 
 def props_query(qids):
@@ -68,10 +73,18 @@ def ask(query):
     req = urllib.request.Request(url, headers={"User-Agent": AGENT, "Accept": "application/sparql-results+json"})
     ca = os.environ.get("SSL_CERT_FILE") or os.environ.get("REQUESTS_CA_BUNDLE")
     ctx = ssl.create_default_context(cafile=ca) if ca else ssl.create_default_context()
-    with urllib.request.urlopen(req, timeout=60, context=ctx) as r:
-        out = json.load(r)
-    time.sleep(1)   # 질의 사이에 쉰다
-    return out
+    for tries in range(5):
+        try:
+            with urllib.request.urlopen(req, timeout=120, context=ctx) as r:
+                out = json.load(r)
+            time.sleep(2)   # 질의 사이에 쉰다
+            return out
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or tries == 4:
+                raise
+            wait = int(e.headers.get("Retry-After") or 0) or 65
+            print("  … 너무 잦다(429) — %d초 기다렸다 다시 묻는다" % wait, file=sys.stderr)
+            time.sleep(wait + 2)
 
 
 def qid_of(uri):
@@ -166,15 +179,19 @@ def main(argv):
     doc = load()
     byk = {g["key"]: g for g in doc["games"]}
     if argv[0] == "find":
-        if len(argv) != 2 or argv[1] not in byk:
-            raise SystemExit("python3 tools/fetch-games.py find <key> — key 는 " + ", ".join(byk))
-        g = byk[argv[1]]
-        found = list(rows(ask(find_query(g["title_en"]))))
-        print("%s (%s) — 후보 %d" % (g["title"], g["title_en"], len(found)))
-        for r in found:
-            print("  %-10s %s  %s / %s  [%s]" % (qid_of(r["item"]), (r.get("date") or "?")[:10],
-                                               r.get("ko") or "-", r.get("en") or "-", r.get("platforms") or ""))
-        print("고른 QID 를 data/game-design.json 의 %s.facts.qid 에 적고 pull 한다" % g["key"])
+        for k in argv[1:]:
+            if k not in byk:
+                raise SystemExit("없는 key: %s — key 는 %s" % (k, ", ".join(byk)))
+        gs = [byk[k] for k in argv[1:]] or doc["games"]
+        found = list(rows(ask(find_query([g["title_en"] for g in gs]))))
+        for g in gs:
+            mine = [r for r in found if r.get("t") == g["title_en"]]
+            print("%s (%s) — 후보 %d%s" % (g["title"], g["title_en"], len(mine),
+                                         "  · 지금 facts.qid=" + g["facts"]["qid"] if g["facts"].get("qid") else ""))
+            for r in mine:
+                print("  %-10s %s  %s  [%s]" % (qid_of(r["item"]), (r.get("date") or "?")[:10],
+                                              r.get("ko") or "-", r.get("platforms") or ""))
+        print("고른 QID 를 data/game-design.json 의 <key>.facts.qid 에 적고 pull 한다")
         return
     src = None
     if "--from" in argv:

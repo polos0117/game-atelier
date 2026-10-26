@@ -1,6 +1,6 @@
 # 작업 지침
 
-**뼈대 · 게임 설계표(해석 칸) · 사실 자료 도구** 까지 왔다. 다음은 Wikidata 로 사실 칸 채우기, 그다음 생성기(`docs/GAME_CONCEPT.md` 8절).
+**뼈대 · 게임 설계표 · 사실 자료 도구 · 생성기** 까지 왔다. 다음은 시범 그림 세 편, 그다음 서가와 그림 등록(`docs/GAME_CONCEPT.md` 8절).
 뼈대는 book-atelier 에서 가져왔다 — 무엇을 어디서 가져왔는지는 `docs/PORT_NOTES.md`.
 
 ## 먼저 읽을 것
@@ -10,6 +10,8 @@
 | 이 문서 | 규칙과 자리 |
 | `docs/GAME_CONCEPT.md` | 기획 — 원칙·데이터·설계표·폼과 개방·결투 상성·첫 묶음·화풍·만드는 순서 |
 | `data/game-design.json` | 게임 설계표. 게임 한 편 = 한 칸 |
+| `IMAGE_RULES.md` | 그림 만들기·파일 이름·기록·올리기 — 그림 작업 전에 |
+| `data/style.json` | 화풍 판 — 폼·개방은 `text`, 일상컷은 `casual` |
 | `docs/PORT_NOTES.md` | 어디서 무엇을 가져왔고, 무엇을 아직 안 가져왔나 |
 | `docs/PATCH.md` | 무엇을 고쳤나 — 고친 쪽이 직접 적는다 (아래 규칙 6) |
 
@@ -18,6 +20,7 @@
 | 화면 | 파일 | 무엇 |
 |---|---|---|
 | 첫 화면 | `index.html` · `lib/home.css` | 첫 묶음(설계표를 그대로 읽어 한 편에 한 칸)·패치 기록·공간 |
+| 프롬프트 | `prompt.html` · `lib/prompt-spec.js`(표) · `lib/prompt-game.js`(조립) · `lib/prompt-random.js` · `lib/prompt-ui.js` · `lib/figures.js` | 생성기 — 폼 초상·개방·일상컷. book 생성기에서 왔다. 게임 몫: 캐릭터 아님·그리지 않을 것 줄, 핵심 조작·시대 줄, 일상컷 게임 갈래 넷(게임 속 장소·오락실·게임 문화·개발실·스피드런·방송), 출시 당시 |
 
 머리·항해·⚙ 설정은 `lib/workspace-ui.js`, 공간(테마)은 `lib/workspace-theme.js`·`lib/workspace.css`·`lib/room.css`.
 화면 차례는 `lib/workspace-ui.js` 의 `PAGES` 한 곳이다 — 화면을 붙이면 거기 더한다.
@@ -48,13 +51,17 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 
 ### 4. 화면에 말을 적지 않는다
 
-사람이 읽는 말은 전부 `lib/words.js` 에서 온다(`W('home.title')`). 그 파일은 한글 검사에서 빠지는 대신 "표뿐인가" 를 따로 본다 —
+사람이 읽는 말은 전부 `lib/words.js` 에서 온다(`W('home.title')`). 생성기의 선택지·영어 문구는 `lib/prompt-spec.js` 에 있다.
+둘은 한글 검사에서 빠지는 대신 "표뿐인가" 를 따로 본다 —
 `node tests/words.cjs`. `<title>` 은 `app.title` 과 같아야 한다. 설계표의 글(게임 이름·인격·능력)은 자료라서 화면이 그대로 읽는다.
 
 ### 5. 그림은 이 저장소에 두지 않는다
 
 그림은 `game-atelier-img` 에 올린다. `img/` 는 `.gitignore` 에 있다. 원본 PNG 는 올리지 않는다.
-그림 규칙(`IMAGE_RULES.md`)과 등록 워크플로는 생성기와 함께 book 에서 옮긴다.
+그림 규칙은 `IMAGE_RULES.md`. 등록 워크플로는 서가와 함께 book 에서 옮긴다 — 그때까지 `data/img.json` 은 손으로 적는다.
+
+설계표에 새 정한 말(vocab)을 더하면 `lib/prompt-spec.js` 의 `VOCAB_EN` 에 영어도 더한다(`node tests/prompt-game.cjs` 가 본다).
+일상컷 갈래는 공방들이 같이 쓰는 것 + 게임 몫 넷이다. 책 세계관 갈래(서고의 일상·이야기 속 장소·무대 각색·낭독회)는 가져오지 않는다.
 
 ### 6. 고쳤으면 적는다
 
@@ -78,6 +85,10 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 python3 tools/game-design.py check   # 게임 설계표 — 빈칸·정한 말·실루엣·얼굴 닮음·자매·한 명 개방·대응·사실 칸
 python3 tests/game-design.py         # 설계표 검사기가 규칙마다 제대로 거는지
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기(네트워크 없이, 가짜 응답으로)
+node tests/prompt-game.cjs           # 프롬프트 — 열 편 × 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 게임 갈래, 출시 당시, 길이
 node tests/words.cjs                 # 낱말 표
 node tests/patch.cjs                 # 패치 기록 모양
+
+# 브라우저 — ESM_DIR 에 preact 가 든 node_modules, CHROMIUM_PATH 에 브라우저
+ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/prompt-screen.cjs   # 생성기
 ```

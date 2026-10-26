@@ -29,7 +29,7 @@ const strip = s => s
   .replace(/<title>[^<]*<\/title>/g, '');
 /* 말을 담는 것이 일인 파일은 이 검사에서 뺀다. 대신 아래에서 "표 말고
    아무것도 없나" 를 따로 본다 — 빼 준 자리에 화면 코드가 숨지 못하게 */
-const TABLES = ['lib/words.js'];
+const TABLES = ['lib/words.js', 'lib/prompt-spec.js'];
 
 /* 아직 안 고친 화면. 옮겨 온 화면이 말을 아직 안 뺐으면 여기 적는다.
    빼 주되 조용히 잊히지는 않게 — 남은 자리 수를 늘 찍고, 늘어나면 실패한다.
