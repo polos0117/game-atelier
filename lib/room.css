@@ -1,5 +1,6 @@
 /* 공간 풍경 — 그림 파일 없이 CSS 로 그린다(2026-10-26). 공간마다 빛 번짐·무늬 한 겹:
-   오락실은 햇살 분홍·하늘 빛에 화면 격자, 게임방은 네온 두 빛에 주사선, 문방구는 차양 줄무늬, 별장은 나무 바닥결과 스탠드 불빛.
+   오락실은 햇살 분홍·하늘 빛에 화면 격자, 게임방은 네온 두 빛에 주사선, 문방구는 차양 줄무늬, 별장은 나무 바닥결과 스탠드 불빛,
+   컴퓨터실은 초록 모니터 빛과 호박색 스탠드에 주사선.
    그림이 생기면(game-atelier-img/backgrounds/) 맨 아래 겹에 url(...) 을 더한다. 무늬는 옅게 — 글자는 늘 불투명한 카드 위에 앉는다 */
 :root {
   --room-image:
@@ -36,6 +37,17 @@
     linear-gradient(180deg,#f2ebdf,#e4d6bf);
   --room-rgb:242 236 226;
   --room-position:center 47%;--room-mobile-position:68% 38%;
+}
+:root[data-theme="phosphor"] {
+  /* 컴퓨터실 — 모니터 초록 빛 번짐, 호박색 스탠드 하나, 주사선과 옅은 화면 격자, 가장자리 어둠 */
+  --room-image:
+    radial-gradient(ellipse at 50% 120%,#0000 40%,#000000a0 100%),
+    radial-gradient(circle at 20% 8%,#5df28a2e 0,#5df28a00 38%),
+    radial-gradient(circle at 88% 30%,#ffb54724 0,#ffb54700 34%),
+    repeating-linear-gradient(0deg,#5df28a08 0 1px,#0000 1px 3px),
+    repeating-linear-gradient(90deg,#5df28a07 0 1px,#0000 1px 32px),
+    linear-gradient(180deg,#0f1a13,#070b08);
+  --room-rgb:11 17 13;
 }
 :root[data-background="off"] {--room-image:none}
 body.dex-page,body.prompt-page {

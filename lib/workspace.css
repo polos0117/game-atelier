@@ -1,4 +1,4 @@
-/* Shared workspace — 게임 공방의 공간 넷(오락실·게임방·문방구·별장 거실) 색. 2026-10-26 book 의 종이·참나무 색에서 바꿨다(대비 4.5:1 이상). Room scenery lives in room.css. */
+/* Shared workspace — 게임 공방의 공간 다섯(오락실·게임방·문방구·별장 거실·컴퓨터실) 색. 2026-10-26 book 의 종이·참나무 색에서 바꿨다(대비 4.5:1 이상). Room scenery lives in room.css. */
 :root {
   --void:var(--bg);--panel:var(--card);--rule:var(--line);
   --ink:var(--text);--dim:var(--muted);--plate:var(--accent);
@@ -39,6 +39,15 @@
   --signal:#a14f28;--gold:#86651d;--ok:#3a6b40;--warn:#8f5416;--pattern:#2b6f7410;
   --g-reflex:#b1443a;--g-growth:#86651d;--g-mind:#2f5f96;--g-explore:#3a6b40;
   --shadow:0 8px 26px #3a2a1414;
+}
+:root[data-theme="phosphor"] {
+  /* 새벽 컴퓨터실 — 꺼진 형광등 아래 검은 화면, 형광 초록 글자와 호박색 불빛 */
+  color-scheme:dark;
+  --bg:#0b110d;--deck:#0e1611;--card:#121b16;--card2:#19251e;--text:#e4f3e7;
+  --muted:#a3bba9;--line:#2c4335;--accent:#5df28a;--accent-soft:#1d3a27;--on-accent:#07150c;
+  --signal:#ffb547;--gold:#ffd166;--ok:#7fe3a8;--warn:#ffb547;--pattern:#5df28a10;
+  --g-reflex:#ff8a7a;--g-growth:#ffd166;--g-mind:#7cc8ff;--g-explore:#5df28a;
+  --shadow:0 10px 30px #0000005e;
 }
 :root[data-density="relaxed"] {
   --ui-font:15px;--ui-small:13px;--ui-height:46px;--ui-pad:12px;--ui-gap:10px;--gap:14px;
