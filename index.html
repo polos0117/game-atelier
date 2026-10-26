@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f8f4ea">
+<title>게임의 공방</title>
+<!-- 글꼴 — book-atelier 와 같다(제목은 명조, 본문은 고딕). 못 받으면(오프라인·막힘) 기기 글꼴로 그대로 뜬다 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Noto+Serif+KR:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="lib/workspace.css?v=1">
+<script src="lib/workspace-theme.js?v=1"></script>
+<script src="lib/words.js?v=1"></script>
+<script src="lib/patch.js?v=1"></script>
+<script src="lib/fresh.js?v=1"></script>
+<link rel="stylesheet" href="lib/room.css?v=1">
+<link rel="stylesheet" href="lib/home.css?v=1">
+</head>
+<body class="prompt-page lab-page">
+<div class="wrap"><div id="app"></div></div>
+<script type="module">
+import {h,render} from 'https://esm.sh/preact@10.24.3';
+import {useState,useEffect} from 'https://esm.sh/preact@10.24.3/hooks';
+import {WorkspaceHeader,ThemeGallery} from './lib/workspace-ui.js?v=1';
+const W=window.W;
+/* 첫 묶음 — 설계표를 그대로 읽어 한 편에 한 칸. 그림·서가가 붙기 전까지 무엇을 만드는지 보이는 자리다 */
+function FirstBatch(){
+  const [doc,setDoc]=useState(null);
+  useEffect(()=>{
+    fetch('data/game-design.json',{cache:'no-cache'})
+      .then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status))))
+      .then(d=>setDoc({games:d.games||[]}))
+      .catch(()=>setDoc({games:[],failed:true}));
+  },[]);
+  return h('section',{class:'first-batch','aria-label':W('home.first')},
+    h('div',{class:'first-head'},
+      h('p',{class:'editorial-kicker'},W('home.first')),
+      h('h2',null,W('home.title')),
+      h('p',null,W('home.intro')),
+      h('p',{class:'first-tag'},W('home.tag'))),
+    !doc?h('p',{class:'first-note'},W('home.first.loading')):
+    doc.failed?h('p',{class:'first-note'},W('home.first.fail')):
+    h('div',null,
+      h('p',{class:'first-note'},W('home.first.note',{n:doc.games.length})),
+      h('ul',{class:'first-list'},doc.games.map(g=>
+        h('li',{key:g.key,class:'first-card','data-group':g.group},
+          h('div',{class:'first-card-top'},
+            h('strong',null,g.title),
+            h('span',{class:'first-group'},W('home.group.'+g.group))),
+          h('p',{class:'first-persona'},g.persona),
+          h('p',{class:'first-mechanic'},h('b',null,W('home.first.mechanic')),' ',g.mechanic))))));
+}
+/* 패치 기록 — docs/PATCH.md 를 그대로 읽는다. 열 때 한 번만 받아 온다(book-atelier 와 같다) */
+function Patch(){
+  const [open,setOpen]=useState(false),[log,setLog]=useState(null);
+  useEffect(()=>{
+    if(!open||log)return;
+    fetch(window.AtelierPatch.PATH,{cache:'no-cache'})
+      .then(r=>r.ok?r.text():Promise.reject(new Error(String(r.status))))
+      .then(t=>setLog({entries:window.AtelierPatch.parse(t)}))
+      .catch(()=>setLog({entries:[],failed:true}));
+  },[open,log]);
+  if(!open)return h('button',{type:'button',class:'patch-open',onClick:()=>setOpen(true)},
+    h('span',{'aria-hidden':'true'},'◷'),W('home.patch.open'));
+  return h('section',{class:'patch-panel','aria-label':W('home.patch')},
+    h('div',{class:'patch-head'},
+      h('div',null,h('h3',null,W('home.patch')),h('p',null,W('home.patch.note'))),
+      h('button',{type:'button',class:'patch-close',onClick:()=>setOpen(false)},W('home.patch.close'))),
+    !log?h('p',{class:'patch-empty'},W('home.patch.loading')):
+    log.failed?h('p',{class:'patch-empty'},W('home.patch.fail')):
+    !log.entries.length?h('p',{class:'patch-empty'},W('home.patch.none')):
+    h('ul',{class:'patch-list'},log.entries.map((e,i)=>
+      h('li',{class:'patch-entry',key:i},
+        h('div',{class:'patch-when'},h('span',null,e.date),h('span',{class:'patch-who'},e.who)),
+        h('strong',null,e.title),
+        !!e.items.length&&h('ul',null,e.items.map((x,j)=>h('li',{key:j},x)))))));
+}
+function App(){
+  return h('div',null,
+    h(WorkspaceHeader,{page:'index'}),
+    h(FirstBatch),
+    h(Patch),
+    h(ThemeGallery));
+}
+render(h(App),document.getElementById('app'));
+window.AtelierFresh.watch();
+</script>
+</body>
+</html>

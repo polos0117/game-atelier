@@ -1,0 +1,269 @@
+{
+ "note": "검사용 가짜 응답 — QID·이름·연도 모두 지어낸 값이다. 실제 게임의 사실이 아니다(tests/fetch-games.py)",
+ "props": {
+  "head": {
+   "vars": [
+    "item",
+    "prop",
+    "v",
+    "vko",
+    "ven"
+   ]
+  },
+  "results": {
+   "bindings": [
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "year"
+     },
+     "v": {
+      "type": "literal",
+      "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "value": "1983-03-01T00:00:00Z"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "year"
+     },
+     "v": {
+      "type": "literal",
+      "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "value": "1981-07-01T00:00:00Z"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "platforms"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900102"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "Fixture Console",
+      "xml:lang": "en"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "platforms"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900101"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "Fixture Arcade",
+      "xml:lang": "en"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "platforms"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900101"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "Fixture Arcade",
+      "xml:lang": "en"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "developer"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900201"
+     },
+     "vko": {
+      "type": "literal",
+      "value": "가짜 개발사",
+      "xml:lang": "ko"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "Fixture Developer",
+      "xml:lang": "en"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "publisher"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900202"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "Fixture Publisher",
+      "xml:lang": "en"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "genres"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900401"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "fixture genre",
+      "xml:lang": "en"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "modes"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900501"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "single-player",
+      "xml:lang": "en"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "series"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900301"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "Fixture Series",
+      "xml:lang": "en"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900002"
+     },
+     "prop": {
+      "type": "literal",
+      "value": "platforms"
+     },
+     "v": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900101"
+     },
+     "ven": {
+      "type": "literal",
+      "value": "Fixture Arcade",
+      "xml:lang": "en"
+     }
+    }
+   ]
+  }
+ },
+ "labels": {
+  "head": {
+   "vars": [
+    "item",
+    "ko",
+    "en",
+    "kowiki",
+    "enwiki"
+   ]
+  },
+  "results": {
+   "bindings": [
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900001"
+     },
+     "en": {
+      "type": "literal",
+      "value": "Fixture Game",
+      "xml:lang": "en"
+     },
+     "enwiki": {
+      "type": "uri",
+      "value": "https://en.wikipedia.org/wiki/Fixture_Game"
+     }
+    },
+    {
+     "item": {
+      "type": "uri",
+      "value": "http://www.wikidata.org/entity/Q900002"
+     },
+     "ko": {
+      "type": "literal",
+      "value": "가짜 게임",
+      "xml:lang": "ko"
+     },
+     "kowiki": {
+      "type": "uri",
+      "value": "https://ko.wikipedia.org/wiki/가짜_게임"
+     }
+    }
+   ]
+  }
+ }
+}

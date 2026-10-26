@@ -1,0 +1,1279 @@
+{
+ "version": 1,
+ "note": "게임 설계표 — 게임 한 편 = 한 칸. 해석 칸(인격·능력·폼·개방·실루엣·얼굴)은 사람이 쓰고, 사실 칸(facts — QID·연도·개발사·배급사·플랫폼·장르·시리즈·모드·위키백과)은 tools/fetch-games.py 만 채운다. 규칙은 docs/GAME_CONCEPT.md, 검사는 python3 tools/game-design.py check.",
+ "vocab": {
+  "genre": [
+   "액션",
+   "격투",
+   "슈팅",
+   "플랫폼",
+   "RPG",
+   "액션 RPG",
+   "시뮬레이션",
+   "퍼즐",
+   "전략",
+   "어드벤처",
+   "샌드박스",
+   "미로"
+  ],
+  "group": {
+   "reflex": [
+    "액션",
+    "격투",
+    "슈팅",
+    "플랫폼"
+   ],
+   "growth": [
+    "RPG",
+    "액션 RPG",
+    "시뮬레이션"
+   ],
+   "mind": [
+    "퍼즐",
+    "전략"
+   ],
+   "explore": [
+    "어드벤처",
+    "샌드박스",
+    "미로"
+   ]
+  },
+  "era": [
+   "arcade",
+   "8bit",
+   "16bit",
+   "early_3d",
+   "hd",
+   "modern"
+  ],
+  "era_years": {
+   "arcade": [
+    1971,
+    1999
+   ],
+   "8bit": [
+    1977,
+    1994
+   ],
+   "16bit": [
+    1985,
+    1999
+   ],
+   "early_3d": [
+    1993,
+    2006
+   ],
+   "hd": [
+    2004,
+    2016
+   ],
+   "modern": [
+    2008,
+    2100
+   ]
+  },
+  "body": [
+   "petite",
+   "slender",
+   "lanky",
+   "athletic",
+   "curvy",
+   "tall_statuesque",
+   "broad_strong"
+  ],
+  "hair": [
+   "short_crop",
+   "bob",
+   "ponytail",
+   "long_straight",
+   "long_wavy",
+   "updo_bun",
+   "braids",
+   "voluminous",
+   "twin_tails",
+   "side_swept"
+  ],
+  "garment": [
+   "one_piece_dress",
+   "armor_layered",
+   "robe_overlap",
+   "tailored_suit",
+   "coat_trousers",
+   "layered_skirt",
+   "cloak_wrapped",
+   "flight_suit",
+   "track_set",
+   "work_overalls"
+  ],
+  "material": [
+   "neon_tube",
+   "pixel_mosaic",
+   "brick_quilt",
+   "map_leather",
+   "chainmail_lace",
+   "satin_sportswear",
+   "blueprint_print",
+   "crystal_plating",
+   "voxel_felt",
+   "ashen_iron"
+  ],
+  "pose": [
+   "dash_corner",
+   "stack_balance",
+   "leap_fist",
+   "cloak_survey",
+   "sword_salute",
+   "fight_stance",
+   "plan_overlook",
+   "command_point",
+   "block_place",
+   "bonfire_kneel"
+  ],
+  "palette": [
+   "neon_yellow_navy",
+   "tetra_primary",
+   "brick_red_sky",
+   "map_tan_crimson",
+   "royal_blue_gold",
+   "ember_orange_steel",
+   "blueprint_teal",
+   "crystal_blue_violet",
+   "grass_dirt_sky",
+   "ash_ember"
+  ],
+  "face_shape": [
+   "oval",
+   "round",
+   "heart",
+   "long",
+   "square_soft",
+   "diamond"
+  ],
+  "eyes": [
+   "almond_wide",
+   "round_large",
+   "narrow_upturned",
+   "droopy_soft",
+   "deep_set",
+   "monolid_long"
+  ],
+  "brows": [
+   "straight_thick",
+   "arched_thin",
+   "soft_round",
+   "angled_sharp",
+   "low_heavy"
+  ],
+  "nose": [
+   "small_button",
+   "straight_narrow",
+   "aquiline",
+   "broad_soft",
+   "upturned"
+  ],
+  "lips": [
+   "full_wide",
+   "thin_long",
+   "small_bow",
+   "heart_full",
+   "wide_smile"
+  ],
+  "role": [
+   "공격",
+   "돌파",
+   "버티기",
+   "지원",
+   "정찰",
+   "교란"
+  ],
+  "ethnicity": [
+   "East Asian",
+   "Korean",
+   "Japanese",
+   "Chinese",
+   "Southeast Asian",
+   "Central Asian",
+   "South Asian",
+   "Middle Eastern",
+   "European",
+   "Nordic",
+   "Mediterranean",
+   "Slavic",
+   "Latin American",
+   "African",
+   "mixed East Asian and European"
+  ],
+  "particles": [
+   "petals",
+   "snow",
+   "embers",
+   "ash",
+   "bats",
+   "dust",
+   "sparks",
+   "bubbles",
+   "leaves",
+   "pages",
+   "cards",
+   "stars",
+   "rain",
+   "mist",
+   "gold",
+   "fireflies"
+  ],
+  "form_key": {
+   "타이틀": "title",
+   "중반": "middle",
+   "엔딩": "ending"
+  }
+ },
+ "games": [
+  {
+   "key": "pacman",
+   "title": "팩맨",
+   "title_en": "Pac-Man",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "미로",
+   "group": "explore",
+   "era": "arcade",
+   "series": [],
+   "persona": "배고픈 채로 미로를 끝없이 도는, 겁 없는 먹보",
+   "voice": {
+    "타이틀": "동전 하나면 충분해. 시작하자.",
+    "중반": "큰 점 먹었어 — 이번엔 내가 쫓는다.",
+    "엔딩": "판이 끝나도 미로는 또 열린다."
+   },
+   "desire": "미로의 점을 하나도 남김없이 먹기",
+   "conflict": "쫓기는 쪽과 쫓는 쪽이 한순간 뒤바뀌는 긴장",
+   "symbols": [
+    "빛나는 점",
+    "네온 미로 벽",
+    "체리"
+   ],
+   "mechanic": "점을 먹을수록 힘이 쌓이고, 큰 점을 먹으면 한 장 동안 상대를 잡아먹는다",
+   "rule": {
+    "forms": {
+     "타이틀": "내 차례마다 점 하나를 얻는다 — 점 셋이면 힘 +1",
+     "중반": "큰 점을 쓰면 이번 장 동안 맞은편이 겁먹어 반격하지 못한다",
+     "엔딩": "엔딩에 들면 모은 점 수만큼 맞은편에 피해"
+    },
+    "counter": "점이 쌓이기 전에 먼저 친다. 큰 점이 켜진 장에는 맞은편 자리를 비워 피한다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "검은 바탕에 노란 네온 테두리를 두른 둥근 겹치마, 점 무늬 단추",
+     "role": "정찰",
+     "pose": "한 발을 모서리 쪽으로 내딛고 몸을 꺾어 뒤를 돌아보는, 미로 모퉁이를 도는 자세"
+    },
+    "중반": {
+     "look": "큰 점 넷이 박힌 빛나는 허리띠, 치맛단에 네온 미로 무늬가 번진다",
+     "role": "공격",
+     "pose": "두 팔을 활짝 벌리고 앞으로 몸을 숙여 달려드는 자세"
+    },
+    "엔딩": {
+     "look": "점 하나 남지 않은 미로처럼 차분한 남색 드레스, 끝에 작은 체리 장식",
+     "role": "지원",
+     "pose": "체리 장식을 손끝으로 들어 올리고 한쪽 무릎을 살짝 굽혀 인사하는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "어두운 미로에 점들이 차례로 켜지며 그녀 앞으로 길이 열린다",
+     "one_figure": true,
+     "particles": "stars"
+    },
+    "중반": {
+     "scene": "큰 점을 삼킨 순간 미로 전체가 푸르게 뒤집히고 그녀만 밝게 빛난다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "다 먹은 미로의 벽이 깜빡이며 다음 판의 빛으로 바뀐다",
+     "one_figure": true,
+     "particles": "fireflies"
+    }
+   },
+   "ethnicity": "Japanese",
+   "silhouette": {
+    "body": "petite",
+    "hair": "bob",
+    "garment": "layered_skirt",
+    "material": "neon_tube",
+    "pose": "dash_corner",
+    "palette": "neon_yellow_navy"
+   },
+   "face": {
+    "face_shape": "round",
+    "eyes": "round_large",
+    "brows": "soft_round",
+    "nose": "small_button",
+    "lips": "wide_smile"
+   },
+   "place": "a neon-outlined hedge maze at night, glowing dots along every path and a cherry tree at its center",
+   "rights": "반다이남코 — 이름과 캐릭터가 상표다. 비상업 팬작업으로만, 공식 그림을 쓰지 않는다",
+   "avoid": [
+    "입 벌린 노란 원형 캐릭터",
+    "유령 넷의 모양과 빨강·분홍·하늘·주황 조합",
+    "타이틀 글자·점수판 UI"
+   ]
+  },
+  {
+   "key": "tetris",
+   "title": "테트리스",
+   "title_en": "Tetris",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "퍼즐",
+   "group": "mind",
+   "era": "8bit",
+   "series": [],
+   "persona": "흩어진 조각을 말없이 맞춰 넣는, 빈틈을 못 참는 설계가",
+   "voice": {
+    "타이틀": "모양은 일곱, 자리는 하나.",
+    "중반": "빨라진다. 그래도 맞춘다.",
+    "엔딩": "다 지웠다. 이제 고요하다."
+   },
+   "desire": "어떤 조각이 와도 빈틈없이 쌓기",
+   "conflict": "멈추지 않는 낙하와 정리하려는 손",
+   "symbols": [
+    "떨어지는 색 정육면체",
+    "빈틈없는 격자판",
+    "모래시계"
+   ],
+   "mechanic": "자리 셋을 모두 채우면 한꺼번에 지우고 큰 피해를 준다",
+   "rule": {
+    "forms": {
+     "타이틀": "아군을 낼 때마다 빈 자리를 하나 채운다 — 세 자리가 다 차면 「지우기」",
+     "중반": "지우기 때 채웠던 아군 수만큼 맞은편 모두에 피해",
+     "엔딩": "엔딩에 들면 지우기 한 번의 피해가 두 배"
+    },
+    "counter": "자리 하나를 계속 비어 있게 만든다 — 아군을 먼저 쓰러뜨리면 지우기가 늦어진다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "흑백 격자 무늬 정장, 어깨에 색 정육면체 셋이 박힌 견장",
+     "role": "지원",
+     "pose": "한 손바닥 위에 정육면체 하나를 올려 균형을 잡고 고개를 살짝 기울인 자세"
+    },
+    "중반": {
+     "look": "색 정육면체가 층층이 맞물린 긴 재킷, 소매 끝은 계단 모양으로 떨어진다",
+     "role": "버티기",
+     "pose": "두 팔을 앞으로 뻗어 떨어지는 조각을 받아 맞추는 자세"
+    },
+    "엔딩": {
+     "look": "한 칸도 남지 않은 격자처럼 매끈한 흰 정장, 모래시계 브로치",
+     "role": "공격",
+     "pose": "한 팔을 옆으로 크게 쓸어 지우듯 휘두르는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "검은 하늘에서 색 정육면체가 하나씩 내려와 그녀 둘레에 자리 잡는다",
+     "one_figure": true,
+     "particles": "stars"
+    },
+    "중반": {
+     "scene": "빈틈없이 맞은 층이 빛으로 터지며 한꺼번에 사라진다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "모든 조각이 지워진 하얀 격자 위에 그녀 혼자 선다",
+     "one_figure": true,
+     "particles": "snow"
+    }
+   },
+   "ethnicity": "Slavic",
+   "silhouette": {
+    "body": "tall_statuesque",
+    "hair": "long_straight",
+    "garment": "tailored_suit",
+    "material": "pixel_mosaic",
+    "pose": "stack_balance",
+    "palette": "tetra_primary"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "narrow_upturned",
+    "brows": "straight_thick",
+    "nose": "straight_narrow",
+    "lips": "thin_long"
+   },
+   "place": "a snowy plaza paved in a perfect grid of colored stone tiles, with stacked cube sculptures",
+   "rights": "테트리스 컴퍼니 — 이름과 블록 모양 조합이 상표·디자인으로 관리된다. 비상업 팬작업으로만",
+   "avoid": [
+    "일곱 블록을 나란히 늘어놓은 로고 꼴",
+    "둥근 양파 지붕 성당의 타이틀 그림",
+    "점수·단계 UI"
+   ],
+   "pilot": {
+    "form": "타이틀",
+    "open": "중반"
+   }
+  },
+  {
+   "key": "super_mario_bros",
+   "title": "슈퍼 마리오 브라더스",
+   "title_en": "Super Mario Bros.",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "플랫폼",
+   "group": "reflex",
+   "era": "8bit",
+   "series": [],
+   "persona": "넘어져도 웃으며 다시 뛰는, 하늘색 들판의 달리기 선수",
+   "voice": {
+    "타이틀": "오른쪽으로! 길은 늘 저쪽이야.",
+    "중반": "작아졌을 뿐이야. 아직 안 끝났어.",
+    "엔딩": "깃발 꼭대기까지 — 한 번에!"
+   },
+   "desire": "끝없이 오른쪽으로 달려 깃발 꼭대기에 닿기",
+   "conflict": "떨어지면 끝인 구멍과 한 번 더 뛰는 용기",
+   "symbols": [
+    "점박이 버섯",
+    "벽돌 블록",
+    "깃대 깃발"
+   ],
+   "mechanic": "버섯으로 커지고, 맞으면 작아질 뿐 바로 쓰러지지 않는다",
+   "rule": {
+    "forms": {
+     "타이틀": "처음 맞는 피해 한 번은 「작아지기」 로 막는다",
+     "중반": "버섯을 얻으면 힘 +2 와 작아지기 한 번을 되찾는다",
+     "엔딩": "엔딩에 들면 남은 작아지기를 모두 힘으로 바꿔 한 번에 뛰어든다"
+    },
+    "counter": "작은 피해를 여러 번 나눠 쳐서 작아지기를 먼저 벗긴다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "벽돌 무늬로 누빈 빨간 짧은 원피스와 하늘색 레깅스, 허리에 작은 버섯 장식",
+     "role": "돌파",
+     "pose": "한 무릎을 높이 들고 주먹을 위로 뻗어 뛰어오르는 자세"
+    },
+    "중반": {
+     "look": "커진 모습 — 어깨가 넓어진 벽돌 누빔 원피스, 치맛단에 금빛 네모 블록 무늬",
+     "role": "버티기",
+     "pose": "벽돌 위에 서서 한 팔로 균형을 잡으며 다음 발판을 내다보는 자세"
+    },
+    "엔딩": {
+     "look": "깃발 천을 망토처럼 두른 축제 원피스, 별 무늬 단",
+     "role": "공격",
+     "pose": "깃대를 두 손으로 잡고 미끄러져 내려오는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "하늘색 들판 위로 벽돌 블록이 떠올라 첫 발판이 된다",
+     "one_figure": true,
+     "particles": "gold"
+    },
+    "중반": {
+     "scene": "버섯을 잡은 순간 그녀의 실루엣이 한 단계 커지며 반짝인다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "깃발 꼭대기에서 축하 불꽃이 터진다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "Mediterranean",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "ponytail",
+    "garment": "one_piece_dress",
+    "material": "brick_quilt",
+    "pose": "leap_fist",
+    "palette": "brick_red_sky"
+   },
+   "face": {
+    "face_shape": "heart",
+    "eyes": "almond_wide",
+    "brows": "arched_thin",
+    "nose": "upturned",
+    "lips": "heart_full"
+   },
+   "place": "a bright meadow of rolling green hills, floating brick platforms and a tall flagpole at the far end",
+   "rights": "닌텐도 — 이름과 캐릭터의 상표 관리가 엄격하다. 비상업 팬작업으로만",
+   "avoid": [
+    "콧수염·빨간 모자·M 글자",
+    "멜빵바지 배관공 차림",
+    "얼굴 있는 버섯·거북 캐릭터",
+    "물음표 블록"
+   ]
+  },
+  {
+   "key": "legend_of_zelda",
+   "title": "젤다의 전설",
+   "title_en": "The Legend of Zelda",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "어드벤처",
+   "group": "explore",
+   "era": "8bit",
+   "series": [],
+   "persona": "닫힌 문 앞에서 오히려 웃는, 지도 없이 걷는 탐험가",
+   "voice": {
+    "타이틀": "혼자 가기엔 위험해? 그래서 간다.",
+    "중반": "열쇠 하나, 문 하나. 계속 간다.",
+    "엔딩": "흩어진 조각이 다 모였다."
+   },
+   "desire": "닫힌 모든 문을 열고 흩어진 조각을 모으기",
+   "conflict": "잠긴 지하 미궁과 하나씩 늘어나는 열쇠",
+   "symbols": [
+    "놋쇠 열쇠",
+    "둥근 방패",
+    "세 조각 금 파편"
+   ],
+   "mechanic": "열쇠를 모아 닫힌 자리를 연다",
+   "rule": {
+    "forms": {
+     "타이틀": "장마다 열쇠 하나를 얻는다",
+     "중반": "열쇠 하나를 써서 맞은편의 막기를 풀고 친다",
+     "엔딩": "엔딩에 들면 모은 열쇠 수만큼 아군 모두 힘 +1"
+    },
+    "counter": "열쇠가 쌓이기 전에 빨리 끝낸다. 막기를 쓰지 않는 덱에는 열쇠가 헛돈다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "지도 무늬 가죽 망토와 짧은 여행복, 허리에 놋쇠 열쇠 하나",
+     "role": "정찰",
+     "pose": "망토 자락을 한 손으로 젖히며 먼 들판을 내다보는 자세"
+    },
+    "중반": {
+     "look": "열쇠 꾸러미가 늘어난 허리띠, 등에 둥근 방패, 가죽 팔 보호대",
+     "role": "돌파",
+     "pose": "한 무릎을 꿇고 닫힌 문의 자물쇠에 열쇠를 꽂는 자세"
+    },
+    "엔딩": {
+     "look": "금 파편 세 조각을 이어 붙인 목걸이, 붉은 안감의 긴 망토",
+     "role": "지원",
+     "pose": "금 파편 목걸이를 두 손으로 받쳐 들고 하늘을 올려다보는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "동굴 입구에서 빛이 새어 나오고 그녀 앞에 첫 길이 열린다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "중반": {
+     "scene": "자물쇠가 풀리며 지하 미궁의 문이 차례로 열린다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "세 조각이 하나로 맞물려 그녀 손 위에서 빛난다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "slender",
+    "hair": "braids",
+    "garment": "cloak_wrapped",
+    "material": "map_leather",
+    "pose": "cloak_survey",
+    "palette": "map_tan_crimson"
+   },
+   "face": {
+    "face_shape": "diamond",
+    "eyes": "deep_set",
+    "brows": "angled_sharp",
+    "nose": "aquiline",
+    "lips": "thin_long"
+   },
+   "place": "a windswept overworld of tan cliffs, scattered boulders and a dark cave mouth beside a lake",
+   "rights": "닌텐도 — 이름과 캐릭터의 상표 관리가 엄격하다. 비상업 팬작업으로만",
+   "avoid": [
+    "초록 고깔모자·초록 튜닉 차림",
+    "세모 셋을 쌓은 문장",
+    "공주·적 캐릭터의 얼굴"
+   ]
+  },
+  {
+   "key": "dragon_quest",
+   "title": "드래곤 퀘스트",
+   "title_en": "Dragon Quest",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "RPG",
+   "group": "growth",
+   "era": "8bit",
+   "series": [],
+   "persona": "한 걸음씩 꾸준히 강해지는, 여관 불빛을 사랑하는 모험가",
+   "voice": {
+    "타이틀": "레벨 1. 그래도 길은 시작됐다.",
+    "중반": "조금만 더 싸우면 다음 레벨이야.",
+    "엔딩": "여기까지 온 건 하루하루 덕분이야."
+   },
+   "desire": "어제보다 한 레벨 더 강해지기",
+   "conflict": "끝없는 들판의 싸움과 여관에서 쉬는 하룻밤",
+   "symbols": [
+    "푸른 물방울",
+    "여관 등불",
+    "청동 검"
+   ],
+   "mechanic": "싸울 때마다 경험치가 쌓여 레벨이 오른다",
+   "rule": {
+    "forms": {
+     "타이틀": "싸울 때마다 경험치 1 — 셋이면 레벨이 올라 힘 +1",
+     "중반": "레벨이 오를 때 체력을 모두 되찾는다(여관)",
+     "엔딩": "엔딩에 들면 레벨만큼 맞은편에 「주문」 피해"
+    },
+    "counter": "레벨이 오르기 전 초반에 몰아친다. 싸움을 피하면 경험치가 쌓이지 않는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "흰 겹옷 위에 푸른 조끼, 작은 청동 검",
+     "role": "공격",
+     "pose": "청동 검을 두 손으로 세워 들고 앞을 보는 첫 출발 자세"
+    },
+    "중반": {
+     "look": "사슬 레이스를 덧댄 푸른 겹옷과 둥근 방패, 허리에 여관 등불",
+     "role": "버티기",
+     "pose": "등불을 들어 밤길을 비추며 한 발 내딛는 자세"
+    },
+    "엔딩": {
+     "look": "금실로 수놓은 짙은 청색 긴 겹옷, 빛나는 검",
+     "role": "지원",
+     "pose": "검을 가슴 앞에 세워 기사의 예를 올리는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "성문이 열리고 끝없는 들판 위로 아침 해가 뜬다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "중반": {
+     "scene": "레벨이 오른 순간 몸 둘레로 빛의 고리가 번진다",
+     "one_figure": true,
+     "particles": "stars"
+    },
+    "엔딩": {
+     "scene": "어둠을 가르는 빛줄기 속에서 검을 높이 든다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Japanese",
+   "silhouette": {
+    "body": "curvy",
+    "hair": "long_wavy",
+    "garment": "robe_overlap",
+    "material": "chainmail_lace",
+    "pose": "sword_salute",
+    "palette": "royal_blue_gold"
+   },
+   "face": {
+    "face_shape": "oval",
+    "eyes": "droopy_soft",
+    "brows": "soft_round",
+    "nose": "small_button",
+    "lips": "small_bow"
+   },
+   "place": "a medieval castle town with a cozy inn lit by lanterns, rolling green fields beyond its gate",
+   "rights": "스퀘어 에닉스 — 이름이 상표다. 캐릭터·몬스터 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "웃는 얼굴의 물방울 괴물",
+    "원작 캐릭터·몬스터 디자인",
+    "명령창·대화창 UI"
+   ],
+   "pilot": {
+    "form": "타이틀",
+    "open": "중반"
+   }
+  },
+  {
+   "key": "street_fighter_2",
+   "title": "스트리트 파이터 II",
+   "title_en": "Street Fighter II",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "격투",
+   "group": "reflex",
+   "era": "arcade",
+   "series": [],
+   "persona": "한 판 더를 외치는, 동전 하나에 모든 걸 거는 승부사",
+   "voice": {
+    "타이틀": "한 판 붙자. 동전은 내가 낸다.",
+    "중반": "순서대로 — 끊기면 지는 거야.",
+    "엔딩": "이긴 사람만 다음 판에 남는다."
+   },
+   "desire": "모든 도전자를 이기고 마지막 판에 서기",
+   "conflict": "읽히는 순서와 끊기지 않는 콤보",
+   "symbols": [
+    "감은 붕대 주먹",
+    "링 로프",
+    "튀는 불꽃"
+   ],
+   "mechanic": "정해 둔 순서로 내면 콤보가 이어진다",
+   "rule": {
+    "forms": {
+     "타이틀": "앞 장과 다른 역할의 아군을 내면 콤보 1",
+     "중반": "콤보 수만큼 이번 치기에 힘을 더한다 — 끊기면 0",
+     "엔딩": "엔딩에 들면 콤보 3 이상일 때 맞은편 하나를 바로 쓰러뜨린다(필살기)"
+    },
+    "counter": "같은 역할을 이어 내게 만들거나 첫 수를 막으면 콤보가 끊긴다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "주황 새틴 야구 점퍼와 짧은 격투 바지, 손에 감은 흰 붕대",
+     "role": "공격",
+     "pose": "주먹을 턱 앞에 올리고 몸을 비스듬히 세운 격투 자세"
+    },
+    "중반": {
+     "look": "점퍼를 허리에 묶은 민소매 차림, 팔뚝에 불꽃 문양",
+     "role": "돌파",
+     "pose": "한 다리를 높이 차올리는 발차기 자세"
+    },
+    "엔딩": {
+     "look": "은빛 새틴 챔피언 가운, 어깨에 링 로프 장식",
+     "role": "교란",
+     "pose": "가운 자락을 휘날리며 한 손을 들어 다음 도전자를 부르는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "어두운 링에 조명이 하나씩 켜지며 그녀를 비춘다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "중반": {
+     "scene": "이어진 주먹 끝으로 불꽃이 연달아 터진다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "엔딩": {
+     "scene": "링 위로 은빛 종이 조각이 쏟아진다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Latin American",
+   "silhouette": {
+    "body": "broad_strong",
+    "hair": "short_crop",
+    "garment": "track_set",
+    "material": "satin_sportswear",
+    "pose": "fight_stance",
+    "palette": "ember_orange_steel"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "almond_wide",
+    "brows": "angled_sharp",
+    "nose": "broad_soft",
+    "lips": "full_wide"
+   },
+   "place": "a rooftop fighting ring under neon signs at dusk, with rope barriers and a city skyline",
+   "rights": "캡콤 — 이름과 캐릭터가 상표다. 원작 격투가들의 차림과 기술 모양을 따라 그리지 않는다",
+   "avoid": [
+    "흰 도복과 붉은 머리띠",
+    "치파오와 둥근 머리 장식",
+    "손에서 쏘는 기공 구체",
+    "체력 바·VS 글자"
+   ]
+  },
+  {
+   "key": "simcity",
+   "title": "심시티",
+   "title_en": "SimCity",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "시뮬레이션",
+   "group": "growth",
+   "era": "16bit",
+   "series": [],
+   "persona": "빈 땅을 보면 길부터 긋는, 끝나지 않는 도시의 시장",
+   "voice": {
+    "타이틀": "빈 땅이네. 길부터 낼까.",
+    "중반": "사람이 늘었다. 물도, 전기도 더.",
+    "엔딩": "완성은 없다. 도시는 계속 자란다."
+   },
+   "desire": "빈 땅을 살아 있는 도시로 키우기",
+   "conflict": "늘어나는 사람과 모자란 길·전기·예산",
+   "symbols": [
+    "도시 모형",
+    "둘둘 만 설계도",
+    "작은 크레인"
+   ],
+   "mechanic": "아군을 짓고 키운다 — 옆 자리 힘이 오른다",
+   "rule": {
+    "forms": {
+     "타이틀": "아군을 낼 때 옆 자리 아군의 힘 +1",
+     "중반": "자리 셋이 다 차 있으면 장마다 아군 모두 체력 +1(기반 시설)",
+     "엔딩": "엔딩에 들면 쓰러진 아군의 힘 절반이 옆 자리로 넘어간다"
+    },
+    "counter": "가운데 자리를 먼저 무너뜨리면 양옆의 힘이 끊긴다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "설계도 무늬의 긴 코트와 바지, 귀에 연필, 둘둘 만 도면",
+     "role": "지원",
+     "pose": "도면을 펼쳐 들고 빈 땅을 내려다보며 손가락으로 길을 긋는 자세"
+    },
+    "중반": {
+     "look": "도시 지도 무늬 조끼와 챙 넓은 작업 모자, 허리에 줄자",
+     "role": "버티기",
+     "pose": "작은 크레인 모형을 한 손에 올리고 다른 손으로 위치를 재는 자세"
+    },
+    "엔딩": {
+     "look": "야경이 인쇄된 남청색 긴 코트, 어깨에 작은 빌딩 장식",
+     "role": "정찰",
+     "pose": "높은 곳에서 코트를 휘날리며 불 켜진 도시를 내려다보는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "빈 땅 위로 푸른 설계선이 빛으로 그어진다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "중반": {
+     "scene": "그녀 둘레로 집과 길이 블록처럼 솟아오른다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "밤의 도시에 불빛이 하나씩 켜진다",
+     "one_figure": true,
+     "particles": "fireflies"
+    }
+   },
+   "ethnicity": "mixed East Asian and European",
+   "silhouette": {
+    "body": "lanky",
+    "hair": "updo_bun",
+    "garment": "coat_trousers",
+    "material": "blueprint_print",
+    "pose": "plan_overlook",
+    "palette": "blueprint_teal"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "almond_wide",
+    "brows": "arched_thin",
+    "nose": "straight_narrow",
+    "lips": "small_bow"
+   },
+   "place": "a hilltop overlooking a growing city grid at dusk, with surveying tools and a construction crane",
+   "rights": "EA(맥시스) — 이름이 상표다. 원작 화면의 건물 아이콘·UI 를 그리지 않는다",
+   "avoid": [
+    "원작 건물 아이콘·도구 막대 UI",
+    "재난 괴물",
+    "타이틀 글자"
+   ]
+  },
+  {
+   "key": "starcraft",
+   "title": "스타크래프트",
+   "title_en": "StarCraft",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "전략",
+   "group": "mind",
+   "era": "early_3d",
+   "series": [],
+   "persona": "자원 하나 허투루 쓰지 않는, 차갑게 계산하는 지휘관",
+   "voice": {
+    "타이틀": "광물부터 캔다. 싸움은 그다음.",
+    "중반": "자원이 모자라. 하나도 버리지 마.",
+    "엔딩": "판 전체가 내 손 안에 있다."
+   },
+   "desire": "한정된 자원으로 판 전체를 손에 넣기",
+   "conflict": "캐는 시간과 싸우는 시간",
+   "symbols": [
+    "푸른 광물 결정",
+    "가스 통",
+    "작전 지도판"
+   ],
+   "mechanic": "자원을 캐고 남은 자원으로 카드를 뽑는다",
+   "rule": {
+    "forms": {
+     "타이틀": "장마다 자원 2를 캔다 — 쓰지 않은 자원은 다음 장으로 넘어간다",
+     "중반": "자원 3을 써서 카드 한 장을 더 뽑는다",
+     "엔딩": "엔딩에 들면 남은 자원을 아군 모두에게 힘으로 나눠 준다"
+    },
+    "counter": "초반에 몰아쳐 캘 시간을 주지 않는다(러시)"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "회청색 작업용 비행복, 허리에 결정 채집 도구",
+     "role": "지원",
+     "pose": "한 무릎을 꿇고 광물 결정을 손으로 떼어 내는 자세"
+    },
+    "중반": {
+     "look": "결정판을 덧댄 전투용 비행복, 손목에 작전 지도 장치",
+     "role": "교란",
+     "pose": "한 손을 들어 손끝으로 지도를 가리키며 지시하는 자세"
+    },
+    "엔딩": {
+     "look": "보랏빛 결정 장식의 지휘관 코트, 등 뒤로 빛나는 지도판",
+     "role": "공격",
+     "pose": "코트 자락을 펼치고 전장을 내려다보며 팔을 앞으로 뻗는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "붉은 황무지에서 푸른 결정이 땅을 뚫고 솟는다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "중반": {
+     "scene": "작전 지도판의 빛이 그녀 둘레를 감싸며 판 전체가 보인다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "결정 조각이 별처럼 쏟아지는 하늘 아래 홀로 선다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "Korean",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "side_swept",
+    "garment": "flight_suit",
+    "material": "crystal_plating",
+    "pose": "command_point",
+    "palette": "crystal_blue_violet"
+   },
+   "face": {
+    "face_shape": "heart",
+    "eyes": "narrow_upturned",
+    "brows": "angled_sharp",
+    "nose": "straight_narrow",
+    "lips": "thin_long"
+   },
+   "place": "a red rocky wasteland with towering blue mineral crystals and a lone command outpost",
+   "rights": "블리자드 — 이름과 종족 디자인이 상표다. 원작 종족을 그리지 않는다",
+   "avoid": [
+    "파워 슈트 해병 갑옷",
+    "외계 곤충형 생물",
+    "사이오닉 종족의 얼굴·갑옷",
+    "미니맵·자원 UI"
+   ]
+  },
+  {
+   "key": "minecraft",
+   "title": "마인크래프트",
+   "title_en": "Minecraft",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "샌드박스",
+   "group": "explore",
+   "era": "modern",
+   "series": [],
+   "persona": "무엇이든 캐서 무엇이든 짓는, 끝없는 들판의 장인",
+   "voice": {
+    "타이틀": "해 지기 전에 집부터 짓자.",
+    "중반": "더 깊이 캐면 더 단단해져.",
+    "엔딩": "다 지었다. 이제 뭘 지을까?"
+   },
+   "desire": "캐낸 블록으로 무엇이든 짓기",
+   "conflict": "밤의 위험과 한 칸씩 쌓는 벽",
+   "symbols": [
+    "풀 덮인 흙 정육면체",
+    "돌 곡괭이",
+    "작업대"
+   ],
+   "mechanic": "블록을 캐서 자기 자리에 벽을 쌓는다",
+   "rule": {
+    "forms": {
+     "타이틀": "장마다 블록 하나를 캐서 자리 하나에 벽을 세운다 — 벽은 피해 2를 막는다",
+     "중반": "블록 둘을 써서 아군 하나의 힘 +2(도구 만들기)",
+     "엔딩": "엔딩에 들면 남은 벽마다 맞은편에 피해 1"
+    },
+    "counter": "벽을 넘는 큰 한 방, 또는 벽을 건너뛰는 능력으로 친다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "흙빛 펠트 작업 멜빵과 풀색 두건, 허리에 돌 곡괭이",
+     "role": "버티기",
+     "pose": "곡괭이를 어깨에 걸치고 한 손에 흙 블록을 든 자세"
+    },
+    "중반": {
+     "look": "돌·철 블록 무늬로 누빈 덧옷, 머리에 광산 등불",
+     "role": "정찰",
+     "pose": "등불을 비추며 몸을 숙여 굴 안을 들여다보는 자세"
+    },
+    "엔딩": {
+     "look": "보석 블록이 박힌 망토와 건축가 장갑",
+     "role": "지원",
+     "pose": "두 손으로 마지막 블록을 머리 위로 올려 쌓는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "해 질 녘 들판에 블록이 쌓여 첫 집이 생긴다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "중반": {
+     "scene": "깊은 굴 속 용암 빛 아래 광석이 반짝인다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "엔딩": {
+     "scene": "그녀가 지은 블록 성 위로 아침 해가 뜬다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Nordic",
+   "silhouette": {
+    "body": "petite",
+    "hair": "twin_tails",
+    "garment": "work_overalls",
+    "material": "voxel_felt",
+    "pose": "block_place",
+    "palette": "grass_dirt_sky"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "round_large",
+    "brows": "straight_thick",
+    "nose": "upturned",
+    "lips": "wide_smile"
+   },
+   "place": "a sunny countryside of cube-shaped hills, a small block cabin and a mine entrance",
+   "rights": "마이크로소프트(모장) — 이름이 상표다. 원작 캐릭터 차림과 괴물 얼굴을 그리지 않는다",
+   "avoid": [
+    "하늘색 티셔츠·청바지의 정사각 인물",
+    "초록 폭발 괴물 얼굴",
+    "정육면체 머리",
+    "아이템 칸 UI"
+   ]
+  },
+  {
+   "key": "dark_souls",
+   "title": "다크 소울",
+   "title_en": "Dark Souls",
+   "facts": {
+    "qid": null,
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": null,
+     "en": null
+    }
+   },
+   "genre": "액션 RPG",
+   "group": "growth",
+   "era": "hd",
+   "series": [],
+   "persona": "쓰러져도 다시 일어나는, 꺼져 가는 불을 지키는 순례자",
+   "voice": {
+    "타이틀": "또 쓰러졌다. 그래도 불은 꺼지지 않았다.",
+    "중반": "남긴 것은 되찾으러 간다.",
+    "엔딩": "불을 이을까, 꺼지게 둘까."
+   },
+   "desire": "꺼져 가는 불을 끝까지 지키기",
+   "conflict": "되풀이되는 죽음과 그때마다 배우는 몸",
+   "symbols": [
+    "화톳불",
+    "부러진 직검",
+    "재 묻은 반지"
+   ],
+   "mechanic": "쓰러져도 영혼을 남기고, 같은 자리가 회수하면 돌려받는다",
+   "rule": {
+    "forms": {
+     "타이틀": "쓰러지면 그 자리에 「영혼」 을 남긴다 — 쌓은 힘이 거기 남는다",
+     "중반": "영혼이 남은 자리에 아군을 내면 회수해 힘을 돌려받는다",
+     "엔딩": "엔딩에 들면 화톳불 — 쓰러진 아군 하나를 체력 1로 되살린다"
+    },
+    "counter": "영혼이 남은 자리를 먼저 쳐서 회수를 막는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "재 묻은 낡은 철 갑옷 조각과 해진 망토, 부러진 직검",
+     "role": "버티기",
+     "pose": "부러진 검을 땅에 꽂고 한 무릎을 꿇어 숨을 고르는 자세"
+    },
+    "중반": {
+     "look": "갑옷이 갖춰지고 망토가 무거워진 순례자, 손가락에 재 묻은 반지",
+     "role": "공격",
+     "pose": "검을 두 손으로 비스듬히 낮춰 들고 앞으로 천천히 다가서는 자세"
+    },
+    "엔딩": {
+     "look": "불씨가 스며든 잿빛 갑옷과 금빛 관 장식",
+     "role": "지원",
+     "pose": "화톳불 앞에 서서 두 손을 불 위로 내밀어 불씨를 잇는 자세"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "어둠 속에서 화톳불이 켜지며 재가 날린다",
+     "one_figure": true,
+     "particles": "ash"
+    },
+    "중반": {
+     "scene": "형체 없는 거대한 그림자 앞에서 그녀만 불빛으로 서 있다",
+     "one_figure": true,
+     "particles": "mist"
+    },
+    "엔딩": {
+     "scene": "타오르는 불 속으로 한 걸음 들어가는 순간",
+     "one_figure": true,
+     "particles": "embers"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "slender",
+    "hair": "long_straight",
+    "garment": "armor_layered",
+    "material": "ashen_iron",
+    "pose": "bonfire_kneel",
+    "palette": "ash_ember"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "deep_set",
+    "brows": "low_heavy",
+    "nose": "aquiline",
+    "lips": "thin_long"
+   },
+   "place": "a ruined gothic shrine on a cliff with a lone bonfire, ash drifting over broken stone stairs",
+   "rights": "반다이남코·프롬소프트웨어 — 이름이 상표다. 원작 기사·보스 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 기사 갑옷(둥근 양파 투구 포함)",
+    "나선 검이 꽂힌 화톳불 모양",
+    "원작 보스 디자인",
+    "죽음 알림 글자"
+   ],
+   "pilot": {
+    "form": "타이틀",
+    "open": "타이틀"
+   }
+  }
+ ]
+}

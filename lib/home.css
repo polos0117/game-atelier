@@ -1,0 +1,19 @@
+/* 첫 화면 — 첫 묶음 카드. 색은 lib/workspace.css 의 공간 변수만 쓴다 */
+.first-batch {margin:18px 0 0;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:18px}
+.first-head h2 {margin:4px 0 10px;font:600 26px/1.4 'Noto Serif KR',serif;letter-spacing:-.02em}
+.first-head p {margin:0 0 8px;color:var(--muted);line-height:1.7}
+.first-tag {font-size:13px}
+.first-note {margin:14px 0 10px;color:var(--muted);font-size:13px}
+.first-list {list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.first-card {padding:14px 16px;background:var(--card2);border:1px solid var(--line);border-radius:14px}
+.first-card-top {display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.first-card-top strong {font-size:16px}
+.first-group {flex:none;padding:2px 9px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--muted)}
+.first-card[data-group="reflex"] .first-group {border-color:var(--accent);color:var(--text)}
+.first-persona {margin:8px 0 6px;font-size:14px;line-height:1.6}
+.first-mechanic {margin:0;color:var(--muted);font-size:13px;line-height:1.6}
+.first-mechanic b {color:var(--text);font-weight:600}
+@media (max-width:560px) {
+  .first-batch {padding:18px 16px}
+  .first-head h2 {font-size:22px}
+}
