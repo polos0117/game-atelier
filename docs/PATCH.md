@@ -11,6 +11,10 @@
 
 
 
+## 2026-10-26 · claude · 스타크래프트 첫 그림 12장 등록
+- data/img.json — 스타크래프트 폼 셋(타이틀·중반·엔딩)·개방 셋·일상컷 여섯을 손으로 적었다. 등록한 날은 added 에. 그림은 game-atelier-img 의 img/ · img/thumb/, 기록 records/starcraft/<자리>-import.json(원본 PNG 는 올리지 않고 sha256 만).
+- 검토에서 본 것 — 중반 폼 뒤의 일반적인 SF 전차·비행선(전차 실루엣이 원작 유닛을 조금 떠올리게 함), 엔딩 창밖의 작은 함선. 사용자가 다 올리기로 했고 기록의 review 에 적었다.
+
 ## 2026-10-26 · claude · 다크 소울 첫 그림 11장 등록
 - data/img.json — 다크 소울 폼 셋(타이틀·중반·엔딩)·개방 셋·일상컷 다섯을 손으로 적었다. 등록한 날은 added 에. 그림은 game-atelier-img 의 img/ · img/thumb/, 기록 records/dark_souls/<자리>-import.json(원본 PNG 는 올리지 않고 sha256 만).
 - 검토에서 본 것 — 중반 개방의 그림자 위쪽에 눈·얼굴 윤곽(설계표는 형체 없는 그림자), 일상컷 5의 패드가 특정 콘솔 패드와 닮음(상표 없음). 사용자가 다 올리기로 했고 기록의 review 에 적었다.

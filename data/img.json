@@ -106,6 +106,42 @@
      }
     }
    }
+  },
+  "starcraft": {
+   "byStyle": {
+    "glossy_kr_game": {
+     "byForm": {
+      "title": {
+       "f": "starcraft_title_glossy_kr_game_f.webp"
+      },
+      "title_open": {
+       "f": "starcraft_title_open_glossy_kr_game_f.webp"
+      },
+      "middle": {
+       "f": "starcraft_middle_glossy_kr_game_f.webp"
+      },
+      "middle_open": {
+       "f": "starcraft_middle_open_glossy_kr_game_f.webp"
+      },
+      "ending": {
+       "f": "starcraft_ending_glossy_kr_game_f.webp"
+      },
+      "ending_open": {
+       "f": "starcraft_ending_open_glossy_kr_game_f.webp"
+      }
+     },
+     "casual": {
+      "f": [
+       "starcraft_glossy_kr_game_f_casual1.webp",
+       "starcraft_glossy_kr_game_f_casual2.webp",
+       "starcraft_glossy_kr_game_f_casual3.webp",
+       "starcraft_glossy_kr_game_f_casual4.webp",
+       "starcraft_glossy_kr_game_f_casual5.webp",
+       "starcraft_glossy_kr_game_f_casual6.webp"
+      ]
+     }
+    }
+   }
   }
  },
  "added": {
@@ -143,6 +179,18 @@
   "dark_souls_glossy_kr_game_f_casual2.webp": "2026-10-26",
   "dark_souls_glossy_kr_game_f_casual3.webp": "2026-10-26",
   "dark_souls_glossy_kr_game_f_casual4.webp": "2026-10-26",
-  "dark_souls_glossy_kr_game_f_casual5.webp": "2026-10-26"
+  "dark_souls_glossy_kr_game_f_casual5.webp": "2026-10-26",
+  "starcraft_title_glossy_kr_game_f.webp": "2026-10-26",
+  "starcraft_title_open_glossy_kr_game_f.webp": "2026-10-26",
+  "starcraft_middle_glossy_kr_game_f.webp": "2026-10-26",
+  "starcraft_middle_open_glossy_kr_game_f.webp": "2026-10-26",
+  "starcraft_ending_glossy_kr_game_f.webp": "2026-10-26",
+  "starcraft_ending_open_glossy_kr_game_f.webp": "2026-10-26",
+  "starcraft_glossy_kr_game_f_casual1.webp": "2026-10-26",
+  "starcraft_glossy_kr_game_f_casual2.webp": "2026-10-26",
+  "starcraft_glossy_kr_game_f_casual3.webp": "2026-10-26",
+  "starcraft_glossy_kr_game_f_casual4.webp": "2026-10-26",
+  "starcraft_glossy_kr_game_f_casual5.webp": "2026-10-26",
+  "starcraft_glossy_kr_game_f_casual6.webp": "2026-10-26"
  }
 }
