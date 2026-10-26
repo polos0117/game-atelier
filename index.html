@@ -12,18 +12,18 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="lib/workspace.css?v=3">
 <script src="lib/workspace-theme.js?v=3"></script>
-<script src="lib/words.js?v=4"></script>
+<script src="lib/words.js?v=5"></script>
 <script src="lib/patch.js?v=1"></script>
 <script src="lib/fresh.js?v=1"></script>
 <link rel="stylesheet" href="lib/room.css?v=4">
-<link rel="stylesheet" href="lib/home.css?v=2">
+<link rel="stylesheet" href="lib/home.css?v=3">
 </head>
 <body class="prompt-page lab-page">
 <div class="wrap"><div id="app"></div></div>
 <script type="module">
 import {h,render} from 'https://esm.sh/preact@10.24.3';
 import {useState,useEffect} from 'https://esm.sh/preact@10.24.3/hooks';
-import {WorkspaceHeader,ThemeGallery} from './lib/workspace-ui.js?v=3';
+import {WorkspaceHeader,ThemeGallery} from './lib/workspace-ui.js?v=4';
 const W=window.W;
 /* 첫 묶음 — 설계표를 그대로 읽어 한 편에 한 칸. 그림·서가가 붙기 전까지 무엇을 만드는지 보이는 자리다 */
 function FirstBatch(){
@@ -47,7 +47,7 @@ function FirstBatch(){
       h('ul',{class:'first-list'},doc.games.map(g=>
         h('li',{key:g.key,class:'first-card','data-group':g.group},
           h('div',{class:'first-card-top'},
-            h('strong',null,g.title),
+            h('a',{class:'first-title',href:'dex.html?game='+encodeURIComponent(g.key)},h('strong',null,g.title)),
             h('span',{class:'first-group'},W('home.group.'+g.group))),
           h('p',{class:'first-persona'},g.persona),
           h('p',{class:'first-mechanic'},h('b',null,W('home.first.mechanic')),' ',g.mechanic))))));

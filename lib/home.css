@@ -8,6 +8,9 @@
 .first-card {padding:14px 16px;background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
 .first-card-top {display:flex;align-items:baseline;justify-content:space-between;gap:8px}
 .first-card-top strong {font-size:16px}
+/* 이름은 도감의 그 게임으로 가는 길 */
+.first-title {color:var(--text);text-decoration:none;min-height:24px}
+.first-title:hover strong,.first-title:focus-visible strong {color:var(--accent);text-decoration:underline}
 .first-group {flex:none;padding:2px 9px;border-radius:999px;border:1px solid var(--line);font-size:12px;color:var(--muted)}
 /* 묶음마다 색 — 반사·성장·두뇌·탐험(결투 상성의 네 묶음). 색은 공간마다 lib/workspace.css 의 --g-* */
 .first-card {--g:var(--accent);border-left:4px solid var(--g)}

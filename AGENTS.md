@@ -19,7 +19,8 @@
 
 | 화면 | 파일 | 무엇 |
 |---|---|---|
-| 첫 화면 | `index.html` · `lib/home.css` | 첫 묶음(설계표를 그대로 읽어 한 편에 한 칸)·패치 기록·공간 |
+| 첫 화면 | `index.html` · `lib/home.css` | 첫 묶음(설계표를 그대로 읽어 한 편에 한 칸, 이름은 도감으로)·패치 기록·공간 |
+| 도감 | `dex.html` · `lib/dex-filter.js` · `lib/img.js` · `lib/gallery.css` | book 서가에서 — 최근 추가·새 표·장르·거르기·작업 현황·나란히 보기(폼 셋·개방 셋)·화풍 비교·일상컷·크게 보기·넘기기·즐겨찾기(공방 모음 `a:'game'`). 게임 글은 능력·폼 배경·그리지 않을 것·Wikidata 사실 칸. 등록부 `data/img.json` 에 적힌 것만 |
 | 프롬프트 | `prompt.html` · `lib/prompt-spec.js`(표) · `lib/prompt-game.js`(조립) · `lib/prompt-random.js` · `lib/prompt-ui.js` · `lib/figures.js` | 생성기 — 폼 초상·개방·일상컷. book 생성기에서 왔다. 게임 몫: 캐릭터 아님·그리지 않을 것 줄, 핵심 조작·시대 줄, 일상컷 게임 갈래 넷(게임 속 장소·오락실·게임 문화·개발실·스피드런·방송), 출시 당시 |
 
 머리·항해·⚙ 설정은 `lib/workspace-ui.js`, 공간(테마)은 `lib/workspace-theme.js`·`lib/workspace.css`·`lib/room.css`.
@@ -91,4 +92,5 @@ node tests/patch.cjs                 # 패치 기록 모양
 
 # 브라우저 — ESM_DIR 에 preact 가 든 node_modules, CHROMIUM_PATH 에 브라우저
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/prompt-screen.cjs   # 생성기
+ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/dex-screen.cjs      # 도감 — 옆에 ../game-atelier-img 가 있으면 그림까지
 ```

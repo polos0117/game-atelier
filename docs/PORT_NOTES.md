@@ -37,6 +37,7 @@
 
 ## 아직 안 가져온 것
 
-- 서가(`dex.html` — `lib/dex-filter.js`·`lib/img.js` 는 생성기와 함께 왔다)·그림 등록(`tools/register-images.py`·워크플로)·썸네일 — 시범 그림 뒤에.
+- 서가의 책 몫 — 장정 틀(`lib/book-frame.js`)·도트 줄·닮은 그림·모자이크·진열·움직임. 도감 자체는 2026-10-26 에 옮겼다(`dex.html`).
+- 그림 등록(`tools/register-images.py`·워크플로)·썸네일 워크플로 — 지금은 손으로 적는다(IMAGE_RULES 4절).
 - 결투(`duel.html`·`lib/duel.js`)·탐험·모자이크·도트 진열실·움직임(`lib/scene-motion.js`) — 결투 단계에서.
   설계표 `opens[*].particles` 는 book 의 입자 정한 말을 그대로 써서, 움직임을 옮기면 바로 잇는다.
