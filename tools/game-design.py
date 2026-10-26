@@ -11,7 +11,7 @@ book-atelier 의 tools/book-design.py 에서 왔다 — 폼 이름·저작권 �
   - 묶음(group)이 장르에 맞나 — 결투 상성은 묶음으로 돈다
   - 어느 두 게임도 실루엣 축 6 중 셋 이상, 얼굴 5 묶음 중 둘 이상 다르다
   - 같은 시리즈 자매(series)는 서로를 적고, 얼굴 윤곽(face_shape)이 같다
-  - 폼·개방이 타이틀·중반·엔딩 셋씩, 폼마다 다른 자세, 개방은 한 명으로 표현된다고 확인했다(one_figure)
+  - 폼·개방이 타이틀·중반·엔딩 셋씩, 폼마다 다른 자세·배경(setting), 개방은 한 명으로 표현된다고 확인했다(one_figure)
   - 고유 규칙: 능력 원리 하나(mechanic) + 폼별 쓰임 셋 + 상대의 대응. 결투는 장(章)·자리로 돈다 — 줄(lane) 말은 못 쓴다
   - 사실 칸(facts)은 도구만 채운다 — 받은 적(fetched) 없이 연도·개발사가 적혀 있으면 지어낸 것으로 본다.
     받은 연도가 시대(era)의 해와 어긋나면 경고한다
@@ -111,6 +111,11 @@ def check(doc):
                 bad("%s 폼의 역할 %r 는 정한 말이 아니다" % (s, fm.get("role")))
             if not str(fm.get("pose") or "").strip():
                 bad("%s 폼의 자세(pose)가 비었다" % s)
+            # 배경 — 폼마다 다른 곳·빛. 없으면 이어가기가 첫 그림의 배경을 그대로 썼다(2026-10-26 테트리스)
+            if not str(fm.get("setting") or "").strip():
+                bad("%s 폼의 배경(setting)이 비었다" % s)
+            elif str(fm.get("setting")).strip() == str((opens.get(s) or {}).get("scene") or "").strip():
+                bad("%s 폼의 배경이 개방 명장면과 같다 — 명장면은 개방 그림 몫이다" % s)
             o = opens.get(s) or {}
             if not str(o.get("scene") or "").strip():
                 bad("%s 개방의 장면이 비었다" % s)
@@ -118,6 +123,8 @@ def check(doc):
                 bad("%s 개방을 한 명(그녀 + 사물·환경)으로 표현할 수 있는지 확인하지 않았다" % s)
             if o.get("particles") not in V.get("particles", []):
                 bad("%s 개방의 입자 particles=%r 는 정한 말이 아니다" % (s, o.get("particles")))
+        if len({str((forms.get(s) or {}).get("setting") or "").strip() for s in STAGES}) < 3:
+            bad("세 폼의 배경이 겹친다 — 넘겨 볼 때 같은 장면처럼 보인다")
         if len({(forms.get(s) or {}).get("pose") for s in STAGES}) < 3:
             bad("세 폼의 자세가 겹친다 — 넘겨 볼 때 같은 그림처럼 보인다")
         if len({(forms.get(s) or {}).get("role") for s in STAGES}) < 2:

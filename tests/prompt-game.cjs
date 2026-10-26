@@ -44,12 +44,37 @@ for (const g of G) for (const stage of STAGES) {
 }
 assert(longest <= 800, '가장 긴 프롬프트가 800 낱말을 넘는다: ' + longest);
 
+/* 2-1. 폼마다 다른 장면 — 배경(설계표 setting)·빛·구도·카메라가 단계마다 다르고, 이어가기는 첨부 그림의 배경을 쓰지 않는다.
+   셋 다 같은 유리 정육면체 벽·반사 바닥·낮은 카메라로 나왔다(2026-10-26 테트리스 시범) */
+for (const gm of G) {
+  const seen = new Set();
+  for (const stage of STAGES) {
+    const info = S.STAGE_EN[stage], f = gm.forms[stage];
+    for (const id of ['create', 'reference']) {
+      const t = P.buildPrompt({ outputMode: 'form', game: gm, stage, baseStage: '타이틀', identityMode: id, styleText: text });
+      assert(t.includes('SETTING (this form): "' + q(f.setting) + '" — ' + info.scene + '.'), gm.key + ' ' + stage + ' ' + id + ' 배경 줄');
+      assert(t.includes('— ' + info.camera + ', easy to read as a card.'), gm.key + ' ' + stage + ' 단계 카메라');
+      assert(!t.includes('slightly low camera, held still'), '세 폼이 같은 카메라');
+      if (id === 'reference') {
+        assert(t.includes("do not reuse the attached image's background, floor, lighting or camera angle"), '이어가기는 첨부 그림 배경을 안 쓴다');
+        assert(t.includes('GARMENT: keep her material family (' + S.VOCAB_EN.material[gm.silhouette.material] + ')') && t.includes('clearly different outfit silhouette'), '재료만 잇고 재단은 바뀐다');
+        assert(!t.includes('keep her garment structure'), '복식 구조를 묶지 않는다');
+      }
+    }
+    seen.add(f.setting);
+  }
+  assert.equal(seen.size, 3, gm.key + ' 세 폼의 배경이 겹친다');
+}
+assert.equal(new Set(STAGES.map(s => S.STAGE_EN[s].camera)).size, 3, '단계마다 카메라가 다르다');
+assert.equal(new Set(STAGES.map(s => S.STAGE_EN[s].scene)).size, 3, '단계마다 빛·구도가 다르다');
+assert(!P.buildPrompt({ outputMode: 'open', game: G[0], stage: '중반', styleText: text }).includes('SETTING (this form)'), '개방은 첨부 그림 + 명장면');
+
 /* 3. 사실 칸 — 받지 않았으면 연도·개발사를 싣지 않는다. 받으면 GAME 줄에 */
 const g0 = G.find(g => g.key === 'tetris');
 const unfetched = { ...g0, facts: { ...g0.facts, fetched: null, year: null, developer: [] } };
 assert(P.buildPrompt({ outputMode: 'form', game: unfetched, stage: '타이틀', styleText: text }).includes('GAME: «테트리스» (Tetris). Genre: puzzle. Graphics era: 8-bit console.'), '받지 않은 사실은 없다');
 const fetched = { ...g0, facts: { ...g0.facts, fetched: '2026-10-26', year: 1984, developer: [{ qid: 'Q1', ko: null, en: 'Fixture Dev' }] } };
-assert(P.buildPrompt({ outputMode: 'form', game: fetched, stage: '타이틀', styleText: text }).includes('GAME: «테트리스» (Tetris), 1984 by Fixture Dev.'), '받은 연도·개발사');
+assert(P.buildPrompt({ outputMode: 'form', game: fetched, stage: '타이틀', styleText: text }).includes('GAME: «테트리스» (Tetris), 1984.') && !P.buildPrompt({ outputMode: 'form', game: fetched, stage: '타이틀', styleText: text }).includes('Fixture Dev'), '받은 연도만 — 개발사는 싣지 않는다');
 
 /* 4. 직접 고른 얼굴·체형은 설계표 묶음을 이긴다 */
 const g = G[0];
