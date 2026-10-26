@@ -71,6 +71,41 @@
      }
     }
    }
+  },
+  "dark_souls": {
+   "byStyle": {
+    "glossy_kr_game": {
+     "byForm": {
+      "title": {
+       "f": "dark_souls_title_glossy_kr_game_f.webp"
+      },
+      "title_open": {
+       "f": "dark_souls_title_open_glossy_kr_game_f.webp"
+      },
+      "middle": {
+       "f": "dark_souls_middle_glossy_kr_game_f.webp"
+      },
+      "middle_open": {
+       "f": "dark_souls_middle_open_glossy_kr_game_f.webp"
+      },
+      "ending": {
+       "f": "dark_souls_ending_glossy_kr_game_f.webp"
+      },
+      "ending_open": {
+       "f": "dark_souls_ending_open_glossy_kr_game_f.webp"
+      }
+     },
+     "casual": {
+      "f": [
+       "dark_souls_glossy_kr_game_f_casual1.webp",
+       "dark_souls_glossy_kr_game_f_casual2.webp",
+       "dark_souls_glossy_kr_game_f_casual3.webp",
+       "dark_souls_glossy_kr_game_f_casual4.webp",
+       "dark_souls_glossy_kr_game_f_casual5.webp"
+      ]
+     }
+    }
+   }
   }
  },
  "added": {
@@ -97,6 +132,17 @@
   "dragon_quest_glossy_kr_game_f_casual2.webp": "2026-10-26",
   "dragon_quest_glossy_kr_game_f_casual3.webp": "2026-10-26",
   "dragon_quest_glossy_kr_game_f_casual4.webp": "2026-10-26",
-  "dragon_quest_glossy_kr_game_f_casual5.webp": "2026-10-26"
+  "dragon_quest_glossy_kr_game_f_casual5.webp": "2026-10-26",
+  "dark_souls_title_glossy_kr_game_f.webp": "2026-10-26",
+  "dark_souls_title_open_glossy_kr_game_f.webp": "2026-10-26",
+  "dark_souls_middle_glossy_kr_game_f.webp": "2026-10-26",
+  "dark_souls_middle_open_glossy_kr_game_f.webp": "2026-10-26",
+  "dark_souls_ending_glossy_kr_game_f.webp": "2026-10-26",
+  "dark_souls_ending_open_glossy_kr_game_f.webp": "2026-10-26",
+  "dark_souls_glossy_kr_game_f_casual1.webp": "2026-10-26",
+  "dark_souls_glossy_kr_game_f_casual2.webp": "2026-10-26",
+  "dark_souls_glossy_kr_game_f_casual3.webp": "2026-10-26",
+  "dark_souls_glossy_kr_game_f_casual4.webp": "2026-10-26",
+  "dark_souls_glossy_kr_game_f_casual5.webp": "2026-10-26"
  }
 }
