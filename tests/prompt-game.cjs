@@ -42,7 +42,8 @@ for (const g of G) for (const stage of STAGES) {
     longest = Math.max(longest, P.words(t)); n++;
   }
 }
-assert(longest <= 800, '가장 긴 프롬프트가 800 낱말을 넘는다: ' + longest);
+// 몸 개수 줄 BODY 와 일상컷 HAND TASK 로 40낱말쯤 늘었다(2026-10-27)
+assert(longest <= 840, '가장 긴 프롬프트가 840 낱말을 넘는다: ' + longest);
 
 /* 2-1. 폼마다 다른 장면 — 배경(설계표 setting)·빛·구도·카메라가 단계마다 다르고, 이어가기는 첨부 그림의 배경을 쓰지 않는다.
    셋 다 같은 유리 정육면체 벽·반사 바닥·낮은 카메라로 나왔다(2026-10-26 테트리스 시범) */
@@ -122,7 +123,7 @@ assert(thenT.indexOf('ERA:') > thenT.indexOf('WARDROBE:') && thenT.indexOf('ERA:
 assert(!P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, era: 'release' }).includes('ERA:'), '폼 초상에는 없다');
 for (const [cat, rows] of Object.entries(S.EXAMPLE_MAP)) for (const r of rows) if (r[0] && r[0] !== '__custom__') {
   assert(r[5] || S.EXAMPLE_DETAIL[r[0]], cat + ' · ' + r[0] + ' 장면 문장이 없다');
-  assert(P.words(cas(cat, r[0])) <= 800, cat + ' · ' + r[0] + ' 일상컷이 800 낱말을 넘는다');
+  assert(P.words(cas(cat, r[0])) <= 840, cat + ' · ' + r[0] + ' 일상컷이 840 낱말을 넘는다');
 }
 assert(!/Pok[eé]mon|포켓몬|Gundam|건담/.test(JSON.stringify(S)), '표에 포켓몬·건담 말이 남았다');
 
