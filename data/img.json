@@ -177,6 +177,41 @@
      }
     }
    }
+  },
+  "super_mario_bros": {
+   "byStyle": {
+    "glossy_kr_game": {
+     "byForm": {
+      "title": {
+       "f": "super_mario_bros_title_glossy_kr_game_f.webp"
+      },
+      "title_open": {
+       "f": "super_mario_bros_title_open_glossy_kr_game_f.webp"
+      },
+      "middle": {
+       "f": "super_mario_bros_middle_glossy_kr_game_f.webp"
+      },
+      "middle_open": {
+       "f": "super_mario_bros_middle_open_glossy_kr_game_f.webp"
+      },
+      "ending": {
+       "f": "super_mario_bros_ending_glossy_kr_game_f.webp"
+      },
+      "ending_open": {
+       "f": "super_mario_bros_ending_open_glossy_kr_game_f.webp"
+      }
+     },
+     "casual": {
+      "f": [
+       "super_mario_bros_glossy_kr_game_f_casual1.webp",
+       "super_mario_bros_glossy_kr_game_f_casual2.webp",
+       "super_mario_bros_glossy_kr_game_f_casual3.webp",
+       "super_mario_bros_glossy_kr_game_f_casual4.webp",
+       "super_mario_bros_glossy_kr_game_f_casual5.webp"
+      ]
+     }
+    }
+   }
   }
  },
  "added": {
@@ -237,6 +272,17 @@
   "pacman_glossy_kr_game_f_casual2.webp": "2026-10-27",
   "pacman_glossy_kr_game_f_casual3.webp": "2026-10-27",
   "pacman_glossy_kr_game_f_casual4.webp": "2026-10-27",
-  "pacman_glossy_kr_game_f_casual5.webp": "2026-10-27"
+  "pacman_glossy_kr_game_f_casual5.webp": "2026-10-27",
+  "super_mario_bros_title_glossy_kr_game_f.webp": "2026-10-27",
+  "super_mario_bros_title_open_glossy_kr_game_f.webp": "2026-10-27",
+  "super_mario_bros_middle_glossy_kr_game_f.webp": "2026-10-27",
+  "super_mario_bros_middle_open_glossy_kr_game_f.webp": "2026-10-27",
+  "super_mario_bros_ending_glossy_kr_game_f.webp": "2026-10-27",
+  "super_mario_bros_ending_open_glossy_kr_game_f.webp": "2026-10-27",
+  "super_mario_bros_glossy_kr_game_f_casual1.webp": "2026-10-27",
+  "super_mario_bros_glossy_kr_game_f_casual2.webp": "2026-10-27",
+  "super_mario_bros_glossy_kr_game_f_casual3.webp": "2026-10-27",
+  "super_mario_bros_glossy_kr_game_f_casual4.webp": "2026-10-27",
+  "super_mario_bros_glossy_kr_game_f_casual5.webp": "2026-10-27"
  }
 }
