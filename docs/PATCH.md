@@ -11,6 +11,9 @@
 
 
 
+## 2026-10-27 · claude · 가벼운 조깅 자세 — 옷차림은 그대로
+- lib/prompt-spec.js — 자세 「가벼운 조깅」 영어 문장 "Jog lightly with compact arm movement and a believable running step." 이 의상까지 조깅복으로 바꿨다(사용자). "Move at a light, quick jog … ; her outfit stays exactly as described." 로 — 금지어 대신 옷은 고른 그대로라고 적는다. 한국어 설명도 맞췄다. 걷기·스트레칭·댄스 스텝 문장에는 운동복을 부르는 말이 없어 그대로. prompt.html 판 올림.
+
 ## 2026-10-27 · claude · 마리오 엔딩 자세 — 한 손으로 깃대, 다른 손은 흔들기
 - data/game-design.json — 슈퍼 마리오 브라더스 엔딩 pose 를 "깃대를 두 손으로 잡고 미끄러져 내려오는 자세" 에서 "한 손으로 깃대를 잡고 몸을 바깥으로 젖혀 미끄러져 내려오며, 다른 손은 크게 흔드는 자세" 로. 줄 셋을 고친 뒤에도(dde297b) 깃대가 몸 한쪽에 서면 다른 손이 몸 앞을 가로질러 같은 깃대를 잡아야 해서, 왼팔 위팔이 가슴 뒤로 숨고 손이 가슴 밑에서 나온 것처럼 이어졌다. 한 손이면 팔이 엇갈릴 데가 없고 엔딩의 축하 느낌도 산다(사용자가 골랐다). python3 tools/game-design.py check 통과.
 
