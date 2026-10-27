@@ -11,6 +11,10 @@
 
 
 
+## 2026-10-27 · claude · 폼 초상 — 폼 자세와 부딪히던 줄 셋
+- lib/prompt-game.js · lib/prompt-spec.js — 마리오 엔딩("깃대를 두 손으로 잡고 미끄러져 내려오는 자세")에서 팔이 하나 더 생기려 했다. ① 새 인물의 SILHOUETTE 에 실루엣 자세 축("springing upward, one fist raised")이 STANCE 와 같이 들어갔다 — 폼 자세·고른 자세·연출이 있으면 빠진다(설계표 폼마다 자세가 있어 폼 초상에서는 사실상 빠진다). ② 카드 출력 줄의 "no foreground occlusion" 이 몸 앞을 지나는 깃대와 부딪혔다 — "nothing in front of her but what she holds". ③ HOLD BACK 이 개방 장면의 "핵심 물건" 을 빼라 해 엔딩 개방의 깃발과 STANCE 의 깃대가 부딪혔다 — 개방의 사건만 빼고 "An object named in FORM or in her pose stays."
+- tests/prompt-game.cjs — 폼 초상에 실루엣 자세가 없고, 쥔 것은 앞을 가려도 되며, 폼·자세가 쥔 물건은 남는지. prompt.html 판 올림.
+
 ## 2026-10-27 · claude · 팩맨 첫 그림 11장 등록 · 배경 속 사람은 괜찮다
 - data/img.json — 팩맨 폼 셋(타이틀·중반·엔딩)·개방 셋·일상컷 다섯을 손으로 적었다. 등록한 날은 added 에. 그림은 game-atelier-img 의 img/ · img/thumb/, 기록 records/pacman/<자리>-import.json(원본 PNG 는 올리지 않고 sha256 만).
 - 검토에서 본 것 — 엔딩 위쪽 네온 간판의 잘린 글자(읽히지 않음)·창 안 오락기 화면(작고 흐림), 일상컷 3 벽 포스터의 작은 무용수 그림, 일상컷 4 뒤의 흐릿한 파티 손님. 사용자가 다 올리기로 했고 기록의 review 에 적었다.

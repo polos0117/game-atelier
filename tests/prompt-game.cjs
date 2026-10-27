@@ -163,6 +163,8 @@ for (const gm of G) for (const stage of STAGES) {
   const t = P.buildPrompt({ outputMode: 'form', game: gm, stage, styleText: text });
   assert(t.includes('STANCE (this form): "' + q(gm.forms[stage].pose) + '"') && t.includes(T.handsPose) && !t.includes(T.handsDefault), gm.key + ' ' + stage + ' 폼 자세');
   assert(t.includes('HOLD BACK:') && Object.values(gm.opens).every(o => t.includes(q(o.scene))), gm.key + ' 개방 명장면은 폼 배경에서 뺀다');
+  // 마리오 엔딩 — 실루엣의 "한 주먹을 든다" 와 STANCE 의 "깃대를 두 손으로" 가 겹쳐 팔이 셋이 되려 했고, 깃발은 HOLD BACK 에 빠지고 깃대는 몸 앞을 가리면 안 됐다(2026-10-27)
+  assert(!t.includes('attitude: ') && t.includes('An object named in FORM or in her pose stays.') && t.includes('nothing in front of her but what she holds'), gm.key + ' 폼 자세와 부딪히는 줄');
 }
 assert(!P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, pose: 'standing' }).includes('STANCE'), '자세를 고르면 기본 자세 줄이 빠진다');
 assert(!S.ACTION_CONTROLS.some(c => c.key === 'equipment'), '무장 고르기가 없다');
