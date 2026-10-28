@@ -34,7 +34,7 @@ const opt = (extra = {}) => ({ viewport: { width: 390, height: 844 }, mobile: tr
     assert.equal(await p.locator('.home-dots .sprite-actor').count(), 2, '좁으면 둘');
     /* 띠는 스무 칸 아래라 화면 밖 — 재생기는 화면 밖이면 쉰다. 보이게 내려야 걷는다 */
     await p.locator('.home-dots').scrollIntoViewIfNeeded();
-    await p.waitForFunction(() => [...document.querySelectorAll('.home-dots .sprite-actor')].every(a => a.sprite.running), null, { timeout: 5000 });
+    await p.waitForFunction(() => [...document.querySelectorAll('.home-dots .sprite-actor')].every(a => a.sprite.running), null, { timeout: 10000 });
     const labels = await p.$$eval('.home-dots .sprite-actor', es => es.map(e => e.getAttribute('aria-label')));
     assert(labels.every(l => /도트 — 눌러서 도감 보기/.test(l)), '누르는 이름 — ' + labels.join(' | '));
     assert(labels.some(l => l.includes(title(A))) && labels.some(l => l.includes(title(B))), '이름은 게임 제목 — ' + labels.join(' | '));
@@ -63,7 +63,7 @@ const opt = (extra = {}) => ({ viewport: { width: 390, height: 844 }, mobile: tr
     assert.equal(await p.locator('.dex-dot').getAttribute('data-card'), A);
     assert.match(await p.locator('.dex-dot .sprite-actor').getAttribute('aria-label'), new RegExp(title(A) + ' 도트 — 눌러서 반응'));
     await p.locator('.dex-dot .sprite-actor').click({ force: true });
-    await p.waitForFunction(() => document.querySelector('.dex-dot .sprite-actor').sprite.debug().state === 'react', null, { timeout: 5000 });
+    await p.waitForFunction(() => document.querySelector('.dex-dot .sprite-actor').sprite.debug().state === 'react', null, { timeout: 10000 });
     assert.deepEqual(s.errors, []);
     await s.close();
     n++;

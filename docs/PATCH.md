@@ -11,6 +11,13 @@
 
 
 
+## 2026-10-28 · claude · 첫 화면 — 오락실(book 의 서재처럼): 배경 그림의 바닥을 도트가 거닐고, 아래 기기 줄
+- lib/arcade.js · lib/arcade.css — 오락실. 위는 배경 그림(그림 저장소 backgrounds/arcade.webp — 도트 공방과 같은 열쇠로 images/generations 1536×1024, 기록 records/backgrounds/arcade.json)의 융단 바닥을 도트 인물이 거니는 무대(좁으면 둘·넓으면 셋, 누르면 도감), 아래는 기기 줄 — 게임 한 편에 기기 하나(간판은 제목, 화면은 타이틀 썸네일, 없으면 「그림 준비 중」, 묶음 색), 누르면 도감. 사용자 「서재처럼 메인 화면 꾸며줘, 도트가 배경에서 돌아다니는 느낌」
+- index.html — 머리말 → 오락실 → 첫 묶음 카드 차례. 바닥 띠는 오락실 안으로(DotFloor 가 lib/arcade.js 로). lib/img.js 를 싣는다, words ?v=6
+- lib/words.js — home.arcade·home.arcade.scene·home.arcade.row·home.cabinet·home.cabinet.none, home.dot.floor·dex.dot.note 말 다듬음
+- tests/arcade-screen.cjs — 무대·기기 줄·첫 묶음 그대로·누르면 도감·네 크기. tests/dot-screen.cjs — 기다림 5초 → 10초(한 번 흔들렸다)
+- AGENTS.md — 화면 표·검사 목록
+
 ## 2026-10-28 · claude · 도트 둘 — 팩맨·데이브 더 다이브 4K
 - data/sprites.json — pacman(팩맨)·dave_the_diver(데이브 더 다이브) 인물 칸(card = 게임 열쇠). 사용자 「게임공방 도트케릭 2명」 — 아홉 편 타이틀 그림 중 내가 고른 둘. book 의 4K 길(2160×3840 원본 격자 그대로 · 칸 192×256 · dot 0.5)로 뽑아 game-atelier-img 의 sprites/<id>/ 에 올렸다(원본 gen1, 기록 records/sprites/<id>/*_4k.json). 팩맨 걷기는 첫 요청이 안전 필터에 막혀 생김새 줄을 다듬어 다시 받았다(대기·반응 원본은 그대로 씀 — 기록 note). 첫 화면 바닥 띠·도감 상세·목록 표에 저절로 선다
 
