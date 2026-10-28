@@ -11,6 +11,9 @@
 
 
 
+## 2026-10-28 · claude · 정할 것 — 권리사·이름 확정, 나머지 미룸
+- docs/GAME_CONCEPT.md 9절 — 첫 묶음 권리사는 그대로, 이름은 게임 공방(화면 이름 「게임의 공방」 그대로), Wikidata 빈칸은 나중에, 장르 상성은 보류, 안 쓴 머리 말 voluminous 는 다음 묶음에서(사용자).
+
 ## 2026-10-28 · claude · 그림 등록 자동화 — book 에서 옮기기
 - tools/register-images.py · tools/roster.py — 그림 저장소의 img/ 파일 이름을 읽어 data/img.json 에 적는다(등록한 날 added, 틀린 이름이 하나라도 있으면 저장하지 않고 실패). 지금까지는 그림마다 손으로 적었다.
 - tools/make-thumbs.py — book 의 썸네일 도구(--redo)에 pkm 의 열리지 않는 원본 건너뛰기(나머지는 만들고 2 로 끝남)를 더했다.
