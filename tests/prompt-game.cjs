@@ -34,6 +34,9 @@ for (const g of G) for (const stage of STAGES) {
   const open = P.buildPrompt({ outputMode: 'open', game: g, stage, styleText: text });
   assert(open.includes(q(g.opens[stage].scene)) && /^INPUT: attach this game's \w+ form card image/.test(open), g.key + ' ' + stage + ' 개방에 명장면');
   assert(open.includes('never a character or creature from the game'), '개방에도 게임 속 캐릭터는 없다');
+  /* 개방은 한 장 — 닫힘·개방을 나란히 그리지 않게. 「pair」·둘째 첨부는 없다(2026-10-28 2분할) */
+  assert(open.includes('exactly ONE standalone image showing ONLY the OPEN state') && open.includes(T.openSingle) && open.includes('serves only as the visual reference'), g.key + ' 개방 한 장');
+  assert(!/The pair|If a second image/.test(open), g.key + ' 개방에 두 장을 부르는 말');
   /* 원작 알아볼 거리 — 폼·개방에 SIGNATURE 다, 폼에는 그 폼의 원작풍 장비 GEAR(2026-10-28) */
   const sigLine = 'SIGNATURE (recognizable, as the game shows them): ' + g.signature.map(s => '"' + q(s) + '"').join(', ') + '.';
   for (const t of [create, ref, open]) assert(t.includes(sigLine), g.key + ' 알아볼 거리 줄');

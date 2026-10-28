@@ -11,6 +11,11 @@
 
 
 
+## 2026-10-28 · claude · 개방 컷 2분할 — 한 장만 그리게
+- lib/prompt-spec.js · lib/prompt-game.js — 개방 컷이 닫힘·개방을 좌우로 나란히 그린 2분할로 나왔다(사용자). 「The pair must read as the same picture before and after」 가 두 장을 그려 견주라는 말로 읽혔다. OUTPUT 은 이제 「개방 상태만 보여 주는 단 한 장, 첨부 그림은 참고일 뿐 결과에 넣지 않는다, 인물·구도는 그대로 두고 환경·빛·효과만 바꾼다」 이고, 그 뒤에 FRAME 줄(세로 2:3 한 장, 닫힘 그림·전후 비교·딥티크·분할·나란히·콜라주·여러 칸·겹친 모습 금지 — 한 장·한 명·한 장면)을 싣는다. INPUT 은 첨부 그림이 닫힘 상태의 참고라고만 말하고, 얼굴용 둘째 첨부(첫 그림)는 뺐다. prompt-spec v=13, prompt-game v=7.
+- tests/prompt-game.cjs — 개방에 한 장 줄·FRAME 줄이 있고 「The pair」·둘째 첨부가 없다.
+- IMAGE_RULES.md 2절 — 개방 첨부는 그 폼 그림 한 장만.
+
 ## 2026-10-28 · claude · 창세기전 3 — 시반 슈미터의 사막 전쟁으로 다시 짜기
 - data/game-design.json — 내가 쓴 창세기전 3 는 2편 느낌의 범용 판타지 마법 기사였다(사용자). 사용자가 준 설정대로 다시 짰다: 과거를 숨긴 사막 용병 지휘관, 복수·동료·형제애, 전장 자리 잡기·부대 지휘·전직·초필살기. 알아볼 거리 넷(시반 슈미터의 흰 두건·쌍검 / 장갑 마룡 아지다하카 — 그림자로만 / 투르 제국 황토색 요새·자비단 궁성 / 크림슨 크루세이더·철가면단의 진홍 군장·강철 가면). 폼은 사막 군영의 용병(돌파) → 자비단 궁성 성벽의 정예 지휘관(지원) → 파괴된 술탄궁의 비극적 전사(공격), 개방은 포위망 돌파의 모래폭풍·쌍검 궤적 / 불타는 자비단의 붉은 늑대 꼴 검기 / 형제의 최후 대결의 X자 검광. 실루엣은 운동형·두른 망토·모래 가죽·쌍검 자세·모래·진홍·검정, 얼굴 계통은 Middle Eastern. 정한 말 arcane_enamel·spell_sword·crimson_silver_violet 을 desert_wrap_leather·twin_blade_guard·sand_crimson_black 로 바꿨다.
 - lib/prompt-spec.js — 바꾼 정한 말의 영어. prompt-spec v=12.
