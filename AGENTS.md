@@ -19,7 +19,7 @@
 
 | 화면 | 파일 | 무엇 |
 |---|---|---|
-| 첫 화면 | `index.html` · `lib/arcade.js` · `lib/arcade.css` · `lib/home.css` | book 의 서재처럼 — **오락실**: 배경 그림(그림 저장소 `backgrounds/arcade.webp`, 도트 공방의 그리기로 받은 가로 그림, 기록 `records/backgrounds/arcade.json`)의 융단 바닥을 도트 인물(`data/sprites.json`)이 거닌다(누르면 그 게임의 도감, 도트가 없으면 띠째 없다). 그 아래 기기 줄 — 게임 한 편에 기기 하나(화면은 타이틀 그림 썸네일, 없으면 꺼진 화면), 누르면 도감. 그 아래 첫 묶음 카드(설계표 그대로)·패치 기록·공간 |
+| 첫 화면 | `index.html` · `lib/arcade.js` · `lib/arcade.css` · `lib/home.css` | book 의 서재처럼 — **오락실**: 배경 그림(공간마다 한 장 — 그림 저장소 `backgrounds/arcade-<테마>.webp`, 도트 공방의 그리기로 받은 가로 그림, 기록 `records/backgrounds/`)의 융단 바닥을 도트 인물(`data/sprites.json`)이 거닌다(누르면 그 게임의 도감, 도트가 없으면 띠째 없다). 그 아래 기기 줄 — 게임 한 편에 기기 하나(화면은 타이틀 그림 썸네일, 없으면 꺼진 화면), 누르면 도감. 그 아래 첫 묶음 카드(설계표 그대로)·패치 기록·공간 |
 | 도감 | `dex.html` · `lib/dex-filter.js` · `lib/img.js` · `lib/gallery.css` | book 서가에서 — 최근 추가·새 표·장르·거르기·작업 현황·나란히 보기(폼 셋·개방 셋)·화풍 비교·일상컷·크게 보기·넘기기·즐겨찾기(공방 모음 `a:'game'`)·도트(도트 있는 게임은 목록 칸에 「도트」 표, 상세에 작은 무대 한 줄 — `data/sprites.json`). 게임 글은 능력·폼 배경·그리지 않을 것·Wikidata 사실 칸. 등록부 `data/img.json` 에 적힌 것만 |
 | 프롬프트 | `prompt.html` · `lib/prompt-spec.js`(표) · `lib/prompt-game.js`(조립) · `lib/prompt-random.js` · `lib/prompt-ui.js` · `lib/figures.js` | 생성기 — 폼 초상·개방·일상컷. book 생성기에서 왔다. 게임 몫: 캐릭터 아님·그리지 않을 것 줄, 핵심 조작·시대 줄, 일상컷 게임 갈래 넷(게임 속 장소·오락실·게임 문화·개발실·스피드런·방송), 출시 당시 |
 

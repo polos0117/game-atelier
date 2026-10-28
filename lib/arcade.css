@@ -2,9 +2,20 @@
    그 바닥을 도트 인물(lib/sprite-actor.js)이 거닌다. 그 아래 기기 줄 — 게임 한 편에 기기 하나(화면은 타이틀 그림 썸네일), 누르면 도감.
    색은 배경 그림에 맞춘 어두운 보라 — 공간(테마)이 바뀌어도 오락실은 밤이다. 묶음 색만 lib/workspace.css 의 --g-* 를 쓴다 */
 .arcade {margin:18px 0 0}
+/* 공간(테마)마다 배경 한 장 — 그림 저장소 backgrounds/arcade-<테마>.webp(기록 records/backgrounds/). 기기 줄의 어둡기도 공간을 따른다 */
+:root {--arcade-bg:url("https://polos0117.github.io/game-atelier-img/backgrounds/arcade-sunlit.webp");--arcade-fill:#f3e9f2;
+  --arcade-row:linear-gradient(180deg,#f7eef5,#eadff0);--arcade-cab:#3a2d44;--arcade-cab2:#4a3a55;--arcade-screen:#1a1222}
+:root[data-theme="moonlit"] {--arcade-bg:url("https://polos0117.github.io/game-atelier-img/backgrounds/arcade-moonlit.webp");--arcade-fill:#1a1020;
+  --arcade-row:linear-gradient(180deg,#2a1830,#17101c);--arcade-cab:#241a2a;--arcade-cab2:#2c2033;--arcade-screen:#0b0710}
+:root[data-theme="hanok"] {--arcade-bg:url("https://polos0117.github.io/game-atelier-img/backgrounds/arcade-hanok.webp");--arcade-fill:#e9c89a;
+  --arcade-row:linear-gradient(180deg,#f6e8d2,#ecd9b8);--arcade-cab:#5a3a2a;--arcade-cab2:#6b4a36;--arcade-screen:#2a1c14}
+:root[data-theme="forest"] {--arcade-bg:url("https://polos0117.github.io/game-atelier-img/backgrounds/arcade-forest.webp");--arcade-fill:#3a2616;
+  --arcade-row:linear-gradient(180deg,#4a3320,#2e1f12);--arcade-cab:#2a1c10;--arcade-cab2:#3a2816;--arcade-screen:#140d08}
+:root[data-theme="phosphor"] {--arcade-bg:url("https://polos0117.github.io/game-atelier-img/backgrounds/arcade-phosphor.webp");--arcade-fill:#0e1611;
+  --arcade-row:linear-gradient(180deg,#14241a,#0a120d);--arcade-cab:#16241b;--arcade-cab2:#1d3024;--arcade-screen:#060b08}
 .arcade-scene {position:relative;height:clamp(260px,52vw,520px);overflow:hidden;border:1px solid var(--line);border-bottom:0;border-radius:18px 18px 0 0;
-  background:#1a1020 url("https://polos0117.github.io/game-atelier-img/backgrounds/arcade.webp") center bottom / cover no-repeat;image-rendering:pixelated}
-/* 넓은 화면은 그림(3:2)보다 무대가 납작하다 — 천장 등과 융단 아래쪽을 조금씩 잘라 기기 줄은 다 보이게 */
+  background:var(--arcade-fill) var(--arcade-bg) center bottom / cover no-repeat;image-rendering:pixelated}
+/* 넓은 화면은 그림(3:2)보다 무대가 납작하다 — 천장과 바닥 아래쪽을 조금씩 잘라 벽의 것들은 다 보이게 */
 @media (min-width:1000px) {
   .arcade-scene {background-position:center 62%}
 }
@@ -14,7 +25,7 @@
 .arcade-scene .home-dots .sprite-actor {pointer-events:auto}
 /* 기기 줄 — 옆으로 구른다(휴대폰은 좁으니 스무 대가 한 줄에 못 선다). 화면 폭을 넘치는 것은 이 줄 안에서만 */
 .arcade-row {display:flex;gap:10px;margin:0;padding:14px 12px 16px;list-style:none;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:thin;
-  background:linear-gradient(180deg,#2a1830,#17101c);border:1px solid var(--line);border-top:0;border-radius:0 0 18px 18px}
+  background:var(--arcade-row);border:1px solid var(--line);border-top:0;border-radius:0 0 18px 18px}
 .cabinet {--g:var(--accent);flex:0 0 112px;display:flex;flex-direction:column;color:#fff;text-decoration:none;scroll-snap-align:start;border-radius:10px}
 .cabinet[data-group="reflex"] {--g:var(--g-reflex)}
 .cabinet[data-group="growth"] {--g:var(--g-growth)}
@@ -22,10 +33,10 @@
 .cabinet[data-group="explore"] {--g:var(--g-explore)}
 .cabinet-marquee {display:block;padding:5px 7px;background:var(--g);color:#120b16;font:700 11px/1.3 var(--ui-font,sans-serif);text-align:center;border-radius:8px 8px 0 0;
   overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.cabinet-screen {display:block;aspect-ratio:3/4;overflow:hidden;background:#0b0710;border:4px solid #241a2a;border-top-width:6px}
+.cabinet-screen {display:block;aspect-ratio:3/4;overflow:hidden;background:var(--arcade-screen);border:4px solid var(--arcade-cab);border-top-width:6px}
 .cabinet-screen img {display:block;width:100%;height:100%;object-fit:cover;object-position:center top}
 .cabinet-off {display:grid;place-items:center;height:100%;padding:6px;color:#6b5a77;font-size:11px;line-height:1.4;text-align:center}
-.cabinet-panel {display:flex;justify-content:center;gap:6px;padding:7px 0 9px;background:#2c2033;border-radius:0 0 8px 8px}
+.cabinet-panel {display:flex;justify-content:center;gap:6px;padding:7px 0 9px;background:var(--arcade-cab2);border-radius:0 0 8px 8px}
 .cabinet-panel i {width:9px;height:9px;border-radius:50%;background:var(--g);box-shadow:0 0 6px var(--g)}
 .cabinet-panel i:nth-child(2) {background:#f4c542;box-shadow:0 0 6px #f4c542}
 .cabinet-panel i:nth-child(3) {background:#e94a6a;box-shadow:0 0 6px #e94a6a}

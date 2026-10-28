@@ -2,6 +2,7 @@
    - 무대가 선다(높이 260 이상), 그 안에 도트 바닥 띠 자리(인물은 tests/dot-screen.cjs 가 본다)
    - 기기 줄: 설계표의 게임 수만큼, 차례도 설계표대로, 간판은 제목, 묶음 색, 누르면 그 게임의 도감(?game=)
    - 그림이 등록된 게임은 화면에 썸네일 <img>, 없는 게임은 「그림 준비 중」
+   - 공간(테마) 다섯마다 배경 그림 arcade-<테마>.webp 가 다르고 기기 줄 색도 따라 바뀐다
    - 네 크기(344·390·844 가로·1280)에서 쪽이 옆으로 안 넘친다(기기 줄만 제 안에서 구른다), 화면 오류 없음
    ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/arcade-screen.cjs */
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path');
@@ -32,6 +33,20 @@ const withArt = games.filter(g => img[g.key]).map(g => g.key), noArt = games.fil
     await s.close();
     n += 4;
 
+    /* 공간마다 배경 한 장 — arcade-<테마>.webp, 기기 줄 색도 따라 바뀐다 */
+    const rows = {};
+    for (const theme of ['sunlit', 'moonlit', 'hanok', 'forest', 'phosphor']) {
+      s = await h.open('index.html', { viewport: { width: 390, height: 844 }, mobile: true, init: [t => { try { localStorage.setItem('game_room_v1', t); } catch (e) {} }, theme] }); p = s.page;
+      await p.waitForSelector('.arcade-row .cabinet', { timeout: 15000 });
+      const r = await p.evaluate(() => ({ theme: document.documentElement.dataset.theme, bg: getComputedStyle(document.querySelector('.arcade-scene')).backgroundImage, row: getComputedStyle(document.querySelector('.arcade-row')).backgroundImage }));
+      assert.equal(r.theme, theme);
+      assert(r.bg.includes('/backgrounds/arcade-' + theme + '.webp'), theme + ' 배경 — ' + r.bg);
+      rows[theme] = r.row;
+      await s.close();
+    }
+    assert.equal(new Set(Object.values(rows)).size, 5, '기기 줄 색은 공간마다 다르다');
+    n++;
+
     for (const [w, hh] of [[344, 882], [390, 844], [844, 390], [1280, 900]]) {
       s = await h.open('index.html', { viewport: { width: w, height: hh }, mobile: w < 1000 }); p = s.page;
       await p.waitForSelector('.arcade-row .cabinet', { timeout: 15000 });
@@ -44,5 +59,5 @@ const withArt = games.filter(g => img[g.key]).map(g => g.key), noArt = games.fil
       n++;
     }
   } finally { await h.stop(); }
-  console.log('PASS 오락실: ' + n + '가지 · 무대·바닥 띠 자리 · 기기 줄(게임마다 하나·차례·간판·묶음·길·그림/꺼짐) · 첫 묶음 그대로 · 누르면 도감 · 네 크기 옆으로 안 넘침');
+  console.log('PASS 오락실: ' + n + '가지 · 무대·바닥 띠 자리 · 기기 줄(게임마다 하나·차례·간판·묶음·길·그림/꺼짐) · 첫 묶음 그대로 · 누르면 도감 · 공간 다섯의 배경·기기 줄 색 · 네 크기 옆으로 안 넘침');
 })().catch(e => { console.error(e); process.exit(1); });

@@ -11,6 +11,10 @@
 
 
 
+## 2026-10-28 · claude · 오락실 배경 — 공간(테마)마다 한 장
+- lib/arcade.css — 배경이 공간을 따른다: 한낮의 오락실(arcade-sunlit)·심야 게임방(arcade-moonlit, 앞서 arcade.webp)·골목 문방구(arcade-hanok)·별장 거실(arcade-forest)·새벽 컴퓨터실(arcade-phosphor). 넷을 도트 공방의 그리기(images/generations 1536×1024)로 더 받아 그림 저장소 backgrounds/ 에, 기록 records/backgrounds/arcade-<테마>.json. 기기 줄·기기 몸통 색도 공간마다(--arcade-*). 사용자 「각 테마별로 배경도 바꿔줘」
+- tests/arcade-screen.cjs — 공간 다섯의 배경 주소·기기 줄 색
+
 ## 2026-10-28 · claude · 첫 화면 — 오락실(book 의 서재처럼): 배경 그림의 바닥을 도트가 거닐고, 아래 기기 줄
 - lib/arcade.js · lib/arcade.css — 오락실. 위는 배경 그림(그림 저장소 backgrounds/arcade.webp — 도트 공방과 같은 열쇠로 images/generations 1536×1024, 기록 records/backgrounds/arcade.json)의 융단 바닥을 도트 인물이 거니는 무대(좁으면 둘·넓으면 셋, 누르면 도감), 아래는 기기 줄 — 게임 한 편에 기기 하나(간판은 제목, 화면은 타이틀 썸네일, 없으면 「그림 준비 중」, 묶음 색), 누르면 도감. 사용자 「서재처럼 메인 화면 꾸며줘, 도트가 배경에서 돌아다니는 느낌」
 - index.html — 머리말 → 오락실 → 첫 묶음 카드 차례. 바닥 띠는 오락실 안으로(DotFloor 가 lib/arcade.js 로). lib/img.js 를 싣는다, words ?v=6
