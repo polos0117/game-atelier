@@ -19,8 +19,8 @@
 
 | 화면 | 파일 | 무엇 |
 |---|---|---|
-| 첫 화면 | `index.html` · `lib/home.css` | 첫 묶음(설계표를 그대로 읽어 한 편에 한 칸, 이름은 도감으로)·패치 기록·공간 |
-| 도감 | `dex.html` · `lib/dex-filter.js` · `lib/img.js` · `lib/gallery.css` | book 서가에서 — 최근 추가·새 표·장르·거르기·작업 현황·나란히 보기(폼 셋·개방 셋)·화풍 비교·일상컷·크게 보기·넘기기·즐겨찾기(공방 모음 `a:'game'`). 게임 글은 능력·폼 배경·그리지 않을 것·Wikidata 사실 칸. 등록부 `data/img.json` 에 적힌 것만 |
+| 첫 화면 | `index.html` · `lib/home.css` | 첫 묶음(설계표를 그대로 읽어 한 편에 한 칸, 이름은 도감으로)·그 아래 도트 바닥 띠(`data/sprites.json` 의 도트 게임이 거닌다, 누르면 그 게임의 도감 — 도트가 없으면 띠째 없다)·패치 기록·공간 |
+| 도감 | `dex.html` · `lib/dex-filter.js` · `lib/img.js` · `lib/gallery.css` | book 서가에서 — 최근 추가·새 표·장르·거르기·작업 현황·나란히 보기(폼 셋·개방 셋)·화풍 비교·일상컷·크게 보기·넘기기·즐겨찾기(공방 모음 `a:'game'`)·도트(도트 있는 게임은 목록 칸에 「도트」 표, 상세에 작은 무대 한 줄 — `data/sprites.json`). 게임 글은 능력·폼 배경·그리지 않을 것·Wikidata 사실 칸. 등록부 `data/img.json` 에 적힌 것만 |
 | 프롬프트 | `prompt.html` · `lib/prompt-spec.js`(표) · `lib/prompt-game.js`(조립) · `lib/prompt-random.js` · `lib/prompt-ui.js` · `lib/figures.js` | 생성기 — 폼 초상·개방·일상컷. book 생성기에서 왔다. 게임 몫: 캐릭터 아님·그리지 않을 것 줄, 핵심 조작·시대 줄, 일상컷 게임 갈래 넷(게임 속 장소·오락실·게임 문화·개발실·스피드런·방송), 출시 당시 |
 
 머리·항해·⚙ 설정은 `lib/workspace-ui.js`, 공간(테마)은 `lib/workspace-theme.js`·`lib/workspace.css`·`lib/room.css`.
@@ -28,6 +28,10 @@
 
 `lib/favorites.js` 는 공방 모음(polos0117.github.io)의 `favorites.js` 를 글자 하나 다르지 않게 복사한 공용 모듈이다(열쇠 `atelier_favorites_v1`).
 여기서 따로 고치지 않는다. 서가가 붙을 때 쓴다.
+
+도트 재생기 `lib/sprite-actor.js`·`lib/sprite-actor.css` 도 공방 모음의 `sprite-actor.js`·`.css` 를 글자 하나 다르지 않게 복사한 공용 모듈이다(약속 — `data/sprites.json` 꼴·API — 은 그쪽 README 「도트 재생기」절).
+여기서 따로 고치지 않는다 — 고치면 원본과 여섯 저장소를 같이, `node tests/sprite-actor-copy.cjs` 가 원본과 견준다. 게임의 도트는 공방 모음의 도트 공방(`dot.html`, 공방 「게임」)에서 만들어
+그림 저장소 `game-atelier-img` 의 `sprites/<id>/` 에 올리고, 「인물 칸 복사」가 주는 칸을 `data/sprites.json` 의 `actors` 에 넣는다(`card` 는 게임 열쇠 — 도감 `?game=`).
 
 ## 지켜야 할 것
 
@@ -96,8 +100,10 @@ node tests/patch.cjs                 # 패치 기록 모양
 python3 tests/register-images.py     # 그림 등록 — 이름 꼴·자리·등록한 날·틀린 이름은 저장 안 함
 python3 tests/make-thumbs.py         # 썸네일 도구 — 열리지 않는 원본은 건너뛰고 2 로 끝남 · --redo
 node tests/img-shards.cjs            # 그림 주소·등록기·워크플로·.gitignore 가 같은 저장소 차례
+node tests/sprite-actor-copy.cjs     # 도트 재생기 — lib/sprite-actor.js·.css 가 공방 모음 원본과 같다
 
 # 브라우저 — ESM_DIR 에 preact 가 든 node_modules, CHROMIUM_PATH 에 브라우저
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/prompt-screen.cjs   # 생성기
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/dex-screen.cjs      # 도감 — 옆에 ../game-atelier-img 가 있으면 그림까지
+ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/dot-screen.cjs      # 도트 — 첫 화면 바닥 띠·도감 상세 무대·목록 「도트」 표(시험 자료)
 ```

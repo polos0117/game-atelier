@@ -132,6 +132,11 @@ body {color:var(--text);font-size:15px}
 .card-nav #dex-card-next {justify-content:flex-end}
 .card-nav button:disabled {opacity:.35;cursor:default}
 .card-nav .card-count {flex:none;font:700 11px ui-monospace,monospace;color:var(--muted);white-space:nowrap}
+/* 도트 — 상세의 작은 무대 한 줄, 목록 칸의 「도트」 표(myth 도감에서 왔다) */
+.dex-dot {margin:14px 0 6px}.dex-dot[hidden] {display:none}
+.dex-dot-stage {position:relative;height:150px;overflow:hidden;border:1px solid var(--line);border-radius:12px;
+  background:linear-gradient(180deg,var(--card) 0,var(--card) 74%,color-mix(in srgb,var(--gold,#c9a227) 22%,var(--card)) 74%,var(--card) 100%)}
+.dot-badge {position:absolute;right:5px;bottom:5px;z-index:2;padding:2px 7px;border-radius:999px;background:#120f16d9;color:var(--gold,#e8c766);font:800 10px/1.4 var(--display,inherit);letter-spacing:.04em;pointer-events:none}
 /* 크게 보기 — myth 도감에서 왔다 */
 .zoom-layer {position:fixed;inset:0;z-index:50;display:flex;flex-direction:column;background:#0b0d12f2;color:#fff}
 .zoom-layer .zoom-bar {display:flex;align-items:center;gap:10px;padding:calc(10px + env(safe-area-inset-top)) 14px 8px;font:12px ui-monospace,monospace;letter-spacing:.06em}
@@ -179,6 +184,9 @@ body.zoomed {overflow:hidden}
 <script src="lib/dex-filter.js?v=1"></script>
 <!-- 즐겨찾기 — lib/favorites.js(공방들과 공방 모음이 글자 하나 다르지 않게 나눠 쓴다) -->
 <script src="lib/favorites.js?v=1"></script>
+<!-- 도트 — lib/sprite-actor.js(공방 모음의 공용 재생기) · data/sprites.json. 도트가 있는 게임은 목록 칸에 「도트」 표, 상세에 작은 무대 한 줄 -->
+<script src="lib/sprite-actor.js?v=1"></script>
+<link rel="stylesheet" href="lib/sprite-actor.css?v=1">
 <link rel="stylesheet" href="lib/gallery.css?v=2">
 <link rel="stylesheet" href="lib/landscape.css?v=1">
 <link rel="stylesheet" href="lib/room.css?v=4">
@@ -344,6 +352,26 @@ function Design({ card }) {
   </details>`;
 }
 
+/* 도트 자료 — 한 번만 받는다(목록 표). 상세의 무대는 AtelierSprite.mount 가 같은 자료로. 카드 열쇠는 게임 열쇠(card.key) */
+const SP = window.AtelierSprite;
+function useSprites() {
+  const [sp, setSp] = useState(null);
+  useEffect(() => { let live = true; SP && SP.load('data/sprites.json').then(d => { if (live && d && d.actors) setSp(d); }, () => {}); return () => { live = false; }; }, []);
+  return sp;
+}
+/* 도트 — 이 게임의 도트가 있으면 작은 무대 한 줄(거닐고, 누르면 반응). 없거나 그림을 못 받으면 아무것도 없다 */
+function DotRow({ card }) {
+  const box = useRef(null), [on, setOn] = useState(false);
+  useEffect(() => {
+    if (!SP || !box.current) return;
+    let live = true, a = null;
+    SP.mount(box.current, card.key, { label: W('dex.dot.actor', { name: card.name }) }).then(x => { if (!live) { if (x) x.destroy(); return; } a = x; setOn(!!x); });
+    return () => { live = false; if (a) a.destroy(); setOn(false); };
+  }, [card.key]);
+  return html`<section class="dex-dot" hidden=${!on} data-card=${card.key} aria-labelledby="dex-dot-title">
+    <p class="sec" id="dex-dot-title">${W('dex.dot.title')}<span>${W('dex.dot.note')}</span></p>
+    <div class="dex-dot-stage" ref=${box}></div></section>`;
+}
 function Detail({ card, entry, defs, styleName, selection, nav, onGo, onClose }) {
   const want = wanted(defs);
   const keys = IMG.styleKeys(entry || {});
@@ -443,6 +471,7 @@ function Detail({ card, entry, defs, styleName, selection, nav, onGo, onClose })
         <p class="editorial-kicker">${card.genre} · ${W('home.group.' + card.group)} · ${W('game.era.' + card.era)}</p>
     <p class="sec">${W('game.persona')}</p>
     <p class="persona">${card.persona}</p>
+    <${DotRow} card=${card} />
     <div class="bar-links">
       <div class="bar-row bar-keep" role="group" aria-label=${W('dex.bar.keep')}>
         ${shown && html`<span class="bar-pair"><button type="button" class="fav-heart" id="dex-fav" aria-pressed=${faved} disabled=${!FAV} title=${W('dex.fav.note')}
@@ -635,6 +664,7 @@ function Recent({ rows, fresh, defs, onOpen }) {
 }
 
 function List({ st, filters, onFilter, onOpen, compact, onCompact, restore }) {
+  const sprites = useSprites();
   const f = FILTER.normalize(filters, st);
   const [filtersOpen, setFiltersOpen] = useState(() => ['style', 'form', 'art'].some(k => f[k]) || f.cut !== 'auto');
   /* 상세에서 돌아오면 열기 전에 굴려 둔 자리로. 상세에서 다른 게임으로 넘어갔으면 그 게임 칸이 보이게 한 번 더 민다 */
@@ -701,7 +731,7 @@ function List({ st, filters, onFilter, onOpen, compact, onCompact, restore }) {
             onClick=${() => onOpen(shot)}>
             <span class="face">${shot.file
               ? html`<${Pic} file=${shot.file} alt=${c.name + ' · ' + shotLabel(shot, st.defs)} />`
-              : html`<span class="ph">${W('art.none')}</span>`}${isNew(shot) && html`<span class="new-badge" title=${W('dex.new.label')}>${W('dex.new.badge')}</span>`}</span>
+              : html`<span class="ph">${W('art.none')}</span>`}${isNew(shot) && html`<span class="new-badge" title=${W('dex.new.label')}>${W('dex.new.badge')}</span>`}${SP && sprites && SP.actorFor(sprites, c.key) ? html`<span class="dot-badge" title=${W('dex.dot.label')}>${W('dex.dot.badge')}</span>` : ''}</span>
             <span class="cap"><span class="card-meta"><span>${c.genre}</span><span>${String(st.cards.indexOf(c) + 1).padStart(2, '0')}</span></span>
               <strong>${c.name}</strong><i class="card-author">${subOf(c)}</i>
               <span class="card-caption">${shot.file ? shotLabel(shot, st.defs) : W('art.none')}</span>

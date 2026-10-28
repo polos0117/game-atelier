@@ -11,6 +11,15 @@
 
 
 
+## 2026-10-28 · claude · 도트 공방과 연결 — 재생기·인물 자료·바닥 띠·도감 도트 줄
+- lib/sprite-actor.js · lib/sprite-actor.css — 공방 모음의 공용 도트 재생기 복사(글자 하나 다르지 않게). 사용자 「게임 공방도 도트 공방이랑 연결」
+- data/sprites.json — 인물 자료(비어 있다). 도트 공방(dot.html 「게임」)의 「인물 칸 복사」가 주는 칸을 actors 에 넣는다, 그림은 game-atelier-img 의 sprites/<id>/
+- index.html — 첫 묶음 아래 도트 바닥 띠(.home-dots): 도트 게임이 거닌다, 이름은 게임 제목, 누르면 그 게임의 도감. 인물이 없으면 띠째 없다
+- dex.html — 도트 있는 게임은 목록 칸에 「도트」 표, 상세의 인격 아래 작은 무대 한 줄(카드 열쇠 = 게임 열쇠)
+- lib/words.js — home.dot.* · dex.dot.*
+- tests/sprite-actor-copy.cjs · tests/dot-screen.cjs · tests/fixtures/make-sprites.py — 복사본 검사, 도트 화면 검사(시험 자료)
+- AGENTS.md — 화면 표·공용 모듈·검사 목록에 도트
+
 ## 2026-10-28 · claude · 삼국지 조조전 — 조조의 전직(군웅→군주→패왕)으로 다시 짜기
 - data/game-design.json — 내가 쓴 조조전은 조조를 책사로 그렸고 적벽(조조가 진 싸움)을 명장면으로 넣었다(사용자가 고침). 이제 조조 중심: 레벨이 오르면 군웅→군주→패왕으로 전직하고, 다른 장수들의 병과 전직은 배경(병과마다 다른 깃발). 타이틀은 황건의 난의 초라한 군웅(낡은 무명 전포·작은 관), 중반은 관도대전의 군주(검은 옻칠 비늘 갑옷 — 개방은 오소 군량고 기습), 엔딩은 천하통일의 패왕(금실 용무늬 예복·면류관). 알아볼 거리·상징·능력·규칙·말·place 도 그에 맞췄다. 4막 무렵의 가상 시나리오(죽을 장수를 살리기 등)는 넣지 않았다(사용자 — 논외). 자세의 정한 말 fan_command 를 sword_command 로 바꿨다(부채는 조조가 아니다).
 - lib/prompt-spec.js — sword_command 의 영어. prompt-spec v=14.
