@@ -2,7 +2,7 @@
 
 `polos0117/game-atelier` 에서 게임 인물 그림을 만들고 등록하는 AI 와 작업자를 위한 선행 문서다.
 생성 전, 올리기 전, 이름을 붙이기 전, 멈춘 작업을 다시 잇기 전에 읽는다.
-book-atelier 의 `IMAGE_RULES.md` 에서 왔다(한 게임 = 폼 셋 + 개방 셋 + 일상컷). 서가·등록 워크플로는 아직 없다 — 4절.
+book-atelier 의 `IMAGE_RULES.md` 에서 왔다(한 게임 = 폼 셋 + 개방 셋 + 일상컷). 등록은 올리면 자동이다 — 4절.
 
 ## 1. 반드시 지킬 것
 
@@ -71,14 +71,21 @@ book-atelier 의 `IMAGE_RULES.md` 에서 왔다(한 게임 = 폼 셋 + 개방 �
 **기록**: 생성기의 "기록 내보내기" 가 주는 JSON 을 그림 저장소의 `records/<게임>/<자리>-ui.json` 에 둔다
 (자리 = `title`, `title_open`, `casual3` …). 원본 PNG 의 sha256 도 여기에 적는다.
 
-## 4. 등록 — 아직 손으로
+## 4. 등록 — 올리면 자동이다 (2026-10-28)
 
-서가와 등록 워크플로(`tools/register-images.py`·썸네일)는 시범 그림 뒤에 book 에서 옮긴다(`docs/GAME_CONCEPT.md` 8절).
-그때까지는:
+book 에서 옮겼다. 그림 저장소에 올리면 썸네일과 등록이 알아서 된다.
 
 1. 결과를 사람에게 보여 주고 "올릴까?" 를 묻는다.
-2. webp 로 바꿔 `game-atelier-img` 의 `img/` 에, 기록은 `records/` 에 일반 push 한다.
-3. 코드 저장소의 `data/img.json` 에 손으로 적는다(꼴은 `lib/img.js` 머리말) — 생성기의 ✓·◐ 표시와 등록 그림 보기가 이것만 읽는다.
+2. webp 로 바꿔 `game-atelier-img` 의 `img/` 에, 기록은 `records/` 에 일반 push 한다. 썸네일은 만들지 않는다.
+3. 그림 저장소의 `썸네일` 워크플로가 `img/thumb/` 를 만들어 되커밋하고, 코드 저장소의 `그림 등록` 을 깨운다
+   (그림 저장소의 Actions 비밀 `CODE_REPO_TOKEN` 이 있을 때. 없으면 코드 저장소가 한 시간마다 스스로 돈다 — 기다리기 싫으면 Actions 의 Run workflow).
+4. `그림 등록` 이 `tools/register-images.py` 로 파일 이름을 읽어 `data/img.json` 에 적고 등록한 날(`added`)을 남겨 되커밋한다.
+   이름 꼴(3절)이 틀린 파일이 하나라도 있으면 아무것도 쓰지 않고 실패한다 — 실행 요약에 그 파일과 까닭이 적힌다.
+5. `썸네일` 실행이 초록인지, `그림 등록` 커밋이 생겼는지 본다. `열리지 않는 그림` 단계가 빨가면 덜 올라간 그림(0바이트 등)이 있다 —
+   그 파일을 다시 올린다. 나머지 썸네일은 이미 되커밋됐다.
+
+`data/img.json` 을 손으로 고치지 않는다. 자리에서 직접 돌리려면 `game-atelier-img` 를 옆에 받고 `ln -s ../game-atelier-img/img img` 뒤
+`python3 tools/register-images.py --check`(무엇이 바뀌나) · `python3 tools/register-images.py`.
 
 ## 5. 중단과 재개
 

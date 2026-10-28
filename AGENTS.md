@@ -1,6 +1,6 @@
 # 작업 지침
 
-**뼈대 · 게임 설계표 · 사실 자료 도구 · 생성기** 까지 왔다. 다음은 시범 그림 세 편, 그다음 서가와 그림 등록(`docs/GAME_CONCEPT.md` 8절).
+**뼈대 · 게임 설계표 · 사실 자료 도구 · 생성기 · 시범 그림 · 도감 · 그림 등록 자동화** 까지 왔다. 다음은 남은 네 편 그림, 그다음 결투(`docs/GAME_CONCEPT.md` 8절).
 뼈대는 book-atelier 에서 가져왔다 — 무엇을 어디서 가져왔는지는 `docs/PORT_NOTES.md`.
 
 ## 먼저 읽을 것
@@ -59,7 +59,7 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 ### 5. 그림은 이 저장소에 두지 않는다
 
 그림은 `game-atelier-img` 에 올린다. `img/` 는 `.gitignore` 에 있다. 원본 PNG 는 올리지 않는다.
-그림 규칙은 `IMAGE_RULES.md`. 등록 워크플로는 서가와 함께 book 에서 옮긴다 — 그때까지 `data/img.json` 은 손으로 적는다.
+그림 규칙은 `IMAGE_RULES.md`. 그림 저장소에 올리면 썸네일(`game-atelier-img` 워크플로)과 등록(`그림 등록` 워크플로 · `tools/register-images.py`)이 알아서 된다 — `data/img.json` 은 손으로 고치지 않는다(IMAGE_RULES 4절).
 
 설계표에 새 정한 말(vocab)을 더하면 `lib/prompt-spec.js` 의 `VOCAB_EN` 에 영어도 더한다(`node tests/prompt-game.cjs` 가 본다).
 일상컷 갈래는 공방들이 같이 쓰는 것 + 게임 몫 넷이다. 책 세계관 갈래(서고의 일상·이야기 속 장소·무대 각색·낭독회)는 가져오지 않는다.
@@ -89,6 +89,9 @@ python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응�
 node tests/prompt-game.cjs           # 프롬프트 — 열 편 × 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 게임 갈래, 출시 당시, 길이
 node tests/words.cjs                 # 낱말 표
 node tests/patch.cjs                 # 패치 기록 모양
+python3 tests/register-images.py     # 그림 등록 — 이름 꼴·자리·등록한 날·틀린 이름은 저장 안 함
+python3 tests/make-thumbs.py         # 썸네일 도구 — 열리지 않는 원본은 건너뛰고 2 로 끝남 · --redo
+node tests/img-shards.cjs            # 그림 주소·등록기·워크플로·.gitignore 가 같은 저장소 차례
 
 # 브라우저 — ESM_DIR 에 preact 가 든 node_modules, CHROMIUM_PATH 에 브라우저
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/prompt-screen.cjs   # 생성기

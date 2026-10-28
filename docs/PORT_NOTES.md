@@ -29,6 +29,16 @@
 | `IMAGE_RULES.md` | 게임 몫으로 다시 썼다 — 캐릭터 아님·소품 일반화·원본 PNG 안 올림·올리기 전 묻기, 등록은 아직 손으로 |
 | `tests/prompt-game.cjs` · `tests/prompt-screen.cjs` · `tests/browser-harness.cjs` | 책 몫 검사를 빼고 게임 몫을 더했다 |
 
+## 그림 등록 — book (2026-10-28)
+
+| 파일 | 바꾼 것 |
+|---|---|
+| `tools/roster.py` | 책 설계표 → `data/game-design.json` 의 games, 폼 title · middle · ending |
+| `tools/register-images.py` · `tests/register-images.py` | 책 → 게임 말, 그림 저장소 `game-atelier-img` |
+| `tools/make-thumbs.py` · `tests/make-thumbs.py` | book 의 것(`--redo`) + pkm 의 열리지 않는 원본 건너뛰기(2 로 끝남) |
+| `.github/workflows/register-images.yml` · `tests/img-shards.cjs` | 받는 저장소 `game-atelier-img`, 시간표 매시 23분 |
+| `game-atelier-img/.github/workflows/thumbs.yml` | book 의 것 + 썸네일 단계 continue-on-error 와 `열리지 않는 그림` 단계(pkm) |
+
 ## 새로 만든 것
 
 - `index.html` · `lib/home.css` — 첫 화면. 서재(책장)를 옮기지 않고, 설계표의 첫 묶음을 한 편에 한 칸으로 보인다.
@@ -38,6 +48,5 @@
 ## 아직 안 가져온 것
 
 - 서가의 책 몫 — 장정 틀(`lib/book-frame.js`)·도트 줄·닮은 그림·모자이크·진열·움직임. 도감 자체는 2026-10-26 에 옮겼다(`dex.html`).
-- 그림 등록(`tools/register-images.py`·워크플로)·썸네일 워크플로 — 지금은 손으로 적는다(IMAGE_RULES 4절).
 - 결투(`duel.html`·`lib/duel.js`)·탐험·모자이크·도트 진열실·움직임(`lib/scene-motion.js`) — 결투 단계에서.
   설계표 `opens[*].particles` 는 book 의 입자 정한 말을 그대로 써서, 움직임을 옮기면 바로 잇는다.

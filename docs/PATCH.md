@@ -11,6 +11,16 @@
 
 
 
+## 2026-10-28 · claude · 그림 등록 자동화 — book 에서 옮기기
+- tools/register-images.py · tools/roster.py — 그림 저장소의 img/ 파일 이름을 읽어 data/img.json 에 적는다(등록한 날 added, 틀린 이름이 하나라도 있으면 저장하지 않고 실패). 지금까지는 그림마다 손으로 적었다.
+- tools/make-thumbs.py — book 의 썸네일 도구(--redo)에 pkm 의 열리지 않는 원본 건너뛰기(나머지는 만들고 2 로 끝남)를 더했다.
+- .github/workflows/register-images.yml — 그림 저장소가 깨우면(repository_dispatch), 매시 23분, Run workflow 로 등록하고 되커밋한다. 검사(img-shards·register-images)가 깨지면 커밋하지 않는다.
+- game-atelier-img/.github/workflows/thumbs.yml — img/*.webp 를 올리면 썸네일을 만들어 되커밋하고 코드 저장소를 깨운다(CODE_REPO_TOKEN 이 있을 때). 열리지 않는 그림이 있어도 나머지는 되커밋하고 실행을 빨갛게 남긴다.
+- tests/register-images.py · tests/make-thumbs.py · tests/img-shards.cjs — book·pkm 의 같은 검사를 게임 말로.
+- data/img.json — 등록기가 다시 썼다. 내용(img·added)은 손으로 적은 것과 같고 줄 모양과 count 만 바뀌었다.
+- .gitignore — `img/` 를 `/img` 로(등록기가 잇는 자리, 검사가 본다).
+- IMAGE_RULES.md 4절 · AGENTS.md · docs/PORT_NOTES.md · docs/GAME_CONCEPT.md — 등록은 올리면 자동, 손으로 고치지 않는다. 만드는 순서의 "여기까지" 를 서가 단계로.
+
 ## 2026-10-27 · claude · 헤어스타일 — 여성 머리 여섯 더하기
 - lib/prompt-spec.js — 생성기 헤어스타일에 아프로 · 아프로 퍼프 · 박스 브레이드 · 콘로 · 피시테일 땋기 · 비치 웨이브를 더했다(라벨·설명·견본 그림 수치). pkm 과 같은 말이다 — 아프로·브레이드 계열이 표에 없었다(사용자). prompt.html 판 올림.
 
