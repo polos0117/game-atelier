@@ -563,7 +563,7 @@
    "avoid": [
     "입 벌린 노란 원형 캐릭터",
     "유령 넷의 모양과 빨강·분홍·하늘·주황 조합",
-    "타이틀 글자·점수판 UI"
+    "타이틀 글자"
    ]
   },
   {
@@ -815,8 +815,7 @@
    "place": "a snowy plaza paved in a perfect grid of colored stone tiles, with stacked cube sculptures",
    "rights": "테트리스 컴퍼니 — 이름과 블록 모양 조합이 상표·디자인으로 관리된다. 비상업 팬작업으로만",
    "avoid": [
-    "TETRIS 로고·타이틀 글자",
-    "점수·단계 UI"
+    "TETRIS 로고·타이틀 글자"
    ],
    "pilot": {
     "form": "타이틀",
@@ -972,8 +971,7 @@
    "place": "a bright meadow of rolling green hills, floating brick platforms and a tall flagpole at the far end",
    "rights": "닌텐도 — 이름과 캐릭터의 상표 관리가 엄격하다. 비상업 팬작업으로만",
    "avoid": [
-    "콧수염·빨간 모자·M 글자",
-    "멜빵바지 배관공 차림",
+    "콧수염 난 얼굴",
     "얼굴 있는 버섯·거북 캐릭터",
     "로고·타이틀 글자"
    ]
@@ -1132,8 +1130,7 @@
    "place": "a windswept overworld of tan cliffs, scattered boulders and a dark cave mouth beside a lake",
    "rights": "닌텐도 — 이름과 캐릭터의 상표 관리가 엄격하다. 비상업 팬작업으로만",
    "avoid": [
-    "초록 고깔모자·초록 튜닉 차림",
-    "공주·적 캐릭터의 얼굴",
+    "원작 주인공·공주·적 캐릭터의 얼굴",
     "로고·타이틀 글자"
    ]
   },
@@ -1342,9 +1339,8 @@
    "rights": "스퀘어 에닉스 — 이름이 상표다. 캐릭터·몬스터 디자인을 따라 그리지 않는다",
    "avoid": [
     "웃는 얼굴의 물방울 괴물(슬라임)",
-    "원작 캐릭터·몬스터 디자인",
-    "로고·타이틀 글자",
-    "명령창·대화창 UI"
+    "원작 캐릭터의 얼굴·몬스터 디자인",
+    "로고·타이틀 글자"
    ],
    "pilot": {
     "form": "타이틀",
@@ -1600,10 +1596,9 @@
    "place": "a rooftop fighting ring under neon signs at dusk, with rope barriers and a city skyline",
    "rights": "캡콤 — 이름과 캐릭터가 상표다. 원작 격투가들의 차림과 기술 모양을 따라 그리지 않는다",
    "avoid": [
-    "흰 도복과 붉은 머리띠",
-    "치파오와 둥근 머리 장식",
+    "원작 격투가들의 얼굴",
     "손에서 쏘는 기공 구체",
-    "체력 바·VS 글자"
+    "VS·KO 글자"
    ]
   },
   {
@@ -1900,7 +1895,6 @@
    "place": "a hilltop overlooking a growing city grid at dusk, with surveying tools and a construction crane",
    "rights": "EA(맥시스) — 이름이 상표다. 원작 화면의 건물 아이콘·UI 를 그리지 않는다",
    "avoid": [
-    "원작 건물 아이콘·도구 막대 UI",
     "재난 괴물",
     "타이틀 글자"
    ]
@@ -2081,9 +2075,8 @@
    "avoid": [
     "외계 곤충형 생물(저그)",
     "사이오닉 종족의 얼굴",
-    "원작 인물(레이너·케리건 등)",
-    "로고·타이틀 글자",
-    "미니맵·자원 UI"
+    "원작 인물(레이너·케리건 등)의 얼굴",
+    "로고·타이틀 글자"
    ]
   },
   {
@@ -2390,10 +2383,8 @@
    "place": "a sunny countryside of cube-shaped hills, a small block cabin and a mine entrance",
    "rights": "마이크로소프트(모장) — 이름이 상표다. 원작 캐릭터 차림과 괴물 얼굴을 그리지 않는다",
    "avoid": [
-    "하늘색 티셔츠·청바지의 정사각 인물",
-    "초록 폭발 괴물 얼굴",
-    "정육면체 머리",
-    "아이템 칸 UI"
+    "정사각 몸·정육면체 머리의 인물",
+    "초록 폭발 괴물 얼굴"
    ]
   },
   {
@@ -2585,7 +2576,7 @@
    "place": "a ruined gothic shrine on a cliff with a lone bonfire, ash drifting over broken stone stairs",
    "rights": "반다이남코·프롬소프트웨어 — 이름이 상표다. 원작 기사·보스 디자인을 따라 그리지 않는다",
    "avoid": [
-    "원작 기사 갑옷(둥근 양파 투구 포함)",
+    "원작 인물의 얼굴",
     "원작 보스 디자인",
     "죽음 알림 글자",
     "로고·타이틀 글자"
@@ -2643,7 +2634,7 @@
      "role": "버티기",
      "pose": "방패를 앞에 세우고 뒤를 감싸듯 버티는 자세",
      "setting": "알터랙 계곡 같은 눈 덮인 골짜기 — 양쪽 요새에 파랑·금 깃발과 붉은·검은 깃발이 마주 선다",
-     "homage": "얼라이언스 성기사의 금빛 판금과 호드 전사의 가시 박힌 붉은 철갑을 반씩 — 두 진영의 대립을 한 몸에"
+     "homage": "얼라이언스 성기사의 금빛 판금과 호드 전사의 가시 철갑을 반씩"
     },
     "엔딩": {
      "look": "용암빛 룬 보석이 박힌 공격대 갑옷과 불길에 그을린 끌리는 긴 망토",
@@ -2690,10 +2681,9 @@
    "rights": "블리자드 — 이름과 종족·진영 디자인이 상표다. 원작 종족과 문장을 그리지 않는다",
    "avoid": [
     "원작 종족(오크·언데드 등)의 얼굴",
-    "원작 인물(스랄·제이나 등)",
+    "원작 인물(스랄·제이나 등)의 얼굴",
     "라그나로스 등 원작 우두머리의 모습",
-    "로고·타이틀 글자",
-    "퀘스트 표시·체력 바 UI"
+    "로고·타이틀 글자"
    ],
    "series": [],
    "pilot": null,
@@ -2865,10 +2855,9 @@
    "place": "a war-torn fantasy continent of misty highland castles, burning battle plains and a sky temple above the clouds",
    "rights": "소프트맥스(현 권리사) — 이름과 캐릭터·마장기 디자인이 상표·저작물이다. 원작 인물과 로봇을 따라 그리지 않는다",
    "avoid": [
-    "원작 주인공·인물 초상",
+    "원작 주인공·인물의 얼굴",
     "마장기(원작 거대 로봇) 디자인",
-    "타이틀 글자·로고",
-    "전투 칸·명령 UI"
+    "타이틀 글자·로고"
    ],
    "series": [],
    "pilot": null,
@@ -3011,9 +3000,8 @@
    "place": "a Three Kingdoms era China of river battlefields, hilltop war camps under banners and a vermilion-pillared palace",
    "rights": "코에이 테크모 — 이름이 상표다. 원작 무장 초상(조조·관우 등)을 따라 그리지 않는다",
    "avoid": [
-    "원작 무장 초상(조조·관우 등)",
-    "코에이 로고·타이틀 글자",
-    "전장 칸·명령창 UI"
+    "원작 무장 초상(조조·관우 등)의 얼굴",
+    "코에이 로고·타이틀 글자"
    ],
    "series": [],
    "pilot": null,
@@ -3161,10 +3149,9 @@
    "place": "a sun-drenched coastal megacity with palm-lined highways, neon downtown overpasses and hillside mansions",
    "rights": "락스타 게임즈·테이크투 — 이름과 로고가 상표다. 원작 주인공과 실제 상표 차량·간판을 그리지 않는다",
    "avoid": [
-    "원작 주인공 셋의 얼굴·차림",
+    "원작 주인공 셋의 얼굴",
     "GTA 로고·타이틀 글자",
-    "실제 상표 차량·간판",
-    "미니맵·수배 별 UI"
+    "실제 상표 차량·간판"
    ],
    "series": [],
    "pilot": null,
@@ -3407,9 +3394,8 @@
    "place": "a mystical jungle canyon split by three stone paths, a river through its center and two crystal-cored fortresses at either end",
    "rights": "라이엇 게임즈 — 이름과 챔피언 디자인이 상표·저작물이다. 원작 챔피언을 따라 그리지 않는다",
    "avoid": [
-    "원작 챔피언의 얼굴·차림",
-    "로고·타이틀 글자",
-    "미니맵·스킬 UI"
+    "원작 챔피언의 얼굴",
+    "로고·타이틀 글자"
    ],
    "series": [],
    "pilot": null,
@@ -3602,9 +3588,8 @@
    "place": "a dark Slavic fantasy land of foggy swamp villages, storm-beaten island cliffs and sunlit southern vineyards",
    "rights": "CD 프로젝트 레드 — 이름과 인물 디자인이 상표·저작물이다. 원작 주인공(흰머리 위처)과 인물을 따라 그리지 않는다",
    "avoid": [
-    "원작 주인공(흰머리 위처)·시리의 얼굴과 차림",
-    "로고·타이틀 글자",
-    "체력·징후 UI"
+    "원작 주인공(흰머리 위처)·시리의 얼굴",
+    "로고·타이틀 글자"
    ],
    "series": [],
    "pilot": null,
@@ -3798,8 +3783,7 @@
    "rights": "파이락시스·2K — 이름이 상표다. 실제 역사 지도자의 얼굴과 원작 화면을 그리지 않는다",
    "avoid": [
     "실제 역사 지도자의 얼굴",
-    "로고·타이틀 글자",
-    "육각 지도·기술 나무 UI"
+    "로고·타이틀 글자"
    ],
    "series": [],
    "pilot": null,
@@ -3977,9 +3961,8 @@
    "place": "a storybook fantasy realm of winding dirt roads, windmills, torch-lit mines and towering many-spired castles",
    "rights": "유비소프트(옛 뉴 월드 컴퓨팅·3DO) — 이름이 상표다. 원작 영웅 초상과 생물 디자인을 따라 그리지 않는다",
    "avoid": [
-    "원작 영웅 초상·생물 디자인",
-    "로고·타이틀 글자",
-    "모험 지도·전투 칸 UI"
+    "원작 영웅의 얼굴·생물 디자인",
+    "로고·타이틀 글자"
    ],
    "series": [],
    "pilot": null,
@@ -4162,9 +4145,8 @@
    "place": "a sunny tropical sea with a small fishing boat, a glowing coral reef, a mysterious deep blue hole and a cozy seaside sushi bar",
    "rights": "넥슨(민트로켓) — 이름과 인물 디자인이 저작물이다. 원작 주인공과 가게 인물을 따라 그리지 않는다",
    "avoid": [
-    "원작 주인공(통통한 잠수부)과 가게 인물",
-    "로고·타이틀 글자",
-    "산소·무게 게이지 UI"
+    "원작 주인공(통통한 잠수부)·가게 인물의 얼굴과 몸",
+    "로고·타이틀 글자"
    ],
    "series": [],
    "pilot": null,
@@ -4342,9 +4324,8 @@
    "place": "the Age of Discovery seas — misty European harbors full of tall ships, sun-baked spice ports and the open ocean beyond the map",
    "rights": "코에이 테크모 — 이름이 상표다. 원작 주인공·선원 초상을 따라 그리지 않는다",
    "avoid": [
-    "원작 주인공·선원 초상",
-    "코에이 로고·타이틀 글자",
-    "항해 지도·교역 UI"
+    "원작 주인공·선원의 얼굴",
+    "코에이 로고·타이틀 글자"
    ],
    "series": [],
    "pilot": null,
