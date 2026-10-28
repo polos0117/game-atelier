@@ -112,6 +112,12 @@ assert(plain.includes('STYLE: ' + cur.casual) && !plain.includes('STYLE: ' + tex
 assert(cur.casual.includes('fabric and accessory') && text.includes('costume and accessory'), '화풍 판 — 폼은 costume, 일상은 fabric');
 assert(plain.includes(T.casualWardrobe) && plain.includes(T.casualPose), '옷·각도 줄');
 for (const x of [{ orient: 'rear_3q' }, { orient: 'over_shoulder' }, { pose: 'turning_back' }]) assert(cas('game_place', 'gp_walk', x).includes(T.casualLookBack), '뒤돌아보기 ' + JSON.stringify(x));
+/* 일상컷 화면비 — 기본 2:3 도 늘 FRAME 줄로 싣는다. 고르면 그 비율 하나만(SCENE 에 겹쳐 싣지 않는다) */
+assert(plain.includes('FRAME: a vertical 2:3 (1024×1536) image.') && !plain.includes('Aspect ratio'), '일상컷 FRAME 기본 2:3');
+for (const [a, w] of [['3:2', 'a horizontal 3:2 (1536×1024)'], ['1:1', 'a square 1:1'], ['9:16', 'a tall vertical 9:16'], ['16:9', 'a wide horizontal 16:9']]) {
+  const t = cas('game_place', 'gp_walk', { aspect: a });
+  assert(t.includes('FRAME: ' + w) && !t.includes('2:3') && !t.includes('Aspect ratio'), '일상컷 FRAME ' + a);
+}
 assert(!cas('game_place', 'gp_walk', { orient: 'front_3q' }).includes('LOOK-BACK:'), '앞모습엔 뒤돌아보기 줄 없음');
 /* 출시 당시 — 받은 연도가 있으면 그 해, 없으면 시대 */
 const gu = { ...g, facts: { ...g.facts, year: null } };
