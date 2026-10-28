@@ -1,5 +1,174 @@
 {
- "_": "도트 인물 — 약속은 공방 모음(polos0117.github.io) README 「도트 재생기」. 인물마다 card(게임 열쇠 = 도감 ?game=) · id · cell · foot · scale · dot · flip · facing · states(still · idle · walk · react). 인물 칸은 공방 모음의 도트 공방(dot.html, 공방 「게임」) 「인물 칸 복사」 그대로 넣는다. 그림은 그림 저장소 game-atelier-img 의 sprites/<id>/ (img/ 밖 — 등록기·썸네일이 읽지 않는다). 첫 화면 바닥 띠·도감 상세의 도트 줄·목록 「도트」 표가 이것을 읽는다. 아직 인물이 없다 — 비어 있으면 띠째 없다.",
+ "_": "도트 인물 — 약속은 공방 모음(polos0117.github.io) README 「도트 재생기」. 인물마다 card(게임 열쇠 = 도감 ?game=) · id · cell · foot · scale · dot · flip · facing · states(still · idle · walk · react). 인물 칸은 공방 모음의 도트 공방(dot.html, 공방 「게임」) 「인물 칸 복사」 그대로 넣는다. 그림은 그림 저장소 game-atelier-img 의 sprites/<id>/ (img/ 밖 — 등록기·썸네일이 읽지 않는다). 첫 화면 바닥 띠·도감 상세의 도트 줄·목록 「도트」 표가 이것을 읽는다. 인물 칸의 dot 0.5 는 4K(칸 192×256) 인물 — 재생기가 화면 크기를 보통 인물과 같게 맞춘다. 비어 있으면 띠째 없다.",
  "base": "https://polos0117.github.io/game-atelier-img/sprites/",
- "actors": {}
+ "actors": {
+  "pacman": {
+   "card": "pacman",
+   "id": "pacman",
+   "form": "base",
+   "cell": [
+    192,
+    256
+   ],
+   "foot": [
+    96,
+    254
+   ],
+   "scale": 1,
+   "dot": 0.5,
+   "flip": true,
+   "facing": "right",
+   "states": {
+    "still": {
+     "file": "pacman/pacman_base_still_4k.png",
+     "frames": 1
+    },
+    "idle": {
+     "file": "pacman/pacman_base_idle_4k.png",
+     "frames": 4,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "ms": [
+      700,
+      220,
+      140,
+      220
+     ]
+    },
+    "walk": {
+     "file": "pacman/pacman_base_walk_4k.png",
+     "frames": 6,
+     "order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "ms": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+     ],
+     "speed": 97,
+     "dy": [
+      0,
+      2,
+      -1.33,
+      -1,
+      0.67,
+      -0.67
+     ]
+    },
+    "react": {
+     "file": "pacman/pacman_base_react_4k.png",
+     "frames": 4,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "ms": [
+      120,
+      180,
+      320,
+      200
+     ]
+    }
+   }
+  },
+  "dave_the_diver": {
+   "card": "dave_the_diver",
+   "id": "dave_the_diver",
+   "form": "base",
+   "cell": [
+    192,
+    256
+   ],
+   "foot": [
+    96,
+    254
+   ],
+   "scale": 1,
+   "dot": 0.5,
+   "flip": true,
+   "facing": "right",
+   "states": {
+    "still": {
+     "file": "dave_the_diver/dave_the_diver_base_still_4k.png",
+     "frames": 1
+    },
+    "idle": {
+     "file": "dave_the_diver/dave_the_diver_base_idle_4k.png",
+     "frames": 4,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "ms": [
+      700,
+      220,
+      140,
+      220
+     ]
+    },
+    "walk": {
+     "file": "dave_the_diver/dave_the_diver_base_walk_4k.png",
+     "frames": 6,
+     "order": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "ms": [
+      200,
+      200,
+      200,
+      200,
+      200,
+      200
+     ],
+     "speed": 92,
+     "dy": [
+      0.33,
+      2,
+      1.33,
+      -1.33,
+      -2,
+      -1
+     ]
+    },
+    "react": {
+     "file": "dave_the_diver/dave_the_diver_base_react_4k.png",
+     "frames": 4,
+     "order": [
+      0,
+      1,
+      2,
+      3
+     ],
+     "ms": [
+      120,
+      180,
+      320,
+      200
+     ]
+    }
+   }
+  }
+ }
 }

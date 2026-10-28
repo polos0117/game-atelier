@@ -11,6 +11,9 @@
 
 
 
+## 2026-10-28 · claude · 도트 둘 — 팩맨·데이브 더 다이브 4K
+- data/sprites.json — pacman(팩맨)·dave_the_diver(데이브 더 다이브) 인물 칸(card = 게임 열쇠). 사용자 「게임공방 도트케릭 2명」 — 아홉 편 타이틀 그림 중 내가 고른 둘. book 의 4K 길(2160×3840 원본 격자 그대로 · 칸 192×256 · dot 0.5)로 뽑아 game-atelier-img 의 sprites/<id>/ 에 올렸다(원본 gen1, 기록 records/sprites/<id>/*_4k.json). 팩맨 걷기는 첫 요청이 안전 필터에 막혀 생김새 줄을 다듬어 다시 받았다(대기·반응 원본은 그대로 씀 — 기록 note). 첫 화면 바닥 띠·도감 상세·목록 표에 저절로 선다
+
 ## 2026-10-28 · claude · 도트 공방과 연결 — 재생기·인물 자료·바닥 띠·도감 도트 줄
 - lib/sprite-actor.js · lib/sprite-actor.css — 공방 모음의 공용 도트 재생기 복사(글자 하나 다르지 않게). 사용자 「게임 공방도 도트 공방이랑 연결」
 - data/sprites.json — 인물 자료(비어 있다). 도트 공방(dot.html 「게임」)의 「인물 칸 복사」가 주는 칸을 actors 에 넣는다, 그림은 game-atelier-img 의 sprites/<id>/
