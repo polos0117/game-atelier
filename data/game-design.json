@@ -2618,8 +2618,8 @@
    "signature": [
     "푸른 룬이 빛나는 둥근 귀환석",
     "얼라이언스 파랑·금 사자 문장",
-    "그리핀 깃털과 비행 안장",
-    "엘윈 숲 같은 초록 숲과 붉은 지붕 마을"
+    "호드 붉은·검은 문장과 뼈·가시 장식",
+    "화산 심장부의 용암과 검은 현무암 동굴"
    ],
    "mechanic": "역할을 나눈 동료가 많을수록 강해진다",
    "rule": {
@@ -2639,18 +2639,18 @@
      "homage": "사냥꾼·도적 계열 가죽 장비 — 어깨에 큰 가죽 견갑"
     },
     "중반": {
-     "look": "넓은 판금 어깨받이와 문장을 수놓은 겉옷, 큰 방패",
+     "look": "좌우가 다른 판금 어깨받이 — 한쪽은 파랑·금 사자 견갑, 한쪽은 붉은·검은 가시 견갑 — 두 문장을 반씩 수놓은 겉옷, 큰 방패",
      "role": "버티기",
      "pose": "방패를 앞에 세우고 뒤를 감싸듯 버티는 자세",
-     "setting": "눈 덮인 산길의 요새 문 앞 — 횃불과 바람에 날리는 깃발",
-     "homage": "성기사 티어 세트풍 거대한 금빛 견갑과 사자 문장 겉옷"
+     "setting": "알터랙 계곡 같은 눈 덮인 골짜기 — 양쪽 요새에 파랑·금 깃발과 붉은·검은 깃발이 마주 선다",
+     "homage": "얼라이언스 성기사의 금빛 판금과 호드 전사의 가시 박힌 붉은 철갑을 반씩 — 두 진영의 대립을 한 몸에"
     },
     "엔딩": {
-     "look": "보랏빛 보석이 박힌 의식용 갑옷과 끌리는 긴 망토",
+     "look": "용암빛 룬 보석이 박힌 공격대 갑옷과 불길에 그을린 끌리는 긴 망토",
      "role": "공격",
      "pose": "깃털 장식 창을 높이 들어 동료를 이끄는 자세",
-     "setting": "무너진 고대 신전 꼭대기 — 갈라진 하늘 아래 부서진 기둥",
-     "homage": "공격대 티어 세트풍 — 과장된 견갑, 보랏빛 룬 보석, 빛나는 무기"
+     "setting": "화산 심장부 — 용암이 흐르는 검은 현무암 동굴, 불의 룬이 새겨진 바닥",
+     "homage": "화산 심장부 공격대의 1단계 티어 세트풍 — 과장된 견갑, 불꽃 룬 보석, 빛나는 무기"
     }
    },
    "opens": {
@@ -2660,14 +2660,14 @@
      "particles": "gold"
     },
     "중반": {
-     "scene": "공격대 깃발 아래 언덕 가득 횃불이 차례로 켜진다",
+     "scene": "골짜기 양쪽에서 두 진영의 깃발이 한꺼번에 오르고 마주 선 횃불 줄이 서로를 향해 타오른다",
      "one_figure": true,
-     "particles": "embers"
+     "particles": "snow"
     },
     "엔딩": {
-     "scene": "거대한 그림자가 무너지고 하늘에서 승리의 빛줄기가 내려온다",
+     "scene": "용암 호수에서 솟던 거대한 불의 그림자가 무너지고, 용암이 식으며 금빛 전리품 빛이 솟는다",
      "one_figure": true,
-     "particles": "stars"
+     "particles": "embers"
     }
    },
    "ethnicity": "Nordic",
@@ -2686,11 +2686,12 @@
     "nose": "aquiline",
     "lips": "full_wide"
    },
-   "place": "a vast fantasy continent of misty forests, snowy mountain fortresses and an ancient ruined temple under a storm sky",
+   "place": "a vast fantasy continent of misty forests, a snowy valley where blue-and-gold and red-and-black faction banners face each other, and a lava-lit volcanic cavern deep under a black mountain",
    "rights": "블리자드 — 이름과 종족·진영 디자인이 상표다. 원작 종족과 문장을 그리지 않는다",
    "avoid": [
     "원작 종족(오크·언데드 등)의 얼굴",
     "원작 인물(스랄·제이나 등)",
+    "라그나로스 등 원작 우두머리의 모습",
     "로고·타이틀 글자",
     "퀘스트 표시·체력 바 UI"
    ],
