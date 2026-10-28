@@ -125,7 +125,7 @@
    "voxel_felt",
    "ashen_iron",
    "runed_plate",
-   "arcane_enamel",
+   "desert_wrap_leather",
    "lacquer_lamellar",
    "street_denim",
    "crystal_silk",
@@ -147,7 +147,7 @@
    "block_place",
    "bonfire_kneel",
    "shield_rally",
-   "spell_sword",
+   "twin_blade_guard",
    "fan_command",
    "car_lean",
    "skill_cast",
@@ -169,7 +169,7 @@
    "grass_dirt_sky",
    "ash_ember",
    "forest_green_bronze",
-   "crimson_silver_violet",
+   "sand_crimson_black",
    "lacquer_red_black",
    "sunset_teal_pink",
    "violet_cyan_gold",
@@ -2769,81 +2769,82 @@
    "genre": "전략 RPG",
    "group": "growth",
    "era": "16bit",
-   "persona": "빛과 어둠의 전쟁 한복판에서 운명을 거스르는 마법 기사",
+   "persona": "과거를 숨긴 냉철한 사막 용병 지휘관",
    "voice": {
-    "타이틀": "예언 따위 믿지 않아. 내 길은 내가 정해.",
-    "중반": "이 전장은 칸 하나하나가 목숨이야.",
-    "엔딩": "운명이 끝나는 곳에서, 나는 다시 시작할게."
+    "타이틀": "이름은 묻지 마. 쌍검이 날 증명할 테니.",
+    "중반": "진홍 깃발 아래, 내 명령 하나에 전장이 움직여.",
+    "엔딩": "형제여, 이 검이 우리 운명의 끝이다."
    },
-   "desire": "정해진 운명을 깨고 세계를 지키기",
-   "conflict": "되풀이되는 예언과 끝나지 않는 대륙 전쟁",
+   "desire": "복수, 그리고 곁의 동료를 지키기",
+   "conflict": "복수와 충성, 형제애가 엇갈린 운명",
    "symbols": [
-    "금빛 예언서",
-    "푸른 마법진",
-    "부서진 검"
+    "흰 두건",
+    "쌍검",
+    "진홍 군기"
    ],
    "signature": [
-    "금빛 테두리의 예언서",
-    "푸른 마법진",
-    "은빛 기사단 문장 깃발"
+    "시반 슈미터의 흰 두건과 쌍검",
+    "장갑 마룡 아지다하카의 그림자",
+    "투르 제국의 황토색 요새·자비단 궁성",
+    "크림슨 크루세이더의 진홍 군장·철가면단의 강철 가면"
    ],
-   "mechanic": "칸을 골라 움직이고, 마법진을 그려 큰 마법을 쓴다",
+   "mechanic": "전장에서 자리를 잡고 부대를 지휘해, 전직과 초필살기로 판을 뒤집는다",
    "rule": {
     "forms": {
-     "타이틀": "움직인 칸만큼 마력 1 — 셋이면 마법 한 번",
-     "중반": "마법진 — 다음 차례 같은 자리의 적에게 큰 피해",
-     "엔딩": "운명을 거스른다 — 지는 판을 한 번 뒤집는다"
+     "타이틀": "포위당한 자리에서 빠져나오면 다음 공격 +1(돌파)",
+     "중반": "곁의 같은 편마다 공격 +1 — 지휘",
+     "엔딩": "초필살기 — 한 번, 맞은편 둘에게 큰 피해, 쓴 뒤 힘이 빠진다"
     },
-    "counter": "마법진을 그리기 전에 자리를 비우게 만든다"
+    "counter": "자리를 잡기 전에 둘러싸 빠져나갈 곳을 막는다"
    },
    "forms": {
     "타이틀": {
-     "look": "흰 망토 아래 은빛 흉갑, 허리에 금빛 예언서",
-     "role": "정찰",
-     "pose": "예언서를 펼쳐 한 손에 들고 먼 지평을 보는 자세",
-     "setting": "안개 낀 고원의 작은 성채 — 낡은 깃발과 새벽 구름",
-     "homage": "판타지 기사단 — 흰 망토와 은빛 흉갑"
+     "look": "흰 두건과 얼굴 가리개(턱 아래로 내렸다), 낡은 가죽 갑주, 허리 양쪽의 곡도 두 자루",
+     "role": "돌파",
+     "pose": "쌍검을 낮게 엇갈려 쥐고 모래바람 속에서 포위망을 노려보는 자세",
+     "setting": "시반 포트레스 같은 사막 군영 — 모래 언덕 위 황토색 목책과 천막, 뜨거운 아침 햇살",
+     "homage": "시반 슈미터(살라딘)의 흰 두건·쌍검·용병 장비"
     },
     "중반": {
-     "look": "마법 문양이 새겨진 붉은 판금과 푸른 빛이 도는 긴 검",
-     "role": "공격",
-     "pose": "검끝으로 땅에 마법진을 그리며 몸을 낮춘 자세",
-     "setting": "불타는 평원의 격전지 — 부서진 공성 탑과 붉은 하늘",
-     "homage": "마법 기사 — 문양을 새긴 붉은 판금"
+     "look": "검정 바탕에 진홍·청동금 장식을 두른 정예 지휘관 갑주와 진홍 망토, 허리에 건 강철 가면",
+     "role": "지원",
+     "pose": "한 손의 검으로 아래 전장을 가리키며 부대를 지휘하는 자세",
+     "setting": "자비단 궁성 같은 투르 제국 황토색 요새의 성벽 위 — 연기 오르는 전쟁터를 내려다본다",
+     "homage": "크림슨 크루세이더·철가면단의 진홍 군장과 강철 가면"
     },
     "엔딩": {
-     "look": "은과 보라로 짠 예복 같은 갑옷, 빛나는 날개 장식",
-     "role": "지원",
-     "pose": "부서진 검을 두 손으로 받쳐 들고 하늘을 올려다보는 자세",
-     "setting": "구름 위 하늘 신전 — 흰 기둥 사이로 쏟아지는 빛",
-     "homage": "성전의 기사 — 은과 보라의 예복 갑옷, 빛나는 날개 장식"
+     "look": "찢긴 흰 두건, 모래와 피에 젖은 붉은 망토, 마모된 갑주와 이 빠진 쌍검",
+     "role": "공격",
+     "pose": "찢긴 망토를 끌며 쌍검을 늘어뜨린 채 마지막 상대를 마주 서는 자세",
+     "setting": "파괴된 술탄궁 — 무너진 돔과 금 장식 기둥, 붉은 노을 속 모래 먼지",
+     "homage": "마지막 싸움의 시반 슈미터 — 찢긴 흰 두건과 붉은 망토"
     }
    },
    "opens": {
     "타이틀": {
-     "scene": "예언서가 저절로 넘어가며 금빛 글자 대신 빛의 길이 열린다",
+     "scene": "포위망을 뚫는 순간 — 모래폭풍이 갈라지며 은빛 쌍검의 궤적이 둥글게 남는다",
      "one_figure": true,
-     "particles": "pages"
+     "particles": "dust"
     },
     "중반": {
-     "scene": "땅에 그린 마법진이 푸르게 타오르며 하늘까지 빛기둥이 솟는다",
+     "scene": "불타는 자비단 — 성벽을 넘는 화염 속에 붉은 늑대 꼴의 검기가 휘몰아친다",
      "one_figure": true,
-     "particles": "sparks"
+     "particles": "embers"
     },
     "엔딩": {
-     "scene": "부서진 검의 조각이 빛으로 이어 붙으며 어둠이 갈라진다",
+     "scene": "형제의 최후 대결 — 하늘과 땅을 가르는 거대한 X자 검광이 폐허를 덮는다",
      "one_figure": true,
-     "particles": "gold"
+     "particles": "sparks"
     }
    },
-   "ethnicity": "Korean",
+   "ethnicity": "Middle Eastern",
    "silhouette": {
-    "body": "tall_statuesque",
+    "body": "athletic",
     "hair": "long_straight",
-    "garment": "armor_layered",
-    "material": "arcane_enamel",
-    "pose": "spell_sword",
-    "palette": "crimson_silver_violet"
+    "garment": "cloak_wrapped",
+    "material": "desert_wrap_leather",
+    "pose": "twin_blade_guard",
+    "palette": "sand_crimson_black"
    },
    "face": {
     "face_shape": "diamond",
@@ -2852,11 +2853,11 @@
     "nose": "straight_narrow",
     "lips": "thin_long"
    },
-   "place": "a war-torn fantasy continent of misty highland castles, burning battle plains and a sky temple above the clouds",
-   "rights": "소프트맥스(현 권리사) — 이름과 캐릭터·마장기 디자인이 상표·저작물이다. 원작 인물과 로봇을 따라 그리지 않는다",
+   "place": "a sunbaked desert empire of ochre fortresses, mercenary war camps and a ruined sultan's palace under a crimson dusk",
+   "rights": "소프트맥스(현 권리사) — 이름과 캐릭터·마장기 디자인이 상표·저작물이다. 인물의 얼굴과 마장기는 그리지 않고 차림새만 빌린다",
    "avoid": [
-    "원작 주인공·인물의 얼굴",
-    "마장기(원작 거대 로봇) 디자인",
+    "원작 인물(시반 슈미터·셰라자드 등)의 얼굴",
+    "아지다하카·마장기의 또렷한 모습 — 그림자로만",
     "타이틀 글자·로고"
    ],
    "series": [],
