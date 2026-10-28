@@ -11,6 +11,9 @@
 
 
 
+## 2026-10-28 · claude · 기기 줄 — 기기 폭 고정
+- lib/arcade.css — 간판 글이 길면(「슈퍼 마리오 브라더스」) 기기가 넓어져 화면이 커지던 것을 폭 고정(width·min-width 0)과 화면 absolute 로 바로잡음
+
 ## 2026-10-28 · claude · 오락실 배경 — 공간(테마)마다 한 장
 - lib/arcade.css — 배경이 공간을 따른다: 한낮의 오락실(arcade-sunlit)·심야 게임방(arcade-moonlit, 앞서 arcade.webp)·골목 문방구(arcade-hanok)·별장 거실(arcade-forest)·새벽 컴퓨터실(arcade-phosphor). 넷을 도트 공방의 그리기(images/generations 1536×1024)로 더 받아 그림 저장소 backgrounds/ 에, 기록 records/backgrounds/arcade-<테마>.json. 기기 줄·기기 몸통 색도 공간마다(--arcade-*). 사용자 「각 테마별로 배경도 바꿔줘」
 - tests/arcade-screen.cjs — 공간 다섯의 배경 주소·기기 줄 색
