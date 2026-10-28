@@ -34,6 +34,11 @@ for (const g of G) for (const stage of STAGES) {
   const open = P.buildPrompt({ outputMode: 'open', game: g, stage, styleText: text });
   assert(open.includes(q(g.opens[stage].scene)) && /^INPUT: attach this game's \w+ form card image/.test(open), g.key + ' ' + stage + ' 개방에 명장면');
   assert(open.includes('never a character or creature from the game'), '개방에도 게임 속 캐릭터는 없다');
+  /* 원작 알아볼 거리 — 폼·개방에 SIGNATURE 다, 폼에는 그 폼의 원작풍 장비 GEAR(2026-10-28) */
+  const sigLine = 'SIGNATURE (recognizable, as the game shows them): ' + g.signature.map(s => '"' + q(s) + '"').join(', ') + '.';
+  for (const t of [create, ref, open]) assert(t.includes(sigLine), g.key + ' 알아볼 거리 줄');
+  for (const t of [create, ref]) assert(t.includes('GEAR in the game\'s own style: "' + q(g.forms[stage].homage) + '"'), g.key + ' ' + stage + ' 원작풍 장비 줄');
+  assert(!open.includes('GEAR in'), '개방은 폼 그림의 옷을 그대로 — 장비 줄 없음');
   for (const t of [create, ref, open]) {
     assert(t.includes('ONE FIGURE ONLY') && t.includes('HANDS'), '한 명·손 줄');
     assert(t.includes(T.trademark) && t.includes('NEVER DRAW for this game: ' + avoidLine(g)), g.key + ' 캐릭터 아님·그리지 않을 것 줄');
@@ -42,8 +47,8 @@ for (const g of G) for (const stage of STAGES) {
     longest = Math.max(longest, P.words(t)); n++;
   }
 }
-// 몸 개수 줄 BODY 와 일상컷 HAND TASK 로 40낱말쯤 늘었다(2026-10-27)
-assert(longest <= 840, '가장 긴 프롬프트가 840 낱말을 넘는다: ' + longest);
+// 몸 개수 줄 BODY 와 일상컷 HAND TASK 로 40낱말쯤 늘었다(2026-10-27). 원작 알아볼 거리 SIGNATURE·GEAR 줄로 45낱말쯤 더(2026-10-28)
+assert(longest <= 900, '가장 긴 프롬프트가 900 낱말을 넘는다: ' + longest);
 
 /* 2-1. 폼마다 다른 장면 — 배경(설계표 setting)·빛·구도·카메라가 단계마다 다르고, 이어가기는 첨부 그림의 배경을 쓰지 않는다.
    셋 다 같은 유리 정육면체 벽·반사 바닥·낮은 카메라로 나왔다(2026-10-26 테트리스 시범) */
@@ -112,6 +117,9 @@ assert(plain.includes('STYLE: ' + cur.casual) && !plain.includes('STYLE: ' + tex
 assert(cur.casual.includes('fabric and accessory') && text.includes('costume and accessory'), '화풍 판 — 폼은 costume, 일상은 fabric');
 assert(plain.includes(T.casualWardrobe) && plain.includes(T.casualPose), '옷·각도 줄');
 for (const x of [{ orient: 'rear_3q' }, { orient: 'over_shoulder' }, { pose: 'turning_back' }]) assert(cas('game_place', 'gp_walk', x).includes(T.casualLookBack), '뒤돌아보기 ' + JSON.stringify(x));
+/* 일상컷 알아볼 거리 — 하나만 작게, 폼 장비 줄은 없다 */
+assert(plain.includes('SIGNATURE (one at most, small): ' + g.signature.map(s => '"' + q(s) + '"').join(', ') + '.') && !plain.includes('GEAR in'), '일상컷 알아볼 거리 하나');
+assert(!/simplified costume motifs|never exact icons/.test(JSON.stringify(T)), '상징을 일반화하라는 말이 남았다');
 /* 일상컷 화면비 — 기본 2:3 도 늘 FRAME 줄로 싣는다. 고르면 그 비율 하나만(SCENE 에 겹쳐 싣지 않는다) */
 assert(plain.includes('FRAME: a vertical 2:3 (1024×1536) image.') && !plain.includes('Aspect ratio'), '일상컷 FRAME 기본 2:3');
 for (const [a, w] of [['3:2', 'a horizontal 3:2 (1536×1024)'], ['1:1', 'a square 1:1'], ['9:16', 'a tall vertical 9:16'], ['16:9', 'a wide horizontal 16:9']]) {

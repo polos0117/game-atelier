@@ -11,6 +11,14 @@
 
 
 
+## 2026-10-28 · claude · 원작은 알아보게 — 알아볼 거리·원작풍 장비
+- data/game-design.json — 원작 요소를 다 지우니 어느 게임인지 티가 안 났다(사용자, WoW 12장 — 「의상도 원작풍까지」). 게임마다 `signature`(팬이 바로 알아볼 소품·장소·색·진영 문장 셋~넷 — 물음표 블록·트라이포스·귀환석·늑대 메달 …), 폼마다 `homage`(그 게임의 직업·진영 장비 느낌 — WoW 성기사 티어 세트풍 견갑, 스타크래프트 해병풍 장갑 …)를 적었다. avoid 는 인물·괴물·인물 고유 차림·로고·UI·실제 상표만 남기고, 이제 그려도 되는 원작 물건(물음표 블록·트라이포스·나선 검 화톳불·늑대 메달·테트리스 성당·WoW 진영 문장·해병 갑옷)은 뺐다.
+- lib/prompt-spec.js · lib/prompt-game.js — NOT ITS CHARACTERS 줄은 인물·괴물·그 차림·로고·UI 만 막고 원작 소품·장소·색·직업과 진영 장비는 알아봐도 된다고 쓴다. SUBJECT 의 「simplified … never exact icons」 를 뺐다. 폼·개방에 SIGNATURE 줄(STYLE 뒤), 폼에 GEAR 줄(그 폼의 homage, 인물 차림은 아님), 일상컷은 SIGNATURE 하나만 작게. prompt-spec v=10, prompt-game v=6.
+- tools/game-design.py · tests/game-design.py — signature 셋~넷·겹침 없음, 폼마다 homage.
+- tests/prompt-game.cjs — SIGNATURE·GEAR 줄, 개방엔 GEAR 없음, 일상컷엔 하나, 일반화 말이 남지 않음. 길이 한도 840 → 900(가장 긴 것 884).
+- IMAGE_RULES.md 1절 · AGENTS.md 1절 · docs/GAME_CONCEPT.md 1·3·7절 — 「상징은 일반화」 를 「원작은 알아보게」 로.
+- tests/dex-screen.cjs · tests/prompt-screen.cjs — 화면에 그리지 않을 것이 보이는지 보는 본보기 글을 테트리스의 새 avoid(TETRIS 로고)로.
+
 ## 2026-10-28 · claude · 일상컷 화면비 — FRAME 줄을 늘 싣기
 - lib/prompt-spec.js · lib/prompt-game.js — 일상컷 지시문에 화면비가 빠졌다. book 에서 온 규칙이 2:3 이 아닐 때만 "Aspect ratio" 를 실어, 기본 2:3 에서는 비율 말이 하나도 없었다(사용자). 일상컷은 이제 OUTPUT 바로 뒤에 FRAME 줄(2:3 이면 "a vertical 2:3 (1024×1536)")을 늘 싣고, SCENE 에는 겹쳐 싣지 않는다. 폼은 그대로(card 줄이 2:3 을 말한다).
 - prompt.html — prompt-spec v=9, prompt-game v=5.

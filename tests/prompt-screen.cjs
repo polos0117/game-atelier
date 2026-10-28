@@ -31,7 +31,7 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert.equal(await p.$eval('#exposure', e => e.value), 'bold', '노출 기본은 과감');
     assert.match(await p.$eval('#file-name code', e => e.textContent), /^tetris_title_glossy_kr_game_f\.webp$/);
     assert((await p.$eval('#game-design', e => e.textContent)).includes('자리 셋을 모두 채우면'), '설계 칸에 능력');
-    assert((await p.$eval('#avoid-list', e => e.textContent)).includes('일곱 블록'), '설계 칸에 그리지 않을 것');
+    assert((await p.$eval('#avoid-list', e => e.textContent)).includes('TETRIS 로고'), '설계 칸에 그리지 않을 것');
     assert((await p.$eval('#form-setting', e => e.textContent)).includes('격자선만 그어진 고요한 우물'), '설계 칸에 폼 배경');
     /* 3. 외형 — 고르면 IDENTITY 에, 얼굴 설계 끄기, 되돌리기·다시 하기, 잠금 */
     await p.selectOption('#param-apparent-age', '20s');

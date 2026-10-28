@@ -56,6 +56,12 @@ def check(doc):
             bad("key 는 영문 소문자·숫자·밑줄만 — 그림 파일 이름에 그대로 들어간다")
         if len(g.get("symbols") or []) != 3:
             bad("상징은 셋")
+        # 알아볼 거리 — 팬이 바로 알아볼 원작 소품·장소·색·문장. 일반화한 상징만으로는 어느 게임인지 티가 안 났다(2026-10-28)
+        sig = [str(x).strip() for x in (g.get("signature") or [])]
+        if not 3 <= len(sig) <= 4 or not all(sig):
+            bad("알아볼 거리(signature)는 셋이나 넷")
+        elif len(set(sig)) != len(sig):
+            bad("알아볼 거리(signature)가 겹친다")
         if not [a for a in (g.get("avoid") or []) if str(a).strip()]:
             bad("그리지 않을 것(avoid — 게임 속 캐릭터·로고·UI)을 적는다")
         v = g.get("voice")
@@ -111,6 +117,9 @@ def check(doc):
                 bad("%s 폼의 역할 %r 는 정한 말이 아니다" % (s, fm.get("role")))
             if not str(fm.get("pose") or "").strip():
                 bad("%s 폼의 자세(pose)가 비었다" % s)
+            # 원작풍 장비 — 그 게임의 직업·진영 장비 느낌. 원작 인물의 차림은 avoid 몫(2026-10-28)
+            if not str(fm.get("homage") or "").strip():
+                bad("%s 폼의 원작풍 장비(homage)가 비었다" % s)
             # 배경 — 폼마다 다른 곳·빛. 없으면 이어가기가 첫 그림의 배경을 그대로 썼다(2026-10-26 테트리스)
             if not str(fm.get("setting") or "").strip():
                 bad("%s 폼의 배경(setting)이 비었다" % s)

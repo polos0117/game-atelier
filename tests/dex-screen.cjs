@@ -26,7 +26,7 @@ const withArt = Object.keys(img.img);
       assert.equal(await p.$$eval('.fcell:not(:disabled)', es => es.length), 6, name + ' 폼 셋·개방 셋');
       assert.equal(await p.locator('.gal .cell[data-cut=casual]').count(), 7, name + ' 일상컷 일곱');
       const story = await p.$eval('.reading-notes', e => e.textContent);
-      for (const want of ['자리 셋을 모두 채우면', '격자선만 그어진 고요한 우물', '일곱 블록', '1984']) assert(story.includes(want), name + ' 게임 글: ' + want);
+      for (const want of ['자리 셋을 모두 채우면', '격자선만 그어진 고요한 우물', 'TETRIS 로고', '1984']) assert(story.includes(want), name + ' 게임 글: ' + want);
       assert.equal(await p.$eval('#dex-to-prompt', e => e.getAttribute('href')), 'prompt.html?game=tetris');
       /* 크게 보기 — 넘기기·닫기 */
       await p.click('.big .zoom'); await p.waitForSelector('.zoom-layer');
