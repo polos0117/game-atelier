@@ -43,7 +43,7 @@
 
 - `index.html` · `lib/home.css` — 첫 화면. 서재(책장)를 옮기지 않고, 설계표의 첫 묶음을 한 편에 한 칸으로 보인다.
 - `tools/fetch-games.py` · `tests/fetch-games.py` — Wikidata SPARQL 로 사실 칸을 받는 도구.
-- `data/game-design.json` — 첫 묶음 10편의 해석 칸.
+- `data/game-design.json` — 첫 묶음 10편 + 둘째 묶음(사용자가 좋아하는 게임) 10편의 해석 칸.
 
 ## 아직 안 가져온 것
 

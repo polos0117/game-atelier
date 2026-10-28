@@ -28,8 +28,42 @@ assert 'wd:Q900001 wd:Q900002' in q
 assert 'ko.wikipedia.org' in F.labels_query(['Q1']) and 'en.wikipedia.org' in F.labels_query(['Q1'])
 fq = F.find_query('Say "Hi" \\ now')
 assert '"Say \\"Hi\\" \\\\ now"@en' in fq, fq
-assert 'wd:Q7889' in fq
+assert '<https://en.wikipedia.org/wiki/Say_%22Hi%22_%5C_now>' in fq, fq          # 주소 안 따옴표는 %22
+assert '<https://en.wikipedia.org/wiki/Say_%22Hi%22_%5C_now_(video_game)>' in fq
+assert 'rdfs:label|skos:altLabel' not in fq and 'wd:Q7889' not in fq          # 이름 검색 없이 주소로만
+wq = F.find_wide_query('Say "Hi" \\ now')
+assert '"Say \\"Hi\\" \\\\ now"@en' in wq and 'wd:Q7889' in wq
+assert F.wiki_url('Heroes of Might and Magic III') == 'https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_III'
+assert F.wiki_url("assassin's Creed") == 'https://en.wikipedia.org/wiki/Assassin%27s_Creed'   # 첫 글자 대문자, ' 는 %27
+assert F.wiki_url('Ratchet & Clank') == 'https://en.wikipedia.org/wiki/Ratchet_%26_Clank'
+assert F.wiki_url('Sangokushi Sōsōden') == 'https://en.wikipedia.org/wiki/Sangokushi_S%C5%8Ds%C5%8Dden'
+assert F.wiki_url('Dave the Diver (video game)').endswith('/Dave_the_Diver_(video_game)')
 assert 'game-atelier' in F.AGENT and 'github.com/polos0117/game-atelier' in F.AGENT
+
+# 질의 예절 — 첫 질의는 바로, 다음 질의는 GAP 초 뒤(가짜 시계·가짜 응답. 네트워크 없이)
+class Clock:
+    def __init__(self): self.t, self.slept = 1000.0, []
+    def monotonic(self): return self.t
+    def sleep(self, s): self.slept.append(s); self.t += s
+class Resp:
+    def __enter__(self): return self
+    def __exit__(self, *a): return False
+    def read(self, *a): return b'{"results": {"bindings": []}}'
+real_time, real_open = F.time, F.urllib.request.urlopen
+clock = Clock()
+F.time = clock
+F.urllib.request.urlopen = lambda *a, **k: Resp()
+try:
+    F._last[0] = None
+    F.ask('SELECT 1'); assert clock.slept == [], clock.slept
+    clock.t += 5
+    F.ask('SELECT 2'); assert clock.slept == [F.GAP - 5], clock.slept
+    clock.t += F.GAP + 1
+    F.ask('SELECT 3'); assert clock.slept == [F.GAP - 5], clock.slept      # 이미 오래 쉬었으면 바로
+finally:
+    F.time, F.urllib.request.urlopen = real_time, real_open
+    F._last[0] = None
+assert F.GAP >= 60
 
 # 응답 풀기
 P = F.parse(sample['props'], sample['labels'])
@@ -80,5 +114,9 @@ with tempfile.TemporaryDirectory() as tmp:
     r = subprocess.run([sys.executable, str(t / 'tools' / 'fetch-games.py'), 'pull', 'no_such'],
                        capture_output=True, text=True)
     assert r.returncode != 0 and '없는 key' in r.stderr
+    k0 = d3['games'][0]['key']
+    for bad, why in ((['find', 'no_such=Some Page'], '없는 key'), (['find', '--wide', k0 + '=Some Page'], '--wide')):
+        r = subprocess.run([sys.executable, str(t / 'tools' / 'fetch-games.py')] + bad, capture_output=True, text=True)
+        assert r.returncode != 0 and why in r.stderr, (bad, r.stderr)   # 질의를 보내기 전에 멈춘다
 
-print('PASS 사실 자료 도구: 질의문·따옴표·응답 풀기(이른 해·겹침·시리즈·위키백과)·채우기·고른 key·명령 끝까지')
+print('PASS 사실 자료 도구: 질의문·따옴표·위키백과 주소·질의 사이 쉼·응답 풀기(이른 해·겹침·시리즈·위키백과)·채우기·고른 key·명령 끝까지')

@@ -11,6 +11,17 @@
 
 
 
+## 2026-10-28 · claude · 사실 자료 도구 — 문서 주소로 찾기, 질의 사이 65초
+- tools/fetch-games.py — find 는 영어 위키백과 문서 주소(「이름」·「이름 (video game)」)로 항목을 바로 집는다. 이름 검색은 전체를 훑어 끝나지 않았고, 다시 묻느라 질의가 쌓여 1분에 한 번 제한에 걸렸다. 문서 이름이 다르면 key=문서 이름, 이름 검색은 find --wide 로만. 질의 사이 쉼을 2초에서 GAP=65초로(첫 질의는 바로). 편수를 나눠 받지 않는다 — 제한은 질의 횟수로 센다(사용자).
+- tests/fetch-games.py — 문서 주소 만들기(빈칸·첫 글자·' %27·& %26·ō 같은 글자는 %XX), --wide 질의, 가짜 시계로 질의 사이 쉼, 잘못 준 find 인자는 질의 전에 멈춤.
+- AGENTS.md 3절 · docs/GAME_CONCEPT.md 2절 — 찾는 순서와 질의 예절.
+
+## 2026-10-28 · claude · 둘째 묶음 10편 — 사용자가 좋아하는 게임
+- data/game-design.json — 월드 오브 워크래프트·창세기전 3·삼국지 조조전·GTA V·리그 오브 레전드·위쳐 3·문명 V·히어로즈 3·데이브 더 다이브·대항해시대 4 의 해석 칸(인격·능력·폼·개방·실루엣·얼굴). 장르 넷(MMORPG·전략 RPG·오픈월드·MOBA), 재질·자세·색 정한 말 열 개씩. QID 는 영어 위키백과 문서로 골랐고 사실 칸은 fetch-games.py pull --from 이 채웠다(data/wikidata/). 이날 Python 으로 보낸 질의는 1000초씩 네 번 기다려도 429 라, 같은 질의 두 개(props·labels)를 curl 로 한 번씩 받아 저장해 두고 채웠다. 빈칸(창세기전 3 modes, 데이브 더 다이브 publisher, 대항해시대 4 개발사·배급사·modes·영어 위키)은 나중에 채운다.
+- lib/prompt-spec.js · prompt.html — 새 장르·정한 말의 영어. 현대(modern) 시대 화풍 문장을 데이브 더 다이브처럼 깨끗한 고해상도 쪽으로. 버전 v=8.
+- tests/game-design.py · tests/dex-screen.cjs — 게임 수를 10 으로 박지 않고 설계표에서 센다.
+- docs/GAME_CONCEPT.md 6-2절 · AGENTS.md · docs/PORT_NOTES.md — 둘째 묶음 표, 편수 말 고침.
+
 ## 2026-10-28 · claude · 운영 방침 — 그림 모으기용, 결투 보류
 - docs/GAME_CONCEPT.md 8절 · AGENTS.md — 게임화(결투)는 보류하고 그림 모으기용으로만 운영한다. 늘리기는 사용자가 좋아하는 게임 위주로, 장르·시대·권리사 섞기는 따지지 않는다. 설계표 검사는 그대로(사용자).
 

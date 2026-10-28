@@ -1,0 +1,388 @@
+{
+ "qid": "Q223341",
+ "fetched": "2026-10-28",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Android"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14116"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "macOS"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "macOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q719798"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "player versus player"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이어 대 플레이어"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q580866"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "THQ"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "THQ"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q860580"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Tencent"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "텐센트"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1060165"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Riot Games"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "라이엇 게임즈"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1060165"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Riot Games"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "라이엇 게임즈"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1189206"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer online battle arena"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "AOS 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1758804"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "co-op mode"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코옵 모드"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2994389"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Garena"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "가레나"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q105221896"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "League of Legends"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q108148546"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "TGP Box"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6895044"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "멀티플레이어 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2009-10-27T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q223341"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/League_of_Legends"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EB%A6%AC%EA%B7%B8_%EC%98%A4%EB%B8%8C_%EB%A0%88%EC%A0%84%EB%93%9C"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "리그 오브 레전드"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "League of Legends"
+   }
+  }
+ ]
+}

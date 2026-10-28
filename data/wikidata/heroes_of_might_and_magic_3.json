@@ -1,0 +1,330 @@
+{
+ "qid": "Q220965",
+ "fetched": "2026-10-28",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q388"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Linux"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "리눅스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Android"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1062171"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "The 3DO Company"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "3DO"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1889419"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "New World Computing"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "뉴 월드 컴퓨팅"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1630770"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "hotseat"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2176159"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "turn-based strategy video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "턴제 전략 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q13522376"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Classic Mac OS"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "맥 OS의 역사"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6895044"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "멀티플레이어 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q188273"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "유비소프트"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q216572"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "히어로즈 오브 마이트 앤 매직"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1999-02-28T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q220965"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_III"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%ED%9E%88%EC%96%B4%EB%A1%9C%EC%A6%88_%EC%98%A4%EB%B8%8C_%EB%A7%88%EC%9D%B4%ED%8A%B8_%EC%95%A4_%EB%A7%A4%EC%A7%81_III"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "히어로즈 오브 마이트 앤 매직 III"
+   }
+  }
+ ]
+}

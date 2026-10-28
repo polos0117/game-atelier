@@ -49,6 +49,8 @@
 연도·개발사·배급사·플랫폼·QID 는 `facts` 칸에만 있고, `tools/fetch-games.py` 만 채운다. 기억으로 적지 않는다.
 QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식판이 많다). Wikidata 는 돌아가는 프록시를 거친 자동 질의를 막으니
 크롤러 서비스로 돌려 받지 않는다 — 막혀 있으면 작업 환경에서 `query.wikidata.org` 를 열어 달라고 한다.
+질의는 횟수로 센다 — 여러 편을 한 번에 `find`·`pull` 하고(편수를 나누면 질의만 늘어난다), 시험 삼아 던지는 질의를 하지 않는다.
+`find` 는 영어 위키백과 문서 주소로 바로 집는다(가볍다). 문서 이름이 다르면 `key=문서 이름`, 그래도 없을 때만 `find --wide`(무겁다).
 
 ### 4. 화면에 말을 적지 않는다
 
@@ -86,7 +88,7 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 python3 tools/game-design.py check   # 게임 설계표 — 빈칸·정한 말·실루엣·얼굴 닮음·자매·한 명 개방·대응·사실 칸
 python3 tests/game-design.py         # 설계표 검사기가 규칙마다 제대로 거는지
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기(네트워크 없이, 가짜 응답으로)
-node tests/prompt-game.cjs           # 프롬프트 — 열 편 × 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 게임 갈래, 출시 당시, 길이
+node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 게임 갈래, 출시 당시, 길이
 node tests/words.cjs                 # 낱말 표
 node tests/patch.cjs                 # 패치 기록 모양
 python3 tests/register-images.py     # 그림 등록 — 이름 꼴·자리·등록한 날·틀린 이름은 저장 안 함

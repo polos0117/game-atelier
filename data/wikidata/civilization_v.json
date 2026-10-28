@@ -1,0 +1,326 @@
+{
+ "qid": "Q2385",
+ "fetched": "2026-10-28",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q388"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Linux"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "리눅스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14116"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "macOS"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "macOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94937"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "2K"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "2K 게임즈"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q738135"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Aspyr"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "Aspyr"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q603555"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "4X"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "4X"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q959759"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Firaxis Games"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "피랙시스 게임스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1758804"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "co-op mode"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코옵 모드"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2176159"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "turn-based strategy video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "턴제 전략 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6895044"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "멀티플레이어 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1868663"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "문명"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2010-09-21T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2385"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Civilization_V"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EB%AC%B8%EB%AA%85_V"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "문명 V"
+   }
+  }
+ ]
+}

@@ -14,7 +14,7 @@ const withArt = Object.keys(img.img);
       await p.waitForSelector('.grid .cell');
       assert.equal(await p.locator('.grid .cell').count(), design.games.length, name + ' 게임마다 한 칸');
       assert.deepEqual(await p.$$eval('.grid .cell .face img', es => es.length), withArt.length, name + ' 그림 있는 게임만 그림');
-      assert((await p.$eval('#dex-progress', e => e.textContent)).includes('/ 60'), name + ' 그림 자리 열 편 × 여섯');
+      assert((await p.$eval('#dex-progress', e => e.textContent)).includes('/ ' + design.games.length * 6), name + ' 그림 자리 게임 수 × 여섯');
       assert(await p.locator('.recent-cell').count() > 0, name + ' 최근 추가');
       /* 장르로 거르기 */
       await p.locator('.genre-strip button', { hasText: '퍼즐' }).click();
@@ -48,6 +48,6 @@ const withArt = Object.keys(img.img);
     await b.page.waitForSelector('.first-title');
     assert.equal(await b.page.$eval('.first-title', e => e.getAttribute('href')), 'dex.html?game=' + design.games[0].key);
     await b.close();
-    console.log('PASS 도감: 열 편 · 그림 있는 게임만 · 진척 60 · 최근 추가 · 장르 · 상세 여섯 칸·일상컷 일곱·게임 글 · 크게 보기 · 다음 게임·뒤로 가기 · 첫 화면 바로가기 · 세 크기');
+    console.log('PASS 도감: ' + design.games.length + '편 · 그림 있는 게임만 · 진척 ' + design.games.length * 6 + ' · 최근 추가 · 장르 · 상세 여섯 칸·일상컷 일곱·게임 글 · 크게 보기 · 다음 게임·뒤로 가기 · 첫 화면 바로가기 · 세 크기');
   } finally { await h.stop(); }
 })().catch(e => { console.error(e); process.exit(1); });

@@ -2,17 +2,21 @@
 # -*- coding: utf-8 -*-
 """설계표의 사실 칸(facts)을 Wikidata 에서 받는다. 키도 계정도 필요 없다(docs/GAME_CONCEPT.md 2절).
 
-  python3 tools/fetch-games.py find [<key> ...]     — 영어 이름으로 후보 QID 를 보여 주기만 한다(빼면 전부, 질의 하나)
-  python3 tools/fetch-games.py pull [<key> ...]     — facts.qid 가 적힌 게임을 받아 facts 를 채운다(빼면 전부)
-  python3 tools/fetch-games.py pull --from <file>   — 저장해 둔 응답으로 채운다(검사·네트워크 없는 자리)
+  python3 tools/fetch-games.py find [<key>[=<문서 이름>] ...]  — 영어 위키백과 문서로 후보 QID 를 보여 주기만 한다(빼면 전부, 질의 하나)
+  python3 tools/fetch-games.py find --wide [<key> ...]         — 문서로 못 찾을 때만. 이름·별칭으로 찾는다(무겁다)
+  python3 tools/fetch-games.py pull [<key> ...]                — facts.qid 가 적힌 게임을 받아 facts 를 채운다(빼면 전부)
+  python3 tools/fetch-games.py pull --from <file>              — 저장해 둔 응답으로 채운다(검사·네트워크 없는 자리)
 
 순서: find 로 후보를 보고(같은 이름의 이식판·리메이크가 많다) 사람이 고른 QID 를 data/game-design.json 의
 facts.qid 에 적는다 → pull. 원본 응답은 data/wikidata/<key>.json 에 두고, 설계표에는 풀어 쓴 값만 넣는다.
 표지 이미지는 받지 않는다(색은 사람이 정한다).
+find 는 title_en 과 「title_en (video game)」 을 영어 위키백과 문서 주소로 바꿔 항목을 바로 집는다 — 가볍고, 원작이 걸린다.
+문서 이름이 title_en 과 다르면 key=문서 이름 으로 준다(예: sangokushi_sousouden="Sangokushi Sōsōden").
 
 질의 예절 — Wikidata 는 돌아가는 프록시를 거친 자동 질의를 막는다. 이 도구는 직접 접속하고, 저장소 주소를 담은
-User-Agent 를 달고, 여러 편을 질의 하나로 묶고, 질의 사이에 쉰다. 너무 잦다고(429) 하면 Retry-After 만큼
-기다렸다 다시 묻는다(2026-10-26 에는 장애 중이라 1분에 한 번이었다). 크롤러 서비스로 돌려 받지 않는다.
+User-Agent 를 달고, 여러 편을 질의 하나로 묶고(편수를 나누면 질의만 늘어난다), 질의 사이에 GAP 초 쉰다.
+너무 잦다고(429) 하면 Retry-After 만큼 기다렸다 다시 묻는다(2026-10-26·28 에는 장애 중이라 1분에 한 번이었다).
+시험 삼아 던지는 질의도 한 번으로 센다. 크롤러 서비스로 돌려 받지 않는다.
 막히면(403) 작업 환경에서 query.wikidata.org 를 열어 달라고 한다. TLS 검사는 끄지 않는다 — 작업 환경의 CA 묶음(SSL_CERT_FILE)이 있으면 그것을 쓴다."""
 import datetime, json, os, re, ssl, sys, time, urllib.error, urllib.parse, urllib.request
 
@@ -26,16 +30,43 @@ VIDEO_GAME = "Q7889"
 PROPS = [("year", "P577"), ("genres", "P136"), ("platforms", "P400"), ("series", "P179"),
          ("developer", "P178"), ("publisher", "P123"), ("modes", "P404")]
 WIKI = {"ko": "https://ko.wikipedia.org/", "en": "https://en.wikipedia.org/"}
+GAP = 65   # 질의 사이 쉬는 초 — 장애 때의 1분에 한 번보다 조금 길게
+_last = [None]   # 마지막 질의를 보낸 때(time.monotonic)
 
 
 def sparql_str(s):
     return '"' + str(s).replace("\\", "\\\\").replace('"', '\\"') + '"'
 
 
+def wiki_url(title, site="en"):
+    """문서 이름 → Wikidata 가 sitelink 로 쓰는 주소. 빈칸은 _, 첫 글자는 대문자, 나머지는 MediaWiki 처럼 %XX
+    (' 는 %27, & 는 %26 — 2026-10-28 질의로 맞춰 봤다)"""
+    t = str(title).strip().replace(" ", "_")
+    t = t[:1].upper() + t[1:]
+    return WIKI[site] + "wiki/" + urllib.parse.quote(t, safe=";:@$!*(),/~")
+
+
 def find_query(titles_en):
-    """영어 이름 여럿을 질의 하나로. 같은 이름의 이식판·리메이크가 다 나온다 — ?t 로 어느 이름의 후보인지 돌려준다.
+    """영어 이름(또는 문서 이름) 여럿을 질의 하나로. 「이름」·「이름 (video game)」 문서 주소가 가리키는 항목을 바로 집는다 —
+    주소로 집으니 검색이 없어 가볍다. ?t 로 어느 이름의 후보인지, ?wiki 로 걸린 문서를 돌려준다"""
+    if isinstance(titles_en, str):
+        titles_en = [titles_en]
+    pairs = " ".join("(%s <%s>)" % (sparql_str(t) + "@en", wiki_url(n))
+                     for t in titles_en for n in (t, t + " (video game)"))
+    return """SELECT ?t ?item ?ko ?wiki (MIN(?d) AS ?date) (GROUP_CONCAT(DISTINCT ?pl; separator=", ") AS ?platforms) WHERE {
+  VALUES (?t ?wiki) { %s }
+  ?wiki schema:about ?item .
+  OPTIONAL { ?item rdfs:label ?ko FILTER(LANG(?ko) = "ko") }
+  OPTIONAL { ?item wdt:P577 ?d }
+  OPTIONAL { ?item wdt:P400 ?p . ?p rdfs:label ?pl FILTER(LANG(?pl) = "en") }
+} GROUP BY ?t ?item ?ko ?wiki ORDER BY ?t ?date""" % pairs
+
+
+def find_wide_query(titles_en):
+    """find --wide 용. 영어 이름 여럿을 질의 하나로. 같은 이름의 이식판·리메이크가 다 나온다 — ?t 로 어느 이름의 후보인지 돌려준다.
     이름(별칭 포함)이 같은 비디오 게임과, 영어 위키백과 문서 이름이 「이름」·「이름 (video game)」 인 항목을 같이 찾는다 —
-    원작은 레이블이 아니라 문서 이름으로만 걸리는 일이 많다(젤다·다크 소울·스타크래프트). 문서 이름(?wiki)을 같이 보여 준다"""
+    원작은 레이블이 아니라 문서 이름으로만 걸리는 일이 많다(젤다·다크 소울·스타크래프트). 문서 이름(?wiki)을 같이 보여 준다.
+    이름 검색이 전체를 훑어 무겁다 — 2026-10-28 에는 끝나지 않았다. 문서로 못 찾을 때만 쓴다"""
     if isinstance(titles_en, str):
         titles_en = [titles_en]
     pairs = " ".join("(%s %s@en)" % (sparql_str(t), sparql_str(n))
@@ -80,11 +111,15 @@ def ask(query):
     ca = os.environ.get("SSL_CERT_FILE") or os.environ.get("REQUESTS_CA_BUNDLE")
     ctx = ssl.create_default_context(cafile=ca) if ca else ssl.create_default_context()
     for tries in range(5):
+        if _last[0] is not None:   # 질의 사이에 쉰다 — 첫 질의는 바로
+            rest = GAP - (time.monotonic() - _last[0])
+            if rest > 0:
+                print("  … 다음 질의까지 %d초 쉰다" % rest, file=sys.stderr)
+                time.sleep(rest)
+        _last[0] = time.monotonic()
         try:
             with urllib.request.urlopen(req, timeout=120, context=ctx) as r:
-                out = json.load(r)
-            time.sleep(2)   # 질의 사이에 쉰다
-            return out
+                return json.load(r)
         except urllib.error.HTTPError as e:
             if e.code != 429 or tries == 4:
                 raise
@@ -185,18 +220,28 @@ def main(argv):
     doc = load()
     byk = {g["key"]: g for g in doc["games"]}
     if argv[0] == "find":
-        for k in argv[1:]:
+        wide = "--wide" in argv
+        args = [a for a in argv[1:] if a != "--wide"]
+        names = {}   # key → 찾을 이름(문서 이름을 주면 그것, 아니면 title_en)
+        for a in args:
+            k, _, n = a.partition("=")
             if k not in byk:
                 raise SystemExit("없는 key: %s — key 는 %s" % (k, ", ".join(byk)))
-        gs = [byk[k] for k in argv[1:]] or doc["games"]
-        found = list(rows(ask(find_query([g["title_en"] for g in gs]))))
+            if n and wide:
+                raise SystemExit("--wide 는 이름으로 찾는다 — 문서 이름(=…)은 빼고 준다")
+            names[k] = n.strip() or byk[k]["title_en"]
+        gs = [byk[k] for k in names] or doc["games"]
+        name = lambda g: names.get(g["key"]) or g["title_en"]
+        found = list(rows(ask((find_wide_query if wide else find_query)([name(g) for g in gs]))))
         for g in gs:
-            mine = [r for r in found if r.get("t") == g["title_en"]]
-            print("%s (%s) — 후보 %d%s" % (g["title"], g["title_en"], len(mine),
+            mine = [r for r in found if r.get("t") == name(g)]
+            print("%s (%s) — 후보 %d%s" % (g["title"], name(g), len(mine),
                                          "  · 지금 facts.qid=" + g["facts"]["qid"] if g["facts"].get("qid") else ""))
             for r in mine:
                 print("  %-10s %s  %s  enwiki=%s  [%s]" % (qid_of(r["item"]), (r.get("date") or "?")[:10],
                                                         r.get("ko") or "-", r.get("wiki") or "-", (r.get("platforms") or "")[:80]))
+        if not wide and any(not [r for r in found if r.get("t") == name(g)] for g in gs):
+            print("후보 0 — 영어 위키백과 문서 이름을 key=문서 이름 으로 주고 다시 찾는다. 그래도 없으면 find --wide <key>")
         print("고른 QID 를 data/game-design.json 의 <key>.facts.qid 에 적고 pull 한다")
         return
     src = None

@@ -1,0 +1,168 @@
+{
+ "qid": "Q7773508",
+ "fetched": "2026-10-28",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q7773508"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q744038"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "role-playing video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "롤플레잉 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q7773508"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q482747"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Softmax"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "소프트맥스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q7773508"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q482747"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Softmax"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "소프트맥스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q7773508"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q42409239"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "fantasy video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "판타지 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q7773508"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1999-01-01T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q7773508"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q7773508"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/The_War_of_Genesis_III"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EC%B0%BD%EC%84%B8%EA%B8%B0%EC%A0%84_3"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "창세기전 3"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "The War of Genesis III"
+   }
+  }
+ ]
+}

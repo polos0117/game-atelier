@@ -9,7 +9,7 @@ spec = importlib.util.spec_from_file_location('gd', ROOT / 'tools' / 'game-desig
 G = importlib.util.module_from_spec(spec); spec.loader.exec_module(G)
 doc = json.loads((ROOT / 'data' / 'game-design.json').read_text(encoding='utf-8'))
 assert G.check(doc) == [], G.check(doc)
-assert len(doc['games']) == 10, len(doc['games'])
+assert len(doc['games']) >= 10, len(doc['games'])   # 첫 묶음 열 편 + 사용자가 고른 게임(2026-10-28)
 
 
 def fails(mutate, why):
@@ -51,8 +51,8 @@ d = ok(lambda d: d['games'][0]['facts'].update(fetched='2026-10-26', year=1980))
 d = copy.deepcopy(doc); d['games'][0]['facts'].update(fetched='2026-10-26', year=2015)
 assert G.check(d) == [] and any('시대를 다시 본다' in w for w in G.warnings(d)), G.warnings(d)
 d = copy.deepcopy(doc); [g.update(facts=dict(BLANK)) for g in d['games']]
-assert G.check(d) == [] and any('아직 안 받았다 10편' in w for w in G.warnings(d)), G.warnings(d)
-# 지금 자료는 열 편 다 받았다 — 받은 칸은 Wikidata 원본(data/wikidata/<key>.json)과 같은 QID
+assert G.check(d) == [] and any('아직 안 받았다 %d편' % len(d['games']) in w for w in G.warnings(d)), G.warnings(d)
+# 지금 자료는 다 받았다 — 받은 칸은 Wikidata 원본(data/wikidata/<key>.json)과 같은 QID
 for g in doc['games']:
     raw = json.loads((ROOT / 'data' / 'wikidata' / (g['key'] + '.json')).read_text(encoding='utf-8'))
     assert g['facts']['fetched'] and raw['qid'] == g['facts']['qid'], g['key']

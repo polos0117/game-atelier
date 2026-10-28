@@ -14,7 +14,11 @@
    "전략",
    "어드벤처",
    "샌드박스",
-   "미로"
+   "미로",
+   "MMORPG",
+   "전략 RPG",
+   "오픈월드",
+   "MOBA"
   ],
   "group": {
    "reflex": [
@@ -26,16 +30,20 @@
    "growth": [
     "RPG",
     "액션 RPG",
-    "시뮬레이션"
+    "시뮬레이션",
+    "MMORPG",
+    "전략 RPG"
    ],
    "mind": [
     "퍼즐",
-    "전략"
+    "전략",
+    "MOBA"
    ],
    "explore": [
     "어드벤처",
     "샌드박스",
-    "미로"
+    "미로",
+    "오픈월드"
    ]
   },
   "era": [
@@ -115,7 +123,17 @@
    "blueprint_print",
    "crystal_plating",
    "voxel_felt",
-   "ashen_iron"
+   "ashen_iron",
+   "runed_plate",
+   "arcane_enamel",
+   "lacquer_lamellar",
+   "street_denim",
+   "crystal_silk",
+   "studded_leather",
+   "parchment_brocade",
+   "heraldic_velvet",
+   "neoprene_piping",
+   "sailcloth_canvas"
   ],
   "pose": [
    "dash_corner",
@@ -127,7 +145,17 @@
    "plan_overlook",
    "command_point",
    "block_place",
-   "bonfire_kneel"
+   "bonfire_kneel",
+   "shield_rally",
+   "spell_sword",
+   "fan_command",
+   "car_lean",
+   "skill_cast",
+   "silver_draw",
+   "globe_turn",
+   "banner_march",
+   "harpoon_swim",
+   "spyglass_helm"
   ],
   "palette": [
    "neon_yellow_navy",
@@ -139,7 +167,17 @@
    "blueprint_teal",
    "crystal_blue_violet",
    "grass_dirt_sky",
-   "ash_ember"
+   "ash_ember",
+   "forest_green_bronze",
+   "crimson_silver_violet",
+   "lacquer_red_black",
+   "sunset_teal_pink",
+   "violet_cyan_gold",
+   "wolf_gray_silver",
+   "marble_bronze_azure",
+   "heraldic_purple_gold",
+   "ocean_blue_coral",
+   "navy_sail_brass"
   ],
   "face_shape": [
    "oval",
@@ -2464,6 +2502,1697 @@
    "pilot": {
     "form": "타이틀",
     "open": "타이틀"
+   }
+  },
+  {
+   "key": "world_of_warcraft",
+   "title": "월드 오브 워크래프트",
+   "title_en": "World of Warcraft",
+   "genre": "MMORPG",
+   "group": "growth",
+   "era": "early_3d",
+   "persona": "수많은 동료와 공격대를 꾸려 거대한 적에 맞서는 모험가",
+   "voice": {
+    "타이틀": "새 캐릭터, 첫 퀘스트. 마을 사람들이 날 부르네.",
+    "중반": "앞에서 막고 뒤에서 고쳐 줘. 오늘은 공격대 날이야.",
+    "엔딩": "만렙을 찍고 나니 그제야 진짜 시작이더라."
+   },
+   "desire": "동료와 함께 가장 강한 적을 쓰러뜨리기",
+   "conflict": "혼자서는 끝없는 성장과, 함께해야만 넘는 벽",
+   "symbols": [
+    "퀘스트 두루마리",
+    "그리핀 깃털",
+    "공격대 깃발"
+   ],
+   "mechanic": "역할을 나눈 동료가 많을수록 강해진다",
+   "rule": {
+    "forms": {
+     "타이틀": "퀘스트를 마칠 때마다 경험치 1 — 다섯이면 힘 +1",
+     "중반": "같은 편이 셋 이상이면 받는 피해 -1(막는 역할)",
+     "엔딩": "공격대 — 같은 편 수만큼 맞은편 우두머리에 피해"
+    },
+    "counter": "동료가 모이기 전에 하나씩 떼어 놓는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "가죽 여행복에 짧은 망토, 허리에 두루마리 주머니",
+     "role": "정찰",
+     "pose": "펼친 두루마리를 한 손에 들고 다음 길을 가늠하는 자세",
+     "setting": "숲속 작은 마을의 새벽 — 나무 울타리와 모닥불 연기, 멀리 돌탑"
+    },
+    "중반": {
+     "look": "넓은 판금 어깨받이와 문장을 수놓은 겉옷, 큰 방패",
+     "role": "버티기",
+     "pose": "방패를 앞에 세우고 뒤를 감싸듯 버티는 자세",
+     "setting": "눈 덮인 산길의 요새 문 앞 — 횃불과 바람에 날리는 깃발"
+    },
+    "엔딩": {
+     "look": "보랏빛 보석이 박힌 의식용 갑옷과 끌리는 긴 망토",
+     "role": "공격",
+     "pose": "깃털 장식 창을 높이 들어 동료를 이끄는 자세",
+     "setting": "무너진 고대 신전 꼭대기 — 갈라진 하늘 아래 부서진 기둥"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "레벨이 오르며 발밑에서 금빛 빛기둥이 솟는다",
+     "one_figure": true,
+     "particles": "gold"
+    },
+    "중반": {
+     "scene": "공격대 깃발 아래 언덕 가득 횃불이 차례로 켜진다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "엔딩": {
+     "scene": "거대한 그림자가 무너지고 하늘에서 승리의 빛줄기가 내려온다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "Nordic",
+   "silhouette": {
+    "body": "broad_strong",
+    "hair": "braids",
+    "garment": "armor_layered",
+    "material": "runed_plate",
+    "pose": "shield_rally",
+    "palette": "forest_green_bronze"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "deep_set",
+    "brows": "straight_thick",
+    "nose": "aquiline",
+    "lips": "full_wide"
+   },
+   "place": "a vast fantasy continent of misty forests, snowy mountain fortresses and an ancient ruined temple under a storm sky",
+   "rights": "블리자드 — 이름과 종족·진영 디자인이 상표다. 원작 종족과 문장을 그리지 않는다",
+   "avoid": [
+    "원작 종족(오크·언데드 등)의 얼굴과 갑옷",
+    "진영 문장·로고·타이틀 글자",
+    "퀘스트 표시·체력 바 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q131007",
+    "fetched": "2026-10-28",
+    "year": 2004,
+    "developer": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q175173",
+      "ko": "대규모 다중 사용자 온라인 롤 플레잉 게임(MMORPG)",
+      "en": "massively multiplayer online role-playing game"
+     },
+     {
+      "qid": "Q326439",
+      "ko": "하이 판타지",
+      "en": "high fantasy"
+     },
+     {
+      "qid": "Q42409239",
+      "ko": "판타지 게임",
+      "en": "fantasy video game"
+     }
+    ],
+    "series": {
+     "qid": "Q815739",
+     "ko": "워크래프트",
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q1758804",
+      "ko": "코옵 모드",
+      "en": "co-op mode"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     },
+     {
+      "qid": "Q719798",
+      "ko": "플레이어 대 플레이어",
+      "en": "player versus player"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%9B%94%EB%93%9C_%EC%98%A4%EB%B8%8C_%EC%9B%8C%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8",
+     "en": "https://en.wikipedia.org/wiki/World_of_Warcraft"
+    }
+   }
+  },
+  {
+   "key": "war_of_genesis_3",
+   "title": "창세기전 3",
+   "title_en": "The War of Genesis III",
+   "genre": "전략 RPG",
+   "group": "growth",
+   "era": "16bit",
+   "persona": "빛과 어둠의 전쟁 한복판에서 운명을 거스르는 마법 기사",
+   "voice": {
+    "타이틀": "예언 따위 믿지 않아. 내 길은 내가 정해.",
+    "중반": "이 전장은 칸 하나하나가 목숨이야.",
+    "엔딩": "운명이 끝나는 곳에서, 나는 다시 시작할게."
+   },
+   "desire": "정해진 운명을 깨고 세계를 지키기",
+   "conflict": "되풀이되는 예언과 끝나지 않는 대륙 전쟁",
+   "symbols": [
+    "금빛 예언서",
+    "푸른 마법진",
+    "부서진 검"
+   ],
+   "mechanic": "칸을 골라 움직이고, 마법진을 그려 큰 마법을 쓴다",
+   "rule": {
+    "forms": {
+     "타이틀": "움직인 칸만큼 마력 1 — 셋이면 마법 한 번",
+     "중반": "마법진 — 다음 차례 같은 자리의 적에게 큰 피해",
+     "엔딩": "운명을 거스른다 — 지는 판을 한 번 뒤집는다"
+    },
+    "counter": "마법진을 그리기 전에 자리를 비우게 만든다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "흰 망토 아래 은빛 흉갑, 허리에 금빛 예언서",
+     "role": "정찰",
+     "pose": "예언서를 펼쳐 한 손에 들고 먼 지평을 보는 자세",
+     "setting": "안개 낀 고원의 작은 성채 — 낡은 깃발과 새벽 구름"
+    },
+    "중반": {
+     "look": "마법 문양이 새겨진 붉은 판금과 푸른 빛이 도는 긴 검",
+     "role": "공격",
+     "pose": "검끝으로 땅에 마법진을 그리며 몸을 낮춘 자세",
+     "setting": "불타는 평원의 격전지 — 부서진 공성 탑과 붉은 하늘"
+    },
+    "엔딩": {
+     "look": "은과 보라로 짠 예복 같은 갑옷, 빛나는 날개 장식",
+     "role": "지원",
+     "pose": "부서진 검을 두 손으로 받쳐 들고 하늘을 올려다보는 자세",
+     "setting": "구름 위 하늘 신전 — 흰 기둥 사이로 쏟아지는 빛"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "예언서가 저절로 넘어가며 금빛 글자 대신 빛의 길이 열린다",
+     "one_figure": true,
+     "particles": "pages"
+    },
+    "중반": {
+     "scene": "땅에 그린 마법진이 푸르게 타오르며 하늘까지 빛기둥이 솟는다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "부서진 검의 조각이 빛으로 이어 붙으며 어둠이 갈라진다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Korean",
+   "silhouette": {
+    "body": "tall_statuesque",
+    "hair": "long_straight",
+    "garment": "armor_layered",
+    "material": "arcane_enamel",
+    "pose": "spell_sword",
+    "palette": "crimson_silver_violet"
+   },
+   "face": {
+    "face_shape": "diamond",
+    "eyes": "almond_wide",
+    "brows": "straight_thick",
+    "nose": "straight_narrow",
+    "lips": "thin_long"
+   },
+   "place": "a war-torn fantasy continent of misty highland castles, burning battle plains and a sky temple above the clouds",
+   "rights": "소프트맥스(현 권리사) — 이름과 캐릭터·마장기 디자인이 상표·저작물이다. 원작 인물과 로봇을 따라 그리지 않는다",
+   "avoid": [
+    "원작 주인공·인물 초상",
+    "마장기(원작 거대 로봇) 디자인",
+    "타이틀 글자·로고",
+    "전투 칸·명령 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q7773508",
+    "fetched": "2026-10-28",
+    "year": 1999,
+    "developer": [
+     {
+      "qid": "Q482747",
+      "ko": "소프트맥스",
+      "en": "Softmax"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q482747",
+      "ko": "소프트맥스",
+      "en": "Softmax"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q42409239",
+      "ko": "판타지 게임",
+      "en": "fantasy video game"
+     },
+     {
+      "qid": "Q744038",
+      "ko": "롤플레잉 비디오 게임",
+      "en": "role-playing video game"
+     }
+    ],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%B0%BD%EC%84%B8%EA%B8%B0%EC%A0%84_3",
+     "en": "https://en.wikipedia.org/wiki/The_War_of_Genesis_III"
+    }
+   }
+  },
+  {
+   "key": "sangokushi_sousouden",
+   "title": "삼국지 조조전",
+   "title_en": "Romance of the Three Kingdoms: Cao Cao Den",
+   "genre": "전략 RPG",
+   "group": "growth",
+   "era": "16bit",
+   "persona": "난세를 꿰뚫어 보고 천하를 셈하는 냉철한 책사 군주",
+   "voice": {
+    "타이틀": "난세다. 쓸 만한 사람부터 모으지.",
+    "중반": "이 싸움은 지형이 반이다. 진을 쳐라.",
+    "엔딩": "천하는 이렇게 손안에 들어오는 법이지."
+   },
+   "desire": "흩어진 천하를 하나로 모으기",
+   "conflict": "이기기 위한 냉정함과 사람을 얻는 마음",
+   "symbols": [
+    "접은 군선(전쟁 부채)",
+    "붉은 군기",
+    "죽간 병법서"
+   ],
+   "mechanic": "장수를 모아 진을 치고, 지형을 써서 이긴다",
+   "rule": {
+    "forms": {
+     "타이틀": "장수를 얻을 때마다 계략 1",
+     "중반": "진형 — 같은 편이 붙어 서면 방어 +1",
+     "엔딩": "계략 셋을 모아 맞은편을 한 번에 흔든다(화공)"
+    },
+    "counter": "진이 갖춰지기 전에 장수를 갈라 놓는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "검은 비단 겉옷에 붉은 안감, 허리에 죽간 병법서",
+     "role": "지원",
+     "pose": "죽간을 펼쳐 읽으며 한 손으로 부채를 쥔 자세",
+     "setting": "등불 켜진 군막 안 — 지도가 펼쳐진 낮은 탁자와 붉은 휘장"
+    },
+    "중반": {
+     "look": "붉은 옻칠 갑편을 비단 끈으로 엮은 갑옷과 투구 장식",
+     "role": "교란",
+     "pose": "접은 부채로 앞을 가리키며 군을 움직이는 자세",
+     "setting": "강가의 높은 언덕 진지 — 늘어선 깃발과 흐린 하늘"
+    },
+    "엔딩": {
+     "look": "금실 용무늬를 수놓은 검붉은 예복과 높은 관",
+     "role": "공격",
+     "pose": "붉은 군기 아래 부채를 펼쳐 들고 내려다보는 자세",
+     "setting": "도성 궁궐의 높은 계단 위 — 저녁 노을과 늘어선 붉은 기둥"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "펼친 죽간에서 먹빛 글자가 날아올라 진형의 모양을 그린다",
+     "one_figure": true,
+     "particles": "pages"
+    },
+    "중반": {
+     "scene": "부채를 휘두르자 강 위로 불길이 번지며 밤하늘이 붉게 물든다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "엔딩": {
+     "scene": "붉은 군기가 펄럭이며 하늘 가득 금빛 꽃잎이 흩날린다",
+     "one_figure": true,
+     "particles": "petals"
+    }
+   },
+   "ethnicity": "Chinese",
+   "silhouette": {
+    "body": "slender",
+    "hair": "updo_bun",
+    "garment": "robe_overlap",
+    "material": "lacquer_lamellar",
+    "pose": "fan_command",
+    "palette": "lacquer_red_black"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "monolid_long",
+    "brows": "angled_sharp",
+    "nose": "straight_narrow",
+    "lips": "thin_long"
+   },
+   "place": "a Three Kingdoms era China of river battlefields, hilltop war camps under banners and a vermilion-pillared palace",
+   "rights": "코에이 테크모 — 이름이 상표다. 원작 무장 초상(조조·관우 등)을 따라 그리지 않는다",
+   "avoid": [
+    "원작 무장 초상(조조·관우 등)",
+    "코에이 로고·타이틀 글자",
+    "전장 칸·명령창 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q858998",
+    "fetched": "2026-10-28",
+    "year": 1998,
+    "developer": [
+     {
+      "qid": "Q845047",
+      "ko": "코에이",
+      "en": "Koei"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q845047",
+      "ko": "코에이",
+      "en": "Koei"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1529437",
+      "ko": "전략 롤플레잉 게임",
+      "en": "tactical role-playing game"
+     }
+    ],
+    "series": {
+     "qid": "Q11238495",
+     "ko": "리코에이션 게임",
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%82%BC%EA%B5%AD%EC%A7%80_%EC%A1%B0%EC%A1%B0%EC%A0%84",
+     "en": "https://en.wikipedia.org/wiki/Sangokushi_S%C5%8Ds%C5%8Dden"
+    }
+   }
+  },
+  {
+   "key": "grand_theft_auto_v",
+   "title": "그랜드 테프트 오토 V",
+   "title_en": "Grand Theft Auto V",
+   "genre": "오픈월드",
+   "group": "explore",
+   "era": "hd",
+   "persona": "햇빛 쏟아지는 대도시를 제멋대로 누비는 거침없는 한탕꾼",
+   "voice": {
+    "타이틀": "이 도시는 넓고, 난 아직 운전대만 잡았어.",
+    "중반": "계획은 셋. 하나라도 틀리면 바로 튀는 거야.",
+    "엔딩": "한탕 끝. 이제 바닷가에서 좀 쉬자."
+   },
+   "desire": "큰 한탕을 치고 자유롭게 살기",
+   "conflict": "화려한 도시의 유혹과 뒤따르는 추격",
+   "symbols": [
+    "선글라스",
+    "자동차 열쇠",
+    "돈 가방"
+   ],
+   "mechanic": "도시 어디든 가고, 무엇이든 타고, 판을 크게 벌인다",
+   "rule": {
+    "forms": {
+     "타이틀": "자리를 옮길 때마다 기회 1 — 탈것을 얻으면 두 칸",
+     "중반": "세 갈래 계획 — 하나를 골라 맞은편을 속인다",
+     "엔딩": "한탕 — 모은 기회만큼 한 번에 빼앗는다"
+    },
+    "counter": "길을 막아 탈것을 못 쓰게 한다. 추격이 붙으면 기회를 잃는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "헐렁한 데님 재킷과 짧은 반바지, 목에 건 선글라스",
+     "role": "정찰",
+     "pose": "선글라스를 한 손에 들고 차 문에 기대 선 자세",
+     "setting": "해 질 녘 해안 도로의 주유소 — 야자수와 붉은 하늘"
+    },
+    "중반": {
+     "look": "검은 가죽 재킷과 몸에 붙는 바지, 장갑과 작은 무전기",
+     "role": "교란",
+     "pose": "자동차 열쇠를 손끝으로 돌리며 몸을 돌려 뒤를 보는 자세",
+     "setting": "한밤의 도심 고가도로 아래 — 젖은 아스팔트에 비친 네온"
+    },
+    "엔딩": {
+     "look": "반짝이는 실크 셔츠 드레스와 금 장신구, 돈 가방",
+     "role": "공격",
+     "pose": "돈 가방을 어깨에 걸치고 활짝 웃으며 걸어 나오는 자세",
+     "setting": "언덕 위 대저택 수영장 가 — 저녁 하늘 아래 도시 불빛"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "해안 도로 너머로 도시 전체가 불을 켜며 펼쳐진다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "중반": {
+     "scene": "헬기 탐조등이 휩쓸고 지나가자 그녀만 그림자 속에서 빠져나간다",
+     "one_figure": true,
+     "particles": "rain"
+    },
+    "엔딩": {
+     "scene": "하늘로 흩날리는 지폐 사이로 바다 위 노을이 번진다",
+     "one_figure": true,
+     "particles": "cards"
+    }
+   },
+   "ethnicity": "Latin American",
+   "silhouette": {
+    "body": "curvy",
+    "hair": "voluminous",
+    "garment": "coat_trousers",
+    "material": "street_denim",
+    "pose": "car_lean",
+    "palette": "sunset_teal_pink"
+   },
+   "face": {
+    "face_shape": "heart",
+    "eyes": "almond_wide",
+    "brows": "straight_thick",
+    "nose": "upturned",
+    "lips": "full_wide"
+   },
+   "place": "a sun-drenched coastal megacity with palm-lined highways, neon downtown overpasses and hillside mansions",
+   "rights": "락스타 게임즈·테이크투 — 이름과 로고가 상표다. 원작 주인공과 실제 상표 차량·간판을 그리지 않는다",
+   "avoid": [
+    "원작 주인공 셋의 얼굴·차림",
+    "GTA 로고·타이틀 글자",
+    "실제 상표 차량·간판",
+    "미니맵·수배 별 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q17452",
+    "fetched": "2026-10-28",
+    "year": 2013,
+    "developer": [
+     {
+      "qid": "Q1542578",
+      "ko": "록스타 뉴잉글랜드",
+      "en": "Rockstar New England"
+     },
+     {
+      "qid": "Q1750959",
+      "ko": "록스타 리즈",
+      "en": null
+     },
+     {
+      "qid": "Q1989672",
+      "ko": "록스타 토론토",
+      "en": "Rockstar Toronto"
+     },
+     {
+      "qid": "Q2083043",
+      "ko": "록스타 런던",
+      "en": "Rockstar London"
+     },
+     {
+      "qid": "Q94893",
+      "ko": "록스타 노스",
+      "en": null
+     },
+     {
+      "qid": "Q959329",
+      "ko": "록스타 샌디에이고",
+      "en": null
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q4434012",
+      "ko": null,
+      "en": "Softclub"
+     },
+     {
+      "qid": "Q94912",
+      "ko": "록스타 게임즈",
+      "en": null
+     },
+     {
+      "qid": "Q94933",
+      "ko": "테이크투 인터랙티브",
+      "en": "Take-Two Interactive"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q48263",
+      "ko": "엑스박스 360",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q63184502",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q98973368",
+      "ko": "엑스박스 시리즈 X 및 시리즈 S",
+      "en": "Xbox Series X and Series S"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1610017",
+      "ko": "시뮬레이션 게임",
+      "en": "simulation video game"
+     },
+     {
+      "qid": "Q185029",
+      "ko": "1인칭 슈팅 게임",
+      "en": "first-person shooter"
+     },
+     {
+      "qid": "Q343568",
+      "ko": "액션 어드벤처 게임",
+      "en": "action-adventure game"
+     },
+     {
+      "qid": "Q380266",
+      "ko": "3인칭 슈팅 게임",
+      "en": "third-person shooter"
+     }
+    ],
+    "series": {
+     "qid": "Q132730",
+     "ko": "그랜드 테프트 오토",
+     "en": "Grand Theft Auto"
+    },
+    "modes": [
+     {
+      "qid": "Q1758804",
+      "ko": "코옵 모드",
+      "en": "co-op mode"
+     },
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     },
+     {
+      "qid": "Q719798",
+      "ko": "플레이어 대 플레이어",
+      "en": "player versus player"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%9C%EB%93%9C_%ED%85%8C%ED%94%84%ED%8A%B8_%EC%98%A4%ED%86%A0_V",
+     "en": "https://en.wikipedia.org/wiki/Grand_Theft_Auto_V"
+    }
+   }
+  },
+  {
+   "key": "league_of_legends",
+   "title": "리그 오브 레전드",
+   "title_en": "League of Legends",
+   "genre": "MOBA",
+   "group": "mind",
+   "era": "hd",
+   "persona": "다섯이 한 팀이 되어 적 기지를 부수는 소환사의 화신",
+   "voice": {
+    "타이틀": "소환사의 협곡에 온 걸 환영해. 아, 이건 내 대사가 아니지.",
+    "중반": "한타 각이야. 다 같이 들어가!",
+    "엔딩": "넥서스가 무너진다. 우리가 이겼어."
+   },
+   "desire": "팀과 함께 적의 심장부를 무너뜨리기",
+   "conflict": "혼자 잘하는 것과 다섯이 함께 이기는 것",
+   "symbols": [
+    "빛나는 수정 핵",
+    "갈라진 세 갈래 길",
+    "푸른 돌 포탑"
+   ],
+   "mechanic": "자원을 모아 성장하고, 팀과 함께 한 번에 몰아친다",
+   "rule": {
+    "forms": {
+     "타이틀": "차례마다 금화 1 — 셋이면 장비 하나",
+     "중반": "한타 — 같은 편이 같은 자리에 모이면 함께 피해 +1",
+     "엔딩": "기지 파괴 — 맞은편 핵에 남은 장비만큼 피해"
+    },
+    "counter": "흩어져 있을 때 하나씩 노린다. 장비가 갖춰지기 전에 끝낸다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "짧은 망토와 몸에 붙는 전투복, 손목에 빛나는 수정 팔찌",
+     "role": "정찰",
+     "pose": "수정 팔찌를 들어 빛을 비추며 길을 살피는 자세",
+     "setting": "숲이 우거진 협곡 입구 — 이끼 낀 돌길과 은은한 안개"
+    },
+    "중반": {
+     "look": "금빛 장식 판과 마법 수정이 박힌 비단 갑옷",
+     "role": "돌파",
+     "pose": "한 손을 앞으로 내밀어 주문을 쏘며 몸을 비트는 자세",
+     "setting": "강물이 흐르는 협곡 한가운데 — 부서진 돌다리와 푸른 수초"
+    },
+    "엔딩": {
+     "look": "빛나는 수정 왕관과 끌리는 별무늬 망토",
+     "role": "공격",
+     "pose": "높이 든 손 위로 빛의 창을 모아 내리꽂으려는 자세",
+     "setting": "적 기지 깊숙한 곳 — 무너지는 돌탑과 붉게 갈라진 하늘"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "세 갈래 길에 하나씩 불이 켜지며 그녀 발밑으로 이어진다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "중반": {
+     "scene": "주문이 터지며 협곡 가득 빛의 파문이 번진다",
+     "one_figure": true,
+     "particles": "stars"
+    },
+    "엔딩": {
+     "scene": "거대한 수정 핵이 산산이 부서지며 빛 조각이 하늘로 솟는다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "mixed East Asian and European",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "side_swept",
+    "garment": "cloak_wrapped",
+    "material": "crystal_silk",
+    "pose": "skill_cast",
+    "palette": "violet_cyan_gold"
+   },
+   "face": {
+    "face_shape": "oval",
+    "eyes": "almond_wide",
+    "brows": "arched_thin",
+    "nose": "small_button",
+    "lips": "heart_full"
+   },
+   "place": "a mystical jungle canyon split by three stone paths, a river through its center and two crystal-cored fortresses at either end",
+   "rights": "라이엇 게임즈 — 이름과 챔피언 디자인이 상표·저작물이다. 원작 챔피언을 따라 그리지 않는다",
+   "avoid": [
+    "원작 챔피언의 얼굴·차림",
+    "로고·타이틀 글자",
+    "미니맵·스킬 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q223341",
+    "fetched": "2026-10-28",
+    "year": 2009,
+    "developer": [
+     {
+      "qid": "Q1060165",
+      "ko": "라이엇 게임즈",
+      "en": "Riot Games"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q1060165",
+      "ko": "라이엇 게임즈",
+      "en": "Riot Games"
+     },
+     {
+      "qid": "Q2994389",
+      "ko": "가레나",
+      "en": "Garena"
+     },
+     {
+      "qid": "Q580866",
+      "ko": "THQ",
+      "en": "THQ"
+     },
+     {
+      "qid": "Q860580",
+      "ko": "텐센트",
+      "en": "Tencent"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q108148546",
+      "ko": null,
+      "en": "TGP Box"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1189206",
+      "ko": "AOS 게임",
+      "en": "multiplayer online battle arena"
+     }
+    ],
+    "series": {
+     "qid": "Q105221896",
+     "ko": null,
+     "en": "League of Legends"
+    },
+    "modes": [
+     {
+      "qid": "Q1758804",
+      "ko": "코옵 모드",
+      "en": "co-op mode"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     },
+     {
+      "qid": "Q719798",
+      "ko": "플레이어 대 플레이어",
+      "en": "player versus player"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%A6%AC%EA%B7%B8_%EC%98%A4%EB%B8%8C_%EB%A0%88%EC%A0%84%EB%93%9C",
+     "en": "https://en.wikipedia.org/wiki/League_of_Legends"
+    }
+   }
+  },
+  {
+   "key": "witcher_3",
+   "title": "위쳐 3: 와일드 헌트",
+   "title_en": "The Witcher 3: Wild Hunt",
+   "genre": "액션 RPG",
+   "group": "growth",
+   "era": "hd",
+   "persona": "돈을 받고 괴물을 사냥하지만 끝내 사람을 지키는 떠돌이 사냥꾼",
+   "voice": {
+    "타이틀": "의뢰는 게시판에. 값은 괴물을 보고 정하지.",
+    "중반": "은검은 괴물에게, 쇠검은 사람에게.",
+    "엔딩": "와일드 헌트를 지나 왔어. 이제 쉬어도 되겠지."
+   },
+   "desire": "잃어버린 사람을 찾아 지켜 내기",
+   "conflict": "괴물을 베는 일과 사람이 더 괴물 같은 세상",
+   "symbols": [
+    "은검",
+    "늑대 메달",
+    "약초 물약병"
+   ],
+   "mechanic": "상대를 살펴 약점을 알아내고, 물약과 맞는 검으로 친다",
+   "rule": {
+    "forms": {
+     "타이틀": "맞은편을 살피면 약점 1 — 다음 공격 +1",
+     "중반": "물약 — 한 판 동안 힘 +1, 대신 체력 -1",
+     "엔딩": "은검 — 약점이 드러난 적에게 두 배 피해"
+    },
+    "counter": "약점을 들키기 전에 몰아친다. 물약을 마시게 두지 않는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "징 박은 낡은 가죽 상의와 털 깃, 등에 맨 두 자루 검",
+     "role": "정찰",
+     "pose": "몸을 낮추고 땅의 발자국을 손끝으로 살피는 자세",
+     "setting": "안개 낀 늪가의 마을 — 부서진 울타리와 까마귀 앉은 나무"
+    },
+    "중반": {
+     "look": "은 버클 가죽 갑옷과 허리띠에 줄지은 물약병",
+     "role": "공격",
+     "pose": "어깨 너머로 은검을 뽑아 들며 앞을 노려보는 자세",
+     "setting": "폭풍 치는 섬의 절벽 — 거친 파도와 번개 치는 하늘"
+    },
+    "엔딩": {
+     "look": "검은 털 망토 아래 은실 수놓은 겉옷, 늑대 메달",
+     "role": "버티기",
+     "pose": "검을 땅에 꽂고 두 손을 얹어 쉬는 자세",
+     "setting": "포도밭이 펼쳐진 남쪽 언덕의 저택 — 따뜻한 노을"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "메달이 떨리며 숲속의 보이지 않던 발자국이 빛으로 떠오른다",
+     "one_figure": true,
+     "particles": "fireflies"
+    },
+    "중반": {
+     "scene": "은검이 번쩍이며 형체 없는 거대한 그림자가 안개로 흩어진다",
+     "one_figure": true,
+     "particles": "mist"
+    },
+    "엔딩": {
+     "scene": "하늘을 덮던 얼음 서리가 걷히며 눈이 금빛으로 녹아내린다",
+     "one_figure": true,
+     "particles": "snow"
+    }
+   },
+   "ethnicity": "Slavic",
+   "silhouette": {
+    "body": "lanky",
+    "hair": "ponytail",
+    "garment": "coat_trousers",
+    "material": "studded_leather",
+    "pose": "silver_draw",
+    "palette": "wolf_gray_silver"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "almond_wide",
+    "brows": "straight_thick",
+    "nose": "aquiline",
+    "lips": "thin_long"
+   },
+   "place": "a dark Slavic fantasy land of foggy swamp villages, storm-beaten island cliffs and sunlit southern vineyards",
+   "rights": "CD 프로젝트 레드 — 이름과 인물 디자인이 상표·저작물이다. 원작 주인공(흰머리 위처)과 인물을 따라 그리지 않는다",
+   "avoid": [
+    "원작 주인공(흰머리 위처)·시리의 얼굴과 차림",
+    "원작 늑대 메달 디자인 그대로",
+    "로고·타이틀 글자",
+    "체력·징후 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q4267401",
+    "fetched": "2026-10-28",
+    "year": 2015,
+    "developer": [
+     {
+      "qid": "Q1172164",
+      "ko": null,
+      "en": "CD Projekt RED"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q1023212",
+      "ko": null,
+      "en": "cdp.pl"
+     },
+     {
+      "qid": "Q1172164",
+      "ko": null,
+      "en": "CD Projekt RED"
+     },
+     {
+      "qid": "Q2319420",
+      "ko": "워너 브라더스 인터랙티브 엔터테인먼트",
+      "en": "Warner Bros. Games"
+     },
+     {
+      "qid": "Q309996",
+      "ko": "남코",
+      "en": "Namco"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q63184502",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q98973368",
+      "ko": "엑스박스 시리즈 X 및 시리즈 S",
+      "en": "Xbox Series X and Series S"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1422746",
+      "ko": "액션 롤플레잉 게임",
+      "en": "action role-playing game"
+     },
+     {
+      "qid": "Q42409239",
+      "ko": "판타지 게임",
+      "en": "fantasy video game"
+     }
+    ],
+    "series": {
+     "qid": "Q18935909",
+     "ko": null,
+     "en": "The Witcher"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%8D%94_%EC%9C%84%EC%B3%90_3:_%EC%99%80%EC%9D%BC%EB%93%9C_%ED%97%8C%ED%8A%B8",
+     "en": "https://en.wikipedia.org/wiki/The_Witcher_3:_Wild_Hunt"
+    }
+   }
+  },
+  {
+   "key": "civilization_v",
+   "title": "문명 V",
+   "title_en": "Civilization V",
+   "genre": "전략",
+   "group": "mind",
+   "era": "hd",
+   "persona": "돌도끼에서 우주선까지, 한 문명의 역사를 이끄는 지도자",
+   "voice": {
+    "타이틀": "강가에 첫 도시를. 여기서부터 역사가 시작돼.",
+    "중반": "한 턴만 더. 진짜로 한 턴만.",
+    "엔딩": "우주선이 떠나는 날, 우리 역사가 완성돼."
+   },
+   "desire": "천 년을 견디는 문명을 세우기",
+   "conflict": "이웃과의 외교와 끝없는 한 턴의 욕심",
+   "symbols": [
+    "작은 지구본",
+    "청동 월계관",
+    "두루마리 지도"
+   ],
+   "mechanic": "도시를 세워 기술을 쌓고, 시대를 넘을 때마다 강해진다",
+   "rule": {
+    "forms": {
+     "타이틀": "도시를 세울 때마다 생산 1",
+     "중반": "시대 넘기 — 생산 셋으로 모든 능력 +1",
+     "엔딩": "승리 조건 — 시대를 셋 넘기면 판을 끝낸다"
+    },
+    "counter": "도시가 늘기 전에 국경을 막는다. 시대를 넘기 전에 몰아친다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "거친 리넨 튜닉과 가죽 띠, 손에 작은 지구본",
+     "role": "지원",
+     "pose": "강가에 서서 작은 지구본을 한 손으로 돌리는 자세",
+     "setting": "큰 강이 흐르는 들판의 첫 도시 터 — 천막과 모닥불"
+    },
+    "중반": {
+     "look": "지도 무늬 비단 겉옷과 청동 장식, 허리에 두루마리 지도",
+     "role": "버티기",
+     "pose": "두루마리 지도를 펼쳐 들고 성벽 아래를 내려다보는 자세",
+     "setting": "돌 성벽과 신전이 선 고대 도시의 광장 — 오후 햇살"
+    },
+    "엔딩": {
+     "look": "대리석빛 정장 드레스와 청동 월계관, 별빛 망토",
+     "role": "공격",
+     "pose": "고개를 들어 하늘을 가리키며 한 발 앞으로 나선 자세",
+     "setting": "유리 탑이 늘어선 미래 도시의 발사대 앞 — 맑은 밤하늘"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "발밑의 땅에서 도시와 길이 빛으로 차례로 솟아오른다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "중반": {
+     "scene": "시대가 넘어가며 그녀 둘레의 건물이 돌에서 철로 바뀐다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "우주선이 하늘로 솟으며 지구본 같은 행성이 발아래 펼쳐진다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "South Asian",
+   "silhouette": {
+    "body": "tall_statuesque",
+    "hair": "long_wavy",
+    "garment": "tailored_suit",
+    "material": "parchment_brocade",
+    "pose": "globe_turn",
+    "palette": "marble_bronze_azure"
+   },
+   "face": {
+    "face_shape": "oval",
+    "eyes": "round_large",
+    "brows": "straight_thick",
+    "nose": "straight_narrow",
+    "lips": "wide_smile"
+   },
+   "place": "a sweep of human history from a riverside first settlement to a marble ancient city and a glass-towered future launch site",
+   "rights": "파이락시스·2K — 이름이 상표다. 실제 역사 지도자의 얼굴과 원작 화면을 그리지 않는다",
+   "avoid": [
+    "실제 역사 지도자의 얼굴",
+    "로고·타이틀 글자",
+    "육각 지도·기술 나무 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q2385",
+    "fetched": "2026-10-28",
+    "year": 2010,
+    "developer": [
+     {
+      "qid": "Q959759",
+      "ko": "피랙시스 게임스",
+      "en": "Firaxis Games"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q738135",
+      "ko": "Aspyr",
+      "en": "Aspyr"
+     },
+     {
+      "qid": "Q94937",
+      "ko": "2K 게임즈",
+      "en": "2K"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q388",
+      "ko": "리눅스",
+      "en": "Linux"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q2176159",
+      "ko": "턴제 전략 게임",
+      "en": "turn-based strategy video game"
+     },
+     {
+      "qid": "Q603555",
+      "ko": "4X",
+      "en": "4X"
+     }
+    ],
+    "series": {
+     "qid": "Q1868663",
+     "ko": "문명",
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q1758804",
+      "ko": "코옵 모드",
+      "en": "co-op mode"
+     },
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%AC%B8%EB%AA%85_V",
+     "en": "https://en.wikipedia.org/wiki/Civilization_V"
+    }
+   }
+  },
+  {
+   "key": "heroes_of_might_and_magic_3",
+   "title": "히어로즈 오브 마이트 앤 매직 3",
+   "title_en": "Heroes of Might and Magic III",
+   "genre": "전략",
+   "group": "mind",
+   "era": "16bit",
+   "persona": "군대를 이끌고 성을 넓히며 판타지 대륙을 누비는 영웅",
+   "voice": {
+    "타이틀": "이번 주 새로 뽑을 병력은 뭐가 있지?",
+    "중반": "광산 셋을 먹었어. 이제 성을 올릴 차례야.",
+    "엔딩": "마지막 성문이 열렸다. 대륙은 우리 거야."
+   },
+   "desire": "대륙의 모든 성과 광산을 손에 넣기",
+   "conflict": "한 주씩 쌓는 성과 지금 당장 나서야 하는 모험",
+   "symbols": [
+    "문장 깃발",
+    "보물 상자",
+    "성 열쇠"
+   ],
+   "mechanic": "매주 병력을 뽑고, 영웅이 군대를 이끌어 지도를 넓힌다",
+   "rule": {
+    "forms": {
+     "타이틀": "한 주가 지날 때마다 병력 +1",
+     "중반": "광산·성 — 차지한 곳마다 자원 1, 셋이면 성 한 단계",
+     "엔딩": "큰 군대 — 모은 병력만큼 한 번에 공격"
+    },
+    "counter": "병력이 쌓이기 전 첫 주에 친다. 광산을 빼앗는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "문장을 수놓은 짧은 벨벳 겉옷과 승마 장화",
+     "role": "정찰",
+     "pose": "말 탄 듯 몸을 기울이고 먼 지평을 손가락으로 가리키는 자세",
+     "setting": "구불구불한 흙길과 풍차가 있는 초원 — 멀리 보이는 첫 성"
+    },
+    "중반": {
+     "look": "보석 단추가 달린 두꺼운 벨벳 망토와 가죽 장갑, 허리에 성 열쇠",
+     "role": "지원",
+     "pose": "보물 상자 뚜껑을 한 손으로 열며 돌아보는 자세",
+     "setting": "광산 입구가 있는 바위산 기슭 — 횃불과 수레 길"
+    },
+    "엔딩": {
+     "look": "금실 문장이 빛나는 보랏빛 의례 갑옷과 높은 왕관",
+     "role": "공격",
+     "pose": "문장 깃발을 높이 들어 군대를 이끄는 자세",
+     "setting": "탑이 여럿 솟은 거대한 성문 앞 — 깃발이 나부끼는 붉은 저녁"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "한 주가 지나며 성 둘레로 새 건물이 빛과 함께 솟는다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "중반": {
+     "scene": "보물 상자가 열리며 금화와 보석이 빛무리처럼 솟구친다",
+     "one_figure": true,
+     "particles": "gold"
+    },
+    "엔딩": {
+     "scene": "거대한 성문이 열리며 하늘 가득 문장 깃발의 그림자가 펄럭인다",
+     "one_figure": true,
+     "particles": "petals"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "curvy",
+    "hair": "twin_tails",
+    "garment": "layered_skirt",
+    "material": "heraldic_velvet",
+    "pose": "banner_march",
+    "palette": "heraldic_purple_gold"
+   },
+   "face": {
+    "face_shape": "round",
+    "eyes": "round_large",
+    "brows": "soft_round",
+    "nose": "upturned",
+    "lips": "small_bow"
+   },
+   "place": "a storybook fantasy realm of winding dirt roads, windmills, torch-lit mines and towering many-spired castles",
+   "rights": "유비소프트(옛 뉴 월드 컴퓨팅·3DO) — 이름이 상표다. 원작 영웅 초상과 생물 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 영웅 초상·생물 디자인",
+    "로고·타이틀 글자",
+    "모험 지도·전투 칸 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q220965",
+    "fetched": "2026-10-28",
+    "year": 1999,
+    "developer": [
+     {
+      "qid": "Q1889419",
+      "ko": "뉴 월드 컴퓨팅",
+      "en": "New World Computing"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q1062171",
+      "ko": "3DO",
+      "en": "The 3DO Company"
+     },
+     {
+      "qid": "Q188273",
+      "ko": "유비소프트",
+      "en": null
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13522376",
+      "ko": "맥 OS의 역사",
+      "en": "Classic Mac OS"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q388",
+      "ko": "리눅스",
+      "en": "Linux"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q2176159",
+      "ko": "턴제 전략 게임",
+      "en": "turn-based strategy video game"
+     }
+    ],
+    "series": {
+     "qid": "Q216572",
+     "ko": "히어로즈 오브 마이트 앤 매직",
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q1630770",
+      "ko": null,
+      "en": "hotseat"
+     },
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%ED%9E%88%EC%96%B4%EB%A1%9C%EC%A6%88_%EC%98%A4%EB%B8%8C_%EB%A7%88%EC%9D%B4%ED%8A%B8_%EC%95%A4_%EB%A7%A4%EC%A7%81_III",
+     "en": "https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_III"
+    }
+   }
+  },
+  {
+   "key": "dave_the_diver",
+   "title": "데이브 더 다이브",
+   "title_en": "Dave the Diver",
+   "genre": "어드벤처",
+   "group": "explore",
+   "era": "modern",
+   "persona": "낮엔 깊은 바다로 잠수하고 밤엔 바닷가 초밥집을 꾸리는 잠수부",
+   "voice": {
+    "타이틀": "오늘 바다는 어떤 얼굴일까. 잠수 준비 끝!",
+    "중반": "산소는 반, 그물은 가득. 조금만 더 깊이.",
+    "엔딩": "가게 불 끄고 나면 바다 소리만 남아."
+   },
+   "desire": "바다 깊은 곳의 비밀을 찾고 가게를 꽉 채우기",
+   "conflict": "깊이 들어갈수록 줄어드는 산소와 기다리는 손님",
+   "symbols": [
+    "작살총",
+    "초밥 접시",
+    "산소통"
+   ],
+   "mechanic": "낮에 잡고, 밤에 판다 — 깊이 갈수록 좋은 것이 나온다",
+   "rule": {
+    "forms": {
+     "타이틀": "잠수할 때마다 재료 1 — 깊을수록 둘",
+     "중반": "산소 — 세 차례가 지나면 반드시 물 위로",
+     "엔딩": "만석 — 모은 재료만큼 손님을 받아 힘 +1"
+    },
+    "counter": "산소가 떨어질 때까지 버틴다. 재료를 팔기 전에 친다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "주황 줄무늬의 몸에 붙는 잠수복과 물안경",
+     "role": "정찰",
+     "pose": "물안경을 이마에 올리고 배 끝에 서서 바다를 내려다보는 자세",
+     "setting": "아침 햇살 반짝이는 작은 고깃배 갑판 — 맑은 바다와 갈매기"
+    },
+    "중반": {
+     "look": "산소통을 멘 잠수복과 허리에 그물 주머니, 작살총",
+     "role": "공격",
+     "pose": "작살총을 앞으로 겨누며 물속에서 헤엄쳐 나아가는 자세",
+     "setting": "빛이 비치는 산호초 바닷속 — 해초 숲과 작은 물고기 떼"
+    },
+    "엔딩": {
+     "look": "물방울 무늬 앞치마를 두른 셔츠 원피스와 머리띠",
+     "role": "지원",
+     "pose": "초밥 접시를 두 손으로 내밀며 웃는 자세",
+     "setting": "등불 켜진 바닷가 초밥집 카운터 — 창밖의 밤바다"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "물속으로 뛰어들자 빛줄기 사이로 바닷속 세상이 열린다",
+     "one_figure": true,
+     "particles": "bubbles"
+    },
+    "중반": {
+     "scene": "깊은 바다 아래로 거대한 그림자가 지나가며 푸른 빛이 번진다",
+     "one_figure": true,
+     "particles": "bubbles"
+    },
+    "엔딩": {
+     "scene": "밤바다 위로 가게 등불이 비치며 물고기 떼가 빛처럼 반짝인다",
+     "one_figure": true,
+     "particles": "fireflies"
+    }
+   },
+   "ethnicity": "Korean",
+   "silhouette": {
+    "body": "petite",
+    "hair": "bob",
+    "garment": "flight_suit",
+    "material": "neoprene_piping",
+    "pose": "harpoon_swim",
+    "palette": "ocean_blue_coral"
+   },
+   "face": {
+    "face_shape": "round",
+    "eyes": "droopy_soft",
+    "brows": "soft_round",
+    "nose": "broad_soft",
+    "lips": "wide_smile"
+   },
+   "place": "a sunny tropical sea with a small fishing boat, a glowing coral reef, a mysterious deep blue hole and a cozy seaside sushi bar",
+   "rights": "넥슨(민트로켓) — 이름과 인물 디자인이 저작물이다. 원작 주인공과 가게 인물을 따라 그리지 않는다",
+   "avoid": [
+    "원작 주인공(통통한 잠수부)과 가게 인물",
+    "로고·타이틀 글자",
+    "산소·무게 게이지 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q114995908",
+    "fetched": "2026-10-28",
+    "year": 2022,
+    "developer": [
+     {
+      "qid": "Q124304157",
+      "ko": null,
+      "en": "Mintrocket"
+     }
+    ],
+    "publisher": [],
+    "platforms": [
+     {
+      "qid": "Q122761124",
+      "ko": "닌텐도 스위치 2",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q63184502",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     },
+     {
+      "qid": "Q98973368",
+      "ko": "엑스박스 시리즈 X 및 시리즈 S",
+      "en": "Xbox Series X and Series S"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q23916",
+      "ko": "어드벤처 게임",
+      "en": "adventure video game"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%EB%B8%8C_%EB%8D%94_%EB%8B%A4%EC%9D%B4%EB%B2%84",
+     "en": "https://en.wikipedia.org/wiki/Dave_the_Diver"
+    }
+   }
+  },
+  {
+   "key": "uncharted_waters_4",
+   "title": "대항해시대 4",
+   "title_en": "Uncharted Waters IV",
+   "genre": "시뮬레이션",
+   "group": "growth",
+   "era": "16bit",
+   "persona": "미지의 바다를 건너 항구마다 깃발을 꽂는 대항해시대의 선장",
+   "voice": {
+    "타이틀": "돛을 올려라. 지도에 없는 바다로 간다.",
+    "중반": "이 항구에선 후추가 금값이야. 다 사들여.",
+    "엔딩": "일곱 바다가 다 내 항로가 됐어."
+   },
+   "desire": "세상 모든 바다를 지도에 담고 패권을 쥐기",
+   "conflict": "교역의 이득과 바다 위 해적·폭풍",
+   "symbols": [
+    "망원경",
+    "황동 나침반",
+    "돛 문장 깃발"
+   ],
+   "mechanic": "항구를 돌며 사고팔고, 함대를 키워 바다를 넓힌다",
+   "rule": {
+    "forms": {
+     "타이틀": "새 항구에 닿을 때마다 발견 1",
+     "중반": "교역 — 싸게 사서 비싸게 팔면 금화 2",
+     "엔딩": "함대 — 금화만큼 배를 늘려 한 번에 공격"
+    },
+    "counter": "항로를 끊는다. 폭풍(차례 넘기기)을 만나게 한다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "흰 셔츠에 짧은 항해 조끼, 허리에 황동 나침반",
+     "role": "정찰",
+     "pose": "뱃머리에 한 발을 올리고 망원경으로 수평선을 보는 자세",
+     "setting": "아침 안개 낀 리스본 같은 항구 부두 — 범선과 갈매기"
+    },
+    "중반": {
+     "look": "돛천을 덧댄 긴 항해 코트와 가죽 장화, 금화 주머니",
+     "role": "교란",
+     "pose": "금화 주머니를 들어 흔들며 흥정하듯 웃는 자세",
+     "setting": "향신료 시장이 늘어선 남쪽 항구 — 천막과 강한 햇살"
+    },
+    "엔딩": {
+     "look": "남색 제독 코트에 금 견장과 깃털 모자",
+     "role": "공격",
+     "pose": "배의 키를 한 손으로 잡고 다른 손으로 앞을 가리키는 자세",
+     "setting": "폭풍이 걷힌 넓은 바다 위 기함 갑판 — 무지개와 거친 파도"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "펼친 해도 위로 빛나는 항로가 바다 끝까지 그어진다",
+     "one_figure": true,
+     "particles": "mist"
+    },
+    "중반": {
+     "scene": "돛이 바람을 받아 부풀며 수평선 너머 새 대륙이 떠오른다",
+     "one_figure": true,
+     "particles": "bubbles"
+    },
+    "엔딩": {
+     "scene": "일곱 바다의 별자리가 하늘에 이어지며 나침반이 빛난다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "Mediterranean",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "long_wavy",
+    "garment": "coat_trousers",
+    "material": "sailcloth_canvas",
+    "pose": "spyglass_helm",
+    "palette": "navy_sail_brass"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "narrow_upturned",
+    "brows": "arched_thin",
+    "nose": "broad_soft",
+    "lips": "heart_full"
+   },
+   "place": "the Age of Discovery seas — misty European harbors full of tall ships, sun-baked spice ports and the open ocean beyond the map",
+   "rights": "코에이 테크모 — 이름이 상표다. 원작 주인공·선원 초상을 따라 그리지 않는다",
+   "avoid": [
+    "원작 주인공·선원 초상",
+    "코에이 로고·타이틀 글자",
+    "항해 지도·교역 UI"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q5369971",
+    "fetched": "2026-10-28",
+    "year": 1999,
+    "developer": [],
+    "publisher": [],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1610017",
+      "ko": "시뮬레이션 게임",
+      "en": "simulation video game"
+     }
+    ],
+    "series": null,
+    "modes": [],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%AD%ED%95%B4%EC%8B%9C%EB%8C%80_4",
+     "en": null
+    }
    }
   }
  ]
