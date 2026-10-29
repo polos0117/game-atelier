@@ -125,6 +125,8 @@ assert(plain.includes(T.casualWardrobe) && plain.includes(T.casualPose), '옷·�
 for (const x of [{ orient: 'rear_3q' }, { orient: 'over_shoulder' }, { pose: 'turning_back' }]) assert(cas('game_place', 'gp_walk', x).includes(T.casualLookBack), '뒤돌아보기 ' + JSON.stringify(x));
 /* 일상컷 알아볼 거리 — 하나만 작게, 폼 장비 줄은 없다 */
 assert(plain.includes('SIGNATURE (one or two at most, as an accessory or an object in the scene — never printed on or woven into the clothes): ' + g.signature.map(s => '"' + q(s) + '"').join(', ') + '.') && !plain.includes('GEAR in'), '일상컷 알아볼 거리는 장신구·주변 사물로');
+/* 분리형 선호는 옷 칸·장면 예시에 적힌 옷에 진다(2026-10-29 젤다 일상2 — 가운 예시가 탱크톱·반바지가 됐다) */
+for (const v of ['prefer separates', 'strongly prefer separates']) assert(S.SCENE_AXIS_GUIDES.separates_preference[v][1].includes('Example scene'), '분리형 ' + v);
 /* 일상컷 옷은 장면의 옷 그대로 — 게임의 색·무늬는 장신구·주변 사물로만(2026-10-29 옷이 첨부 그림을 따라 비슷비슷했다) */
 assert(!/color echo|motif on the clothing|source palette and motifs in clothing|integrated into everyday clothing/.test(JSON.stringify(T) + JSON.stringify(S.SCENE_AXIS_GUIDES)), '옷에 게임 색·무늬를 넣으라는 말이 남았다');
 assert(plain.includes("Do not carry the attached image's palette, patterns or trim into the outfit") && plain.includes("never in the outfit's colours, patterns or cut"), '옷은 첨부 그림의 색·무늬를 따르지 않는다');

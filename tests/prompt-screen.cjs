@@ -90,9 +90,16 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert(!t.includes('ERA:'), '기본은 현대');
     await p.selectOption('#era', 'release');
     assert((await out(p)).includes('ERA: set this scene in the real world around her release'), '출시 당시');
-    await p.click('#lock-era');
+    /* 시대는 장면 랜덤이 건드리지 않는다 — 랜덤·잠금 단추가 없고, 랜덤을 돌려도 고른 값 그대로(2026-10-29) */
+    assert.equal(await p.$('#lock-era'), null, '시대 칸에는 잠금 단추가 없다');
+    assert.equal(await p.$('#random-era'), null, '시대 칸에는 랜덤 단추가 없다');
     await p.click('#lock-example');
     await p.click('#random-scene');
+    assert.equal(await p.$eval('#era', e => e.value), 'release', '장면 랜덤이 시대를 바꾸지 않는다');
+    await p.selectOption('#era', '');
+    for (let i = 0; i < 6; i++) await p.click('#random-scene');
+    assert.equal(await p.$eval('#era', e => e.value), '', '장면 랜덤이 출시 당시를 고르지 않는다');
+    await p.selectOption('#era', 'release');
     assert.equal(await p.$eval('#example', e => e.value), 'arc_cabinet', '잠근 예시는 그대로');
     assert.equal(await p.$eval('#category', e => e.value), 'arcade_culture', '예시를 잠그면 그 갈래도 그대로');
     /* 7. 복사·기록 */
