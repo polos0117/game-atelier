@@ -820,7 +820,7 @@
    "key": "night_club",
    "group": "night",
    "ko": "클럽",
-   "en": "a club dance floor under moving coloured lights",
+   "en": "a nightclub with a dance floor under moving coloured lights and a velvet-rope queue at its door",
    "eras": [
     "now",
     "release"
@@ -3674,7 +3674,7 @@
     "night_livehouse",
     "studio_sound"
    ],
-   "en": "tuning a guitar backstage"
+   "en": "tuning a guitar between sets, head bent close to the strings"
   },
   {
    "key": "skate_drop",
