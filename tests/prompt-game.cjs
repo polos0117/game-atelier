@@ -136,8 +136,14 @@ for (const frame of S.CLOSE_FRAMES) {
   assert(t.includes('CROP: ' + S.CROP_EDGE[frame] + '. This crop wins'), frame + ' CROP 줄에 잘리는 선');
   assert(t.indexOf('CROP:') > t.indexOf('FRAME:') && t.indexOf('CROP:') < t.indexOf('WARDROBE:'), frame + ' CROP 은 FRAME 바로 밑');
   assert(t.includes(T.anatomyClose) && !t.includes('7.5 heads'), frame + ' 가까운 컷에 등신 말 없음');
+  /* 가까운 컷 — 옷 줄은 크롭 안만, 노출 풀이에 배·다리 말 없음, 렌즈는 거리를 정하지 않는다(조조전 일상 1·2·3) */
+  const tb = cas({ ...station, frame, axes: { skin_exposure: 'bold' } });
+  assert(tb.includes(T.casualWardrobeClose) && !tb.includes(T.casualWardrobe), frame + ' 가까운 컷 옷 줄');
+  assert(!/skin_exposure: [^\n]*(midriff|leg)/.test(tb) && tb.includes('inside the crop'), frame + ' 가까운 컷 노출 풀이');
+  assert(tb.includes('The lens sets perspective only'), frame + ' 렌즈는 거리를 정하지 않는다');
 }
 assert(cas({ ...station, frame: 'full_body' }).includes(T.anatomy), '먼 컷은 등신 줄 그대로');
+assert(cas({ ...station, frame: 'full_body', axes: { skin_exposure: 'bold' } }).includes(T.casualWardrobe) && /skin_exposure: bold — more scene-appropriate shoulder, back, midriff or leg/.test(cas({ ...station, frame: 'full_body', axes: { skin_exposure: 'bold' } })), '먼 컷은 옷·노출 줄 그대로');
 for (const frame of ['full_body', 'environmental', 'three_quarter', '']) assert(!cas({ ...station, frame }).includes('CROP:'), frame + ' CROP 없음');
 const walk = { era: 'now', place: 'street_alley', act: 'stroll', ofam: 'everyday' };
 for (const x of [{ orient: 'rear_3q' }, { orient: 'over_shoulder' }, { pose: 'turning_back' }]) assert(cas({ ...walk, ...x }).includes(T.casualLookBack), '뒤돌아보기 ' + JSON.stringify(x));

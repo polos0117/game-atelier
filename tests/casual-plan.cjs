@@ -17,6 +17,7 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
   assert.deepEqual(C.check(res.cuts, g), [], g.key + ' ' + seed);
   assert(res.cuts.some(c => C.requiredType(c) === res.required), g.key + ' 필수 갈래 ' + res.required);
   assert(res.cuts.every(c => c.item), g.key + ' 옷은 구체적으로');
+  assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail'].includes(c.frame) || !['wide24', 'documentary35'].includes(c.lens)), g.key + ' 가까운 컷에 광각 없음');
   for (const c of res.cuts) {
     const rec = C.record(g, c), sc = rec.storage.cards[g.key].scenes.casual;
     assert.equal(rec.file, `${g.key}_glossy_kr_game_f_casual${c.n}.webp`);

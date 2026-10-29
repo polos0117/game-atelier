@@ -9,6 +9,7 @@
      - 방향·프레이밍은 서로 다르고 렌즈는 두 번까지, 먼 컷(전신·환경)·가까운 컷(가슴 위·클로즈업) 하나씩
      - 장소는 서로 다르고 장소 묶음은 두 번까지, 의상 계열은 겹치지 않게(평상복만 두 번까지), 옷은 구체적으로
      - 자세 계열·시대는 한 가지가 세 번을 넘지 않게, 뒤돌아보기 방향은 한 장까지, 알아볼 거리는 칸마다 다르게
+     - 가까운 컷(허리 위·가슴 위·클로즈업)엔 광각(24·35mm)을 안 붙인다
    이미 그림이 있는 칸은 짜지 않고, 그 기록(--records)은 겹침 검사에만 쓴다.
 
      node tools/casual-plan.cjs <게임> [--slots 1,2,3] [--records <그림 저장소>/records/<게임>] [--required lingerie|swimwear|roleplay|in_game]
@@ -26,6 +27,7 @@ const tree = JSON.parse(read('data/casual-tree.json')), design = JSON.parse(read
 
 const REQUIRED_TYPES = ['lingerie', 'swimwear', 'roleplay', 'in_game'];
 const FAR = ['full_body', 'environmental'], NEAR = ['chest_up', 'face_close'];
+const NEAR_ALL = S.CLOSE_FRAMES, WIDE_LENSES = ['wide24', 'documentary35'];
 const FRAMES = S.FRAME_OPTIONS.map(r => r[0]).filter(k => k && k !== 'detail');
 const LENSES = S.LENS_OPTIONS.map(r => r[0]).filter(Boolean);
 const EXPRS = S.EXPRESSION_OPTIONS.map(r => r[0]).filter(Boolean);
@@ -62,7 +64,8 @@ function compose(r, sc, game) {
   sc.item = it.length ? pick(r, it).key : '';
   sc.frame = pick(r, FRAMES);
   sc.orient = pick(r, CT.orients(tree, sc.act, sc.frame, S.CLOSE_FRAMES));
-  sc.lens = pick(r, LENSES);
+  /* 가까운 컷엔 광각을 안 붙인다 — 24·35mm 풀이의 「넉넉한 거리·배경과 균형」 이 컷을 넓혔다(조조전 일상 3) */
+  sc.lens = pick(r, NEAR_ALL.includes(sc.frame) ? LENSES.filter(l => !WIDE_LENSES.includes(l)) : LENSES);
   /* 자세는 물건 없는 몸 자세만, 가끔 — 하는 일이 손동작을 이미 정한다(「부케 들고 기다리기」 에 「지도 보기」 자세가 붙었다) */
   const poses = CT.poses(tree, sc.act).filter(k => !HOLDING_POSES.includes(k));
   sc.pose = poses.length && r() < 0.4 ? pick(r, poses) : '';
