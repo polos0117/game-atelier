@@ -11,6 +11,13 @@
 
 
 
+## 2026-10-29 · claude · 셋째 묶음 5편 — 디아블로 II·워크래프트 III·리니지·스타듀 밸리·영웅전설: 섬의 궤적
+- data/game-design.json — 다섯 편의 해석 칸(인격·한마디·능력·폼·개방·실루엣·얼굴·알아볼 거리·그리지 않을 것)과 facts(tools/fetch-games.py — QID: 디아블로 II Q244033 · 워크래프트 III Q207948 · 리니지 Q489800(1998 원작, Q436660 은 게임이 아니다) · 스타듀 밸리 Q23013817 · 섬의 궤적 Q966698, find 후보 가운데 영어 위키백과 문서가 그 게임인 것). 사용자가 후보 열다섯에서 넷을 고르고 섬의 궤적을 더했다.
+  재질·자세·색은 게임마다 새 정한 말(hellforged_leather·frostrune_plate·pledge_damask·gingham_denim·academy_wool / rune_socket·hammer_rally·enchant_gaze·watering_sprout·orbment_link / blood_crimson_bone·frost_blue_gold·aden_crimson_silver·harvest_green_gold·academy_crimson_gold). 워크래프트 III 은 월드 오브 워크래프트와 시리즈 자매(서로 series, 얼굴 윤곽 square_soft).
+  폼 지시문 충돌 후보 0 — 복식 구조와 타이틀 차림(워크래프트 III 사슬 갑옷 조끼·리니지 겹옷), 자세가 개방 사건을 먼저 하는 것(스타듀 밸리 중반·섬의 궤적 타이틀), 차림·자세의 등불을 고쳤고, 알아볼 거리↔개방이 같은 소품을 말하는 것은 conflicts_ok. 가장 긴 지시문이 900 낱말을 넘어(섬의 궤적 타이틀 913) 알아볼 거리·그리지 않을 것을 줄였다.
+- lib/prompt-spec.js — 새 정한 말의 영어(VOCAB_EN). prompt.html prompt-spec v=36.
+- docs/GAME_CONCEPT.md — 6-3절 셋째 묶음 표.
+
 ## 2026-10-29 · claude · 일상컷 트리 모듈 — 공방마다의 규칙 칸(pkm 몫), 잠근 칸을 지키는 랜덤
 - lib/casual-tree.js · tools/casual-tree.py — 트리 표마다의 규칙 칸 넷을 더했다(pkm 일상컷 트리, 2026-10-29): 안 쓰는 값 `banned`(방향·프레이밍 — 메뉴·랜덤·고치기에서 빠진다), 프레이밍 규칙 `not_required`(필수 갈래 컷엔 안 씀 — frameOk 에 장면을 주면 본다), 동료 자세 `companion`(동료가 있는 하는 일에서만), 세대의 해 `gen_years`(year(tree, 대상) — 카드의 gen). 이 표엔 그 칸이 없어 지금과 같다. 동료 묶음 companion() 을 더했다. 검사기는 새 칸을 본다.
 - lib/prompt-random.js — 일상컷 랜덤은 잠근 칸이 살아남는 값만 뽑는다(시대를 뽑았는데 잠근 장소가 그 시대에 없으면 다른 시대 — 전에는 잠근 장소가 풀렸다). 세부 축을 뽑아도 추천 조합 표시를 안 지운다. prompt.html casual-tree v=9 · prompt-random v=6.

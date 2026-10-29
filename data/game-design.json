@@ -135,7 +135,12 @@
    "parchment_brocade",
    "heraldic_velvet",
    "neoprene_piping",
-   "sailcloth_canvas"
+   "sailcloth_canvas",
+   "hellforged_leather",
+   "frostrune_plate",
+   "pledge_damask",
+   "gingham_denim",
+   "academy_wool"
   ],
   "pose": [
    "dash_corner",
@@ -157,7 +162,12 @@
    "globe_turn",
    "banner_march",
    "harpoon_swim",
-   "spyglass_helm"
+   "spyglass_helm",
+   "rune_socket",
+   "hammer_rally",
+   "enchant_gaze",
+   "watering_sprout",
+   "orbment_link"
   ],
   "palette": [
    "neon_yellow_navy",
@@ -179,7 +189,12 @@
    "marble_bronze_azure",
    "heraldic_purple_gold",
    "ocean_blue_coral",
-   "navy_sail_brass"
+   "navy_sail_brass",
+   "blood_crimson_bone",
+   "frost_blue_gold",
+   "aden_crimson_silver",
+   "harvest_green_gold",
+   "academy_crimson_gold"
   ],
   "hair_color": [
    "antique_gold",
@@ -2746,7 +2761,9 @@
     "라그나로스 등 원작 우두머리의 모습",
     "로고·타이틀 글자"
    ],
-   "series": [],
+   "series": [
+    "warcraft_3"
+   ],
    "pilot": null,
    "facts": {
     "qid": "Q131007",
@@ -4442,6 +4459,1036 @@
     "wiki": {
      "ko": "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%AD%ED%95%B4%EC%8B%9C%EB%8C%80_4",
      "en": null
+    }
+   }
+  },
+  {
+   "key": "diablo_2",
+   "title": "디아블로 II",
+   "title_en": "Diablo II",
+   "genre": "액션 RPG",
+   "group": "growth",
+   "era": "early_3d",
+   "persona": "어둠이 내린 성역을 떠돌며 악마를 사냥하고 전리품을 모으는 방랑자",
+   "voice": {
+    "타이틀": "모닥불 곁에서 잠깐 쉬자. 물약은 넉넉해?",
+    "중반": "방금 떨어진 거, 노란 이름이야. 주워 봐.",
+    "엔딩": "지옥의 문이 열렸어. 끝까지 내려간다."
+   },
+   "desire": "가장 깊은 지옥까지 내려가 근원의 악을 쓰러뜨리기",
+   "conflict": "더 좋은 장비를 찾는 끝없는 사냥과 끝내야 할 싸움",
+   "symbols": [
+    "붉은 체력 물약",
+    "호라드림 상자",
+    "룬석"
+   ],
+   "signature": [
+    "붉은 체력 물약과 푸른 마나 물약 병",
+    "금빛 문양의 호라드림 상자",
+    "무기 홈에 박힌 빛나는 룬석",
+    "로그 야영지의 모닥불과 짐수레"
+   ],
+   "mechanic": "쓰러뜨릴 때마다 전리품이 떨어지고, 맞춰 입은 장비만큼 강해진다",
+   "rule": {
+    "forms": {
+     "타이틀": "물약 — 체력이 처음 바닥날 때 한 번 되살아난다",
+     "중반": "전리품 — 상대를 쓰러뜨릴 때마다 장비 하나, 셋이면 룬어로 묶여 공격 +2",
+     "엔딩": "지옥 난이도 — 모은 장비 수만큼 한 번에 공격"
+    },
+    "counter": "장비가 모이기 전에 몰아친다. 물약을 다 쓰게 만든 뒤 친다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "닳은 가죽 코르셋 위에 짧은 사냥꾼 망토, 허리띠에 붉은 물약 병 셋",
+     "role": "정찰",
+     "pose": "모닥불 빛 속에서 물약 병 하나를 들어 비춰 보는 자세",
+     "setting": "어스름한 로그 야영지 — 목책 너머로 안개 낀 들판",
+     "homage": "아마존 사냥꾼풍 — 가벼운 가죽 갑옷과 창 끈"
+    },
+    "중반": {
+     "look": "모래빛 두건 망토와 금실 수가 놓인 사막풍 겹옷, 손목에 룬 팔찌",
+     "role": "공격",
+     "pose": "빛나는 룬석을 칼자루 홈에 눌러 끼우는 자세",
+     "setting": "햇빛이 하얗게 부서지는 사막 도시의 무너진 회랑 — 모래바람",
+     "homage": "소서리스풍 — 금실 수 겹옷과 원소 팔찌"
+    },
+    "엔딩": {
+     "look": "핏빛 문양이 새겨진 검은 판금 흉갑과 뼈 장식 어깨, 찢어진 붉은 망토",
+     "role": "버티기",
+     "pose": "부러진 기둥 앞에서 방패를 앞세우고 반쯤 무릎 꿇은 자세",
+     "setting": "용암이 흐르는 지옥의 협곡 — 붉은 하늘과 검은 바위",
+     "homage": "성기사풍 — 십자 문양 방패와 판금 흉갑"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "모닥불이 확 타오르며 야영지 둘레의 어둠이 물러나고 물약 병들이 붉게 빛난다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "중반": {
+     "scene": "호라드림 상자가 열리며 금빛 문양이 공중에 떠올라 룬석 셋이 하나로 녹아든다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "협곡 끝 붉은 하늘이 갈라지며 거대한 뿔 달린 그림자가 무너져 재가 된다",
+     "one_figure": true,
+     "particles": "ash"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "slender",
+    "hair": "long_wavy",
+    "garment": "cloak_wrapped",
+    "material": "hellforged_leather",
+    "pose": "rune_socket",
+    "palette": "blood_crimson_bone",
+    "hair_color": "crimson"
+   },
+   "face": {
+    "face_shape": "heart",
+    "eyes": "deep_set",
+    "brows": "angled_sharp",
+    "nose": "aquiline",
+    "lips": "full_wide",
+    "eye_color": "ember"
+   },
+   "place": "a dark gothic fantasy world of rogue camps, sunbaked desert cities, jungle temples and burning hellish chasms",
+   "rights": "블리자드 엔터테인먼트 — 이름이 상표다. 원작 캐릭터·악마 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 악마·괴물(디아블로·바알 등)의 얼굴과 몸",
+    "원작 캐릭터의 얼굴",
+    "로고·타이틀 글자",
+    "화면 위 체력·마나 구슬과 HUD",
+    "읽히는 아이템 이름·숫자"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q244033",
+    "fetched": "2026-10-29",
+    "year": 2000,
+    "developer": [
+     {
+      "qid": "Q2464302",
+      "ko": null,
+      "en": "Blizzard North"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13522376",
+      "ko": "맥 OS의 역사",
+      "en": "Classic Mac OS"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q111184276",
+      "ko": null,
+      "en": "dark fantasy video game"
+     },
+     {
+      "qid": "Q1163960",
+      "ko": "핵 앤드 슬래시",
+      "en": "hack and slash"
+     },
+     {
+      "qid": "Q1422746",
+      "ko": "액션 롤플레잉 게임",
+      "en": "action role-playing game"
+     },
+     {
+      "qid": "Q744038",
+      "ko": "롤플레잉 비디오 게임",
+      "en": "role-playing video game"
+     }
+    ],
+    "series": {
+     "qid": "Q44165",
+     "ko": "디아블로 시리즈",
+     "en": "Diablo"
+    },
+    "modes": [
+     {
+      "qid": "Q1758804",
+      "ko": "코옵 모드",
+      "en": "co-op mode"
+     },
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%94%94%EC%95%84%EB%B8%94%EB%A1%9C_II",
+     "en": "https://en.wikipedia.org/wiki/Diablo_II"
+    }
+   },
+   "conflicts_ok": [
+    "sig_open:금빛·문양·상자·호라드림",
+    "sig_open:모닥불·야영지"
+   ]
+  },
+  {
+   "key": "warcraft_3",
+   "title": "워크래프트 III",
+   "title_en": "Warcraft III: Reign of Chaos",
+   "genre": "전략",
+   "group": "mind",
+   "era": "early_3d",
+   "persona": "네 종족의 영웅을 앞세워 일꾼을 부리고 기지를 세우는 전장의 지휘관",
+   "voice": {
+    "타이틀": "일꾼은 금광으로, 나머지는 나무를 베어 와.",
+    "중반": "영웅이 세 번째 레벨이야. 이제 밀고 들어간다.",
+    "엔딩": "얼어붙은 왕좌가 저 위에 있어. 따라와."
+   },
+   "desire": "흩어진 종족들을 이끌어 혼돈의 군단을 막아 내기",
+   "conflict": "기지를 키우는 일꾼의 시간과 앞으로 나서는 영웅의 시간",
+   "symbols": [
+    "금광",
+    "영웅의 망치",
+    "생명의 나무 씨앗"
+   ],
+   "signature": [
+    "황금빛이 새어 나오는 금광 입구",
+    "푸른 얼음으로 뒤덮인 얼어붙은 왕좌의 봉우리",
+    "달빛 아래 보랏빛으로 빛나는 엘프의 숲",
+    "오크 방어탑과 인간 성채의 깃발"
+   ],
+   "mechanic": "일꾼이 금과 나무를 캐 기지를 세우고, 앞장선 영웅이 싸울수록 레벨이 오른다",
+   "rule": {
+    "forms": {
+     "타이틀": "일꾼 — 차례마다 자원 +1",
+     "중반": "영웅 레벨 — 이길 때마다 레벨, 셋이면 궁극기 한 번",
+     "엔딩": "총공격 — 영웅 레벨과 모은 자원만큼 한 번에 공격"
+    },
+    "counter": "영웅이 자라기 전에 일꾼을 친다. 금광을 막는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "가벼운 사슬 갑옷 조끼와 짧은 망토, 허리에 곡괭이와 금 주머니",
+     "role": "지원",
+     "pose": "금광 입구 앞에서 곡괭이를 어깨에 걸치고 일꾼들을 손짓해 부르는 자세",
+     "setting": "초원 가장자리의 금광과 막 세운 목책 — 이른 아침 햇빛",
+     "homage": "인간 진영 일꾼풍 — 사슬 조끼와 곡괭이"
+    },
+    "중반": {
+     "look": "금빛 테두리의 푸른 판금 갑옷과 흰 망토, 한 손에 빛나는 망치",
+     "role": "돌파",
+     "pose": "빛나는 망치를 높이 들어 뒤따르는 군대를 이끄는 자세",
+     "setting": "불타는 마을 사이로 난 돌길 — 연기와 붉은 노을",
+     "homage": "성기사 영웅풍 — 금테 판금과 빛의 망치"
+    },
+    "엔딩": {
+     "look": "서리가 내려앉은 은청색 판금과 얼음 결정 어깨, 길게 끌리는 어두운 망토",
+     "role": "공격",
+     "pose": "얼음 계단 위에서 한쪽 무릎을 세우고 위를 올려다보는 자세",
+     "setting": "눈보라가 휘몰아치는 얼음 봉우리의 계단 — 차가운 푸른 빛",
+     "homage": "죽음의 기사풍 — 서리 내린 판금과 룬이 새겨진 검"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "금광에서 금빛이 쏟아져 나오며 둘레로 건물들이 차례로 솟아오른다",
+     "one_figure": true,
+     "particles": "gold"
+    },
+    "중반": {
+     "scene": "망치가 내리치는 자리에서 빛의 기둥이 솟아 어두운 그림자들이 흩어진다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "얼어붙은 왕좌 둘레로 얼음이 갈라지며 차가운 푸른 빛이 하늘로 솟는다",
+     "one_figure": true,
+     "particles": "snow"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "ponytail",
+    "garment": "armor_layered",
+    "material": "frostrune_plate",
+    "pose": "hammer_rally",
+    "palette": "frost_blue_gold",
+    "hair_color": "silver_white"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "round_large",
+    "brows": "low_heavy",
+    "nose": "straight_narrow",
+    "lips": "thin_long",
+    "eye_color": "ice_blue"
+   },
+   "place": "a war-torn high-fantasy continent of gold mines, burning human villages, moonlit elven forests and a frozen northern glacier",
+   "rights": "블리자드 엔터테인먼트 — 이름이 상표다. 원작 영웅과 유닛 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 영웅(아서스·스랄·일리단 등)의 얼굴",
+    "오크·언데드·괴물 유닛의 얼굴과 몸",
+    "로고·타이틀 글자",
+    "화면 위 미니맵·명령 버튼 HUD",
+    "읽히는 글자·숫자"
+   ],
+   "series": [
+    "world_of_warcraft"
+   ],
+   "pilot": null,
+   "facts": {
+    "qid": "Q207948",
+    "fetched": "2026-10-29",
+    "year": 2002,
+    "developer": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13522376",
+      "ko": "맥 OS의 역사",
+      "en": "Classic Mac OS"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q208189",
+      "ko": "실시간 전략 게임",
+      "en": "real-time strategy"
+     },
+     {
+      "qid": "Q42409239",
+      "ko": "판타지 게임",
+      "en": "fantasy video game"
+     }
+    ],
+    "series": {
+     "qid": "Q815739",
+     "ko": "워크래프트",
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%9B%8C%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8_III:_%EB%A0%88%EC%9D%B8_%EC%98%A4%EB%B8%8C_%EC%B9%B4%EC%98%A4%EC%8A%A4",
+     "en": "https://en.wikipedia.org/wiki/Warcraft_III:_Reign_of_Chaos"
+    }
+   },
+   "conflicts_ok": [
+    "sig_open:얼어붙·얼어붙은·얼음·왕좌"
+   ]
+  },
+  {
+   "key": "lineage",
+   "title": "리니지",
+   "title_en": "Lineage",
+   "genre": "MMORPG",
+   "group": "growth",
+   "era": "early_3d",
+   "persona": "혈맹을 모아 아덴의 성을 차지하려는 젊은 군주",
+   "voice": {
+    "타이틀": "말하는 섬에서 시작이야. 혈맹 들어올 사람?",
+    "중반": "이번 강화만 붙으면 돼. 숨 참아.",
+    "엔딩": "성문이 열린다. 혈맹, 앞으로!"
+   },
+   "desire": "아덴의 성을 차지해 왕좌에 오르기",
+   "conflict": "한 번에 모든 걸 거는 강화와 동료를 지켜야 하는 군주의 책임",
+   "symbols": [
+    "혈맹 문장",
+    "강화 주문서",
+    "성주의 왕관"
+   ],
+   "signature": [
+    "푸르게 빛나는 강화 주문서와 칼날",
+    "말하는 섬 선착장",
+    "기란 마을 광장의 노점",
+    "성벽 위 혈맹 깃발과 투석기"
+   ],
+   "mechanic": "혈맹을 모아 공성전에서 성을 차지하고, 무기를 강화해 한 번에 큰 힘을 건다",
+   "rule": {
+    "forms": {
+     "타이틀": "혈맹 — 동료가 들어올 때마다 방어 +1",
+     "중반": "강화 — 걸 때마다 공격 +1, 셋째에 실패하면 모두 잃는다",
+     "엔딩": "공성전 — 혈맹 수만큼 한 번에 성문을 친다"
+    },
+    "counter": "강화가 깨질 때까지 버틴다. 혈맹이 모이기 전에 군주를 친다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "소박한 리넨 겹옷 위에 가죽 조끼와 짧은 망토, 허리에 짧은 검과 빵 주머니",
+     "role": "정찰",
+     "pose": "선착장 말뚝에 한 발을 올리고 바다 건너를 내다보는 자세",
+     "setting": "안개 낀 섬의 나무 선착장 — 잔잔한 회색 바다",
+     "homage": "견습 기사풍 — 가죽 튜닉과 짧은 검"
+    },
+    "중반": {
+     "look": "붉은 문장이 수놓인 짧은 군주 망토와 은빛 흉갑, 손목에 강화 주문서 두루마리",
+     "role": "공격",
+     "pose": "푸르게 빛나는 칼날을 눈높이로 들어 숨죽여 바라보는 자세",
+     "setting": "해 질 녘 상인 노점이 모인 도시 광장 — 등불과 붉은 차양",
+     "homage": "군주 직업풍 — 붉은 망토와 은빛 흉갑"
+    },
+    "엔딩": {
+     "look": "금테를 두른 붉은 왕실 드레스 갑옷과 작은 왕관, 등 뒤로 끌리는 긴 망토",
+     "role": "버티기",
+     "pose": "성벽 위에서 혈맹 깃발을 바닥에 꽂고 버티어 선 자세",
+     "setting": "공성 불길이 오르는 성벽 위 — 밤하늘과 투석기의 불덩이",
+     "homage": "성주풍 — 왕실 망토와 왕관"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "안개가 걷히며 섬 너머 대륙의 불빛들이 하나씩 켜진다",
+     "one_figure": true,
+     "particles": "mist"
+    },
+    "중반": {
+     "scene": "칼날의 푸른 빛이 터지듯 번지며 둘레의 등불이 한꺼번에 흔들린다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "성문이 무너지며 혈맹 깃발의 그림자가 성벽 전체를 덮고 불꽃이 하늘로 흩어진다",
+     "one_figure": true,
+     "particles": "embers"
+    }
+   },
+   "ethnicity": "Korean",
+   "silhouette": {
+    "body": "tall_statuesque",
+    "hair": "long_straight",
+    "garment": "robe_overlap",
+    "material": "pledge_damask",
+    "pose": "enchant_gaze",
+    "palette": "aden_crimson_silver",
+    "hair_color": "wine_red"
+   },
+   "face": {
+    "face_shape": "oval",
+    "eyes": "monolid_long",
+    "brows": "straight_thick",
+    "nose": "straight_narrow",
+    "lips": "small_bow",
+    "eye_color": "steel_blue"
+   },
+   "place": "a medieval fantasy kingdom of misty island docks, bustling market towns and besieged castle walls flying guild banners",
+   "rights": "엔씨소프트 — 이름이 상표다. 원작 캐릭터·몬스터 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물·몬스터의 얼굴과 몸",
+    "로고·타이틀 글자",
+    "강화 수치(+9)·읽히는 아이템 이름",
+    "채팅창·HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q489800",
+    "fetched": "2026-10-29",
+    "year": 1998,
+    "developer": [
+     {
+      "qid": "Q483036",
+      "ko": "엔씨",
+      "en": "NC"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q483036",
+      "ko": "엔씨",
+      "en": "NC"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13522376",
+      "ko": "맥 OS의 역사",
+      "en": "Classic Mac OS"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q175173",
+      "ko": "대규모 다중 사용자 온라인 롤 플레잉 게임(MMORPG)",
+      "en": "massively multiplayer online role-playing game"
+     }
+    ],
+    "series": {
+     "qid": "Q6553370",
+     "ko": "리니지",
+     "en": "Lineage"
+    },
+    "modes": [
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%A6%AC%EB%8B%88%EC%A7%80_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/Lineage_(video_game)"
+    }
+   },
+   "conflicts_ok": [
+    "sig_open:깃발·성벽·혈맹"
+   ]
+  },
+  {
+   "key": "stardew_valley",
+   "title": "스타듀 밸리",
+   "title_en": "Stardew Valley",
+   "genre": "시뮬레이션",
+   "group": "growth",
+   "era": "modern",
+   "persona": "도시의 사무실을 떠나 할아버지의 낡은 농장을 일구는 새 농부",
+   "voice": {
+    "타이틀": "오늘은 파스닙부터 심자. 물뿌리개 어디 뒀더라?",
+    "중반": "비 온대! 물 안 줘도 되는 날이야.",
+    "엔딩": "밭도 마을도 다 살아났어. 할아버지가 보면 좋아하시겠다."
+   },
+   "desire": "버려진 농장과 마을을 다시 살려 내기",
+   "conflict": "하루 기력은 정해져 있고, 할 일은 끝이 없다",
+   "symbols": [
+    "물뿌리개",
+    "씨앗 봉투",
+    "나무 출하 상자"
+   ],
+   "signature": [
+    "나무 출하 상자와 파스닙 밭",
+    "마을 광장의 낡은 커뮤니티 센터",
+    "광산 엘리베이터와 반짝이는 광석",
+    "닭장과 붉은 헛간"
+   ],
+   "mechanic": "계절마다 씨를 뿌리고 날마다 물을 주어, 자란 작물을 거둔다",
+   "rule": {
+    "forms": {
+     "타이틀": "씨앗 — 심은 다음 차례마다 자라고, 셋째 차례에 거둔다",
+     "중반": "꾸러미 — 서로 다른 수확 넷을 모으면 보상 하나",
+     "엔딩": "풍년 — 거둔 수확만큼 체력을 채우고 그만큼 공격"
+    },
+    "counter": "자라기 전에 밭을 짓밟는다. 계절이 바뀌게 기다린다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "빛바랜 데님 멜빵바지와 체크 셔츠, 밀짚모자",
+     "role": "지원",
+     "pose": "물뿌리개를 기울여 새싹 위로 물을 뿌리는 자세",
+     "setting": "막 갈아엎은 작은 밭과 낡은 농가 — 봄날 아침 햇살",
+     "homage": "새내기 농부풍 — 멜빵바지와 밀짚모자"
+    },
+    "중반": {
+     "look": "목에 땀받이 손수건을 두르고 허리에 광석 주머니를 단 작업복, 한 손에 곡괭이",
+     "role": "돌파",
+     "pose": "곡괭이를 어깨에 걸치고 등불을 들어 광산 깊은 곳을 비춰 보는 자세",
+     "setting": "광석이 반짝이는 어두운 광산 층 — 등불 하나와 나무 사다리",
+     "homage": "광부·모험가 길드풍 — 등불과 곡괭이"
+    },
+    "엔딩": {
+     "look": "꽃수 놓인 앞치마 원피스와 화관, 허리에 금빛 낫",
+     "role": "버티기",
+     "pose": "수확한 호박을 품에 안고 헛간 문에 기대 선 자세",
+     "setting": "노을 진 가을 농장 — 가득 찬 밭과 붉은 헛간",
+     "homage": "가을 축제 농부풍 — 앞치마와 화관"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "물방울이 떨어진 자리마다 새싹이 한꺼번에 솟아 밭 전체가 초록으로 덮인다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "중반": {
+     "scene": "바위가 깨지며 광석이 무지갯빛으로 쏟아지고 광산 깊은 곳까지 빛이 번진다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "커뮤니티 센터 창마다 불이 켜지며 별 모양 빛이 마을 하늘로 떠오른다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "curvy",
+    "hair": "braids",
+    "garment": "work_overalls",
+    "material": "gingham_denim",
+    "pose": "watering_sprout",
+    "palette": "harvest_green_gold",
+    "hair_color": "flame_orange"
+   },
+   "face": {
+    "face_shape": "round",
+    "eyes": "almond_wide",
+    "brows": "arched_thin",
+    "nose": "small_button",
+    "lips": "wide_smile",
+    "eye_color": "leaf_green"
+   },
+   "place": "a cozy pixel-art farming valley of crop fields, a seaside town square, glittering mines and a red barn at sunset",
+   "rights": "컨선드에이프(에릭 바론) — 이름이 상표다. 원작 마을 주민·생물 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "마을 주민(애비게일·세바스찬 등)의 얼굴",
+    "주니모·몬스터의 얼굴과 몸",
+    "로고·타이틀 글자",
+    "화면 위 시계·가방 칸 HUD",
+    "읽히는 글자·숫자"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q23013817",
+    "fetched": "2026-10-29",
+    "year": 2016,
+    "developer": [
+     {
+      "qid": "Q137650268",
+      "ko": null,
+      "en": "ConcernedApe LLC"
+     },
+     {
+      "qid": "Q44914560",
+      "ko": "에릭 배런",
+      "en": "Eric Barone"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q137650268",
+      "ko": null,
+      "en": "ConcernedApe LLC"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q122761124",
+      "ko": "닌텐도 스위치 2",
+      "en": null
+     },
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1391641",
+      "ko": "오우야",
+      "en": "Ouya"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q143298",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q15089879",
+      "ko": "파이어 OS",
+      "en": null
+     },
+     {
+      "qid": "Q16980",
+      "ko": "ARM 아키텍처",
+      "en": "ARM architecture"
+     },
+     {
+      "qid": "Q17679679",
+      "ko": "뉴 닌텐도 3DS",
+      "en": null
+     },
+     {
+      "qid": "Q188808",
+      "ko": "플레이스테이션 비타",
+      "en": "PlayStation Vita"
+     },
+     {
+      "qid": "Q193321",
+      "ko": "자바 가상 머신",
+      "en": "Java virtual machine"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q203597",
+      "ko": "닌텐도 3DS",
+      "en": "Nintendo 3DS"
+     },
+     {
+      "qid": "Q20965967",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q270285",
+      "ko": "애플 TV",
+      "en": "Apple TV"
+     },
+     {
+      "qid": "Q388",
+      "ko": "리눅스",
+      "en": "Linux"
+     },
+     {
+      "qid": "Q48263",
+      "ko": "엑스박스 360",
+      "en": null
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q4885200",
+      "ko": "윈도 폰",
+      "en": "Windows Phone"
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q56942",
+      "ko": "Wii U",
+      "en": "Wii U"
+     },
+     {
+      "qid": "Q63184502",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q64350339",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q79531",
+      "ko": "크롬OS",
+      "en": "ChromeOS"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     },
+     {
+      "qid": "Q98973368",
+      "ko": "엑스박스 시리즈 X 및 시리즈 S",
+      "en": "Xbox Series X and Series S"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q124694932",
+      "ko": null,
+      "en": "farm life sim"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q1758804",
+      "ko": "코옵 모드",
+      "en": "co-op mode"
+     },
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%83%80%EB%93%80_%EB%B0%B8%EB%A6%AC",
+     "en": "https://en.wikipedia.org/wiki/Stardew_Valley"
+    }
+   },
+   "conflicts_ok": [
+    "sig_open:마을·센터·커뮤니티",
+    "sig_open:광산·광석"
+   ]
+  },
+  {
+   "key": "trails_of_cold_steel",
+   "title": "영웅전설: 섬의 궤적",
+   "title_en": "The Legend of Heroes: Trails of Cold Steel",
+   "genre": "RPG",
+   "group": "growth",
+   "era": "hd",
+   "persona": "사관학교 특별반에서 동료들과 제국의 내전을 헤쳐 나가는 학생",
+   "voice": {
+    "타이틀": "오늘부터 VII반이야. 잘 부탁해, 다들.",
+    "중반": "링크 이어! 내가 무너뜨릴게, 바로 따라 쳐.",
+    "엔딩": "흩어져도 우리는 VII반이야. 반드시 다시 모인다."
+   },
+   "desire": "갈라진 제국 속에서 동료들과 함께 지킬 것을 지키기",
+   "conflict": "학생으로 남고 싶은 마음과 내전에 휘말린 현실",
+   "symbols": [
+    "전술 오브먼트",
+    "사관학교 배지",
+    "태도"
+   ],
+   "signature": [
+    "진홍 사관학교 제복",
+    "회중시계 모양 전술 오브먼트와 쿼츠",
+    "종탑이 보이는 학교 도시의 가로수 길",
+    "제국을 가로지르는 기차"
+   ],
+   "mechanic": "전술 링크로 이어진 두 동료가, 한쪽이 무너뜨리면 다른 쪽이 따라 친다",
+   "rule": {
+    "forms": {
+     "타이틀": "전술 링크 — 이웃 자리 동료와 이어져, 한쪽이 치면 다른 쪽이 한 번 더",
+     "중반": "쿼츠 — 끼울 때마다 마법 +1, 셋이면 아츠 하나",
+     "엔딩": "S 크래프트 — 모은 기력을 한 번에 써서 맞은편 전체를 친다"
+    },
+    "counter": "이어진 둘을 갈라 놓는다. 이웃 자리를 먼저 비운다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "금색 단추가 달린 진홍색 사관학교 재킷과 주름치마, 짧은 망토",
+     "role": "지원",
+     "pose": "오브먼트를 가슴께에 쥐고 동료 쪽으로 손을 내미는 자세",
+     "setting": "봄꽃이 핀 사관학교 앞뜰 — 종탑과 아침 햇살",
+     "homage": "VII반 제복풍 — 진홍 재킷과 금 단추"
+    },
+    "중반": {
+     "look": "제복 위에 가죽 전투 벨트와 장갑, 허리에 가느다란 태도",
+     "role": "돌파",
+     "pose": "몸을 낮추고 태도를 반쯤 뽑아 앞으로 내딛는 자세",
+     "setting": "오래된 유적의 지하 회랑 — 푸른 빛을 내는 쿼츠 기둥",
+     "homage": "검사 계열풍 — 태도와 전투 벨트"
+    },
+    "엔딩": {
+     "look": "검 문장이 들어간 어두운 진홍 롱코트와 흰 장갑",
+     "role": "공격",
+     "pose": "흩날리는 코트 자락 속에서 태도를 높이 들어 겨누는 자세",
+     "setting": "눈 내리는 제국 수도의 대로 — 붉은 등불과 멀리 보이는 궁전",
+     "homage": "기사단 지휘관풍 — 문장 롱코트와 흰 장갑"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "오브먼트가 열리며 빛의 실이 동료들의 자리로 뻗어 하나로 이어진다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "중반": {
+     "scene": "쿼츠 기둥들이 한꺼번에 빛나며 회랑의 어둠이 일곱 빛깔로 갈라진다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "엔딩": {
+     "scene": "눈발 속에서 거대한 기사의 그림자가 그녀 뒤에 무릎 꿇고, 하늘의 구름이 갈라진다",
+     "one_figure": true,
+     "particles": "snow"
+    }
+   },
+   "ethnicity": "Japanese",
+   "silhouette": {
+    "body": "slender",
+    "hair": "side_swept",
+    "garment": "tailored_suit",
+    "material": "academy_wool",
+    "pose": "orbment_link",
+    "palette": "academy_crimson_gold",
+    "hair_color": "golden_blonde"
+   },
+   "face": {
+    "face_shape": "diamond",
+    "eyes": "round_large",
+    "brows": "arched_thin",
+    "nose": "small_button",
+    "lips": "heart_full",
+    "eye_color": "azure"
+   },
+   "place": "a steampunk-tinged European empire of a military academy town, ancient ruins lit by blue quartz and snowy capital boulevards",
+   "rights": "니혼 팔콤 — 이름이 상표다. 원작 인물과 기신(거대 기사) 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(VII반 등)의 얼굴",
+    "기신(거대 기사)·마수 디자인",
+    "로고·타이틀 글자",
+    "읽히는 글자·숫자·전투 HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q966698",
+    "fetched": "2026-10-29",
+    "year": 2013,
+    "developer": [
+     {
+      "qid": "Q1142226",
+      "ko": "니혼 팔콤",
+      "en": null
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q106470371",
+      "ko": null,
+      "en": "NIS America"
+     },
+     {
+      "qid": "Q110813859",
+      "ko": null,
+      "en": "Clouded Leopard Entertainment"
+     },
+     {
+      "qid": "Q1142226",
+      "ko": "니혼 팔콤",
+      "en": null
+     },
+     {
+      "qid": "Q2546713",
+      "ko": "마벨러스",
+      "en": "Marvelous"
+     },
+     {
+      "qid": "Q8045013",
+      "ko": "엑시드 게임스",
+      "en": "Xseed Games"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q188808",
+      "ko": "플레이스테이션 비타",
+      "en": "PlayStation Vita"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q744038",
+      "ko": "롤플레잉 비디오 게임",
+      "en": "role-playing video game"
+     }
+    ],
+    "series": {
+     "qid": "Q76531656",
+     "ko": "영웅전설 섬의 궤적",
+     "en": "The Legend of Heroes: Trails of Cold Steel"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%98%81%EC%9B%85%EC%A0%84%EC%84%A4_%EC%84%AC%EC%9D%98_%EA%B6%A4%EC%A0%81",
+     "en": "https://en.wikipedia.org/wiki/The_Legend_of_Heroes:_Trails_of_Cold_Steel"
     }
    }
   }
