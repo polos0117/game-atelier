@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "일상컷 트리 — 시대 → 장소 → 하는 일 → 의상 → 구도·소품 → 분위기. 앞에서 고른 것이 뒤 선택지를 거른다(2026-10-29, 사용자). 장소의 eras·outfits, 하는 일의 places(@묶음 = 그 묶음의 모든 장소)·family·outfits, 시대의 outfits 가 허용 관계다. 검사는 python3 tools/casual-tree.py check.",
+ "note": "일상컷 트리 — 시대 → 장소 → 하는 일 → 의상 → 구도·소품 → 분위기. 앞에서 고른 것이 뒤 선택지를 거른다(2026-10-29, 사용자). 장소의 eras·outfits, 하는 일의 places(@묶음 = 그 묶음의 모든 장소)·family·outfits, 시대의 outfits 가 허용 관계다. 검사는 python3 tools/casual-tree.py check. 추천 조합(presets)은 지금 갈래의 장면 예시를 옮긴 것, legacy 는 예전 기록의 갈래/예시 → 새 길.",
  "eras": [
   {
    "key": "now",
@@ -18,7 +18,8 @@
     "roleplay",
     "subculture",
     "bridal",
-    "retro"
+    "retro",
+    "costume"
    ]
   },
   {
@@ -36,7 +37,8 @@
     "traditional",
     "roleplay",
     "subculture",
-    "bridal"
+    "bridal",
+    "costume"
    ]
   },
   {
@@ -521,7 +523,8 @@
    ],
    "outfits": [
     "swimwear",
-    "active"
+    "active",
+    "retro"
    ]
   },
   {
@@ -536,7 +539,9 @@
    "outfits": [
     "swimwear",
     "active",
-    "everyday"
+    "everyday",
+    "retro",
+    "bridal"
    ]
   },
   {
@@ -759,7 +764,8 @@
     "release"
    ],
    "outfits": [
-    "active"
+    "active",
+    "retro"
    ]
   },
   {
@@ -820,7 +826,8 @@
     "evening",
     "subculture",
     "everyday",
-    "retro"
+    "retro",
+    "costume"
    ]
   },
   {
@@ -912,7 +919,9 @@
    "outfits": [
     "everyday",
     "traditional",
-    "roleplay"
+    "roleplay",
+    "retro",
+    "subculture"
    ]
   },
   {
@@ -957,7 +966,8 @@
    "outfits": [
     "active",
     "evening",
-    "traditional"
+    "traditional",
+    "costume"
    ]
   },
   {
@@ -997,7 +1007,8 @@
     "release"
    ],
    "outfits": [
-    "roleplay"
+    "roleplay",
+    "costume"
    ]
   },
   {
@@ -1011,7 +1022,8 @@
    ],
    "outfits": [
     "roleplay",
-    "subculture"
+    "subculture",
+    "costume"
    ],
    "since": 1990
   },
@@ -1028,7 +1040,9 @@
     "evening",
     "lingerie",
     "traditional",
-    "homewear"
+    "homewear",
+    "retro",
+    "everyday"
    ]
   },
   {
@@ -1057,7 +1071,8 @@
    ],
    "outfits": [
     "evening",
-    "traditional"
+    "traditional",
+    "retro"
    ]
   },
   {
@@ -1231,7 +1246,8 @@
    "outfits": [
     "everyday",
     "swimwear",
-    "active"
+    "active",
+    "bridal"
    ]
   },
   {
@@ -1469,6 +1485,106 @@
     "subculture",
     "bridal"
    ]
+  },
+  {
+   "key": "street_grocery",
+   "group": "street",
+   "ko": "마트·편의점",
+   "en": "a neighbourhood grocery or convenience store with bright aisles",
+   "eras": [
+    "now",
+    "release"
+   ],
+   "outfits": [
+    "everyday",
+    "homewear",
+    "subculture"
+   ]
+  },
+  {
+   "key": "street_mall",
+   "group": "street",
+   "ko": "쇼핑몰",
+   "en": "a shopping mall atrium with a fountain and glass railings",
+   "eras": [
+    "now",
+    "release"
+   ],
+   "outfits": [
+    "everyday",
+    "subculture",
+    "retro"
+   ]
+  },
+  {
+   "key": "night_livehouse",
+   "group": "night",
+   "ko": "라이브 하우스",
+   "en": "a small live house with a low stage, a crowd barrier and amps",
+   "eras": [
+    "now",
+    "release"
+   ],
+   "outfits": [
+    "subculture",
+    "everyday",
+    "retro"
+   ]
+  },
+  {
+   "key": "stage_open_air",
+   "group": "stage",
+   "ko": "야외 공연장",
+   "en": "an outdoor theatre of tiered seats facing a stage",
+   "eras": [
+    "now",
+    "release"
+   ],
+   "outfits": [
+    "everyday",
+    "traditional"
+   ]
+  },
+  {
+   "key": "stage_show",
+   "group": "stage",
+   "ko": "패션쇼장",
+   "en": "the front row of a fashion show beside a lit runway",
+   "eras": [
+    "now",
+    "release"
+   ],
+   "outfits": [
+    "evening",
+    "everyday"
+   ]
+  },
+  {
+   "key": "sports_range",
+   "group": "sports",
+   "ko": "양궁장",
+   "en": "an archery range of targets on a green field",
+   "eras": [
+    "now",
+    "release"
+   ],
+   "outfits": [
+    "active"
+   ]
+  },
+  {
+   "key": "fx_retro_home",
+   "group": "fx",
+   "ko": "레트로 퓨처 집",
+   "en": "a retro-futurist home of rounded chrome appliances and soft panels",
+   "eras": [
+    "fantasy"
+   ],
+   "outfits": [
+    "editorial",
+    "retro",
+    "costume"
+   ]
   }
  ],
  "families": {
@@ -1679,7 +1795,10 @@
     "stage_festival",
     "sports_gym",
     "sports_court",
-    "sports_track"
+    "sports_track",
+    "stage_open_air",
+    "stage_show",
+    "night_livehouse"
    ],
    "en": "resting on a seat for a moment, catching her breath"
   },
@@ -1702,7 +1821,8 @@
     "game_place",
     "fx_observatory",
     "water_yacht",
-    "water_infinity"
+    "water_infinity",
+    "fx_retro_home"
    ],
    "en": "looking out at the view, one hand resting on the window frame or rail"
   },
@@ -1805,7 +1925,8 @@
    "places": [
     "home_kitchen",
     "travel_camp",
-    "game_inn"
+    "game_inn",
+    "fx_retro_home"
    ],
    "en": "cooking at a counter, chopping and stirring"
   },
@@ -1903,7 +2024,8 @@
     "home_entry",
     "sports_gym",
     "sports_rink",
-    "sports_wall"
+    "sports_wall",
+    "street_alley"
    ],
    "en": "sitting on a bench to tie her shoes"
   },
@@ -1966,7 +2088,8 @@
     "street_shop",
     "arcade_shop",
     "street_market",
-    "game_market"
+    "game_market",
+    "stage_festival"
    ],
    "en": "browsing a shelf and pulling one item out for a closer look"
   },
@@ -2052,7 +2175,8 @@
     "travel_lookout",
     "game_place",
     "travel_lake",
-    "studio_art"
+    "studio_art",
+    "travel_coast"
    ],
    "en": "sketching the scenery in a small notebook"
   },
@@ -2063,7 +2187,8 @@
    "places": [
     "street_park",
     "game_field",
-    "travel_lake"
+    "travel_lake",
+    "street_rooftop"
    ],
    "en": "having a small picnic on a blanket with fruit and a basket"
   },
@@ -2389,7 +2514,9 @@
     "fx_spa",
     "spa_jjimjil",
     "spa_hammam",
-    "spa_footbath"
+    "spa_footbath",
+    "fx_retro_home",
+    "street_cafe"
    ],
    "en": "pouring herbal tea, relaxed and unhurried"
   },
@@ -2514,7 +2641,8 @@
    ],
    "en": "hitting a sharp choreography pose in front of the mirror",
    "outfits": [
-    "active"
+    "active",
+    "retro"
    ]
   },
   {
@@ -2556,7 +2684,10 @@
    "places": [
     "night_bar",
     "night_jazz",
-    "game_inn"
+    "game_inn",
+    "water_pool",
+    "water_resort",
+    "street_cafe"
    ],
    "en": "perched at the counter lifting a coloured drink"
   },
@@ -2568,7 +2699,8 @@
     "night_club",
     "night_rooftop",
     "stage_festival",
-    "fx_ballroom"
+    "fx_ballroom",
+    "stage_wedding"
    ],
    "en": "dancing to the beat, one hand raised"
   },
@@ -2621,7 +2753,9 @@
     "evening_penthouse",
     "water_yacht",
     "night_bar",
-    "night_karaoke"
+    "night_karaoke",
+    "studio_dev",
+    "fx_castle"
    ],
    "en": "raising a glass in a toast"
   },
@@ -2669,7 +2803,8 @@
    "places": [
     "stage_contest",
     "stage_dance",
-    "fx_starstage"
+    "fx_starstage",
+    "stage_festival"
    ],
    "en": "adjusting her headset or costume just before going on"
   },
@@ -2689,7 +2824,8 @@
    "places": [
     "stage_dance",
     "fx_starstage",
-    "fx_circus"
+    "fx_circus",
+    "night_livehouse"
    ],
    "en": "mid-step of a stage dance, fabric flaring"
   },
@@ -2752,7 +2888,8 @@
    "places": [
     "stage_convention",
     "stage_event",
-    "fx_studio"
+    "fx_studio",
+    "stage_redcarpet"
    ],
    "en": "striking a pose for the cameras at a photo zone"
   },
@@ -2812,7 +2949,9 @@
     "evening_museum",
     "stage_redcarpet",
     "fx_castle",
-    "night_taxi"
+    "night_taxi",
+    "stage_wedding",
+    "evening_hotel"
    ],
    "en": "sitting down after the night out, heels in one hand"
   },
@@ -2855,7 +2994,8 @@
    "family": "stand",
    "places": [
     "travel_lookout",
-    "travel_coast"
+    "travel_coast",
+    "travel_lake"
    ],
    "en": "looking through compact binoculars"
   },
@@ -3026,7 +3166,8 @@
    "ko": "촛불 켜기",
    "family": "stand",
    "places": [
-    "fx_chapel"
+    "fx_chapel",
+    "evening_hotel"
    ],
    "en": "lighting a row of candles"
   },
@@ -3047,6 +3188,457 @@
     "fx_castle"
    ],
    "en": "descending the stairs with her train trailing behind"
+  },
+  {
+   "key": "pick_produce",
+   "ko": "장바구니 채우기",
+   "family": "stand",
+   "places": [
+    "street_grocery",
+    "street_market"
+   ],
+   "en": "picking produce into a basket"
+  },
+  {
+   "key": "counter_pickup",
+   "ko": "계산대에서 받기",
+   "family": "stand",
+   "places": [
+    "street_grocery"
+   ],
+   "en": "picking up a small parcel at the counter"
+  },
+  {
+   "key": "handheld_play",
+   "ko": "휴대용 게임기",
+   "family": "sit",
+   "places": [
+    "street_station",
+    "travel_rural_station",
+    "night_taxi"
+   ],
+   "en": "playing a handheld console by the window, earbuds in"
+  },
+  {
+   "key": "concept_paint",
+   "ko": "콘셉트 아트",
+   "family": "sit",
+   "places": [
+    "studio_dev"
+   ],
+   "en": "painting concept art on a large display with a stylus, a mug going cold beside her"
+  },
+  {
+   "key": "solder_board",
+   "ko": "기판 납땜",
+   "family": "sit",
+   "places": [
+    "studio_dev"
+   ],
+   "en": "soldering a prototype circuit board under a magnifying lamp, safety glasses pushed up"
+  },
+  {
+   "key": "bug_hunt",
+   "ko": "버그 찾기",
+   "family": "stand",
+   "places": [
+    "studio_dev"
+   ],
+   "en": "testing a build on several devices lined up on the desk"
+  },
+  {
+   "key": "record_cheer",
+   "ko": "기록 갱신 환호",
+   "family": "move",
+   "places": [
+    "studio_stream"
+   ],
+   "en": "both fists raised as a record falls, headset knocked askew"
+  },
+  {
+   "key": "stream_setup",
+   "ko": "방송 준비",
+   "family": "stand",
+   "places": [
+    "studio_stream"
+   ],
+   "en": "setting up lights and a camera tripod, cables coiled over one shoulder"
+  },
+  {
+   "key": "segment_practice",
+   "ko": "구간 연습",
+   "family": "sit",
+   "places": [
+    "studio_stream",
+    "home_living"
+   ],
+   "en": "practising one hard segment over and over, controller held close"
+  },
+  {
+   "key": "interview",
+   "ko": "경기 뒤 인터뷰",
+   "family": "stand",
+   "places": [
+    "stage_contest"
+   ],
+   "en": "at the post-match interview spot by a microphone stand, catching her breath"
+  },
+  {
+   "key": "floor_flop",
+   "ko": "바닥에 누워 웃기",
+   "family": "lie",
+   "places": [
+    "studio_stream",
+    "home_living"
+   ],
+   "en": "lying back on the floor after a long session, laughing at the ceiling"
+  },
+  {
+   "key": "reach_shelf",
+   "ko": "높은 선반 손 뻗기",
+   "family": "stand",
+   "places": [
+    "home_kitchen",
+    "street_shop"
+   ],
+   "en": "reaching up for a box on a high shelf"
+  },
+  {
+   "key": "drawer_sort",
+   "ko": "옷장 정리",
+   "family": "low",
+   "places": [
+    "home_bedroom"
+   ],
+   "en": "kneeling on the floor to sort folded clothes into a low drawer"
+  },
+  {
+   "key": "hang_jacket",
+   "ko": "겉옷 걸기",
+   "family": "stand",
+   "places": [
+    "home_entry",
+    "evening_hotel"
+   ],
+   "en": "hanging up her jacket just after getting in"
+  },
+  {
+   "key": "rain_window",
+   "ko": "창밖 비 구경",
+   "family": "sit",
+   "places": [
+    "home_living",
+    "home_bedroom",
+    "street_cafe",
+    "travel_lodge"
+   ],
+   "en": "watching rain run down the window from an armchair, mug in hand"
+  },
+  {
+   "key": "stair_pause",
+   "ko": "계단참에서 멈추기",
+   "family": "stand",
+   "places": [
+    "home_entry",
+    "street_station",
+    "evening_opera"
+   ],
+   "en": "pausing on a stair landing, one hand on the railing"
+  },
+  {
+   "key": "arrive_dawn",
+   "ko": "새벽에 도착하기",
+   "family": "stand",
+   "places": [
+    "game_place",
+    "travel_rural_station",
+    "travel_lookout"
+   ],
+   "en": "arriving at first light with a coffee cup, the place slowly lighting up behind her"
+  },
+  {
+   "key": "night_walk",
+   "ko": "밤길 걷기",
+   "family": "walk",
+   "places": [
+    "game_place",
+    "street_alley",
+    "travel_trail",
+    "fx_forest"
+   ],
+   "en": "walking at night with a small lantern, the path glowing softly around her"
+  },
+  {
+   "key": "cheer_seat",
+   "ko": "관중석 응원",
+   "family": "sit",
+   "places": [
+    "stage_open_air",
+    "stage_contest",
+    "sports_court",
+    "sports_track"
+   ],
+   "en": "clapping from a seat in the stands"
+  },
+  {
+   "key": "parade_float",
+   "ko": "퍼레이드 꽃차",
+   "family": "stand",
+   "places": [
+    "stage_festival"
+   ],
+   "en": "riding a flower-decked parade float and tossing petals"
+  },
+  {
+   "key": "flower_crown",
+   "ko": "꽃관 만들기",
+   "family": "sit",
+   "places": [
+    "stage_festival",
+    "street_park",
+    "fx_forest"
+   ],
+   "en": "weaving a crown of fresh flowers"
+  },
+  {
+   "key": "bead_craft",
+   "ko": "비즈 공예",
+   "family": "sit",
+   "places": [
+    "home_living",
+    "studio_art",
+    "street_cafe"
+   ],
+   "en": "threading beads into a small charm with tidy craft tools"
+  },
+  {
+   "key": "play_instrument",
+   "ko": "악기 연습",
+   "family": "sit",
+   "places": [
+    "home_living",
+    "home_bedroom",
+    "studio_sound",
+    "street_park"
+   ],
+   "en": "practising a small acoustic instrument"
+  },
+  {
+   "key": "photo_sort",
+   "ko": "사진 고르기",
+   "family": "sit",
+   "places": [
+    "street_cafe",
+    "home_living"
+   ],
+   "en": "sorting printed photographs beside a camera and a scrapbook"
+  },
+  {
+   "key": "board_game",
+   "ko": "보드게임",
+   "family": "sit",
+   "places": [
+    "home_living",
+    "street_cafe",
+    "travel_lodge",
+    "game_inn"
+   ],
+   "en": "moving a piece across a wooden board game, weighing her next move"
+  },
+  {
+   "key": "fishing",
+   "ko": "낚시",
+   "family": "stand",
+   "places": [
+    "water_river",
+    "travel_lake",
+    "travel_coast"
+   ],
+   "en": "casting a fishing line from the pier, a tackle box at her feet"
+  },
+  {
+   "key": "paper_fold",
+   "ko": "종이접기",
+   "family": "sit",
+   "places": [
+    "home_living",
+    "street_cafe"
+   ],
+   "en": "folding a small paper crane, finished figures lined up beside her"
+  },
+  {
+   "key": "knitting",
+   "ko": "뜨개질",
+   "family": "sit",
+   "places": [
+    "home_living",
+    "home_bedroom",
+    "travel_lodge",
+    "game_room"
+   ],
+   "en": "knitting a soft scarf, a ball of yarn in a basket at her side"
+  },
+  {
+   "key": "vault_rail",
+   "ko": "난간 뛰어넘기",
+   "family": "move",
+   "places": [
+    "street_park",
+    "street_rooftop"
+   ],
+   "en": "vaulting a stair rail mid-motion",
+   "outfits": [
+    "active"
+   ]
+  },
+  {
+   "key": "en_garde",
+   "ko": "펜싱 자세",
+   "family": "move",
+   "places": [
+    "sports_gym"
+   ],
+   "en": "stepping into an en garde stance, the mask tucked under one arm",
+   "outfits": [
+    "active"
+   ]
+  },
+  {
+   "key": "bike_check",
+   "ko": "자전거 점검",
+   "family": "stand",
+   "places": [
+    "street_park",
+    "travel_trail"
+   ],
+   "en": "checking her bicycle and buckling a helmet",
+   "outfits": [
+    "active"
+   ]
+  },
+  {
+   "key": "archery",
+   "ko": "활 당기기",
+   "family": "stand",
+   "places": [
+    "sports_range"
+   ],
+   "en": "holding a bow at full draw, perfectly still",
+   "outfits": [
+    "active"
+   ]
+  },
+  {
+   "key": "aerial_silk",
+   "ko": "에어리얼 실크",
+   "family": "move",
+   "places": [
+    "sports_studio",
+    "fx_circus"
+   ],
+   "en": "wrapped in aerial silks, holding a pose in mid-air",
+   "outfits": [
+    "active",
+    "costume"
+   ]
+  },
+  {
+   "key": "tea_ceremony",
+   "ko": "다례",
+   "family": "sit",
+   "places": [
+    "evening_hotel",
+    "travel_lodge",
+    "game_inn"
+   ],
+   "en": "arranging tea cups and utensils in a quiet room"
+  },
+  {
+   "key": "car_lean",
+   "ko": "차·오토바이에 기대기",
+   "family": "stand",
+   "places": [
+    "street_alley",
+    "street_cafe",
+    "street_park",
+    "travel_dunes"
+   ],
+   "en": "leaning against a parked classic car or motorcycle"
+  },
+  {
+   "key": "barrier_cheer",
+   "ko": "앞줄에서 환호",
+   "family": "move",
+   "places": [
+    "night_livehouse"
+   ],
+   "en": "at the crowd barrier, one arm raised to the band"
+  },
+  {
+   "key": "tune_guitar",
+   "ko": "기타 조율",
+   "family": "sit",
+   "places": [
+    "night_livehouse",
+    "studio_sound"
+   ],
+   "en": "tuning a guitar backstage"
+  },
+  {
+   "key": "skate_drop",
+   "ko": "스케이트보드",
+   "family": "move",
+   "places": [
+    "street_park"
+   ],
+   "en": "dropping into a skate bowl on a skateboard"
+  },
+  {
+   "key": "slab_rest",
+   "ko": "대리석에 눕기",
+   "family": "lie",
+   "places": [
+    "spa_hammam"
+   ],
+   "en": "lying on the warm marble slab, a brass bowl beside her"
+  },
+  {
+   "key": "aisle_walk",
+   "ko": "버진로드 걷기",
+   "family": "walk",
+   "places": [
+    "stage_wedding",
+    "fx_forest"
+   ],
+   "en": "walking down an aisle under a flower arch, the train trailing"
+  },
+  {
+   "key": "gift_open",
+   "ko": "선물 열기",
+   "family": "sit",
+   "places": [
+    "stage_wedding",
+    "home_living"
+   ],
+   "en": "opening a gift box at a party table"
+  },
+  {
+   "key": "award_walk",
+   "ko": "시상대로 걷기",
+   "family": "walk",
+   "places": [
+    "stage_redcarpet"
+   ],
+   "en": "walking to the stage with a plain golden statuette in hand"
+  },
+  {
+   "key": "front_row",
+   "ko": "패션쇼 앞줄",
+   "family": "sit",
+   "places": [
+    "stage_show"
+   ],
+   "en": "seated in the front row, legs crossed, runway lights ahead"
   }
  ],
  "outfits": [
@@ -3123,6 +3715,61 @@
      "key": "trench_coat",
      "ko": "트렌치코트",
      "en": "a belted trench coat over a fitted knit dress"
+    },
+    {
+     "key": "sundress_cardigan",
+     "ko": "선드레스 + 가디건",
+     "en": "a sundress with a light cardigan"
+    },
+    {
+     "key": "long_coat_scarf",
+     "ko": "롱코트 + 머플러",
+     "en": "a long wool coat and a knitted scarf"
+    },
+    {
+     "key": "leather_skirt",
+     "ko": "가죽 재킷 + 미니스커트",
+     "en": "a leather jacket over a short skirt"
+    },
+    {
+     "key": "wool_coat",
+     "ko": "울 코트",
+     "en": "a wool coat over a knit dress, a scarf and gloves"
+    },
+    {
+     "key": "work_shirt_jeans",
+     "ko": "작업 셔츠 + 청바지",
+     "en": "a work shirt with rolled sleeves and jeans"
+    },
+    {
+     "key": "crop_wrap_skirt",
+     "ko": "크롭탑 + 슬릿 랩스커트",
+     "en": "a cropped top and a wrap skirt with a high slit"
+    },
+    {
+     "key": "halter_shorts",
+     "ko": "홀터 탑 + 짧은 반바지",
+     "en": "a halter top and short shorts"
+    },
+    {
+     "key": "thin_blouse_skirt",
+     "ko": "얇은 블라우스 + 치마",
+     "en": "a thin blouse and a light skirt"
+    },
+    {
+     "key": "sporty_skirt_tee",
+     "ko": "스포티 스커트 + 티",
+     "en": "a sporty pleated skirt, a fitted tee and sneakers"
+    },
+    {
+     "key": "sweater_leggings",
+     "ko": "니트 + 레깅스",
+     "en": "a chunky knit sweater and leggings"
+    },
+    {
+     "key": "paint_shirt",
+     "ko": "물감 묻은 셔츠",
+     "en": "a paint-splattered oversized shirt over shorts"
     }
    ]
   },
@@ -3199,6 +3846,16 @@
      "key": "linen_lounge",
      "ko": "린넨 라운지 세트",
      "en": "a light linen lounge set"
+    },
+    {
+     "key": "light_slip",
+     "ko": "가벼운 슬립 원피스",
+     "en": "a light cotton slip dress"
+    },
+    {
+     "key": "oversized_tee",
+     "ko": "오버사이즈 티 + 쇼츠",
+     "en": "an oversized tee and shorts"
     }
    ]
   },
@@ -3580,6 +4237,16 @@
      "key": "marker_suit",
      "ko": "모션 캡처 수트",
      "en": "a fitted marker suit dotted with small reflective markers"
+    },
+    {
+     "key": "fencing_set",
+     "ko": "펜싱복",
+     "en": "a white fencing jacket and breeches"
+    },
+    {
+     "key": "archery_top",
+     "ko": "양궁 차림",
+     "en": "a fitted archery top with an arm guard"
     }
    ]
   },
@@ -3717,6 +4384,11 @@
      "key": "kaftan_daily",
      "ko": "카프탄",
      "en": "a resort kaftan — a loose ankle-length tunic with a wide neckline and embroidered trim"
+    },
+    {
+     "key": "thobe_inspired",
+     "ko": "토브 응용 드레스",
+     "en": "a thobe-inspired dress — a long straight-cut gown with an embroidered chest panel"
     },
     {
      "key": "dirndl_modern",
@@ -4187,6 +4859,11 @@
      "key": "heritage_couture",
      "ko": "전통 구조 쿠튀르",
      "en": "couture that keeps the structure and fastenings of a traditional dress"
+    },
+    {
+     "key": "retro_jumpsuit",
+     "ko": "레트로 퓨처 점프수트",
+     "en": "a sleek retro-futurist jumpsuit with vintage trim"
     }
    ]
   },
@@ -4355,5 +5032,4842 @@
    ]
   },
   "note": "한 게임 일상컷 묶음에 한 장 이상 — 의상 계열이 란제리풍·수영복·역할극이거나, 게임 세계 안의 방·목욕·지붕·여관에서 홈웨어·란제리·목욕 차림·수영복(게임 속 일상 — 섹시)"
- }
+ },
+ "presets": [
+  {
+   "key": "seasonal_night",
+   "ko": "계절감 있는 야간 무드",
+   "group": "auto_random",
+   "era": "now",
+   "place": "street_alley",
+   "act": "stroll",
+   "outfit": "everyday",
+   "item": "trench_coat"
+  },
+  {
+   "key": "travel_cut",
+   "ko": "여행 / 리조트 무드",
+   "group": "auto_random",
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "unpack_suite",
+   "outfit": "everyday",
+   "item": "linen_dress"
+  },
+  {
+   "key": "festival_night",
+   "ko": "야간 페스티벌",
+   "group": "auto_random",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "buy_food",
+   "outfit": "everyday"
+  },
+  {
+   "key": "unexpected_contrast",
+   "ko": "예상 밖 대비 콘셉트",
+   "group": "auto_random",
+   "era": "now",
+   "place": "arcade_hall",
+   "act": "stroll",
+   "outfit": "everyday"
+  },
+  {
+   "key": "retro_future",
+   "ko": "레트로 퓨처 라이프",
+   "group": "auto_random",
+   "era": "fantasy",
+   "place": "fx_retro_home",
+   "act": "tea_robe",
+   "outfit": "editorial",
+   "item": "retro_jumpsuit"
+  },
+  {
+   "key": "rainy_city",
+   "ko": "비 오는 도시의 저녁",
+   "group": "auto_random",
+   "era": "now",
+   "place": "street_alley",
+   "act": "shelter_rain",
+   "outfit": "everyday",
+   "item": "trench_coat"
+  },
+  {
+   "key": "weekend_market",
+   "ko": "주말 시장 산책",
+   "group": "auto_random",
+   "era": "now",
+   "place": "street_market",
+   "act": "pick_produce",
+   "outfit": "everyday",
+   "item": "sundress_cardigan"
+  },
+  {
+   "key": "late_studio",
+   "ko": "심야 작업실",
+   "group": "auto_random",
+   "era": "now",
+   "place": "studio_art",
+   "act": "paint_canvas",
+   "outfit": "everyday",
+   "item": "paint_shirt"
+  },
+  {
+   "key": "rooftop_wind",
+   "ko": "바람 부는 옥상",
+   "group": "auto_random",
+   "era": "now",
+   "place": "street_rooftop",
+   "act": "look_out",
+   "outfit": "everyday",
+   "item": "knit_skirt"
+  },
+  {
+   "key": "seaside_offseason",
+   "ko": "비수기 바닷가",
+   "group": "auto_random",
+   "era": "now",
+   "place": "travel_coast",
+   "act": "stroll",
+   "outfit": "everyday",
+   "item": "long_coat_scarf"
+  },
+  {
+   "key": "neon_alley",
+   "ko": "네온 뒷골목",
+   "group": "auto_random",
+   "era": "now",
+   "place": "street_alley",
+   "act": "stroll",
+   "outfit": "everyday",
+   "item": "leather_skirt"
+  },
+  {
+   "key": "snow_evening",
+   "ko": "눈 내리는 저녁",
+   "group": "auto_random",
+   "era": "now",
+   "place": "street_alley",
+   "act": "stroll",
+   "outfit": "everyday",
+   "item": "wool_coat"
+  },
+  {
+   "key": "commute_train",
+   "ko": "지하철 / 기차 통근",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_station",
+   "act": "commute",
+   "outfit": "everyday",
+   "item": "blazer_skirt"
+  },
+  {
+   "key": "grocery_run",
+   "ko": "장보기",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_grocery",
+   "act": "pick_produce",
+   "outfit": "everyday",
+   "item": "jeans_tee"
+  },
+  {
+   "key": "simple_cooking",
+   "ko": "간단한 요리",
+   "group": "everyday",
+   "era": "now",
+   "place": "home_kitchen",
+   "act": "cooking",
+   "outfit": "everyday",
+   "item": "jeans_tee"
+  },
+  {
+   "key": "cafe_takeout",
+   "ko": "커피 / 테이크아웃",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_cafe",
+   "act": "coffee_takeout",
+   "outfit": "everyday"
+  },
+  {
+   "key": "laundry",
+   "ko": "세탁 / 빨래 개기",
+   "group": "everyday",
+   "era": "now",
+   "place": "home_living",
+   "act": "laundry_fold",
+   "outfit": "homewear",
+   "item": "soft_tank_shorts"
+  },
+  {
+   "key": "rain_walk",
+   "ko": "비 오는 날 걷기",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_alley",
+   "act": "rain_umbrella",
+   "outfit": "everyday",
+   "item": "raincoat_boots"
+  },
+  {
+   "key": "station_wait",
+   "ko": "역에서 기다리기",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_station",
+   "act": "wait_train",
+   "outfit": "everyday",
+   "item": "trench_coat"
+  },
+  {
+   "key": "bookstore",
+   "ko": "서점 구경",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_shop",
+   "act": "browse_shelf",
+   "outfit": "everyday",
+   "item": "knit_skirt"
+  },
+  {
+   "key": "parcel_pickup",
+   "ko": "택배 / 편의점 픽업",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_grocery",
+   "act": "counter_pickup",
+   "outfit": "everyday",
+   "item": "hoodie_leggings"
+  },
+  {
+   "key": "midnight_laundromat",
+   "ko": "심야 코인세탁방",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_laundromat",
+   "act": "laundromat_wait",
+   "outfit": "homewear",
+   "item": "hoodie_shorts"
+  },
+  {
+   "key": "greenhouse",
+   "ko": "온실 / 식물가게",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_shop",
+   "act": "water_plants",
+   "outfit": "everyday",
+   "item": "overalls"
+  },
+  {
+   "key": "pottery_class",
+   "ko": "도예 / 공예 클래스",
+   "group": "everyday",
+   "era": "now",
+   "place": "studio_art",
+   "act": "pottery",
+   "outfit": "everyday"
+  },
+  {
+   "key": "record_store",
+   "ko": "레코드숍",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_shop",
+   "act": "browse_shelf",
+   "outfit": "everyday",
+   "item": "band_tee_jacket"
+  },
+  {
+   "key": "hardware_store",
+   "ko": "철물 / 홈센터",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_shop",
+   "act": "browse_shelf",
+   "outfit": "everyday",
+   "item": "work_shirt_jeans"
+  },
+  {
+   "key": "hanbok_errand",
+   "ko": "생활한복 차림의 외출",
+   "group": "everyday",
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "hanbok_daily"
+  },
+  {
+   "key": "gl_morning_window",
+   "ko": "아침 창가 기지개",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_room",
+   "act": "morning_stretch",
+   "outfit": "homewear",
+   "item": "sleep_shirt"
+  },
+  {
+   "key": "gl_outdoor_bath",
+   "ko": "노천 목욕",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_bath",
+   "act": "soak",
+   "outfit": "bath",
+   "item": "towel_wrap"
+  },
+  {
+   "key": "gl_stream_wash",
+   "ko": "개울에서 머리 감기",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_bath",
+   "act": "stream_wash",
+   "outfit": "bath",
+   "item": "bath_yukata"
+  },
+  {
+   "key": "gl_market",
+   "ko": "장터 구경",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_market",
+   "act": "market_haggle",
+   "outfit": "everyday",
+   "item": "crop_wrap_skirt"
+  },
+  {
+   "key": "gl_inn_counter",
+   "ko": "여관 술집 카운터",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_inn",
+   "act": "inn_counter",
+   "outfit": "evening",
+   "item": "low_back_evening"
+  },
+  {
+   "key": "gl_rooftop_sun",
+   "ko": "지붕 위 일광욕",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_roof",
+   "act": "roof_sun",
+   "outfit": "everyday",
+   "item": "halter_shorts"
+  },
+  {
+   "key": "gl_mirror_lacing",
+   "ko": "거울 앞 끈 묶기",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_room",
+   "act": "mirror_lacing",
+   "outfit": "lingerie",
+   "item": "front_lace_corset"
+  },
+  {
+   "key": "gl_hammock",
+   "ko": "해먹 낮잠",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_field",
+   "act": "hammock",
+   "outfit": "homewear",
+   "item": "light_slip"
+  },
+  {
+   "key": "gl_warm_rain",
+   "ko": "따뜻한 비 피하기",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "shelter_rain",
+   "outfit": "everyday",
+   "item": "thin_blouse_skirt"
+  },
+  {
+   "key": "gl_fireside",
+   "ko": "난롯가 휴식",
+   "group": "game_life_sensual",
+   "era": "in_game",
+   "place": "game_room",
+   "act": "fireside",
+   "outfit": "homewear",
+   "item": "offshoulder_knit"
+  },
+  {
+   "key": "gp_walk",
+   "ko": "큰길 산책",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "stroll",
+   "outfit": "everyday"
+  },
+  {
+   "key": "gp_overlook",
+   "ko": "높은 곳에서 내려다보기",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "look_out",
+   "outfit": "everyday"
+  },
+  {
+   "key": "gp_landmark_rest",
+   "ko": "명소 계단에서 쉬기",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "landmark_steps",
+   "outfit": "everyday"
+  },
+  {
+   "key": "gp_sketch",
+   "ko": "풍경 스케치",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "sketch",
+   "outfit": "everyday"
+  },
+  {
+   "key": "gp_dawn",
+   "ko": "새벽에 도착하기",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "arrive_dawn",
+   "outfit": "everyday"
+  },
+  {
+   "key": "gp_picnic",
+   "ko": "들판 소풍",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_field",
+   "act": "picnic",
+   "outfit": "everyday"
+  },
+  {
+   "key": "gp_lodging_window",
+   "ko": "숙소 창가",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_room",
+   "act": "look_out",
+   "outfit": "everyday",
+   "item": "cardigan_skirt"
+  },
+  {
+   "key": "gp_night_walk",
+   "ko": "밤길 걷기",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "night_walk",
+   "outfit": "everyday"
+  },
+  {
+   "key": "gp_rain_shelter",
+   "ko": "비 피하기",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "shelter_rain",
+   "outfit": "everyday"
+  },
+  {
+   "key": "gp_farewell",
+   "ko": "떠나며 돌아보기",
+   "group": "game_place",
+   "era": "in_game",
+   "place": "game_place",
+   "act": "farewell",
+   "outfit": "everyday"
+  },
+  {
+   "key": "arc_cabinet",
+   "ko": "오락기 앞 한 판",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "arcade_hall",
+   "act": "play_cabinet",
+   "outfit": "everyday",
+   "item": "bomber_shorts"
+  },
+  {
+   "key": "arc_claw",
+   "ko": "인형 뽑기",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "arcade_hall",
+   "act": "claw_machine",
+   "outfit": "everyday"
+  },
+  {
+   "key": "arc_rhythm",
+   "ko": "리듬 게임 발판",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "arcade_hall",
+   "act": "rhythm_game",
+   "outfit": "everyday",
+   "item": "sporty_skirt_tee"
+  },
+  {
+   "key": "arc_pcbang",
+   "ko": "PC방 컵라면",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "arcade_pcbang",
+   "act": "pc_booth",
+   "outfit": "everyday",
+   "item": "hoodie_leggings"
+  },
+  {
+   "key": "arc_munbang",
+   "ko": "문방구 오락기",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "arcade_munbang",
+   "act": "munbang_crouch",
+   "outfit": "everyday",
+   "item": "cardigan_skirt"
+  },
+  {
+   "key": "arc_retro_shop",
+   "ko": "레트로 게임 가게",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "arcade_shop",
+   "act": "browse_shelf",
+   "outfit": "everyday"
+  },
+  {
+   "key": "arc_couch",
+   "ko": "거실 소파 한 판",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "home_living",
+   "act": "couch_game",
+   "outfit": "homewear"
+  },
+  {
+   "key": "arc_handheld_bus",
+   "ko": "버스 안 휴대용 게임기",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "street_station",
+   "act": "handheld_play",
+   "outfit": "everyday"
+  },
+  {
+   "key": "arc_launch_queue",
+   "ko": "출시일 밤 줄서기",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "arcade_launch",
+   "act": "launch_queue",
+   "outfit": "everyday"
+  },
+  {
+   "key": "arc_photo_booth",
+   "ko": "오락실 스티커 사진",
+   "group": "arcade_culture",
+   "era": "now",
+   "place": "arcade_photo",
+   "act": "photo_booth",
+   "outfit": "everyday"
+  },
+  {
+   "key": "dev_pixel_desk",
+   "ko": "도트 그리는 책상",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_dev",
+   "act": "pixel_desk",
+   "outfit": "everyday"
+  },
+  {
+   "key": "dev_planning_wall",
+   "ko": "기획 회의 벽",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_dev",
+   "act": "planning_wall",
+   "outfit": "everyday"
+  },
+  {
+   "key": "dev_playtest",
+   "ko": "플레이테스트",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_dev",
+   "act": "playtest",
+   "outfit": "everyday"
+  },
+  {
+   "key": "dev_sound_booth",
+   "ko": "효과음 녹음",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_sound",
+   "act": "record_sfx",
+   "outfit": "everyday"
+  },
+  {
+   "key": "dev_mocap",
+   "ko": "모션 캡처",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_mocap",
+   "act": "mocap_pose",
+   "outfit": "active",
+   "item": "marker_suit"
+  },
+  {
+   "key": "dev_concept_art",
+   "ko": "콘셉트 아트",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_dev",
+   "act": "concept_paint",
+   "outfit": "everyday"
+  },
+  {
+   "key": "dev_late_night",
+   "ko": "야근 커피",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_dev",
+   "act": "late_coffee",
+   "outfit": "homewear",
+   "item": "offshoulder_knit"
+  },
+  {
+   "key": "dev_prototype_board",
+   "ko": "시제품 기판",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_dev",
+   "act": "solder_board",
+   "outfit": "everyday"
+  },
+  {
+   "key": "dev_bug_hunt",
+   "ko": "버그 찾기",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_dev",
+   "act": "bug_hunt",
+   "outfit": "everyday"
+  },
+  {
+   "key": "dev_release_party",
+   "ko": "출시 파티",
+   "group": "dev_studio",
+   "era": "now",
+   "place": "studio_dev",
+   "act": "toast",
+   "outfit": "evening",
+   "item": "cocktail_mini"
+  },
+  {
+   "key": "sr_record",
+   "ko": "기록 갱신 순간",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "studio_stream",
+   "act": "record_cheer",
+   "outfit": "everyday"
+  },
+  {
+   "key": "sr_stream_desk",
+   "ko": "방송 책상",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "studio_stream",
+   "act": "stream_live",
+   "outfit": "everyday",
+   "item": "hoodie_leggings"
+  },
+  {
+   "key": "sr_setup",
+   "ko": "방송 준비",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "studio_stream",
+   "act": "stream_setup",
+   "outfit": "everyday"
+  },
+  {
+   "key": "sr_practice",
+   "ko": "구간 연습",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "studio_stream",
+   "act": "segment_practice",
+   "outfit": "everyday"
+  },
+  {
+   "key": "sr_marathon_couch",
+   "ko": "자선 마라톤 소파",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "studio_stream",
+   "act": "couch_game",
+   "outfit": "homewear",
+   "item": "knit_dress_home"
+  },
+  {
+   "key": "sr_esports_stage",
+   "ko": "대회 무대",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "stage_contest",
+   "act": "backstage_ready",
+   "outfit": "everyday",
+   "item": "bomber_shorts"
+  },
+  {
+   "key": "sr_trophy",
+   "ko": "우승 트로피",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "stage_contest",
+   "act": "trophy_lift",
+   "outfit": "everyday"
+  },
+  {
+   "key": "sr_cozy_stream",
+   "ko": "아늑한 밤 방송",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "studio_stream",
+   "act": "stream_live",
+   "outfit": "homewear",
+   "item": "satin_pyjamas"
+  },
+  {
+   "key": "sr_interview",
+   "ko": "경기 뒤 인터뷰",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "stage_contest",
+   "act": "interview",
+   "outfit": "everyday"
+  },
+  {
+   "key": "sr_cooldown",
+   "ko": "긴 방송 뒤 쉬기",
+   "group": "speedrun_stream",
+   "era": "now",
+   "place": "studio_stream",
+   "act": "floor_flop",
+   "outfit": "homewear"
+  },
+  {
+   "key": "morning_stretch",
+   "ko": "아침 스트레칭",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "morning_stretch",
+   "outfit": "homewear"
+  },
+  {
+   "key": "window_light",
+   "ko": "창가 자연광 캐주얼 순간",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "look_out",
+   "outfit": "everyday"
+  },
+  {
+   "key": "late_snack",
+   "ko": "늦은 밤 간식 / 음료",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_kitchen",
+   "act": "late_snack",
+   "outfit": "homewear"
+  },
+  {
+   "key": "high_shelf",
+   "ko": "높은 선반 손 뻗기",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_kitchen",
+   "act": "reach_shelf",
+   "outfit": "homewear"
+  },
+  {
+   "key": "hair_tie",
+   "ko": "샤워 후 머리 묶기",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_bath",
+   "act": "hair_tie",
+   "outfit": "bath",
+   "item": "spa_robe"
+  },
+  {
+   "key": "laundry_soft",
+   "ko": "소프트 패션 리빌 세탁 장면",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_living",
+   "act": "laundry_fold",
+   "outfit": "homewear",
+   "item": "offshoulder_knit"
+  },
+  {
+   "key": "sunroom_relax",
+   "ko": "선룸 휴식",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "knit_dress_home"
+  },
+  {
+   "key": "balcony_plants",
+   "ko": "발코니 식물 물주기",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_balcony",
+   "act": "water_plants",
+   "outfit": "homewear",
+   "item": "knit_dress_home"
+  },
+  {
+   "key": "rainy_return",
+   "ko": "비 맞고 귀가한 순간",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_entry",
+   "act": "come_home",
+   "outfit": "everyday",
+   "item": "raincoat_boots"
+  },
+  {
+   "key": "floor_organizing",
+   "ko": "바닥에 앉아 옷장 정리",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "drawer_sort",
+   "outfit": "homewear"
+  },
+  {
+   "key": "after_work_change",
+   "ko": "퇴근 후 겉옷 정리",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_entry",
+   "act": "hang_jacket",
+   "outfit": "everyday",
+   "item": "blazer_skirt"
+  },
+  {
+   "key": "fridge_light",
+   "ko": "냉장고 불빛 늦은 밤 순간",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_kitchen",
+   "act": "late_snack",
+   "outfit": "homewear",
+   "item": "oversized_tee"
+  },
+  {
+   "key": "shoe_bench",
+   "ko": "신발 신으려 앉은 순간",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_entry",
+   "act": "tie_shoes",
+   "outfit": "everyday"
+  },
+  {
+   "key": "mirror_selfie",
+   "ko": "전신거울 앞 옷매무새",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "everyday"
+  },
+  {
+   "key": "window_rain",
+   "ko": "창밖 비 구경",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_living",
+   "act": "rain_window",
+   "outfit": "homewear"
+  },
+  {
+   "key": "stair_landing",
+   "ko": "계단 참에서 잠깐 멈춤",
+   "group": "everyday_sensual",
+   "era": "now",
+   "place": "home_entry",
+   "act": "stair_pause",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_trail",
+   "ko": "숲길 지도 확인",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_trail",
+   "act": "map_check",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_station",
+   "ko": "여행 열차 기다리기",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_rural_station",
+   "act": "wait_train",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_camp",
+   "ko": "캠프 정리",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_camp",
+   "act": "camp_fold",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_lakeside",
+   "ko": "호숫가 쉬어가기",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_lake",
+   "act": "rock_rest",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_lookout",
+   "ko": "전망대 풍경 감상",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_lookout",
+   "act": "binoculars",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_coast",
+   "ko": "해변 탐사 산책",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_coast",
+   "act": "sketch",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_ferry",
+   "ko": "페리 갑판에서 섬 바라보기",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_ferry",
+   "act": "ferry_rail",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_lodge",
+   "ko": "산장 체크인",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_lodge",
+   "act": "lodge_key",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_cablecar",
+   "ko": "케이블카 창밖 보기",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_cablecar",
+   "act": "look_out",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_footbath",
+   "ko": "온천 마을 족욕",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "spa_footbath",
+   "act": "footbath",
+   "outfit": "everyday"
+  },
+  {
+   "key": "travel_dunes",
+   "ko": "사막 길에서 나침반 보기",
+   "group": "travel_exploration",
+   "era": "now",
+   "place": "travel_dunes",
+   "act": "compass",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_lantern",
+   "ko": "등불 축제 산책",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "lantern_walk",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_ribbon",
+   "ko": "낭독회 무대 준비",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_contest",
+   "act": "backstage_ready",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_cheering",
+   "ko": "관중석 응원",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_open_air",
+   "act": "cheer_seat",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_booth",
+   "ko": "책 시장 구경",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "browse_shelf",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_rehearsal",
+   "ko": "무대 전 가벼운 연습",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "backstage_ready",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_fireworks",
+   "ko": "불꽃놀이 기다리기",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_fireworks",
+   "act": "fireworks_wait",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_parade",
+   "ko": "꽃차 퍼레이드",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "parade_float",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_ringtoss",
+   "ko": "고리 던지기 노점",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "ring_toss",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_illumination",
+   "ko": "겨울 조명 축제",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "lantern_walk",
+   "outfit": "everyday",
+   "item": "wool_coat"
+  },
+  {
+   "key": "fest_flowercrown",
+   "ko": "꽃관 만들기",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "flower_crown",
+   "outfit": "everyday"
+  },
+  {
+   "key": "fest_dance",
+   "ko": "축제 춤판",
+   "group": "festivals_contests",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "club_dance",
+   "outfit": "traditional",
+   "item": "yukata_daily"
+  },
+  {
+   "key": "hobby_reading",
+   "ko": "창가 독서",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "read_book",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_sketch",
+   "ko": "풍경 스케치",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "street_park",
+   "act": "sketch",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_craft",
+   "ko": "책갈피 만들기",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "home_living",
+   "act": "bead_craft",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_music",
+   "ko": "악기 연습",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "home_living",
+   "act": "play_instrument",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_photo",
+   "ko": "산책 사진 고르기",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "street_cafe",
+   "act": "photo_sort",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_gardening",
+   "ko": "창가 화분 돌보기",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "home_balcony",
+   "act": "water_plants",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_boardgame",
+   "ko": "보드게임",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "home_living",
+   "act": "board_game",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_fishing",
+   "ko": "낚시",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "water_river",
+   "act": "fishing",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_birdwatch",
+   "ko": "탐조 관찰",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "travel_lake",
+   "act": "binoculars",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_origami",
+   "ko": "종이접기",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "home_living",
+   "act": "paper_fold",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_knitting",
+   "ko": "뜨개질",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "home_living",
+   "act": "knitting",
+   "outfit": "everyday"
+  },
+  {
+   "key": "hobby_stargazing",
+   "ko": "별 보기",
+   "group": "hobbies_leisure",
+   "era": "now",
+   "place": "street_rooftop",
+   "act": "stargaze",
+   "outfit": "everyday"
+  },
+  {
+   "key": "moonlit_pool",
+   "ko": "달빛 야외풀",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_pool",
+   "act": "dock_sit",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "rooftop_infinity_pool",
+   "ko": "루프탑 인피니티 풀",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_infinity",
+   "act": "look_out",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "outdoor_shower",
+   "ko": "야외 샤워 / 린스오프",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_pool",
+   "act": "rinse_off",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "cabana_daybed",
+   "ko": "리조트 카바나 / 데이베드",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_resort",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "swim_coverup"
+  },
+  {
+   "key": "thermal_spa",
+   "ko": "모던 온천 / 스파 풀",
+   "group": "swimwear",
+   "era": "now",
+   "place": "spa_onsen",
+   "act": "soak",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "shoreline_walk",
+   "ko": "젖은 해변 산책",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_beach",
+   "act": "shoreline",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "poolside_bar",
+   "ko": "풀사이드 바",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_pool",
+   "act": "bar_drink",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "river_dock",
+   "ko": "강가 데크 / 호수 선착장",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_river",
+   "act": "dock_sit",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "onsen_after",
+   "ko": "온천 후",
+   "group": "swimwear",
+   "era": "now",
+   "place": "spa_onsen",
+   "act": "bath_edge",
+   "outfit": "bath",
+   "item": "towel_wrap"
+  },
+  {
+   "key": "yacht_deck",
+   "ko": "요트 갑판",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_yacht",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "triangle_bikini"
+  },
+  {
+   "key": "waterfall_pool",
+   "ko": "폭포 웅덩이",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_waterfall",
+   "act": "wet_hair",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "beach_volley",
+   "ko": "비치발리볼",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_beach",
+   "act": "beach_volley",
+   "outfit": "swimwear",
+   "item": "sport_bikini"
+  },
+  {
+   "key": "paddle_board",
+   "ko": "패들보드",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_resort",
+   "act": "paddle",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "pool_float",
+   "ko": "튜브 위 휴식",
+   "group": "swimwear",
+   "era": "now",
+   "place": "water_pool",
+   "act": "float_ring",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "warmup",
+   "ko": "워밍업 / 쿨다운",
+   "group": "active",
+   "era": "now",
+   "place": "sports_gym",
+   "act": "warmup",
+   "outfit": "active",
+   "item": "sports_bra_leggings"
+  },
+  {
+   "key": "stretch",
+   "ko": "모빌리티 스트레칭",
+   "group": "active",
+   "era": "now",
+   "place": "sports_studio",
+   "act": "yoga_flow",
+   "outfit": "active"
+  },
+  {
+   "key": "dance_transition",
+   "ko": "댄스 연습 중 전환 동작",
+   "group": "active",
+   "era": "now",
+   "place": "sports_studio",
+   "act": "dance_practice",
+   "outfit": "active",
+   "item": "dance_leotard"
+  },
+  {
+   "key": "pilates",
+   "ko": "필라테스 / 코어 세션",
+   "group": "active",
+   "era": "now",
+   "place": "sports_studio",
+   "act": "yoga_flow",
+   "outfit": "active",
+   "item": "unitard"
+  },
+  {
+   "key": "tennis_active",
+   "ko": "테니스풍 액티브 패션",
+   "group": "active",
+   "era": "now",
+   "place": "sports_court",
+   "act": "court_play",
+   "outfit": "active",
+   "item": "tennis_set"
+  },
+  {
+   "key": "basketball_jersey",
+   "ko": "루즈 농구저지 패션",
+   "group": "active",
+   "era": "now",
+   "place": "sports_court",
+   "act": "court_play",
+   "outfit": "active",
+   "item": "basketball_jersey"
+  },
+  {
+   "key": "boxing_fitness",
+   "ko": "복싱 피트니스 스타일",
+   "group": "active",
+   "era": "now",
+   "place": "sports_gym",
+   "act": "boxing_drill",
+   "outfit": "active",
+   "item": "boxing_set"
+  },
+  {
+   "key": "running_recovery",
+   "ko": "러닝 후 리커버리",
+   "group": "active",
+   "era": "now",
+   "place": "sports_track",
+   "act": "water_break",
+   "outfit": "active",
+   "item": "running_set"
+  },
+  {
+   "key": "light_jog",
+   "ko": "가벼운 아침 조깅",
+   "group": "active",
+   "era": "now",
+   "place": "street_park",
+   "act": "jog",
+   "outfit": "active",
+   "item": "running_set"
+  },
+  {
+   "key": "parkour_stairs",
+   "ko": "계단 / 파쿠르 전환 동작",
+   "group": "active",
+   "era": "now",
+   "place": "street_park",
+   "act": "vault_rail",
+   "outfit": "active"
+  },
+  {
+   "key": "roller_skating",
+   "ko": "롤러스케이트 패션",
+   "group": "active",
+   "era": "now",
+   "place": "sports_rink",
+   "act": "skate_glide",
+   "outfit": "active",
+   "item": "roller_set"
+  },
+  {
+   "key": "fencing_motion",
+   "ko": "펜싱풍 무브먼트 패션",
+   "group": "active",
+   "era": "now",
+   "place": "sports_gym",
+   "act": "en_garde",
+   "outfit": "active",
+   "item": "fencing_set"
+  },
+  {
+   "key": "climbing_warmup",
+   "ko": "클라이밍 워밍업",
+   "group": "active",
+   "era": "now",
+   "place": "sports_wall",
+   "act": "chalk_up",
+   "outfit": "active",
+   "item": "climbing_set"
+  },
+  {
+   "key": "surf_prep",
+   "ko": "서핑 준비 장면",
+   "group": "active",
+   "era": "now",
+   "place": "water_beach",
+   "act": "surf_prep",
+   "outfit": "active",
+   "item": "wetsuit_half"
+  },
+  {
+   "key": "yoga_flow",
+   "ko": "요가 플로우",
+   "group": "active",
+   "era": "now",
+   "place": "sports_studio",
+   "act": "yoga_flow",
+   "outfit": "active",
+   "item": "yoga_set"
+  },
+  {
+   "key": "cycling_kit",
+   "ko": "사이클링 복장",
+   "group": "active",
+   "era": "now",
+   "place": "street_park",
+   "act": "bike_check",
+   "outfit": "active",
+   "item": "cycling_kit"
+  },
+  {
+   "key": "track_sprint",
+   "ko": "트랙 스타트 자세",
+   "group": "active",
+   "era": "now",
+   "place": "sports_track",
+   "act": "sprint_start",
+   "outfit": "active",
+   "item": "sprint_kit"
+  },
+  {
+   "key": "archery_draw",
+   "ko": "활 당기는 순간",
+   "group": "active",
+   "era": "now",
+   "place": "sports_range",
+   "act": "archery",
+   "outfit": "active",
+   "item": "archery_top"
+  },
+  {
+   "key": "aerial_silk",
+   "ko": "에어리얼 실크 연습",
+   "group": "active",
+   "era": "now",
+   "place": "sports_studio",
+   "act": "aerial_silk",
+   "outfit": "active",
+   "item": "unitard"
+  },
+  {
+   "key": "couture_gala",
+   "ko": "쿠튀르 갈라 룩",
+   "group": "source_editorial",
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "couture_gown"
+  },
+  {
+   "key": "runway",
+   "ko": "런웨이 에디토리얼",
+   "group": "source_editorial",
+   "era": "fantasy",
+   "place": "fx_runway",
+   "act": "runway_walk",
+   "outfit": "editorial",
+   "item": "editorial_tailoring"
+  },
+  {
+   "key": "after_bath",
+   "ko": "목욕 후 홈웨어",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_bath",
+   "act": "hair_dry",
+   "outfit": "homewear",
+   "item": "soft_tank_shorts"
+  },
+  {
+   "key": "window_vanity",
+   "ko": "창가 화장대 순간",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "makeup",
+   "outfit": "lingerie",
+   "item": "night_robe"
+  },
+  {
+   "key": "laundry_lounge",
+   "ko": "빨래 / 침구 정리 라운지 장면",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "laundry_fold",
+   "outfit": "homewear",
+   "item": "soft_tank_shorts"
+  },
+  {
+   "key": "sunroom_lounge",
+   "ko": "선룸 라운지 패션",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_living",
+   "act": "couch_game",
+   "outfit": "homewear",
+   "item": "linen_lounge"
+  },
+  {
+   "key": "oversized_shirt",
+   "ko": "오버사이즈 셔츠 홈웨어",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "look_out",
+   "outfit": "homewear",
+   "item": "oversized_shirt"
+  },
+  {
+   "key": "robe_morning",
+   "ko": "아침 로브",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_balcony",
+   "act": "look_out",
+   "outfit": "homewear",
+   "item": "robe_morning"
+  },
+  {
+   "key": "floor_cushion",
+   "ko": "바닥 쿠션에서 뒹굴기",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear"
+  },
+  {
+   "key": "home_workout",
+   "ko": "집 안 스트레칭 코너",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_living",
+   "act": "home_stretch",
+   "outfit": "active",
+   "item": "sports_bra_leggings"
+  },
+  {
+   "key": "hammock_balcony",
+   "ko": "발코니 해먹",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_balcony",
+   "act": "hammock",
+   "outfit": "homewear",
+   "item": "satin_lounge"
+  },
+  {
+   "key": "breakfast_bed",
+   "ko": "침대 위 아침",
+   "group": "homewear",
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "breakfast_bed",
+   "outfit": "homewear",
+   "item": "satin_pyjamas"
+  },
+  {
+   "key": "after_party",
+   "ko": "애프터파티 스타일링",
+   "group": "private_evening",
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "heels_off",
+   "outfit": "evening"
+  },
+  {
+   "key": "hotel_evening",
+   "ko": "호텔룸 이브닝",
+   "group": "private_evening",
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "unpack_suite",
+   "outfit": "evening"
+  },
+  {
+   "key": "balcony_night",
+   "ko": "야간 발코니 무드",
+   "group": "private_evening",
+   "era": "now",
+   "place": "home_balcony",
+   "act": "look_out",
+   "outfit": "evening"
+  },
+  {
+   "key": "mirror_touchup",
+   "ko": "거울 앞 메이크업 수정",
+   "group": "private_evening",
+   "era": "now",
+   "place": "night_powder",
+   "act": "lipstick",
+   "outfit": "evening"
+  },
+  {
+   "key": "opera_night",
+   "ko": "오페라 / 극장 나이트 스타일",
+   "group": "private_evening",
+   "era": "now",
+   "place": "evening_opera",
+   "act": "opera_stairs",
+   "outfit": "evening",
+   "item": "opera_coat"
+  },
+  {
+   "key": "penthouse_window",
+   "ko": "펜트하우스 창가 무드",
+   "group": "private_evening",
+   "era": "now",
+   "place": "evening_penthouse",
+   "act": "look_out",
+   "outfit": "evening"
+  },
+  {
+   "key": "wine_bar",
+   "ko": "와인바 구석 자리",
+   "group": "private_evening",
+   "era": "now",
+   "place": "night_bar",
+   "act": "bar_drink",
+   "outfit": "evening"
+  },
+  {
+   "key": "night_drive",
+   "ko": "야간 드라이브 조수석",
+   "group": "private_evening",
+   "era": "now",
+   "place": "night_taxi",
+   "act": "taxi_ride",
+   "outfit": "evening"
+  },
+  {
+   "key": "heritage_evening",
+   "ko": "전통 정장 차림의 저녁",
+   "group": "private_evening",
+   "era": "now",
+   "place": "evening_gala",
+   "act": "gala_dinner",
+   "outfit": "traditional"
+  },
+  {
+   "key": "tea_ceremony_night",
+   "ko": "저녁 다례",
+   "group": "private_evening",
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "tea_ceremony",
+   "outfit": "traditional"
+  },
+  {
+   "key": "flapper_party",
+   "ko": "20년대 플래퍼 파티",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "retro",
+   "item": "flapper"
+  },
+  {
+   "key": "deco_lounge",
+   "ko": "아르데코 라운지",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "candle_light",
+   "outfit": "retro",
+   "item": "deco_gown"
+  },
+  {
+   "key": "hollywood_bias",
+   "ko": "30년대 할리우드 가운",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "evening_opera",
+   "act": "opera_stairs",
+   "outfit": "retro",
+   "item": "hollywood_bias"
+  },
+  {
+   "key": "swing_dress",
+   "ko": "40년대 스윙 댄스",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "retro",
+   "item": "swing_dress"
+  },
+  {
+   "key": "retro_highwaist",
+   "ko": "50년대 하이웨이스트 비키니",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "retro",
+   "item": "pinup_bikini"
+  },
+  {
+   "key": "pinup_beachball",
+   "ko": "50년대 해변 핀업",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "water_beach",
+   "act": "shoreline",
+   "outfit": "retro",
+   "item": "pinup_swimsuit"
+  },
+  {
+   "key": "pinup_car",
+   "ko": "클래식 카 핀업",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "street_alley",
+   "act": "car_lean",
+   "outfit": "retro",
+   "item": "halter_playsuit"
+  },
+  {
+   "key": "diner_counter",
+   "ko": "50년대 다이너",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "street_cafe",
+   "act": "bar_drink",
+   "outfit": "retro",
+   "item": "wiggle_skirt"
+  },
+  {
+   "key": "mod_mini",
+   "ko": "60년대 모드 미니",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "retro",
+   "item": "mod_mini"
+  },
+  {
+   "key": "jetset_pool",
+   "ko": "60년대 리비에라 수영장",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "retro",
+   "item": "jetset_swim"
+  },
+  {
+   "key": "disco_halter",
+   "ko": "70년대 디스코",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "retro",
+   "item": "disco_halter"
+  },
+  {
+   "key": "boho_crochet",
+   "ko": "70년대 보헤미안 페스티벌",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "stage_festival",
+   "act": "stroll",
+   "outfit": "retro",
+   "item": "boho_crochet"
+  },
+  {
+   "key": "roller_disco",
+   "ko": "롤러 디스코",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "sports_rink",
+   "act": "skate_glide",
+   "outfit": "retro",
+   "item": "roller_disco"
+  },
+  {
+   "key": "aerobics_80s",
+   "ko": "80년대 에어로빅",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "sports_studio",
+   "act": "dance_practice",
+   "outfit": "retro",
+   "item": "aerobics_80s"
+  },
+  {
+   "key": "power_glam",
+   "ko": "80년대 파워 글램",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "retro",
+   "item": "power_glam"
+  },
+  {
+   "key": "nineties_slip",
+   "ko": "90년대 미니멀 슬립",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "night_rooftop",
+   "act": "toast",
+   "outfit": "retro",
+   "item": "nineties_slip"
+  },
+  {
+   "key": "y2k_lowrise",
+   "ko": "Y2K 쇼핑몰",
+   "group": "retro_glamour",
+   "era": "now",
+   "place": "street_mall",
+   "act": "stroll",
+   "outfit": "retro",
+   "item": "y2k_lowrise"
+  },
+  {
+   "key": "goth_chapel",
+   "ko": "로맨틱 고스 예배당",
+   "group": "subculture_fashion",
+   "era": "fantasy",
+   "place": "fx_chapel",
+   "act": "candle_light",
+   "outfit": "subculture",
+   "item": "romantic_goth"
+  },
+  {
+   "key": "goth_cafe",
+   "ko": "고스 카페",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "street_cafe",
+   "act": "rest_seat",
+   "outfit": "subculture",
+   "item": "trad_goth"
+  },
+  {
+   "key": "punk_gig",
+   "ko": "펑크 라이브 하우스",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "night_livehouse",
+   "act": "barrier_cheer",
+   "outfit": "subculture",
+   "item": "punk_jacket"
+  },
+  {
+   "key": "punk_alley",
+   "ko": "펑크 뒷골목",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "street_alley",
+   "act": "tie_shoes",
+   "outfit": "subculture",
+   "item": "punk_tartan"
+  },
+  {
+   "key": "rock_backstage",
+   "ko": "록 백스테이지",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "night_livehouse",
+   "act": "tune_guitar",
+   "outfit": "subculture",
+   "item": "rock_leather"
+  },
+  {
+   "key": "gyaru_street",
+   "ko": "갸루 거리",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "arcade_photo",
+   "act": "photo_booth",
+   "outfit": "subculture",
+   "item": "gyaru"
+  },
+  {
+   "key": "decora_harajuku",
+   "ko": "하라주쿠 데코라",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "street_alley",
+   "act": "stroll",
+   "outfit": "subculture",
+   "item": "decora"
+  },
+  {
+   "key": "yami_kawaii",
+   "ko": "얌카와 크레페 가게",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "street_market",
+   "act": "buy_food",
+   "outfit": "subculture",
+   "item": "yami_kawaii"
+  },
+  {
+   "key": "cybergoth_rave",
+   "ko": "사이버고스 레이브",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "subculture",
+   "item": "cybergoth"
+  },
+  {
+   "key": "grunge_records",
+   "ko": "그런지 레코드 가게",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "street_shop",
+   "act": "browse_shelf",
+   "outfit": "subculture",
+   "item": "grunge"
+  },
+  {
+   "key": "emo_gig",
+   "ko": "이모 공연",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "night_livehouse",
+   "act": "barrier_cheer",
+   "outfit": "subculture",
+   "item": "emo"
+  },
+  {
+   "key": "steampunk_fair",
+   "ko": "스팀펑크 박람회",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "stage_convention",
+   "act": "photozone_pose",
+   "outfit": "subculture",
+   "item": "steampunk"
+  },
+  {
+   "key": "gothic_lolita",
+   "ko": "고딕 로리타 티 살롱",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "street_cafe",
+   "act": "tea_robe",
+   "outfit": "subculture",
+   "item": "gothic_lolita"
+  },
+  {
+   "key": "skater_bowl",
+   "ko": "스케이트 보울",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "street_park",
+   "act": "skate_drop",
+   "outfit": "subculture",
+   "item": "skater"
+  },
+  {
+   "key": "biker_cafe",
+   "ko": "바이커 카페",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "street_cafe",
+   "act": "car_lean",
+   "outfit": "subculture",
+   "item": "biker"
+  },
+  {
+   "key": "raver_kandi",
+   "ko": "야외 레이브",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "subculture",
+   "item": "raver"
+  },
+  {
+   "key": "visual_kei",
+   "ko": "비주얼계 라이브",
+   "group": "subculture_fashion",
+   "era": "now",
+   "place": "night_livehouse",
+   "act": "stage_perform",
+   "outfit": "subculture",
+   "item": "visual_kei"
+  },
+  {
+   "key": "club_floor",
+   "ko": "클럽 댄스 플로어",
+   "group": "nightlife",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "evening",
+   "item": "sequin_mini"
+  },
+  {
+   "key": "dj_booth",
+   "ko": "DJ 부스 옆",
+   "group": "nightlife",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "evening",
+   "item": "cutout_mini"
+  },
+  {
+   "key": "karaoke_room",
+   "ko": "노래방",
+   "group": "nightlife",
+   "era": "now",
+   "place": "night_karaoke",
+   "act": "karaoke_sing",
+   "outfit": "evening"
+  },
+  {
+   "key": "powder_mirror",
+   "ko": "클럽 파우더룸 거울",
+   "group": "nightlife",
+   "era": "now",
+   "place": "night_powder",
+   "act": "lipstick",
+   "outfit": "evening",
+   "item": "halter_evening"
+  },
+  {
+   "key": "club_queue",
+   "ko": "클럽 앞 줄",
+   "group": "nightlife",
+   "era": "now",
+   "place": "night_club",
+   "act": "club_queue",
+   "outfit": "evening",
+   "item": "slip_dress"
+  },
+  {
+   "key": "vip_booth",
+   "ko": "VIP 벨벳 부스",
+   "group": "nightlife",
+   "era": "now",
+   "place": "night_club",
+   "act": "sofa_lounge",
+   "outfit": "evening",
+   "item": "one_shoulder_satin"
+  },
+  {
+   "key": "rooftop_party",
+   "ko": "옥상 파티",
+   "group": "nightlife",
+   "era": "now",
+   "place": "night_rooftop",
+   "act": "toast",
+   "outfit": "evening"
+  },
+  {
+   "key": "jazz_bar_stage",
+   "ko": "재즈 바 피아노",
+   "group": "nightlife",
+   "era": "now",
+   "place": "night_jazz",
+   "act": "piano_lean",
+   "outfit": "evening",
+   "item": "high_slit_gown"
+  },
+  {
+   "key": "tango_solo",
+   "ko": "탱고 연습",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume",
+   "item": "tango_dress"
+  },
+  {
+   "key": "salsa_spin",
+   "ko": "살사 회전",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume",
+   "item": "salsa_fringe"
+  },
+  {
+   "key": "flamenco",
+   "ko": "플라멩코",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume",
+   "item": "flamenco"
+  },
+  {
+   "key": "belly_dance",
+   "ko": "벨리댄스",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume",
+   "item": "belly_dance"
+  },
+  {
+   "key": "jazz_kick",
+   "ko": "재즈 무대 킥",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume",
+   "item": "jazz_leotard"
+  },
+  {
+   "key": "dance_mirror",
+   "ko": "연습실 거울",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "sports_studio",
+   "act": "dance_practice",
+   "outfit": "active",
+   "item": "cropped_jersey"
+  },
+  {
+   "key": "hula",
+   "ko": "훌라",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume",
+   "item": "hula"
+  },
+  {
+   "key": "ballroom_waltz",
+   "ko": "볼룸 가운",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume",
+   "item": "ballroom_gown"
+  },
+  {
+   "key": "mermaid_show",
+   "ko": "인어 쇼 의상",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_event",
+   "act": "photozone_pose",
+   "outfit": "costume",
+   "item": "mermaid_show"
+  },
+  {
+   "key": "ballet_stage",
+   "ko": "발레 무대 의상",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "backstage_ready",
+   "outfit": "costume",
+   "item": "ballet_tutu"
+  },
+  {
+   "key": "cabaret_showgirl",
+   "ko": "카바레 쇼걸 코스튬",
+   "group": "dance_stage",
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume",
+   "item": "showgirl"
+  },
+  {
+   "key": "rotenburo_edge",
+   "ko": "노천탕 가장자리",
+   "group": "spa_wellness",
+   "era": "now",
+   "place": "spa_onsen",
+   "act": "bath_edge",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "hinoki_bath",
+   "ko": "히노키 탕",
+   "group": "spa_wellness",
+   "era": "now",
+   "place": "spa_cedar",
+   "act": "soak",
+   "outfit": "swimwear"
+  },
+  {
+   "key": "jjimjilbang",
+   "ko": "찜질방",
+   "group": "spa_wellness",
+   "era": "now",
+   "place": "spa_jjimjil",
+   "act": "sauna_break",
+   "outfit": "bath",
+   "item": "jjimjil_set"
+  },
+  {
+   "key": "spa_robe_lounge",
+   "ko": "가운 라운지",
+   "group": "spa_wellness",
+   "era": "now",
+   "place": "spa_lounge",
+   "act": "tea_robe",
+   "outfit": "bath",
+   "item": "robe_over_swim"
+  },
+  {
+   "key": "hammam",
+   "ko": "하맘",
+   "group": "spa_wellness",
+   "era": "now",
+   "place": "spa_hammam",
+   "act": "slab_rest",
+   "outfit": "bath",
+   "item": "peshtemal"
+  },
+  {
+   "key": "mud_mask",
+   "ko": "스파 팩",
+   "group": "spa_wellness",
+   "era": "now",
+   "place": "spa_lounge",
+   "act": "mask_rest",
+   "outfit": "bath",
+   "item": "spa_robe"
+  },
+  {
+   "key": "cold_plunge",
+   "ko": "냉탕",
+   "group": "spa_wellness",
+   "era": "now",
+   "place": "spa_sauna",
+   "act": "cold_plunge",
+   "outfit": "swimwear",
+   "item": "sport_onepiece"
+  },
+  {
+   "key": "sauna_lounge",
+   "ko": "사우나 라운지",
+   "group": "spa_wellness",
+   "era": "now",
+   "place": "spa_sauna",
+   "act": "sauna_break",
+   "outfit": "bath",
+   "item": "towel_wrap"
+  },
+  {
+   "key": "elf_costume",
+   "ko": "엘프 코스튬",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_forest",
+   "act": "lantern_raise",
+   "outfit": "costume",
+   "item": "elf_costume"
+  },
+  {
+   "key": "fairy_wings",
+   "ko": "요정 코스튬",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "costume",
+   "item": "fairy_wings"
+  },
+  {
+   "key": "angel_devil",
+   "ko": "천사·악마 파티",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_ballroom",
+   "act": "club_dance",
+   "outfit": "costume",
+   "item": "angel_devil"
+  },
+  {
+   "key": "sorceress_robe",
+   "ko": "마법사 코스튬",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "costume",
+   "item": "sorceress_robe"
+  },
+  {
+   "key": "cosplay_photozone",
+   "ko": "코스프레 포토존",
+   "group": "fantasy_costume",
+   "era": "now",
+   "place": "stage_convention",
+   "act": "photozone_pose",
+   "outfit": "costume"
+  },
+  {
+   "key": "forest_spirit",
+   "ko": "숲의 정령",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_forest",
+   "act": "stroll",
+   "outfit": "costume",
+   "item": "forest_spirit"
+  },
+  {
+   "key": "star_goddess",
+   "ko": "별의 여신",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_starstage",
+   "act": "editorial_pose",
+   "outfit": "costume",
+   "item": "star_goddess"
+  },
+  {
+   "key": "fae_ball",
+   "ko": "요정 가면무도회",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_ballroom",
+   "act": "masquerade",
+   "outfit": "costume",
+   "item": "fae_ball"
+  },
+  {
+   "key": "moon_priestess",
+   "ko": "달의 무녀",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_chapel",
+   "act": "lantern_raise",
+   "outfit": "costume",
+   "item": "moon_priestess"
+  },
+  {
+   "key": "vampire_gala",
+   "ko": "뱀파이어 백작 부인 코스튬",
+   "group": "fantasy_costume",
+   "era": "fantasy",
+   "place": "fx_castle",
+   "act": "toast",
+   "outfit": "costume",
+   "item": "vampire_gala"
+  },
+  {
+   "key": "gown_fitting",
+   "ko": "드레스 가봉",
+   "group": "bridal",
+   "era": "now",
+   "place": "stage_wedding",
+   "act": "gown_fitting",
+   "outfit": "bridal",
+   "item": "open_back_gown"
+  },
+  {
+   "key": "before_ceremony",
+   "ko": "예식 전 대기",
+   "group": "bridal",
+   "era": "now",
+   "place": "stage_wedding",
+   "act": "bouquet_wait",
+   "outfit": "bridal",
+   "item": "sweetheart_veil"
+  },
+  {
+   "key": "garden_aisle",
+   "ko": "정원 버진로드",
+   "group": "bridal",
+   "era": "now",
+   "place": "stage_wedding",
+   "act": "aisle_walk",
+   "outfit": "bridal",
+   "item": "flowing_train"
+  },
+  {
+   "key": "self_wedding_shoot",
+   "ko": "셀프 웨딩 촬영",
+   "group": "bridal",
+   "era": "now",
+   "place": "travel_coast",
+   "act": "stroll",
+   "outfit": "bridal",
+   "item": "slit_wedding"
+  },
+  {
+   "key": "veil_wind",
+   "ko": "해변 베일",
+   "group": "bridal",
+   "era": "now",
+   "place": "water_beach",
+   "act": "shoreline",
+   "outfit": "bridal",
+   "item": "slip_wedding"
+  },
+  {
+   "key": "reception_gown",
+   "ko": "피로연 드레스",
+   "group": "bridal",
+   "era": "now",
+   "place": "stage_wedding",
+   "act": "club_dance",
+   "outfit": "bridal",
+   "item": "reception_backless"
+  },
+  {
+   "key": "second_dress",
+   "ko": "2부 미니드레스",
+   "group": "bridal",
+   "era": "now",
+   "place": "stage_wedding",
+   "act": "heels_off",
+   "outfit": "bridal",
+   "item": "beaded_mini"
+  },
+  {
+   "key": "bridal_shower",
+   "ko": "브라이덜 샤워",
+   "group": "bridal",
+   "era": "now",
+   "place": "stage_wedding",
+   "act": "gift_open",
+   "outfit": "evening",
+   "item": "cutout_mini"
+  },
+  {
+   "key": "honeymoon_suite",
+   "ko": "신혼여행 스위트",
+   "group": "bridal",
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "look_out",
+   "outfit": "evening",
+   "item": "slip_dress"
+  },
+  {
+   "key": "bridal_lace",
+   "ko": "브라이덜 레이스",
+   "group": "bridal",
+   "era": "now",
+   "place": "stage_wedding",
+   "act": "dress_up",
+   "outfit": "bridal",
+   "item": "bridal_lace"
+  },
+  {
+   "key": "red_carpet",
+   "ko": "레드카펫 입장",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "stage_redcarpet",
+   "act": "carpet_turn",
+   "outfit": "evening",
+   "item": "high_slit_gown"
+  },
+  {
+   "key": "photo_wall",
+   "ko": "포토월",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "stage_redcarpet",
+   "act": "photozone_pose",
+   "outfit": "evening",
+   "item": "one_shoulder_satin"
+  },
+  {
+   "key": "festival_steps",
+   "ko": "영화제 계단",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "stage_redcarpet",
+   "act": "opera_stairs",
+   "outfit": "evening"
+  },
+  {
+   "key": "award_ceremony",
+   "ko": "시상식",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "stage_redcarpet",
+   "act": "award_walk",
+   "outfit": "evening",
+   "item": "velvet_evening"
+  },
+  {
+   "key": "gala_dinner",
+   "ko": "갈라 디너",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "evening_gala",
+   "act": "gala_dinner",
+   "outfit": "evening",
+   "item": "column_gown"
+  },
+  {
+   "key": "charity_auction",
+   "ko": "자선 경매",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "evening_gala",
+   "act": "auction_bid",
+   "outfit": "evening",
+   "item": "strapless_gloves"
+  },
+  {
+   "key": "front_row",
+   "ko": "패션위크 앞줄",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "stage_show",
+   "act": "front_row",
+   "outfit": "evening",
+   "item": "cutout_mini"
+  },
+  {
+   "key": "museum_gala",
+   "ko": "박물관 갈라",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "evening_museum",
+   "act": "museum_stroll",
+   "outfit": "evening",
+   "item": "column_gown"
+  },
+  {
+   "key": "afterparty_stairs",
+   "ko": "갈라 뒤 계단",
+   "group": "gala_red_carpet",
+   "era": "now",
+   "place": "stage_redcarpet",
+   "act": "heels_off",
+   "outfit": "evening"
+  },
+  {
+   "key": "rain_editorial",
+   "ko": "비 오는 에디토리얼",
+   "group": "wildcard",
+   "era": "now",
+   "place": "street_alley",
+   "act": "rain_umbrella",
+   "outfit": "everyday",
+   "item": "trench_coat"
+  },
+  {
+   "key": "arcade_night",
+   "ko": "야간 아케이드 스타일",
+   "group": "wildcard",
+   "era": "now",
+   "place": "arcade_hall",
+   "act": "claw_machine",
+   "outfit": "subculture"
+  },
+  {
+   "key": "ferry_deck",
+   "ko": "페리 / 선박 데크 패션",
+   "group": "wildcard",
+   "era": "now",
+   "place": "travel_ferry",
+   "act": "ferry_rail",
+   "outfit": "everyday",
+   "item": "linen_dress"
+  },
+  {
+   "key": "retro_motel",
+   "ko": "레트로 모텔 무드",
+   "group": "wildcard",
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "unpack_suite",
+   "outfit": "retro"
+  },
+  {
+   "key": "desert_resort",
+   "ko": "사막 리조트 패션",
+   "group": "wildcard",
+   "era": "now",
+   "place": "travel_dunes",
+   "act": "rest_seat",
+   "outfit": "everyday",
+   "item": "linen_dress"
+  },
+  {
+   "key": "futuristic_spa",
+   "ko": "퓨처리스틱 스파",
+   "group": "wildcard",
+   "era": "fantasy",
+   "place": "fx_spa",
+   "act": "tea_robe",
+   "outfit": "bath",
+   "item": "spa_robe"
+  },
+  {
+   "key": "observatory_night",
+   "ko": "야간 천문대",
+   "group": "wildcard",
+   "era": "fantasy",
+   "place": "fx_observatory",
+   "act": "telescope",
+   "outfit": "evening",
+   "item": "opera_coat"
+  },
+  {
+   "key": "greenhouse_afterdark",
+   "ko": "심야 온실",
+   "group": "wildcard",
+   "era": "now",
+   "place": "street_shop",
+   "act": "water_plants",
+   "outfit": "everyday",
+   "item": "cardigan_skirt"
+  },
+  {
+   "key": "rooftop_cinema",
+   "ko": "루프탑 시네마",
+   "group": "wildcard",
+   "era": "now",
+   "place": "street_rooftop",
+   "act": "picnic",
+   "outfit": "everyday"
+  },
+  {
+   "key": "winter_lodge",
+   "ko": "겨울 로지 패션",
+   "group": "wildcard",
+   "era": "now",
+   "place": "travel_lodge",
+   "act": "fireside",
+   "outfit": "everyday",
+   "item": "sweater_leggings"
+  }
+ ],
+ "legacy": {
+  "auto_random/seasonal_night": {
+   "preset": "seasonal_night"
+  },
+  "auto_random/travel_cut": {
+   "preset": "travel_cut"
+  },
+  "auto_random/festival_night": {
+   "preset": "festival_night"
+  },
+  "auto_random/unexpected_contrast": {
+   "preset": "unexpected_contrast"
+  },
+  "auto_random/retro_future": {
+   "preset": "retro_future"
+  },
+  "auto_random/rainy_city": {
+   "preset": "rainy_city"
+  },
+  "auto_random/weekend_market": {
+   "preset": "weekend_market"
+  },
+  "auto_random/late_studio": {
+   "preset": "late_studio"
+  },
+  "auto_random/rooftop_wind": {
+   "preset": "rooftop_wind"
+  },
+  "auto_random/seaside_offseason": {
+   "preset": "seaside_offseason"
+  },
+  "auto_random/neon_alley": {
+   "preset": "neon_alley"
+  },
+  "auto_random/snow_evening": {
+   "preset": "snow_evening"
+  },
+  "adult_roleplay/event_staff": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "event_staff"
+  },
+  "adult_roleplay/uniform_inspired": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "uniform_inspired"
+  },
+  "adult_roleplay/adult_police": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "adult_police"
+  },
+  "adult_roleplay/adult_nurse": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "adult_nurse"
+  },
+  "adult_roleplay/adult_maid": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "adult_maid"
+  },
+  "adult_roleplay/adult_secretary": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "adult_secretary"
+  },
+  "adult_roleplay/bunny": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "bunny"
+  },
+  "adult_roleplay/flight_attendant": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "flight_attendant"
+  },
+  "adult_roleplay/casino_dealer": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "casino_dealer"
+  },
+  "adult_roleplay/lab_roleplay": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "lab_roleplay"
+  },
+  "adult_roleplay/ceremonial_instructor": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "ceremonial_instructor"
+  },
+  "adult_roleplay/retro_racer": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "retro_racer"
+  },
+  "adult_roleplay/vinyl_stage": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "vinyl_stage"
+  },
+  "adult_roleplay/masquerade": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "masquerade_costume"
+  },
+  "adult_roleplay/adult_teacher": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "adult_teacher"
+  },
+  "adult_roleplay/adult_librarian": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "adult_librarian"
+  },
+  "adult_roleplay/cheer_costume": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "cheer_costume"
+  },
+  "adult_roleplay/cabin_crew_retro": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "cabin_crew_retro"
+  },
+  "adult_roleplay/circus_ringmaster": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "ringmaster"
+  },
+  "adult_roleplay/witch_party": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "witch_party"
+  },
+  "adult_roleplay/majorette": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "majorette"
+  },
+  "adult_roleplay/sailor_stage": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "sailor_stage"
+  },
+  "adult_roleplay/lifeguard_event": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "lifeguard_event"
+  },
+  "adult_roleplay/cat_cafe": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "cat_cafe"
+  },
+  "adult_roleplay/santa_party": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay",
+   "item": "santa_party"
+  },
+  "everyday_basic/commute_train": {
+   "preset": "commute_train"
+  },
+  "everyday_basic/grocery_run": {
+   "preset": "grocery_run"
+  },
+  "everyday_basic/simple_cooking": {
+   "preset": "simple_cooking"
+  },
+  "everyday_basic/cafe_takeout": {
+   "preset": "cafe_takeout"
+  },
+  "everyday_basic/laundry": {
+   "preset": "laundry"
+  },
+  "everyday_basic/rain_walk": {
+   "preset": "rain_walk"
+  },
+  "everyday_basic/station_wait": {
+   "preset": "station_wait"
+  },
+  "everyday_basic/bookstore": {
+   "preset": "bookstore"
+  },
+  "everyday_basic/parcel_pickup": {
+   "preset": "parcel_pickup"
+  },
+  "everyday_basic/midnight_laundromat": {
+   "preset": "midnight_laundromat"
+  },
+  "everyday_basic/greenhouse": {
+   "preset": "greenhouse"
+  },
+  "everyday_basic/pottery_class": {
+   "preset": "pottery_class"
+  },
+  "everyday_basic/record_store": {
+   "preset": "record_store"
+  },
+  "everyday_basic/hardware_store": {
+   "preset": "hardware_store"
+  },
+  "everyday_basic/hanbok_errand": {
+   "preset": "hanbok_errand"
+  },
+  "everyday_basic/festival_daily": {
+   "preset": "festival_night"
+  },
+  "game_life_sensual/gl_morning_window": {
+   "preset": "gl_morning_window"
+  },
+  "game_life_sensual/gl_outdoor_bath": {
+   "preset": "gl_outdoor_bath"
+  },
+  "game_life_sensual/gl_stream_wash": {
+   "preset": "gl_stream_wash"
+  },
+  "game_life_sensual/gl_market": {
+   "preset": "gl_market"
+  },
+  "game_life_sensual/gl_inn_counter": {
+   "preset": "gl_inn_counter"
+  },
+  "game_life_sensual/gl_rooftop_sun": {
+   "preset": "gl_rooftop_sun"
+  },
+  "game_life_sensual/gl_mirror_lacing": {
+   "preset": "gl_mirror_lacing"
+  },
+  "game_life_sensual/gl_hammock": {
+   "preset": "gl_hammock"
+  },
+  "game_life_sensual/gl_warm_rain": {
+   "preset": "gl_warm_rain"
+  },
+  "game_life_sensual/gl_fireside": {
+   "preset": "gl_fireside"
+  },
+  "game_place/gp_walk": {
+   "preset": "gp_walk"
+  },
+  "game_place/gp_overlook": {
+   "preset": "gp_overlook"
+  },
+  "game_place/gp_landmark_rest": {
+   "preset": "gp_landmark_rest"
+  },
+  "game_place/gp_sketch": {
+   "preset": "gp_sketch"
+  },
+  "game_place/gp_dawn": {
+   "preset": "gp_dawn"
+  },
+  "game_place/gp_picnic": {
+   "preset": "gp_picnic"
+  },
+  "game_place/gp_lodging_window": {
+   "preset": "gp_lodging_window"
+  },
+  "game_place/gp_night_walk": {
+   "preset": "gp_night_walk"
+  },
+  "game_place/gp_rain_shelter": {
+   "preset": "gp_rain_shelter"
+  },
+  "game_place/gp_farewell": {
+   "preset": "gp_farewell"
+  },
+  "arcade_culture/arc_cabinet": {
+   "preset": "arc_cabinet"
+  },
+  "arcade_culture/arc_claw": {
+   "preset": "arc_claw"
+  },
+  "arcade_culture/arc_rhythm": {
+   "preset": "arc_rhythm"
+  },
+  "arcade_culture/arc_pcbang": {
+   "preset": "arc_pcbang"
+  },
+  "arcade_culture/arc_munbang": {
+   "preset": "arc_munbang"
+  },
+  "arcade_culture/arc_retro_shop": {
+   "preset": "arc_retro_shop"
+  },
+  "arcade_culture/arc_couch": {
+   "preset": "arc_couch"
+  },
+  "arcade_culture/arc_handheld_bus": {
+   "preset": "arc_handheld_bus"
+  },
+  "arcade_culture/arc_launch_queue": {
+   "preset": "arc_launch_queue"
+  },
+  "arcade_culture/arc_photo_booth": {
+   "preset": "arc_photo_booth"
+  },
+  "dev_studio/dev_pixel_desk": {
+   "preset": "dev_pixel_desk"
+  },
+  "dev_studio/dev_planning_wall": {
+   "preset": "dev_planning_wall"
+  },
+  "dev_studio/dev_playtest": {
+   "preset": "dev_playtest"
+  },
+  "dev_studio/dev_sound_booth": {
+   "preset": "dev_sound_booth"
+  },
+  "dev_studio/dev_mocap": {
+   "preset": "dev_mocap"
+  },
+  "dev_studio/dev_concept_art": {
+   "preset": "dev_concept_art"
+  },
+  "dev_studio/dev_late_night": {
+   "preset": "dev_late_night"
+  },
+  "dev_studio/dev_prototype_board": {
+   "preset": "dev_prototype_board"
+  },
+  "dev_studio/dev_bug_hunt": {
+   "preset": "dev_bug_hunt"
+  },
+  "dev_studio/dev_release_party": {
+   "preset": "dev_release_party"
+  },
+  "speedrun_stream/sr_record": {
+   "preset": "sr_record"
+  },
+  "speedrun_stream/sr_stream_desk": {
+   "preset": "sr_stream_desk"
+  },
+  "speedrun_stream/sr_setup": {
+   "preset": "sr_setup"
+  },
+  "speedrun_stream/sr_practice": {
+   "preset": "sr_practice"
+  },
+  "speedrun_stream/sr_marathon_couch": {
+   "preset": "sr_marathon_couch"
+  },
+  "speedrun_stream/sr_esports_stage": {
+   "preset": "sr_esports_stage"
+  },
+  "speedrun_stream/sr_trophy": {
+   "preset": "sr_trophy"
+  },
+  "speedrun_stream/sr_cozy_stream": {
+   "preset": "sr_cozy_stream"
+  },
+  "speedrun_stream/sr_interview": {
+   "preset": "sr_interview"
+  },
+  "speedrun_stream/sr_cooldown": {
+   "preset": "sr_cooldown"
+  },
+  "everyday_sensual/morning_stretch": {
+   "preset": "morning_stretch"
+  },
+  "everyday_sensual/window_light": {
+   "preset": "window_light"
+  },
+  "everyday_sensual/late_snack": {
+   "preset": "late_snack"
+  },
+  "everyday_sensual/high_shelf": {
+   "preset": "high_shelf"
+  },
+  "everyday_sensual/hair_tie": {
+   "preset": "hair_tie"
+  },
+  "everyday_sensual/laundry_soft": {
+   "preset": "laundry_soft"
+  },
+  "everyday_sensual/sunroom_relax": {
+   "preset": "sunroom_relax"
+  },
+  "everyday_sensual/balcony_plants": {
+   "preset": "balcony_plants"
+  },
+  "everyday_sensual/rainy_return": {
+   "preset": "rainy_return"
+  },
+  "everyday_sensual/floor_organizing": {
+   "preset": "floor_organizing"
+  },
+  "everyday_sensual/after_work_change": {
+   "preset": "after_work_change"
+  },
+  "everyday_sensual/fridge_light": {
+   "preset": "fridge_light"
+  },
+  "everyday_sensual/shoe_bench": {
+   "preset": "shoe_bench"
+  },
+  "everyday_sensual/mirror_selfie": {
+   "preset": "mirror_selfie"
+  },
+  "everyday_sensual/window_rain": {
+   "preset": "window_rain"
+  },
+  "everyday_sensual/stair_landing": {
+   "preset": "stair_landing"
+  },
+  "travel_exploration/travel_trail": {
+   "preset": "travel_trail"
+  },
+  "travel_exploration/travel_station": {
+   "preset": "travel_station"
+  },
+  "travel_exploration/travel_camp": {
+   "preset": "travel_camp"
+  },
+  "travel_exploration/travel_lakeside": {
+   "preset": "travel_lakeside"
+  },
+  "travel_exploration/travel_lookout": {
+   "preset": "travel_lookout"
+  },
+  "travel_exploration/travel_coast": {
+   "preset": "travel_coast"
+  },
+  "travel_exploration/travel_ferry": {
+   "preset": "travel_ferry"
+  },
+  "travel_exploration/travel_lodge": {
+   "preset": "travel_lodge"
+  },
+  "travel_exploration/travel_cablecar": {
+   "preset": "travel_cablecar"
+  },
+  "travel_exploration/travel_footbath": {
+   "preset": "travel_footbath"
+  },
+  "travel_exploration/travel_dunes": {
+   "preset": "travel_dunes"
+  },
+  "festivals_contests/fest_lantern": {
+   "preset": "fest_lantern"
+  },
+  "festivals_contests/fest_ribbon": {
+   "preset": "fest_ribbon"
+  },
+  "festivals_contests/fest_cheering": {
+   "preset": "fest_cheering"
+  },
+  "festivals_contests/fest_booth": {
+   "preset": "fest_booth"
+  },
+  "festivals_contests/fest_rehearsal": {
+   "preset": "fest_rehearsal"
+  },
+  "festivals_contests/fest_fireworks": {
+   "preset": "fest_fireworks"
+  },
+  "festivals_contests/fest_parade": {
+   "preset": "fest_parade"
+  },
+  "festivals_contests/fest_ringtoss": {
+   "preset": "fest_ringtoss"
+  },
+  "festivals_contests/fest_illumination": {
+   "preset": "fest_illumination"
+  },
+  "festivals_contests/fest_flowercrown": {
+   "preset": "fest_flowercrown"
+  },
+  "festivals_contests/fest_dance": {
+   "preset": "fest_dance"
+  },
+  "hobbies_leisure/hobby_reading": {
+   "preset": "hobby_reading"
+  },
+  "hobbies_leisure/hobby_sketch": {
+   "preset": "hobby_sketch"
+  },
+  "hobbies_leisure/hobby_craft": {
+   "preset": "hobby_craft"
+  },
+  "hobbies_leisure/hobby_music": {
+   "preset": "hobby_music"
+  },
+  "hobbies_leisure/hobby_photo": {
+   "preset": "hobby_photo"
+  },
+  "hobbies_leisure/hobby_gardening": {
+   "preset": "hobby_gardening"
+  },
+  "hobbies_leisure/hobby_boardgame": {
+   "preset": "hobby_boardgame"
+  },
+  "hobbies_leisure/hobby_fishing": {
+   "preset": "hobby_fishing"
+  },
+  "hobbies_leisure/hobby_birdwatch": {
+   "preset": "hobby_birdwatch"
+  },
+  "hobbies_leisure/hobby_origami": {
+   "preset": "hobby_origami"
+  },
+  "hobbies_leisure/hobby_knitting": {
+   "preset": "hobby_knitting"
+  },
+  "hobbies_leisure/hobby_stargazing": {
+   "preset": "hobby_stargazing"
+  },
+  "swimwear/classic_bikini": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "classic_bikini"
+  },
+  "swimwear/sport_onepiece": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "sport_onepiece"
+  },
+  "swimwear/highleg_onepiece": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "highleg_onepiece"
+  },
+  "swimwear/monokini": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "monokini"
+  },
+  "swimwear/triangle_bikini": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "triangle_bikini"
+  },
+  "swimwear/bandeau_bikini": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "bandeau_bikini"
+  },
+  "swimwear/halter_bikini": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "halter_bikini"
+  },
+  "swimwear/asymmetric_swim": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "asymmetric_swim"
+  },
+  "swimwear/crossstrap_swim": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "crossstrap_swim"
+  },
+  "swimwear/moonlit_pool": {
+   "preset": "moonlit_pool"
+  },
+  "swimwear/rooftop_infinity_pool": {
+   "preset": "rooftop_infinity_pool"
+  },
+  "swimwear/outdoor_shower": {
+   "preset": "outdoor_shower"
+  },
+  "swimwear/cabana_daybed": {
+   "preset": "cabana_daybed"
+  },
+  "swimwear/thermal_spa": {
+   "preset": "thermal_spa"
+  },
+  "swimwear/shoreline_walk": {
+   "preset": "shoreline_walk"
+  },
+  "swimwear/boyshort_swim": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "boyshort_swim"
+  },
+  "swimwear/rashguard_set": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "rashguard_set"
+  },
+  "swimwear/wrap_swim": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "wrap_swim"
+  },
+  "swimwear/swim_coverup": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "swim_coverup"
+  },
+  "swimwear/poolside_bar": {
+   "preset": "poolside_bar"
+  },
+  "swimwear/river_dock": {
+   "preset": "river_dock"
+  },
+  "swimwear/burkini_modest": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "burkini_modest"
+  },
+  "swimwear/sarong_wrap": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "sarong_wrap"
+  },
+  "swimwear/yukata_poolside": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "yukata_over"
+  },
+  "swimwear/heritage_pattern_swim": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "heritage_pattern_swim"
+  },
+  "swimwear/onsen_after": {
+   "preset": "onsen_after"
+  },
+  "swimwear/hanbok_coverup": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "hanbok_coverup"
+  },
+  "swimwear/cutout_onepiece": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "cutout_onepiece"
+  },
+  "swimwear/plunge_onepiece": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "plunge_onepiece"
+  },
+  "swimwear/oring_bikini": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "oring_bikini"
+  },
+  "swimwear/crochet_bikini": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear",
+   "item": "crochet_bikini"
+  },
+  "swimwear/yacht_deck": {
+   "preset": "yacht_deck"
+  },
+  "swimwear/waterfall_pool": {
+   "preset": "waterfall_pool"
+  },
+  "swimwear/beach_volley": {
+   "preset": "beach_volley"
+  },
+  "swimwear/paddle_board": {
+   "preset": "paddle_board"
+  },
+  "swimwear/pool_float": {
+   "preset": "pool_float"
+  },
+  "active/warmup": {
+   "preset": "warmup"
+  },
+  "active/stretch": {
+   "preset": "stretch"
+  },
+  "active/dance_transition": {
+   "preset": "dance_transition"
+  },
+  "active/pilates": {
+   "preset": "pilates"
+  },
+  "active/tennis_active": {
+   "preset": "tennis_active"
+  },
+  "active/basketball_jersey": {
+   "preset": "basketball_jersey"
+  },
+  "active/boxing_fitness": {
+   "preset": "boxing_fitness"
+  },
+  "active/running_recovery": {
+   "preset": "running_recovery"
+  },
+  "active/light_jog": {
+   "preset": "light_jog"
+  },
+  "active/parkour_stairs": {
+   "preset": "parkour_stairs"
+  },
+  "active/roller_skating": {
+   "preset": "roller_skating"
+  },
+  "active/fencing_motion": {
+   "preset": "fencing_motion"
+  },
+  "active/climbing_warmup": {
+   "preset": "climbing_warmup"
+  },
+  "active/surf_prep": {
+   "preset": "surf_prep"
+  },
+  "active/yoga_flow": {
+   "preset": "yoga_flow"
+  },
+  "active/cycling_kit": {
+   "preset": "cycling_kit"
+  },
+  "active/track_sprint": {
+   "preset": "track_sprint"
+  },
+  "active/archery_draw": {
+   "preset": "archery_draw"
+  },
+  "active/aerial_silk": {
+   "preset": "aerial_silk"
+  },
+  "source_editorial/couture_gala": {
+   "preset": "couture_gala"
+  },
+  "source_editorial/runway": {
+   "preset": "runway"
+  },
+  "source_editorial/aerodynamic_couture": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "aerodynamic_couture"
+  },
+  "source_editorial/metallic_asymmetry": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "metallic_asymmetry"
+  },
+  "source_editorial/ceremonial_whitegold": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "ceremonial_whitegold"
+  },
+  "source_editorial/cyber_street": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "cyber_street"
+  },
+  "source_editorial/deconstructed_frame": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "deconstructed_frame"
+  },
+  "source_editorial/floating_panel": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "floating_panel"
+  },
+  "source_editorial/luminous_circuit": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "luminous_circuit"
+  },
+  "source_editorial/wing_light": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "kinetic_layer"
+  },
+  "source_editorial/heavy_architecture": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "heavy_architecture"
+  },
+  "source_editorial/stealth_monochrome": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "stealth_monochrome"
+  },
+  "source_editorial/transformation_drape": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "transformation_drape"
+  },
+  "source_editorial/orbital_ring": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "orbital_ring"
+  },
+  "source_editorial/thruster_flare": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "flare_hem"
+  },
+  "source_editorial/cockpit_harness": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "harness_tailoring"
+  },
+  "source_editorial/camo_couture": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial"
+  },
+  "source_editorial/ceramic_plate": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "ceramic_plate"
+  },
+  "source_editorial/heritage_couture": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial",
+   "item": "heritage_couture"
+  },
+  "homewear/soft_tank_shorts": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "soft_tank_shorts"
+  },
+  "homewear/satin_lounge": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "satin_lounge"
+  },
+  "homewear/offshoulder_knit": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "offshoulder_knit"
+  },
+  "homewear/camisole_wrap": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "camisole_wrap"
+  },
+  "homewear/bralette_cardigan": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "bralette_cardigan"
+  },
+  "homewear/one_shoulder_lounge": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "one_shoulder_lounge"
+  },
+  "homewear/backless_lounge": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "backless_lounge"
+  },
+  "homewear/after_bath": {
+   "preset": "after_bath"
+  },
+  "homewear/window_vanity": {
+   "preset": "window_vanity"
+  },
+  "homewear/late_night_kitchen": {
+   "preset": "fridge_light"
+  },
+  "homewear/laundry_lounge": {
+   "preset": "laundry_lounge"
+  },
+  "homewear/sunroom_lounge": {
+   "preset": "sunroom_lounge"
+  },
+  "homewear/oversized_shirt": {
+   "preset": "oversized_shirt"
+  },
+  "homewear/hoodie_shorts": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "hoodie_shorts"
+  },
+  "homewear/knit_dress_home": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear",
+   "item": "knit_dress_home"
+  },
+  "homewear/robe_morning": {
+   "preset": "robe_morning"
+  },
+  "homewear/floor_cushion": {
+   "preset": "floor_cushion"
+  },
+  "homewear/home_workout": {
+   "preset": "home_workout"
+  },
+  "homewear/hammock_balcony": {
+   "preset": "hammock_balcony"
+  },
+  "homewear/breakfast_bed": {
+   "preset": "breakfast_bed"
+  },
+  "private_evening/slip_dress": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening",
+   "item": "slip_dress"
+  },
+  "private_evening/cocktail_mini": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening",
+   "item": "cocktail_mini"
+  },
+  "private_evening/one_shoulder_satin": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening",
+   "item": "one_shoulder_satin"
+  },
+  "private_evening/low_back_evening": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening",
+   "item": "low_back_evening"
+  },
+  "private_evening/after_party": {
+   "preset": "after_party"
+  },
+  "private_evening/hotel_evening": {
+   "preset": "hotel_evening"
+  },
+  "private_evening/balcony_night": {
+   "preset": "balcony_night"
+  },
+  "private_evening/mirror_touchup": {
+   "preset": "mirror_touchup"
+  },
+  "private_evening/opera_night": {
+   "preset": "opera_night"
+  },
+  "private_evening/penthouse_window": {
+   "preset": "penthouse_window"
+  },
+  "private_evening/silk_robe_evening": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening",
+   "item": "silk_robe_slip"
+  },
+  "private_evening/velvet_evening": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening",
+   "item": "velvet_evening"
+  },
+  "private_evening/halter_evening": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening",
+   "item": "halter_evening"
+  },
+  "private_evening/high_slit_gown": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening",
+   "item": "high_slit_gown"
+  },
+  "private_evening/wine_bar": {
+   "preset": "wine_bar"
+  },
+  "private_evening/night_drive": {
+   "preset": "night_drive"
+  },
+  "private_evening/heritage_evening": {
+   "preset": "heritage_evening"
+  },
+  "private_evening/tea_ceremony_night": {
+   "preset": "tea_ceremony_night"
+  },
+  "lingerie/lace_set": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "lace_set"
+  },
+  "lingerie/satin_set": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "satin_set"
+  },
+  "lingerie/bralette_highwaist": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "bralette_highwaist"
+  },
+  "lingerie/bustier_inspired": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "bustier_inspired"
+  },
+  "lingerie/bodysuit": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "bodysuit"
+  },
+  "lingerie/garter_set": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "garter_set"
+  },
+  "lingerie/corset_lingerie": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "corset_lingerie"
+  },
+  "lingerie/open_shirt_lingerie": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "open_shirt_lingerie"
+  },
+  "lingerie/night_robe": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "night_robe"
+  },
+  "lingerie/back_strap": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "back_strap"
+  },
+  "lingerie/asymmetric_lingerie": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "asymmetric_lingerie"
+  },
+  "lingerie/slip_lingerie": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "slip_lingerie"
+  },
+  "lingerie/babydoll": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "babydoll"
+  },
+  "lingerie/longline_bra": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "longline_bra"
+  },
+  "lingerie/knit_lingerie": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "knit_lingerie"
+  },
+  "lingerie/morning_lingerie": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "cotton_set"
+  },
+  "lingerie/juban_inspired": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "juban_inspired"
+  },
+  "lingerie/hanbok_slip": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "hanbok_slip"
+  },
+  "lingerie/qipao_silk_set": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "qipao_silk_set"
+  },
+  "lingerie/embroidered_corset": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "embroidered_corset"
+  },
+  "lingerie/kebaya_lace": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "kebaya_lace"
+  },
+  "lingerie/sari_blouse_set": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "sari_blouse_set"
+  },
+  "lingerie/satin_teddy": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "satin_teddy"
+  },
+  "lingerie/velvet_set": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "velvet_set"
+  },
+  "lingerie/cage_back": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "cage_back"
+  },
+  "lingerie/sport_cotton": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "cotton_set"
+  },
+  "lingerie/chemise_silk": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "chemise_silk"
+  },
+  "lingerie/front_lace_corset": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie",
+   "item": "front_lace_corset"
+  },
+  "everyday/commute_train": {
+   "preset": "commute_train"
+  },
+  "everyday/grocery_run": {
+   "preset": "grocery_run"
+  },
+  "everyday/simple_cooking": {
+   "preset": "simple_cooking"
+  },
+  "everyday/cafe_takeout": {
+   "preset": "cafe_takeout"
+  },
+  "everyday/laundry": {
+   "preset": "laundry"
+  },
+  "everyday/rain_walk": {
+   "preset": "rain_walk"
+  },
+  "everyday/station_wait": {
+   "preset": "station_wait"
+  },
+  "everyday/bookstore": {
+   "preset": "bookstore"
+  },
+  "everyday/parcel_pickup": {
+   "preset": "parcel_pickup"
+  },
+  "everyday/midnight_laundromat": {
+   "preset": "midnight_laundromat"
+  },
+  "everyday/greenhouse": {
+   "preset": "greenhouse"
+  },
+  "everyday/pottery_class": {
+   "preset": "pottery_class"
+  },
+  "everyday/record_store": {
+   "preset": "record_store"
+  },
+  "everyday/hardware_store": {
+   "preset": "hardware_store"
+  },
+  "everyday/hanbok_errand": {
+   "preset": "hanbok_errand"
+  },
+  "everyday/festival_daily": {
+   "preset": "festival_night"
+  },
+  "traditional/auto_traditional": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional"
+  },
+  "traditional/hanbok_formal": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "hanbok_formal"
+  },
+  "traditional/hanbok_daily": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "hanbok_daily"
+  },
+  "traditional/kimono_formal": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "kimono_formal"
+  },
+  "traditional/yukata_daily": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "yukata_daily"
+  },
+  "traditional/hanfu_formal": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "hanfu_formal"
+  },
+  "traditional/qipao_daily": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "qipao_daily"
+  },
+  "traditional/aodai_daily": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "aodai_daily"
+  },
+  "traditional/sari_formal": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "sari_formal"
+  },
+  "traditional/lehenga_formal": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "lehenga_formal"
+  },
+  "traditional/salwar_daily": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "salwar_daily"
+  },
+  "traditional/abaya_modern": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "abaya_modern"
+  },
+  "traditional/kaftan_daily": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "kaftan_daily"
+  },
+  "traditional/thobe_inspired": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "thobe_inspired"
+  },
+  "traditional/dirndl_modern": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "dirndl_modern"
+  },
+  "traditional/folk_embroidery": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "folk_embroidery"
+  },
+  "traditional/kente_modern": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "kente_modern"
+  },
+  "traditional/boubou_flow": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "boubou_flow"
+  },
+  "traditional/huipil_modern": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "huipil_modern"
+  },
+  "traditional/poncho_andes": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "poncho_andes"
+  },
+  "traditional/kilt_inspired": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "kilt_inspired"
+  },
+  "traditional/kebaya_daily": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "kebaya_daily"
+  },
+  "traditional/barong_inspired": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "barong_inspired"
+  },
+  "traditional/caftan_evening": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional",
+   "item": "caftan_evening"
+  },
+  "retro_glamour/flapper_party": {
+   "preset": "flapper_party"
+  },
+  "retro_glamour/deco_lounge": {
+   "preset": "deco_lounge"
+  },
+  "retro_glamour/hollywood_bias": {
+   "preset": "hollywood_bias"
+  },
+  "retro_glamour/swing_dress": {
+   "preset": "swing_dress"
+  },
+  "retro_glamour/retro_highwaist": {
+   "preset": "retro_highwaist"
+  },
+  "retro_glamour/pinup_beachball": {
+   "preset": "pinup_beachball"
+  },
+  "retro_glamour/pinup_car": {
+   "preset": "pinup_car"
+  },
+  "retro_glamour/diner_counter": {
+   "preset": "diner_counter"
+  },
+  "retro_glamour/retro_pinup": {
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "retro",
+   "item": "pinup_lingerie"
+  },
+  "retro_glamour/mod_mini": {
+   "preset": "mod_mini"
+  },
+  "retro_glamour/jetset_pool": {
+   "preset": "jetset_pool"
+  },
+  "retro_glamour/disco_halter": {
+   "preset": "disco_halter"
+  },
+  "retro_glamour/boho_crochet": {
+   "preset": "boho_crochet"
+  },
+  "retro_glamour/roller_disco": {
+   "preset": "roller_disco"
+  },
+  "retro_glamour/aerobics_80s": {
+   "preset": "aerobics_80s"
+  },
+  "retro_glamour/power_glam": {
+   "preset": "power_glam"
+  },
+  "retro_glamour/nineties_slip": {
+   "preset": "nineties_slip"
+  },
+  "retro_glamour/y2k_lowrise": {
+   "preset": "y2k_lowrise"
+  },
+  "subculture_fashion/goth_chapel": {
+   "preset": "goth_chapel"
+  },
+  "subculture_fashion/goth_cafe": {
+   "preset": "goth_cafe"
+  },
+  "subculture_fashion/punk_gig": {
+   "preset": "punk_gig"
+  },
+  "subculture_fashion/punk_alley": {
+   "preset": "punk_alley"
+  },
+  "subculture_fashion/rock_backstage": {
+   "preset": "rock_backstage"
+  },
+  "subculture_fashion/gyaru_street": {
+   "preset": "gyaru_street"
+  },
+  "subculture_fashion/decora_harajuku": {
+   "preset": "decora_harajuku"
+  },
+  "subculture_fashion/yami_kawaii": {
+   "preset": "yami_kawaii"
+  },
+  "subculture_fashion/cybergoth_rave": {
+   "preset": "cybergoth_rave"
+  },
+  "subculture_fashion/grunge_records": {
+   "preset": "grunge_records"
+  },
+  "subculture_fashion/emo_gig": {
+   "preset": "emo_gig"
+  },
+  "subculture_fashion/steampunk_fair": {
+   "preset": "steampunk_fair"
+  },
+  "subculture_fashion/gothic_lolita": {
+   "preset": "gothic_lolita"
+  },
+  "subculture_fashion/skater_bowl": {
+   "preset": "skater_bowl"
+  },
+  "subculture_fashion/biker_cafe": {
+   "preset": "biker_cafe"
+  },
+  "subculture_fashion/raver_kandi": {
+   "preset": "raver_kandi"
+  },
+  "subculture_fashion/visual_kei": {
+   "preset": "visual_kei"
+  },
+  "nightlife/club_floor": {
+   "preset": "club_floor"
+  },
+  "nightlife/dj_booth": {
+   "preset": "dj_booth"
+  },
+  "nightlife/neon_bar": {
+   "preset": "wine_bar"
+  },
+  "nightlife/karaoke_room": {
+   "preset": "karaoke_room"
+  },
+  "nightlife/powder_mirror": {
+   "preset": "powder_mirror"
+  },
+  "nightlife/club_queue": {
+   "preset": "club_queue"
+  },
+  "nightlife/vip_booth": {
+   "preset": "vip_booth"
+  },
+  "nightlife/night_taxi": {
+   "preset": "night_drive"
+  },
+  "nightlife/rooftop_party": {
+   "preset": "rooftop_party"
+  },
+  "nightlife/jazz_bar_stage": {
+   "preset": "jazz_bar_stage"
+  },
+  "dance_stage/tango_solo": {
+   "preset": "tango_solo"
+  },
+  "dance_stage/salsa_spin": {
+   "preset": "salsa_spin"
+  },
+  "dance_stage/flamenco": {
+   "preset": "flamenco"
+  },
+  "dance_stage/belly_dance": {
+   "preset": "belly_dance"
+  },
+  "dance_stage/jazz_kick": {
+   "preset": "jazz_kick"
+  },
+  "dance_stage/dance_mirror": {
+   "preset": "dance_mirror"
+  },
+  "dance_stage/hula": {
+   "preset": "hula"
+  },
+  "dance_stage/kpop_practice": {
+   "preset": "dance_mirror"
+  },
+  "dance_stage/ballroom_waltz": {
+   "preset": "ballroom_waltz"
+  },
+  "dance_stage/mermaid_show": {
+   "preset": "mermaid_show"
+  },
+  "dance_stage/ballet_stage": {
+   "preset": "ballet_stage"
+  },
+  "dance_stage/cabaret_showgirl": {
+   "preset": "cabaret_showgirl"
+  },
+  "spa_wellness/rotenburo_edge": {
+   "preset": "rotenburo_edge"
+  },
+  "spa_wellness/hinoki_bath": {
+   "preset": "hinoki_bath"
+  },
+  "spa_wellness/jjimjilbang": {
+   "preset": "jjimjilbang"
+  },
+  "spa_wellness/spa_robe_lounge": {
+   "preset": "spa_robe_lounge"
+  },
+  "spa_wellness/hammam": {
+   "preset": "hammam"
+  },
+  "spa_wellness/mud_mask": {
+   "preset": "mud_mask"
+  },
+  "spa_wellness/spa_pool": {
+   "preset": "thermal_spa"
+  },
+  "spa_wellness/cold_plunge": {
+   "preset": "cold_plunge"
+  },
+  "spa_wellness/sauna_lounge": {
+   "preset": "sauna_lounge"
+  },
+  "fantasy_costume/elf_costume": {
+   "preset": "elf_costume"
+  },
+  "fantasy_costume/fairy_wings": {
+   "preset": "fairy_wings"
+  },
+  "fantasy_costume/angel_devil": {
+   "preset": "angel_devil"
+  },
+  "fantasy_costume/sorceress_robe": {
+   "preset": "sorceress_robe"
+  },
+  "fantasy_costume/cosplay_photozone": {
+   "preset": "cosplay_photozone"
+  },
+  "fantasy_costume/forest_spirit": {
+   "preset": "forest_spirit"
+  },
+  "fantasy_costume/star_goddess": {
+   "preset": "star_goddess"
+  },
+  "fantasy_costume/fae_ball": {
+   "preset": "fae_ball"
+  },
+  "fantasy_costume/moon_priestess": {
+   "preset": "moon_priestess"
+  },
+  "fantasy_costume/vampire_gala": {
+   "preset": "vampire_gala"
+  },
+  "bridal/gown_fitting": {
+   "preset": "gown_fitting"
+  },
+  "bridal/before_ceremony": {
+   "preset": "before_ceremony"
+  },
+  "bridal/garden_aisle": {
+   "preset": "garden_aisle"
+  },
+  "bridal/self_wedding_shoot": {
+   "preset": "self_wedding_shoot"
+  },
+  "bridal/veil_wind": {
+   "preset": "veil_wind"
+  },
+  "bridal/reception_gown": {
+   "preset": "reception_gown"
+  },
+  "bridal/second_dress": {
+   "preset": "second_dress"
+  },
+  "bridal/bridal_shower": {
+   "preset": "bridal_shower"
+  },
+  "bridal/honeymoon_suite": {
+   "preset": "honeymoon_suite"
+  },
+  "bridal/bridal_lace": {
+   "preset": "bridal_lace"
+  },
+  "gala_red_carpet/red_carpet": {
+   "preset": "red_carpet"
+  },
+  "gala_red_carpet/photo_wall": {
+   "preset": "photo_wall"
+  },
+  "gala_red_carpet/festival_steps": {
+   "preset": "festival_steps"
+  },
+  "gala_red_carpet/award_ceremony": {
+   "preset": "award_ceremony"
+  },
+  "gala_red_carpet/gala_dinner": {
+   "preset": "gala_dinner"
+  },
+  "gala_red_carpet/charity_auction": {
+   "preset": "charity_auction"
+  },
+  "gala_red_carpet/front_row": {
+   "preset": "front_row"
+  },
+  "gala_red_carpet/museum_gala": {
+   "preset": "museum_gala"
+  },
+  "gala_red_carpet/afterparty_stairs": {
+   "preset": "afterparty_stairs"
+  },
+  "wildcard/festival_night": {
+   "preset": "festival_night"
+  },
+  "wildcard/rain_editorial": {
+   "preset": "rain_editorial"
+  },
+  "wildcard/arcade_night": {
+   "preset": "arcade_night"
+  },
+  "wildcard/ferry_deck": {
+   "preset": "ferry_deck"
+  },
+  "wildcard/retro_motel": {
+   "preset": "retro_motel"
+  },
+  "wildcard/desert_resort": {
+   "preset": "desert_resort"
+  },
+  "wildcard/futuristic_spa": {
+   "preset": "futuristic_spa"
+  },
+  "wildcard/observatory_night": {
+   "preset": "observatory_night"
+  },
+  "wildcard/greenhouse_afterdark": {
+   "preset": "greenhouse_afterdark"
+  },
+  "wildcard/rooftop_cinema": {
+   "preset": "rooftop_cinema"
+  },
+  "wildcard/winter_lodge": {
+   "preset": "winter_lodge"
+  },
+  "wildcard/art_studio": {
+   "preset": "late_studio"
+  },
+  "everyday/": {
+   "era": "now",
+   "place": "street_cafe",
+   "act": "coffee_takeout",
+   "outfit": "everyday"
+  },
+  "game_life_sensual/": {
+   "era": "in_game",
+   "place": "game_room",
+   "act": "morning_stretch",
+   "outfit": "homewear"
+  },
+  "game_place/": {
+   "era": "in_game",
+   "place": "game_place",
+   "act": "stroll",
+   "outfit": "everyday"
+  },
+  "arcade_culture/": {
+   "era": "now",
+   "place": "arcade_hall",
+   "act": "play_cabinet",
+   "outfit": "everyday"
+  },
+  "dev_studio/": {
+   "era": "now",
+   "place": "studio_dev",
+   "act": "pixel_desk",
+   "outfit": "everyday"
+  },
+  "speedrun_stream/": {
+   "era": "now",
+   "place": "studio_stream",
+   "act": "stream_live",
+   "outfit": "everyday"
+  },
+  "everyday_sensual/": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "look_out",
+   "outfit": "homewear"
+  },
+  "travel_exploration/": {
+   "era": "now",
+   "place": "travel_trail",
+   "act": "map_check",
+   "outfit": "everyday"
+  },
+  "festivals_contests/": {
+   "era": "now",
+   "place": "stage_festival",
+   "act": "lantern_walk",
+   "outfit": "everyday"
+  },
+  "hobbies_leisure/": {
+   "era": "now",
+   "place": "home_living",
+   "act": "read_book",
+   "outfit": "everyday"
+  },
+  "swimwear/": {
+   "era": "now",
+   "place": "water_pool",
+   "act": "sunbed",
+   "outfit": "swimwear"
+  },
+  "active/": {
+   "era": "now",
+   "place": "sports_gym",
+   "act": "warmup",
+   "outfit": "active"
+  },
+  "source_editorial/": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "editorial"
+  },
+  "homewear/": {
+   "era": "now",
+   "place": "home_living",
+   "act": "sofa_lounge",
+   "outfit": "homewear"
+  },
+  "private_evening/": {
+   "era": "now",
+   "place": "evening_hotel",
+   "act": "dress_up",
+   "outfit": "evening"
+  },
+  "lingerie/": {
+   "era": "now",
+   "place": "home_bedroom",
+   "act": "dress_up",
+   "outfit": "lingerie"
+  },
+  "traditional/": {
+   "era": "now",
+   "place": "street_market",
+   "act": "stroll",
+   "outfit": "traditional"
+  },
+  "retro_glamour/": {
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "retro"
+  },
+  "subculture_fashion/": {
+   "era": "now",
+   "place": "street_alley",
+   "act": "stroll",
+   "outfit": "subculture"
+  },
+  "nightlife/": {
+   "era": "now",
+   "place": "night_club",
+   "act": "club_dance",
+   "outfit": "evening"
+  },
+  "dance_stage/": {
+   "era": "now",
+   "place": "stage_dance",
+   "act": "stage_perform",
+   "outfit": "costume"
+  },
+  "spa_wellness/": {
+   "era": "now",
+   "place": "spa_onsen",
+   "act": "soak",
+   "outfit": "swimwear"
+  },
+  "fantasy_costume/": {
+   "era": "fantasy",
+   "place": "fx_studio",
+   "act": "editorial_pose",
+   "outfit": "costume"
+  },
+  "bridal/": {
+   "era": "now",
+   "place": "stage_wedding",
+   "act": "bouquet_wait",
+   "outfit": "bridal"
+  },
+  "gala_red_carpet/": {
+   "era": "now",
+   "place": "stage_redcarpet",
+   "act": "carpet_turn",
+   "outfit": "evening"
+  },
+  "adult_roleplay/": {
+   "era": "now",
+   "place": "stage_event",
+   "act": "event_greet",
+   "outfit": "roleplay"
+  },
+  "everyday_basic/": {
+   "era": "now",
+   "place": "street_cafe",
+   "act": "coffee_takeout",
+   "outfit": "everyday"
+  }
+ },
+ "preset_groups": [
+  {
+   "key": "auto_random",
+   "ko": "자동 / 랜덤"
+  },
+  {
+   "key": "game_life_sensual",
+   "ko": "게임 속 일상 — 섹시"
+  },
+  {
+   "key": "game_place",
+   "ko": "게임 속 장소"
+  },
+  {
+   "key": "arcade_culture",
+   "ko": "오락실·게임 문화"
+  },
+  {
+   "key": "dev_studio",
+   "ko": "개발실"
+  },
+  {
+   "key": "speedrun_stream",
+   "ko": "스피드런·방송"
+  },
+  {
+   "key": "everyday_sensual",
+   "ko": "일상컷 — 섹시"
+  },
+  {
+   "key": "travel_exploration",
+   "ko": "여행·필드 탐험"
+  },
+  {
+   "key": "festivals_contests",
+   "ko": "축제·콘테스트 나들이"
+  },
+  {
+   "key": "hobbies_leisure",
+   "ko": "취미·느긋한 휴식"
+  },
+  {
+   "key": "swimwear",
+   "ko": "수영복 라이프스타일"
+  },
+  {
+   "key": "active",
+   "ko": "액티브 / 무브먼트 패션"
+  },
+  {
+   "key": "source_editorial",
+   "ko": "SOURCE 영감 에디토리얼 패션"
+  },
+  {
+   "key": "homewear",
+   "ko": "패션 홈웨어 / 라운지 라이프"
+  },
+  {
+   "key": "private_evening",
+   "ko": "프라이빗 이브닝 패션"
+  },
+  {
+   "key": "everyday",
+   "ko": "일상 라이프스타일"
+  },
+  {
+   "key": "retro_glamour",
+   "ko": "레트로 글래머"
+  },
+  {
+   "key": "subculture_fashion",
+   "ko": "서브컬처 패션"
+  },
+  {
+   "key": "nightlife",
+   "ko": "나이트라이프"
+  },
+  {
+   "key": "dance_stage",
+   "ko": "댄스 무대"
+  },
+  {
+   "key": "spa_wellness",
+   "ko": "스파·온천·사우나"
+  },
+  {
+   "key": "fantasy_costume",
+   "ko": "판타지 코스튬"
+  },
+  {
+   "key": "bridal",
+   "ko": "웨딩·브라이덜"
+  },
+  {
+   "key": "gala_red_carpet",
+   "ko": "레드카펫·갈라"
+  },
+  {
+   "key": "wildcard",
+   "ko": "와일드카드"
+  }
+ ]
 }

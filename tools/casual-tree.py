@@ -9,6 +9,7 @@
   - 어느 시대에서 어느 장소를 골라도 하는 일이 둘 이상, 어느 하는 일을 골라도 입을 옷 계열이 하나 이상 남는다
   - 영어 칸에 한글이 없다(지시문은 영어)
   - 어느 시대에서든 필수 갈래(란제리풍·수영복·역할극 또는 게임 속 일상 — 섹시)에 닿는 길이 있다
+  - 추천 조합(지금 갈래의 장면 예시를 옮긴 것)과 예전 기록 변환표가 다 고를 수 있는 길이다
 
     python3 tools/casual-tree.py check
     python3 tools/casual-tree.py paths <시대> <장소>     # 그 자리에서 고를 수 있는 하는 일·옷 계열
@@ -70,6 +71,23 @@ def required_reach(doc, era, place, act, fam):
         return True
     g = R["in_game"]
     return era == g["era"] and place in g["places"] and fam in g["outfits"]
+
+
+def path_errors(doc, p):
+    """시대·장소·하는 일·옷 계열·옷 한 줄이 트리에서 고를 수 있는 길인지"""
+    I = index(doc)
+    if p.get("era") not in I["eras"] or p.get("place") not in I["places"]:
+        return ["없는 시대·장소 %s·%s" % (p.get("era"), p.get("place"))]
+    if p["era"] not in I["places"][p["place"]]["eras"]:
+        return ["%s 에는 %s 시대가 없다" % (p["place"], p["era"])]
+    act = next((a for a in activities_at(doc, p["place"]) if a["key"] == p.get("act")), None)
+    if not act:
+        return ["%s 에서 하는 일 %s 를 못 고른다" % (p["place"], p.get("act"))]
+    if p.get("outfit") not in outfit_families(doc, p["era"], p["place"], act):
+        return ["%s·%s·%s 에서 옷 계열 %s 를 못 고른다" % (p["era"], p["place"], p["act"], p.get("outfit"))]
+    if p.get("item") and p["item"] not in {i["key"] for i in I["outfits"][p["outfit"]]["items"]}:
+        return ["옷 %s 가 %s 계열에 없다" % (p["item"], p["outfit"])]
+    return []
 
 
 def check(doc):
@@ -143,6 +161,22 @@ def check(doc):
                 reach = reach or any(required_reach(doc, e["key"], p["key"], a, f) for f in fams)
         if not reach:
             errs.append("시대 %s 에서 필수 갈래에 닿는 길이 없다" % e["ko"])
+    # 추천 조합·예전 기록 변환 — 다 트리 위의 길이다
+    groups = {g["key"] for g in doc.get("preset_groups", [])}
+    pkeys = set()
+    for pr in doc.get("presets", []):
+        if pr["key"] in pkeys:
+            errs.append("추천 조합 %s 가 겹친다" % pr["key"])
+        pkeys.add(pr["key"])
+        if pr["group"] not in groups:
+            errs.append("추천 조합 %s 의 묶음 %s 가 없다" % (pr["key"], pr["group"]))
+        errs += ["추천 조합 %s: %s" % (pr["key"], e) for e in path_errors(doc, pr)]
+    for k, v in doc.get("legacy", {}).items():
+        if "preset" in v:
+            if v["preset"] not in pkeys:
+                errs.append("예전 기록 %s 의 추천 조합 %s 가 없다" % (k, v["preset"]))
+        else:
+            errs += ["예전 기록 %s: %s" % (k, e) for e in path_errors(doc, v)]
     for a in doc["activities"]:
         if not any(outfit_families(doc, e["key"], p, a) for p in act_places(doc, a) for e in doc["eras"] if e["key"] in I["places"][p]["eras"]):
             errs.append("하는 일 %s 는 어느 길에서도 안 나온다" % a["ko"])
@@ -165,9 +199,9 @@ def main(argv):
         print("일상컷 트리 %d 가지 걸림" % len(errs)); return 1
     n_paths = sum(len(outfit_families(doc, e["key"], p["key"], a)) > 0
                   for e in doc["eras"] for p in places_in(doc, e["key"]) for a in activities_at(doc, p["key"]))
-    print("일상컷 트리 통과 — 시대 %d · 장소 %d · 하는 일 %d · 옷 계열 %d(옷 %d) · 시대·장소·하는 일 길 %d"
+    print("일상컷 트리 통과 — 시대 %d · 장소 %d · 하는 일 %d · 옷 계열 %d(옷 %d) · 시대·장소·하는 일 길 %d · 추천 조합 %d · 예전 기록 변환 %d"
           % (len(doc["eras"]), len(doc["places"]), len(doc["activities"]), len(doc["outfits"]),
-             sum(len(o["items"]) for o in doc["outfits"]), n_paths))
+             sum(len(o["items"]) for o in doc["outfits"]), n_paths, len(doc.get("presets", [])), len(doc.get("legacy", {}))))
     return 0
 
 
