@@ -7,6 +7,8 @@ for (const [k, f] of Object.entries(tree.families)) {
   for (const p of f.poses) assert(poses.has(p), k + ' 자세 ' + p);
   for (const o of f.orients) assert(orients.has(o), k + ' 방향 ' + o);
 }
+/* 눕기 계열엔 등 쪽·뒤돌아보기 방향이 없다 — 해먹에 누워 등을 돌리고 다리를 늘어뜨리라 해서 몸이 반 바퀴 비틀렸다(조조전 일상4, 2026-10-29) */
+for (const o of [...S.LOOK_BACK.orient, 'back_to_camera', 'walking_away']) assert(!tree.families.lie.orients.includes(o), '눕기 계열에 ' + o);
 /* 어느 자세도 한 계열에는 든다 — 고를 수 없는 자세가 없게 */
 const used = new Set(Object.values(tree.families).flatMap(f => f.poses));
 for (const p of poses) assert(used.has(p), '어느 자세 계열에도 없는 자세 ' + p);
