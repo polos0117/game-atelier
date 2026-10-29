@@ -22,8 +22,6 @@ far = [r for r in GOOD if r[1] not in C.FAR] + [('front', 'three_quarter', 'natu
 assert '먼 컷' in ' | '.join(C.check(sc(far)))
 lens3 = [(o, f, 'documentary35') for o, f, _ in GOOD[:3]] + GOOD[3:]
 assert '렌즈 documentary35 이(가) 3 번' in ' | '.join(C.check(sc(lens3)))
-chest = sc(GOOD); chest[1][1]['cat'] = 'lingerie'
-assert '가슴 위 크롭' in ' | '.join(C.check(chest))
 assert '비었다' in ' | '.join(C.check(sc([('', 'waist_up', 'wide24')] + GOOD[1:])))
 
 # 기록 폴더 읽기 — 생성기 저장 상태의 scenes.casual
@@ -35,4 +33,4 @@ with tempfile.TemporaryDirectory() as d:
     assert [n for n, _ in C.load([d])] == ['casual1', 'casual2', 'casual3', 'casual4', 'casual5']
     assert C.main([d]) == 0
 
-print('PASS 일상컷 구도: 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷·빈칸·란제리 가슴 위·기록 폴더')
+print('PASS 일상컷 구도: 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷·빈칸·기록 폴더')

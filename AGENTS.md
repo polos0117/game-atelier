@@ -96,6 +96,9 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 python3 tools/game-design.py check   # 게임 설계표 — 빈칸·정한 말·실루엣·얼굴 닮음·머리·눈 색·자매·한 명 개방·대응·사실 칸
 python3 tests/game-design.py         # 설계표 검사기가 규칙마다 제대로 거는지
 python3 tests/casual-compose.py      # 일상컷 구도 검사기 — 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷
+python3 tools/casual-tree.py check    # 일상컷 트리 표 — 시대→장소→하는 일→의상 길이 끊긴 데·없는 열쇠·필수 갈래
+python3 tests/casual-tree.py         # 트리 검사기가 규칙마다 거는지
+node tests/casual-tree.cjs           # 트리 자세 계열의 자세·방향 열쇠가 생성기 표에 있다
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기(네트워크 없이, 가짜 응답으로)
 node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 게임 갈래, 출시 당시, 길이
 node tests/words.cjs                 # 낱말 표
