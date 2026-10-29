@@ -11,6 +11,14 @@
 
 
 
+## 2026-10-29 · claude · 일상컷 칸끼리 규칙을 트리로 — 생성기 화면도 같게, 배경 인물 허용
+- data/casual-tree.json — GTA V 계획에서 걸린 칸끼리 충돌 규칙이 묶음 계획기에만 있어 생성기에서 한 장씩 고르면 그대로 골라졌다. 표로 옮겼다: 자세 표(pose_meta — 보이는 부위·손·앉는 자리), 프레이밍 규칙(frame_rules — 보이는 부위·광각·허리 아래 옷), 하는 일의 seat(앉기 계열 50개 — 의자·가장자리·바닥)·hands(빈 손)·mood(표정을 정함), 옷의 low(허리 아래로 알아봄, 256 중 149). 눕기 계열은 자세를 비웠다(앉기 자세·탁자 기대기가 「누워」 와 부딪혔다).
+- lib/casual-tree.js — poses(하는 일, 프레이밍)·items(계열, 프레이밍)가 위로 거르고 lensOk·exprOk 를 더했다. repair 가 맞지 않게 된 렌즈·표정도 비운다. casual-tree v=4.
+- lib/prompt-ui.js · lib/prompt-random.js · lib/words.js — 화면: 자세·옷·렌즈 선택지를 거르고, 표정 칸은 하는 일·방향이 허락하지 않으면 끈다(풀이 붙임). 랜덤도 같다. prompt-ui v=8, prompt-random v=4, words v=8.
+- tools/casual-plan.cjs — 자기 목록(몸 자세·허리 아래 옷 정규식·광각·표정)을 버리고 트리 함수를 쓴다. 물건 드는 자세·돌아보기·허리 숙이기만 계획기가 따로 안 고른다. --check 가 렌즈·표정도 본다.
+- lib/prompt-spec.js · lib/prompt-game.js — 일상컷 「ONE FIGURE ONLY」 가 레드카펫·입장 줄과 부딪혔다. 사용자 결정으로 배경 인물 허용 — 일상컷만 「ONE MAIN FIGURE」(작고 흐린 배경 인물, 같이 포즈 X, 게임 캐릭터 X). prompt-spec v=29, prompt-game v=15.
+- tools/casual-tree.py · tests/casual-tree.py · tests/casual-tree.cjs · tests/casual-plan.cjs · tests/prompt-screen.cjs · tests/prompt-game.cjs · IMAGE_RULES.md — 표 검사(자세 표·앉는 자리·클로즈업에서 고를 옷), 함수·화면·계획기 규칙, 배경 인물 줄.
+
 ## 2026-10-29 · claude · 일상컷 트리 — 몸풀기를 동작 하나로
 - data/casual-tree.json — GTA V 일상5(트랙 몸풀기)에 다리가 셋 나왔다 — 두 다리로 런지하면서 뒤로 접은 발을 한 손으로 또 잡았다. 하는 일 「팔을 흔들고 다리를 스트레칭」 이 동작 여럿을 한 장에 담으라 했다. 「앞 무릎에 두 손을 얹은 런지 스트레칭」 하나로.
 

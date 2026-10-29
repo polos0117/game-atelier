@@ -1727,11 +1727,7 @@
   },
   "lie": {
    "ko": "눕기·기대 눕기",
-   "poses": [
-    "leaning_furniture",
-    "side_sitting",
-    "sitting_floor"
-   ],
+   "poses": [],
    "orients": [
     "front",
     "front_3q",
@@ -1775,6 +1771,180 @@
    ]
   }
  },
+ "pose_meta": {
+  "standing_relaxed": {
+   "zone": "legs"
+  },
+  "standing_formal": {
+   "zone": "legs"
+  },
+  "contrapposto": {
+   "zone": "legs"
+  },
+  "hand_on_hip": {
+   "zone": "waist",
+   "hands": true
+  },
+  "arms_crossed": {
+   "zone": "chest",
+   "hands": true
+  },
+  "leaning_wall": {
+   "zone": "legs"
+  },
+  "leaning_furniture": {
+   "zone": "waist",
+   "hands": true
+  },
+  "hands_in_hair": {
+   "zone": "face",
+   "hands": true
+  },
+  "holding_cup": {
+   "zone": "chest",
+   "hands": true
+  },
+  "reading_book": {
+   "zone": "chest",
+   "hands": true
+  },
+  "taking_photo": {
+   "zone": "chest",
+   "hands": true
+  },
+  "adjusting_bag": {
+   "zone": "waist",
+   "hands": true
+  },
+  "checking_map": {
+   "zone": "chest",
+   "hands": true
+  },
+  "waving": {
+   "zone": "chest",
+   "hands": true
+  },
+  "offering_food": {
+   "zone": "waist",
+   "hands": true
+  },
+  "watering": {
+   "zone": "waist",
+   "hands": true
+  },
+  "preparing_food": {
+   "zone": "waist",
+   "hands": true
+  },
+  "carrying_something": {
+   "zone": "waist",
+   "hands": true
+  },
+  "turning_back": {
+   "zone": "legs"
+  },
+  "bending_over": {
+   "zone": "legs"
+  },
+  "on_tiptoe": {
+   "zone": "legs"
+  },
+  "stretching": {
+   "zone": "legs",
+   "hands": true
+  },
+  "walking": {
+   "zone": "legs"
+  },
+  "mid_stride": {
+   "zone": "legs"
+  },
+  "sitting": {
+   "zone": "legs",
+   "seat": "chair"
+  },
+  "perched_seat": {
+   "zone": "legs",
+   "seat": "edge"
+  },
+  "side_sitting": {
+   "zone": "legs",
+   "seat": "floor"
+  },
+  "cross_legged": {
+   "zone": "legs",
+   "seat": "floor"
+  },
+  "one_knee_up": {
+   "zone": "legs"
+  },
+  "sitting_floor": {
+   "zone": "legs",
+   "seat": "floor"
+  },
+  "kneeling": {
+   "zone": "legs"
+  },
+  "squatting": {
+   "zone": "legs"
+  },
+  "mid_action": {
+   "zone": "any"
+  },
+  "dance_step": {
+   "zone": "legs"
+  }
+ },
+ "frame_rules": {
+  "note": "가까운 컷에서 보이는 몸 부위(zones), 광각(wide), 허리 아래로 알아보는 옷(low) — 없는 프레이밍은 다 된다",
+  "face_close": {
+   "zones": [
+    "any",
+    "face"
+   ],
+   "wide": false,
+   "low": false
+  },
+  "chest_up": {
+   "zones": [
+    "any",
+    "face",
+    "chest"
+   ],
+   "wide": false,
+   "low": false
+  },
+  "detail": {
+   "zones": [
+    "any",
+    "face",
+    "chest"
+   ],
+   "wide": false,
+   "low": false
+  },
+  "waist_up": {
+   "zones": [
+    "any",
+    "face",
+    "chest",
+    "waist"
+   ],
+   "wide": false
+  },
+  "three_quarter": {
+   "wide": false
+  }
+ },
+ "wide_lenses": [
+  "wide24",
+  "documentary35"
+ ],
+ "back_orients": [
+  "back",
+  "back_to_camera",
+  "walking_away"
+ ],
  "activities": [
   {
    "key": "rest_seat",
@@ -1801,7 +1971,12 @@
     "stage_show",
     "night_livehouse"
    ],
-   "en": "resting on a seat for a moment, catching her breath"
+   "en": "resting on a seat for a moment, catching her breath",
+   "seat": [
+    "chair",
+    "edge"
+   ],
+   "hands": "free"
   },
   {
    "key": "look_out",
@@ -1847,7 +2022,8 @@
     "spa_footbath",
     "stage_fireworks"
    ],
-   "en": "strolling through the place at an easy pace"
+   "en": "strolling through the place at an easy pace",
+   "hands": "free"
   },
   {
    "key": "take_photo",
@@ -1917,7 +2093,10 @@
     "night_powder",
     "stage_wedding"
    ],
-   "en": "at a vanity putting on earrings and makeup"
+   "en": "at a vanity putting on earrings and makeup",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "cooking",
@@ -1967,7 +2146,8 @@
     "game_room",
     "night_club"
    ],
-   "en": "lounging back on a sofa or daybed, completely at ease"
+   "en": "lounging back on a sofa or daybed, completely at ease",
+   "hands": "free"
   },
   {
    "key": "couch_game",
@@ -1978,7 +2158,11 @@
     "studio_stream",
     "game_room"
    ],
-   "en": "playing a game on the sofa with a controller in her hands"
+   "en": "playing a game on the sofa with a controller in her hands",
+   "seat": [
+    "chair",
+    "floor"
+   ]
   },
   {
    "key": "read_book",
@@ -2015,7 +2199,8 @@
     "evening_hotel",
     "stage_wedding"
    ],
-   "en": "checking her outfit in a full-length mirror before going out"
+   "en": "checking her outfit in a full-length mirror before going out",
+   "hands": "free"
   },
   {
    "key": "tie_shoes",
@@ -2028,7 +2213,11 @@
     "sports_wall",
     "street_alley"
    ],
-   "en": "sitting on a bench to tie her shoes"
+   "en": "sitting on a bench to tie her shoes",
+   "seat": [
+    "chair",
+    "edge"
+   ]
   },
   {
    "key": "breakfast_bed",
@@ -2042,6 +2231,9 @@
    "outfits": [
     "homewear",
     "lingerie"
+   ],
+   "seat": [
+    "floor"
    ]
   },
   {
@@ -2115,7 +2307,11 @@
     "street_station",
     "travel_rural_station"
    ],
-   "en": "waiting on a bench for the train, bag beside her"
+   "en": "waiting on a bench for the train, bag beside her",
+   "seat": [
+    "chair",
+    "edge"
+   ]
   },
   {
    "key": "commute",
@@ -2158,7 +2354,11 @@
    "places": [
     "street_laundromat"
    ],
-   "en": "waiting on a bench by the spinning machines with a laundry basket"
+   "en": "waiting on a bench by the spinning machines with a laundry basket",
+   "seat": [
+    "chair",
+    "edge"
+   ]
   },
   {
    "key": "stargaze",
@@ -2195,7 +2395,10 @@
     "travel_lake",
     "street_rooftop"
    ],
-   "en": "having a small picnic on a blanket with fruit and a basket"
+   "en": "having a small picnic on a blanket with fruit and a basket",
+   "seat": [
+    "floor"
+   ]
   },
   {
    "key": "play_cabinet",
@@ -2231,7 +2434,10 @@
    "places": [
     "arcade_pcbang"
    ],
-   "en": "late at night in a booth, headset around her neck, stirring a cup of instant noodles"
+   "en": "late at night in a booth, headset around her neck, stirring a cup of instant noodles",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "munbang_crouch",
@@ -2267,7 +2473,10 @@
    "places": [
     "studio_dev"
    ],
-   "en": "drawing tiny pixel sprites on a tablet, coloured squares glowing on the monitor"
+   "en": "drawing tiny pixel sprites on a tablet, coloured squares glowing on the monitor",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "planning_wall",
@@ -2285,7 +2494,10 @@
    "places": [
     "studio_dev"
    ],
-   "en": "playtesting with a controller in one hand and a clipboard in the other"
+   "en": "playtesting with a controller in one hand and a clipboard in the other",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "late_coffee",
@@ -2295,7 +2507,10 @@
     "studio_dev",
     "studio_art"
    ],
-   "en": "late at night with her feet up on the chair, coffee held in both hands"
+   "en": "late at night with her feet up on the chair, coffee held in both hands",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "stream_live",
@@ -2304,7 +2519,10 @@
    "places": [
     "studio_stream"
    ],
-   "en": "live streaming, waving to the camera beside the microphone"
+   "en": "live streaming, waving to the camera beside the microphone",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "record_sfx",
@@ -2346,7 +2564,10 @@
    "places": [
     "studio_art"
    ],
-   "en": "shaping clay on a pottery wheel, hands wet"
+   "en": "shaping clay on a pottery wheel, hands wet",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "swim",
@@ -2383,7 +2604,8 @@
     "water_infinity",
     "game_roof"
    ],
-   "en": "lying back on a sunbed with a cold drink beside her"
+   "en": "lying back on a sunbed with a cold drink beside her",
+   "hands": "free"
   },
   {
    "key": "shoreline",
@@ -2394,7 +2616,8 @@
     "travel_coast",
     "travel_lake"
    ],
-   "en": "walking along the water's edge, shallow water at her ankles"
+   "en": "walking along the water's edge, shallow water at her ankles",
+   "hands": "free"
   },
   {
    "key": "rinse_off",
@@ -2418,7 +2641,11 @@
     "travel_lake",
     "water_pool"
    ],
-   "en": "sitting on the edge with her feet over the water"
+   "en": "sitting on the edge with her feet over the water",
+   "seat": [
+    "edge"
+   ],
+   "hands": "free"
   },
   {
    "key": "beach_volley",
@@ -2504,7 +2731,8 @@
     "game_bath",
     "fx_spa"
    ],
-   "en": "soaking in the warm water, arms resting on the rim, steam rising"
+   "en": "soaking in the warm water, arms resting on the rim, steam rising",
+   "seat": []
   },
   {
    "key": "bath_edge",
@@ -2516,7 +2744,11 @@
     "game_bath",
     "spa_hammam"
    ],
-   "en": "sitting on the edge with her feet in the steaming water"
+   "en": "sitting on the edge with her feet in the steaming water",
+   "seat": [
+    "edge"
+   ],
+   "hands": "free"
   },
   {
    "key": "sauna_break",
@@ -2527,7 +2759,11 @@
     "spa_jjimjil",
     "spa_lounge"
    ],
-   "en": "cooling down between rounds, sipping cold water"
+   "en": "cooling down between rounds, sipping cold water",
+   "seat": [
+    "chair",
+    "edge"
+   ]
   },
   {
    "key": "tea_robe",
@@ -2542,7 +2778,11 @@
     "fx_retro_home",
     "street_cafe"
    ],
-   "en": "pouring herbal tea, relaxed and unhurried"
+   "en": "pouring herbal tea, relaxed and unhurried",
+   "seat": [
+    "chair",
+    "floor"
+   ]
   },
   {
    "key": "footbath",
@@ -2551,7 +2791,11 @@
    "places": [
     "spa_footbath"
    ],
-   "en": "soaking her feet with her hems rolled up and a small towel folded beside her"
+   "en": "soaking her feet with her hems rolled up and a small towel folded beside her",
+   "seat": [
+    "chair",
+    "edge"
+   ]
   },
   {
    "key": "cold_plunge",
@@ -2564,7 +2808,8 @@
    "outfits": [
     "swimwear",
     "bath"
-   ]
+   ],
+   "hands": "free"
   },
   {
    "key": "mask_rest",
@@ -2576,7 +2821,9 @@
     "fx_spa",
     "spa_hammam"
    ],
-   "en": "resting with a clay mask on her face"
+   "en": "resting with a clay mask on her face",
+   "hands": "free",
+   "mood": true
   },
   {
    "key": "warmup",
@@ -2744,7 +2991,10 @@
     "water_resort",
     "street_cafe"
    ],
-   "en": "perched at the counter lifting a coloured drink"
+   "en": "perched at the counter lifting a coloured drink",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "club_dance",
@@ -2766,7 +3016,8 @@
    "places": [
     "night_karaoke"
    ],
-   "en": "singing into a microphone with her eyes half closed"
+   "en": "singing into a microphone with her eyes half closed",
+   "mood": true
   },
   {
    "key": "piano_lean",
@@ -2795,7 +3046,11 @@
    "places": [
     "night_taxi"
    ],
-   "en": "watching the city lights through the taxi window"
+   "en": "watching the city lights through the taxi window",
+   "seat": [
+    "chair"
+   ],
+   "hands": "free"
   },
   {
    "key": "toast",
@@ -2821,7 +3076,8 @@
    "places": [
     "night_club"
    ],
-   "en": "waiting in the queue outside, a short jacket over her shoulders"
+   "en": "waiting in the queue outside, a short jacket over her shoulders",
+   "hands": "free"
   },
   {
    "key": "lantern_walk",
@@ -2849,7 +3105,8 @@
    "places": [
     "stage_festival"
    ],
-   "en": "aiming a ring at a stall's bottles, one eye narrowed"
+   "en": "aiming a ring at a stall's bottles, one eye narrowed",
+   "mood": true
   },
   {
    "key": "backstage_ready",
@@ -2903,7 +3160,8 @@
     "fx_castle",
     "fx_runway"
    ],
-   "en": "turning toward the flashes as she walks"
+   "en": "turning toward the flashes as she walks",
+   "hands": "free"
   },
   {
    "key": "gown_fitting",
@@ -2948,7 +3206,9 @@
    "en": "greeting guests at the venue with a bright smile",
    "outfits": [
     "roleplay"
-   ]
+   ],
+   "hands": "free",
+   "mood": true
   },
   {
    "key": "photozone_pose",
@@ -2960,7 +3220,8 @@
     "fx_studio",
     "stage_redcarpet"
    ],
-   "en": "striking a pose for the cameras at a photo zone"
+   "en": "striking a pose for the cameras at a photo zone",
+   "hands": "free"
   },
   {
    "key": "unpack_suite",
@@ -2996,6 +3257,9 @@
     "velvet_evening",
     "strapless_gloves",
     "high_slit_gown"
+   ],
+   "seat": [
+    "chair"
    ]
   },
   {
@@ -3005,7 +3269,11 @@
    "places": [
     "evening_gala"
    ],
-   "en": "raising a bidding paddle with a small smile"
+   "en": "raising a bidding paddle with a small smile",
+   "seat": [
+    "chair"
+   ],
+   "mood": true
   },
   {
    "key": "museum_stroll",
@@ -3062,7 +3330,11 @@
     "travel_trail",
     "travel_coast"
    ],
-   "en": "taking a water break on a flat rock"
+   "en": "taking a water break on a flat rock",
+   "seat": [
+    "edge",
+    "floor"
+   ]
   },
   {
    "key": "binoculars",
@@ -3083,7 +3355,8 @@
     "travel_ferry",
     "water_yacht"
    ],
-   "en": "leaning on the rail, facing the wind"
+   "en": "leaning on the rail, facing the wind",
+   "hands": "free"
   },
   {
    "key": "lodge_key",
@@ -3123,7 +3396,8 @@
     "travel_rural_station",
     "travel_ferry"
    ],
-   "en": "looking back once before leaving, bag on her shoulder"
+   "en": "looking back once before leaving, bag on her shoulder",
+   "hands": "free"
   },
   {
    "key": "stream_wash",
@@ -3159,7 +3433,9 @@
    "places": [
     "game_roof"
    ],
-   "en": "lying back in the sun with her eyes half closed"
+   "en": "lying back in the sun with her eyes half closed",
+   "hands": "free",
+   "mood": true
   },
   {
    "key": "mirror_lacing",
@@ -3178,7 +3454,8 @@
     "game_field",
     "home_balcony"
    ],
-   "en": "swinging lazily in a hammock, one leg dangling over the side"
+   "en": "swinging lazily in a hammock, one leg dangling over the side",
+   "hands": "free"
   },
   {
    "key": "landmark_steps",
@@ -3187,7 +3464,12 @@
    "places": [
     "game_place"
    ],
-   "en": "sitting on the steps of the place's landmark, shoes off beside her"
+   "en": "sitting on the steps of the place's landmark, shoes off beside her",
+   "seat": [
+    "edge",
+    "floor"
+   ],
+   "hands": "free"
   },
   {
    "key": "editorial_pose",
@@ -3198,7 +3480,8 @@
     "fx_runway",
     "fx_starstage"
    ],
-   "en": "holding a strong editorial pose that shows the outfit's cut"
+   "en": "holding a strong editorial pose that shows the outfit's cut",
+   "hands": "free"
   },
   {
    "key": "runway_walk",
@@ -3207,7 +3490,8 @@
    "places": [
     "fx_runway"
    ],
-   "en": "walking the runway with a steady stride"
+   "en": "walking the runway with a steady stride",
+   "hands": "free"
   },
   {
    "key": "masquerade",
@@ -3302,7 +3586,10 @@
    "places": [
     "studio_dev"
    ],
-   "en": "painting concept art on a large display with a stylus, a mug going cold beside her"
+   "en": "painting concept art on a large display with a stylus, a mug going cold beside her",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "solder_board",
@@ -3311,7 +3598,10 @@
    "places": [
     "studio_dev"
    ],
-   "en": "soldering a prototype circuit board under a magnifying lamp, safety glasses pushed up"
+   "en": "soldering a prototype circuit board under a magnifying lamp, safety glasses pushed up",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "bug_hunt",
@@ -3329,7 +3619,8 @@
    "places": [
     "studio_stream"
    ],
-   "en": "both fists raised as a record falls, headset knocked askew"
+   "en": "both fists raised as a record falls, headset knocked askew",
+   "mood": true
   },
   {
    "key": "stream_setup",
@@ -3348,7 +3639,11 @@
     "studio_stream",
     "home_living"
    ],
-   "en": "practising one hard segment over and over, controller held close"
+   "en": "practising one hard segment over and over, controller held close",
+   "seat": [
+    "chair",
+    "floor"
+   ]
   },
   {
    "key": "interview",
@@ -3367,7 +3662,9 @@
     "studio_stream",
     "home_living"
    ],
-   "en": "lying back on the floor after a long session, laughing at the ceiling"
+   "en": "lying back on the floor after a long session, laughing at the ceiling",
+   "hands": "free",
+   "mood": true
   },
   {
    "key": "reach_shelf",
@@ -3408,7 +3705,10 @@
     "street_cafe",
     "travel_lodge"
    ],
-   "en": "watching rain run down the window from an armchair, mug in hand"
+   "en": "watching rain run down the window from an armchair, mug in hand",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "stair_pause",
@@ -3419,7 +3719,8 @@
     "street_station",
     "evening_opera"
    ],
-   "en": "pausing on a stair landing, one hand on the railing"
+   "en": "pausing on a stair landing, one hand on the railing",
+   "hands": "free"
   },
   {
    "key": "arrive_dawn",
@@ -3454,7 +3755,10 @@
     "sports_court",
     "sports_track"
    ],
-   "en": "clapping from a seat in the stands"
+   "en": "clapping from a seat in the stands",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "parade_float",
@@ -3485,7 +3789,11 @@
     "studio_art",
     "street_cafe"
    ],
-   "en": "threading beads into a small charm with tidy craft tools"
+   "en": "threading beads into a small charm with tidy craft tools",
+   "seat": [
+    "chair",
+    "floor"
+   ]
   },
   {
    "key": "play_instrument",
@@ -3507,7 +3815,11 @@
     "street_cafe",
     "home_living"
    ],
-   "en": "sorting printed photographs beside a camera and a scrapbook"
+   "en": "sorting printed photographs beside a camera and a scrapbook",
+   "seat": [
+    "chair",
+    "floor"
+   ]
   },
   {
    "key": "board_game",
@@ -3519,7 +3831,11 @@
     "travel_lodge",
     "game_inn"
    ],
-   "en": "moving a piece across a wooden board game, weighing her next move"
+   "en": "moving a piece across a wooden board game, weighing her next move",
+   "seat": [
+    "chair",
+    "floor"
+   ]
   },
   {
    "key": "fishing",
@@ -3540,7 +3856,11 @@
     "home_living",
     "street_cafe"
    ],
-   "en": "folding a small paper crane, finished figures lined up beside her"
+   "en": "folding a small paper crane, finished figures lined up beside her",
+   "seat": [
+    "chair",
+    "floor"
+   ]
   },
   {
    "key": "knitting",
@@ -3552,7 +3872,11 @@
     "travel_lodge",
     "game_room"
    ],
-   "en": "knitting a soft scarf, a ball of yarn in a basket at her side"
+   "en": "knitting a soft scarf, a ball of yarn in a basket at her side",
+   "seat": [
+    "chair",
+    "floor"
+   ]
   },
   {
    "key": "vault_rail",
@@ -3643,7 +3967,10 @@
     "travel_lodge",
     "game_inn"
    ],
-   "en": "arranging tea cups and utensils in a quiet room"
+   "en": "arranging tea cups and utensils in a quiet room",
+   "seat": [
+    "floor"
+   ]
   },
   {
    "key": "car_lean",
@@ -3655,7 +3982,8 @@
     "street_park",
     "travel_dunes"
    ],
-   "en": "leaning against a parked classic car or motorcycle"
+   "en": "leaning against a parked classic car or motorcycle",
+   "hands": "free"
   },
   {
    "key": "barrier_cheer",
@@ -3674,7 +4002,11 @@
     "night_livehouse",
     "studio_sound"
    ],
-   "en": "tuning a guitar between sets, head bent close to the strings"
+   "en": "tuning a guitar between sets, head bent close to the strings",
+   "seat": [
+    "chair",
+    "edge"
+   ]
   },
   {
    "key": "skate_drop",
@@ -3692,7 +4024,8 @@
    "places": [
     "spa_hammam"
    ],
-   "en": "lying on the warm marble slab, a brass bowl beside her"
+   "en": "lying on the warm marble slab, a brass bowl beside her",
+   "hands": "free"
   },
   {
    "key": "aisle_walk",
@@ -3712,7 +4045,10 @@
     "stage_wedding",
     "home_living"
    ],
-   "en": "opening a gift box at a party table"
+   "en": "opening a gift box at a party table",
+   "seat": [
+    "chair"
+   ]
   },
   {
    "key": "award_walk",
@@ -3730,7 +4066,11 @@
    "places": [
     "stage_show"
    ],
-   "en": "seated in the front row, legs crossed, runway lights ahead"
+   "en": "seated in the front row, legs crossed, runway lights ahead",
+   "seat": [
+    "chair"
+   ],
+   "hands": "free"
   }
  ],
  "outfits": [
@@ -3741,32 +4081,38 @@
     {
      "key": "jeans_tee",
      "ko": "청바지 + 티셔츠",
-     "en": "straight jeans and a soft fitted tee"
+     "en": "straight jeans and a soft fitted tee",
+     "low": true
     },
     {
      "key": "knit_skirt",
      "ko": "니트 + 스커트",
-     "en": "a knit sweater over a pleated midi skirt"
+     "en": "a knit sweater over a pleated midi skirt",
+     "low": true
     },
     {
      "key": "blazer_skirt",
      "ko": "블레이저 + 스커트",
-     "en": "a light blazer over a blouse and a short skirt"
+     "en": "a light blazer over a blouse and a short skirt",
+     "low": true
     },
     {
      "key": "linen_dress",
      "ko": "린넨 원피스",
-     "en": "a sleeveless linen dress with a belted waist"
+     "en": "a sleeveless linen dress with a belted waist",
+     "low": true
     },
     {
      "key": "shirt_dress",
      "ko": "셔츠 원피스",
-     "en": "a button-front shirt dress with a wide waist belt"
+     "en": "a button-front shirt dress with a wide waist belt",
+     "low": true
     },
     {
      "key": "hoodie_leggings",
      "ko": "후디 + 레깅스",
-     "en": "a cropped hoodie and leggings"
+     "en": "a cropped hoodie and leggings",
+     "low": true
     },
     {
      "key": "raincoat_boots",
@@ -3781,27 +4127,32 @@
     {
      "key": "band_tee_jacket",
      "ko": "밴드 티 + 재킷",
-     "en": "a plain band-style tee under a cropped jacket and a mini skirt"
+     "en": "a plain band-style tee under a cropped jacket and a mini skirt",
+     "low": true
     },
     {
      "key": "cardigan_skirt",
      "ko": "가디건 + 스커트",
-     "en": "a soft cardigan and a slip skirt"
+     "en": "a soft cardigan and a slip skirt",
+     "low": true
     },
     {
      "key": "cargo_crop",
      "ko": "카고 팬츠 + 크롭탑",
-     "en": "wide cargo trousers and a ribbed crop top"
+     "en": "wide cargo trousers and a ribbed crop top",
+     "low": true
     },
     {
      "key": "bomber_shorts",
      "ko": "항공 점퍼 + 반바지",
-     "en": "a bomber jacket over a tank top and denim shorts"
+     "en": "a bomber jacket over a tank top and denim shorts",
+     "low": true
     },
     {
      "key": "slip_tights",
      "ko": "슬립 원피스 + 타이츠",
-     "en": "a satin slip dress above the knee with sheer tights and ankle boots"
+     "en": "a satin slip dress above the knee with sheer tights and ankle boots",
+     "low": true
     },
     {
      "key": "trench_coat",
@@ -3821,7 +4172,8 @@
     {
      "key": "leather_skirt",
      "ko": "가죽 재킷 + 미니스커트",
-     "en": "a leather jacket over a short skirt"
+     "en": "a leather jacket over a short skirt",
+     "low": true
     },
     {
      "key": "wool_coat",
@@ -3831,37 +4183,44 @@
     {
      "key": "work_shirt_jeans",
      "ko": "작업 셔츠 + 청바지",
-     "en": "a work shirt with rolled sleeves and jeans"
+     "en": "a work shirt with rolled sleeves and jeans",
+     "low": true
     },
     {
      "key": "crop_wrap_skirt",
      "ko": "크롭탑 + 슬릿 랩스커트",
-     "en": "a cropped top and a wrap skirt with a high slit"
+     "en": "a cropped top and a wrap skirt with a high slit",
+     "low": true
     },
     {
      "key": "halter_shorts",
      "ko": "홀터 탑 + 짧은 반바지",
-     "en": "a halter top and short shorts"
+     "en": "a halter top and short shorts",
+     "low": true
     },
     {
      "key": "thin_blouse_skirt",
      "ko": "얇은 블라우스 + 치마",
-     "en": "a thin blouse and a light skirt"
+     "en": "a thin blouse and a light skirt",
+     "low": true
     },
     {
      "key": "sporty_skirt_tee",
      "ko": "스포티 스커트 + 티",
-     "en": "a sporty pleated skirt, a fitted tee and sneakers"
+     "en": "a sporty pleated skirt, a fitted tee and sneakers",
+     "low": true
     },
     {
      "key": "sweater_leggings",
      "ko": "니트 + 레깅스",
-     "en": "a chunky knit sweater and leggings"
+     "en": "a chunky knit sweater and leggings",
+     "low": true
     },
     {
      "key": "paint_shirt",
      "ko": "물감 묻은 셔츠",
-     "en": "a paint-splattered oversized shirt over shorts"
+     "en": "a paint-splattered oversized shirt over shorts",
+     "low": true
     }
    ],
    "en": "everyday clothes that suit the place and activity"
@@ -3873,32 +4232,38 @@
     {
      "key": "soft_tank_shorts",
      "ko": "탱크탑 + 쇼츠",
-     "en": "a soft ribbed tank top and short cotton shorts"
+     "en": "a soft ribbed tank top and short cotton shorts",
+     "low": true
     },
     {
      "key": "satin_lounge",
      "ko": "새틴 라운지 세트",
-     "en": "a satin lounge set of button shirt and shorts"
+     "en": "a satin lounge set of button shirt and shorts",
+     "low": true
     },
     {
      "key": "offshoulder_knit",
      "ko": "오프숄더 니트",
-     "en": "an off-shoulder knit top slipping from one shoulder over shorts"
+     "en": "an off-shoulder knit top slipping from one shoulder over shorts",
+     "low": true
     },
     {
      "key": "camisole_wrap",
      "ko": "캐미솔 + 랩 바텀",
-     "en": "a thin-strap camisole with wrap shorts tied at the hip"
+     "en": "a thin-strap camisole with wrap shorts tied at the hip",
+     "low": true
     },
     {
      "key": "bralette_cardigan",
      "ko": "브라렛 + 오픈 가디건",
-     "en": "a lace bralette under an open cardigan with soft shorts"
+     "en": "a lace bralette under an open cardigan with soft shorts",
+     "low": true
     },
     {
      "key": "one_shoulder_lounge",
      "ko": "원숄더 라운지",
-     "en": "a one-shoulder lounge top and matching soft pants"
+     "en": "a one-shoulder lounge top and matching soft pants",
+     "low": true
     },
     {
      "key": "backless_lounge",
@@ -3913,7 +4278,8 @@
     {
      "key": "hoodie_shorts",
      "ko": "크롭 후디 + 쇼츠",
-     "en": "a cropped hoodie and short shorts"
+     "en": "a cropped hoodie and short shorts",
+     "low": true
     },
     {
      "key": "knit_dress_home",
@@ -3948,7 +4314,8 @@
     {
      "key": "oversized_tee",
      "ko": "오버사이즈 티 + 쇼츠",
-     "en": "an oversized tee and shorts"
+     "en": "an oversized tee and shorts",
+     "low": true
     }
    ],
    "en": "soft homewear or loungewear"
@@ -3961,17 +4328,20 @@
     {
      "key": "lace_set",
      "ko": "레이스 세트",
-     "en": "a black lace lingerie set with a longline top, high-waisted bottoms and geometric lace trim"
+     "en": "a black lace lingerie set with a longline top, high-waisted bottoms and geometric lace trim",
+     "low": true
     },
     {
      "key": "satin_set",
      "ko": "새틴 세트",
-     "en": "a satin lingerie set with a smooth bias-cut top and matching bottoms in a single deep colour"
+     "en": "a satin lingerie set with a smooth bias-cut top and matching bottoms in a single deep colour",
+     "low": true
     },
     {
      "key": "bralette_highwaist",
      "ko": "브라렛 + 하이웨이스트",
-     "en": "a soft-cup bralette with wide straps and matching high-waisted bottoms"
+     "en": "a soft-cup bralette with wide straps and matching high-waisted bottoms",
+     "low": true
     },
     {
      "key": "bustier_inspired",
@@ -3986,12 +4356,14 @@
     {
      "key": "garter_set",
      "ko": "가터풍",
-     "en": "a lingerie set with decorative garter straps"
+     "en": "a lingerie set with decorative garter straps",
+     "low": true
     },
     {
      "key": "corset_lingerie",
      "ko": "코르셋풍",
-     "en": "a corset-inspired bodice with visible boning seams and a matching high-waisted piece"
+     "en": "a corset-inspired bodice with visible boning seams and a matching high-waisted piece",
+     "low": true
     },
     {
      "key": "open_shirt_lingerie",
@@ -4016,17 +4388,20 @@
     {
      "key": "slip_lingerie",
      "ko": "란제리 슬립",
-     "en": "a bias-cut satin slip with narrow straps and a straight hem"
+     "en": "a bias-cut satin slip with narrow straps and a straight hem",
+     "low": true
     },
     {
      "key": "babydoll",
      "ko": "베이비돌",
-     "en": "a babydoll slip with narrow straps, an empire waist and a softly flared hem"
+     "en": "a babydoll slip with narrow straps, an empire waist and a softly flared hem",
+     "low": true
     },
     {
      "key": "longline_bra",
      "ko": "롱라인 브라 세트",
-     "en": "a longline bra set with a wide underband and matching high-waisted bottoms"
+     "en": "a longline bra set with a wide underband and matching high-waisted bottoms",
+     "low": true
     },
     {
      "key": "knit_lingerie",
@@ -4046,7 +4421,8 @@
     {
      "key": "hanbok_slip",
      "ko": "속적삼·속치마 응용",
-     "en": "a hanbok-underlayer-inspired set with a short wrapped top and a full high-waisted skirt"
+     "en": "a hanbok-underlayer-inspired set with a short wrapped top and a full high-waisted skirt",
+     "low": true
     },
     {
      "key": "qipao_silk_set",
@@ -4071,12 +4447,14 @@
     {
      "key": "satin_teddy",
      "ko": "새틴 테디",
-     "en": "a satin teddy, one smooth piece from neckline to hip"
+     "en": "a satin teddy, one smooth piece from neckline to hip",
+     "low": true
     },
     {
      "key": "velvet_set",
      "ko": "벨벳 세트",
-     "en": "a deep-coloured velvet bralette and high-waisted bottoms"
+     "en": "a deep-coloured velvet bralette and high-waisted bottoms",
+     "low": true
     },
     {
      "key": "cage_back",
@@ -4086,12 +4464,14 @@
     {
      "key": "chemise_silk",
      "ko": "실크 슈미즈",
-     "en": "a knee-skimming silk chemise with a lace hem and an opaque lining"
+     "en": "a knee-skimming silk chemise with a lace hem and an opaque lining",
+     "low": true
     },
     {
      "key": "front_lace_corset",
      "ko": "앞 끈 코르셋",
-     "en": "a front-lacing corset over matching high-waisted bottoms"
+     "en": "a front-lacing corset over matching high-waisted bottoms",
+     "low": true
     }
    ],
    "en": "tasteful lingerie-inspired fashion, fully opaque and securely fitted, with full intimate coverage"
@@ -4104,7 +4484,8 @@
     {
      "key": "classic_bikini",
      "ko": "클래식 비키니",
-     "en": "a high-waisted bikini with a supportive halter top"
+     "en": "a high-waisted bikini with a supportive halter top",
+     "low": true
     },
     {
      "key": "sport_onepiece",
@@ -4114,17 +4495,20 @@
     {
      "key": "highleg_onepiece",
      "ko": "하이레그 원피스",
-     "en": "a high-leg one-piece swimsuit with a high neckline"
+     "en": "a high-leg one-piece swimsuit with a high neckline",
+     "low": true
     },
     {
      "key": "monokini",
      "ko": "모노키니",
-     "en": "a sculptural monokini with asymmetric side cut-outs joined by a solid central panel"
+     "en": "a sculptural monokini with asymmetric side cut-outs joined by a solid central panel",
+     "low": true
     },
     {
      "key": "triangle_bikini",
      "ko": "트라이앵글 비키니",
-     "en": "a triangle bikini with slider cups and tie-side bottoms"
+     "en": "a triangle bikini with slider cups and tie-side bottoms",
+     "low": true
     },
     {
      "key": "bandeau_bikini",
@@ -4149,32 +4533,38 @@
     {
      "key": "boyshort_swim",
      "ko": "보이쇼트",
-     "en": "a swimsuit set with a fitted top and square-cut boyshort bottoms"
+     "en": "a swimsuit set with a fitted top and square-cut boyshort bottoms",
+     "low": true
     },
     {
      "key": "rashguard_set",
      "ko": "래시가드 세트",
-     "en": "a long-sleeve zip rashguard over matching swim bottoms"
+     "en": "a long-sleeve zip rashguard over matching swim bottoms",
+     "low": true
     },
     {
      "key": "wrap_swim",
      "ko": "랩 프론트",
-     "en": "a wrap-front swimsuit with a crossed bodice tied at the waist"
+     "en": "a wrap-front swimsuit with a crossed bodice tied at the waist",
+     "low": true
     },
     {
      "key": "swim_coverup",
      "ko": "수영복 + 커버업",
-     "en": "swimwear under an open gauzy cover-up tied loosely at the hip"
+     "en": "swimwear under an open gauzy cover-up tied loosely at the hip",
+     "low": true
     },
     {
      "key": "burkini_modest",
      "ko": "부르키니",
-     "en": "a modest full-cover swimsuit with long sleeves, full legs and a fitted hood"
+     "en": "a modest full-cover swimsuit with long sleeves, full legs and a fitted hood",
+     "low": true
     },
     {
      "key": "sarong_wrap",
      "ko": "사롱 두른 수영복",
-     "en": "swimwear with a printed sarong knotted at the hip"
+     "en": "swimwear with a printed sarong knotted at the hip",
+     "low": true
     },
     {
      "key": "yukata_over",
@@ -4189,22 +4579,26 @@
     {
      "key": "hanbok_coverup",
      "ko": "한복 선 커버업",
-     "en": "swimwear under a hanbok-line cover-up with a high waist and wide skirt"
+     "en": "swimwear under a hanbok-line cover-up with a high waist and wide skirt",
+     "low": true
     },
     {
      "key": "cutout_onepiece",
      "ko": "컷아웃 원피스",
-     "en": "a fully lined one-piece swimsuit with large cut-outs at the sides of the waist"
+     "en": "a fully lined one-piece swimsuit with large cut-outs at the sides of the waist",
+     "low": true
     },
     {
      "key": "plunge_onepiece",
      "ko": "딥 플런지 원피스",
-     "en": "a one-piece swimsuit with a deep plunging V and a secure wide waistband"
+     "en": "a one-piece swimsuit with a deep plunging V and a secure wide waistband",
+     "low": true
     },
     {
      "key": "oring_bikini",
      "ko": "링 장식 비키니",
-     "en": "a bikini joined at the centre and hips by polished metal rings"
+     "en": "a bikini joined at the centre and hips by polished metal rings",
+     "low": true
     },
     {
      "key": "crochet_bikini",
@@ -4214,7 +4608,8 @@
     {
      "key": "sport_bikini",
      "ko": "스포티 비키니",
-     "en": "a sporty bikini with a crop top and boy-cut bottoms"
+     "en": "a sporty bikini with a crop top and boy-cut bottoms",
+     "low": true
     }
    ],
    "en": "modern swimwear, fully lined and secure during movement"
@@ -4231,7 +4626,8 @@
     {
      "key": "spa_robe",
      "ko": "스파 가운",
-     "en": "a plush spa robe tied at the waist"
+     "en": "a plush spa robe tied at the waist",
+     "low": true
     },
     {
      "key": "robe_over_swim",
@@ -4263,7 +4659,8 @@
     {
      "key": "sports_bra_leggings",
      "ko": "스포츠 브라 + 레깅스",
-     "en": "a sports bra and high-waisted leggings"
+     "en": "a sports bra and high-waisted leggings",
+     "low": true
     },
     {
      "key": "unitard",
@@ -4273,22 +4670,26 @@
     {
      "key": "tennis_set",
      "ko": "테니스 세트",
-     "en": "a pleated tennis skirt and a fitted polo"
+     "en": "a pleated tennis skirt and a fitted polo",
+     "low": true
     },
     {
      "key": "basketball_jersey",
      "ko": "농구 저지",
-     "en": "an oversized basketball jersey worn loose over shorts"
+     "en": "an oversized basketball jersey worn loose over shorts",
+     "low": true
     },
     {
      "key": "boxing_set",
      "ko": "복싱 차림",
-     "en": "a sports top, boxing shorts and wrapped hands or gloves"
+     "en": "a sports top, boxing shorts and wrapped hands or gloves",
+     "low": true
     },
     {
      "key": "running_set",
      "ko": "러닝 차림",
-     "en": "a running top and split shorts"
+     "en": "a running top and split shorts",
+     "low": true
     },
     {
      "key": "climbing_set",
@@ -4298,7 +4699,8 @@
     {
      "key": "wetsuit_half",
      "ko": "웻슈트 반쯤",
-     "en": "a wetsuit pulled down to the waist over a bikini top"
+     "en": "a wetsuit pulled down to the waist over a bikini top",
+     "low": true
     },
     {
      "key": "yoga_set",
@@ -4308,7 +4710,8 @@
     {
      "key": "cycling_kit",
      "ko": "사이클 복장",
-     "en": "a cycling jersey and bib shorts"
+     "en": "a cycling jersey and bib shorts",
+     "low": true
     },
     {
      "key": "sprint_kit",
@@ -4318,17 +4721,20 @@
     {
      "key": "dance_leotard",
      "ko": "레오타드 + 랩 스커트",
-     "en": "a leotard with a wrap skirt"
+     "en": "a leotard with a wrap skirt",
+     "low": true
     },
     {
      "key": "roller_set",
      "ko": "롤러 차림",
-     "en": "a crop top and high-waisted shorts with knee pads"
+     "en": "a crop top and high-waisted shorts with knee pads",
+     "low": true
     },
     {
      "key": "cropped_jersey",
      "ko": "크롭 저지 + 카고",
-     "en": "a cropped jersey top and a cargo mini skirt"
+     "en": "a cropped jersey top and a cargo mini skirt",
+     "low": true
     },
     {
      "key": "marker_suit",
@@ -4360,7 +4766,8 @@
     {
      "key": "cocktail_mini",
      "ko": "칵테일 미니",
-     "en": "a structured cocktail mini dress with heels"
+     "en": "a structured cocktail mini dress with heels",
+     "low": true
     },
     {
      "key": "one_shoulder_satin",
@@ -4385,7 +4792,8 @@
     {
      "key": "high_slit_gown",
      "ko": "하이슬릿 가운",
-     "en": "a long gown with a high leg slit"
+     "en": "a long gown with a high leg slit",
+     "low": true
     },
     {
      "key": "column_gown",
@@ -4395,7 +4803,8 @@
     {
      "key": "sequin_mini",
      "ko": "스팽글 미니",
-     "en": "a sequined bodycon mini dress"
+     "en": "a sequined bodycon mini dress",
+     "low": true
     },
     {
      "key": "strapless_gloves",
@@ -4415,7 +4824,8 @@
     {
      "key": "cutout_mini",
      "ko": "컷아웃 미니",
-     "en": "a cut-out mini dress"
+     "en": "a cut-out mini dress",
+     "low": true
     }
    ],
    "en": "an evening dress or night-out outfit"
@@ -4432,7 +4842,8 @@
     {
      "key": "hanbok_daily",
      "ko": "생활한복",
-     "en": "a modern daily hanbok — a short cropped jeogori-style top with a goreum tie over a simplified mid-length chima skirt"
+     "en": "a modern daily hanbok — a short cropped jeogori-style top with a goreum tie over a simplified mid-length chima skirt",
+     "low": true
     },
     {
      "key": "kimono_formal",
@@ -4447,7 +4858,8 @@
     {
      "key": "hanfu_formal",
      "ko": "한푸 · 정장",
-     "en": "a formal Chinese hanfu — cross-collar ruqun with wide flowing sleeves, high-waisted skirt and a sash"
+     "en": "a formal Chinese hanfu — cross-collar ruqun with wide flowing sleeves, high-waisted skirt and a sash",
+     "low": true
     },
     {
      "key": "qipao_daily",
@@ -4457,22 +4869,26 @@
     {
      "key": "aodai_daily",
      "ko": "아오자이",
-     "en": "a Vietnamese áo dài — a long close-fitting silk tunic with a high mandarin collar over loose trousers"
+     "en": "a Vietnamese áo dài — a long close-fitting silk tunic with a high mandarin collar over loose trousers",
+     "low": true
     },
     {
      "key": "sari_formal",
      "ko": "사리",
-     "en": "a formal Indian sari — a long silk drape pleated at the waist with the pallu over one shoulder and a fitted choli"
+     "en": "a formal Indian sari — a long silk drape pleated at the waist with the pallu over one shoulder and a fitted choli",
+     "low": true
     },
     {
      "key": "lehenga_formal",
      "ko": "레헹가",
-     "en": "an Indian lehenga — a full embroidered flared skirt, fitted choli blouse and a sheer dupatta"
+     "en": "an Indian lehenga — a full embroidered flared skirt, fitted choli blouse and a sheer dupatta",
+     "low": true
     },
     {
      "key": "salwar_daily",
      "ko": "살와르 카미즈",
-     "en": "a daily salwar kameez — a long tunic with side slits over loose salwar trousers and a light dupatta"
+     "en": "a daily salwar kameez — a long tunic with side slits over loose salwar trousers and a light dupatta",
+     "low": true
     },
     {
      "key": "abaya_modern",
@@ -4482,7 +4898,8 @@
     {
      "key": "kaftan_daily",
      "ko": "카프탄",
-     "en": "a resort kaftan — a loose ankle-length tunic with a wide neckline and embroidered trim"
+     "en": "a resort kaftan — a loose ankle-length tunic with a wide neckline and embroidered trim",
+     "low": true
     },
     {
      "key": "thobe_inspired",
@@ -4492,12 +4909,14 @@
     {
      "key": "dirndl_modern",
      "ko": "디른들",
-     "en": "a modern dirndl — fitted bodice laced at the front, puff-sleeved blouse, full skirt and apron"
+     "en": "a modern dirndl — fitted bodice laced at the front, puff-sleeved blouse, full skirt and apron",
+     "low": true
     },
     {
      "key": "folk_embroidery",
      "ko": "자수 블라우스",
-     "en": "a folk-embroidered peasant blouse with dense cross-stitch on sleeves and yoke, over a simple skirt"
+     "en": "a folk-embroidered peasant blouse with dense cross-stitch on sleeves and yoke, over a simple skirt",
+     "low": true
     },
     {
      "key": "kente_modern",
@@ -4512,27 +4931,32 @@
     {
      "key": "huipil_modern",
      "ko": "우이필",
-     "en": "a modern Mesoamerican huipil — a square-cut woven tunic with brocade panels over a wrap skirt"
+     "en": "a modern Mesoamerican huipil — a square-cut woven tunic with brocade panels over a wrap skirt",
+     "low": true
     },
     {
      "key": "poncho_andes",
      "ko": "안데스 직조",
-     "en": "an Andean woven layer — a striped handwoven poncho over a pollera skirt and a felt hat"
+     "en": "an Andean woven layer — a striped handwoven poncho over a pollera skirt and a felt hat",
+     "low": true
     },
     {
      "key": "kilt_inspired",
      "ko": "킬트 응용",
-     "en": "a kilt-inspired pleated tartan skirt with a fitted knit top and a sash pin"
+     "en": "a kilt-inspired pleated tartan skirt with a fitted knit top and a sash pin",
+     "low": true
     },
     {
      "key": "kebaya_daily",
      "ko": "크바야",
-     "en": "a daily kebaya — a sheer embroidered fitted blouse over a batik sarong"
+     "en": "a daily kebaya — a sheer embroidered fitted blouse over a batik sarong",
+     "low": true
     },
     {
      "key": "barong_inspired",
      "ko": "바롱 응용",
-     "en": "a barong-inspired sheer embroidered top over simple trousers or skirt"
+     "en": "a barong-inspired sheer embroidered top over simple trousers or skirt",
+     "low": true
     },
     {
      "key": "caftan_evening",
@@ -4575,7 +4999,8 @@
     {
      "key": "adult_secretary",
      "ko": "비서 코스튬",
-     "en": "a retro secretary-inspired costume with a fitted blazer, pencil skirt and decorative eyewear"
+     "en": "a retro secretary-inspired costume with a fitted blazer, pencil skirt and decorative eyewear",
+     "low": true
     },
     {
      "key": "bunny",
@@ -4590,7 +5015,8 @@
     {
      "key": "casino_dealer",
      "ko": "카지노 딜러",
-     "en": "a casino dealer costume with a fitted waistcoat, bow tie and cuffs"
+     "en": "a casino dealer costume with a fitted waistcoat, bow tie and cuffs",
+     "low": true
     },
     {
      "key": "lab_roleplay",
@@ -4605,7 +5031,8 @@
     {
      "key": "retro_racer",
      "ko": "레트로 레이서",
-     "en": "a retro racing grid costume with a cropped team jacket, shorts and boots"
+     "en": "a retro racing grid costume with a cropped team jacket, shorts and boots",
+     "low": true
     },
     {
      "key": "vinyl_stage",
@@ -4615,22 +5042,26 @@
     {
      "key": "masquerade_costume",
      "ko": "가면무도회 의상",
-     "en": "a masquerade costume with a feathered eye mask, a structured bodice and a full skirt"
+     "en": "a masquerade costume with a feathered eye mask, a structured bodice and a full skirt",
+     "low": true
     },
     {
      "key": "adult_teacher",
      "ko": "교사 코스튬",
-     "en": "a teacher-inspired costume with a fitted blazer, pleated skirt and reading glasses"
+     "en": "a teacher-inspired costume with a fitted blazer, pleated skirt and reading glasses",
+     "low": true
     },
     {
      "key": "adult_librarian",
      "ko": "사서 스타일",
-     "en": "a librarian-inspired costume with a fitted cardigan, pencil skirt and glasses"
+     "en": "a librarian-inspired costume with a fitted cardigan, pencil skirt and glasses",
+     "low": true
     },
     {
      "key": "cheer_costume",
      "ko": "치어 코스튬",
-     "en": "a varsity cheer costume with a pleated skirt and a striped fitted top"
+     "en": "a varsity cheer costume with a pleated skirt and a striped fitted top",
+     "low": true
     },
     {
      "key": "cabin_crew_retro",
@@ -4650,12 +5081,14 @@
     {
      "key": "majorette",
      "ko": "마조렛",
-     "en": "a marching majorette costume — a plumed shako, a braided short jacket and a pleated mini skirt"
+     "en": "a marching majorette costume — a plumed shako, a braided short jacket and a pleated mini skirt",
+     "low": true
     },
     {
      "key": "sailor_stage",
      "ko": "세일러 무대 의상",
-     "en": "a sailor stage costume — a sailor-collar cropped top, a pleated mini skirt and a small cap"
+     "en": "a sailor stage costume — a sailor-collar cropped top, a pleated mini skirt and a small cap",
+     "low": true
     },
     {
      "key": "lifeguard_event",
@@ -4670,7 +5103,8 @@
     {
      "key": "santa_party",
      "ko": "크리스마스 파티",
-     "en": "a Christmas party costume — a fur-trimmed red velvet mini dress, a Santa hat and boots"
+     "en": "a Christmas party costume — a fur-trimmed red velvet mini dress, a Santa hat and boots",
+     "low": true
     }
    ],
    "en": "a playful adult event costume inspired by an occupation or role — clearly a costume, not a real uniform, no real insignia"
@@ -4687,77 +5121,92 @@
     {
      "key": "trad_goth",
      "ko": "트래드 고스",
-     "en": "trad goth — a black lace mini dress with platform boots and stacked silver rings"
+     "en": "trad goth — a black lace mini dress with platform boots and stacked silver rings",
+     "low": true
     },
     {
      "key": "punk_jacket",
      "ko": "펑크",
-     "en": "punk — a studded leather jacket over a ripped plain tee, a tartan mini skirt and combat boots"
+     "en": "punk — a studded leather jacket over a ripped plain tee, a tartan mini skirt and combat boots",
+     "low": true
     },
     {
      "key": "punk_tartan",
      "ko": "펑크 타탄 팬츠",
-     "en": "punk — strapped tartan trousers with safety pins and a cropped top with mesh sleeves over an opaque base"
+     "en": "punk — strapped tartan trousers with safety pins and a cropped top with mesh sleeves over an opaque base",
+     "low": true
     },
     {
      "key": "rock_leather",
      "ko": "록",
-     "en": "rock — a leather mini skirt, a cropped vest and a choker"
+     "en": "rock — a leather mini skirt, a cropped vest and a choker",
+     "low": true
     },
     {
      "key": "gyaru",
      "ko": "갸루",
-     "en": "gyaru — a bodycon mini dress, platform heels, long nail art and layered accessories"
+     "en": "gyaru — a bodycon mini dress, platform heels, long nail art and layered accessories",
+     "low": true
     },
     {
      "key": "decora",
      "ko": "데코라",
-     "en": "decora — a pastel tutu skirt, layered bright tops and stacks of colourful clips and bracelets"
+     "en": "decora — a pastel tutu skirt, layered bright tops and stacks of colourful clips and bracelets",
+     "low": true
     },
     {
      "key": "yami_kawaii",
      "ko": "얌카와",
-     "en": "yami-kawaii — a pink-and-black sailor-collar mini dress with heart chokers"
+     "en": "yami-kawaii — a pink-and-black sailor-collar mini dress with heart chokers",
+     "low": true
     },
     {
      "key": "cybergoth",
      "ko": "사이버고스",
-     "en": "cybergoth — neon goggles on the forehead, a reflective mini skirt, a cropped top and tall platform boots"
+     "en": "cybergoth — neon goggles on the forehead, a reflective mini skirt, a cropped top and tall platform boots",
+     "low": true
     },
     {
      "key": "grunge",
      "ko": "그런지",
-     "en": "grunge — an oversized plaid flannel tied at the waist over a slip dress and combat boots"
+     "en": "grunge — an oversized plaid flannel tied at the waist over a slip dress and combat boots",
+     "low": true
     },
     {
      "key": "emo",
      "ko": "이모",
-     "en": "emo — a fitted striped long-sleeve top, a studded belt, skinny jeans and checkered sneakers"
+     "en": "emo — a fitted striped long-sleeve top, a studded belt, skinny jeans and checkered sneakers",
+     "low": true
     },
     {
      "key": "steampunk",
      "ko": "스팀펑크",
-     "en": "steampunk — a brocade underbust corset belt over a blouse, a short bustle skirt and brass goggles"
+     "en": "steampunk — a brocade underbust corset belt over a blouse, a short bustle skirt and brass goggles",
+     "low": true
     },
     {
      "key": "gothic_lolita",
      "ko": "고딕 로리타",
-     "en": "gothic lolita — a black-and-white lace jumper skirt with a bonnet"
+     "en": "gothic lolita — a black-and-white lace jumper skirt with a bonnet",
+     "low": true
     },
     {
      "key": "skater",
      "ko": "스케이터",
-     "en": "skater — a cropped hoodie, low-slung cargo shorts and high socks"
+     "en": "skater — a cropped hoodie, low-slung cargo shorts and high socks",
+     "low": true
     },
     {
      "key": "biker",
      "ko": "바이커",
-     "en": "biker — a fitted leather riding jacket open over a bandeau top, leather trousers and boots"
+     "en": "biker — a fitted leather riding jacket open over a bandeau top, leather trousers and boots",
+     "low": true
     },
     {
      "key": "raver",
      "ko": "레이버",
-     "en": "raver — a metallic halter crop top, a cargo mini skirt and beaded bracelets"
+     "en": "raver — a metallic halter crop top, a cargo mini skirt and beaded bracelets",
+     "low": true
     },
     {
      "key": "visual_kei",
@@ -4779,12 +5228,14 @@
     {
      "key": "fairy_wings",
      "ko": "요정",
-     "en": "a fairy costume — a petal-layered mini dress with glittering wing props"
+     "en": "a fairy costume — a petal-layered mini dress with glittering wing props",
+     "low": true
     },
     {
      "key": "angel_devil",
      "ko": "천사·악마",
-     "en": "an angel-and-devil party costume — a red satin mini dress with a small horn headband and a tail prop"
+     "en": "an angel-and-devil party costume — a red satin mini dress with a small horn headband and a tail prop",
+     "low": true
     },
     {
      "key": "sorceress_robe",
@@ -4814,7 +5265,8 @@
     {
      "key": "vampire_gala",
      "ko": "뱀파이어 백작 부인",
-     "en": "a vampire countess costume — a high-collared velvet cape over a fitted gown with a cinched waist"
+     "en": "a vampire countess costume — a high-collared velvet cape over a fitted gown with a cinched waist",
+     "low": true
     },
     {
      "key": "flamenco",
@@ -4824,17 +5276,20 @@
     {
      "key": "belly_dance",
      "ko": "벨리댄스",
-     "en": "a belly dance costume with a coin-trimmed bra top and a low-slung chiffon skirt"
+     "en": "a belly dance costume with a coin-trimmed bra top and a low-slung chiffon skirt",
+     "low": true
     },
     {
      "key": "jazz_leotard",
      "ko": "재즈 무대",
-     "en": "a sequined jazz dance leotard with a short flared skirt"
+     "en": "a sequined jazz dance leotard with a short flared skirt",
+     "low": true
     },
     {
      "key": "hula",
      "ko": "훌라",
-     "en": "a hula costume with a flower lei, a bandeau top and a grass-style skirt over shorts"
+     "en": "a hula costume with a flower lei, a bandeau top and a grass-style skirt over shorts",
+     "low": true
     },
     {
      "key": "ballroom_gown",
@@ -4844,7 +5299,8 @@
     {
      "key": "mermaid_show",
      "ko": "인어 쇼",
-     "en": "a mermaid show costume — a scale-sequined bodice and a flowing chiffon wrap skirt"
+     "en": "a mermaid show costume — a scale-sequined bodice and a flowing chiffon wrap skirt",
+     "low": true
     },
     {
      "key": "ballet_tutu",
@@ -4993,7 +5449,8 @@
     {
      "key": "slit_wedding",
      "ko": "슬릿 웨딩드레스",
-     "en": "a wedding gown with a leg slit"
+     "en": "a wedding gown with a leg slit",
+     "low": true
     },
     {
      "key": "slip_wedding",
@@ -5025,7 +5482,8 @@
     {
      "key": "flapper",
      "ko": "20년대 플래퍼",
-     "en": "a 1920s flapper fringe dress with a dropped waist and a beaded headband"
+     "en": "a 1920s flapper fringe dress with a dropped waist and a beaded headband",
+     "low": true
     },
     {
      "key": "deco_gown",
@@ -5045,12 +5503,14 @@
     {
      "key": "pinup_bikini",
      "ko": "50년대 핀업 비키니",
-     "en": "a 1950s pin-up bikini with a high-waisted bottom and a halter top"
+     "en": "a 1950s pin-up bikini with a high-waisted bottom and a halter top",
+     "low": true
     },
     {
      "key": "pinup_swimsuit",
      "ko": "50년대 핀업 수영복",
-     "en": "a 1950s high-waisted pin-up swimsuit"
+     "en": "a 1950s high-waisted pin-up swimsuit",
+     "low": true
     },
     {
      "key": "halter_playsuit",
@@ -5060,17 +5520,20 @@
     {
      "key": "wiggle_skirt",
      "ko": "50년대 위글 스커트",
-     "en": "a 1950s wiggle skirt and a fitted cropped blouse"
+     "en": "a 1950s wiggle skirt and a fitted cropped blouse",
+     "low": true
     },
     {
      "key": "pinup_lingerie",
      "ko": "50년대 핀업 란제리",
-     "en": "a 1950s pin-up lingerie set with a structured bra and high-waisted bottoms"
+     "en": "a 1950s pin-up lingerie set with a structured bra and high-waisted bottoms",
+     "low": true
     },
     {
      "key": "mod_mini",
      "ko": "60년대 모드 미니",
-     "en": "a 1960s mod shift mini dress with geometric colour blocks and go-go boots"
+     "en": "a 1960s mod shift mini dress with geometric colour blocks and go-go boots",
+     "low": true
     },
     {
      "key": "jetset_swim",
@@ -5080,27 +5543,32 @@
     {
      "key": "disco_halter",
      "ko": "70년대 디스코",
-     "en": "a 1970s lurex halter jumpsuit with flared legs"
+     "en": "a 1970s lurex halter jumpsuit with flared legs",
+     "low": true
     },
     {
      "key": "boho_crochet",
      "ko": "70년대 보헤미안",
-     "en": "a 1970s crochet halter top with low-rise flared jeans"
+     "en": "a 1970s crochet halter top with low-rise flared jeans",
+     "low": true
     },
     {
      "key": "roller_disco",
      "ko": "70년대 롤러 디스코",
-     "en": "1970s satin hot pants and a tube top"
+     "en": "1970s satin hot pants and a tube top",
+     "low": true
     },
     {
      "key": "aerobics_80s",
      "ko": "80년대 에어로빅",
-     "en": "an 1980s high-cut aerobics leotard over shiny tights with leg warmers and a headband"
+     "en": "an 1980s high-cut aerobics leotard over shiny tights with leg warmers and a headband",
+     "low": true
     },
     {
      "key": "power_glam",
      "ko": "80년대 파워 글램",
-     "en": "an 1980s sequined mini dress with strong padded shoulders"
+     "en": "an 1980s sequined mini dress with strong padded shoulders",
+     "low": true
     },
     {
      "key": "nineties_slip",
@@ -5110,7 +5578,8 @@
     {
      "key": "y2k_lowrise",
      "ko": "Y2K 로우라이즈",
-     "en": "a Y2K low-rise mini skirt, a butterfly halter top and platform sandals"
+     "en": "a Y2K low-rise mini skirt, a butterfly halter top and platform sandals",
+     "low": true
     }
    ],
    "en": "a period look from a past decade"

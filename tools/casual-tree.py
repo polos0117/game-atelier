@@ -8,6 +8,8 @@
   - 열쇠가 겹치지 않고, 가리키는 시대·묶음·장소·자세 계열·의상 계열이 다 있다
   - 어느 시대에서 어느 장소를 골라도 하는 일이 둘 이상, 어느 하는 일을 골라도 입을 옷 계열이 하나 이상 남는다
   - 영어 칸에 한글이 없다(지시문은 영어)
+  - 칸끼리 규칙 표가 맞다 — 자세마다 보이는 부위·손·앉는 자리, 하는 일의 앉는 자리·빈 손, 프레이밍 규칙,
+    옷 계열마다 가슴 위·클로즈업에서 고를 옷(허리 아래로 알아보는 옷 low 가 아닌 것)이 하나 이상
   - 하는 일이 먼저 고르라는 옷(prefer)이 그 하는 일이 받는 옷 계열에 있다 — 자전거 점검에 양궁 차림이 붙었다(심시티 계획)
   - 어느 시대에서든 필수 갈래(란제리풍·수영복·역할극 또는 게임 속 일상 — 섹시)에 닿는 길이 있다
   - 추천 조합(지금 갈래의 장면 예시를 옮긴 것)과 예전 기록 변환표가 다 고를 수 있는 길이다
@@ -142,8 +144,36 @@ def check(doc):
                 errs.append("옷 %s/%s 가 겹친다" % (o["key"], it["key"]))
             keys.add(it["key"])
     for k, f in doc["families"].items():
-        if not f.get("poses") or not f.get("orients"):
-            errs.append("자세 계열 %s 에 자세·방향이 없다" % k)
+        if not f.get("orients"):
+            errs.append("자세 계열 %s 에 방향이 없다" % k)
+        if not f.get("poses") and k != "lie":
+            errs.append("자세 계열 %s 에 자세가 없다(눕기만 하는 일이 자세)" % k)
+    # 칸끼리 규칙 — 자세 표(보이는 부위·손·앉는 자리), 하는 일(앉는 자리·빈 손·표정), 프레이밍 규칙, 허리 아래 옷
+    meta = doc.get("pose_meta", {})
+    zones = {"any", "face", "chest", "waist", "legs"}
+    for k in {p for f in doc["families"].values() for p in f["poses"]}:
+        m = meta.get(k)
+        if m is None:
+            errs.append("자세 %s 가 자세 표(pose_meta)에 없다" % k); continue
+        if m.get("zone") not in zones:
+            errs.append("자세 %s 의 보이는 부위 %r" % (k, m.get("zone")))
+        if m.get("seat") not in (None, "chair", "edge", "floor"):
+            errs.append("자세 %s 의 앉는 자리 %r" % (k, m.get("seat")))
+    for a in doc["activities"]:
+        for s_ in a.get("seat", []):
+            if s_ not in ("chair", "edge", "floor"):
+                errs.append("하는 일 %s 의 앉는 자리 %r" % (a["key"], s_))
+        if a.get("hands") not in (None, "free"):
+            errs.append("하는 일 %s 의 손 %r" % (a["key"], a.get("hands")))
+    for fr, r in doc.get("frame_rules", {}).items():
+        if fr == "note":
+            continue
+        for z in r.get("zones", []):
+            if z not in zones:
+                errs.append("프레이밍 %s 의 보이는 부위 %r" % (fr, z))
+    for o in doc["outfits"]:
+        if all(i.get("low") for i in o["items"]):
+            errs.append("옷 계열 %s 는 가슴 위·클로즈업에서 고를 옷이 없다(전부 허리 아래로 알아보는 옷)" % o["key"])
     if errs:
         return errs
     # 끊긴 길 — 어느 자리에서 골라도 다음 단계가 남는다

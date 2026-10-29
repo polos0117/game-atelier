@@ -104,6 +104,7 @@ assert(plain.includes(T.trademark) && plain.includes('NEVER DRAW for this game:'
 assert(plain.includes('STYLE: ' + cur.casual) && !plain.includes('STYLE: ' + text), '일상컷 화풍 문장');
 assert(cur.casual.includes('fabric and accessory') && text.includes('costume and accessory'), '화풍 판 — 폼은 costume, 일상은 fabric');
 assert(plain.includes(T.casualWardrobe) && plain.includes(T.casualPose) && plain.includes(T.casualOutput), '옷·각도·출력 줄');
+assert(plain.includes(T.figureCasual) && !plain.includes(T.figure), '일상컷은 배경 인물 허용 줄(붐비는 장소) — 폼·개방은 한 명만');
 /* 옷 — 고른 옷 > 계열 풀이, 직접 쓴 옷이 이긴다 */
 const lace = cas({ era: 'now', place: 'home_bedroom', act: 'dress_up', ofam: 'lingerie', item: 'lace_set' });
 assert(sceneOf(lace).includes('Outfit: ' + CT.item(tree, 'lingerie', 'lace_set').en), '고른 옷');

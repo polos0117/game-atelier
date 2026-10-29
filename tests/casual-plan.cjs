@@ -17,13 +17,21 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
   assert.deepEqual(C.check(res.cuts, g), [], g.key + ' ' + seed);
   assert(res.cuts.some(c => C.requiredType(c) === res.required), g.key + ' 필수 갈래 ' + res.required);
   assert(res.cuts.every(c => c.item), g.key + ' 옷은 구체적으로');
-  for (const c of res.cuts) { const pf = (tree.activities.find(a => a.key === c.act).prefer || []).filter(k => tree.outfits.find(o => o.key === c.ofam).items.some(i => i.key === k)); if (pf.length) assert(pf.includes(c.item), g.key + ' ' + c.act + ' 에 맞는 옷'); }
-  assert(res.cuts.every(c => !c.pose || ['standing_relaxed', 'contrapposto', 'leaning_wall', 'on_tiptoe', 'sitting', 'walking', 'mid_stride', 'mid_action', 'dance_step'].includes(c.pose)), g.key + ' 몸 자세만');
-  assert(res.cuts.every(c => !/laugh|smil|sing/i.test(tree.activities.find(a => a.key === c.act).en) || !c.expr), g.key + ' 표정을 정하는 하는 일엔 표정 비움');
-  assert(res.cuts.every(c => !['back', 'back_to_camera', 'walking_away'].includes(c.orient) || !c.expr), g.key + ' 등을 보이면 표정 비움');
-  assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail'].includes(c.frame) || !c.pose), g.key + ' 가까운 컷엔 몸 자세 없음');
-  assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail', 'three_quarter'].includes(c.frame) || !['wide24', 'documentary35'].includes(c.lens)), g.key + ' 가까운 컷·3/4 에 광각 없음');
-  for (const c of res.cuts.filter(c => ['chest_up', 'face_close'].includes(c.frame))) { const its = tree.outfits.find(o => o.key === c.ofam).items, low = /waist|hip|bottom|skirt|leg|thigh|short|trouser|jean|legging|pants|knee|ankle|hem|sarong|wrap|garter|mini|cut-out|cutout/i; if (its.some(i => !low.test(i.en))) assert(!low.test(its.find(i => i.key === c.item).en), g.key + ' 가까운 컷엔 허리 아래로 알아보는 옷 없음 ' + c.item); }
+  for (const c of res.cuts) { const lowOff = (tree.frame_rules[c.frame] || {}).low === false, pf = (tree.activities.find(a => a.key === c.act).prefer || []).filter(k => tree.outfits.find(o => o.key === c.ofam).items.some(i => i.key === k && !(lowOff && i.low))); if (pf.length) assert(pf.includes(c.item), g.key + ' ' + c.act + ' 에 맞는 옷'); }
+  /* 칸끼리 규칙(트리 표) — 자세는 앉는 자리·손·보이는 부위가 맞고 물건 드는 자세·돌아보기는 안 고른다, 표정은 하는 일·방향이 허락할 때만,
+     가까운 컷·3/4 엔 광각 없음, 가슴 위·클로즈업엔 허리 아래로 알아보는 옷 없음 */
+  for (const c of res.cuts) {
+    const a = tree.activities.find(x => x.key === c.act), fr = tree.frame_rules[c.frame] || {}, m = tree.pose_meta[c.pose] || {};
+    if (c.pose) {
+      assert(!m.seat || !a.seat || a.seat.includes(m.seat), g.key + ' 앉는 자리 ' + c.act + '·' + c.pose);
+      assert(!m.hands || a.hands === 'free', g.key + ' 손 ' + c.act + '·' + c.pose);
+      assert(!fr.zones || fr.zones.includes(m.zone || 'legs'), g.key + ' 보이는 부위 ' + c.frame + '·' + c.pose);
+      assert(!['holding_cup', 'reading_book', 'taking_photo', 'adjusting_bag', 'checking_map', 'waving', 'offering_food', 'watering', 'preparing_food', 'carrying_something', 'turning_back', 'bending_over'].includes(c.pose), g.key + ' 계획기는 안 고르는 자세 ' + c.pose);
+    }
+    assert(!c.expr || (!a.mood && !tree.back_orients.includes(c.orient)), g.key + ' 표정 ' + c.act + '·' + c.orient);
+    assert(fr.wide !== false || !tree.wide_lenses.includes(c.lens), g.key + ' 광각 ' + c.frame + '·' + c.lens);
+    assert(fr.low !== false || !tree.outfits.find(o => o.key === c.ofam).items.find(i => i.key === c.item).low, g.key + ' 허리 아래 옷 ' + c.frame + '·' + c.item);
+  }
   for (const c of res.cuts) {
     const rec = C.record(g, c), sc = rec.storage.cards[g.key].scenes.casual;
     assert.equal(rec.file, `${g.key}_glossy_kr_game_f_casual${c.n}.webp`);

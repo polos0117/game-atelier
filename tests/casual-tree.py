@@ -1,6 +1,6 @@
 """일상컷 트리 검사기. python3 tests/casual-tree.py
    - 실제 표(data/casual-tree.json)가 통과한다
-   - 끊긴 길·없는 열쇠·한글 영어 칸·필수 갈래 없는 시대를 건다"""
+   - 끊긴 길·없는 열쇠·한글 영어 칸·필수 갈래 없는 시대·칸끼리 규칙 표의 빈 데를 건다"""
 import copy, importlib.util, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
@@ -22,6 +22,10 @@ fails(lambda d: act(d, 'swim')['places'].append('moon_base'), '장소 moon_base'
 fails(lambda d: place(d, 'night_taxi').update(en='택시 뒷좌석'), '한글')
 fails(lambda d: d['activities'].append(dict(act(d, 'swim'), key='night_taxi')), '겹친다')
 fails(lambda d: act(d, 'bike_check').update(prefer=['lace_set']), '고르라는 옷 lace_set')
+# 칸끼리 규칙 표 — 자세 표에 없는 자세, 이상한 앉는 자리, 다 허리 아래 옷인 계열
+fails(lambda d: d['pose_meta'].pop('sitting'), '자세 sitting 가 자세 표')
+fails(lambda d: act(d, 'gala_dinner').update(seat=['sofa']), "앉는 자리 'sofa'")
+fails(lambda d: [i.update(low=True) for o in d['outfits'] if o['key'] == 'bath' for i in o['items']], '옷 계열 bath 는 가슴 위')
 # 길이 끊기면 — 장소에 하는 일이 하나뿐, 하는 일에 옷이 없다
 fails(lambda d: [a['places'].remove('night_taxi') for a in d['activities'] if 'night_taxi' in a['places'] and a['key'] != 'taxi_ride'], '하는 일이 1 개')
 fails(lambda d: place(d, 'night_taxi').update(outfits=['editorial']), '입을 옷 계열이 없다')

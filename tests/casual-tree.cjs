@@ -28,4 +28,20 @@ for (const pr of tree.presets) {
   const sc = CT.applyPreset(tree, {}, pr.key), r = CT.repair(tree, sc, null, S.CLOSE_FRAMES);
   for (const k of ['era', 'place', 'act', 'ofam', 'item']) assert.equal(r[k], sc[k], pr.key + ' ' + k);
 }
-console.log(`PASS 일상컷 트리 ↔ 생성기: 자세 계열 ${Object.keys(tree.families).length} · 자세 ${used.size} · 방향 열쇠 · 길 ${paths}(검사기와 같다) · 추천 조합 ${tree.presets.length}`);
+/* 칸끼리 규칙(GTA V 계획에서 걸린 것들) — 화면·랜덤·계획기가 다 이 함수를 쓴다 */
+for (const k of used) assert(tree.pose_meta[k], '자세 표에 없는 자세 ' + k);
+const gp = f => CT.poses(tree, 'gala_dinner', f);
+assert(gp('full_body').includes('sitting') && !gp('full_body').includes('cross_legged') && !gp('full_body').includes('perched_seat'), '식탁 만찬 — 의자 자세만');
+assert(!gp('full_body').includes('hands_in_hair') && !gp('full_body').includes('holding_cup'), '잔 드는 하는 일 — 손 쓰는 자세 없음');
+assert(CT.poses(tree, 'car_lean', 'full_body').includes('hand_on_hip') && !CT.poses(tree, 'take_photo', 'full_body').includes('hand_on_hip'), '빈 손 하는 일에만 허리에 손');
+assert(!CT.poses(tree, 'stroll', 'face_close').includes('walking') && !CT.poses(tree, 'car_lean', 'face_close').includes('standing_relaxed') && CT.poses(tree, 'car_lean', 'face_close').includes('hands_in_hair'), '클로즈업 — 얼굴 쪽 자세만');
+assert(!CT.poses(tree, 'car_lean', 'chest_up').includes('hand_on_hip') && CT.poses(tree, 'car_lean', 'waist_up').includes('hand_on_hip'), '허리에 손은 허리 위부터');
+assert.deepEqual(CT.poses(tree, 'sunbed', 'full_body'), [], '눕기 — 하는 일이 자세');
+assert(CT.items(tree, 'swimwear', 'full_body').some(i => i.key === 'cutout_onepiece') && !CT.items(tree, 'swimwear', 'face_close').some(i => i.key === 'cutout_onepiece'), '클로즈업엔 허리 컷아웃 수영복 없음');
+for (const o of tree.outfits) for (const f of ['face_close', 'chest_up']) assert(CT.items(tree, o.key, f).length, o.key + ' ' + f + ' 에 고를 옷');
+assert(!CT.lensOk(tree, 'three_quarter', 'documentary35') && !CT.lensOk(tree, 'face_close', 'wide24') && CT.lensOk(tree, 'full_body', 'wide24') && CT.lensOk(tree, 'face_close', ''), '광각 규칙');
+assert(!CT.exprOk(tree, { act: 'stargaze', orient: 'back_to_camera' }) && !CT.exprOk(tree, { act: 'karaoke_sing', orient: 'front' }) && CT.exprOk(tree, { act: 'stargaze', orient: 'front' }), '표정 규칙');
+const fixed = CT.repair(tree, { era: 'now', place: 'evening_gala', act: 'gala_dinner', ofam: 'evening', frame: 'face_close', pose: 'cross_legged', lens: 'wide24', expr: 'calm', orient: 'front' }, null, S.CLOSE_FRAMES);
+assert(!fixed.pose && !fixed.lens && fixed.expr === 'calm', '고치기 — 맞지 않는 자세·광각은 비우고 표정은 둔다');
+assert.equal(CT.repair(tree, { ...fixed, orient: 'back_to_camera', frame: 'full_body' }, null, S.CLOSE_FRAMES).expr || '', '', '등을 보이면 표정을 비운다');
+console.log(`PASS 일상컷 트리 ↔ 생성기: 자세 계열 ${Object.keys(tree.families).length} · 자세 ${used.size} · 방향 열쇠 · 길 ${paths}(검사기와 같다) · 추천 조합 ${tree.presets.length} · 칸끼리 규칙(앉는 자리·손·보이는 부위·허리 아래 옷·광각·표정)`);
