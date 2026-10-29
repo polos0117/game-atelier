@@ -7,6 +7,7 @@
   - 방향(orient)은 서로 다르고
   - 프레이밍(frame)도 서로 다르며, 먼 컷(전신·환경) 하나와 가까운 컷(가슴 위·클로즈업) 하나가 꼭 있고
   - 렌즈(lens)는 같은 것이 두 번까지다.
+  - 란제리·수영복 갈래는 가슴 위 크롭을 고르지 않는다(안전 필터).
 뒤돌아보기 쪽 방향은 생성기의 LOOK-BACK 줄이 목을 지킨다.
 
     python3 tools/casual-compose.py <그림 저장소>/records/<게임>
@@ -18,6 +19,8 @@ from collections import Counter
 FAR = {"full_body", "environmental"}
 NEAR = {"chest_up", "face_close"}
 LENS_MAX = 2
+# 몸을 드러내는 갈래는 가슴 위 크롭을 고르지 않는다 — 가슴이 화면 가운데 와 안전 필터에 막혔다(스파2 일상2 란제리, 2026-10-29)
+NO_CHEST = {"lingerie", "swimwear"}
 
 
 def scene(rec):
@@ -37,6 +40,9 @@ def check(scenes):
         for v, c in Counter(s.get(key) for _, s in scenes if s.get(key)).items():
             if c > most:
                 errs.append("%s %s 이(가) %d 번 — %d 번까지" % (what, v, c, most))
+    for n, s in scenes:
+        if s.get("cat") in NO_CHEST and s.get("frame") == "chest_up":
+            errs.append("%s: %s 갈래에 가슴 위 크롭 — 안전 필터에 막힌다" % (n, s.get("cat")))
     frames = {s.get("frame") for _, s in scenes}
     if len(scenes) >= 3:
         if not frames & FAR:
