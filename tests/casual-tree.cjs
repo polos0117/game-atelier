@@ -44,6 +44,10 @@ assert(!CT.exprOk(tree, { act: 'stargaze', orient: 'back_to_camera' }) && !CT.ex
 assert(!CT.frameOk(tree, 'swim', 'full_body') && !CT.frameOk(tree, 'soak', 'environmental') && CT.frameOk(tree, 'swim', 'waist_up') && CT.frameOk(tree, 'stroll', 'full_body'), '수영·탕 — 전신·환경 컷 없음');
 assert.equal(CT.repair(tree, { era: 'now', place: 'water_pool', act: 'swim', ofam: 'swimwear', frame: 'full_body' }, null, S.CLOSE_FRAMES).frame, '', '수영으로 바꾸면 전신은 비운다');
 for (const it of ['hollywood_bias', 'low_back_evening', 'column_gown']) assert(!CT.items(tree, it === 'hollywood_bias' ? 'retro' : 'evening', 'chest_up').some(i => i.key === it), '등이 알아볼 데인 옷은 가슴 위에 없다 ' + it);
+assert(!CT.orients(tree, 'cooking', 'chest_up', S.CLOSE_FRAMES).includes('rear_3q') && CT.orients(tree, 'cooking', 'waist_up', S.CLOSE_FRAMES).includes('rear_3q') && CT.orients(tree, 'cooking', 'chest_up', S.CLOSE_FRAMES).includes('over_shoulder'), '가슴 위엔 등 쪽 방향 없음, 어깨 너머는 된다');
+assert(CT.poses(tree, 'stair_pause', 'chest_up').includes('finger_to_lips') && !CT.poses(tree, 'gala_dinner', 'full_body').includes('finger_to_lips'), '쉿 — 얼굴 쪽·손 쓰는 자세');
+assert(!CT.orients(tree, 'stair_pause', 'full_body', S.CLOSE_FRAMES, 'finger_to_lips').includes('back_to_camera') && CT.orients(tree, 'stair_pause', 'full_body', S.CLOSE_FRAMES, 'finger_to_lips').includes('over_shoulder'), '쉿엔 등 쪽 방향 없음, 어깨 너머는 된다');
+assert.equal(CT.repair(tree, { era: 'now', place: 'evening_opera', act: 'stair_pause', ofam: 'evening', frame: 'full_body', orient: 'back_to_camera', pose: 'finger_to_lips' }, null, S.CLOSE_FRAMES).orient, '', '쉿을 고르면 등 돌림은 비운다');
 const fixed = CT.repair(tree, { era: 'now', place: 'evening_gala', act: 'gala_dinner', ofam: 'evening', frame: 'face_close', pose: 'cross_legged', lens: 'wide24', expr: 'calm', orient: 'front' }, null, S.CLOSE_FRAMES);
 assert(!fixed.pose && !fixed.lens && fixed.expr === 'calm', '고치기 — 맞지 않는 자세·광각은 비우고 표정은 둔다');
 assert.equal(CT.repair(tree, { ...fixed, orient: 'back_to_camera', frame: 'full_body' }, null, S.CLOSE_FRAMES).expr || '', '', '등을 보이면 표정을 비운다');

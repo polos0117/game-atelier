@@ -1616,7 +1616,8 @@
     "turning_back",
     "bending_over",
     "on_tiptoe",
-    "stretching"
+    "stretching",
+    "finger_to_lips"
    ],
    "orients": [
     "front",
@@ -1646,7 +1647,8 @@
     "turning_back",
     "checking_map",
     "holding_cup",
-    "adjusting_bag"
+    "adjusting_bag",
+    "finger_to_lips"
    ],
    "orients": [
     "front",
@@ -1677,7 +1679,8 @@
     "sitting_floor",
     "holding_cup",
     "reading_book",
-    "hands_in_hair"
+    "hands_in_hair",
+    "finger_to_lips"
    ],
    "orients": [
     "front",
@@ -1893,17 +1896,29 @@
   },
   "dance_step": {
    "zone": "legs"
+  },
+  "finger_to_lips": {
+   "zone": "face",
+   "hands": true,
+   "faces": true
   }
  },
  "frame_rules": {
-  "note": "가까운 컷에서 보이는 몸 부위(zones), 광각(wide), 허리 아래로 알아보는 옷(low) — 없는 프레이밍은 다 된다",
+  "note": "가까운 컷에서 보이는 몸 부위(zones), 광각(wide), 허리 아래로 알아보는 옷(low), 안 되는 방향(no_orients — 등 쪽은 등·옆구리를 보이려 컷을 넓혔다) — 없는 프레이밍은 다 된다",
   "face_close": {
    "zones": [
     "any",
     "face"
    ],
    "wide": false,
-   "low": false
+   "low": false,
+   "no_orients": [
+    "back",
+    "back_to_camera",
+    "rear_3q",
+    "three_quarter_back",
+    "walking_away"
+   ]
   },
   "chest_up": {
    "zones": [
@@ -1912,7 +1927,14 @@
     "chest"
    ],
    "wide": false,
-   "low": false
+   "low": false,
+   "no_orients": [
+    "back",
+    "back_to_camera",
+    "rear_3q",
+    "three_quarter_back",
+    "walking_away"
+   ]
   },
   "detail": {
    "zones": [
@@ -1921,7 +1943,14 @@
     "chest"
    ],
    "wide": false,
-   "low": false
+   "low": false,
+   "no_orients": [
+    "back",
+    "back_to_camera",
+    "rear_3q",
+    "three_quarter_back",
+    "walking_away"
+   ]
   },
   "waist_up": {
    "zones": [

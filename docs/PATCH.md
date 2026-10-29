@@ -11,6 +11,11 @@
 
 
 
+## 2026-10-29 · claude · 일상컷 자세 「손가락 하나로 쉿」, 가슴 위엔 등 쪽 방향 없음
+- lib/prompt-spec.js · data/casual-tree.json — 사용자 요청 자세 finger_to_lips(검지를 입술에 세워 쉿, 손은 얼굴을 가리지 않는다). 서기·앉기·걷기 계열, 자세 표는 얼굴 쪽·손 씀·얼굴이 보여야 함(faces). prompt-spec v=31.
+- lib/casual-tree.js · lib/prompt-ui.js — 얼굴이 보여야 하는 자세엔 등 쪽 방향(뒤·등 돌림·뒤 3/4·걸어가는 뒷모습)이 없다 — 계획기 후보에 쉿 + 등 돌림이 나왔다. 가슴 위·클로즈업엔 등 쪽 방향이 없다(frame_rules no_orients) — 리그 오브 레전드 일상3 이 「등과 옆구리」 를 보이려 두 번 엉덩이까지 넓어졌다. casual-tree v=7, prompt-ui v=10.
+- tests/casual-tree.cjs · tests/prompt-screen.cjs — 쉿 자세·방향, 가슴 위 등 쪽 방향, 추천 조합 화면 검사는 전신에서(가까운 컷이면 반바지 옷이 비워져 가끔 걸렸다).
+
 ## 2026-10-29 · claude · 일상컷 — 하는 일이 안 받는 프레이밍, 등이 알아볼 데인 옷, 앉기엔 앉는 자세
 - data/casual-tree.json · lib/casual-tree.js — 리그 오브 레전드 일상4(폭포 수영·전신)가 헤엄 대신 물속을 걸었다 — 전신 컷의 「머리·손·발이 다 안에」 와 몸이 물에 잠기는 수영이 부딪혔다. 하는 일에 not_frames(수영·탕에 몸 담그기 → 전신·환경 컷 없음), frameOk, repair 가 맞지 않게 된 프레이밍을 비운다. 일상3(가슴 위·뒤 3/4)은 「카울백 가운」 의 등 드레이프를 보이려 엉덩이까지 넓어졌다 — 등이 알아볼 데인 옷(로우백·백리스·카울백·오픈백 여덟 벌)도 low. casual-tree v=6.
 - lib/prompt-ui.js · lib/prompt-random.js — 프레이밍 선택지·랜덤도 하는 일로 거른다. prompt-ui v=9, prompt-random v=5.

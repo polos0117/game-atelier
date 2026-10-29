@@ -82,6 +82,7 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     const opts = id => p.$$eval('#' + id + ' option', os => os.map(o => o.value));
     assert.deepEqual(await opts('era'), ['now', 'release', 'in_game', 'fantasy'], '시대 넷');
     await p.selectOption('#era', 'now');
+    await p.selectOption('#frame', 'full_body');   // 가까운 컷이면 허리 아래 옷(반바지)은 비워진다
     await p.selectOption('#preset', 'arc_cabinet');
     let v = await vals();
     assert.deepEqual([v.era, v.place, v.act, v.ofam, v.item], ['now', 'arcade_hall', 'play_cabinet', 'everyday', 'bomber_shorts'], '추천 조합이 길을 채운다');
