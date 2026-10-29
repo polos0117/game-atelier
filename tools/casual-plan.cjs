@@ -15,7 +15,7 @@
      node tools/casual-plan.cjs <게임> [--slots 1,2,3] [--records <그림 저장소>/records/<게임>] [--required lingerie|swimwear|roleplay|in_game]
                                        [--seed N] [--out <폴더>]
    --slots 를 안 주면 등록부(data/img.json)에 없는 번호에서 다섯 칸. --out 을 주면 칸마다 기록·지시문과 plan.json 을 쓴다.
-     node tools/casual-plan.cjs <게임> --check <기록 폴더>   # 올리기 전 — 그 묶음이 위 규칙을 다 지키나 */
+     node tools/casual-plan.cjs <게임> --check <기록 폴더> [--free 6]   # 올리기 전 — 그 묶음이 위 규칙을 다 지키나. --free 는 사용자가 직접 고른 칸(겹침에서 뺀다) */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
 const ROOT = path.join(__dirname, '..');
@@ -96,8 +96,10 @@ function randomSlot(r, game, requiredType_) {
 
 /* 묶음 규칙 — 틀린 것 목록(빈 목록이면 통과). base 는 이미 있는 컷: 그것들이 벌써 넘긴 한도는 그만큼 올려 준다(새 칸이 더 보태지만 않게).
    칸이 고를 거리보다 많으면(프레이밍 여섯 가지에 일곱 장) 한 가지가 두 번까지 */
-function check(cuts, game, base = []) {
-  const all = [...base, ...cuts], errs = [];
+/* free — 사용자가 직접 고른 칸 번호. 트리 위의 길인지는 보지만 묶음 겹침(방향·프레이밍·장소 …)엔 안 센다
+   (리그 오브 레전드 일상6 「정면 상체로 쉿」 — 허리 위가 5번과 겹친다) */
+function check(cuts, game, base = [], free = []) {
+  const all = [...base, ...cuts].filter(c => !free.includes(c.n)), errs = [];
   const count = (f, xs) => xs.reduce((m, c) => { const k = f(c); if (k) m[k] = (m[k] || 0) + 1; return m; }, {});
   const over = (name, f, most, kinds) => {
     const m = count(f, all), b = count(f, base), cap = kinds ? Math.max(most, Math.ceil(all.length / kinds)) : most;
@@ -188,7 +190,9 @@ function main(argv) {
   if (opt.check) {
     const cuts = oldCuts(opt.check, game);
     for (const c of cuts.sort((a, b) => a.n - b.n)) console.log(line(c));
-    const errs = check(cuts.map(c => ({ ...c, old: false })), game);
+    const free = opt.free ? String(opt.free).split(',').map(Number) : [];
+    const errs = check(cuts.map(c => ({ ...c, old: false })), game, [], free);
+    if (free.length) console.log('  (사용자가 고른 칸 ' + free.join(',') + ' — 겹침 검사에서 뺐다)');
     for (const e of errs) console.log('  X ' + e);
     console.log(errs.length ? `일상컷 묶음 ${errs.length} 가지 걸림` : `일상컷 묶음 통과 — ${cuts.length} 장`);
     return errs.length ? 1 : 0;

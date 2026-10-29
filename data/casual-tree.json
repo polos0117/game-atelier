@@ -3396,8 +3396,7 @@
     "travel_ferry",
     "water_yacht"
    ],
-   "en": "leaning on the rail, facing the wind",
-   "hands": "free"
+   "en": "leaning on the rail, facing the wind"
   },
   {
    "key": "lodge_key",
@@ -3760,8 +3759,7 @@
     "street_station",
     "evening_opera"
    ],
-   "en": "pausing on a stair landing, one hand on the railing",
-   "hands": "free"
+   "en": "pausing on a stair landing, one hand on the railing"
   },
   {
    "key": "arrive_dawn",
