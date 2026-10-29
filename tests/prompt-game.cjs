@@ -223,7 +223,13 @@ for (const t of [P.buildPrompt({ ...full, styleRef: false, outputMode: 'form', i
   assert(t.includes(S.AGE_KEEP) && !t.includes(S.AGE_LINES['20s']), '첨부 그림이 정하는 갈래는 나이를 지킨다');
 const pf = P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, exposure: 'bold' }).split('\n\n');
 const pi = pf.indexOf(T.presentation);
-assert(pi > 0 && pf[pi - 1].startsWith('EXPOSURE') && pf[pi + 1].startsWith('STANCE') && pf[pi + 2].startsWith('OUTPUT:'), '노출 → 연출 → 자세 → 출력');
+const po = pf[pi + 2].startsWith('LOOK-BACK') ? pi + 3 : pi + 2;
+assert(pi > 0 && pf[pi - 1].startsWith('EXPOSURE') && pf[pi + 1].startsWith('STANCE') && pf[po].startsWith('OUTPUT:'), '노출 → 연출 → 자세 → (돌아보기) → 출력');
+/* 폼 자세가 돌아보기면 LOOK-BACK 줄 — 히어로즈 3 중반이 몸은 뒤로·얼굴은 정면으로 목이 꺾였다 */
+for (const game of design.games) for (const stage of ['타이틀', '중반', '엔딩']) {
+  const t = P.buildPrompt({ outputMode: 'form', game, stage, styleText: text, identityMode: stage === '타이틀' ? 'create' : 'reference', baseStage: '타이틀', params: [] });
+  assert.equal(t.includes(T.formLookBack), /돌아보|뒤를 보|뒤돌아/.test(game.forms[stage].pose), game.key + ' ' + stage + ' 돌아보기 줄');
+}
 for (const gm of G) for (const stage of STAGES) {
   const t = P.buildPrompt({ outputMode: 'form', game: gm, stage, styleText: text });
   assert(t.includes('STANCE (this form): "' + q(gm.forms[stage].pose) + '"') && t.includes(T.handsPose) && !t.includes(T.handsDefault), gm.key + ' ' + stage + ' 폼 자세');
