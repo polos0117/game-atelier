@@ -124,6 +124,8 @@ assert(plain.split('\n\n').findIndex(x => x.startsWith('SCENE (chosen):')) < pla
 assert(!P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, era: 'release' }).includes('ERA:'), '폼 초상에는 없다');
 /* 출시 당시엔 그 해에 없던 곳이 빠진다 — 1984 년 테트리스에 PC방(1998)은 없다 */
 assert(!CT.places(tree, 'release', fetched).some(p => p.key === 'arcade_pcbang') && CT.places(tree, 'now', fetched).some(p => p.key === 'arcade_pcbang'), '그 해부터 있는 곳');
+/* 받은 연도가 없으면 시대의 대략 — 심시티(16비트, 연도 없음)에 방송 책상(2005)이 나왔다 */
+assert(!CT.places(tree, 'release', { era: '16bit', facts: { year: null } }).some(p => p.key === 'studio_stream'), '연도 없으면 시대의 해로');
 assert.equal(CT.repair(tree, { era: 'release', place: 'arcade_pcbang', act: 'pc_booth', ofam: 'everyday' }, fetched, S.CLOSE_FRAMES).place !== 'arcade_pcbang', true, '없는 곳은 고친다');
 /* 화면 줄 — 오락실·작업실(·대회 무대·거실)만 */
 for (const [pl, ac] of [['arcade_hall', 'play_cabinet'], ['studio_dev', 'pixel_desk'], ['studio_stream', 'stream_live'], ['stage_contest', 'trophy_lift']])

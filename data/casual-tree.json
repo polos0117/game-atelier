@@ -2067,6 +2067,10 @@
    "outfits": [
     "active",
     "homewear"
+   ],
+   "prefer": [
+    "sports_bra_leggings",
+    "yoga_set"
    ]
   },
   {
@@ -2321,6 +2325,9 @@
    "en": "striking an action pose in a fitted marker suit",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "marker_suit"
    ]
   },
   {
@@ -2356,6 +2363,12 @@
    "en": "swimming through the water mid-stroke",
    "outfits": [
     "swimwear"
+   ],
+   "prefer": [
+    "sport_onepiece",
+    "classic_bikini",
+    "highleg_onepiece",
+    "crossstrap_swim"
    ]
   },
   {
@@ -2418,6 +2431,9 @@
    "outfits": [
     "swimwear",
     "active"
+   ],
+   "prefer": [
+    "sport_bikini"
    ]
   },
   {
@@ -2432,6 +2448,10 @@
    "outfits": [
     "swimwear",
     "active"
+   ],
+   "prefer": [
+    "sport_onepiece",
+    "rashguard_set"
    ]
   },
   {
@@ -2445,6 +2465,9 @@
    "outfits": [
     "active",
     "swimwear"
+   ],
+   "prefer": [
+    "wetsuit_half"
    ]
   },
   {
@@ -2567,6 +2590,10 @@
    "en": "warming up, swinging her arms and stretching her legs",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "sports_bra_leggings",
+    "running_set"
    ]
   },
   {
@@ -2579,6 +2606,9 @@
    "en": "practising guard and footwork beside a heavy bag",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "boxing_set"
    ]
   },
   {
@@ -2591,6 +2621,10 @@
    "en": "returning a ball or dribbling across the court",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "tennis_set",
+    "basketball_jersey"
    ]
   },
   {
@@ -2603,6 +2637,9 @@
    "en": "crouched low in the starting position",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "sprint_kit"
    ]
   },
   {
@@ -2617,6 +2654,9 @@
    "en": "jogging lightly with an easy stride",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "running_set"
    ]
   },
   {
@@ -2631,6 +2671,10 @@
    "en": "flowing through a yoga or Pilates move on a mat",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "yoga_set",
+    "unitard"
    ]
   },
   {
@@ -2644,6 +2688,10 @@
    "outfits": [
     "active",
     "retro"
+   ],
+   "prefer": [
+    "dance_leotard",
+    "cropped_jersey"
    ]
   },
   {
@@ -2656,6 +2704,9 @@
    "en": "chalking her hands and checking the route above",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "climbing_set"
    ]
   },
   {
@@ -2665,7 +2716,10 @@
    "places": [
     "sports_rink"
    ],
-   "en": "gliding slowly on roller skates, arms out for balance"
+   "en": "gliding slowly on roller skates, arms out for balance",
+   "prefer": [
+    "roller_set"
+   ]
   },
   {
    "key": "water_break",
@@ -2828,7 +2882,17 @@
     "fx_circus",
     "night_livehouse"
    ],
-   "en": "mid-step of a stage dance, fabric flaring"
+   "en": "mid-step of a stage dance, fabric flaring",
+   "prefer": [
+    "flamenco",
+    "jazz_leotard",
+    "salsa_fringe",
+    "tango_dress",
+    "ballet_tutu",
+    "showgirl",
+    "belly_dance",
+    "hula"
+   ]
   },
   {
    "key": "carpet_turn",
@@ -2851,6 +2915,10 @@
    "en": "standing on a fitting platform while the bodice is pinned",
    "outfits": [
     "bridal"
+   ],
+   "prefer": [
+    "open_back_gown",
+    "sweetheart_veil"
    ]
   },
   {
@@ -3490,6 +3558,10 @@
    "en": "vaulting a stair rail mid-motion",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "sports_bra_leggings",
+    "cropped_jersey"
    ]
   },
   {
@@ -3502,6 +3574,9 @@
    "en": "stepping into an en garde stance, the mask tucked under one arm",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "fencing_set"
    ]
   },
   {
@@ -3515,6 +3590,9 @@
    "en": "checking her bicycle and buckling a helmet",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "cycling_kit"
    ]
   },
   {
@@ -3527,6 +3605,9 @@
    "en": "holding a bow at full draw, perfectly still",
    "outfits": [
     "active"
+   ],
+   "prefer": [
+    "archery_top"
    ]
   },
   {
@@ -3541,6 +3622,9 @@
    "outfits": [
     "active",
     "costume"
+   ],
+   "prefer": [
+    "unitard"
    ]
   },
   {

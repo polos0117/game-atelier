@@ -33,7 +33,11 @@ const LENSES = S.LENS_OPTIONS.map(r => r[0]).filter(Boolean);
 const EXPRS = S.EXPRESSION_OPTIONS.map(r => r[0]).filter(Boolean);
 const ERA_WEIGHT = { now: 5, release: 2, in_game: 2, fantasy: 1 };
 const FIXED_AXES = { overall_intensity: 'strong', skin_exposure: 'bold' };
-const HOLDING_POSES = ['holding_cup', 'reading_book', 'taking_photo', 'adjusting_bag', 'checking_map', 'waving', 'offering_food', 'watering', 'preparing_food', 'carrying_something'];
+/* 어디서나 자연스러운 몸 자세만 — 물건 드는 자세는 하는 일과 부딪히고(부케에 지도 보기), 바닥·옆으로 앉기·무릎은 장소를 탄다(역 벤치에 바닥 앉기),
+   돌아보기(turning_back)는 몸을 비튼다(패들보드). 나머지는 하는 일이 정한다 */
+const NEUTRAL_POSES = ['standing_relaxed', 'contrapposto', 'hand_on_hip', 'arms_crossed', 'leaning_wall', 'hands_in_hair', 'on_tiptoe', 'stretching',
+  'sitting', 'cross_legged', 'perched_seat', 'walking', 'mid_stride', 'mid_action', 'dance_step'];
+const MOOD_ACT = /laugh|smil|grin|cheer|sing|yawn|cry|sob/i;
 
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 const pick = (r, list) => list[Math.floor(r() * list.length)];
@@ -60,16 +64,18 @@ function requiredPaths(type, game) {
 }
 
 function compose(r, sc, game) {
-  const it = CT.items(tree, sc.ofam);
-  sc.item = it.length ? pick(r, it).key : '';
+  /* 옷 — 하는 일이 먼저 고르라는 옷(prefer)이 이 계열에 있으면 그중에서(자전거 점검엔 사이클 복장) */
+  const it = CT.items(tree, sc.ofam), prefer = it.filter(x => (CT.act(tree, sc.act).prefer || []).includes(x.key));
+  sc.item = prefer.length ? pick(r, prefer).key : it.length ? pick(r, it).key : '';
   sc.frame = pick(r, FRAMES);
   sc.orient = pick(r, CT.orients(tree, sc.act, sc.frame, S.CLOSE_FRAMES));
   /* 가까운 컷엔 광각을 안 붙인다 — 24·35mm 풀이의 「넉넉한 거리·배경과 균형」 이 컷을 넓혔다(조조전 일상 3) */
   sc.lens = pick(r, NEAR_ALL.includes(sc.frame) ? LENSES.filter(l => !WIDE_LENSES.includes(l)) : LENSES);
   /* 자세는 물건 없는 몸 자세만, 가끔 — 하는 일이 손동작을 이미 정한다(「부케 들고 기다리기」 에 「지도 보기」 자세가 붙었다) */
-  const poses = CT.poses(tree, sc.act).filter(k => !HOLDING_POSES.includes(k));
+  const poses = CT.poses(tree, sc.act).filter(k => NEUTRAL_POSES.includes(k));
   sc.pose = poses.length && r() < 0.4 ? pick(r, poses) : '';
-  sc.expr = pick(r, EXPRS);
+  /* 하는 일이 표정을 정하면(웃기·노래·하품 …) 표정은 비워 둔다 — 「누워서 웃기」 에 「진지함」 이 붙었다(심시티 계획) */
+  sc.expr = MOOD_ACT.test(CT.act(tree, sc.act).en) ? '' : pick(r, EXPRS);
   sc.axes = { ...FIXED_AXES };
   for (const k of S.LOCAL_AXES) if (!sc.axes[k]) sc.axes[k] = pick(r, S.ADVANCED_OPTIONS[k].filter(v => v && v !== 'AUTO'));
   return sc;

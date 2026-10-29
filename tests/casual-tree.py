@@ -21,6 +21,7 @@ fails(lambda d: act(d, 'swim').update(family='fly'), '자세 계열 fly')
 fails(lambda d: act(d, 'swim')['places'].append('moon_base'), '장소 moon_base')
 fails(lambda d: place(d, 'night_taxi').update(en='택시 뒷좌석'), '한글')
 fails(lambda d: d['activities'].append(dict(act(d, 'swim'), key='night_taxi')), '겹친다')
+fails(lambda d: act(d, 'bike_check').update(prefer=['lace_set']), '고르라는 옷 lace_set')
 # 길이 끊기면 — 장소에 하는 일이 하나뿐, 하는 일에 옷이 없다
 fails(lambda d: [a['places'].remove('night_taxi') for a in d['activities'] if 'night_taxi' in a['places'] and a['key'] != 'taxi_ride'], '하는 일이 1 개')
 fails(lambda d: place(d, 'night_taxi').update(outfits=['editorial']), '입을 옷 계열이 없다')

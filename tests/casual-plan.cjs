@@ -17,6 +17,9 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
   assert.deepEqual(C.check(res.cuts, g), [], g.key + ' ' + seed);
   assert(res.cuts.some(c => C.requiredType(c) === res.required), g.key + ' 필수 갈래 ' + res.required);
   assert(res.cuts.every(c => c.item), g.key + ' 옷은 구체적으로');
+  for (const c of res.cuts) { const pf = (tree.activities.find(a => a.key === c.act).prefer || []).filter(k => tree.outfits.find(o => o.key === c.ofam).items.some(i => i.key === k)); if (pf.length) assert(pf.includes(c.item), g.key + ' ' + c.act + ' 에 맞는 옷'); }
+  assert(res.cuts.every(c => !c.pose || ['standing_relaxed', 'contrapposto', 'hand_on_hip', 'arms_crossed', 'leaning_wall', 'hands_in_hair', 'on_tiptoe', 'stretching', 'sitting', 'cross_legged', 'perched_seat', 'walking', 'mid_stride', 'mid_action', 'dance_step'].includes(c.pose)), g.key + ' 몸 자세만');
+  assert(res.cuts.every(c => !/laugh|smil|sing/i.test(tree.activities.find(a => a.key === c.act).en) || !c.expr), g.key + ' 표정을 정하는 하는 일엔 표정 비움');
   assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail'].includes(c.frame) || !['wide24', 'documentary35'].includes(c.lens)), g.key + ' 가까운 컷에 광각 없음');
   for (const c of res.cuts) {
     const rec = C.record(g, c), sc = rec.storage.cards[g.key].scenes.casual;

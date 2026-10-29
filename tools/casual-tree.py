@@ -8,6 +8,7 @@
   - 열쇠가 겹치지 않고, 가리키는 시대·묶음·장소·자세 계열·의상 계열이 다 있다
   - 어느 시대에서 어느 장소를 골라도 하는 일이 둘 이상, 어느 하는 일을 골라도 입을 옷 계열이 하나 이상 남는다
   - 영어 칸에 한글이 없다(지시문은 영어)
+  - 하는 일이 먼저 고르라는 옷(prefer)이 그 하는 일이 받는 옷 계열에 있다 — 자전거 점검에 양궁 차림이 붙었다(심시티 계획)
   - 어느 시대에서든 필수 갈래(란제리풍·수영복·역할극 또는 게임 속 일상 — 섹시)에 닿는 길이 있다
   - 추천 조합(지금 갈래의 장면 예시를 옮긴 것)과 예전 기록 변환표가 다 고를 수 있는 길이다
 
@@ -126,6 +127,10 @@ def check(doc):
         for o in a.get("outfits", []):
             if o not in I["outfits"]:
                 errs.append("하는 일 %s 의 옷 계열 %s 가 없다" % (a["key"], o))
+        allowed = set(a.get("outfits") or I["outfits"])
+        for it in a.get("prefer", []):
+            if not any(it in {x["key"] for x in I["outfits"][f]["items"]} for f in allowed if f in I["outfits"]):
+                errs.append("하는 일 %s 가 고르라는 옷 %s 가 받는 옷 계열에 없다" % (a["key"], it))
     for o in doc["outfits"]:
         uniq("옷 계열", o["key"])
         if not o["items"]:
