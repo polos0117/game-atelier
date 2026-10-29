@@ -1,0 +1,349 @@
+{
+ "qid": "Q733992",
+ "fetched": "2026-10-29",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14428"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Capcom"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "캡콤"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14428"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Capcom"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "캡콤"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q182172"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nintendo GameCube"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "닌텐도 게임큐브"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q184839"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nintendo 64"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "닌텐도 64"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q119267"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Tiger Electronics"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "타이거 일렉트로닉스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q333967"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "survival horror"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "서바이벌 호러"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q699634"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Factor 5"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q113259205"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "zombie video game"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q184198"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "드림캐스트"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q959329"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "록스타 샌디에이고"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q109303478"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10677"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1998-01-21T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q733992"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Resident_Evil_2"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EB%B0%94%EC%9D%B4%EC%98%A4%ED%95%98%EC%9E%90%EB%93%9C_2"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Resident Evil 2"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "바이오하자드 2"
+   }
+  }
+ ]
+}

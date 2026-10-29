@@ -1,0 +1,450 @@
+{
+ "qid": "Q214232",
+ "fetched": "2026-10-29",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Android"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q207784"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Square Enix"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "스퀘어 에닉스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q739552"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Square"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "스퀘어"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q739552"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Square"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "스퀘어"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q744038"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "role-playing video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "롤플레잉 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q54323360"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "cyberpunk video game"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "사이버펑크 비디오 게임"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q5014725"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 4"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q19610114"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "닌텐도 스위치"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q99416119"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "파이널 판타지"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10677"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1997-01-31T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1997-09-07T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1997-11-14T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1998-06-25T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2013-05-16T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2015-08-19T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2015-12-05T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2016-07-07T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2019-03-26T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q214232"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Final_Fantasy_VII"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%EB%84%90_%ED%8C%90%ED%83%80%EC%A7%80_VII"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Final Fantasy VII"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "파이널 판타지 VII"
+   }
+  }
+ ]
+}

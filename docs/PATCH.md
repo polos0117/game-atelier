@@ -11,6 +11,13 @@
 
 
 
+## 2026-10-29 · claude · 넷째 묶음 8편 — 하스스톤·프리스타일·파이널 판타지 VII·크로노 트리거·메이플스토리·바이오하자드 2·페르소나 5·메탈 기어 솔리드
+- data/game-design.json — 스타듀 밸리 중반 자세 「한 손으로 쥔 곡괭이 자루를 어깨에 곧게 걸치고 …」(곡괭이 자루가 손 아래에서 꺾였다). 여덟 편의 해석 칸(인격·한마디·능력·폼·개방·실루엣·얼굴·알아볼 거리·그리지 않을 것). 사용자가 셋을 정하고 일곱은 없는 갈래로 골랐다. 사용자가 정한 파랜드 택틱스 3 은 Wikidata 에 항목이 없어 사용자 결정으로 랑그릿사 II 로 바꿨다(첫 작품은 시리즈 항목만 있다). 랑그릿사 II·카트라이더는 Wikidata 장애(1분에 한 번)로 사실 칸을 못 받아 사용자 결정으로 잠시 뺐다 — 설계는 docs/GAME_CONCEPT.md 6-4 에 두고 받으면 다시 넣는다. 장르 다섯(카드·스포츠·레이싱·호러·잠입)을 묶음에 더했다. 폼 지시문 충돌 0, 가장 긴 지시문 900 낱말 안
+- lib/prompt-spec.js — 새 장르 다섯과 재질·자세·색 서른 낱말의 영어
+- prompt.html — prompt-spec v=37
+- docs/GAME_CONCEPT.md — 6-4 넷째 묶음 표, 5절 묶음 표에 새 장르
+- docs/held/kartrider-langrisser_2.json — 잠시 뺀 두 편의 설계표 항목(QID 까지 적혀 있다)
+
 ## 2026-10-29 · claude · 헤엄치기 문장·컷 · 리니지 중반 자세
 - data/casual-tree.json — 하는 일 swim 의 en 「swimming through the water mid-stroke」 → 「swimming breaststroke, her head and shoulders above the water」, not_frames 에 three_quarter 를 더했다. game 리니지 일상4 가 두 번 다 물속에 앉아 기댔다 — 무릎까지 담는 3/4 컷이 수평으로 누운 헤엄과 부딪혀 몸을 세웠다
 - data/game-design.json — 리니지 중반 자세 「칼날을 눈높이로 들어 숨죽여 바라보는」 → 「칼날을 얼굴 앞에 세워 들고 눈길을 칼날에 둔」. 칼을 머리 위로 들고 카메라를 봤다

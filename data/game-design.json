@@ -18,14 +18,21 @@
    "MMORPG",
    "전략 RPG",
    "오픈월드",
-   "MOBA"
+   "MOBA",
+   "카드",
+   "스포츠",
+   "레이싱",
+   "호러",
+   "잠입"
   ],
   "group": {
    "reflex": [
     "액션",
     "격투",
     "슈팅",
-    "플랫폼"
+    "플랫폼",
+    "스포츠",
+    "레이싱"
    ],
    "growth": [
     "RPG",
@@ -37,13 +44,16 @@
    "mind": [
     "퍼즐",
     "전략",
-    "MOBA"
+    "MOBA",
+    "카드"
    ],
    "explore": [
     "어드벤처",
     "샌드박스",
     "미로",
-    "오픈월드"
+    "오픈월드",
+    "호러",
+    "잠입"
    ]
   },
   "era": [
@@ -140,7 +150,17 @@
    "frostrune_plate",
    "pledge_damask",
    "gingham_denim",
-   "academy_wool"
+   "academy_wool",
+   "tavern_tapestry",
+   "mesh_jersey",
+   "knight_gild_plate",
+   "mako_canvas",
+   "chrono_cotton",
+   "maple_felt",
+   "racing_nylon",
+   "rain_slicker",
+   "thief_leather",
+   "sneaking_weave"
   ],
   "pose": [
    "dash_corner",
@@ -167,7 +187,17 @@
    "hammer_rally",
    "enchant_gaze",
    "watering_sprout",
-   "orbment_link"
+   "orbment_link",
+   "card_fan",
+   "crossover_dribble",
+   "grid_command",
+   "buster_rest",
+   "gate_leap",
+   "skill_jump",
+   "boost_drift",
+   "flashlight_aim",
+   "mask_pull",
+   "codec_crouch"
   ],
   "palette": [
    "neon_yellow_navy",
@@ -194,7 +224,17 @@
    "frost_blue_gold",
    "aden_crimson_silver",
    "harvest_green_gold",
-   "academy_crimson_gold"
+   "academy_crimson_gold",
+   "hearth_amber_wood",
+   "court_orange_asphalt",
+   "holy_azure_silver",
+   "mako_green_steel",
+   "epoch_sky_bronze",
+   "maple_orange_mint",
+   "kart_cherry_checker",
+   "umbrella_red_night",
+   "phantom_red_black",
+   "arctic_gray_olive"
   ],
   "hair_color": [
    "antique_gold",
@@ -5046,7 +5086,7 @@
     "중반": {
      "look": "목에 땀받이 손수건을 두르고 허리에 광석 주머니를 단 작업복, 한 손에 곡괭이",
      "role": "돌파",
-     "pose": "곡괭이를 어깨에 걸치고 등불을 들어 광산 깊은 곳을 비춰 보는 자세",
+     "pose": "한 손으로 쥔 곡괭이 자루를 어깨에 곧게 걸치고, 다른 손의 등불로 광산 깊은 곳을 비춰 보는 자세",
      "setting": "광석이 반짝이는 어두운 광산 층 — 등불 하나와 나무 사다리",
      "homage": "광부·모험가 길드풍 — 등불과 곡괭이"
     },
@@ -5489,6 +5529,1447 @@
     "wiki": {
      "ko": "https://ko.wikipedia.org/wiki/%EC%98%81%EC%9B%85%EC%A0%84%EC%84%A4_%EC%84%AC%EC%9D%98_%EA%B6%A4%EC%A0%81",
      "en": "https://en.wikipedia.org/wiki/The_Legend_of_Heroes:_Trails_of_Cold_Steel"
+    }
+   }
+  },
+  {
+   "key": "hearthstone",
+   "title": "하스스톤",
+   "title_en": "Hearthstone",
+   "genre": "카드",
+   "group": "mind",
+   "era": "hd",
+   "persona": "여관 화롯가에서 카드를 섞으며 손님을 승부로 불러 앉히는 단골",
+   "voice": {
+    "타이틀": "자리 있어. 한 판 붙고 가.",
+    "중반": "마나가 찼어. 이번 턴은 내 거야.",
+    "엔딩": "전설 카드가 떴다. 박수 칠 준비 해."
+   },
+   "desire": "화롯가의 모든 손님과 한 판씩 겨뤄 보기",
+   "conflict": "덱을 믿고 기다리는 마음과 지금 뒤집고 싶은 손",
+   "symbols": [
+    "카드 덱",
+    "마나 수정",
+    "여관 화로"
+   ],
+   "signature": [
+    "불꽃이 타닥이는 여관 화로와 나무 탁자",
+    "금테를 두른 카드 뒷면",
+    "주황빛으로 빛나는 전설 카드 테두리",
+    "푸르게 빛나는 마나 수정"
+   ],
+   "mechanic": "차례마다 마나 수정이 하나씩 늘고, 덱에서 뽑은 카드를 내려 싸운다",
+   "rule": {
+    "forms": {
+     "타이틀": "마나 — 차례마다 수정 +1, 셋이면 카드 한 장 더 낸다",
+     "중반": "하수인 — 내린 카드가 옆 자리를 지킨다",
+     "엔딩": "전설 — 모은 수정 수만큼 한 번에 공격"
+    },
+    "counter": "수정이 차기 전에 몰아친다. 지키는 카드부터 치운다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "소매를 걷은 여관 셔츠와 자수 코르셋, 겹치마, 허리에 카드 주머니",
+     "role": "지원",
+     "pose": "카드를 부채처럼 펼쳐 들고 맞은편 자리로 손짓하는 자세",
+     "setting": "따뜻한 등불이 켜진 여관 선술집 — 나무 들보와 화롯불",
+     "homage": "여관 단골풍 — 앞치마와 카드 주머니"
+    },
+    "중반": {
+     "look": "푸른 수정 장식이 달린 마법사 로브와 짧은 망토",
+     "role": "교란",
+     "pose": "공중에 떠오른 카드 한 장에 손끝을 대고 주문을 거는 자세",
+     "setting": "푸른 빛이 감도는 마법 탑의 서재 — 떠다니는 책과 촛불",
+     "homage": "마법사 영웅풍 — 별 무늬 로브와 수정 장식"
+    },
+    "엔딩": {
+     "look": "금박 테두리의 진홍 드레스와 어깨에 두른 금빛 망토",
+     "role": "공격",
+     "pose": "빛나는 카드 한 장을 손가락 사이에 끼워 앞으로 겨누는 자세",
+     "setting": "관중석이 둘러싼 원형 투기장 — 금빛 조명",
+     "homage": "전설 카드풍 — 금박 테두리와 주황 광채"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "탁자 위 카드들이 한꺼번에 뒤집히며 화롯불이 크게 일어난다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "중반": {
+     "scene": "떠오른 카드들이 둘레를 돌며 푸른 수정들이 하나씩 켜진다",
+     "one_figure": true,
+     "particles": "cards"
+    },
+    "엔딩": {
+     "scene": "손끝의 빛이 터지며 투기장 둘레의 깃발들이 한꺼번에 펄럭이고 금빛 가루가 쏟아진다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Mediterranean",
+   "silhouette": {
+    "body": "curvy",
+    "hair": "updo_bun",
+    "garment": "layered_skirt",
+    "material": "tavern_tapestry",
+    "pose": "card_fan",
+    "palette": "hearth_amber_wood",
+    "hair_color": "bronze"
+   },
+   "face": {
+    "face_shape": "round",
+    "eyes": "droopy_soft",
+    "brows": "arched_thin",
+    "nose": "upturned",
+    "lips": "heart_full",
+    "eye_color": "amber"
+   },
+   "place": "a warm wooden tavern of card players and a firelit hearth, with magic towers and a golden arena beyond",
+   "rights": "블리자드 엔터테인먼트 — 이름이 상표다. 원작 영웅·하수인 카드 그림을 따라 그리지 않는다",
+   "avoid": [
+    "원작 영웅·하수인의 얼굴과 몸",
+    "카드 앞면의 원작 그림",
+    "로고·타이틀 글자",
+    "카드 위의 읽히는 글자·숫자",
+    "화면 위 HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q8262784",
+    "fetched": "2026-10-29",
+    "year": 2014,
+    "developer": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q64350339",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q2176159",
+      "ko": "턴제 전략 게임",
+      "en": "turn-based strategy video game"
+     },
+     {
+      "qid": "Q48997688",
+      "ko": "디지털 트레이딩 카드 게임",
+      "en": "collectible card video game"
+     }
+    ],
+    "series": {
+     "qid": "Q108370968",
+     "ko": null,
+     "en": "Hearthstone"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%ED%95%98%EC%8A%A4%EC%8A%A4%ED%86%A4",
+     "en": "https://en.wikipedia.org/wiki/Hearthstone"
+    }
+   }
+  },
+  {
+   "key": "freestyle",
+   "title": "프리스타일",
+   "title_en": "FreeStyle Street Basketball",
+   "genre": "스포츠",
+   "group": "reflex",
+   "era": "early_3d",
+   "persona": "동네 길거리 코트에서 3대3 판을 벌이는 자신만만한 가드",
+   "voice": {
+    "타이틀": "셋 모였지? 코트 잡았어.",
+    "중반": "패스 줘. 지금 비었어!",
+    "엔딩": "마지막 한 골, 내가 넣는다."
+   },
+   "desire": "밤 코트의 모든 팀을 이기고 이름을 남기기",
+   "conflict": "혼자 돌파하고 싶은 마음과 팀에게 공을 돌려야 하는 판",
+   "symbols": [
+    "농구공",
+    "철망 코트",
+    "스니커즈"
+   ],
+   "signature": [
+    "철망 울타리에 둘러싸인 길거리 농구 코트",
+    "주황 농구공과 하얀 그물 골대",
+    "그라피티가 그려진 벽과 붐박스",
+    "밤 코트를 비추는 투광등"
+   ],
+   "mechanic": "셋이 한 팀으로 패스를 돌리고, 기술을 이어 쓸수록 슛이 강해진다",
+   "rule": {
+    "forms": {
+     "타이틀": "패스 — 이웃 자리 동료에게 힘 +1을 넘긴다",
+     "중반": "돌파 — 맞은편 하나를 지나쳐 뒷자리를 친다",
+     "엔딩": "덩크 — 이어 쓴 기술 수만큼 한 번에 공격"
+    },
+    "counter": "패스 길을 막는다. 돌파한 쪽을 둘러싼다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "헐렁한 농구 저지 위의 짧은 재킷과 반바지, 손목 밴드",
+     "role": "돌파",
+     "pose": "공을 한 손에 끼고 다른 손가락으로 코트 끝을 가리키는 자세",
+     "setting": "철망 울타리의 동네 코트 — 늦은 오후 햇살",
+     "homage": "길거리 가드풍 — 저지와 손목 밴드"
+    },
+    "중반": {
+     "look": "후드 달린 짧은 트랙 재킷과 무릎 보호대",
+     "role": "교란",
+     "pose": "몸을 낮추고 공을 다리 사이로 옮기는 자세",
+     "setting": "그라피티 벽 앞 밤 코트 — 투광등 불빛",
+     "homage": "크로스오버 드리블풍 — 트랙 재킷과 보호대"
+    },
+    "엔딩": {
+     "look": "금빛 배지가 달린 팀 유니폼과 어깨에 두른 우승 수건",
+     "role": "공격",
+     "pose": "골대를 향해 높이 뛰어올라 공을 내리꽂는 자세",
+     "setting": "관중이 가득 찬 실내 대회 코트 — 밝은 조명",
+     "homage": "결승전 에이스풍 — 팀 유니폼과 우승 수건"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "불빛이 하나씩 켜지며 텅 빈 골목 둘레로 사람들이 모여든다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "중반": {
+     "scene": "발밑에서 바람이 일며 벽의 그라피티 색이 번져 나온다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "그물이 출렁이는 순간 관중석에서 종이 꽃가루가 쏟아진다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "African",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "short_crop",
+    "garment": "jacket_shorts",
+    "material": "mesh_jersey",
+    "pose": "crossover_dribble",
+    "palette": "court_orange_asphalt",
+    "hair_color": "royal_blue"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "almond_wide",
+    "brows": "angled_sharp",
+    "nose": "broad_soft",
+    "lips": "wide_smile",
+    "eye_color": "amber"
+   },
+   "place": "a chain-link street basketball court under floodlights, graffiti walls and a packed indoor final court",
+   "rights": "조이시티(JC 엔터테인먼트) — 이름이 상표다. 원작 캐릭터를 따라 그리지 않는다",
+   "avoid": [
+    "원작 캐릭터의 얼굴",
+    "실제 스포츠 브랜드 로고(스우시 등)",
+    "로고·타이틀 글자",
+    "유니폼·벽의 읽히는 글자·숫자",
+    "화면 위 점수판 HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q2663928",
+    "fetched": "2026-10-29",
+    "year": 2005,
+    "developer": [],
+    "publisher": [],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q63915027",
+      "ko": null,
+      "en": "basketball video game"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%ED%94%84%EB%A6%AC%EC%8A%A4%ED%83%80%EC%9D%BC_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/FreeStyle_Street_Basketball"
+    }
+   }
+  },
+  {
+   "key": "final_fantasy_7",
+   "title": "파이널 판타지 VII",
+   "title_en": "Final Fantasy VII",
+   "genre": "RPG",
+   "group": "growth",
+   "era": "early_3d",
+   "persona": "강철 도시 아래에서 큰 검을 메고 일거리를 찾는 용병",
+   "voice": {
+    "타이틀": "의뢰는 받아. 대신 선불이야.",
+    "중반": "마테리아 하나 더 끼우면 돼.",
+    "엔딩": "별의 목소리가 들려. 끝내러 가자."
+   },
+   "desire": "별을 지키려 거대한 회사와 맞서기",
+   "conflict": "돈으로 움직이는 용병과 지키고 싶은 것이 생긴 마음",
+   "symbols": [
+    "큰 검",
+    "마테리아 구슬",
+    "마황로"
+   ],
+   "signature": [
+    "초록 빛을 뿜는 거대한 마황로",
+    "빛나는 둥근 마테리아 구슬",
+    "철판 위의 강철 도시와 아래 빈민가",
+    "노란 초코보 깃털"
+   ],
+   "mechanic": "무기에 마테리아를 끼워 마법을 얻고, 한계에 이르면 필살기를 쓴다",
+   "rule": {
+    "forms": {
+     "타이틀": "용병 — 처음 공격에 힘 +1",
+     "중반": "마테리아 — 끼울 때마다 마법 하나, 둘이면 이어 쓴다",
+     "엔딩": "리미트 — 맞은 횟수만큼 한 번에 공격"
+    },
+    "counter": "마테리아를 모으기 전에 친다. 맞히지 말고 버틴다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "민소매 니트 위 가죽 조끼와 멜빵 바지, 금속 어깨받이",
+     "role": "돌파",
+     "pose": "어깨에 큰 검을 걸치고 비스듬히 돌아보는 자세",
+     "setting": "증기가 피어오르는 강철 도시의 기차역 — 밤의 초록 불빛",
+     "homage": "용병 솔저풍 — 어깨받이와 큰 검"
+    },
+    "중반": {
+     "look": "초록 구슬이 박힌 팔찌와 짧은 가죽 재킷, 허리의 전투 벨트",
+     "role": "교란",
+     "pose": "손바닥 위의 빛나는 구슬을 들여다보는 자세",
+     "setting": "하늘을 덮은 철판 아래 빈민가 교회 — 꽃밭과 틈새 햇빛",
+     "homage": "마테리아 사용자풍 — 구슬 팔찌와 재킷"
+    },
+    "엔딩": {
+     "look": "검은 가죽 롱코트와 은빛 어깨 장식, 등에 멘 큰 검",
+     "role": "공격",
+     "pose": "두 손으로 큰 검을 휘둘러 내리치는 자세",
+     "setting": "별의 중심으로 내려가는 크레이터 — 초록 빛줄기",
+     "homage": "최종 결전풍 — 롱코트와 큰 검"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "굉음과 함께 도시의 굴뚝들이 불기둥을 뿜으며 거리의 불빛이 한꺼번에 흔들린다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "중반": {
+     "scene": "구슬이 환하게 켜지며 교회 꽃밭 위로 빛의 고리가 퍼진다",
+     "one_figure": true,
+     "particles": "petals"
+    },
+    "엔딩": {
+     "scene": "크레이터 바닥에서 별의 흐름이 솟구쳐 그녀를 감싸며 하늘로 올라간다",
+     "one_figure": true,
+     "particles": "fireflies"
+    }
+   },
+   "ethnicity": "Central Asian",
+   "silhouette": {
+    "body": "slender",
+    "hair": "bob",
+    "garment": "shirt_vest",
+    "material": "mako_canvas",
+    "pose": "buster_rest",
+    "palette": "mako_green_steel",
+    "hair_color": "navy"
+   },
+   "face": {
+    "face_shape": "diamond",
+    "eyes": "narrow_upturned",
+    "brows": "straight_thick",
+    "nose": "small_button",
+    "lips": "full_wide",
+    "eye_color": "emerald"
+   },
+   "place": "a steel megacity on a plate over slums, glowing green reactors, a flower church and a great crater",
+   "rights": "스퀘어 에닉스 — 이름이 상표다. 원작 인물을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(클라우드·티파·에어리스 등)의 얼굴",
+    "몬스터·소환수의 디자인",
+    "로고·타이틀 글자",
+    "읽히는 글자·숫자·HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q214232",
+    "fetched": "2026-10-29",
+    "year": 1997,
+    "developer": [
+     {
+      "qid": "Q739552",
+      "ko": "스퀘어",
+      "en": "Square"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q207784",
+      "ko": "스퀘어 에닉스",
+      "en": "Square Enix"
+     },
+     {
+      "qid": "Q739552",
+      "ko": "스퀘어",
+      "en": "Square"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q54323360",
+      "ko": "사이버펑크 비디오 게임",
+      "en": "cyberpunk video game"
+     },
+     {
+      "qid": "Q744038",
+      "ko": "롤플레잉 비디오 게임",
+      "en": "role-playing video game"
+     }
+    ],
+    "series": {
+     "qid": "Q99416119",
+     "ko": "파이널 판타지",
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%EB%84%90_%ED%8C%90%ED%83%80%EC%A7%80_VII",
+     "en": "https://en.wikipedia.org/wiki/Final_Fantasy_VII"
+    }
+   }
+  },
+  {
+   "key": "chrono_trigger",
+   "title": "크로노 트리거",
+   "title_en": "Chrono Trigger",
+   "genre": "RPG",
+   "group": "growth",
+   "era": "16bit",
+   "persona": "축제 날 열린 시간의 문으로 뛰어들어 시대를 건너다니는 모험가",
+   "voice": {
+    "타이틀": "축제 구경 가자! 저 기계는 뭐야?",
+    "중반": "이 문 너머는 몇 년이야?",
+    "엔딩": "미래를 바꿀 수 있어. 다 같이."
+   },
+   "desire": "멸망의 날을 막아 모두의 미래를 바꾸기",
+   "conflict": "지금의 시대에 남고 싶은 마음과 다른 시대를 구해야 하는 몫",
+   "symbols": [
+    "시간의 문",
+    "모래시계",
+    "축제의 종"
+   ],
+   "signature": [
+    "푸르게 일렁이는 시간의 문",
+    "황금 모래시계",
+    "천년제 축제의 종과 깃발",
+    "하늘을 나는 시간 비행기"
+   ],
+   "mechanic": "동료와 기술을 합쳐 쓰고, 시대를 오가며 앞 시대의 일을 바꾼다",
+   "rule": {
+    "forms": {
+     "타이틀": "축제 — 처음 차례에 이웃 자리 동료와 힘 +1",
+     "중반": "합체 기술 — 이웃 동료와 함께 치면 한 번 더",
+     "엔딩": "시간 여행 — 쓰러진 동료 하나를 한 번 되살린다"
+    },
+    "counter": "합체하기 전에 둘을 갈라 놓는다. 되살릴 동료를 먼저 친다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "짧은 모험가 튜닉과 겹치마, 스카프, 가죽 장화",
+     "role": "정찰",
+     "pose": "축제 광장에서 한 손을 들어 시간의 문 쪽을 가리키는 자세",
+     "setting": "천년제가 열린 마을 광장 — 풍선과 햇살",
+     "homage": "축제 모험가풍 — 튜닉과 스카프"
+    },
+    "중반": {
+     "look": "톱니 무늬가 수놓인 망토와 금속 팔찌, 허리의 공구 주머니",
+     "role": "교란",
+     "pose": "빛나는 시간의 문으로 한 발 뛰어드는 자세",
+     "setting": "폐허가 된 미래 도시의 돔 — 잿빛 하늘",
+     "homage": "발명가풍 — 톱니 망토와 공구 주머니"
+    },
+    "엔딩": {
+     "look": "별빛 무늬의 긴 망토와 은빛 왕관 장식",
+     "role": "공격",
+     "pose": "모래시계를 높이 들어 하늘을 향하는 자세",
+     "setting": "하늘에 떠 있는 고대 왕국 — 구름 위의 빛",
+     "homage": "시대의 수호자풍 — 별빛 망토와 왕관 장식"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "광장 한가운데 푸른 소용돌이가 열리며 둘레의 풍선들이 빨려 든다",
+     "one_figure": true,
+     "particles": "stars"
+    },
+    "중반": {
+     "scene": "무너진 돔 사이로 여러 시대의 풍경이 겹쳐 비친다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "엔딩": {
+     "scene": "모래시계의 모래가 거꾸로 흐르며 붉은 하늘이 푸르게 되돌아간다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Southeast Asian",
+   "silhouette": {
+    "body": "petite",
+    "hair": "voluminous",
+    "garment": "layered_skirt",
+    "material": "chrono_cotton",
+    "pose": "gate_leap",
+    "palette": "epoch_sky_bronze",
+    "hair_color": "bright_red"
+   },
+   "face": {
+    "face_shape": "heart",
+    "eyes": "round_large",
+    "brows": "arched_thin",
+    "nose": "upturned",
+    "lips": "wide_smile",
+    "eye_color": "forest_green"
+   },
+   "place": "a sunny medieval kingdom holding a millennial fair, swirling time gates, a ruined domed future and a sky kingdom above the clouds",
+   "rights": "스퀘어 에닉스 — 이름이 상표다. 원작 인물(크로노·마르·루카 등)을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(크로노·마르·루카·개구리 등)의 얼굴",
+    "토리야마 아키라풍 인물 디자인 그대로",
+    "괴물의 디자인",
+    "로고·타이틀 글자",
+    "읽히는 글자·숫자·HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q761815",
+    "fetched": "2026-10-29",
+    "year": 1995,
+    "developer": [
+     {
+      "qid": "Q739552",
+      "ko": "스퀘어",
+      "en": "Square"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q207784",
+      "ko": "스퀘어 에닉스",
+      "en": "Square Enix"
+     },
+     {
+      "qid": "Q739552",
+      "ko": "스퀘어",
+      "en": "Square"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q170323",
+      "ko": "닌텐도 DS",
+      "en": "Nintendo DS"
+     },
+     {
+      "qid": "Q170325",
+      "ko": "플레이스테이션 포터블",
+      "en": "PlayStation Portable"
+     },
+     {
+      "qid": "Q183259",
+      "ko": "슈퍼 패미컴",
+      "en": "Super Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q188808",
+      "ko": "플레이스테이션 비타",
+      "en": "PlayStation Vita"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q8079",
+      "ko": "Wii",
+      "en": "Wii"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q104735362",
+      "ko": null,
+      "en": "turn-based Japanese role-playing game"
+     },
+     {
+      "qid": "Q54314590",
+      "ko": null,
+      "en": "time travel video game"
+     },
+     {
+      "qid": "Q744038",
+      "ko": "롤플레잉 비디오 게임",
+      "en": "role-playing video game"
+     },
+     {
+      "qid": "Q85422949",
+      "ko": "LGBT 등장인물이 있는 비디오 게임",
+      "en": "video game with LGBT character"
+     }
+    ],
+    "series": {
+     "qid": "Q325320",
+     "ko": "크로노",
+     "en": "Chrono"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%ED%81%AC%EB%A1%9C%EB%85%B8_%ED%8A%B8%EB%A6%AC%EA%B1%B0",
+     "en": "https://en.wikipedia.org/wiki/Chrono_Trigger"
+    }
+   }
+  },
+  {
+   "key": "maplestory",
+   "title": "메이플스토리",
+   "title_en": "MapleStory",
+   "genre": "MMORPG",
+   "group": "growth",
+   "era": "early_3d",
+   "persona": "단풍잎 섬에서 출발해 점프로 맵을 건너다니는 씩씩한 초보 모험가",
+   "voice": {
+    "타이틀": "헤네시스 가는 길 알아? 같이 가자!",
+    "중반": "전직했어! 스킬 봐 봐.",
+    "엔딩": "보스 잡으러 파티 모집 중이야."
+   },
+   "desire": "모든 마을을 돌고 가장 높은 레벨에 오르기",
+   "conflict": "혼자 사냥하는 재미와 파티로 가야만 깰 수 있는 길",
+   "symbols": [
+    "단풍잎",
+    "주황 버섯",
+    "포션"
+   ],
+   "signature": [
+    "바람에 흩날리는 단풍잎",
+    "통통 튀는 주황 버섯",
+    "빨강·파랑 물약 병",
+    "구름 위에 떠 있는 발판 길"
+   ],
+   "mechanic": "점프로 발판을 오르내리며 사냥하고, 레벨이 오르면 전직해 새 스킬을 얻는다",
+   "rule": {
+    "forms": {
+     "타이틀": "점프 — 처음 차례에 맞은편을 건너뛰어 그 옆 자리를 친다",
+     "중반": "전직 — 레벨이 오를 때마다 스킬 하나",
+     "엔딩": "파티 — 이웃 동료 수만큼 공격 +1"
+    },
+    "counter": "점프하기 전에 먼저 친다. 파티를 흩는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "단풍잎 브로치를 단 초보자 원피스와 멜빵 가방",
+     "role": "정찰",
+     "pose": "발판 끝에서 한 발을 들고 뛰어오르려는 자세",
+     "setting": "단풍나무가 늘어선 첫 마을 언덕 — 맑은 아침",
+     "homage": "초보자풍 — 셔츠와 멜빵 가방"
+    },
+    "중반": {
+     "look": "별 장식이 달린 마법사 망토와 짧은 원피스, 손에 짧은 지팡이",
+     "role": "교란",
+     "pose": "지팡이 끝에 반짝이는 스킬 빛을 모으는 자세",
+     "setting": "구름 위 하늘 도시의 발판 길 — 무지개빛 하늘",
+     "homage": "전직 마법사풍 — 별 망토와 지팡이"
+    },
+    "엔딩": {
+     "look": "금빛 날개 장식이 달린 흰 드레스 갑옷과 리본 망토",
+     "role": "공격",
+     "pose": "높이 뛰어오른 채 빛나는 스킬을 아래로 쏟아 내는 자세",
+     "setting": "시계탑이 솟은 신전의 꼭대기 — 노을빛",
+     "homage": "최종 직업풍 — 날개 장식과 리본 망토"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "단풍잎이 회오리처럼 일며 발판들이 하늘로 계단처럼 이어진다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "중반": {
+     "scene": "지팡이 끝의 빛이 터지며 구름 사이로 별 무리가 쏟아진다",
+     "one_figure": true,
+     "particles": "stars"
+    },
+    "엔딩": {
+     "scene": "시계탑 둘레로 빛의 고리가 퍼지며 노을 하늘이 갈라진다",
+     "one_figure": true,
+     "particles": "sparks"
+    }
+   },
+   "ethnicity": "Korean",
+   "silhouette": {
+    "body": "petite",
+    "hair": "ponytail",
+    "garment": "one_piece_dress",
+    "material": "maple_felt",
+    "pose": "skill_jump",
+    "palette": "maple_orange_mint",
+    "hair_color": "sunset_pink"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "droopy_soft",
+    "brows": "arched_thin",
+    "nose": "small_button",
+    "lips": "wide_smile",
+    "eye_color": "sky_blue"
+   },
+   "place": "a bright storybook world of maple-tree villages, floating cloud platforms, a sky city and a clocktower temple",
+   "rights": "넥슨 — 이름이 상표다. 원작 캐릭터·몬스터 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 영웅·NPC의 얼굴",
+    "몬스터의 똑같은 디자인(주황 버섯의 얼굴 등)",
+    "로고·타이틀 글자",
+    "화면 위 경험치 바·HUD",
+    "읽히는 글자·숫자"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q569624",
+    "fetched": "2026-10-29",
+    "year": 2003,
+    "developer": [
+     {
+      "qid": "Q489262",
+      "ko": "위젯 스튜디오",
+      "en": "Wizet"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q4806327",
+      "ko": null,
+      "en": "Asphere Innovations"
+     },
+     {
+      "qid": "Q5575439",
+      "ko": "샨다",
+      "en": "Shanda"
+     },
+     {
+      "qid": "Q562078",
+      "ko": "넥슨",
+      "en": "Nexon"
+     },
+     {
+      "qid": "Q6535056",
+      "ko": null,
+      "en": "Level Up! Games"
+     },
+     {
+      "qid": "Q697493",
+      "ko": "감마니아 디지털 엔터테인먼트",
+      "en": "AGE"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q175173",
+      "ko": "대규모 다중 사용자 온라인 롤 플레잉 게임(MMORPG)",
+      "en": "massively multiplayer online role-playing game"
+     },
+     {
+      "qid": "Q42409239",
+      "ko": "판타지 게임",
+      "en": "fantasy video game"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%8A%A4%ED%86%A0%EB%A6%AC",
+     "en": "https://en.wikipedia.org/wiki/MapleStory"
+    }
+   }
+  },
+  {
+   "key": "resident_evil_2",
+   "title": "바이오하자드 2",
+   "title_en": "Resident Evil 2",
+   "genre": "호러",
+   "group": "explore",
+   "era": "early_3d",
+   "persona": "비 내리는 밤 무너진 도시에 첫 출근한 신참 경찰",
+   "voice": {
+    "타이틀": "첫 출근이 이런 밤일 줄은 몰랐어.",
+    "중반": "탄약은 아껴. 문은 다시 잠가.",
+    "엔딩": "열차가 출발한다. 같이 나가자."
+   },
+   "desire": "살아서 이 도시를 빠져나가기",
+   "conflict": "한 사람이라도 더 구하고 싶은 마음과 줄어드는 탄약",
+   "symbols": [
+    "손전등",
+    "타자기",
+    "허브 화분"
+   ],
+   "signature": [
+    "어두운 복도를 가르는 손전등 불빛",
+    "낡은 타자기와 잉크 리본",
+    "초록 허브 화분",
+    "비에 젖은 경찰서 대리석 홀"
+   ],
+   "mechanic": "모자란 탄약과 회복약을 아껴 쓰며, 열쇠를 찾아 잠긴 문을 하나씩 연다",
+   "rule": {
+    "forms": {
+     "타이틀": "경계 — 처음 맞는 공격을 한 번 피한다",
+     "중반": "허브 — 둘을 섞으면 체력을 한 번 되찾는다",
+     "엔딩": "탈출 — 남은 탄약 수만큼 한 번에 공격"
+    },
+    "counter": "탄약을 쓰게 몰아친다. 회복할 틈을 주지 않는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "신참 경찰 제복 위에 걸친 반사띠 달린 비옷 코트, 허리의 권총집",
+     "role": "정찰",
+     "pose": "손전등을 비추며 어두운 쪽을 조심스럽게 살피는 자세",
+     "setting": "비 내리는 밤의 텅 빈 도시 거리 — 붉은 경광등",
+     "homage": "신참 경찰풍 — 제복과 비옷"
+    },
+    "중반": {
+     "look": "소매를 걷은 셔츠와 전술 조끼, 다리에 감은 붕대",
+     "role": "버티기",
+     "pose": "잠긴 문에 등을 붙이고 숨을 고르는 자세",
+     "setting": "촛불이 켜진 경찰서 대리석 홀 — 깨진 창문의 빗줄기",
+     "homage": "생존자풍 — 전술 조끼와 붕대"
+    },
+    "엔딩": {
+     "look": "검게 그을린 가죽 재킷과 어깨에 멘 큰 가방",
+     "role": "공격",
+     "pose": "지하 열차 승강장에서 앞을 겨누며 버티어 선 자세",
+     "setting": "붉은 경고등이 도는 지하 연구소 열차 승강장",
+     "homage": "탈출자풍 — 그을린 재킷과 가방"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "번개가 치는 순간 거리의 불이 모두 꺼지고 경광등만 붉게 돈다",
+     "one_figure": true,
+     "particles": "rain"
+    },
+    "중반": {
+     "scene": "대리석 홀의 촛불이 한꺼번에 흔들리며 위층 창으로 달빛이 쏟아진다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "엔딩": {
+     "scene": "경고등이 돌며 열차 불빛이 어둠 속에서 다가온다",
+     "one_figure": true,
+     "particles": "sparks"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "tall_statuesque",
+    "hair": "short_crop",
+    "garment": "coat_trousers",
+    "material": "rain_slicker",
+    "pose": "flashlight_aim",
+    "palette": "umbrella_red_night",
+    "hair_color": "antique_gold"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "almond_wide",
+    "brows": "low_heavy",
+    "nose": "aquiline",
+    "lips": "full_wide",
+    "eye_color": "steel_blue"
+   },
+   "place": "a rain-soaked American city at night, a marble-halled police station and an underground laboratory station",
+   "rights": "캡콤 — 이름이 상표다. 원작 인물(레온·클레어 등)과 괴물 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(레온·클레어·에이다 등)의 얼굴",
+    "좀비·괴물의 얼굴과 몸",
+    "피·상처 묘사",
+    "회사 로고(우산 문양)·타이틀 글자",
+    "읽히는 글자·숫자·HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q733992",
+    "fetched": "2026-10-29",
+    "year": 1998,
+    "developer": [
+     {
+      "qid": "Q119267",
+      "ko": "타이거 일렉트로닉스",
+      "en": "Tiger Electronics"
+     },
+     {
+      "qid": "Q14428",
+      "ko": "캡콤",
+      "en": "Capcom"
+     },
+     {
+      "qid": "Q699634",
+      "ko": null,
+      "en": "Factor 5"
+     },
+     {
+      "qid": "Q959329",
+      "ko": "록스타 샌디에이고",
+      "en": null
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q14428",
+      "ko": "캡콤",
+      "en": "Capcom"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q182172",
+      "ko": "닌텐도 게임큐브",
+      "en": "Nintendo GameCube"
+     },
+     {
+      "qid": "Q184198",
+      "ko": "드림캐스트",
+      "en": null
+     },
+     {
+      "qid": "Q184839",
+      "ko": "닌텐도 64",
+      "en": "Nintendo 64"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q113259205",
+      "ko": null,
+      "en": "zombie video game"
+     },
+     {
+      "qid": "Q333967",
+      "ko": "서바이벌 호러",
+      "en": "survival horror"
+     }
+    ],
+    "series": {
+     "qid": "Q109303478",
+     "ko": null,
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%B0%94%EC%9D%B4%EC%98%A4%ED%95%98%EC%9E%90%EB%93%9C_2",
+     "en": "https://en.wikipedia.org/wiki/Resident_Evil_2"
+    }
+   }
+  },
+  {
+   "key": "persona_5",
+   "title": "페르소나 5",
+   "title_en": "Persona 5",
+   "genre": "RPG",
+   "group": "growth",
+   "era": "hd",
+   "persona": "낮에는 평범한 학생, 밤에는 가면을 쓰고 마음속 궁전에 숨어드는 괴도",
+   "voice": {
+    "타이틀": "방과 후에 아지트에서 봐.",
+    "중반": "예고장은 보냈어. 오늘 밤 훔친다.",
+    "엔딩": "가면을 벗을 시간이야."
+   },
+   "desire": "삐뚤어진 어른들의 마음을 훔쳐 바로잡기",
+   "conflict": "평범한 학교생활과 아무도 모르는 밤의 일",
+   "symbols": [
+    "가면",
+    "예고장",
+    "검은 고양이"
+   ],
+   "signature": [
+    "하얀 괴도 가면",
+    "빨강·검정의 예고장 카드",
+    "검은 고양이 한 마리",
+    "밤의 도시 교차로와 네온"
+   ],
+   "mechanic": "낮에는 동료와 시간을 보내 유대를 쌓고, 밤에는 약점을 찔러 한 번 더 움직인다",
+   "rule": {
+    "forms": {
+     "타이틀": "유대 — 이웃 동료 하나마다 방어 +1",
+     "중반": "원 모어 — 약점을 치면 한 번 더 움직인다",
+     "엔딩": "총공격 — 이어 친 횟수만큼 한 번에 공격"
+    },
+    "counter": "약점을 감춘다. 이어 치기 전에 끊는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "교복 블레이저 재킷과 체크 치마, 리본 넥타이, 어깨에 멘 가방",
+     "role": "정찰",
+     "pose": "가방을 어깨에 걸치고 비스듬히 돌아보며 가면을 살짝 드는 자세",
+     "setting": "전철이 지나가는 도시 교차로 — 해 질 녘",
+     "homage": "학생풍 — 블레이저와 체크 치마"
+    },
+    "중반": {
+     "look": "붉은 장갑과 검은 가죽 괴도 코트, 하얀 가면",
+     "role": "교란",
+     "pose": "가면 끝을 손가락으로 잡아 떼어 내는 자세",
+     "setting": "황금빛 궁전의 복도 — 붉은 융단과 샹들리에",
+     "homage": "괴도풍 — 가죽 코트와 붉은 장갑"
+    },
+    "엔딩": {
+     "look": "긴 검은 연미 코트와 붉은 안감, 허리의 단검",
+     "role": "공격",
+     "pose": "코트 자락을 펄럭이며 몸을 돌려 손짓하는 자세",
+     "setting": "하늘로 뻗은 탑의 꼭대기 — 붉은 구름",
+     "homage": "괴도 리더풍 — 연미 코트와 붉은 안감"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "신호가 멈추며 거리 풍경이 붉은 궁전으로 뒤바뀐다",
+     "one_figure": true,
+     "particles": "cards"
+    },
+    "중반": {
+     "scene": "푸른 불꽃이 일며 궁전의 샹들리에가 흔들리고 융단 위로 그림자가 갈라진다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "엔딩": {
+     "scene": "붉은 구름이 갈라지며 붉은 종잇장들이 하늘 가득 흩날린다",
+     "one_figure": true,
+     "particles": "cards"
+    }
+   },
+   "ethnicity": "Japanese",
+   "silhouette": {
+    "body": "curvy",
+    "hair": "long_wavy",
+    "garment": "tailored_suit",
+    "material": "thief_leather",
+    "pose": "mask_pull",
+    "palette": "phantom_red_black",
+    "hair_color": "violet"
+   },
+   "face": {
+    "face_shape": "diamond",
+    "eyes": "almond_wide",
+    "brows": "angled_sharp",
+    "nose": "straight_narrow",
+    "lips": "heart_full",
+    "eye_color": "crimson"
+   },
+   "place": "a modern Tokyo of busy crossings and back alleys, with golden palaces and a tower of red clouds hidden in people's hearts",
+   "rights": "아틀러스(세가) — 이름이 상표다. 원작 인물·페르소나 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(조커·앤·모르가나 등)의 얼굴",
+    "원작 페르소나·그림자의 디자인",
+    "로고·타이틀 글자",
+    "예고장·간판의 읽히는 글자",
+    "화면 위 HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q15225985",
+    "fetched": "2026-10-29",
+    "year": 2016,
+    "developer": [
+     {
+      "qid": "Q780528",
+      "ko": "아틀러스",
+      "en": null
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q553658",
+      "ko": "딥 실버",
+      "en": "Deep Silver"
+     },
+     {
+      "qid": "Q780528",
+      "ko": "아틀러스",
+      "en": null
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q744038",
+      "ko": "롤플레잉 비디오 게임",
+      "en": "role-playing video game"
+     }
+    ],
+    "series": {
+     "qid": "Q1083352",
+     "ko": "페르소나 시리즈",
+     "en": "Persona"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%ED%8E%98%EB%A5%B4%EC%86%8C%EB%82%98_5",
+     "en": "https://en.wikipedia.org/wiki/Persona_5"
+    }
+   }
+  },
+  {
+   "key": "metal_gear_solid",
+   "title": "메탈 기어 솔리드",
+   "title_en": "Metal Gear Solid",
+   "genre": "잠입",
+   "group": "explore",
+   "era": "early_3d",
+   "persona": "눈 덮인 섬의 기지에 홀로 숨어든 특수 요원",
+   "voice": {
+    "타이틀": "통신 들려? 지금 들어간다.",
+    "중반": "들키면 끝이야. 숨 죽여.",
+    "엔딩": "격납고 끝에 그게 있어. 멈춘다."
+   },
+   "desire": "들키지 않고 기지 깊숙이 들어가 거대한 병기를 멈추기",
+   "conflict": "숨어야 하는 임무와 마주친 사람을 지나칠 수 없는 마음",
+   "symbols": [
+    "무전기",
+    "골판지 상자",
+    "쌍안경"
+   ],
+   "signature": [
+    "귀에 대는 작은 무전기",
+    "기지 구석의 골판지 상자",
+    "눈 내리는 헬기 이착륙장",
+    "기지 복도의 환풍구와 철제 사다리"
+   ],
+   "mechanic": "적의 시야를 피해 숨어 다니고, 들키면 경보가 울려 적이 몰려온다",
+   "rule": {
+    "forms": {
+     "타이틀": "잠입 — 처음 차례에 맞은편의 반격을 받지 않는다",
+     "중반": "숨기 — 공격받지 않은 차례마다 회피 +1",
+     "엔딩": "격파 — 숨어 지낸 차례 수만큼 한 번에 공격"
+    },
+    "counter": "경보를 울려 숨을 곳을 없앤다. 먼저 찾아낸다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "몸에 붙는 무광 잠입 슈트와 허리의 장비 벨트",
+     "role": "정찰",
+     "pose": "벽에 등을 붙이고 앉아 귀에 손가락을 대고 무전을 듣는 자세",
+     "setting": "눈보라 치는 기지 선착장 — 차가운 조명",
+     "homage": "잠입 요원풍 — 잠입 슈트와 장비 벨트"
+    },
+    "중반": {
+     "look": "눈 위장 무늬 겉옷과 털 달린 후드, 목에 건 쌍안경",
+     "role": "교란",
+     "pose": "몸을 낮추고 모퉁이 너머를 쌍안경으로 살피는 자세",
+     "setting": "탐조등이 오가는 눈 덮인 헬기장",
+     "homage": "설원 위장풍 — 위장 겉옷과 쌍안경"
+    },
+    "엔딩": {
+     "look": "찢긴 잠입 슈트 위의 검은 전술 코트와 붉은 반다나",
+     "role": "공격",
+     "pose": "격납고 바닥에 한쪽 무릎을 대고 위를 노려보는 자세",
+     "setting": "거대한 병기가 선 어두운 격납고 — 붉은 경보등",
+     "homage": "작전 마지막 날풍 — 전술 코트와 반다나"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "눈보라가 걷히며 기지의 탐조등이 일제히 그녀를 지나간다",
+     "one_figure": true,
+     "particles": "snow"
+    },
+    "중반": {
+     "scene": "경보가 울리며 헬기장의 탐조등이 한곳으로 모인다",
+     "one_figure": true,
+     "particles": "snow"
+    },
+    "엔딩": {
+     "scene": "격납고의 거대한 그림자가 움직이려는 순간 불꽃이 튀며 멈춘다",
+     "one_figure": true,
+     "particles": "sparks"
+    }
+   },
+   "ethnicity": "Slavic",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "updo_bun",
+    "garment": "flight_suit",
+    "material": "sneaking_weave",
+    "pose": "codec_crouch",
+    "palette": "arctic_gray_olive",
+    "hair_color": "silver_white"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "deep_set",
+    "brows": "angled_sharp",
+    "nose": "broad_soft",
+    "lips": "thin_long",
+    "eye_color": "steel_blue"
+   },
+   "place": "a snowbound island military base of icy docks, searchlit helipads and a vast dark hangar",
+   "rights": "코나미 — 이름이 상표다. 원작 인물(스네이크 등)과 메탈 기어 병기 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(스네이크·메릴·울프 등)의 얼굴",
+    "메탈 기어 병기의 똑같은 디자인",
+    "로고·타이틀 글자",
+    "화면 위 레이더·HUD",
+    "읽히는 글자·숫자"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q6582527",
+    "fetched": "2026-10-29",
+    "year": 1998,
+    "developer": [
+     {
+      "qid": "Q45700",
+      "ko": "코나미",
+      "en": "Konami"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q45700",
+      "ko": "코나미",
+      "en": "Konami"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q170325",
+      "ko": "플레이스테이션 포터블",
+      "en": "PlayStation Portable"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q343568",
+      "ko": "액션 어드벤처 게임",
+      "en": "action-adventure game"
+     },
+     {
+      "qid": "Q858523",
+      "ko": "스텔스 게임",
+      "en": "stealth game"
+     }
+    ],
+    "series": {
+     "qid": "Q216655",
+     "ko": "메탈 기어",
+     "en": "Metal Gear"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%A9%94%ED%83%88_%EA%B8%B0%EC%96%B4_%EC%86%94%EB%A6%AC%EB%93%9C",
+     "en": "https://en.wikipedia.org/wiki/Metal_Gear_Solid_(video_game)"
     }
    }
   }

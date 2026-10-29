@@ -1,0 +1,728 @@
+{
+ "qid": "Q761815",
+ "fetched": "2026-10-29",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Android"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q8079"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Wii"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "Wii"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10683"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "PlayStation 3"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 3"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170325"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "PlayStation Portable"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 포터블"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q183259"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Super Nintendo Entertainment System"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "슈퍼 패미컴"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q188808"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "PlayStation Vita"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 비타"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q207784"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Square Enix"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "스퀘어 에닉스"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170323"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nintendo DS"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "닌텐도 DS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q325320"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Chrono"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "크로노"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q739552"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Square"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "스퀘어"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q739552"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Square"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "스퀘어"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q744038"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "role-playing video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "롤플레잉 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6895044"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "멀티플레이어 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q104735362"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "turn-based Japanese role-playing game"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q54314590"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "time travel video game"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q85422949"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "video game with LGBT character"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "LGBT 등장인물이 있는 비디오 게임"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10677"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1995-03-11T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1995-08-11T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1995-08-22T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1999-11-02T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2001-06-29T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2008-11-20T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2008-11-25T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2009-02-03T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2009-02-06T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2011-04-26T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2011-05-16T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2011-05-20T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2011-12-08T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2011-12-22T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2012-10-29T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2018-02-27T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q761815"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Chrono_Trigger"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%ED%81%AC%EB%A1%9C%EB%85%B8_%ED%8A%B8%EB%A6%AC%EA%B1%B0"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Chrono Trigger"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "크로노 트리거"
+   }
+  }
+ ]
+}

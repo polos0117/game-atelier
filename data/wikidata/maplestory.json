@@ -1,0 +1,302 @@
+{
+ "qid": "Q569624",
+ "fetched": "2026-10-29",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q175173"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "massively multiplayer online role-playing game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "대규모 다중 사용자 온라인 롤 플레잉 게임(MMORPG)"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q489262"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Wizet"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "위젯 스튜디오"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q562078"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nexon"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "넥슨"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q697493"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "AGE"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "감마니아 디지털 엔터테인먼트"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q4806327"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Asphere Innovations"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q5575439"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Shanda"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "샨다"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6535056"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Level Up! Games"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6895044"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "멀티플레이어 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q42409239"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "fantasy video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "판타지 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "2003-04-29T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q569624"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/MapleStory"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%8A%A4%ED%86%A0%EB%A6%AC"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "MapleStory"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "메이플스토리"
+   }
+  }
+ ]
+}

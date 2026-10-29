@@ -1,0 +1,242 @@
+[
+ {
+  "key": "langrisser_2",
+  "title": "랑그릿사 II",
+  "title_en": "Langrisser II",
+  "genre": "전략 RPG",
+  "group": "growth",
+  "era": "16bit",
+  "persona": "용병 부대를 거느리고 성검의 전설을 좇아 전장을 누비는 젊은 지휘관",
+  "voice": {
+   "타이틀": "부대는 내 곁에 붙어. 흩어지면 약해져.",
+   "중반": "상성을 봐. 창병은 기병에 강해.",
+   "엔딩": "성검이 응답했어. 마지막 싸움이야."
+  },
+  "desire": "성검을 지켜 빛과 어둠의 싸움을 끝내기",
+  "conflict": "부대를 아끼는 지휘관의 마음과 앞으로 나서야 하는 성검의 주인",
+  "symbols": [
+   "성검",
+   "용병 부대 깃발",
+   "마법진"
+  ],
+  "signature": [
+   "푸르게 빛나는 성검의 칼날",
+   "지휘관을 따르는 용병 부대의 깃발",
+   "바닥에 그려지는 마법진",
+   "안개 낀 고성과 숲의 전장"
+  ],
+  "mechanic": "지휘관이 용병 부대를 거느리고, 지휘관 곁에 붙은 부대일수록 강해진다",
+  "rule": {
+   "forms": {
+    "타이틀": "진형 — 이웃 자리 동료와 함께 있으면 방어 +1",
+    "중반": "지형 — 처음 공격은 맞은편 반격을 받지 않는다",
+    "엔딩": "성검 — 곁에 남은 동료 수만큼 한 번에 공격"
+   },
+   "counter": "진형을 흩는다. 이웃 자리를 먼저 비운다"
+  },
+  "forms": {
+   "타이틀": {
+    "look": "푸른 문장 겉옷 위의 가벼운 판금 흉갑과 흰 망토",
+    "role": "버티기",
+    "pose": "검을 땅에 세우고 한 손으로 동료 쪽을 막아서는 자세",
+    "setting": "들꽃이 핀 언덕의 첫 전장 — 맑은 하늘",
+    "homage": "견습 기사풍 — 문장 겉옷과 흰 망토"
+   },
+   "중반": {
+    "look": "은빛 판금 어깨와 푸른 겹옷, 허리에 마법서",
+    "role": "교란",
+    "pose": "펼친 손 아래로 마법진을 그려 내는 자세",
+    "setting": "무너진 요새의 안뜰 — 저녁 안개",
+    "homage": "마법 기사풍 — 판금 어깨와 마법서"
+   },
+   "엔딩": {
+    "look": "금테 두른 흰 판금 갑옷과 길게 끌리는 푸른 망토",
+    "role": "공격",
+    "pose": "성검을 앞으로 내밀어 전장 끝을 겨누는 자세",
+    "setting": "대륙이 내려다보이는 고성의 성벽 — 새벽빛",
+    "homage": "성기사 단장풍 — 흰 판금과 성검"
+   }
+  },
+  "opens": {
+   "타이틀": {
+    "scene": "발밑에서 빛의 고리가 퍼지며 둘레의 용병들이 하나씩 그녀 곁으로 모여든다",
+    "one_figure": true,
+    "particles": "petals"
+   },
+   "중반": {
+    "scene": "마법진이 크게 열리며 둘레의 안개가 푸른 빛으로 갈라진다",
+    "one_figure": true,
+    "particles": "mist"
+   },
+   "엔딩": {
+    "scene": "성검에서 빛이 뻗어 나가며 먹구름 아래 대륙이 환해진다",
+    "one_figure": true,
+    "particles": "stars"
+   }
+  },
+  "ethnicity": "East Asian",
+  "silhouette": {
+   "body": "slender",
+   "hair": "long_straight",
+   "garment": "armor_layered",
+   "material": "knight_gild_plate",
+   "pose": "grid_command",
+   "palette": "holy_azure_silver",
+   "hair_color": "ash_gray"
+  },
+  "face": {
+   "face_shape": "oval",
+   "eyes": "deep_set",
+   "brows": "soft_round",
+   "nose": "straight_narrow",
+   "lips": "small_bow",
+   "eye_color": "azure"
+  },
+  "place": "a misty fantasy kingdom of hill battlefields, mercenary camps, ruined forts and an ancient castle guarding a holy sword",
+  "rights": "메사이야(엔터브레인) — 이름이 상표다. 원작 인물 그림을 따라 그리지 않는다",
+  "avoid": [
+   "원작 인물의 얼굴",
+   "괴물·적 유닛의 얼굴과 몸",
+   "로고·타이틀 글자",
+   "화면 위 칸 번호·체력 숫자 HUD",
+   "읽히는 글자·숫자"
+  ],
+  "series": [],
+  "pilot": null,
+  "facts": {
+   "qid": "Q665393",
+   "fetched": null,
+   "year": null,
+   "developer": [],
+   "publisher": [],
+   "platforms": [],
+   "genres": [],
+   "series": null,
+   "modes": [],
+   "wiki": {
+    "ko": null,
+    "en": null
+   }
+  }
+ },
+ {
+  "key": "kartrider",
+  "title": "카트라이더",
+  "title_en": "Crazyracing Kartrider",
+  "genre": "레이싱",
+  "group": "reflex",
+  "era": "early_3d",
+  "persona": "작은 카트를 몰고 드리프트로 코너를 빠져나가는 동네 레이서",
+  "voice": {
+   "타이틀": "출발 신호 떨어지면 바로 부스터야.",
+   "중반": "드리프트 각 봤지? 한 번 더!",
+   "엔딩": "마지막 바퀴. 1등은 내 거."
+  },
+  "desire": "모든 트랙에서 가장 빠른 기록을 세우기",
+  "conflict": "아이템으로 뒤집는 판과 실력으로만 이기고 싶은 마음",
+  "symbols": [
+   "카트",
+   "부스터",
+   "물풍선"
+  ],
+  "signature": [
+   "바퀴가 작은 동글동글한 카트",
+   "푸른 불꽃을 뿜는 부스터",
+   "커다란 물풍선 아이템",
+   "체크무늬 결승선 깃발"
+  ],
+  "mechanic": "드리프트로 게이지를 모아 부스터를 쓰고, 아이템으로 앞선 사람을 막는다",
+  "rule": {
+   "forms": {
+    "타이틀": "출발 — 처음 차례에 먼저 친다",
+    "중반": "드리프트 — 공격할 때마다 게이지 +1, 둘이면 부스터",
+    "엔딩": "결승선 — 쓴 부스터 수만큼 한 번에 공격"
+   },
+   "counter": "물풍선으로 묶는다. 게이지가 차기 전에 친다"
+  },
+  "forms": {
+   "타이틀": {
+    "look": "체크무늬 패널을 댄 반팔 레이싱 슈트와 이마의 고글",
+    "role": "돌파",
+    "pose": "카트 옆에 서서 고글을 이마에 올리며 엄지를 드는 자세",
+    "setting": "알록달록한 마을 트랙의 출발선 — 맑은 오후",
+    "homage": "동네 레이서풍 — 레이싱 재킷과 고글"
+   },
+   "중반": {
+    "look": "푸른 불꽃 무늬의 레이싱 슈트와 길게 날리는 스카프",
+    "role": "교란",
+    "pose": "카트에 올라 몸을 기울여 드리프트하는 자세",
+    "setting": "얼음 동굴을 가로지르는 트랙 — 푸른 빛",
+    "homage": "드리프트 레이서풍 — 레이싱 슈트와 스카프"
+   },
+   "엔딩": {
+    "look": "금빛 트로피 장식이 달린 흰 레이싱 슈트와 챔피언 망토",
+    "role": "공격",
+    "pose": "카트 위에 서서 결승선 깃발을 크게 흔드는 자세",
+    "setting": "불꽃놀이가 터지는 결승선 — 밤하늘",
+    "homage": "챔피언풍 — 흰 레이싱 슈트와 망토"
+   }
+  },
+  "opens": {
+   "타이틀": {
+    "scene": "신호등이 초록으로 바뀌는 순간 트랙 둘레의 풍선들이 한꺼번에 떠오른다",
+    "one_figure": true,
+    "particles": "petals"
+   },
+   "중반": {
+    "scene": "드리프트 자국을 따라 푸른 불꽃이 길게 피어오른다",
+    "one_figure": true,
+    "particles": "sparks"
+   },
+   "엔딩": {
+    "scene": "결승선을 넘는 순간 하늘 가득 불꽃놀이가 터진다",
+    "one_figure": true,
+    "particles": "stars"
+   }
+  },
+  "ethnicity": "Chinese",
+  "silhouette": {
+   "body": "slender",
+   "hair": "twin_tails",
+   "garment": "flight_suit",
+   "material": "racing_nylon",
+   "pose": "boost_drift",
+   "palette": "kart_cherry_checker",
+   "hair_color": "lemon_yellow"
+  },
+  "face": {
+   "face_shape": "heart",
+   "eyes": "narrow_upturned",
+   "brows": "straight_thick",
+   "nose": "upturned",
+   "lips": "thin_long",
+   "eye_color": "teal"
+  },
+  "place": "a toy-bright world of looping kart tracks through colorful villages, ice caves and a fireworks-lit finish line",
+  "rights": "넥슨 — 이름이 상표다. 원작 캐릭터(다오·배찌 등)를 따라 그리지 않는다",
+  "avoid": [
+   "원작 캐릭터(다오·배찌 등)의 얼굴",
+   "실제 자동차 브랜드 로고",
+   "로고·타이틀 글자",
+   "화면 위 순위·랩 타임 HUD",
+   "읽히는 글자·숫자"
+  ],
+  "series": [],
+  "pilot": null,
+  "facts": {
+   "qid": "Q488178",
+   "fetched": null,
+   "year": null,
+   "developer": [],
+   "publisher": [],
+   "platforms": [],
+   "genres": [],
+   "series": null,
+   "modes": [],
+   "wiki": {
+    "ko": null,
+    "en": null
+   }
+  }
+ }
+]

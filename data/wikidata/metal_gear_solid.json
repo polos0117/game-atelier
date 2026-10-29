@@ -1,0 +1,259 @@
+{
+ "qid": "Q6582527",
+ "fetched": "2026-10-29",
+ "source": "https://query.wikidata.org/sparql",
+ "props": [
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q45700"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Konami"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코나미"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q45700"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Konami"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코나미"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170325"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "PlayStation Portable"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 포터블"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q216655"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Metal Gear"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "메탈 기어"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q343568"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "action-adventure game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "액션 어드벤처 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q858523"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "stealth game"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "스텔스 게임"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   }
+  },
+  {
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10677"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   }
+  },
+  {
+   "v": {
+    "datatype": "http://www.w3.org/2001/XMLSchema#dateTime",
+    "type": "literal",
+    "value": "1998-09-03T00:00:00Z"
+   },
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6582527"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Metal_Gear_Solid_(video_game)"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EB%A9%94%ED%83%88_%EA%B8%B0%EC%96%B4_%EC%86%94%EB%A6%AC%EB%93%9C"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Metal Gear Solid"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "메탈 기어 솔리드"
+   }
+  }
+ ]
+}
