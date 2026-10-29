@@ -112,7 +112,8 @@
    "flight_suit",
    "track_set",
    "work_overalls",
-   "jacket_shorts"
+   "jacket_shorts",
+   "shirt_vest"
   ],
   "material": [
    "neon_tube",
@@ -4394,7 +4395,7 @@
    "silhouette": {
     "body": "athletic",
     "hair": "long_wavy",
-    "garment": "coat_trousers",
+    "garment": "shirt_vest",
     "material": "sailcloth_canvas",
     "pose": "spyglass_helm",
     "palette": "navy_sail_brass",

@@ -226,7 +226,7 @@ GARMENT_WORDS = {
     "one_piece_dress": ["원피스", "드레스"], "armor_layered": ["갑옷", "갑주", "판금", "철"], "robe_overlap": ["겹옷", "전포", "도포", "예복", "로브", "두루마기"],
     "tailored_suit": ["정장", "수트", "슈트", "재킷"], "coat_trousers": ["코트"], "layered_skirt": ["치마", "스커트"],
     "cloak_wrapped": ["망토", "두건", "클로크", "외투"], "flight_suit": ["비행복", "잠수복", "슈트", "수트"],
-    "track_set": ["점퍼", "트랙", "저지"], "work_overalls": ["멜빵", "작업복"], "jacket_shorts": ["재킷"],
+    "track_set": ["점퍼", "트랙", "저지"], "work_overalls": ["멜빵", "작업복"], "jacket_shorts": ["재킷"], "shirt_vest": ["조끼"],
 }
 PARTICLE = re.compile(r"(으로|에서|까지|처럼|마다|이며|이고|을|를|이|가|은|는|의|에|로|와|과|도|만)$")
 STOP = {"그녀", "하나", "하나씩", "하늘", "순간", "둘레", "사이", "모든", "전체", "거대한", "작은", "위로", "아래", "앞으로", "속에서",
