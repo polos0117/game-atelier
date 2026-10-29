@@ -33,11 +33,13 @@ const LENSES = S.LENS_OPTIONS.map(r => r[0]).filter(Boolean);
 const EXPRS = S.EXPRESSION_OPTIONS.map(r => r[0]).filter(Boolean);
 const ERA_WEIGHT = { now: 5, release: 2, in_game: 2, fantasy: 1 };
 const FIXED_AXES = { overall_intensity: 'strong', skin_exposure: 'bold' };
-/* 어디서나 자연스러운 몸 자세만 — 물건 드는 자세는 하는 일과 부딪히고(부케에 지도 보기), 바닥·옆으로 앉기·무릎은 장소를 탄다(역 벤치에 바닥 앉기),
-   돌아보기(turning_back)는 몸을 비튼다(패들보드). 나머지는 하는 일이 정한다 */
-const NEUTRAL_POSES = ['standing_relaxed', 'contrapposto', 'hand_on_hip', 'arms_crossed', 'leaning_wall', 'hands_in_hair', 'on_tiptoe', 'stretching',
-  'sitting', 'cross_legged', 'perched_seat', 'walking', 'mid_stride', 'mid_action', 'dance_step'];
+/* 어디서나 자연스러운 몸 자세만 — 물건 드는 자세는 하는 일과 부딪히고(부케에 지도 보기), 바닥·옆으로 앉기·책상다리·무릎은 장소를 탄다
+   (역 벤치에 바닥 앉기, 촛불 만찬 식탁에 방석 책상다리·낮은 턱에 걸터앉기), 돌아보기(turning_back)는 몸을 비튼다(패들보드). 손을 쓰는 자세(팔짱·허리에 손·머리 만지기·기지개)는
+   하는 일의 손과 겹친다(샴페인 잔 들기에 두 손을 머리에). 나머지는 하는 일이 정한다 */
+const NEUTRAL_POSES = ['standing_relaxed', 'contrapposto', 'leaning_wall', 'on_tiptoe',
+  'sitting', 'walking', 'mid_stride', 'mid_action', 'dance_step'];
 const MOOD_ACT = /laugh|smil|grin|cheer|sing|yawn|cry|sob/i;
+const BACK_ORIENTS = ['back', 'back_to_camera', 'walking_away'];
 
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 const pick = (r, list) => list[Math.floor(r() * list.length)];
@@ -73,9 +75,11 @@ function compose(r, sc, game) {
   sc.lens = pick(r, NEAR_ALL.includes(sc.frame) ? LENSES.filter(l => !WIDE_LENSES.includes(l)) : LENSES);
   /* 자세는 물건 없는 몸 자세만, 가끔 — 하는 일이 손동작을 이미 정한다(「부케 들고 기다리기」 에 「지도 보기」 자세가 붙었다) */
   const poses = CT.poses(tree, sc.act).filter(k => NEUTRAL_POSES.includes(k));
-  sc.pose = poses.length && r() < 0.4 ? pick(r, poses) : '';
-  /* 하는 일이 표정을 정하면(웃기·노래·하품 …) 표정은 비워 둔다 — 「누워서 웃기」 에 「진지함」 이 붙었다(심시티 계획) */
-  sc.expr = MOOD_ACT.test(CT.act(tree, sc.act).en) ? '' : pick(r, EXPRS);
+  /* 가까운 컷엔 안 붙인다 — 몸 자세는 거의 다리(걷기·까치발·앉기)라 크롭 밖이고, 붙으면 컷을 넓힌다(GTA V 계획 「클로즈업·성큼 걷기」) */
+  sc.pose = poses.length && !NEAR_ALL.includes(sc.frame) && r() < 0.4 ? pick(r, poses) : '';
+  /* 하는 일이 표정을 정하면(웃기·노래·하품 …) 표정은 비워 둔다 — 「누워서 웃기」 에 「진지함」 이 붙었다(심시티 계획).
+     등을 보이는 방향도 비운다 — 표정이 붙으면 얼굴을 보이려 고개를 비튼다(GTA V 계획 「별 보기·등 돌림」 에 「졸림」) */
+  sc.expr = MOOD_ACT.test(CT.act(tree, sc.act).en) || BACK_ORIENTS.includes(sc.orient) ? '' : pick(r, EXPRS);
   sc.axes = { ...FIXED_AXES };
   for (const k of S.LOCAL_AXES) if (!sc.axes[k]) sc.axes[k] = pick(r, S.ADVANCED_OPTIONS[k].filter(v => v && v !== 'AUTO'));
   return sc;
@@ -105,6 +109,7 @@ function check(cuts, game, base = []) {
   over('프레이밍', c => c.frame, 1, FRAMES.length);
   over('렌즈', c => c.lens, 2, LENSES.length);
   over('장소', c => c.place, 1);
+  over('하는 일', c => c.act, 1);
   over('장소 묶음', c => CT.place(tree, c.place)?.group, 2);
   over('의상 계열', c => c.ofam !== 'everyday' && c.ofam, 1);
   over('평상복', c => c.ofam === 'everyday' && c.ofam, 2);

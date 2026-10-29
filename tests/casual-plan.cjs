@@ -18,8 +18,10 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
   assert(res.cuts.some(c => C.requiredType(c) === res.required), g.key + ' 필수 갈래 ' + res.required);
   assert(res.cuts.every(c => c.item), g.key + ' 옷은 구체적으로');
   for (const c of res.cuts) { const pf = (tree.activities.find(a => a.key === c.act).prefer || []).filter(k => tree.outfits.find(o => o.key === c.ofam).items.some(i => i.key === k)); if (pf.length) assert(pf.includes(c.item), g.key + ' ' + c.act + ' 에 맞는 옷'); }
-  assert(res.cuts.every(c => !c.pose || ['standing_relaxed', 'contrapposto', 'hand_on_hip', 'arms_crossed', 'leaning_wall', 'hands_in_hair', 'on_tiptoe', 'stretching', 'sitting', 'cross_legged', 'perched_seat', 'walking', 'mid_stride', 'mid_action', 'dance_step'].includes(c.pose)), g.key + ' 몸 자세만');
+  assert(res.cuts.every(c => !c.pose || ['standing_relaxed', 'contrapposto', 'leaning_wall', 'on_tiptoe', 'sitting', 'walking', 'mid_stride', 'mid_action', 'dance_step'].includes(c.pose)), g.key + ' 몸 자세만');
   assert(res.cuts.every(c => !/laugh|smil|sing/i.test(tree.activities.find(a => a.key === c.act).en) || !c.expr), g.key + ' 표정을 정하는 하는 일엔 표정 비움');
+  assert(res.cuts.every(c => !['back', 'back_to_camera', 'walking_away'].includes(c.orient) || !c.expr), g.key + ' 등을 보이면 표정 비움');
+  assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail'].includes(c.frame) || !c.pose), g.key + ' 가까운 컷엔 몸 자세 없음');
   assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail'].includes(c.frame) || !['wide24', 'documentary35'].includes(c.lens)), g.key + ' 가까운 컷에 광각 없음');
   for (const c of res.cuts) {
     const rec = C.record(g, c), sc = rec.storage.cards[g.key].scenes.casual;
@@ -47,6 +49,11 @@ const errs = f => C.check(f(base.map(c => ({ ...c, axes: { ...c.axes } }))), g).
 assert.match(errs(cs => { cs[1].frame = cs[0].frame; return cs; }), /프레이밍/);
 assert.match(errs(cs => { cs[1].place = cs[0].place; cs[1].era = cs[0].era; cs[1].act = cs[0].act; cs[1].ofam = cs[0].ofam; cs[1].item = cs[0].item; return cs; }), /장소/);
 assert.match(errs(cs => cs.filter(c => !C.requiredType(c))), /필수 갈래가 없다/);
+/* 장소가 달라도 하는 일은 겹치지 않는다 — GTA V 계획에 쇼핑몰·편의점 「앉아 쉬기」 둘 */
+const CT = ctx.window.AtelierCasualTree;
+const rest = ['street_mall', 'street_grocery'].map(place => CT.repair(tree, { era: 'now', place, act: 'rest_seat', ofam: 'everyday' }, g, P.spec ? P.spec.CLOSE_FRAMES : []));
+assert(rest.every(c => c.act === 'rest_seat'), '두 장소 다 앉아 쉬기');
+assert.match(errs(cs => { Object.assign(cs[0], rest[0], { item: '' }); Object.assign(cs[1], rest[1], { item: '' }); return cs; }), /하는 일 rest_seat/);
 assert.match(errs(cs => { cs[2].pose = 'walking'; cs[2].act = 'wait_train'; cs[2].place = 'travel_rural_station'; cs[2].era = 'now'; return cs; }), /트리에서 못 고른다|장소/);
 /* 기록 폴더 읽기 — 예전 갈래·예시 기록도 변환표로 */
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'plan-'));

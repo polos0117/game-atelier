@@ -2989,7 +2989,14 @@
    "places": [
     "evening_gala"
    ],
-   "en": "seated at a candlelit table, raising a champagne glass"
+   "en": "seated at a candlelit table, raising a champagne glass",
+   "prefer": [
+    "one_shoulder_satin",
+    "halter_evening",
+    "velvet_evening",
+    "strapless_gloves",
+    "high_slit_gown"
+   ]
   },
   {
    "key": "auction_bid",
