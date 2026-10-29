@@ -60,6 +60,20 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert.match(await p.$eval('#file-name code', e => e.textContent), /tetris_middle_open_glossy_kr_game_f\.webp/);
     /* 6. 일상컷 — 게임 갈래, 출시 당시, 잠금 */
     await p.click('#mode-casual');
+    /* 일상컷 고정값 — pkm 과 같다(2026-10-28): 전체 강도 strong · 피부 노출 bold · 2:3, 처음부터 잠김. 장면 랜덤을 돌려도 그대로 */
+    const fixed = async why => {
+      assert.equal(await p.$eval('#axis-overall_intensity', e => e.value), 'strong', why + ' 전체 강도');
+      assert.equal(await p.$eval('#axis-skin_exposure', e => e.value), 'bold', why + ' 피부 노출');
+      assert.equal(await p.$eval('#aspect', e => e.value), '2:3', why + ' 화면 비율');
+      for (const id of ['axis-overall_intensity', 'axis-skin_exposure', 'aspect'])
+        assert.equal(await p.$eval('#lock-' + id, e => e.getAttribute('aria-pressed')), 'true', why + ' 잠김 ' + id);
+      const c = await out(p);
+      assert(c.includes('overall_intensity: strong') && c.includes('skin_exposure: bold') && c.includes('FRAME: a vertical 2:3 (1024×1536) image.'), why + ' 지시문');
+    };
+    await fixed('처음');
+    for (let i = 0; i < 5; i++) await p.click('#random-scene');
+    await fixed('장면 랜덤 뒤');
+    await p.selectOption('#era', '');   // 장면 랜덤이 출시 당시를 골랐을 수 있다 — 아래 검사는 기본(현대)에서 시작한다
     await p.selectOption('#casual-n', '3');
     assert.match(await p.$eval('#file-name code', e => e.textContent), /tetris_glossy_kr_game_f_casual3\.webp/);
     const cats = await p.$$eval('#category option', os => os.map(o => o.value));

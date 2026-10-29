@@ -11,6 +11,11 @@
 
 
 
+## 2026-10-29 · claude · 일상컷 고정값 — pkm 과 같게
+- lib/prompt-ui.js · prompt.html — pkm 에서 일상컷에 필수로 정한 값(전체 강도 strong · 피부 노출 bold · 화면 비율 2:3)을 game 에도 적용했다(사용자). 일상 모드는 처음부터 이 값으로 고르고 셋 다 잠근다. 저장된 상태를 불러와도 비었으면 채우고 다시 잠근다(잠금은 장면 랜덤만 막는다). pkm 은 계획기가 채우지만 game 에는 계획기가 없어 생성기 기본값으로 넣었다. prompt-ui v=5.
+- tests/prompt-screen.cjs — 처음과 장면 랜덤 다섯 번 뒤에도 세 값·잠김·지시문 줄이 그대로.
+- IMAGE_RULES.md 2절 — 일상컷 고정값 표.
+
 ## 2026-10-28 · claude · 기기 줄 — 기기 폭 고정
 - lib/arcade.css — 간판 글이 길면(「슈퍼 마리오 브라더스」) 기기가 넓어져 화면이 커지던 것을 폭 고정(width·min-width 0)과 화면 absolute 로 바로잡음
 
