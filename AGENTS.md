@@ -49,7 +49,7 @@
 결투는 book 의 책장 넘기기(장·자리·맞은편)라서 줄(lane) 말은 못 쓴다.
 어느 두 게임도 실루엣 축 6 중 셋 이상, 얼굴 5 묶음 중 둘 이상 다르다. 같은 시리즈 자매는 얼굴 윤곽이 같다.
 머리색(`silhouette.hair_color`)·눈 색(`face.eye_color`)은 게임의 대표색 — 새 게임도 둘 다 채우고, 검정·갈색은 정한 말에 없다(GAME_CONCEPT 6절).
-설계표를 고치면 `python3 tools/game-design.py check` 를 돌린다.
+설계표를 고치면 `python3 tools/game-design.py check` 를 돌린다. 그 게임을 그리기 전에는 `python3 tools/game-design.py conflicts <key>` 가 0 이어야 한다 — 고치거나, 보고 괜찮으면 그 게임 `conflicts_ok` 에 열쇠를 적는다.
 
 ### 3. 사실은 지어내지 않는다
 
@@ -94,6 +94,7 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 
 ```bash
 python3 tools/game-design.py check   # 게임 설계표 — 빈칸·정한 말·실루엣·얼굴 닮음·머리·눈 색·자매·한 명 개방·대응·사실 칸
+python3 tools/game-design.py conflicts [key] [--all]   # 폼 지시문 충돌 후보(복식 구조↔타이틀 차림, 알아볼 거리↔개방 사건, 자세↔개방, 차림↔자세, 운동화↔상표). 그리기 전에 그 게임은 0
 python3 tests/game-design.py         # 설계표 검사기가 규칙마다 제대로 거는지
 python3 tests/casual-compose.py      # 일상컷 구도 검사기 — 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷
 node tools/casual-plan.cjs <게임> --out <폴더>   # 일상컷 묶음 짜기(그릴 때) · --check <기록 폴더> 로 올리기 전 검사

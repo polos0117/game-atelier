@@ -3562,7 +3562,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%A6%AC%EA%B7%B8_%EC%98%A4%EB%B8%8C_%EB%A0%88%EC%A0%84%EB%93%9C",
      "en": "https://en.wikipedia.org/wiki/League_of_Legends"
     }
-   }
+   },
+   "conflicts_ok": [
+    "look_pose:팔찌"
+   ]
   },
   {
    "key": "witcher_3",
@@ -3601,7 +3604,7 @@
    },
    "forms": {
     "타이틀": {
-     "look": "징 박은 낡은 가죽 상의와 털 깃, 등에 맨 두 자루 검",
+     "look": "징 박은 낡은 가죽 코트와 털 깃, 등에 맨 두 자루 검",
      "role": "정찰",
      "pose": "몸을 낮추고 땅의 발자국을 손끝으로 살피는 자세",
      "setting": "안개 낀 늪가의 마을 — 부서진 울타리와 까마귀 앉은 나무",
@@ -3797,7 +3800,7 @@
    },
    "forms": {
     "타이틀": {
-     "look": "거친 리넨 튜닉과 가죽 띠, 손에 작은 지구본",
+     "look": "거친 리넨 튜닉 원피스와 가죽 띠, 손에 작은 지구본",
      "role": "지원",
      "pose": "강가에 서서 작은 지구본을 한 손으로 돌리는 자세",
      "setting": "큰 강이 흐르는 들판의 첫 도시 터 — 천막과 모닥불",
@@ -3839,7 +3842,7 @@
    "silhouette": {
     "body": "tall_statuesque",
     "hair": "long_wavy",
-    "garment": "tailored_suit",
+    "garment": "one_piece_dress",
     "material": "parchment_brocade",
     "pose": "globe_turn",
     "palette": "marble_bronze_azure",
@@ -3978,7 +3981,7 @@
    },
    "forms": {
     "타이틀": {
-     "look": "문장을 수놓은 짧은 벨벳 겉옷과 승마 장화",
+     "look": "문장을 수놓은 짧은 벨벳 겉옷과 승마용 겹치마, 승마 장화",
      "role": "정찰",
      "pose": "말 탄 듯 몸을 기울이고 먼 지평을 손가락으로 가리키는 자세",
      "setting": "구불구불한 흙길과 풍차가 있는 초원 — 멀리 보이는 첫 성",
@@ -3987,7 +3990,7 @@
     "중반": {
      "look": "보석 단추가 달린 두꺼운 벨벳 망토와 가죽 장갑, 허리에 성 열쇠",
      "role": "지원",
-     "pose": "보물 상자 뚜껑을 한 손으로 열며 돌아보는 자세",
+     "pose": "닫힌 보물 상자 위에 한 손을 얹고 몸을 돌려 돌아보는 자세",
      "setting": "광산 입구가 있는 바위산 기슭 — 횃불과 수레 길",
      "homage": "탐험 영웅 — 두꺼운 벨벳 망토와 성 열쇠"
     },
@@ -4125,7 +4128,11 @@
      "ko": "https://ko.wikipedia.org/wiki/%ED%9E%88%EC%96%B4%EB%A1%9C%EC%A6%88_%EC%98%A4%EB%B8%8C_%EB%A7%88%EC%9D%B4%ED%8A%B8_%EC%95%A4_%EB%A7%A4%EC%A7%81_III",
      "en": "https://en.wikipedia.org/wiki/Heroes_of_Might_and_Magic_III"
     }
-   }
+   },
+   "conflicts_ok": [
+    "sig_open:금화·보물·상자",
+    "sig_open:깃발·문장"
+   ]
   },
   {
    "key": "dave_the_diver",

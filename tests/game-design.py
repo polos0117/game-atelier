@@ -110,8 +110,31 @@ fails(lambda d: d['games'][1]['pilot'].update(form='발단'), '시범은')
 for g in doc['games']:
     for k in ('key', 'title', 'group', 'persona', 'mechanic'):
         assert str(g.get(k) or '').strip(), (g.get('key'), k)
+# 폼 지시문 충돌 후보 — GTA V 를 그리기 전·그린 뒤 고친 것들을 되돌리면 다 걸린다(2026-10-29)
+def gta(mut):
+    d = copy.deepcopy(doc); g = next(x for x in d['games'] if x['key'] == 'grand_theft_auto_v'); mut(g)
+    return {k for _, k, _ in G.conflicts(d, 'grand_theft_auto_v')}
+def g_undo(g):
+    g['silhouette']['garment'] = 'coat_trousers'
+    g['forms']['타이틀']['look'] = '헐렁한 데님 재킷과 짧은 반바지, 목에 건 선글라스'
+    g['forms']['타이틀']['homage'] += '·하이탑 운동화'
+    g['signature'][3] = '경찰 헬기 탐조등'
+    g['avoid'] = [a for a in g['avoid'] if '상표' not in a or '차량' in a]
+    g['avoid'] = [a.replace('실제 상표', '실제') for a in g['avoid']]
+ks = gta(g_undo)
+for k in ('garment:coat_trousers', 'look_pose:선글라스', 'sig_open:탐조등·헬기', 'shoes'):
+    assert k in ks, (k, ks)
+assert gta(lambda g: None) <= {'sig_open:도시·해안'}, gta(lambda g: None)
+# 자세가 개방 사건을 하면 — 같은 물건·같은 동사(히어로즈 3 「상자를 열며」 ↔ 「상자가 열리며」). 물건만 같으면 정상
+h = lambda pose: {k for _, k, _ in G.conflicts(dict(doc, games=[dict(g, forms=dict(g['forms'], 중반=dict(g['forms']['중반'], pose=pose)))
+                   for g in doc['games'] if g['key'] == 'heroes_of_might_and_magic_3']), 'heroes_of_might_and_magic_3')}
+assert 'pose_open:보물·상자' in h('보물 상자 뚜껑을 한 손으로 열며 돌아보는 자세')
+assert not any(k.startswith('pose_open') for k in h('닫힌 보물 상자 위에 한 손을 얹고 몸을 돌려 돌아보는 자세'))
+# 괜찮다고 본 것은 conflicts_ok 로 빠진다 · 기본은 그림 없는 게임만
+assert not any(k == 'look_pose:팔찌' for _, k, _ in G.conflicts(doc, 'league_of_legends'))
+assert not any(key == 'grand_theft_auto_v' for key, _, _ in G.conflicts(doc))
 words = (ROOT / 'lib' / 'words.js').read_text(encoding='utf-8')
 for grp in doc['vocab']['group']:
     assert "'home.group.%s'" % grp in words, '낱말 표에 묶음 이름이 없다: ' + grp
 
-print('PASS 게임 설계표: %d편 · 닮음·정한 말·묶음·avoid·사실 칸·자매·한 명 개방·대응·줄 말·시범' % len(doc['games']))
+print('PASS 게임 설계표: %d편 · 닮음·정한 말·묶음·avoid·사실 칸·자매·한 명 개방·대응·줄 말·시범 · 폼 지시문 충돌 후보(복식·알아볼 거리·자세·차림·운동화)' % len(doc['games']))
