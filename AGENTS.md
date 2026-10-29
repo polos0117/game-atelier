@@ -69,7 +69,7 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 
 그림은 `game-atelier-img` 에 올린다. `img/` 는 `.gitignore` 에 있다. 원본 PNG 는 올리지 않는다.
 그림 규칙은 `IMAGE_RULES.md`. 그림 저장소에 올리면 썸네일(`game-atelier-img` 워크플로)과 등록(`그림 등록` 워크플로 · `tools/register-images.py`)이 알아서 된다 — `data/img.json` 은 손으로 고치지 않는다(IMAGE_RULES 4절).
-일상컷 묶음은 올리기 전에 `python3 tools/casual-compose.py <그림 저장소>/records/<게임>` 으로 구도(방향·프레이밍·렌즈)가 돌았는지 본다(IMAGE_RULES 2절).
+일상컷 묶음은 `node tools/casual-plan.cjs <게임>` 으로 짜고, 올리기 전에 `node tools/casual-plan.cjs <게임> --check <기록 폴더>` 로 묶음 규칙(필수 갈래·장소·의상·구도 겹침)을 본다(IMAGE_RULES 2절).
 
 설계표에 새 정한 말(vocab)을 더하면 `lib/prompt-spec.js` 의 `VOCAB_EN` 에 영어도 더한다(`node tests/prompt-game.cjs` 가 본다).
 일상컷은 트리로 고른다 — 시대 → 장소 → 하는 일 → 의상 → 구도(2026-10-29, `data/casual-tree.json` · `lib/casual-tree.js`, IMAGE_RULES 2절). 예전 갈래·예시는 추천 조합과 변환표로 옮겼다. 표를 고치면 `python3 tools/casual-tree.py check`.
@@ -96,6 +96,9 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 python3 tools/game-design.py check   # 게임 설계표 — 빈칸·정한 말·실루엣·얼굴 닮음·머리·눈 색·자매·한 명 개방·대응·사실 칸
 python3 tests/game-design.py         # 설계표 검사기가 규칙마다 제대로 거는지
 python3 tests/casual-compose.py      # 일상컷 구도 검사기 — 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷
+node tools/casual-plan.cjs <게임> --out <폴더>   # 일상컷 묶음 짜기(그릴 때) · --check <기록 폴더> 로 올리기 전 검사
+node tests/casual-plan.cjs           # 묶음 계획기 — 스무 편 × 씨앗 셋이 규칙을 지키고 기록이 생성기 꼴
+node tests/casual-plan-screen.cjs    # 계획기 기록을 생성기 화면에 넣으면 같은 지시문(브라우저)
 python3 tools/casual-tree.py check    # 일상컷 트리 표 — 시대→장소→하는 일→의상 길이 끊긴 데·없는 열쇠·필수 갈래
 python3 tests/casual-tree.py         # 트리 검사기가 규칙마다 거는지
 node tests/casual-tree.cjs           # 트리 자세 계열의 자세·방향 열쇠가 생성기 표에 있다
