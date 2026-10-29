@@ -15,6 +15,7 @@
   "sangokushi_sousouden": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["sangokushi_sousouden_glossy_kr_game_f_casual1.webp", "sangokushi_sousouden_glossy_kr_game_f_casual2.webp", "sangokushi_sousouden_glossy_kr_game_f_casual3.webp", "sangokushi_sousouden_glossy_kr_game_f_casual4.webp", "sangokushi_sousouden_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "sangokushi_sousouden_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "sangokushi_sousouden_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "sangokushi_sousouden_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "sangokushi_sousouden_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "sangokushi_sousouden_title_glossy_kr_game_f.webp"}, "title_open": {"f": "sangokushi_sousouden_title_open_glossy_kr_game_f.webp"}}}}},
   "simcity": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["simcity_glossy_kr_game_f_casual1.webp", "simcity_glossy_kr_game_f_casual2.webp", "simcity_glossy_kr_game_f_casual3.webp", "simcity_glossy_kr_game_f_casual4.webp", "simcity_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "simcity_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "simcity_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "simcity_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "simcity_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "simcity_title_glossy_kr_game_f.webp"}, "title_open": {"f": "simcity_title_open_glossy_kr_game_f.webp"}}}}},
   "starcraft": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["starcraft_glossy_kr_game_f_casual1.webp", "starcraft_glossy_kr_game_f_casual2.webp", "starcraft_glossy_kr_game_f_casual3.webp", "starcraft_glossy_kr_game_f_casual4.webp", "starcraft_glossy_kr_game_f_casual5.webp", "starcraft_glossy_kr_game_f_casual6.webp"]}, "byForm": {"title": {"f": "starcraft_title_glossy_kr_game_f.webp"}, "title_open": {"f": "starcraft_title_open_glossy_kr_game_f.webp"}, "middle": {"f": "starcraft_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "starcraft_middle_open_glossy_kr_game_f.webp"}, "ending": {"f": "starcraft_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "starcraft_ending_open_glossy_kr_game_f.webp"}}}}},
+  "stardew_valley": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["stardew_valley_glossy_kr_game_f_casual1.webp", "stardew_valley_glossy_kr_game_f_casual2.webp", "stardew_valley_glossy_kr_game_f_casual3.webp", "stardew_valley_glossy_kr_game_f_casual4.webp", "stardew_valley_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "stardew_valley_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "stardew_valley_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "stardew_valley_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "stardew_valley_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "stardew_valley_title_glossy_kr_game_f.webp"}, "title_open": {"f": "stardew_valley_title_open_glossy_kr_game_f.webp"}}}}},
   "street_fighter_2": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["street_fighter_2_glossy_kr_game_f_casual1.webp", "street_fighter_2_glossy_kr_game_f_casual2.webp", "street_fighter_2_glossy_kr_game_f_casual3.webp", "street_fighter_2_glossy_kr_game_f_casual4.webp", "street_fighter_2_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "street_fighter_2_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "street_fighter_2_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "street_fighter_2_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "street_fighter_2_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "street_fighter_2_title_glossy_kr_game_f.webp"}, "title_open": {"f": "street_fighter_2_title_open_glossy_kr_game_f.webp"}}}}},
   "super_mario_bros": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["super_mario_bros_glossy_kr_game_f_casual1.webp", "super_mario_bros_glossy_kr_game_f_casual2.webp", "super_mario_bros_glossy_kr_game_f_casual3.webp", "super_mario_bros_glossy_kr_game_f_casual4.webp", "super_mario_bros_glossy_kr_game_f_casual5.webp"]}, "byForm": {"title": {"f": "super_mario_bros_title_glossy_kr_game_f.webp"}, "title_open": {"f": "super_mario_bros_title_open_glossy_kr_game_f.webp"}, "middle": {"f": "super_mario_bros_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "super_mario_bros_middle_open_glossy_kr_game_f.webp"}, "ending": {"f": "super_mario_bros_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "super_mario_bros_ending_open_glossy_kr_game_f.webp"}}}}},
   "tetris": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["tetris_glossy_kr_game_f_casual1.webp", "tetris_glossy_kr_game_f_casual2.webp", "tetris_glossy_kr_game_f_casual3.webp", "tetris_glossy_kr_game_f_casual4.webp", "tetris_glossy_kr_game_f_casual5.webp", "tetris_glossy_kr_game_f_casual6.webp", "tetris_glossy_kr_game_f_casual7.webp"]}, "byForm": {"title": {"f": "tetris_title_glossy_kr_game_f.webp"}, "title_open": {"f": "tetris_title_open_glossy_kr_game_f.webp"}, "middle": {"f": "tetris_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "tetris_middle_open_glossy_kr_game_f.webp"}, "ending": {"f": "tetris_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "tetris_ending_open_glossy_kr_game_f.webp"}}}}},
@@ -195,6 +196,17 @@
   "starcraft_middle_open_glossy_kr_game_f.webp": "2026-10-26",
   "starcraft_title_glossy_kr_game_f.webp": "2026-10-26",
   "starcraft_title_open_glossy_kr_game_f.webp": "2026-10-26",
+  "stardew_valley_ending_glossy_kr_game_f.webp": "2026-10-29",
+  "stardew_valley_ending_open_glossy_kr_game_f.webp": "2026-10-29",
+  "stardew_valley_glossy_kr_game_f_casual1.webp": "2026-10-29",
+  "stardew_valley_glossy_kr_game_f_casual2.webp": "2026-10-29",
+  "stardew_valley_glossy_kr_game_f_casual3.webp": "2026-10-29",
+  "stardew_valley_glossy_kr_game_f_casual4.webp": "2026-10-29",
+  "stardew_valley_glossy_kr_game_f_casual5.webp": "2026-10-29",
+  "stardew_valley_middle_glossy_kr_game_f.webp": "2026-10-29",
+  "stardew_valley_middle_open_glossy_kr_game_f.webp": "2026-10-29",
+  "stardew_valley_title_glossy_kr_game_f.webp": "2026-10-29",
+  "stardew_valley_title_open_glossy_kr_game_f.webp": "2026-10-29",
   "street_fighter_2_ending_glossy_kr_game_f.webp": "2026-10-29",
   "street_fighter_2_ending_open_glossy_kr_game_f.webp": "2026-10-29",
   "street_fighter_2_glossy_kr_game_f_casual1.webp": "2026-10-29",
@@ -299,5 +311,5 @@
   "world_of_warcraft_title_glossy_kr_game_f.webp": "2026-10-28",
   "world_of_warcraft_title_open_glossy_kr_game_f.webp": "2026-10-28"
  },
- "count": 24
+ "count": 25
 }
