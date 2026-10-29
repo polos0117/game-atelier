@@ -166,6 +166,9 @@ def check(doc):
         for s_ in a.get("seat", []):
             if s_ not in ("chair", "edge", "floor"):
                 errs.append("하는 일 %s 의 앉는 자리 %r" % (a["key"], s_))
+        for fr in a.get("not_frames", []):
+            if fr not in ("environmental", "full_body", "three_quarter", "waist_up", "chest_up", "face_close", "detail"):
+                errs.append("하는 일 %s 의 안 되는 프레이밍 %r" % (a["key"], fr))
         if a.get("hands") not in (None, "free"):
             errs.append("하는 일 %s 의 손 %r" % (a["key"], a.get("hands")))
     for fr, r in doc.get("frame_rules", {}).items():

@@ -66,7 +66,7 @@ function requiredPaths(type, game) {
 }
 
 function compose(r, sc, game) {
-  sc.frame = pick(r, FRAMES);
+  sc.frame = pick(r, FRAMES.filter(f => CT.frameOk(tree, sc.act, f)));
   /* 옷 — 이 프레이밍에서 알아볼 수 있는 옷(트리), 그중 하는 일이 먼저 고르라는 옷(prefer)이 있으면 그중에서(자전거 점검엔 사이클 복장) */
   const it = CT.items(tree, sc.ofam, sc.frame), prefer = it.filter(x => (CT.act(tree, sc.act).prefer || []).includes(x.key));
   sc.item = prefer.length ? pick(r, prefer).key : it.length ? pick(r, it).key : '';
@@ -75,7 +75,9 @@ function compose(r, sc, game) {
   sc.lens = pick(r, LENSES.filter(l => CT.lensOk(tree, sc.frame, l)));
   /* 자세는 가끔 — 하는 일이 동작을 이미 정한다 */
   const poses = CT.poses(tree, sc.act, sc.frame).filter(k => !PLAN_SKIP_POSES.includes(k));
-  sc.pose = poses.length && r() < 0.4 ? pick(r, poses) : '';
+  /* 앉기 계열은 앉는 자세를 늘 붙인다 — 비워 두면 「관중석 자리에서 박수」 를 서서 쳤다(리그 오브 레전드 일상1) */
+  const seated = CT.act(tree, sc.act).family === 'sit' ? poses.filter(k => (tree.pose_meta[k] || {}).seat) : [];
+  sc.pose = seated.length ? pick(r, seated) : poses.length && r() < 0.4 ? pick(r, poses) : '';
   sc.expr = CT.exprOk(tree, sc) ? pick(r, EXPRS) : '';
   sc.axes = { ...FIXED_AXES };
   for (const k of S.LOCAL_AXES) if (!sc.axes[k]) sc.axes[k] = pick(r, S.ADVANCED_OPTIONS[k].filter(v => v && v !== 'AUTO'));

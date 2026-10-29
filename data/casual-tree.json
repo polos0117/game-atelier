@@ -2596,6 +2596,10 @@
     "classic_bikini",
     "highleg_onepiece",
     "crossstrap_swim"
+   ],
+   "not_frames": [
+    "full_body",
+    "environmental"
    ]
   },
   {
@@ -2738,7 +2742,11 @@
     "fx_spa"
    ],
    "en": "soaking in the warm water, arms resting on the rim, steam rising",
-   "seat": []
+   "seat": [],
+   "not_frames": [
+    "full_body",
+    "environmental"
+   ]
   },
   {
    "key": "bath_edge",
@@ -4274,7 +4282,8 @@
     {
      "key": "backless_lounge",
      "ko": "백리스 라운지",
-     "en": "a lounge dress with a deeply open back"
+     "en": "a lounge dress with a deeply open back",
+     "low": true
     },
     {
      "key": "oversized_shirt",
@@ -4783,7 +4792,8 @@
     {
      "key": "low_back_evening",
      "ko": "로우백 드레스",
-     "en": "an evening dress, modest at the front with a deeply cut low back"
+     "en": "an evening dress, modest at the front with a deeply cut low back",
+     "low": true
     },
     {
      "key": "velvet_evening",
@@ -4804,7 +4814,8 @@
     {
      "key": "column_gown",
      "ko": "칼럼 가운",
-     "en": "a backless column gown"
+     "en": "a backless column gown",
+     "low": true
     },
     {
      "key": "sequin_mini",
@@ -5261,7 +5272,8 @@
     {
      "key": "fae_ball",
      "ko": "요정 무도회",
-     "en": "a fae ball costume — a backless gown with a wing-shaped satin cape and a leaf mask"
+     "en": "a fae ball costume — a backless gown with a wing-shaped satin cape and a leaf mask",
+     "low": true
     },
     {
      "key": "moon_priestess",
@@ -5321,7 +5333,8 @@
     {
      "key": "tango_dress",
      "ko": "탱고 드레스",
-     "en": "a backless high-slit tango dress"
+     "en": "a backless high-slit tango dress",
+     "low": true
     },
     {
      "key": "salsa_fringe",
@@ -5440,7 +5453,8 @@
     {
      "key": "open_back_gown",
      "ko": "오픈백 웨딩드레스",
-     "en": "an open-back wedding gown"
+     "en": "an open-back wedding gown",
+     "low": true
     },
     {
      "key": "sweetheart_veil",
@@ -5466,7 +5480,8 @@
     {
      "key": "reception_backless",
      "ko": "피로연 드레스",
-     "en": "a backless reception gown"
+     "en": "a backless reception gown",
+     "low": true
     },
     {
      "key": "beaded_mini",
@@ -5499,7 +5514,8 @@
     {
      "key": "hollywood_bias",
      "ko": "30년대 할리우드 가운",
-     "en": "a 1930s Hollywood bias-cut satin gown with a cowl back"
+     "en": "a 1930s Hollywood bias-cut satin gown with a cowl back",
+     "low": true
     },
     {
      "key": "swing_dress",

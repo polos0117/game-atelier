@@ -41,6 +41,9 @@ assert(CT.items(tree, 'swimwear', 'full_body').some(i => i.key === 'cutout_onepi
 for (const o of tree.outfits) for (const f of ['face_close', 'chest_up']) assert(CT.items(tree, o.key, f).length, o.key + ' ' + f + ' 에 고를 옷');
 assert(!CT.lensOk(tree, 'three_quarter', 'documentary35') && !CT.lensOk(tree, 'face_close', 'wide24') && CT.lensOk(tree, 'full_body', 'wide24') && CT.lensOk(tree, 'face_close', ''), '광각 규칙');
 assert(!CT.exprOk(tree, { act: 'stargaze', orient: 'back_to_camera' }) && !CT.exprOk(tree, { act: 'karaoke_sing', orient: 'front' }) && CT.exprOk(tree, { act: 'stargaze', orient: 'front' }), '표정 규칙');
+assert(!CT.frameOk(tree, 'swim', 'full_body') && !CT.frameOk(tree, 'soak', 'environmental') && CT.frameOk(tree, 'swim', 'waist_up') && CT.frameOk(tree, 'stroll', 'full_body'), '수영·탕 — 전신·환경 컷 없음');
+assert.equal(CT.repair(tree, { era: 'now', place: 'water_pool', act: 'swim', ofam: 'swimwear', frame: 'full_body' }, null, S.CLOSE_FRAMES).frame, '', '수영으로 바꾸면 전신은 비운다');
+for (const it of ['hollywood_bias', 'low_back_evening', 'column_gown']) assert(!CT.items(tree, it === 'hollywood_bias' ? 'retro' : 'evening', 'chest_up').some(i => i.key === it), '등이 알아볼 데인 옷은 가슴 위에 없다 ' + it);
 const fixed = CT.repair(tree, { era: 'now', place: 'evening_gala', act: 'gala_dinner', ofam: 'evening', frame: 'face_close', pose: 'cross_legged', lens: 'wide24', expr: 'calm', orient: 'front' }, null, S.CLOSE_FRAMES);
 assert(!fixed.pose && !fixed.lens && fixed.expr === 'calm', '고치기 — 맞지 않는 자세·광각은 비우고 표정은 둔다');
 assert.equal(CT.repair(tree, { ...fixed, orient: 'back_to_camera', frame: 'full_body' }, null, S.CLOSE_FRAMES).expr || '', '', '등을 보이면 표정을 비운다');

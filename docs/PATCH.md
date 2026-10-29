@@ -11,6 +11,12 @@
 
 
 
+## 2026-10-29 · claude · 일상컷 — 하는 일이 안 받는 프레이밍, 등이 알아볼 데인 옷, 앉기엔 앉는 자세
+- data/casual-tree.json · lib/casual-tree.js — 리그 오브 레전드 일상4(폭포 수영·전신)가 헤엄 대신 물속을 걸었다 — 전신 컷의 「머리·손·발이 다 안에」 와 몸이 물에 잠기는 수영이 부딪혔다. 하는 일에 not_frames(수영·탕에 몸 담그기 → 전신·환경 컷 없음), frameOk, repair 가 맞지 않게 된 프레이밍을 비운다. 일상3(가슴 위·뒤 3/4)은 「카울백 가운」 의 등 드레이프를 보이려 엉덩이까지 넓어졌다 — 등이 알아볼 데인 옷(로우백·백리스·카울백·오픈백 여덟 벌)도 low. casual-tree v=6.
+- lib/prompt-ui.js · lib/prompt-random.js — 프레이밍 선택지·랜덤도 하는 일로 거른다. prompt-ui v=9, prompt-random v=5.
+- tools/casual-plan.cjs — 일상1 「관중석 자리에서 박수」 를 서서 쳤다(자세 자동). 앉기 계열은 앉는 자세(의자·가장자리·바닥 중 하는 일이 받는 것)를 늘 붙인다. 프레이밍도 하는 일로 거른다.
+- tools/casual-tree.py · tests/casual-tree.cjs · tests/casual-plan.cjs · tests/prompt-screen.cjs — not_frames 검사, 수영·등 옷·앉는 자세·화면 프레이밍.
+
 ## 2026-10-29 · claude · 일상컷 계획기 동작 방향 빼기, 응원은 표정을 정한다
 - tools/casual-plan.cjs — 리그 오브 레전드 계획에 「경기 뒤 인터뷰」·「위로 손 뻗기」 가 붙었다. 방향 중 몸 동작인 것(위로 뻗기·앞뒤로 기울이기·웅크리기·앉아 비틀기·돌며 움직이기·기대 눕기)은 하는 일과 따로 붙으면 부딪혀, 계획기는 보는 쪽 방향만 고른다(화면에선 고를 수 있다).
 - data/casual-tree.json — 「관중석에서 박수」 에 표정 「이 악문 결의」 가 붙었다. 관중석 박수·펜스 앞 응원은 표정을 정하는 하는 일(mood).

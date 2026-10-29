@@ -7,7 +7,7 @@ const C = require('../tools/casual-plan.cjs');
 const read = f => fs.readFileSync(path.join(__dirname, '..', f), 'utf8');
 const ctx = { window: {}, console }; vm.createContext(ctx);
 for (const f of ['lib/prompt-spec.js', 'lib/casual-tree.js', 'lib/prompt-game.js']) vm.runInContext(read(f), ctx);
-const P = ctx.window.AtelierPrompt, tree = JSON.parse(read('data/casual-tree.json')), design = JSON.parse(read('data/game-design.json'));
+const CT = ctx.window.AtelierCasualTree, P = ctx.window.AtelierPrompt, tree = JSON.parse(read('data/casual-tree.json')), design = JSON.parse(read('data/game-design.json'));
 const style = JSON.parse(read('data/style.json')), gs = style.styles[style.default], cur = gs.versions.find(v => v.v === gs.current);
 
 let n = 0;
@@ -31,6 +31,8 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
     assert(!c.expr || (!a.mood && !tree.back_orients.includes(c.orient)), g.key + ' 표정 ' + c.act + '·' + c.orient);
     assert(!['reaching_up', 'leaning_forward', 'leaning_back', 'crouching', 'seated_twist', 'turning_midmotion', 'reclining'].includes(c.orient), g.key + ' 계획기는 동작 방향을 안 고른다 ' + c.orient);
     assert(fr.wide !== false || !tree.wide_lenses.includes(c.lens), g.key + ' 광각 ' + c.frame + '·' + c.lens);
+    assert(!(a.not_frames || []).includes(c.frame), g.key + ' 하는 일이 안 받는 프레이밍 ' + c.act + '·' + c.frame);
+    if (a.family === 'sit' && CT.poses(tree, c.act, c.frame).some(k => (tree.pose_meta[k] || {}).seat)) assert((tree.pose_meta[c.pose] || {}).seat, g.key + ' 앉기 계열엔 앉는 자세 ' + c.act + '·' + c.pose);
     assert(fr.low !== false || !tree.outfits.find(o => o.key === c.ofam).items.find(i => i.key === c.item).low, g.key + ' 허리 아래 옷 ' + c.frame + '·' + c.item);
   }
   for (const c of res.cuts) {
@@ -60,7 +62,6 @@ assert.match(errs(cs => { cs[1].frame = cs[0].frame; return cs; }), /프레이�
 assert.match(errs(cs => { cs[1].place = cs[0].place; cs[1].era = cs[0].era; cs[1].act = cs[0].act; cs[1].ofam = cs[0].ofam; cs[1].item = cs[0].item; return cs; }), /장소/);
 assert.match(errs(cs => cs.filter(c => !C.requiredType(c))), /필수 갈래가 없다/);
 /* 장소가 달라도 하는 일은 겹치지 않는다 — GTA V 계획에 쇼핑몰·편의점 「앉아 쉬기」 둘 */
-const CT = ctx.window.AtelierCasualTree;
 const rest = ['street_mall', 'street_grocery'].map(place => CT.repair(tree, { era: 'now', place, act: 'rest_seat', ofam: 'everyday' }, g, P.spec ? P.spec.CLOSE_FRAMES : []));
 assert(rest.every(c => c.act === 'rest_seat'), '두 장소 다 앉아 쉬기');
 assert.match(errs(cs => { Object.assign(cs[0], rest[0], { item: '' }); Object.assign(cs[1], rest[1], { item: '' }); return cs; }), /하는 일 rest_seat/);
