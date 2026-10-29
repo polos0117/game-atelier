@@ -61,6 +61,9 @@ const errs = f => C.check(f(base.map(c => ({ ...c, axes: { ...c.axes } }))), g).
 assert.match(errs(cs => { cs[1].frame = cs[0].frame; return cs; }), /프레이밍/);
 assert.match(errs(cs => { cs[1].place = cs[0].place; cs[1].era = cs[0].era; cs[1].act = cs[0].act; cs[1].ofam = cs[0].ofam; cs[1].item = cs[0].item; return cs; }), /장소/);
 assert.match(errs(cs => cs.filter(c => !C.requiredType(c))), /필수 갈래가 없다/);
+/* 사용자가 고른 칸(free)은 겹침엔 안 세도 「있어야 할 것」엔 센다 — 문명 5 일상1(하나뿐인 란제리·전신 컷, 방향만 2번과 겹침) */
+const keep = base.filter(c => C.requiredType(c) || ['full_body', 'environmental', 'chest_up', 'face_close'].includes(c.frame)).map(c => c.n);
+assert.deepEqual(C.check(base, g, [], keep), [], '고른 칸도 필수 갈래·먼 컷·가까운 컷으로 센다');
 /* 장소가 달라도 하는 일은 겹치지 않는다 — GTA V 계획에 쇼핑몰·편의점 「앉아 쉬기」 둘 */
 const rest = ['street_mall', 'street_grocery'].map(place => CT.repair(tree, { era: 'now', place, act: 'rest_seat', ofam: 'everyday' }, g, P.spec ? P.spec.CLOSE_FRAMES : []));
 assert(rest.every(c => c.act === 'rest_seat'), '두 장소 다 앉아 쉬기');
@@ -71,4 +74,4 @@ const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'plan-'));
 fs.writeFileSync(path.join(dir, 'casual1-ui.json'), JSON.stringify({ game: g.key, storage: { cards: { [g.key]: { scenes: { casual: { cat: 'travel_exploration', ex: 'travel_station', frame: 'face_close', orient: 'looking_down', lens: 'telephoto135' } } } } } }));
 const old = C.oldCuts(dir, g);
 assert(old.length === 1 && old[0].place === 'travel_rural_station' && old[0].n === 1, '예전 기록 → 트리 길');
-console.log(`PASS 일상컷 묶음 계획: 스무 편 × 씨앗 셋 ${n}묶음 규칙·기록·고정값 · 필수 갈래 돌리기 · 있는 컷 위에 더 짜기 · 규칙 검사 · 예전 기록`);
+console.log(`PASS 일상컷 묶음 계획: 스무 편 × 씨앗 셋 ${n}묶음 규칙·기록·고정값 · 필수 갈래 돌리기 · 있는 컷 위에 더 짜기 · 규칙 검사 · 고른 칸 · 예전 기록`);

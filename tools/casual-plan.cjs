@@ -97,15 +97,16 @@ function randomSlot(r, game, requiredType_) {
 /* 묶음 규칙 — 틀린 것 목록(빈 목록이면 통과). base 는 이미 있는 컷: 그것들이 벌써 넘긴 한도는 그만큼 올려 준다(새 칸이 더 보태지만 않게).
    칸이 고를 거리보다 많으면(프레이밍 여섯 가지에 일곱 장) 한 가지가 두 번까지 */
 /* free — 사용자가 직접 고른 칸 번호. 트리 위의 길인지는 보지만 묶음 겹침(방향·프레이밍·장소 …)엔 안 센다
-   (리그 오브 레전드 일상6 「정면 상체로 쉿」 — 허리 위가 5번과 겹친다) */
+   (리그 오브 레전드 일상6 「정면 상체로 쉿」 — 허리 위가 5번과 겹친다). 필수 갈래·먼 컷·가까운 컷 같은 「있어야 할 것」엔 센다
+   (문명 5 일상1 — 사용자가 방향을 정면으로 골라 2번과 겹치지만, 묶음의 하나뿐인 란제리·전신 컷이다) */
 function check(cuts, game, base = [], free = []) {
-  const all = [...base, ...cuts].filter(c => !free.includes(c.n)), errs = [];
+  const every = [...base, ...cuts], all = every.filter(c => !free.includes(c.n)), errs = [];
   const count = (f, xs) => xs.reduce((m, c) => { const k = f(c); if (k) m[k] = (m[k] || 0) + 1; return m; }, {});
   const over = (name, f, most, kinds) => {
     const m = count(f, all), b = count(f, base), cap = kinds ? Math.max(most, Math.ceil(all.length / kinds)) : most;
     Object.entries(m).forEach(([k, n]) => { if (n > Math.max(cap, b[k] || 0)) errs.push(`${name} ${k} 가 ${n} 번(${cap} 번까지)`); });
   };
-  if (!all.some(c => requiredType(c))) errs.push('필수 갈래가 없다');
+  if (!every.some(c => requiredType(c))) errs.push('필수 갈래가 없다');
   over('방향', c => c.orient, 1);
   over('프레이밍', c => c.frame, 1, FRAMES.length);
   over('렌즈', c => c.lens, 2, LENSES.length);
@@ -118,9 +119,9 @@ function check(cuts, game, base = [], free = []) {
   over('시대', c => c.era, 3);
   over('뒤돌아보기', c => (S.LOOK_BACK.orient.includes(c.orient) || S.LOOK_BACK.pose.includes(c.pose)) && 'look_back', 1);
   if ((game.signature || []).length) over('알아볼 거리', c => c.prop, 1, game.signature.length);
-  if (all.length >= 3) {
-    if (!all.some(c => FAR.includes(c.frame))) errs.push('먼 컷(전신·환경)이 없다');
-    if (!all.some(c => NEAR.includes(c.frame))) errs.push('가까운 컷(가슴 위·클로즈업)이 없다');
+  if (every.length >= 3) {
+    if (!every.some(c => FAR.includes(c.frame))) errs.push('먼 컷(전신·환경)이 없다');
+    if (!every.some(c => NEAR.includes(c.frame))) errs.push('가까운 컷(가슴 위·클로즈업)이 없다');
   }
   for (const c of cuts) {
     const fixed = CT.repair(tree, c, game, S.CLOSE_FRAMES);
