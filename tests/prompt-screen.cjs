@@ -58,7 +58,7 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     t = await out(p);
     assert(t.includes('빈틈없이 맞은 층이 빛으로 터지며') && t.startsWith("INPUT: attach this game's midgame form card image"));
     assert.match(await p.$eval('#file-name code', e => e.textContent), /tetris_middle_open_glossy_kr_game_f\.webp/);
-    /* 6. 일상컷 — 게임 갈래, 출시 당시, 잠금 */
+    /* 6. 일상컷 — 트리(시대·장소·하는 일·의상·구도), 출시 당시·게임 세계 안, 잠금 */
     await p.click('#mode-casual');
     /* 일상컷 고정값 — pkm 과 같다(2026-10-28): 전체 강도 strong · 피부 노출 bold · 2:3, 처음부터 잠김. 장면 랜덤을 돌려도 그대로 */
     const fixed = async why => {
@@ -73,35 +73,45 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     await fixed('처음');
     for (let i = 0; i < 5; i++) await p.click('#random-scene');
     await fixed('장면 랜덤 뒤');
-    await p.selectOption('#era', '');   // 장면 랜덤이 출시 당시를 골랐을 수 있다 — 아래 검사는 기본(현대)에서 시작한다
     await p.selectOption('#casual-n', '3');
     assert.match(await p.$eval('#file-name code', e => e.textContent), /tetris_glossy_kr_game_f_casual3\.webp/);
-    const cats = await p.$$eval('#category option', os => os.map(o => o.value));
-    for (const c of ['game_place', 'game_life_sensual', 'arcade_culture', 'dev_studio', 'speedrun_stream']) assert(cats.includes(c), '게임 갈래 ' + c);
-    for (const c of ['library_life', 'story_place', 'stage_adaptation', 'literary_salon']) assert(!cats.includes(c), '책 갈래 ' + c);
-    await p.selectOption('#category', 'game_place');
-    await p.selectOption('#example', 'gp_walk');
+    /* 일상컷 트리 — 시대 → 장소 → 하는 일 → 의상 → 구도. 갈래·예시 칸은 없다(2026-10-29) */
+    assert.equal(await p.$('#category'), null, '갈래 칸이 없다');
+    assert.equal(await p.$('#example'), null, '예시 칸이 없다');
+    const vals = () => p.evaluate(() => Object.fromEntries(['preset', 'era', 'place', 'act', 'ofam', 'item', 'pose', 'orientation'].map(id => [id, document.querySelector('#' + id).value])));
+    const opts = id => p.$$eval('#' + id + ' option', os => os.map(o => o.value));
+    assert.deepEqual(await opts('era'), ['now', 'release', 'in_game', 'fantasy'], '시대 넷');
+    await p.selectOption('#era', 'now');
+    await p.selectOption('#preset', 'arc_cabinet');
+    let v = await vals();
+    assert.deepEqual([v.era, v.place, v.act, v.ofam, v.item], ['now', 'arcade_hall', 'play_cabinet', 'everyday', 'bomber_shorts'], '추천 조합이 길을 채운다');
     t = await out(p);
-    assert(t.includes('GAME PLACE: a real-feeling place shaped like the world of «테트리스»') && t.includes('fabric and accessory'), '게임 속 장소·일상컷 화풍');
-    await p.selectOption('#category', 'arcade_culture');
-    await p.selectOption('#example', 'arc_cabinet');
-    t = await out(p);
-    assert(t.includes('SCREENS:') && t.includes('upright arcade cabinet') && !t.includes('GAME PLACE:'), '오락실·화면 줄');
-    assert(!t.includes('ERA:'), '기본은 현대');
+    assert(t.includes('SCREENS:') && t.includes('Place: an arcade hall') && t.includes('Activity: leaning into an upright cabinet') && !t.includes('WORLD:') && !t.includes('ERA:'), '오락실·화면 줄');
+    assert(t.includes('fabric and accessory'), '일상컷 화풍');
     await p.selectOption('#era', 'release');
+    assert.equal((await vals()).place, 'arcade_hall', '출시 당시에도 있는 장소는 그대로');
     assert((await out(p)).includes('ERA: set this scene in the real world around her release'), '출시 당시');
-    /* 시대는 장면 랜덤이 건드리지 않는다 — 랜덤·잠금 단추가 없고, 랜덤을 돌려도 고른 값 그대로(2026-10-29) */
-    assert.equal(await p.$('#lock-era'), null, '시대 칸에는 잠금 단추가 없다');
-    assert.equal(await p.$('#random-era'), null, '시대 칸에는 랜덤 단추가 없다');
-    await p.click('#lock-example');
-    await p.click('#random-scene');
-    assert.equal(await p.$eval('#era', e => e.value), 'release', '장면 랜덤이 시대를 바꾸지 않는다');
-    await p.selectOption('#era', '');
-    for (let i = 0; i < 6; i++) await p.click('#random-scene');
-    assert.equal(await p.$eval('#era', e => e.value), '', '장면 랜덤이 출시 당시를 고르지 않는다');
-    await p.selectOption('#era', 'release');
-    assert.equal(await p.$eval('#example', e => e.value), 'arc_cabinet', '잠근 예시는 그대로');
-    assert.equal(await p.$eval('#category', e => e.value), 'arcade_culture', '예시를 잠그면 그 갈래도 그대로');
+    assert(!(await opts('place')).includes('arcade_pcbang') && !(await opts('place')).includes('fx_studio'), '그 해에 없던 곳·환상 무대는 빠진다');
+    await p.selectOption('#era', 'in_game');
+    assert((await opts('place')).every(k => k.startsWith('game_')), '게임 세계 안은 그 세계의 장소만');
+    t = await out(p);
+    assert(t.includes('WORLD: this scene happens inside the world of «테트리스»') && !t.includes('ERA:'), '게임 세계 안 줄');
+    /* 앞 칸을 잠그면 랜덤은 뒤 칸만 — 시대를 잠그고 돌려도 그대로 */
+    await p.click('#lock-era');
+    for (let i = 0; i < 5; i++) await p.click('#random-scene');
+    v = await vals();
+    assert.equal(v.era, 'in_game', '잠근 시대는 그대로');
+    assert(v.place.startsWith('game_'), '랜덤 장소도 그 시대 안에서');
+    await fixed('트리 랜덤 뒤');
+    /* 하는 일이 자세를 거른다 — 앉아 기다리기엔 걷기 자세가 없다 */
+    await p.click('#lock-era');
+    await p.selectOption('#era', 'now');
+    await p.selectOption('#preset', 'travel_station');
+    assert(!(await opts('pose')).includes('walking') && (await opts('pose')).includes('sitting'), '앉기 계열 자세만');
+    assert(!(await opts('orientation')).includes('walking_away'), '앉기 계열 방향만');
+    await p.selectOption('#era', 'in_game');
+    await p.selectOption('#place', 'game_bath');
+    assert.match(await p.$eval('#required-note', e => e.textContent), /★/, '게임 세계 안 목욕 — 필수 갈래');
     /* 7. 복사·기록 */
     await p.click('#copy-prompt');
     await p.waitForFunction(() => document.querySelector('.studio-status').textContent.length > 0);
@@ -110,7 +120,9 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert.equal(rec.record, 'records/tetris/casual3-ui.json');
     assert.equal(rec.file, 'tetris_glossy_kr_game_f_casual3.webp');
     assert.equal(rec.game, 'tetris');
-    assert.equal(rec.storage.cards.tetris.scenes.casual.era, 'release');
+    assert.equal(rec.storage.cards.tetris.scenes.casual.era, 'in_game');
+    assert.equal(rec.storage.cards.tetris.scenes.casual.place, 'game_bath');
+    assert(!('cat' in rec.storage.cards.tetris.scenes.casual), '기록에 옛 갈래 칸이 없다');
     /* 8. 저장·직전 게임 외형 */
     await p.reload(); await p.waitForSelector('#prompt-output');
     assert.equal(await p.$eval('#mode-casual', e => e.getAttribute('aria-pressed')), 'true', '새로고침해도 일상컷');
@@ -132,6 +144,6 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert.equal(await c.page.$eval('#mode-open', e => e.getAttribute('aria-pressed')), 'true', '주소의 모드');
     assert.deepEqual(c.errors, []);
     await c.close();
-    console.log('PASS 생성기: 게임 표시 ✓◐· · 시범 폼 · 파일 이름 · 게임 줄(캐릭터 아님·능력·시대) · 외형·되돌리기·잠금 · 이어가기 · 개방 · 일상컷 게임 갈래·책 갈래 없음·출시 당시·잠금 · 복사·기록 · 저장·직전 게임 외형');
+    console.log('PASS 생성기: 게임 표시 ✓◐· · 시범 폼 · 파일 이름 · 게임 줄(캐릭터 아님·능력·시대) · 외형·되돌리기·잠금 · 이어가기 · 개방 · 일상컷 트리(추천 조합·시대가 장소를 거름·잠근 앞 칸·자세 계열·필수 갈래)·출시 당시·잠금 · 복사·기록 · 저장·직전 게임 외형');
   } finally { await h.stop(); }
 })().catch(e => { console.error(e); process.exit(1); });

@@ -85,11 +85,13 @@
   },
   {
    "key": "arcade",
-   "ko": "오락실·게임 가게"
+   "ko": "오락실·게임 가게",
+   "screens": true
   },
   {
    "key": "studio",
-   "ko": "작업실"
+   "ko": "작업실",
+   "screens": true
   },
   {
    "key": "water",
@@ -188,7 +190,8 @@
     "lingerie",
     "everyday",
     "active"
-   ]
+   ],
+   "screens": true
   },
   {
    "key": "home_balcony",
@@ -952,7 +955,8 @@
     "subculture",
     "roleplay",
     "active"
-   ]
+   ],
+   "screens": true
   },
   {
    "key": "stage_dance",
@@ -3771,7 +3775,8 @@
      "ko": "물감 묻은 셔츠",
      "en": "a paint-splattered oversized shirt over shorts"
     }
-   ]
+   ],
+   "en": "everyday clothes that suit the place and activity"
   },
   {
    "key": "homewear",
@@ -3857,7 +3862,8 @@
      "ko": "오버사이즈 티 + 쇼츠",
      "en": "an oversized tee and shorts"
     }
-   ]
+   ],
+   "en": "soft homewear or loungewear"
   },
   {
    "key": "lingerie",
@@ -3999,7 +4005,8 @@
      "ko": "앞 끈 코르셋",
      "en": "a front-lacing corset over matching high-waisted bottoms"
     }
-   ]
+   ],
+   "en": "tasteful lingerie-inspired fashion, fully opaque and securely fitted, with full intimate coverage"
   },
   {
    "key": "swimwear",
@@ -4121,7 +4128,8 @@
      "ko": "스포티 비키니",
      "en": "a sporty bikini with a crop top and boy-cut bottoms"
     }
-   ]
+   ],
+   "en": "modern swimwear, fully lined and secure during movement"
   },
   {
    "key": "bath",
@@ -4157,7 +4165,8 @@
      "ko": "목욕 유카타",
      "en": "a light cotton bath yukata with a soft sash"
     }
-   ]
+   ],
+   "en": "a bath-time wrap, robe or bathhouse loungewear that stays fully covering at chest and hips"
   },
   {
    "key": "active",
@@ -4248,7 +4257,8 @@
      "ko": "양궁 차림",
      "en": "a fitted archery top with an arm guard"
     }
-   ]
+   ],
+   "en": "activewear made for the activity"
   },
   {
    "key": "evening",
@@ -4319,7 +4329,8 @@
      "ko": "컷아웃 미니",
      "en": "a cut-out mini dress"
     }
-   ]
+   ],
+   "en": "an evening dress or night-out outfit"
   },
   {
    "key": "traditional",
@@ -4440,7 +4451,8 @@
      "ko": "모로코 카프탄",
      "en": "a Moroccan evening caftan — a long embroidered robe with a decorated belt"
     }
-   ]
+   ],
+   "en": "a traditional dress that suits her, worn naturally"
   },
   {
    "key": "roleplay",
@@ -4572,7 +4584,8 @@
      "ko": "크리스마스 파티",
      "en": "a Christmas party costume — a fur-trimmed red velvet mini dress, a Santa hat and boots"
     }
-   ]
+   ],
+   "en": "a playful adult event costume inspired by an occupation or role — clearly a costume, not a real uniform, no real insignia"
   },
   {
    "key": "subculture",
@@ -4663,7 +4676,8 @@
      "ko": "비주얼계",
      "en": "visual kei — a dramatic black-and-silver layered stage outfit with lace cuffs"
     }
-   ]
+   ],
+   "en": "a subculture street look"
   },
   {
    "key": "costume",
@@ -4764,7 +4778,8 @@
      "ko": "살사 드레스",
      "en": "a fringed salsa dress"
     }
-   ]
+   ],
+   "en": "a stage or fantasy costume"
   },
   {
    "key": "editorial",
@@ -4865,7 +4880,8 @@
      "ko": "레트로 퓨처 점프수트",
      "en": "a sleek retro-futurist jumpsuit with vintage trim"
     }
-   ]
+   ],
+   "en": "an editorial couture look whose cut and tailoring read clearly"
   },
   {
    "key": "bridal",
@@ -4911,7 +4927,8 @@
      "ko": "브라이덜 레이스",
      "en": "a white lace bridal lingerie set with a short veil"
     }
-   ]
+   ],
+   "en": "bridal wear"
   },
   {
    "key": "retro",
@@ -5007,7 +5024,8 @@
      "ko": "Y2K 로우라이즈",
      "en": "a Y2K low-rise mini skirt, a butterfly halter top and platform sandals"
     }
-   ]
+   ],
+   "en": "a period look from a past decade"
   }
  ],
  "required": {

@@ -1,11 +1,12 @@
 /* 게임 프롬프트 — 설계표 열 편 × 세 폼 × (새 인물·이어가기·개방) + 일상컷이 다 조립되고, 정한 말이 다 영어로 풀린다.
    book-atelier 의 tests/prompt-book.cjs 에서 왔다. 책 몫(보호 중인 책·한복·이야기 속 장소·각색)은 빼고 게임 몫을 더했다:
-   캐릭터 아님·그리지 않을 것 줄, 핵심 조작·시대 줄, 게임 갈래 넷(게임 속 장소·화면 줄), 출시 당시, 사실 칸은 받은 것만.
+   캐릭터 아님·그리지 않을 것 줄, 핵심 조작·시대 줄, 일상컷 트리(시대·장소·하는 일·의상·구도), 출시 당시, 사실 칸은 받은 것만.
    Run: node tests/prompt-game.cjs */
 const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict');
 const ctx = { window: {}, console }; vm.createContext(ctx);
-for (const f of ['lib/prompt-spec.js', 'lib/prompt-game.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx);
-const S = ctx.window.AtelierSpec, P = ctx.window.AtelierPrompt, T = S.GAME_LINES;
+for (const f of ['lib/prompt-spec.js', 'lib/casual-tree.js', 'lib/prompt-game.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx);
+const S = ctx.window.AtelierSpec, P = ctx.window.AtelierPrompt, CT = ctx.window.AtelierCasualTree, T = S.GAME_LINES;
+const tree = JSON.parse(fs.readFileSync('data/casual-tree.json', 'utf8'));
 const design = JSON.parse(fs.readFileSync('data/game-design.json', 'utf8'));
 const style = JSON.parse(fs.readFileSync('data/style.json', 'utf8'));
 const gs = style.styles[style.default], cur = gs.versions.find(v => v.v === gs.current), text = cur.text;
@@ -93,84 +94,95 @@ assert(!mine.includes(S.VOCAB_EN.body[g.silhouette.body] + ' build') && mine.inc
 const off = P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, faceDesignOn: false, silhouetteOn: false });
 assert(!off.includes('FACE (') && !off.includes('SILHOUETTE:'), '끄면 빠진다');
 
-/* 5. 일상컷 갈래 — 책 몫 넷은 없고 게임 몫 다섯(게임 속 일상·섹시는 2026-10-29)이 있다 */
-const cats = S.CATS.map(r => r[0]);
-for (const c of ['library_life', 'story_place', 'stage_adaptation', 'literary_salon']) assert(!cats.includes(c) && !S.EXAMPLE_MAP[c] && !S.CAT_KO[c], '책 갈래가 남았다: ' + c);
-for (const c of ['game_place', 'game_life_sensual', 'arcade_culture', 'dev_studio', 'speedrun_stream']) {
-  assert(cats.includes(c) && S.CAT_KO[c] && (S.EXAMPLE_MAP[c] || []).length >= 10, '게임 갈래: ' + c);
-  for (const r of S.EXAMPLE_MAP[c]) if (r[0]) assert(S.EX_NOTE[r[0]], c + ' · ' + r[0] + ' 설명이 없다');
-}
-assert(!/STORY PLACE|ADAPTATION|BOOK:/.test(JSON.stringify(T)), '책 문장이 남았다');
-assert(!/her book|book's|library hall|bookmark/i.test(JSON.stringify(S.EXAMPLE_DETAIL) + JSON.stringify(S.CATS) + JSON.stringify(S.EXAMPLE_MAP)), '공용 갈래에 책 말이 남았다');
-for (const r of S.CATS) if (r[0] !== 'auto_random' && r[0] !== '__custom__') assert((S.EXAMPLE_MAP[r[0]] || []).length, r[0] + ' 예시가 없다');
-const cas = (cat, ex, x = {}) => P.buildCasual({ game: g, styleText: text, styleCasual: cur.casual, cat, ex, ...x });
-/* 게임 속 장소는 설계표 place, 오락실·개발실·방송은 화면 줄 — 다른 갈래에는 안 싣는다 */
-const gp = cas('game_place', 'gp_walk');
-assert(gp.includes('GAME PLACE: a real-feeling place shaped like the world of «' + g.title + '» — ' + g.place + '.') && !gp.includes('SCREENS:'), '게임 속 장소 줄');
-/* 게임 속 일상(섹시)도 같은 장소 줄을 싣는다 — 그 세계 안에서 사는 장면 */
-const gl = cas('game_life_sensual', 'gl_outdoor_bath');
-assert(gl.includes('GAME PLACE: a real-feeling place shaped like the world of «' + g.title + '»') && !gl.includes('SCREENS:') && gl.includes("living inside her own game's world") && gl.includes('outdoor bath'), '게임 속 일상(섹시) 줄');
-for (const [c, ex] of [['arcade_culture', 'arc_cabinet'], ['dev_studio', 'dev_pixel_desk'], ['speedrun_stream', 'sr_record']]) {
-  const t = cas(c, ex);
-  assert(t.includes(T.casualScreens) && !t.includes('GAME PLACE:'), c + ' 화면 줄');
-  assert(t.includes(S.EXAMPLE_MAP[c].find(r => r[0] === ex)[5]), c + ' 예시 문장');
-}
-const plain = cas('everyday_basic', '');
-assert(!plain.includes('GAME PLACE:') && !plain.includes('SCREENS:'), '다른 갈래엔 없다');
-assert(plain.includes(T.trademark) && plain.includes('NEVER DRAW for this game:'), '일상컷에도 캐릭터 아님 줄');
-/* 일상컷 화풍은 판의 casual 문장(pkm 일상컷), 폼·개방은 text */
+/* 5. 일상컷 — 트리 길(시대 → 장소 → 하는 일 → 의상 → 구도, 2026-10-29). 갈래 설명 문단·예시 문장은 없다 */
+const cas = (x = {}) => P.buildCasual({ game: g, tree, styleText: text, styleCasual: cur.casual, ...x });
+const sceneOf = t => t.split('SCENE (chosen):\n')[1].split('\n\n')[0];
+const plain = cas();
+assert(!/\nCategory: |\nExample scene: /.test(plain), '갈래 설명·예시 문장이 남았다');
+assert(sceneOf(plain).startsWith('Place: ' + CT.place(tree, 'street_cafe').en + '\nActivity: ' + CT.act(tree, 'coffee_takeout').en + '\nOutfit: ' + CT.family(tree, 'everyday').en), '기본 길 — 카페·커피·평상복');
+assert(plain.includes(T.trademark) && plain.includes('NEVER DRAW for this game:') && !plain.includes('WORLD:') && !plain.includes('SCREENS:') && !plain.includes('ERA:'), '지금 현실 기본');
 assert(plain.includes('STYLE: ' + cur.casual) && !plain.includes('STYLE: ' + text), '일상컷 화풍 문장');
 assert(cur.casual.includes('fabric and accessory') && text.includes('costume and accessory'), '화풍 판 — 폼은 costume, 일상은 fabric');
-assert(plain.includes(T.casualWardrobe) && plain.includes(T.casualPose), '옷·각도 줄');
+assert(plain.includes(T.casualWardrobe) && plain.includes(T.casualPose) && plain.includes(T.casualOutput), '옷·각도·출력 줄');
+/* 옷 — 고른 옷 > 계열 풀이, 직접 쓴 옷이 이긴다 */
+const lace = cas({ era: 'now', place: 'home_bedroom', act: 'dress_up', ofam: 'lingerie', item: 'lace_set' });
+assert(sceneOf(lace).includes('Outfit: ' + CT.item(tree, 'lingerie', 'lace_set').en), '고른 옷');
+assert(sceneOf(cas({ era: 'now', place: 'home_bedroom', act: 'dress_up', ofam: 'lingerie', item: 'lace_set', outfit: 'a red silk robe' })).includes('Outfit: a red silk robe') , '직접 쓴 옷이 이긴다');
+/* 시대 — 게임 세계 안은 WORLD(설계표 place), 무대·환상은 SETTING, 출시 당시는 ERA */
+const world = cas({ era: 'in_game', place: 'game_bath', act: 'soak', ofam: 'bath' });
+assert(world.includes('WORLD: this scene happens inside the world of «' + g.title + '», as if she simply lives there — ' + q(g.place) + '.') && !world.includes('ERA:'), '게임 세계 안');
+assert(sceneOf(cas({ era: 'in_game', place: 'game_place', act: 'stroll', ofam: 'everyday' })).startsWith('Place: the place named in WORLD'), '그 게임의 장소는 WORLD 를 가리킨다');
+assert(cas({ era: 'fantasy', place: 'fx_studio', act: 'editorial_pose', ofam: 'editorial' }).includes(T.casualFantasy), '무대·환상');
+const gu = { ...g, facts: { ...g.facts, year: null } };
+const thenT = P.buildCasual({ game: gu, tree, styleText: text, era: 'release', place: 'arcade_hall', act: 'play_cabinet', ofam: 'everyday' });
+assert(thenT.includes('ERA: set this scene in the real world around her release — ' + S.ERA_PERIOD[g.era] + '.'), '출시 당시 — 시대');
+assert(P.buildCasual({ game: fetched, tree, styleText: text, era: 'release', place: 'arcade_hall', act: 'play_cabinet', ofam: 'everyday' }).includes('around 1984'), '출시 당시 — 받은 연도');
+assert(thenT.indexOf('ERA:') > thenT.indexOf('WARDROBE:') && thenT.indexOf('ERA:') < thenT.indexOf('SCENE (chosen)'), '시대 줄은 옷 줄 뒤, 장면 앞');
+assert(!P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, era: 'release' }).includes('ERA:'), '폼 초상에는 없다');
+/* 출시 당시엔 그 해에 없던 곳이 빠진다 — 1984 년 테트리스에 PC방(1998)은 없다 */
+assert(!CT.places(tree, 'release', fetched).some(p => p.key === 'arcade_pcbang') && CT.places(tree, 'now', fetched).some(p => p.key === 'arcade_pcbang'), '그 해부터 있는 곳');
+assert.equal(CT.repair(tree, { era: 'release', place: 'arcade_pcbang', act: 'pc_booth', ofam: 'everyday' }, fetched, S.CLOSE_FRAMES).place !== 'arcade_pcbang', true, '없는 곳은 고친다');
+/* 화면 줄 — 오락실·작업실(·대회 무대·거실)만 */
+for (const [pl, ac] of [['arcade_hall', 'play_cabinet'], ['studio_dev', 'pixel_desk'], ['studio_stream', 'stream_live'], ['stage_contest', 'trophy_lift']])
+  assert(cas({ era: 'now', place: pl, act: ac, ofam: CT.outfitFamilies(tree, 'now', pl, ac)[0].key }).includes(T.casualScreens), pl + ' 화면 줄');
+assert(!lace.includes('SCREENS:'), '침실엔 화면 줄 없음');
 /* 가까운 프레이밍이면 CROP 줄 — 클로즈업에 발·옷 전체·가방이 함께 실려 부딪혔다(2026-10-29) */
+const station = { era: 'now', place: 'travel_rural_station', act: 'wait_train', ofam: 'everyday' };
 for (const frame of S.CLOSE_FRAMES) {
-  const t = cas('travel_exploration', 'travel_station', { frame, pose: 'sitting' });
+  const t = cas({ ...station, frame, pose: 'sitting' });
   assert(t.includes('CROP: ' + S.CROP_EDGE[frame] + '. This crop wins'), frame + ' CROP 줄에 잘리는 선');
   assert(t.indexOf('CROP:') > t.indexOf('FRAME:') && t.indexOf('CROP:') < t.indexOf('WARDROBE:'), frame + ' CROP 은 FRAME 바로 밑');
   assert(t.includes(T.anatomyClose) && !t.includes('7.5 heads'), frame + ' 가까운 컷에 등신 말 없음');
 }
-assert(cas('travel_exploration', 'travel_station', { frame: 'full_body' }).includes(T.anatomy), '먼 컷은 등신 줄 그대로');
-for (const frame of ['full_body', 'environmental', 'three_quarter', '']) assert(!cas('travel_exploration', 'travel_station', { frame }).includes('CROP:'), frame + ' CROP 없음');
-for (const x of [{ orient: 'rear_3q' }, { orient: 'over_shoulder' }, { pose: 'turning_back' }]) assert(cas('game_place', 'gp_walk', x).includes(T.casualLookBack), '뒤돌아보기 ' + JSON.stringify(x));
-/* 일상컷 알아볼 거리 — 하나만 작게, 폼 장비 줄은 없다 */
+assert(cas({ ...station, frame: 'full_body' }).includes(T.anatomy), '먼 컷은 등신 줄 그대로');
+for (const frame of ['full_body', 'environmental', 'three_quarter', '']) assert(!cas({ ...station, frame }).includes('CROP:'), frame + ' CROP 없음');
+const walk = { era: 'now', place: 'street_alley', act: 'stroll', ofam: 'everyday' };
+for (const x of [{ orient: 'rear_3q' }, { orient: 'over_shoulder' }, { pose: 'turning_back' }]) assert(cas({ ...walk, ...x }).includes(T.casualLookBack), '뒤돌아보기 ' + JSON.stringify(x));
+assert(!cas({ ...walk, orient: 'front_3q' }).includes('LOOK-BACK:'), '앞모습엔 뒤돌아보기 줄 없음');
+/* 자세·방향은 하는 일의 자세 계열 안에서만 — 앉아 기다리는데 걸어가는 뒷모습은 고쳐서 지운다 */
+const fixed = CT.repair(tree, { ...station, pose: 'walking', orient: 'walking_away' }, g, S.CLOSE_FRAMES);
+assert(fixed.pose === '' && fixed.orient === '', '앉기 계열에 걷기 자세·방향은 없다');
+assert(CT.orients(tree, 'wait_train', 'face_close', S.CLOSE_FRAMES).includes('profile_close') && !CT.orients(tree, 'wait_train', 'full_body', S.CLOSE_FRAMES).includes('profile_close'), '가까운 옆얼굴은 가까운 컷에서만');
+/* 알아볼 거리 — 자동은 하나~둘, 하나를 골랐으면 그것만, 없음이면 줄이 없다. 폼 장비 줄은 없다 */
 assert(plain.includes('SIGNATURE (one or two at most, as an accessory or an object in the scene — never printed on or woven into the clothes): ' + g.signature.map(s => '"' + q(s) + '"').join(', ') + '.') && !plain.includes('GEAR in'), '일상컷 알아볼 거리는 장신구·주변 사물로');
-/* 와일드카드도 고른 예시를 그대로 짓는다 — 「새 장면을 지어내라」 가 예시를 이겼다(2026-10-29 젤다 일상2) */
-assert(S.CATS.find(r => r[0] === 'wildcard')[3].includes('build exactly that scene'), '와일드카드가 예시를 따른다');
-/* 분리형 선호는 옷 칸·장면 예시에 적힌 옷에 진다(2026-10-29 젤다 일상2 — 가운 예시가 탱크톱·반바지가 됐다) */
-for (const v of ['prefer separates', 'strongly prefer separates']) assert(S.SCENE_AXIS_GUIDES.separates_preference[v][1].includes('Example scene'), '분리형 ' + v);
+assert(cas({ prop: '1' }).includes(T.casualSignatureOne.replace('{item}', '"' + q(g.signature[1]) + '"')), '알아볼 거리 하나');
+assert(!cas({ prop: 'none' }).includes('SIGNATURE'), '알아볼 거리 없음');
+/* 분리형 선호는 고른 옷에 진다 */
+for (const v of ['prefer separates', 'strongly prefer separates']) assert(S.SCENE_AXIS_GUIDES.separates_preference[v][1].includes('chosen Outfit'), '분리형 ' + v);
 /* 일상컷 옷은 장면의 옷 그대로 — 게임의 색·무늬는 장신구·주변 사물로만(2026-10-29 옷이 첨부 그림을 따라 비슷비슷했다) */
 assert(!/color echo|motif on the clothing|source palette and motifs in clothing|integrated into everyday clothing/.test(JSON.stringify(T) + JSON.stringify(S.SCENE_AXIS_GUIDES)), '옷에 게임 색·무늬를 넣으라는 말이 남았다');
 assert(plain.includes("Do not carry the attached image's palette, patterns or trim into the outfit") && plain.includes("never in the outfit's colours, patterns or cut"), '옷은 첨부 그림의 색·무늬를 따르지 않는다');
 for (const v of ['subtle', 'balanced', 'strong']) {
-  const t = cas('everyday_basic', '', { axes: { source_influence: v } });
+  const t = cas({ axes: { source_influence: v } });
   assert(/accessor|props|object in the scene/.test(t.match(/source_influence: [^\n]*/)[0]) && !/in clothing\b|into everyday clothing/.test(t), '원본 반영 ' + v + ' 은 장신구·사물로');
 }
 assert(!/simplified costume motifs|never exact icons/.test(JSON.stringify(T)), '상징을 일반화하라는 말이 남았다');
-/* 일상컷 화면비 — 기본 2:3 도 늘 FRAME 줄로 싣는다. 고르면 그 비율 하나만(SCENE 에 겹쳐 싣지 않는다) */
+/* 일상컷 화면비 — 기본 2:3 도 늘 FRAME 줄로 싣는다. 고르면 그 비율 하나만 */
 assert(plain.includes('FRAME: a vertical 2:3 (1024×1536) image.') && !plain.includes('Aspect ratio'), '일상컷 FRAME 기본 2:3');
 for (const [a, w] of [['3:2', 'a horizontal 3:2 (1536×1024)'], ['1:1', 'a square 1:1'], ['9:16', 'a tall vertical 9:16'], ['16:9', 'a wide horizontal 16:9']]) {
-  const t = cas('game_place', 'gp_walk', { aspect: a });
+  const t = cas({ aspect: a });
   assert(t.includes('FRAME: ' + w) && !t.includes('2:3') && !t.includes('Aspect ratio'), '일상컷 FRAME ' + a);
 }
-assert(!cas('game_place', 'gp_walk', { orient: 'front_3q' }).includes('LOOK-BACK:'), '앞모습엔 뒤돌아보기 줄 없음');
-/* 출시 당시 — 받은 연도가 있으면 그 해, 없으면 시대 */
-const gu = { ...g, facts: { ...g.facts, year: null } };
-const nowT = P.buildCasual({ game: gu, styleText: text, cat: 'arcade_culture', ex: 'arc_cabinet' }),
-  thenT = P.buildCasual({ game: gu, styleText: text, cat: 'arcade_culture', ex: 'arc_cabinet', era: 'release' });
-assert(!nowT.includes('ERA:') && thenT.includes('ERA: set this scene in the real world around her release — ' + S.ERA_PERIOD[g.era] + '.'), '출시 당시 — 시대');
-assert(P.buildCasual({ game: fetched, styleText: text, cat: 'arcade_culture', ex: 'arc_cabinet', era: 'release' }).includes('around 1984'), '출시 당시 — 받은 연도');
-assert(thenT.indexOf('ERA:') > thenT.indexOf('WARDROBE:') && thenT.indexOf('ERA:') < thenT.indexOf('SCENE (chosen)'), '시대 줄은 옷 줄 뒤, 장면 앞');
-assert(!P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, era: 'release' }).includes('ERA:'), '폼 초상에는 없다');
-for (const [cat, rows] of Object.entries(S.EXAMPLE_MAP)) for (const r of rows) if (r[0] && r[0] !== '__custom__') {
-  assert(r[5] || S.EXAMPLE_DETAIL[r[0]], cat + ' · ' + r[0] + ' 장면 문장이 없다');
-  assert(P.words(cas(cat, r[0])) <= 840, cat + ' · ' + r[0] + ' 일상컷이 840 낱말을 넘는다');
+/* 예전 기록(갈래·예시) — 변환표로 같은 길이 된다 */
+assert.equal(cas({ cat: 'travel_exploration', ex: 'travel_station' }), cas({ era: 'now', place: 'travel_rural_station', act: 'wait_train', ofam: 'everyday' }), '예전 기록 → 추천 조합 길');
+assert(sceneOf(cas({ cat: 'lingerie', ex: 'lace_set' })).includes(CT.item(tree, 'lingerie', 'lace_set').en), '예전 옷 예시 → 그 옷');
+assert(cas({ cat: 'arcade_culture', ex: 'arc_cabinet', era: 'release' }).includes('ERA:'), '예전 출시 당시는 그대로');
+/* 추천 조합 282 개가 다 조립되고, 따옴표 밖은 영어, 길이 한도 */
+let longestCasual = 0;
+for (const pr of tree.presets) {
+  const t = cas(CT.applyPreset(tree, {}, pr.key));
+  assert(t.includes('Place: ') && t.includes('Activity: ') && t.includes('Outfit: '), pr.key + ' 장면 줄');
+  assert(!/[가-힣]/.test(t.replace(/"[^"]*"/g, '').replace(/«[^»]*»/g, '').replace(/STYLE: [^\n]*/, '')), pr.key + ' 따옴표 밖은 영어');
+  longestCasual = Math.max(longestCasual, P.words(t));
 }
+assert(longestCasual <= 760, '가장 긴 일상컷이 760 낱말을 넘는다: ' + longestCasual);
+assert.throws(() => P.buildCasual({ game: g, styleText: text }), /Casual tree is required/);
 assert(!/Pok[eé]mon|포켓몬|Gundam|건담/.test(JSON.stringify(S)), '표에 포켓몬·건담 말이 남았다');
 
 /* 6. 화풍 블록은 앞, 점검 줄은 맨 끝, 참고 그림은 그리는 방식만 */
-const full = { game: g, stage: '타이틀', styleText: text, styleCasual: cur.casual, styleCheck: cur.check, styleRef: true, params: [] };
+const full = { game: g, tree, stage: '타이틀', styleText: text, styleCasual: cur.casual, styleCheck: cur.check, styleRef: true, params: [] };
 for (const [name, t] of [['새 인물', P.buildPrompt({ ...full, outputMode: 'form' })], ['이어가기', P.buildPrompt({ ...full, outputMode: 'form', identityMode: 'reference', baseStage: '타이틀' })],
-  ['개방', P.buildPrompt({ ...full, outputMode: 'open' })], ['일상', P.buildCasual({ ...full, cat: 'game_place', ex: 'gp_walk' })]]) {
+  ['개방', P.buildPrompt({ ...full, outputMode: 'open' })], ['일상', P.buildCasual({ ...full, era: 'in_game', place: 'game_place', act: 'stroll', ofam: 'everyday' })]]) {
   const parts = t.split('\n\n');
   assert(parts.findIndex(x => x.startsWith('STYLE: ')) <= 4, name + ' — 화풍 블록이 앞쪽(입력·게임·캐릭터 아님 다음)');
   assert(parts[parts.length - 1].startsWith('FINAL CHECK: '), name + ' — 맨 끝에 화풍 점검');
@@ -194,7 +206,7 @@ assert(exp('bold').includes('7.5 heads'), '등신 줄');
 /* 8. 나이·연출·자세 */
 const parts0 = P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, params: [] }).split('\n\n');
 assert(parts0[parts0.findIndex(x => x.startsWith('SUBJECT:')) + 1] === S.AGE_LINES['20s'], '자동이면 20대 줄이 SUBJECT 바로 뒤');
-for (const t of [P.buildPrompt({ ...full, styleRef: false, outputMode: 'form', identityMode: 'reference', baseStage: '타이틀' }), P.buildPrompt({ ...full, outputMode: 'open' }), P.buildCasual({ ...full, cat: 'game_place', ex: 'gp_walk' })])
+for (const t of [P.buildPrompt({ ...full, styleRef: false, outputMode: 'form', identityMode: 'reference', baseStage: '타이틀' }), P.buildPrompt({ ...full, outputMode: 'open' }), P.buildCasual({ ...full })])
   assert(t.includes(S.AGE_KEEP) && !t.includes(S.AGE_LINES['20s']), '첨부 그림이 정하는 갈래는 나이를 지킨다');
 const pf = P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, exposure: 'bold' }).split('\n\n');
 const pi = pf.indexOf(T.presentation);
@@ -224,4 +236,4 @@ assert.throws(() => P.buildPrompt({ outputMode: 'form', game: g, stage: '타이�
 assert.throws(() => P.buildPrompt({ outputMode: 'form', stage: '타이틀', styleText: text }), /Game is required/);
 
 console.log(`PASS 게임 프롬프트: ${G.length}편 × 폼 3 × (새 인물·이어가기·개방) ${n}개 · 가장 긴 것 ${longest}낱말 · 정한 말 영어 · 캐릭터 아님·그리지 않을 것 · 핵심 조작·시대 · 사실은 받은 것만 · `
-  + `게임 갈래 넷(장소·화면 줄)·책 갈래 없음 · 출시 당시 · 일상컷 화풍 문장 · 화풍 앞·점검 끝 · 노출·나이·자세`);
+  + `일상컷 트리(시대·장소·하는 일·옷·자세 계열·화면 줄·CROP·알아볼 거리·예전 기록) · 추천 조합 ${tree.presets.length}개 가장 긴 것 ${longestCasual}낱말 · 일상컷 화풍 문장 · 화풍 앞·점검 끝 · 노출·나이·자세`);
