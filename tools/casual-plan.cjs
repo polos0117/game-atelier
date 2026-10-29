@@ -37,6 +37,9 @@ const FIXED_AXES = { overall_intensity: 'strong', skin_exposure: 'bold' };
    돌아보기·허리 숙이기는 몸을 비튼다(패들보드) — 사람이 화면에서 고르는 건 되지만 계획기는 안 고른다 */
 const PLAN_SKIP_POSES = ['holding_cup', 'reading_book', 'taking_photo', 'adjusting_bag', 'checking_map', 'waving', 'offering_food', 'watering',
   'preparing_food', 'carrying_something', 'turning_back', 'bending_over'];
+/* 방향 중 몸 동작인 것(위로 뻗기·앞으로·뒤로 기울이기·웅크리기·앉아 비틀기·돌며 움직이기·기대 눕기)도 하는 일과 따로 붙으면 부딪힌다
+   (리그 오브 레전드 계획 「경기 뒤 인터뷰」 에 「위로 손 뻗기」) — 계획기는 보는 쪽(앞·옆·뒤·높이·시선) 방향만 고른다 */
+const PLAN_SKIP_ORIENTS = ['reaching_up', 'leaning_forward', 'leaning_back', 'crouching', 'seated_twist', 'turning_midmotion', 'reclining'];
 
 function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 const pick = (r, list) => list[Math.floor(r() * list.length)];
@@ -67,7 +70,8 @@ function compose(r, sc, game) {
   /* 옷 — 이 프레이밍에서 알아볼 수 있는 옷(트리), 그중 하는 일이 먼저 고르라는 옷(prefer)이 있으면 그중에서(자전거 점검엔 사이클 복장) */
   const it = CT.items(tree, sc.ofam, sc.frame), prefer = it.filter(x => (CT.act(tree, sc.act).prefer || []).includes(x.key));
   sc.item = prefer.length ? pick(r, prefer).key : it.length ? pick(r, it).key : '';
-  sc.orient = pick(r, CT.orients(tree, sc.act, sc.frame, S.CLOSE_FRAMES));
+  const os = CT.orients(tree, sc.act, sc.frame, S.CLOSE_FRAMES), view = os.filter(o => !PLAN_SKIP_ORIENTS.includes(o));
+  sc.orient = pick(r, view.length ? view : os);
   sc.lens = pick(r, LENSES.filter(l => CT.lensOk(tree, sc.frame, l)));
   /* 자세는 가끔 — 하는 일이 동작을 이미 정한다 */
   const poses = CT.poses(tree, sc.act, sc.frame).filter(k => !PLAN_SKIP_POSES.includes(k));

@@ -3762,7 +3762,8 @@
    "en": "clapping from a seat in the stands",
    "seat": [
     "chair"
-   ]
+   ],
+   "mood": true
   },
   {
    "key": "parade_float",
@@ -3996,7 +3997,8 @@
    "places": [
     "night_livehouse"
    ],
-   "en": "at the crowd barrier, one arm raised to the band"
+   "en": "at the crowd barrier, one arm raised to the band",
+   "mood": true
   },
   {
    "key": "tune_guitar",
