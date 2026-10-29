@@ -16,6 +16,7 @@
 
     python3 tools/casual-tree.py check
     python3 tools/casual-tree.py paths <시대> <장소>     # 그 자리에서 고를 수 있는 하는 일·옷 계열
+    python3 tools/casual-tree.py audit                   # 하는 일 문장의 고정물(창문·부두·식탁 …)이 장소 문장에 없는 쌍
 """
 import json, os, re, sys
 
@@ -41,14 +42,16 @@ def index(doc):
 
 
 def act_places(doc, a):
-    """하는 일의 places — @묶음 은 그 묶음의 모든 장소"""
-    out = []
+    """하는 일의 places — @묶음 은 그 묶음의 모든 장소, !장소 는 거기서 뺀다"""
+    out, drop = [], set()
     for k in a.get("places", []):
         if k.startswith("@"):
             out += [p["key"] for p in doc["places"] if p["group"] == k[1:]]
+        elif k.startswith("!"):
+            drop.add(k[1:])
         else:
             out.append(k)
-    return out
+    return [k for k in out if k not in drop]
 
 
 def activities_at(doc, place):
@@ -124,7 +127,7 @@ def check(doc):
         if a["family"] not in I["families"]:
             errs.append("하는 일 %s 의 자세 계열 %s 가 없다" % (a["key"], a["family"]))
         for k in a.get("places", []):
-            if (k[1:] not in I["groups"]) if k.startswith("@") else (k not in I["places"]):
+            if (k[1:] not in I["groups"]) if k.startswith("@") else ((k[1:] if k.startswith("!") else k) not in I["places"]):
                 errs.append("하는 일 %s 의 장소 %s 가 없다" % (a["key"], k))
         for o in a.get("outfits", []):
             if o not in I["outfits"]:
@@ -218,8 +221,47 @@ def check(doc):
     return errs
 
 
+# 하는 일 문장에 박힌 고정물 — 붙는 장소 문장에 그게 없으면 어긋날 수 있다(촛불 만찬 식탁, 부두에서 낚시 → 바위 해안).
+# 같은 뜻 말은 같이 본다 — 「방·거실·스위트」 엔 창·거울·소파가 있다고 본다(2026-10-29 510 쌍을 읽고 정했다).
+# 걸린다고 다 틀린 건 아니라 검사(check)가 아니라 훑어볼 목록(audit)이다. 새 하는 일·장소를 넣으면 돌려 본다
+FIXTURES = {
+    "window": ["window", "view", "room", "living", "lodge", "suite"],
+    "mirror": ["mirror", "vanity", "bathroom", "powder", "bedroom", "suite", "entry", "room", "lounge", "bridal"],
+    "counter": ["counter", "bar", "kitchen", "café", "cafe", "stall", "shop", "store", "inn", "tavern", "pool", "resort"],
+    "bench": ["bench", "park", "station", "gym", "rink", "wall", "entry"], "table": ["table", "dinner", "hall", "reception", "living"],
+    "pier": ["pier", "dock"], "dock": ["dock", "pier"], "shower": ["shower", "pool", "beach"], "stall": ["stall", "market", "festival"],
+    "desk": ["desk", "studio"], "stage": ["stage", "ring", "floor", "live"], "rail": ["rail", "railing", "deck", "balcony", "lookout", "park", "rooftop"],
+    "sofa": ["sofa", "daybed", "lounge", "living", "suite", "room", "penthouse", "club"], "bed": ["bed", "suite", "bedroom"],
+    "fire": ["fire", "fireplace", "camp", "inn", "tavern", "room"],
+    "stairs": ["stair", "staircase", "steps"], "staircase": ["stair", "staircase", "hall"], "room": ["room", "suite", "inn", "lodge"],
+}
+
+
+def audit(doc):
+    """여러 장소에 붙는 하는 일 문장의 고정물이 그 장소 문장에 없는 쌍"""
+    P = {p["key"]: p for p in doc["places"]}
+    out = []
+    for a in doc["activities"]:
+        ps = act_places(doc, a)
+        if len(ps) < 2:
+            continue
+        for w, alts in FIXTURES.items():
+            if not re.search(r"\b%s\b" % w, a["en"]):
+                continue
+            for k in ps:
+                if not any(x in P[k]["en"].lower() for x in alts):
+                    out.append((a["key"], w, k, P[k]["en"]))
+    return out
+
+
 def main(argv):
     doc = load()
+    if argv[:1] == ["audit"]:
+        rows = audit(doc)
+        for r in rows:
+            print("  ? %-16s %-8s %-20s %s" % r)
+        print("고정물이 장소 문장에 없는 쌍 %d — 하나씩 보고, 틀리면 하는 일 문장·장소를 고친다" % len(rows))
+        return 0
     if argv[:1] == ["paths"] and len(argv) == 3:
         era, place = argv[1], argv[2]
         for a in activities_at(doc, place):

@@ -38,6 +38,13 @@ fails(lambda d: pre(d, 'travel_station').update(era='fantasy'), '시대가 없�
 fails(lambda d: pre(d, 'arc_cabinet').update(item='lace_set'), '옷 lace_set')
 fails(lambda d: d['legacy'].update({'x/y': {'preset': 'nope'}}), '추천 조합 nope')
 assert all(('preset' in v) or ('era' in v) for v in doc['legacy'].values())
+# !장소 는 묶음에서 뺀다 — 사진 부스·PC방에서 거닐기는 없다
+assert 'arcade_photo' not in T.act_places(doc, act(doc, 'stroll')) and 'arcade_hall' in T.act_places(doc, act(doc, 'stroll'))
+fails(lambda d: act(d, 'stroll')['places'].append('!moon_base'), '장소 !moon_base')
+# 고정물 훑기 — 지금 표는 0, 부두 없는 곳에 「부두에서 낚시」 를 쓰면 걸린다
+assert T.audit(doc) == [], T.audit(doc)
+d2 = copy.deepcopy(doc); act(d2, 'fishing').update(en='casting a fishing line from the pier')
+assert any(r[0] == 'fishing' and r[2] == 'travel_coast' for r in T.audit(d2))
 # 하는 일의 @묶음 은 그 묶음 모든 장소
 assert set(T.act_places(doc, act(doc, 'warmup'))) >= {p['key'] for p in doc['places'] if p['group'] == 'sports'}
 # 옷 계열 = 시대 ∩ 장소 ∩ 하는 일

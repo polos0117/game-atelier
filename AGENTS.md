@@ -100,6 +100,7 @@ node tools/casual-plan.cjs <게임> --out <폴더>   # 일상컷 묶음 짜기(�
 node tests/casual-plan.cjs           # 묶음 계획기 — 스무 편 × 씨앗 셋이 규칙을 지키고 기록이 생성기 꼴
 node tests/casual-plan-screen.cjs    # 계획기 기록을 생성기 화면에 넣으면 같은 지시문(브라우저)
 python3 tools/casual-tree.py check    # 일상컷 트리 표 — 시대→장소→하는 일→의상 길이 끊긴 데·없는 열쇠·필수 갈래
+python3 tools/casual-tree.py audit    # 하는 일 문장의 고정물(창·부두·식탁 …)이 붙는 장소 문장에 없는 쌍 — 하는 일·장소를 넣었으면 0 인지 본다
 python3 tests/casual-tree.py         # 트리 검사기가 규칙마다 거는지
 node tests/casual-tree.cjs           # 트리 자세 계열의 자세·방향 열쇠가 생성기 표에 있다
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기(네트워크 없이, 가짜 응답으로)

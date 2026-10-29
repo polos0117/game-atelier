@@ -722,7 +722,7 @@
    "key": "sports_gym",
    "group": "sports",
    "ko": "체육관·복싱장",
-   "en": "a gym with a heavy bag, ring ropes and racks of weights",
+   "en": "a training gym with a heavy bag, ring ropes, a fencing strip and racks of weights",
    "eras": [
     "now",
     "release"
@@ -1969,7 +1969,9 @@
     "sports_track",
     "stage_open_air",
     "stage_show",
-    "night_livehouse"
+    "night_livehouse",
+    "!studio_mocap",
+    "!travel_dunes"
    ],
    "en": "resting on a seat for a moment, catching her breath",
    "seat": [
@@ -2000,7 +2002,7 @@
     "water_infinity",
     "fx_retro_home"
    ],
-   "en": "looking out at the view, one hand resting on the window frame or rail"
+   "en": "looking out at the view, one hand resting on the nearest ledge"
   },
   {
    "key": "stroll",
@@ -2020,7 +2022,12 @@
     "evening_museum",
     "fx_ballroom",
     "spa_footbath",
-    "stage_fireworks"
+    "stage_fireworks",
+    "!street_cafe",
+    "!street_laundromat",
+    "!arcade_photo",
+    "!arcade_pcbang",
+    "!travel_cablecar"
    ],
    "en": "strolling through the place at an easy pace",
    "hands": "free"
@@ -2108,7 +2115,7 @@
     "game_inn",
     "fx_retro_home"
    ],
-   "en": "cooking at a counter, chopping and stirring"
+   "en": "cooking, chopping and stirring"
   },
   {
    "key": "late_snack",
@@ -2210,8 +2217,7 @@
     "home_entry",
     "sports_gym",
     "sports_rink",
-    "sports_wall",
-    "street_alley"
+    "sports_wall"
    ],
    "en": "sitting on a bench to tie her shoes",
    "seat": [
@@ -2741,8 +2747,7 @@
    "places": [
     "spa_onsen",
     "spa_cedar",
-    "game_bath",
-    "spa_hammam"
+    "game_bath"
    ],
    "en": "sitting on the edge with her feet in the steaming water",
    "seat": [
@@ -2975,7 +2980,8 @@
    "places": [
     "@sports",
     "travel_trail",
-    "water_beach"
+    "water_beach",
+    "studio_mocap"
    ],
    "en": "catching her breath with a water bottle"
   },
@@ -3115,8 +3121,7 @@
    "places": [
     "stage_contest",
     "stage_dance",
-    "fx_starstage",
-    "stage_festival"
+    "fx_starstage"
    ],
    "en": "adjusting her headset or costume just before going on"
   },
@@ -3157,7 +3162,6 @@
    "family": "walk",
    "places": [
     "stage_redcarpet",
-    "fx_castle",
     "fx_runway"
    ],
    "en": "turning toward the flashes as she walks",
@@ -3188,7 +3192,7 @@
     "fx_forest",
     "fx_chapel"
    ],
-   "en": "holding a bouquet by a sunlit window",
+   "en": "holding a bouquet, waiting for her cue",
    "outfits": [
     "bridal"
    ]
@@ -3577,7 +3581,7 @@
     "travel_rural_station",
     "night_taxi"
    ],
-   "en": "playing a handheld console by the window, earbuds in"
+   "en": "playing a handheld console, earbuds in"
   },
   {
    "key": "concept_paint",
@@ -3846,7 +3850,7 @@
     "travel_lake",
     "travel_coast"
    ],
-   "en": "casting a fishing line from the pier, a tackle box at her feet"
+   "en": "casting a fishing line from the water's edge, a tackle box at her feet"
   },
   {
    "key": "paper_fold",
@@ -3967,7 +3971,7 @@
     "travel_lodge",
     "game_inn"
    ],
-   "en": "arranging tea cups and utensils in a quiet room",
+   "en": "arranging tea cups and utensils with slow, careful hands",
    "seat": [
     "floor"
    ]
@@ -6638,7 +6642,7 @@
    "ko": "무대 전 가벼운 연습",
    "group": "festivals_contests",
    "era": "now",
-   "place": "stage_festival",
+   "place": "stage_contest",
    "act": "backstage_ready",
    "outfit": "everyday"
   },
@@ -7540,7 +7544,7 @@
    "group": "subculture_fashion",
    "era": "now",
    "place": "street_alley",
-   "act": "tie_shoes",
+   "act": "car_lean",
    "outfit": "subculture",
    "item": "punk_tartan"
   },
@@ -8271,7 +8275,7 @@
    "group": "wildcard",
    "era": "now",
    "place": "travel_dunes",
-   "act": "rest_seat",
+   "act": "compass",
    "outfit": "everyday",
    "item": "linen_dress"
   },
