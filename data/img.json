@@ -19,6 +19,7 @@
   "tetris": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["tetris_glossy_kr_game_f_casual1.webp", "tetris_glossy_kr_game_f_casual2.webp", "tetris_glossy_kr_game_f_casual3.webp", "tetris_glossy_kr_game_f_casual4.webp", "tetris_glossy_kr_game_f_casual5.webp", "tetris_glossy_kr_game_f_casual6.webp", "tetris_glossy_kr_game_f_casual7.webp"]}, "byForm": {"title": {"f": "tetris_title_glossy_kr_game_f.webp"}, "title_open": {"f": "tetris_title_open_glossy_kr_game_f.webp"}, "middle": {"f": "tetris_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "tetris_middle_open_glossy_kr_game_f.webp"}, "ending": {"f": "tetris_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "tetris_ending_open_glossy_kr_game_f.webp"}}}}},
   "uncharted_waters_4": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["uncharted_waters_4_glossy_kr_game_f_casual1.webp", "uncharted_waters_4_glossy_kr_game_f_casual2.webp", "uncharted_waters_4_glossy_kr_game_f_casual3.webp", "uncharted_waters_4_glossy_kr_game_f_casual4.webp", "uncharted_waters_4_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "uncharted_waters_4_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "uncharted_waters_4_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "uncharted_waters_4_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "uncharted_waters_4_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "uncharted_waters_4_title_glossy_kr_game_f.webp"}, "title_open": {"f": "uncharted_waters_4_title_open_glossy_kr_game_f.webp"}}}}},
   "war_of_genesis_3": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["war_of_genesis_3_glossy_kr_game_f_casual1.webp", "war_of_genesis_3_glossy_kr_game_f_casual2.webp", "war_of_genesis_3_glossy_kr_game_f_casual3.webp", "war_of_genesis_3_glossy_kr_game_f_casual4.webp", "war_of_genesis_3_glossy_kr_game_f_casual5.webp", "war_of_genesis_3_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "war_of_genesis_3_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "war_of_genesis_3_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "war_of_genesis_3_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "war_of_genesis_3_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "war_of_genesis_3_title_glossy_kr_game_f.webp"}, "title_open": {"f": "war_of_genesis_3_title_open_glossy_kr_game_f.webp"}}}}},
+  "warcraft_3": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["warcraft_3_glossy_kr_game_f_casual1.webp", "warcraft_3_glossy_kr_game_f_casual2.webp", "warcraft_3_glossy_kr_game_f_casual3.webp", "warcraft_3_glossy_kr_game_f_casual4.webp", "warcraft_3_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "warcraft_3_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "warcraft_3_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "warcraft_3_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "warcraft_3_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "warcraft_3_title_glossy_kr_game_f.webp"}, "title_open": {"f": "warcraft_3_title_open_glossy_kr_game_f.webp"}}}}},
   "witcher_3": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["witcher_3_glossy_kr_game_f_casual1.webp", "witcher_3_glossy_kr_game_f_casual2.webp", "witcher_3_glossy_kr_game_f_casual3.webp", "witcher_3_glossy_kr_game_f_casual4.webp", "witcher_3_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "witcher_3_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "witcher_3_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "witcher_3_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "witcher_3_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "witcher_3_title_glossy_kr_game_f.webp"}, "title_open": {"f": "witcher_3_title_open_glossy_kr_game_f.webp"}}}}},
   "world_of_warcraft": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["world_of_warcraft_glossy_kr_game_f_casual1.webp", "world_of_warcraft_glossy_kr_game_f_casual2.webp", "world_of_warcraft_glossy_kr_game_f_casual3.webp", "world_of_warcraft_glossy_kr_game_f_casual4.webp", "world_of_warcraft_glossy_kr_game_f_casual5.webp", "world_of_warcraft_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "world_of_warcraft_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "world_of_warcraft_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "world_of_warcraft_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "world_of_warcraft_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "world_of_warcraft_title_glossy_kr_game_f.webp"}, "title_open": {"f": "world_of_warcraft_title_open_glossy_kr_game_f.webp"}}}}}
  },
@@ -239,6 +240,17 @@
   "war_of_genesis_3_middle_open_glossy_kr_game_f.webp": "2026-10-28",
   "war_of_genesis_3_title_glossy_kr_game_f.webp": "2026-10-28",
   "war_of_genesis_3_title_open_glossy_kr_game_f.webp": "2026-10-28",
+  "warcraft_3_ending_glossy_kr_game_f.webp": "2026-10-29",
+  "warcraft_3_ending_open_glossy_kr_game_f.webp": "2026-10-29",
+  "warcraft_3_glossy_kr_game_f_casual1.webp": "2026-10-29",
+  "warcraft_3_glossy_kr_game_f_casual2.webp": "2026-10-29",
+  "warcraft_3_glossy_kr_game_f_casual3.webp": "2026-10-29",
+  "warcraft_3_glossy_kr_game_f_casual4.webp": "2026-10-29",
+  "warcraft_3_glossy_kr_game_f_casual5.webp": "2026-10-29",
+  "warcraft_3_middle_glossy_kr_game_f.webp": "2026-10-29",
+  "warcraft_3_middle_open_glossy_kr_game_f.webp": "2026-10-29",
+  "warcraft_3_title_glossy_kr_game_f.webp": "2026-10-29",
+  "warcraft_3_title_open_glossy_kr_game_f.webp": "2026-10-29",
   "witcher_3_ending_glossy_kr_game_f.webp": "2026-10-29",
   "witcher_3_ending_open_glossy_kr_game_f.webp": "2026-10-29",
   "witcher_3_glossy_kr_game_f_casual1.webp": "2026-10-29",
@@ -263,5 +275,5 @@
   "world_of_warcraft_title_glossy_kr_game_f.webp": "2026-10-28",
   "world_of_warcraft_title_open_glossy_kr_game_f.webp": "2026-10-28"
  },
- "count": 21
+ "count": 22
 }
