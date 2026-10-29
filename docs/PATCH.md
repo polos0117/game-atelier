@@ -11,6 +11,10 @@
 
 
 
+## 2026-10-29 · claude · 헤엄치기 문장·컷 · 리니지 중반 자세
+- data/casual-tree.json — 하는 일 swim 의 en 「swimming through the water mid-stroke」 → 「swimming breaststroke, her head and shoulders above the water」, not_frames 에 three_quarter 를 더했다. game 리니지 일상4 가 두 번 다 물속에 앉아 기댔다 — 무릎까지 담는 3/4 컷이 수평으로 누운 헤엄과 부딪혀 몸을 세웠다
+- data/game-design.json — 리니지 중반 자세 「칼날을 눈높이로 들어 숨죽여 바라보는」 → 「칼날을 얼굴 앞에 세워 들고 눈길을 칼날에 둔」. 칼을 머리 위로 들고 카메라를 봤다
+
 ## 2026-10-29 · claude · 하는 일 「화장대 앞 치장」 문장을 동작 하나로 · 워크래프트 III 엔딩 자세
 - data/casual-tree.json — makeup 의 en 「putting on earrings and makeup」 → 「fastening one earring」. 두 동작이라 두 손을 다 얼굴로 올리다 클로즈업(어깨 아래 안 보임)에서 팔이 가슴 사이로 튀어나왔다(워크래프트 III 일상4, 사용자)
 - data/game-design.json — 워크래프트 III 엔딩 자세 「위를 올려다보는」 → 「고개를 돌려 꼭대기를 올려다보는」. 엔딩의 약간 높은 카메라와 겹쳐 시선이 카메라로 왔다
