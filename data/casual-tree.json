@@ -1633,7 +1633,6 @@
     "looking_away",
     "profile_close",
     "leaning_forward",
-    "leaning_back",
     "reaching_up",
     "turning_midmotion"
    ]
@@ -1772,8 +1771,7 @@
     "profile_close",
     "turning_midmotion",
     "reaching_up",
-    "leaning_forward",
-    "leaning_back"
+    "leaning_forward"
    ]
   }
  },

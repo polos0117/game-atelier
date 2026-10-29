@@ -141,6 +141,7 @@ for (const frame of S.CLOSE_FRAMES) {
   assert(tb.includes(T.casualWardrobeClose) && !tb.includes(T.casualWardrobe), frame + ' 가까운 컷 옷 줄');
   assert(!/skin_exposure: [^\n]*(midriff|leg)/.test(tb) && tb.includes('inside the crop'), frame + ' 가까운 컷 노출 풀이');
   assert(tb.includes('The lens sets perspective only'), frame + ' 렌즈는 거리를 정하지 않는다');
+  assert(tb.includes('runs naturally on past it — never cut off'), frame + ' 가장자리를 넘는 팔다리'); // 조조전 일상2 — 뻗은 팔이 화면 안에서 끊겼다
 }
 assert(cas({ ...station, frame: 'full_body' }).includes(T.anatomy), '먼 컷은 등신 줄 그대로');
 assert(cas({ ...station, frame: 'full_body', axes: { skin_exposure: 'bold' } }).includes(T.casualWardrobe) && /skin_exposure: bold — more scene-appropriate shoulder, back, midriff or leg/.test(cas({ ...station, frame: 'full_body', axes: { skin_exposure: 'bold' } })), '먼 컷은 옷·노출 줄 그대로');

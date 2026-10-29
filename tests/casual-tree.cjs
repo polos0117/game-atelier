@@ -9,6 +9,8 @@ for (const [k, f] of Object.entries(tree.families)) {
 }
 /* 눕기 계열엔 등 쪽·뒤돌아보기 방향이 없다 — 해먹에 누워 등을 돌리고 다리를 늘어뜨리라 해서 몸이 반 바퀴 비틀렸다(조조전 일상4, 2026-10-29) */
 for (const o of [...S.LOOK_BACK.orient, 'back_to_camera', 'walking_away']) assert(!tree.families.lie.orients.includes(o), '눕기 계열에 ' + o);
+/* 서기·움직임 계열엔 「뒤로 젖혀 기대기(받침 필요)」 가 없다 — 「인사하며 숙이기」 에 붙어 부딪혔다(조조전 일상2) */
+for (const f of ['stand', 'move']) assert(!tree.families[f].orients.includes('leaning_back'), f + ' 계열에 뒤로 젖히기');
 /* 어느 자세도 한 계열에는 든다 — 고를 수 없는 자세가 없게 */
 const used = new Set(Object.values(tree.families).flatMap(f => f.poses));
 for (const p of poses) assert(used.has(p), '어느 자세 계열에도 없는 자세 ' + p);
