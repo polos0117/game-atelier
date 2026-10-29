@@ -11,6 +11,9 @@
 
 
 
+## 2026-10-29 · claude · 첫 그림 두 장은 사람이 고른다
+- IMAGE_RULES.md — 2절: 타이틀 A·B 를 보여 주고 어느 쪽으로 갈지 물은 뒤 나머지를 그린다(사용자, 디아블로 II 에서 내가 A 를 골라 바로 이어 그렸다)
+
 ## 2026-10-29 · claude · 셋째 묶음 5편 — 디아블로 II·워크래프트 III·리니지·스타듀 밸리·영웅전설: 섬의 궤적
 - data/game-design.json — 다섯 편의 해석 칸(인격·한마디·능력·폼·개방·실루엣·얼굴·알아볼 거리·그리지 않을 것)과 facts(tools/fetch-games.py — QID: 디아블로 II Q244033 · 워크래프트 III Q207948 · 리니지 Q489800(1998 원작, Q436660 은 게임이 아니다) · 스타듀 밸리 Q23013817 · 섬의 궤적 Q966698, find 후보 가운데 영어 위키백과 문서가 그 게임인 것). 사용자가 후보 열다섯에서 넷을 고르고 섬의 궤적을 더했다.
   재질·자세·색은 게임마다 새 정한 말(hellforged_leather·frostrune_plate·pledge_damask·gingham_denim·academy_wool / rune_socket·hammer_rally·enchant_gaze·watering_sprout·orbment_link / blood_crimson_bone·frost_blue_gold·aden_crimson_silver·harvest_green_gold·academy_crimson_gold). 워크래프트 III 은 월드 오브 워크래프트와 시리즈 자매(서로 series, 얼굴 윤곽 square_soft).
