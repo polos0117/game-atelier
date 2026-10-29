@@ -117,7 +117,10 @@ const gu = { ...g, facts: { ...g.facts, year: null } };
 const thenT = P.buildCasual({ game: gu, tree, styleText: text, era: 'release', place: 'arcade_hall', act: 'play_cabinet', ofam: 'everyday' });
 assert(thenT.includes('ERA: set this scene in the real world around her release — ' + S.ERA_PERIOD[g.era] + '.'), '출시 당시 — 시대');
 assert(P.buildCasual({ game: fetched, tree, styleText: text, era: 'release', place: 'arcade_hall', act: 'play_cabinet', ofam: 'everyday' }).includes('around 1984'), '출시 당시 — 받은 연도');
-assert(thenT.indexOf('ERA:') > thenT.indexOf('WARDROBE:') && thenT.indexOf('ERA:') < thenT.indexOf('SCENE (chosen)'), '시대 줄은 옷 줄 뒤, 장면 앞');
+assert(thenT.indexOf('FRAME:') < thenT.indexOf('ERA:') && thenT.indexOf('ERA:') < thenT.indexOf('SCENE (chosen):\n') && thenT.indexOf('SCENE (chosen):\n') < thenT.indexOf('WARDROBE:'), 'FRAME → 시대 줄 → 고른 장면 → 옷 줄');
+/* 고른 장면은 위쪽 — 「아래 설정을 따른다」 는 말이 남지 않는다 */
+assert(!/below describe|settings below|line below|Framing below|chosen below/.test(plain), '일상컷에 「아래」 말이 남았다');
+assert(plain.split('\n\n').findIndex(x => x.startsWith('SCENE (chosen):')) < plain.split('\n\n').findIndex(x => x.startsWith('WARDROBE:')), '장면이 옷 줄보다 앞');
 assert(!P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, era: 'release' }).includes('ERA:'), '폼 초상에는 없다');
 /* 출시 당시엔 그 해에 없던 곳이 빠진다 — 1984 년 테트리스에 PC방(1998)은 없다 */
 assert(!CT.places(tree, 'release', fetched).some(p => p.key === 'arcade_pcbang') && CT.places(tree, 'now', fetched).some(p => p.key === 'arcade_pcbang'), '그 해부터 있는 곳');
@@ -175,7 +178,7 @@ for (const pr of tree.presets) {
   assert(!/[가-힣]/.test(t.replace(/"[^"]*"/g, '').replace(/«[^»]*»/g, '').replace(/STYLE: [^\n]*/, '')), pr.key + ' 따옴표 밖은 영어');
   longestCasual = Math.max(longestCasual, P.words(t));
 }
-assert(longestCasual <= 760, '가장 긴 일상컷이 760 낱말을 넘는다: ' + longestCasual);
+assert(longestCasual <= 720, '가장 긴 일상컷이 720 낱말을 넘는다: ' + longestCasual);
 assert.throws(() => P.buildCasual({ game: g, styleText: text }), /Casual tree is required/);
 assert(!/Pok[eé]mon|포켓몬|Gundam|건담/.test(JSON.stringify(S)), '표에 포켓몬·건담 말이 남았다');
 

@@ -11,6 +11,11 @@
 
 
 
+## 2026-10-29 · claude · 일상컷 트리 4단계 — 옛 갈래·예시 표 지우기, 고른 장면을 위로
+- lib/prompt-spec.js — 트리로 옮긴 뒤 아무도 부르지 않던 일상컷 갈래·예시 표(CATS · EXAMPLE_MAP · EX_NOTE · CAT_KO · EXAMPLE_DETAIL)와 갈래 목록(SCREEN_CATS · PLACE_CATS), 옛 GAME PLACE 줄을 지웠다(9617 → 5170 줄). 그 내용은 data/casual-tree.json 의 추천 조합·옷·변환표에 있다. prompt-spec v=24.
+- lib/prompt-game.js · lib/prompt-spec.js — 일상컷 차례를 바꿨다: FRAME·CROP 바로 뒤에 시대·장소 줄(ERA·WORLD·SETTING·SCREENS)과 고른 장면(SCENE), 그 뒤에 옷·각도·뒤돌아보기 줄. 장면이 맨 아래에 있을 때 고른 프레이밍이 첨부 그림의 전신 구도에 졌다(스파2 일상 1·2·5). 「아래 설정을 따른다」 말은 「SCENE 을 따른다」 로. prompt-game v=13.
+- tests/prompt-game.cjs — FRAME → 시대 줄 → 고른 장면 → 옷 줄 차례, 「아래」 말 없음, 일상컷 길이 한도 760 → 720(가장 긴 추천 조합 676 낱말).
+
 ## 2026-10-29 · claude · 일상컷 트리 3단계 — 생성기 화면·랜덤·지시문을 트리로
 - lib/casual-tree.js(새) — 트리 표를 거르는 공용 모듈: 시대별 장소(출시 당시면 그 해 뒤에 생긴 곳은 빠짐) → 장소의 하는 일 → 옷 계열(시대 ∩ 장소 ∩ 하는 일) → 옷 → 자세 계열 안의 자세·방향(가까운 옆얼굴은 가까운 컷에서만). 앞 칸을 바꾸면 맞지 않게 된 뒤 칸을 고친다(repair), 추천 조합 채우기, 예전 기록(갈래·예시) 변환, 필수 갈래·화면 줄 판정. tools/casual-tree.py 와 같은 규칙(tests/casual-tree.cjs 가 길 수를 맞춰 본다).
 - lib/prompt-ui.js · lib/words.js · prompt.html — 일상컷 칸이 갈래·예시·시대에서 추천 조합 → 시대 → 장소(묶음별) → 하는 일 → 의상 계열(★ 필수 갈래) → 옷 → 알아볼 거리, 그 아래 자세·방향(하는 일의 계열만)·프레이밍·렌즈, 맨 끝에 표정·세부 축. 필수 갈래에 드는지 한 줄로 알려 준다. 옷 칸은 「옷 직접 쓰기」. 트리 표를 불러온다. 저장된 예전 상태는 변환표로 옮겨 연다. prompt-ui v=7, words v=7.
