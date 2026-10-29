@@ -11,6 +11,13 @@
 
 
 
+## 2026-10-29 · claude · 일상컷 트리 모듈 — 공방마다의 규칙 칸(pkm 몫), 잠근 칸을 지키는 랜덤
+- lib/casual-tree.js · tools/casual-tree.py — 트리 표마다의 규칙 칸 넷을 더했다(pkm 일상컷 트리, 2026-10-29): 안 쓰는 값 `banned`(방향·프레이밍 — 메뉴·랜덤·고치기에서 빠진다), 프레이밍 규칙 `not_required`(필수 갈래 컷엔 안 씀 — frameOk 에 장면을 주면 본다), 동료 자세 `companion`(동료가 있는 하는 일에서만), 세대의 해 `gen_years`(year(tree, 대상) — 카드의 gen). 이 표엔 그 칸이 없어 지금과 같다. 동료 묶음 companion() 을 더했다. 검사기는 새 칸을 본다.
+- lib/prompt-random.js — 일상컷 랜덤은 잠근 칸이 살아남는 값만 뽑는다(시대를 뽑았는데 잠근 장소가 그 시대에 없으면 다른 시대 — 전에는 잠근 장소가 풀렸다). 세부 축을 뽑아도 추천 조합 표시를 안 지운다. prompt.html casual-tree v=9 · prompt-random v=6.
+- lib/casual-tree.js — 허브 통합 생성기(polos0117.github.io/prompt.html)의 「해방」 몫 둘: `why(tree, scene, 칸, 값, 대상, 가까운 프레이밍)` 은 그 값이 트리 밖이면 까닭(code)을, 안이면 null. `unlocked(scene, 칸)` — 장면의 `unlocked` 에 든 칸은 트리 밖에서 일부러 고른 값이라 repair 가 고치지 않는다.
+- tests/casual-tree.cjs — 칸을 넣은 복사본에서 새 규칙(안 쓰는 값·필수 갈래 컷의 클로즈업·동료 자세·세대의 해)이 걸리고, game 표에선 그대로인지.
+- AGENTS.md — 모듈을 복사해 쓰는 공방이 book·myth·pkm 셋.
+
 ## 2026-10-29 · claude · 일상컷 트리 모듈을 공방끼리 같이 쓰게, 폼 LOOK-BACK 낱말은 표로
 - lib/casual-tree.js — book-atelier 가 같은 파일을 복사해 쓴다(사용자 「이 구조로 다른 저장소도」). 게임에만 맞던 두 곳을 풀었다: 예전 기록의 시대는 'release' 만이 아니라 트리에 있는 시대면 그대로(책은 'book'), 필수 갈래의 「그 세계 안」 규칙은 required.world 또는 in_game(worldRule). 게임 쪽 동작은 그대로. casual-tree v=8.
 - tools/casual-tree.py — 같은 required.world 또는 in_game.

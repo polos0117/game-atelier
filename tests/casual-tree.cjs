@@ -52,4 +52,42 @@ assert(CT.poses(tree, 'interview', 'chest_up').includes('thumbs_up') && !CT.pose
 const fixed = CT.repair(tree, { era: 'now', place: 'evening_gala', act: 'gala_dinner', ofam: 'evening', frame: 'face_close', pose: 'cross_legged', lens: 'wide24', expr: 'calm', orient: 'front' }, null, S.CLOSE_FRAMES);
 assert(!fixed.pose && !fixed.lens && fixed.expr === 'calm', '고치기 — 맞지 않는 자세·광각은 비우고 표정은 둔다');
 assert.equal(CT.repair(tree, { ...fixed, orient: 'back_to_camera', frame: 'full_body' }, null, S.CLOSE_FRAMES).expr || '', '', '등을 보이면 표정을 비운다');
+/* 트리 표마다의 규칙 칸(pkm, 2026-10-29) — 안 쓰는 값(banned)·필수 갈래 컷에 안 쓰는 프레이밍(not_required)·동료 자세·세대 연도.
+   game 표에는 없으니 지금 그대로, 칸을 넣은 복사본에서만 걸린다 */
+assert(CT.frameOk(tree, 'stroll', 'detail') && CT.orients(tree, 'stroll', 'full_body', S.CLOSE_FRAMES).includes('back'), 'game — 안 쓰는 값 없음');
+const t2 = JSON.parse(JSON.stringify(tree));
+t2.banned = { orients: ['back', 'back_to_camera', 'walking_away'], frames: ['detail'] };
+t2.frame_rules.face_close.not_required = true;
+t2.pose_meta.hand_on_hip.companion = true;
+t2.gen_years = { 1: 1996 };
+assert(!CT.frameOk(t2, 'stroll', 'detail') && !CT.orients(t2, 'stroll', 'full_body', S.CLOSE_FRAMES).includes('back') && CT.orients(t2, 'stroll', 'full_body', S.CLOSE_FRAMES).includes('rear_3q'), '안 쓰는 값은 빠진다');
+const lingerie = { era: 'now', place: 'home_bedroom', act: 'dress_up', ofam: 'lingerie' };
+assert(!CT.frameOk(t2, 'dress_up', 'face_close', lingerie) && CT.frameOk(t2, 'dress_up', 'face_close', { ...lingerie, ofam: 'homewear' }) && CT.frameOk(t2, 'dress_up', 'face_close'), '얼굴 클로즈업 — 필수 갈래 컷만 막는다');
+assert.equal(CT.repair(t2, { ...lingerie, frame: 'face_close' }, null, S.CLOSE_FRAMES).frame, '', '필수 갈래로 고치면 클로즈업은 비운다');
+assert(!CT.poses(t2, 'car_lean', 'full_body').includes('hand_on_hip') && CT.poses(tree, 'car_lean', 'full_body').includes('hand_on_hip'), '동료 자세는 동료가 있는 하는 일에서만');
+assert.equal(CT.year(t2, { gen: 1 }), 1996, '세대 → 첫 등장 해');
+assert(!CT.places(t2, 'release', { gen: 1 }).some(p => p.key === 'water_infinity') && CT.places(t2, 'release', { facts: { year: 2005 } }).some(p => p.key === 'water_infinity'), '첫 등장 해 전의 장소는 빠진다');
+/* 왜 못 고르나(why) · 해방(unlocked) — 허브 통합 생성기(2026-10-29). 트리 안 값은 null, 밖 값은 까닭 코드. 해방한 칸은 고치지 않는다 */
+{
+  const sc = { era: 'now', place: 'street_park', act: 'stroll', ofam: 'everyday', frame: 'full_body' };
+  for (const k of ['place', 'act', 'ofam', 'frame', 'pose', 'orient']) for (const v of CT.choices(tree, sc, k, null, S.CLOSE_FRAMES).concat(k === 'frame' ? ['waist_up'] : []))
+    assert.equal(CT.why(tree, sc, k, v, null, S.CLOSE_FRAMES), null, k + ' ' + v + ' 는 고를 수 있다');
+  assert.equal(CT.why(tree, sc, 'place', 'game_room').code, 'era');
+  assert.equal(CT.why(tree, { ...sc, era: 'release' }, 'place', 'water_infinity', { facts: { year: 1990 } }).code, 'year');
+  assert.equal(CT.why(tree, sc, 'act', 'swim').code, 'place');
+  assert.equal(CT.why(tree, sc, 'ofam', 'swimwear').code, 'place');
+  assert.equal(CT.why(tree, sc, 'frame', 'face_close'), null);
+  assert.equal(CT.why(tree, { ...sc, act: 'swim', place: 'water_pool' }, 'frame', 'full_body').code, 'act');
+  assert.equal(CT.why(tree, { ...sc, frame: 'face_close' }, 'pose', 'walking').code, 'zone');
+  assert.equal(CT.why(tree, sc, 'pose', 'sitting').code, 'family');
+  assert.equal(CT.why(tree, { ...sc, frame: 'face_close' }, 'lens', 'wide24').code, 'wide');
+  assert.equal(CT.why(tree, { ...sc, frame: 'chest_up' }, 'orient', 'rear_3q').code, 'frame');
+  assert.equal(CT.why(tree, { ...sc, act: 'karaoke_sing' }, 'expr', 'calm').code, 'mood');
+  assert.equal(CT.why(tree, sc, 'place', 'nope').code, 'unknown');
+  const un = CT.repair(tree, { ...sc, pose: 'sitting', unlocked: ['pose'] }, null, S.CLOSE_FRAMES);
+  assert.equal(un.pose, 'sitting', '해방한 자세는 그대로');
+  assert.equal(CT.repair(tree, { ...sc, pose: 'sitting' }, null, S.CLOSE_FRAMES).pose, '', '해방 안 했으면 비운다');
+  assert(CT.unlocked(un, 'pose') && !CT.unlocked({ ...un, pose: '' }, 'pose'), '빈 칸은 해방이 아니다');
+  assert.equal(CT.repair(tree, { ...sc, act: 'swim', unlocked: ['act'] }, null, S.CLOSE_FRAMES).act, 'swim', '해방한 하는 일도');
+}
 console.log(`PASS 일상컷 트리 ↔ 생성기: 자세 계열 ${Object.keys(tree.families).length} · 자세 ${used.size} · 방향 열쇠 · 길 ${paths}(검사기와 같다) · 추천 조합 ${tree.presets.length} · 칸끼리 규칙(앉는 자리·손·보이는 부위·허리 아래 옷·광각·표정)`);
