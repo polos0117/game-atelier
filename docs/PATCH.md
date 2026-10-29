@@ -11,6 +11,12 @@
 
 
 
+## 2026-10-29 · claude · 일상컷 트리 모듈을 공방끼리 같이 쓰게, 폼 LOOK-BACK 낱말은 표로
+- lib/casual-tree.js — book-atelier 가 같은 파일을 복사해 쓴다(사용자 「이 구조로 다른 저장소도」). 게임에만 맞던 두 곳을 풀었다: 예전 기록의 시대는 'release' 만이 아니라 트리에 있는 시대면 그대로(책은 'book'), 필수 갈래의 「그 세계 안」 규칙은 required.world 또는 in_game(worldRule). 게임 쪽 동작은 그대로. casual-tree v=8.
+- tools/casual-tree.py — 같은 required.world 또는 in_game.
+- lib/prompt-spec.js · lib/prompt-game.js — 폼 LOOK-BACK 의 낱말(돌아보·뒤를 보·뒤돌아)을 조립 코드에서 표(FORM_LOOK_BACK)로. 06da7c5 가 조립 코드에 한글을 박아 tests/words.cjs 가 깨진 채로 올라갔다(그때 그 검사를 안 돌렸다). prompt-spec v=35, prompt-game v=17.
+- AGENTS.md — 트리 모듈은 book 이 복사해 쓴다.
+
 ## 2026-10-29 · claude · 일상컷 검사 --free 칸도 「있어야 할 것」 엔 센다
 - tools/casual-plan.cjs — 문명 5 일상1(란제리 전신, 로우앵글)이 안전 필터에 두 번 막혀 사용자가 방향을 정면으로 골랐다. 2번과 방향이 겹쳐 --free 1 로 검사했더니 그 칸을 필수 갈래·먼 컷 검사에서도 빼 「먼 컷이 없다」 가 났다. free 는 겹침에만 빼고, 필수 갈래·먼 컷·가까운 컷은 묶음 전부로 본다.
 - tests/casual-plan.cjs — 필수·먼·가까운 컷을 다 free 로 둬도 통과(고치기 전 코드는 실패).

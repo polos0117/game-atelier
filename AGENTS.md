@@ -72,7 +72,7 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 일상컷 묶음은 `node tools/casual-plan.cjs <게임>` 으로 짜고, 올리기 전에 `node tools/casual-plan.cjs <게임> --check <기록 폴더>` 로 묶음 규칙(필수 갈래·장소·의상·구도 겹침)을 본다(IMAGE_RULES 2절).
 
 설계표에 새 정한 말(vocab)을 더하면 `lib/prompt-spec.js` 의 `VOCAB_EN` 에 영어도 더한다(`node tests/prompt-game.cjs` 가 본다).
-일상컷은 트리로 고른다 — 시대 → 장소 → 하는 일 → 의상 → 구도(2026-10-29, `data/casual-tree.json` · `lib/casual-tree.js`, IMAGE_RULES 2절). 예전 갈래·예시는 추천 조합과 변환표로 옮겼다. 표를 고치면 `python3 tools/casual-tree.py check`.
+일상컷은 트리로 고른다 — 시대 → 장소 → 하는 일 → 의상 → 구도(2026-10-29, `data/casual-tree.json` · `lib/casual-tree.js`, IMAGE_RULES 2절). `lib/casual-tree.js` 는 book-atelier 가 글자 하나 다르지 않게 복사해 쓴다 — 고치면 book 에도 복사하고 그쪽 검사를 돌린다(트리 표는 공방마다). 예전 갈래·예시는 추천 조합과 변환표로 옮겼다. 표를 고치면 `python3 tools/casual-tree.py check`.
 
 ### 6. 고쳤으면 적는다
 

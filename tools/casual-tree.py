@@ -75,7 +75,9 @@ def required_reach(doc, era, place, act, fam):
     R = doc["required"]
     if fam in R["outfits"]:
         return True
-    g = R["in_game"]
+    g = R.get("world") or R.get("in_game") or {}
+    if not g:
+        return False
     return era == g["era"] and place in g["places"] and fam in g["outfits"]
 
 
