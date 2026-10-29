@@ -130,6 +130,9 @@ h = lambda pose: {k for _, k, _ in G.conflicts(dict(doc, games=[dict(g, forms=di
                    for g in doc['games'] if g['key'] == 'heroes_of_might_and_magic_3']), 'heroes_of_might_and_magic_3')}
 assert 'pose_open:보물·상자' in h('보물 상자 뚜껑을 한 손으로 열며 돌아보는 자세')
 assert not any(k.startswith('pose_open') for k in h('닫힌 보물 상자 위에 한 손을 얹고 몸을 돌려 돌아보는 자세'))
+# 조사 떼기가 낱말을 망가뜨리지 않는다 — 「지도」 의 「도」(문명 V 「허리에 두루마리 지도」 ↔ 「두루마리 지도를 펼쳐 들고」)
+d3 = copy.deepcopy(doc); c3 = next(x for x in d3['games'] if x['key'] == 'civilization_v'); c3['forms']['중반']['look'] = '지도 무늬 비단 겉옷, 허리에 두루마리 지도'
+assert any(k == 'look_pose:지도' for _, k, _ in G.conflicts(d3, 'civilization_v'))
 # 괜찮다고 본 것은 conflicts_ok 로 빠진다 · 기본은 그림 없는 게임만
 assert not any(k == 'look_pose:팔찌' for _, k, _ in G.conflicts(doc, 'league_of_legends'))
 assert not any(key == 'grand_theft_auto_v' for key, _, _ in G.conflicts(doc))

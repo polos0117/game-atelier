@@ -237,11 +237,12 @@ HELD = r"(?:을|를)\s+(?:한 손에\s+|두 손으로\s+|손에\s+)?(?:들|쥐|�
 
 
 def words(text):
+    """낱말 — 조사를 뗀 꼴과 그대로인 꼴 둘 다(「지도」 의 「도」 를 조사로 떼면 「지」 가 된다 — 문명 V 두루마리 지도를 못 잡았다)"""
     out = set()
-    for w in re.findall(r"[가-힣]{2,}", text or ""):
-        w = PARTICLE.sub("", w)
-        if len(w) >= 2 and w not in STOP:
-            out.add(w)
+    for w0 in re.findall(r"[가-힣]{2,}", text or ""):
+        for w in (w0, PARTICLE.sub("", w0)):
+            if len(w) >= 2 and w not in STOP:
+                out.add(w)
     return out
 
 
@@ -294,9 +295,9 @@ def conflicts(doc, only=None, include_drawn=False):
                               % (st, pose, st, scene, "·".join(sorted(nouns)), "·".join(sorted({a for a, _ in vs})))))
             look = (forms.get(st) or {}).get("look", "")
             for obj in WORN.findall(look):
-                head = obj.split()[-1]
-                head = PARTICLE.sub("", head)
-                if re.search(re.escape(head) + HELD, pose):
+                for head in {obj.split()[-1], PARTICLE.sub("", obj.split()[-1])}:
+                    if len(head) < 2 or not re.search(re.escape(head) + HELD, pose):
+                        continue
                     found.append(("look_pose:" + head, "%s 차림은 「%s」 를 몸에 거는데(%r) 자세는 손에 든다(%r)" % (st, head, look, pose)))
         looks = " ".join((forms.get(st) or {}).get("look", "") + " " + (forms.get(st) or {}).get("homage", "") for st in stages)
         if re.search(r"운동화|스니커|하이탑", looks) and not any("상표" in a for a in g.get("avoid") or []):
