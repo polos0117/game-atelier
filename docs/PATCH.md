@@ -11,6 +11,10 @@
 
 
 
+## 2026-10-29 · claude · 하는 일 「화장대 앞 치장」 문장을 동작 하나로 · 워크래프트 III 엔딩 자세
+- data/casual-tree.json — makeup 의 en 「putting on earrings and makeup」 → 「fastening one earring」. 두 동작이라 두 손을 다 얼굴로 올리다 클로즈업(어깨 아래 안 보임)에서 팔이 가슴 사이로 튀어나왔다(워크래프트 III 일상4, 사용자)
+- data/game-design.json — 워크래프트 III 엔딩 자세 「위를 올려다보는」 → 「고개를 돌려 꼭대기를 올려다보는」. 엔딩의 약간 높은 카메라와 겹쳐 시선이 카메라로 왔다
+
 ## 2026-10-29 · claude · 첫 그림 두 장은 사람이 고른다
 - IMAGE_RULES.md — 2절: 타이틀 A·B 를 보여 주고 어느 쪽으로 갈지 물은 뒤 나머지를 그린다(사용자, 디아블로 II 에서 내가 A 를 골라 바로 이어 그렸다)
 
