@@ -11,6 +11,11 @@
 
 
 
+## 2026-10-29 · claude · 일상컷 필수 갈래 — 레트로 빼고 게임 속 일상(섹시) 넣기
+- lib/prompt-spec.js · lib/prompt-game.js — 새 갈래 「게임 속 일상 — 섹시」 `game_life_sensual`: 그 게임 세계 안에서 사는 섹시한 일상(아침 창가·노천탕·개울·장터·여관 카운터·지붕 일광욕·거울 앞 끈 묶기·해먹·따뜻한 비·난롯가 — 예시 열). 게임 속 장소처럼 설계표 place 한 줄(GAME PLACE)을 싣는다(PLACE_CATS). 알아볼 거리는 나와도 되고 캐릭터·괴물·화면 그래픽은 안 된다. prompt-spec v=15, prompt-game v=8.
+- IMAGE_RULES.md 2절 — 필수 갈래: pkm 의 넷에서 레트로 글래머를 빼고 게임 속 일상(섹시)을 넣었다(사용자). 한 게임 일상컷 묶음에 성인 역할극·수영복·란제리풍·게임 속 일상(섹시) 중 하나는 한 장 이상.
+- tests/prompt-game.cjs · tests/prompt-screen.cjs · docs/GAME_CONCEPT.md 7절 — 게임 갈래 다섯, 새 갈래의 장소 줄.
+
 ## 2026-10-29 · claude · 일상컷 고정값 — pkm 과 같게
 - lib/prompt-ui.js · prompt.html — pkm 에서 일상컷에 필수로 정한 값(전체 강도 strong · 피부 노출 bold · 화면 비율 2:3)을 game 에도 적용했다(사용자). 일상 모드는 처음부터 이 값으로 고르고 셋 다 잠근다. 저장된 상태를 불러와도 비었으면 채우고 다시 잠근다(잠금은 장면 랜덤만 막는다). pkm 은 계획기가 채우지만 game 에는 계획기가 없어 생성기 기본값으로 넣었다. prompt-ui v=5.
 - tests/prompt-screen.cjs — 처음과 장면 랜덤 다섯 번 뒤에도 세 값·잠김·지시문 줄이 그대로.

@@ -77,7 +77,7 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     await p.selectOption('#casual-n', '3');
     assert.match(await p.$eval('#file-name code', e => e.textContent), /tetris_glossy_kr_game_f_casual3\.webp/);
     const cats = await p.$$eval('#category option', os => os.map(o => o.value));
-    for (const c of ['game_place', 'arcade_culture', 'dev_studio', 'speedrun_stream']) assert(cats.includes(c), '게임 갈래 ' + c);
+    for (const c of ['game_place', 'game_life_sensual', 'arcade_culture', 'dev_studio', 'speedrun_stream']) assert(cats.includes(c), '게임 갈래 ' + c);
     for (const c of ['library_life', 'story_place', 'stage_adaptation', 'literary_salon']) assert(!cats.includes(c), '책 갈래 ' + c);
     await p.selectOption('#category', 'game_place');
     await p.selectOption('#example', 'gp_walk');

@@ -93,10 +93,10 @@ assert(!mine.includes(S.VOCAB_EN.body[g.silhouette.body] + ' build') && mine.inc
 const off = P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, faceDesignOn: false, silhouetteOn: false });
 assert(!off.includes('FACE (') && !off.includes('SILHOUETTE:'), '끄면 빠진다');
 
-/* 5. 일상컷 갈래 — 책 몫 넷은 없고 게임 몫 넷이 있다 */
+/* 5. 일상컷 갈래 — 책 몫 넷은 없고 게임 몫 다섯(게임 속 일상·섹시는 2026-10-29)이 있다 */
 const cats = S.CATS.map(r => r[0]);
 for (const c of ['library_life', 'story_place', 'stage_adaptation', 'literary_salon']) assert(!cats.includes(c) && !S.EXAMPLE_MAP[c] && !S.CAT_KO[c], '책 갈래가 남았다: ' + c);
-for (const c of ['game_place', 'arcade_culture', 'dev_studio', 'speedrun_stream']) {
+for (const c of ['game_place', 'game_life_sensual', 'arcade_culture', 'dev_studio', 'speedrun_stream']) {
   assert(cats.includes(c) && S.CAT_KO[c] && (S.EXAMPLE_MAP[c] || []).length >= 10, '게임 갈래: ' + c);
   for (const r of S.EXAMPLE_MAP[c]) if (r[0]) assert(S.EX_NOTE[r[0]], c + ' · ' + r[0] + ' 설명이 없다');
 }
@@ -107,6 +107,9 @@ const cas = (cat, ex, x = {}) => P.buildCasual({ game: g, styleText: text, style
 /* 게임 속 장소는 설계표 place, 오락실·개발실·방송은 화면 줄 — 다른 갈래에는 안 싣는다 */
 const gp = cas('game_place', 'gp_walk');
 assert(gp.includes('GAME PLACE: a real-feeling place shaped like the world of «' + g.title + '» — ' + g.place + '.') && !gp.includes('SCREENS:'), '게임 속 장소 줄');
+/* 게임 속 일상(섹시)도 같은 장소 줄을 싣는다 — 그 세계 안에서 사는 장면 */
+const gl = cas('game_life_sensual', 'gl_outdoor_bath');
+assert(gl.includes('GAME PLACE: a real-feeling place shaped like the world of «' + g.title + '»') && !gl.includes('SCREENS:') && gl.includes("living inside her own game's world") && gl.includes('outdoor bath'), '게임 속 일상(섹시) 줄');
 for (const [c, ex] of [['arcade_culture', 'arc_cabinet'], ['dev_studio', 'dev_pixel_desk'], ['speedrun_stream', 'sr_record']]) {
   const t = cas(c, ex);
   assert(t.includes(T.casualScreens) && !t.includes('GAME PLACE:'), c + ' 화면 줄');
