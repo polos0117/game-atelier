@@ -15,6 +15,7 @@
 - tools/casual-compose.py · tests/casual-compose.py — 스파2·젤다 일상 다섯 장이 모두 같은 방향(몸 3/4 정면)·비슷한 거리로 나왔다(사용자). 목 꺾임을 피하려고 방향을 매번 front_3q 로 덮어쓴 탓이다. 새 검사기가 한 게임 일상컷 기록(casualN-ui.json)을 읽어 방향·프레이밍이 겹치지 않는지, 렌즈가 두 번까지인지, 먼 컷(전신·환경)과 가까운 컷(가슴 위·클로즈업)이 다 있는지 본다.
 - lib/prompt-spec.js · lib/prompt-game.js — 스파2 일상을 다시 그리기 전에 지시문을 읽어 보니 클로즈업에 「발을 받치고 손이 보이게 앉기」(자세)·「옷이 한눈에 읽히게」(WARDROBE)·「가방 들고 간식 쥐고 노선표 보기」(예시)가 함께 실려 부딪혔다. 허리 위·가슴 위·클로즈업·디테일이면 CROP 줄 — 프레이밍이 이기고, 자세·옷·소품은 화면에 드는 부분에만, 옷은 보이는 목선·끈·천·색으로. prompt-spec v=20, prompt-game v=10.
 - tests/prompt-game.cjs — 가까운 프레이밍에만 CROP 줄.
+- lib/prompt-spec.js · lib/prompt-game.js · tests/prompt-game.cjs — 그렇게 그린 스파2 일상 1·2·5 가 고른 허리 위·가슴 위·클로즈업이 아니라 무릎 위까지 넓게 나왔다(3·4 는 고른 대로). 다시 뽑기 전에 지시문을 보니 CROP 줄이 「이 크롭이 이긴다」 만 말하고 정작 프레이밍은 맨 아래 SCENE 한 줄에만 있었고, ANATOMY 의 「7.5 등신·키는 다리에서」 가 전신을 불렀다. CROP 줄은 이제 어디서 잘리는지(허리·가슴 아래·쇄골)를 말하고 FRAME 바로 밑에 오며, 가까운 컷의 ANATOMY 에는 등신·다리 말이 없다(`anatomyClose`). prompt-spec v=21, prompt-game v=11.
 - IMAGE_RULES.md 2절 · AGENTS.md — 일상컷 구도 돌리기 규칙, 고른 대로 안 나온 그림은 곧바로 다시 뽑지 말고 지시문의 충돌부터 고친다(사용자).
 
 ## 2026-10-29 · claude · 머리색·눈 색 — 게임의 대표색으로
