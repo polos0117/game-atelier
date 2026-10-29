@@ -48,6 +48,7 @@ assert(!CT.orients(tree, 'cooking', 'chest_up', S.CLOSE_FRAMES).includes('rear_3
 assert(CT.poses(tree, 'stroll', 'chest_up').includes('finger_to_lips') && !CT.poses(tree, 'gala_dinner', 'full_body').includes('finger_to_lips') && !CT.poses(tree, 'stair_pause', 'full_body').includes('finger_to_lips'), '쉿 — 얼굴 쪽·손 쓰는 자세(난간 잡은 하는 일엔 없다 — 팔이 셋 나왔다)');
 assert(!CT.orients(tree, 'stroll', 'full_body', S.CLOSE_FRAMES, 'finger_to_lips').includes('back_to_camera') && CT.orients(tree, 'stroll', 'full_body', S.CLOSE_FRAMES, 'finger_to_lips').includes('over_shoulder'), '쉿엔 등 쪽 방향 없음, 어깨 너머는 된다');
 assert.equal(CT.repair(tree, { era: 'now', place: 'street_shop', act: 'stroll', ofam: 'everyday', frame: 'full_body', orient: 'back_to_camera', pose: 'finger_to_lips' }, null, S.CLOSE_FRAMES).orient, '', '쉿을 고르면 등 돌림은 비운다');
+assert(CT.poses(tree, 'interview', 'chest_up').includes('thumbs_up') && !CT.poses(tree, 'interview', 'face_close').includes('thumbs_up') && !CT.orients(tree, 'interview', 'full_body', S.CLOSE_FRAMES, 'thumbs_up').includes('back'), '엄지 척 — 가슴 앞 손, 얼굴이 보이게');
 const fixed = CT.repair(tree, { era: 'now', place: 'evening_gala', act: 'gala_dinner', ofam: 'evening', frame: 'face_close', pose: 'cross_legged', lens: 'wide24', expr: 'calm', orient: 'front' }, null, S.CLOSE_FRAMES);
 assert(!fixed.pose && !fixed.lens && fixed.expr === 'calm', '고치기 — 맞지 않는 자세·광각은 비우고 표정은 둔다');
 assert.equal(CT.repair(tree, { ...fixed, orient: 'back_to_camera', frame: 'full_body' }, null, S.CLOSE_FRAMES).expr || '', '', '등을 보이면 표정을 비운다');

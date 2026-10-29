@@ -1617,7 +1617,8 @@
     "bending_over",
     "on_tiptoe",
     "stretching",
-    "finger_to_lips"
+    "finger_to_lips",
+    "thumbs_up"
    ],
    "orients": [
     "front",
@@ -1648,7 +1649,8 @@
     "checking_map",
     "holding_cup",
     "adjusting_bag",
-    "finger_to_lips"
+    "finger_to_lips",
+    "thumbs_up"
    ],
    "orients": [
     "front",
@@ -1680,7 +1682,8 @@
     "holding_cup",
     "reading_book",
     "hands_in_hair",
-    "finger_to_lips"
+    "finger_to_lips",
+    "thumbs_up"
    ],
    "orients": [
     "front",
@@ -1899,6 +1902,11 @@
   },
   "finger_to_lips": {
    "zone": "face",
+   "hands": true,
+   "faces": true
+  },
+  "thumbs_up": {
+   "zone": "chest",
    "hands": true,
    "faces": true
   }
@@ -3160,7 +3168,10 @@
     "stage_dance",
     "fx_starstage"
    ],
-   "en": "adjusting her headset or costume just before going on"
+   "en": "adjusting her headset or costume just before going on",
+   "prefer": [
+    "esports_jersey"
+   ]
   },
   {
    "key": "trophy_lift",
@@ -3692,7 +3703,11 @@
    "places": [
     "stage_contest"
    ],
-   "en": "at the post-match interview spot by a microphone stand, catching her breath"
+   "en": "at the post-match interview spot by a microphone stand, catching her breath",
+   "hands": "free",
+   "prefer": [
+    "esports_jersey"
+   ]
   },
   {
    "key": "floor_flop",
@@ -4792,6 +4807,11 @@
      "key": "archery_top",
      "ko": "양궁 차림",
      "en": "a fitted archery top with an arm guard"
+    },
+    {
+     "key": "esports_jersey",
+     "ko": "e스포츠 팀 저지",
+     "en": "a fitted esports team jersey with a zip collar, a headset resting around the neck"
     }
    ],
    "en": "activewear made for the activity"
