@@ -27,7 +27,8 @@ const tree = JSON.parse(read('data/casual-tree.json')), design = JSON.parse(read
 
 const REQUIRED_TYPES = ['lingerie', 'swimwear', 'roleplay', 'in_game'];
 const FAR = ['full_body', 'environmental'], NEAR = ['chest_up', 'face_close'];
-const NEAR_ALL = S.CLOSE_FRAMES, WIDE_LENSES = ['wide24', 'documentary35'];
+const NEAR_ALL = S.CLOSE_FRAMES, WIDE_LENSES = ['wide24', 'documentary35'], NO_WIDE = [...S.CLOSE_FRAMES, 'three_quarter'];
+const LOW_PARTS = /waist|hip|bottom|skirt|leg|thigh|short|trouser|jean|legging|pants|knee|ankle|hem|sarong|wrap|garter|mini|cut-out|cutout/i;
 const FRAMES = S.FRAME_OPTIONS.map(r => r[0]).filter(k => k && k !== 'detail');
 const LENSES = S.LENS_OPTIONS.map(r => r[0]).filter(Boolean);
 const EXPRS = S.EXPRESSION_OPTIONS.map(r => r[0]).filter(Boolean);
@@ -67,12 +68,15 @@ function requiredPaths(type, game) {
 
 function compose(r, sc, game) {
   /* 옷 — 하는 일이 먼저 고르라는 옷(prefer)이 이 계열에 있으면 그중에서(자전거 점검엔 사이클 복장) */
-  const it = CT.items(tree, sc.ofam), prefer = it.filter(x => (CT.act(tree, sc.act).prefer || []).includes(x.key));
-  sc.item = prefer.length ? pick(r, prefer).key : it.length ? pick(r, it).key : '';
   sc.frame = pick(r, FRAMES);
+  /* 가슴 위·클로즈업엔 알아볼 데가 허리 아래인 옷(허리 컷아웃·하이웨이스트·스커트·가터 …)을 안 붙인다 — 크롭 안에서 못 알아봐
+     컷을 넓혔다(GTA V 일상1 「허리 양옆이 파인 원피스」 클로즈업이 허리 위로) */
+  const all = CT.items(tree, sc.ofam), up = NEAR.includes(sc.frame) ? all.filter(x => !LOW_PARTS.test(x.en)) : all;
+  const it = up.length ? up : all, prefer = it.filter(x => (CT.act(tree, sc.act).prefer || []).includes(x.key));
+  sc.item = prefer.length ? pick(r, prefer).key : it.length ? pick(r, it).key : '';
   sc.orient = pick(r, CT.orients(tree, sc.act, sc.frame, S.CLOSE_FRAMES));
-  /* 가까운 컷엔 광각을 안 붙인다 — 24·35mm 풀이의 「넉넉한 거리·배경과 균형」 이 컷을 넓혔다(조조전 일상 3) */
-  sc.lens = pick(r, NEAR_ALL.includes(sc.frame) ? LENSES.filter(l => !WIDE_LENSES.includes(l)) : LENSES);
+  /* 가까운 컷·3/4 컷엔 광각을 안 붙인다 — 24·35mm 풀이의 「넉넉한 거리·배경과 균형」 이 컷을 넓혔다(조조전 일상 3, GTA V 일상5 3/4 가 정강이까지) */
+  sc.lens = pick(r, NO_WIDE.includes(sc.frame) ? LENSES.filter(l => !WIDE_LENSES.includes(l)) : LENSES);
   /* 자세는 물건 없는 몸 자세만, 가끔 — 하는 일이 손동작을 이미 정한다(「부케 들고 기다리기」 에 「지도 보기」 자세가 붙었다) */
   const poses = CT.poses(tree, sc.act).filter(k => NEUTRAL_POSES.includes(k));
   /* 가까운 컷엔 안 붙인다 — 몸 자세는 거의 다리(걷기·까치발·앉기)라 크롭 밖이고, 붙으면 컷을 넓힌다(GTA V 계획 「클로즈업·성큼 걷기」) */

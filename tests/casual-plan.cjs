@@ -22,7 +22,8 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
   assert(res.cuts.every(c => !/laugh|smil|sing/i.test(tree.activities.find(a => a.key === c.act).en) || !c.expr), g.key + ' 표정을 정하는 하는 일엔 표정 비움');
   assert(res.cuts.every(c => !['back', 'back_to_camera', 'walking_away'].includes(c.orient) || !c.expr), g.key + ' 등을 보이면 표정 비움');
   assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail'].includes(c.frame) || !c.pose), g.key + ' 가까운 컷엔 몸 자세 없음');
-  assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail'].includes(c.frame) || !['wide24', 'documentary35'].includes(c.lens)), g.key + ' 가까운 컷에 광각 없음');
+  assert(res.cuts.every(c => !['waist_up', 'chest_up', 'face_close', 'detail', 'three_quarter'].includes(c.frame) || !['wide24', 'documentary35'].includes(c.lens)), g.key + ' 가까운 컷·3/4 에 광각 없음');
+  for (const c of res.cuts.filter(c => ['chest_up', 'face_close'].includes(c.frame))) { const its = tree.outfits.find(o => o.key === c.ofam).items, low = /waist|hip|bottom|skirt|leg|thigh|short|trouser|jean|legging|pants|knee|ankle|hem|sarong|wrap|garter|mini|cut-out|cutout/i; if (its.some(i => !low.test(i.en))) assert(!low.test(its.find(i => i.key === c.item).en), g.key + ' 가까운 컷엔 허리 아래로 알아보는 옷 없음 ' + c.item); }
   for (const c of res.cuts) {
     const rec = C.record(g, c), sc = rec.storage.cards[g.key].scenes.casual;
     assert.equal(rec.file, `${g.key}_glossy_kr_game_f_casual${c.n}.webp`);
