@@ -69,6 +69,7 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 
 그림은 `game-atelier-img` 에 올린다. `img/` 는 `.gitignore` 에 있다. 원본 PNG 는 올리지 않는다.
 그림 규칙은 `IMAGE_RULES.md`. 그림 저장소에 올리면 썸네일(`game-atelier-img` 워크플로)과 등록(`그림 등록` 워크플로 · `tools/register-images.py`)이 알아서 된다 — `data/img.json` 은 손으로 고치지 않는다(IMAGE_RULES 4절).
+일상컷 묶음은 올리기 전에 `python3 tools/casual-compose.py <그림 저장소>/records/<게임>` 으로 구도(방향·프레이밍·렌즈)가 돌았는지 본다(IMAGE_RULES 2절).
 
 설계표에 새 정한 말(vocab)을 더하면 `lib/prompt-spec.js` 의 `VOCAB_EN` 에 영어도 더한다(`node tests/prompt-game.cjs` 가 본다).
 일상컷 갈래는 공방들이 같이 쓰는 것 + 게임 몫 넷이다. 책 세계관 갈래(서고의 일상·이야기 속 장소·무대 각색·낭독회)는 가져오지 않는다.
@@ -94,6 +95,7 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 ```bash
 python3 tools/game-design.py check   # 게임 설계표 — 빈칸·정한 말·실루엣·얼굴 닮음·머리·눈 색·자매·한 명 개방·대응·사실 칸
 python3 tests/game-design.py         # 설계표 검사기가 규칙마다 제대로 거는지
+python3 tests/casual-compose.py      # 일상컷 구도 검사기 — 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기(네트워크 없이, 가짜 응답으로)
 node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 게임 갈래, 출시 당시, 길이
 node tests/words.cjs                 # 낱말 표

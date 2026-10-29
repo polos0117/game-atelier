@@ -122,6 +122,9 @@ assert(plain.includes(T.trademark) && plain.includes('NEVER DRAW for this game:'
 assert(plain.includes('STYLE: ' + cur.casual) && !plain.includes('STYLE: ' + text), '일상컷 화풍 문장');
 assert(cur.casual.includes('fabric and accessory') && text.includes('costume and accessory'), '화풍 판 — 폼은 costume, 일상은 fabric');
 assert(plain.includes(T.casualWardrobe) && plain.includes(T.casualPose), '옷·각도 줄');
+/* 가까운 프레이밍이면 CROP 줄 — 클로즈업에 발·옷 전체·가방이 함께 실려 부딪혔다(2026-10-29) */
+for (const frame of S.CLOSE_FRAMES) assert(cas('travel_exploration', 'travel_station', { frame, pose: 'sitting' }).includes(T.casualCrop), frame + ' CROP 줄');
+for (const frame of ['full_body', 'environmental', 'three_quarter', '']) assert(!cas('travel_exploration', 'travel_station', { frame }).includes('CROP:'), frame + ' CROP 없음');
 for (const x of [{ orient: 'rear_3q' }, { orient: 'over_shoulder' }, { pose: 'turning_back' }]) assert(cas('game_place', 'gp_walk', x).includes(T.casualLookBack), '뒤돌아보기 ' + JSON.stringify(x));
 /* 일상컷 알아볼 거리 — 하나만 작게, 폼 장비 줄은 없다 */
 assert(plain.includes('SIGNATURE (one or two at most, as an accessory or an object in the scene — never printed on or woven into the clothes): ' + g.signature.map(s => '"' + q(s) + '"').join(', ') + '.') && !plain.includes('GEAR in'), '일상컷 알아볼 거리는 장신구·주변 사물로');
