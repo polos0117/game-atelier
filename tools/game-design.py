@@ -81,6 +81,11 @@ def check(doc):
         for k in SIL:
             if (g.get("silhouette") or {}).get(k) not in V.get(k, []):
                 bad("실루엣 %s=%r 는 정한 말이 아니다" % (k, (g.get("silhouette") or {}).get(k)))
+        # 머리색·눈 색 — 게임 대표색. 정한 말에 검정·갈색은 없다(안 고르면 흑발로 흘렀다)
+        if (g.get("silhouette") or {}).get("hair_color") not in V.get("hair_color", []):
+            bad("머리색 hair_color=%r 는 정한 말이 아니다" % (g.get("silhouette") or {}).get("hair_color"))
+        if (g.get("face") or {}).get("eye_color") not in V.get("eye_color", []):
+            bad("눈 색 eye_color=%r 는 정한 말이 아니다" % (g.get("face") or {}).get("eye_color"))
         for k in FACE:
             if (g.get("face") or {}).get(k) not in V.get(k, []):
                 bad("얼굴 %s=%r 는 정한 말이 아니다" % (k, (g.get("face") or {}).get(k)))
@@ -162,6 +167,9 @@ def check(doc):
                 errs.append("%s: 실루엣 축 6 중 %d 개만 다르다(%d 이상)" % (pair, sd, SIL_MIN))
             if fd < FACE_MIN:
                 errs.append("%s: 얼굴 5 묶음 중 %d 개만 다르다(%d 이상)" % (pair, fd, FACE_MIN))
+            ca = ((a.get("silhouette") or {}).get("hair_color"), (a.get("face") or {}).get("eye_color"))
+            if ca == ((c.get("silhouette") or {}).get("hair_color"), (c.get("face") or {}).get("eye_color")):
+                errs.append("%s: 머리색·눈 색이 둘 다 같다" % pair)
     pilots = [g for g in games if g.get("pilot")]
     for i in range(len(pilots)):
         for j in range(i + 1, len(pilots)):

@@ -59,7 +59,7 @@ book-atelier(책이 사람이 된 세계)의 엔진을 바탕으로 만든다. �
 | `signature` | 팬이 바로 알아볼 원작 소품·장소·색·진영 문장 셋~넷 — 게임에 나오는 모양대로(2026-10-28) | 없음 |
 | `mechanic` · `rule` | 핵심 조작 한 문장(카드 능력의 원리)·폼별 쓰임 셋·상대의 대응 | rule.principle · rule |
 | `forms` · `opens` | 세 폼의 모습·역할·자세·배경(`setting`)·원작풍 장비(`homage` — 직업·진영 장비 느낌), 폼마다 명장면 | forms · opens(배경·장비 칸은 게임 몫) |
-| `silhouette` · `face` · `ethnicity` | 실루엣 축 6(대표 색 포함), 얼굴 5, 얼굴 계통 | 같다 |
+| `silhouette` · `face` · `ethnicity` | 실루엣 축 6(대표 색 포함)과 머리색(`silhouette.hair_color`), 얼굴 5와 눈 색(`face.eye_color`), 얼굴 계통 | 같다 |
 | `place` | 일상컷 「게임 속 장소」 의 영어 한 줄 | place |
 | `rights` · `avoid` | 권리사와 주의 한 줄, 그리지 않을 것 목록 | abroad_protected · adaptations |
 | `pilot` | 시범 그림 — 폼 하나·개방 하나 | pilot |

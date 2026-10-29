@@ -1,6 +1,6 @@
 {
  "version": 1,
- "note": "게임 설계표 — 게임 한 편 = 한 칸. 해석 칸(인격·능력·폼·개방·실루엣·얼굴)은 사람이 쓰고, 사실 칸(facts — QID·연도·개발사·배급사·플랫폼·장르·시리즈·모드·위키백과)은 tools/fetch-games.py 만 채운다. 규칙은 docs/GAME_CONCEPT.md, 검사는 python3 tools/game-design.py check.",
+ "note": "게임 설계표 — 게임 한 편 = 한 칸. 해석 칸(인격·능력·폼·개방·실루엣·얼굴·머리색·눈 색)은 사람이 쓰고, 사실 칸(facts — QID·연도·개발사·배급사·플랫폼·장르·시리즈·모드·위키백과)은 tools/fetch-games.py 만 채운다. 규칙은 docs/GAME_CONCEPT.md, 검사는 python3 tools/game-design.py check.",
  "vocab": {
   "genre": [
    "액션",
@@ -179,6 +179,27 @@
    "ocean_blue_coral",
    "navy_sail_brass"
   ],
+  "hair_color": [
+   "antique_gold",
+   "ash_gray",
+   "bright_red",
+   "bronze",
+   "crimson",
+   "cyan",
+   "flame_orange",
+   "golden_blonde",
+   "grass_green",
+   "lemon_yellow",
+   "navy",
+   "ocean_blue",
+   "royal_blue",
+   "royal_purple",
+   "silver_white",
+   "sunset_pink",
+   "teal",
+   "violet",
+   "wine_red"
+  ],
   "face_shape": [
    "oval",
    "round",
@@ -215,6 +236,22 @@
    "small_bow",
    "heart_full",
    "wide_smile"
+  ],
+  "eye_color": [
+   "amber",
+   "azure",
+   "coral",
+   "crimson",
+   "ember",
+   "emerald",
+   "forest_green",
+   "gold",
+   "ice_blue",
+   "leaf_green",
+   "navy",
+   "sky_blue",
+   "steel_blue",
+   "teal"
   ],
   "role": [
    "공격",
@@ -549,14 +586,16 @@
     "garment": "layered_skirt",
     "material": "neon_tube",
     "pose": "dash_corner",
-    "palette": "neon_yellow_navy"
+    "palette": "neon_yellow_navy",
+    "hair_color": "lemon_yellow"
    },
    "face": {
     "face_shape": "round",
     "eyes": "round_large",
     "brows": "soft_round",
     "nose": "small_button",
-    "lips": "wide_smile"
+    "lips": "wide_smile",
+    "eye_color": "navy"
    },
    "place": "a neon-outlined hedge maze at night, glowing dots along every path and a cherry tree at its center",
    "rights": "반다이남코 — 이름과 캐릭터가 상표다. 비상업 팬작업으로만, 공식 그림을 쓰지 않는다",
@@ -803,14 +842,16 @@
     "garment": "tailored_suit",
     "material": "pixel_mosaic",
     "pose": "stack_balance",
-    "palette": "tetra_primary"
+    "palette": "tetra_primary",
+    "hair_color": "cyan"
    },
    "face": {
     "face_shape": "long",
     "eyes": "narrow_upturned",
     "brows": "straight_thick",
     "nose": "straight_narrow",
-    "lips": "thin_long"
+    "lips": "thin_long",
+    "eye_color": "crimson"
    },
    "place": "a snowy plaza paved in a perfect grid of colored stone tiles, with stacked cube sculptures",
    "rights": "테트리스 컴퍼니 — 이름과 블록 모양 조합이 상표·디자인으로 관리된다. 비상업 팬작업으로만",
@@ -959,14 +1000,16 @@
     "garment": "one_piece_dress",
     "material": "brick_quilt",
     "pose": "leap_fist",
-    "palette": "brick_red_sky"
+    "palette": "brick_red_sky",
+    "hair_color": "bright_red"
    },
    "face": {
     "face_shape": "heart",
     "eyes": "almond_wide",
     "brows": "arched_thin",
     "nose": "upturned",
-    "lips": "heart_full"
+    "lips": "heart_full",
+    "eye_color": "sky_blue"
    },
    "place": "a bright meadow of rolling green hills, floating brick platforms and a tall flagpole at the far end",
    "rights": "닌텐도 — 이름과 캐릭터의 상표 관리가 엄격하다. 비상업 팬작업으로만",
@@ -1118,14 +1161,16 @@
     "garment": "cloak_wrapped",
     "material": "map_leather",
     "pose": "cloak_survey",
-    "palette": "map_tan_crimson"
+    "palette": "map_tan_crimson",
+    "hair_color": "golden_blonde"
    },
    "face": {
     "face_shape": "diamond",
     "eyes": "deep_set",
     "brows": "angled_sharp",
     "nose": "aquiline",
-    "lips": "thin_long"
+    "lips": "thin_long",
+    "eye_color": "forest_green"
    },
    "place": "a windswept overworld of tan cliffs, scattered boulders and a dark cave mouth beside a lake",
    "rights": "닌텐도 — 이름과 캐릭터의 상표 관리가 엄격하다. 비상업 팬작업으로만",
@@ -1326,14 +1371,16 @@
     "garment": "robe_overlap",
     "material": "chainmail_lace",
     "pose": "sword_salute",
-    "palette": "royal_blue_gold"
+    "palette": "royal_blue_gold",
+    "hair_color": "royal_blue"
    },
    "face": {
     "face_shape": "oval",
     "eyes": "droopy_soft",
     "brows": "soft_round",
     "nose": "small_button",
-    "lips": "small_bow"
+    "lips": "small_bow",
+    "eye_color": "gold"
    },
    "place": "a medieval castle town with a cozy inn lit by lanterns, rolling green fields beyond its gate",
    "rights": "스퀘어 에닉스 — 이름이 상표다. 캐릭터·몬스터 디자인을 따라 그리지 않는다",
@@ -1584,14 +1631,16 @@
     "garment": "track_set",
     "material": "satin_sportswear",
     "pose": "fight_stance",
-    "palette": "ember_orange_steel"
+    "palette": "ember_orange_steel",
+    "hair_color": "flame_orange"
    },
    "face": {
     "face_shape": "square_soft",
     "eyes": "almond_wide",
     "brows": "angled_sharp",
     "nose": "broad_soft",
-    "lips": "full_wide"
+    "lips": "full_wide",
+    "eye_color": "steel_blue"
    },
    "place": "a rooftop fighting ring under neon signs at dusk, with rope barriers and a city skyline",
    "rights": "캡콤 — 이름과 캐릭터가 상표다. 원작 격투가들의 차림과 기술 모양을 따라 그리지 않는다",
@@ -1883,14 +1932,16 @@
     "garment": "coat_trousers",
     "material": "blueprint_print",
     "pose": "plan_overlook",
-    "palette": "blueprint_teal"
+    "palette": "blueprint_teal",
+    "hair_color": "teal"
    },
    "face": {
     "face_shape": "long",
     "eyes": "almond_wide",
     "brows": "arched_thin",
     "nose": "straight_narrow",
-    "lips": "small_bow"
+    "lips": "small_bow",
+    "eye_color": "leaf_green"
    },
    "place": "a hilltop overlooking a growing city grid at dusk, with surveying tools and a construction crane",
    "rights": "EA(맥시스) — 이름이 상표다. 원작 화면의 건물 아이콘·UI 를 그리지 않는다",
@@ -2061,14 +2112,16 @@
     "garment": "flight_suit",
     "material": "crystal_plating",
     "pose": "command_point",
-    "palette": "crystal_blue_violet"
+    "palette": "crystal_blue_violet",
+    "hair_color": "violet"
    },
    "face": {
     "face_shape": "heart",
     "eyes": "narrow_upturned",
     "brows": "angled_sharp",
     "nose": "straight_narrow",
-    "lips": "thin_long"
+    "lips": "thin_long",
+    "eye_color": "ice_blue"
    },
    "place": "a red rocky wasteland with towering blue mineral crystals and a lone command outpost",
    "rights": "블리자드 — 이름과 종족 디자인이 상표다. 원작 종족을 그리지 않는다",
@@ -2371,14 +2424,16 @@
     "garment": "work_overalls",
     "material": "voxel_felt",
     "pose": "block_place",
-    "palette": "grass_dirt_sky"
+    "palette": "grass_dirt_sky",
+    "hair_color": "grass_green"
    },
    "face": {
     "face_shape": "square_soft",
     "eyes": "round_large",
     "brows": "straight_thick",
     "nose": "upturned",
-    "lips": "wide_smile"
+    "lips": "wide_smile",
+    "eye_color": "sky_blue"
    },
    "place": "a sunny countryside of cube-shaped hills, a small block cabin and a mine entrance",
    "rights": "마이크로소프트(모장) — 이름이 상표다. 원작 캐릭터 차림과 괴물 얼굴을 그리지 않는다",
@@ -2564,14 +2619,16 @@
     "garment": "armor_layered",
     "material": "ashen_iron",
     "pose": "bonfire_kneel",
-    "palette": "ash_ember"
+    "palette": "ash_ember",
+    "hair_color": "ash_gray"
    },
    "face": {
     "face_shape": "long",
     "eyes": "deep_set",
     "brows": "low_heavy",
     "nose": "aquiline",
-    "lips": "thin_long"
+    "lips": "thin_long",
+    "eye_color": "ember"
    },
    "place": "a ruined gothic shrine on a cliff with a lone bonfire, ash drifting over broken stone stairs",
    "rights": "반다이남코·프롬소프트웨어 — 이름이 상표다. 원작 기사·보스 디자인을 따라 그리지 않는다",
@@ -2668,14 +2725,16 @@
     "garment": "armor_layered",
     "material": "runed_plate",
     "pose": "shield_rally",
-    "palette": "forest_green_bronze"
+    "palette": "forest_green_bronze",
+    "hair_color": "antique_gold"
    },
    "face": {
     "face_shape": "square_soft",
     "eyes": "deep_set",
     "brows": "straight_thick",
     "nose": "aquiline",
-    "lips": "full_wide"
+    "lips": "full_wide",
+    "eye_color": "emerald"
    },
    "place": "a vast fantasy continent of misty forests, a snowy valley where blue-and-gold and red-and-black faction banners face each other, and a lava-lit volcanic cavern deep under a black mountain",
    "rights": "블리자드 — 이름과 종족·진영 디자인이 상표다. 원작 종족과 문장을 그리지 않는다",
@@ -2844,14 +2903,16 @@
     "garment": "cloak_wrapped",
     "material": "desert_wrap_leather",
     "pose": "twin_blade_guard",
-    "palette": "sand_crimson_black"
+    "palette": "sand_crimson_black",
+    "hair_color": "crimson"
    },
    "face": {
     "face_shape": "diamond",
     "eyes": "almond_wide",
     "brows": "straight_thick",
     "nose": "straight_narrow",
-    "lips": "thin_long"
+    "lips": "thin_long",
+    "eye_color": "amber"
    },
    "place": "a sunbaked desert empire of ochre fortresses, mercenary war camps and a ruined sultan's palace under a crimson dusk",
    "rights": "소프트맥스(현 권리사) — 이름과 캐릭터·마장기 디자인이 상표·저작물이다. 인물의 얼굴과 마장기는 그리지 않고 차림새만 빌린다",
@@ -2989,14 +3050,16 @@
     "garment": "robe_overlap",
     "material": "lacquer_lamellar",
     "pose": "sword_command",
-    "palette": "lacquer_red_black"
+    "palette": "lacquer_red_black",
+    "hair_color": "wine_red"
    },
    "face": {
     "face_shape": "long",
     "eyes": "monolid_long",
     "brows": "angled_sharp",
     "nose": "straight_narrow",
-    "lips": "thin_long"
+    "lips": "thin_long",
+    "eye_color": "gold"
    },
    "place": "a Three Kingdoms era China of yellow-banner rebel fields, a palisaded river camp at Guandu and a vermilion-pillared imperial palace",
    "rights": "코에이 테크모 — 이름이 상표다. 원작 무장 초상(조조·관우 등)을 따라 그리지 않는다",
@@ -3138,14 +3201,16 @@
     "garment": "coat_trousers",
     "material": "street_denim",
     "pose": "car_lean",
-    "palette": "sunset_teal_pink"
+    "palette": "sunset_teal_pink",
+    "hair_color": "sunset_pink"
    },
    "face": {
     "face_shape": "heart",
     "eyes": "almond_wide",
     "brows": "straight_thick",
     "nose": "upturned",
-    "lips": "full_wide"
+    "lips": "full_wide",
+    "eye_color": "teal"
    },
    "place": "a sun-drenched coastal megacity with palm-lined highways, neon downtown overpasses and hillside mansions",
    "rights": "락스타 게임즈·테이크투 — 이름과 로고가 상표다. 원작 주인공과 실제 상표 차량·간판을 그리지 않는다",
@@ -3383,14 +3448,16 @@
     "garment": "cloak_wrapped",
     "material": "crystal_silk",
     "pose": "skill_cast",
-    "palette": "violet_cyan_gold"
+    "palette": "violet_cyan_gold",
+    "hair_color": "cyan"
    },
    "face": {
     "face_shape": "oval",
     "eyes": "almond_wide",
     "brows": "arched_thin",
     "nose": "small_button",
-    "lips": "heart_full"
+    "lips": "heart_full",
+    "eye_color": "gold"
    },
    "place": "a mystical jungle canyon split by three stone paths, a river through its center and two crystal-cored fortresses at either end",
    "rights": "라이엇 게임즈 — 이름과 챔피언 디자인이 상표·저작물이다. 원작 챔피언을 따라 그리지 않는다",
@@ -3577,14 +3644,16 @@
     "garment": "coat_trousers",
     "material": "studded_leather",
     "pose": "silver_draw",
-    "palette": "wolf_gray_silver"
+    "palette": "wolf_gray_silver",
+    "hair_color": "silver_white"
    },
    "face": {
     "face_shape": "long",
     "eyes": "almond_wide",
     "brows": "straight_thick",
     "nose": "aquiline",
-    "lips": "thin_long"
+    "lips": "thin_long",
+    "eye_color": "amber"
    },
    "place": "a dark Slavic fantasy land of foggy swamp villages, storm-beaten island cliffs and sunlit southern vineyards",
    "rights": "CD 프로젝트 레드 — 이름과 인물 디자인이 상표·저작물이다. 원작 주인공(흰머리 위처)과 인물을 따라 그리지 않는다",
@@ -3771,14 +3840,16 @@
     "garment": "tailored_suit",
     "material": "parchment_brocade",
     "pose": "globe_turn",
-    "palette": "marble_bronze_azure"
+    "palette": "marble_bronze_azure",
+    "hair_color": "bronze"
    },
    "face": {
     "face_shape": "oval",
     "eyes": "round_large",
     "brows": "straight_thick",
     "nose": "straight_narrow",
-    "lips": "wide_smile"
+    "lips": "wide_smile",
+    "eye_color": "azure"
    },
    "place": "a sweep of human history from a riverside first settlement to a marble ancient city and a glass-towered future launch site",
    "rights": "파이락시스·2K — 이름이 상표다. 실제 역사 지도자의 얼굴과 원작 화면을 그리지 않는다",
@@ -3950,14 +4021,16 @@
     "garment": "layered_skirt",
     "material": "heraldic_velvet",
     "pose": "banner_march",
-    "palette": "heraldic_purple_gold"
+    "palette": "heraldic_purple_gold",
+    "hair_color": "royal_purple"
    },
    "face": {
     "face_shape": "round",
     "eyes": "round_large",
     "brows": "soft_round",
     "nose": "upturned",
-    "lips": "small_bow"
+    "lips": "small_bow",
+    "eye_color": "gold"
    },
    "place": "a storybook fantasy realm of winding dirt roads, windmills, torch-lit mines and towering many-spired castles",
    "rights": "유비소프트(옛 뉴 월드 컴퓨팅·3DO) — 이름이 상표다. 원작 영웅 초상과 생물 디자인을 따라 그리지 않는다",
@@ -4134,14 +4207,16 @@
     "garment": "flight_suit",
     "material": "neoprene_piping",
     "pose": "harpoon_swim",
-    "palette": "ocean_blue_coral"
+    "palette": "ocean_blue_coral",
+    "hair_color": "ocean_blue"
    },
    "face": {
     "face_shape": "round",
     "eyes": "droopy_soft",
     "brows": "soft_round",
     "nose": "broad_soft",
-    "lips": "wide_smile"
+    "lips": "wide_smile",
+    "eye_color": "coral"
    },
    "place": "a sunny tropical sea with a small fishing boat, a glowing coral reef, a mysterious deep blue hole and a cozy seaside sushi bar",
    "rights": "넥슨(민트로켓) — 이름과 인물 디자인이 저작물이다. 원작 주인공과 가게 인물을 따라 그리지 않는다",
@@ -4313,14 +4388,16 @@
     "garment": "coat_trousers",
     "material": "sailcloth_canvas",
     "pose": "spyglass_helm",
-    "palette": "navy_sail_brass"
+    "palette": "navy_sail_brass",
+    "hair_color": "navy"
    },
    "face": {
     "face_shape": "square_soft",
     "eyes": "narrow_upturned",
     "brows": "arched_thin",
     "nose": "broad_soft",
-    "lips": "heart_full"
+    "lips": "heart_full",
+    "eye_color": "amber"
    },
    "place": "the Age of Discovery seas — misty European harbors full of tall ships, sun-baked spice ports and the open ocean beyond the map",
    "rights": "코에이 테크모 — 이름이 상표다. 원작 주인공·선원 초상을 따라 그리지 않는다",

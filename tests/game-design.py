@@ -31,6 +31,10 @@ def twin(d):
 fails(twin, '실루엣 축 6 중')
 fails(twin, '얼굴 5 묶음 중')
 fails(lambda d: d['games'][0]['silhouette'].update(hair='mohawk'), '정한 말이 아니다')
+# 머리·눈 색 — 대표색 정한 말만, 두 게임이 둘 다 같지 않게
+fails(lambda d: d['games'][0]['silhouette'].update(hair_color='black'), '머리색')
+fails(lambda d: d['games'][0]['face'].pop('eye_color'), '눈 색')
+fails(lambda d: (d['games'][1]['silhouette'].update(hair_color=d['games'][0]['silhouette']['hair_color']), d['games'][1]['face'].update(eye_color=d['games'][0]['face']['eye_color'])), '머리색·눈 색이 둘 다 같다')
 fails(lambda d: d['games'][0].update(era='ps5'), '시대')
 # 묶음이 장르와 어긋나면 상성이 틀어진다
 fails(lambda d: d['games'][0].update(group='reflex'), '묶음')

@@ -50,7 +50,7 @@ for (const g of G) for (const stage of STAGES) {
     longest = Math.max(longest, P.words(t)); n++;
   }
 }
-// 몸 개수 줄 BODY 와 일상컷 HAND TASK 로 40낱말쯤 늘었다(2026-10-27). 원작 알아볼 거리 SIGNATURE·GEAR 줄로 45낱말쯤 더(2026-10-28)
+// 몸 개수 줄 BODY 와 일상컷 HAND TASK 로 40낱말쯤 늘었다(2026-10-27). 원작 알아볼 거리 SIGNATURE·GEAR 줄로 45낱말쯤 더(2026-10-28) · 머리·눈 색으로 4낱말 더, notes 줄을 줄여 맞췄다(2026-10-29)
 assert(longest <= 900, '가장 긴 프롬프트가 900 낱말을 넘는다: ' + longest);
 
 /* 2-1. 폼마다 다른 장면 — 배경(설계표 setting)·빛·구도·카메라가 단계마다 다르고, 이어가기는 첨부 그림의 배경을 쓰지 않는다.
@@ -200,6 +200,14 @@ for (const gm of G) for (const stage of STAGES) {
 assert(!P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, pose: 'standing' }).includes('STANCE'), '자세를 고르면 기본 자세 줄이 빠진다');
 assert(!S.ACTION_CONTROLS.some(c => c.key === 'equipment'), '무장 고르기가 없다');
 assert(P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, params: [['hair color', '#1b2a6b']] }).includes('hair color: #1B2A6B (dark blue)'), '머리 RGB');
+/* 머리·눈 색 — 고르지 않으면 흑발로 흘렀다. 설계표의 대표색이 실루엣·얼굴 줄에 실리고, 직접 고르면 빠진다(2026-10-29) */
+for (const x of G) {
+  const t = P.buildPrompt({ outputMode: 'form', game: x, stage: '타이틀', styleText: text });
+  assert(/SILHOUETTE:[^\n]*/.exec(t)[0].includes(S.VOCAB_EN.hair_color[x.silhouette.hair_color]) && /FACE \([^\n]*/.exec(t)[0].includes(S.VOCAB_EN.eye_color[x.face.eye_color]), x.key + ' 설계표 머리·눈 색');
+}
+const picked = P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, params: [['hair color', 'black'], ['eye color', 'brown']] });
+assert(!picked.includes(S.VOCAB_EN.hair_color[g.silhouette.hair_color]) && !picked.includes(S.VOCAB_EN.eye_color[g.face.eye_color]), '고른 머리·눈 색이 이긴다');
+assert(!V.hair_color.some(k => /black|brown/.test(k)), '설계표 머리색에 검정·갈색은 없다');
 const sc = G.find(x => x.key === 'starcraft');
 assert(/FACE \([^\n]*broad Korean ancestry/.test(P.buildPrompt({ outputMode: 'form', game: sc, stage: '타이틀', styleText: text })), '설계표 계통');
 assert(!P.buildPrompt({ outputMode: 'form', game: sc, stage: '타이틀', styleText: text, params: [['facial ethnicity', 'Nordic']] }).includes('Korean ancestry'), '고른 계통이 이긴다');

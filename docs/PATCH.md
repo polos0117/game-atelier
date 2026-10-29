@@ -11,6 +11,13 @@
 
 
 
+## 2026-10-29 · claude · 머리색·눈 색 — 게임의 대표색으로
+- data/game-design.json · lib/prompt-spec.js · lib/prompt-game.js — 머리·눈 색을 고르지 않으면 거의 다 흑발·흑갈색으로 흘렀다(사용자). 설계표에 머리색(`silhouette.hair_color`)·눈 색(`face.eye_color`)을 더해 스무 편 모두 대표색을 정했다(예: 팩맨 레몬 노랑·남색, 스트리트 파이터 II 불꽃 주황·강철 파랑, 젤다 금발·숲 초록). 새 인물(첫 그림)의 SILHOUETTE·FACE 줄에 실리고, 이어가기·개방·일상컷은 첨부 그림의 색을 그대로 지킨다. 생성기에서 머리·눈 색을 직접 고르면 그쪽이 이긴다(FACE_PARAM·SIL_PARAM), 외형 무작위도 설계가 켜져 있으면 건드리지 않는다. 길이 한도 900 에 맞게 notes 줄을 줄였다. prompt-spec v=19, prompt-game v=9.
+- tools/game-design.py — 머리색·눈 색이 정한 말인지(검정·갈색 계열은 정한 말에 없다), 두 게임이 둘 다 같지 않은지 본다. 앞으로 더할 게임도 둘 다 채워야 통과한다.
+- lib/words.js · dex.html · prompt.html — 설계 칸에 머리색·눈 색 이름. words v=6.
+- tests/prompt-game.cjs · tests/game-design.py — 스무 편의 대표색이 실루엣·얼굴 줄에 실리고, 고른 색이 이기고, 검정·갈색이 없다.
+- docs/GAME_CONCEPT.md 6절 · AGENTS.md · IMAGE_RULES.md — 새 게임은 대표색 머리·눈 색을 채운다.
+
 ## 2026-10-29 · claude · 일상컷 — 장면 랜덤이 시대를 고르지 않게, 분리형 선호는 예시의 옷에 진다
 - lib/prompt-random.js · lib/prompt-ui.js — 젤다 일상2 가 예시(미래풍 스파에서 가운 차림)와 다르게 1986년풍 모험가 방의 탱크톱·반바지로 나왔다(사용자 「프롬프트 검토」). 장면 랜덤이 시대 칸에서 「출시 당시」를 골라 ERA 줄(그 해 무렵 현실, 현대 기기 없음)이 미래풍과 부딪혔다. 시대는 이제 장면 랜덤에 넣지 않고, 시대 칸은 랜덤·잠금 단추 없는 고르기로만 둔다. prompt-random v=2, prompt-ui v=6.
 - lib/prompt-spec.js — 분리형 선호(separates_preference)가 「강하게」 로 뽑혀 상하의를 나누라 했고, 「옷 칸이 우선」 만 있어 예시의 가운을 이겼다. 이제 옷 칸이나 장면 예시에 적힌 옷이 이긴다. prompt-spec v=17.

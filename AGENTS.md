@@ -48,6 +48,7 @@
 `mechanic` 은 그 게임의 핵심 조작 한 문장이고, 세 폼(타이틀·중반·엔딩)은 그 원리를 다르게 쓴다. 고유 규칙에는 반드시 상대의 대응이 있다.
 결투는 book 의 책장 넘기기(장·자리·맞은편)라서 줄(lane) 말은 못 쓴다.
 어느 두 게임도 실루엣 축 6 중 셋 이상, 얼굴 5 묶음 중 둘 이상 다르다. 같은 시리즈 자매는 얼굴 윤곽이 같다.
+머리색(`silhouette.hair_color`)·눈 색(`face.eye_color`)은 게임의 대표색 — 새 게임도 둘 다 채우고, 검정·갈색은 정한 말에 없다(GAME_CONCEPT 6절).
 설계표를 고치면 `python3 tools/game-design.py check` 를 돌린다.
 
 ### 3. 사실은 지어내지 않는다
@@ -91,7 +92,7 @@ QID 는 `find` 로 후보를 보고 사람이 고른다(같은 이름의 이식�
 ## 검사
 
 ```bash
-python3 tools/game-design.py check   # 게임 설계표 — 빈칸·정한 말·실루엣·얼굴 닮음·자매·한 명 개방·대응·사실 칸
+python3 tools/game-design.py check   # 게임 설계표 — 빈칸·정한 말·실루엣·얼굴 닮음·머리·눈 색·자매·한 명 개방·대응·사실 칸
 python3 tests/game-design.py         # 설계표 검사기가 규칙마다 제대로 거는지
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기(네트워크 없이, 가짜 응답으로)
 node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 게임 갈래, 출시 당시, 길이
