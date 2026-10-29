@@ -111,7 +111,8 @@
    "cloak_wrapped",
    "flight_suit",
    "track_set",
-   "work_overalls"
+   "work_overalls",
+   "jacket_shorts"
   ],
   "material": [
    "neon_tube",
@@ -3198,7 +3199,7 @@
    "silhouette": {
     "body": "curvy",
     "hair": "voluminous",
-    "garment": "coat_trousers",
+    "garment": "jacket_shorts",
     "material": "street_denim",
     "pose": "car_lean",
     "palette": "sunset_teal_pink",
