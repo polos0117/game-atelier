@@ -11,6 +11,9 @@
 
 
 
+## 2026-10-30 · claude · 일상컷 버전2 넓히기 시범 결과
+- docs/CASUAL_TREE_V2.md — 7-3-1: 메탈 기어 솔리드 일상컷 6~12(제안 여섯 + 윙크), 칸마다 결과와 원인 · 다시 그린 7 · 11(그림 저장소 60362fb)
+
 ## 2026-10-30 · claude · 일상컷 버전2 — 넓히기 시범에서 어긋난 셋(뒤 3/4 얼굴 · 발목 교차 · 노트 문장)
 - data/casual-tree-v2.json — 몸 「뒤 3/4」 에 turned_face(머리가 몸을 따르면 얼굴도 돌아가 볼선 · 옆선만). 다리 「발목 교차」 영어를 「한쪽 발목을 다른 발목 위에」 로 또렷이. 소품 노트 영어를 「a notebook」, 동작을 「writes in {prop} with a pen」(「writes in a notebook and a pen」 이 됐다). 시범 7(뒤 3/4 를 앞 3/4 로) · 11(발목 교차를 안 했다), 사용자 결정으로 고치고 두 장을 다시 그린다
 - lib/prompt-game.js — 몸의 turned_face 를 COMPOSITION 몸 줄에 · prompt.html — prompt-game v=24
