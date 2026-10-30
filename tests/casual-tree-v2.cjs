@@ -183,4 +183,19 @@ assert.equal(C.why(t, scope, 'gaze', 'at_prop').code, 'use', '망원경에 「�
 assert.equal(C.why(t, fx({ right: 'prop', left: 'down', frame: 'waist_up', use: 'cup_hold' }), 'gaze', 'into_prop').code, 'noprop', '잔은 들여다보지 않는다');
 assert(!C.uses(t, Object.assign({}, scope, { gaze: 'into_prop', left: 'down' }), 1).length, '들여다보기 시선이면 한 손 동작은 없다');
 
+/* 11. 손 칸 AUTO · 자연스럽게, 해방 칸(사용자 2026-10-30) */
+let au = C.repair(t, fx({ frame: 'waist_up', right: 'hip', left: '' }));
+assert.equal(au.left, '', 'AUTO 손은 다시 검사가 채우지 않는다');
+assert.equal(C.why(t, fx({ frame: 'face_close' }), 'right', 'natural'), null, '자연스럽게는 어느 컷이든');
+assert.equal(C.why(t, fx({ right: 'natural' }), 'left', 'natural'), null, '두 손 다 자연스럽게');
+au = C.repair(t, fx({ frame: 'waist_up', right: '', left: 'arms_crossed' }));
+assert.equal(au.right, 'arms_crossed', '왼손만 두 손 자세를 고르면 오른손도');
+au = C.repair(t, fx({ place: 'home_living', posture: 'swim', support: 'none', frame: 'chest_up', unlocked: ['posture'] }));
+assert.equal(au.posture, 'swim', '해방한 칸은 고치지 않는다');
+assert.equal(au.support, 'water', '뒤 칸은 해방한 값을 기준으로 — 장소에 물이 없어도 헤엄의 받침');
+assert(au.unlocked.includes('support'), '그 칸도 해방으로 단다');
+const back2 = C.repair(t, Object.assign({}, au, { posture: 'stand', unlocked: au.unlocked.filter(k => k !== 'posture') }));
+assert(!(back2.unlocked || []).includes('support') && back2.support === 'none', '앞 칸을 되돌리면 따라 해방된 칸도 풀린다');
+assert.equal(C.repair(t, fx({ place: 'home_living', posture: 'swim', support: 'none', frame: 'chest_up' })).posture !== 'swim', true, '해방하지 않으면 고친다');
+
 console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 2000 · 바꾸기 1500');

@@ -220,7 +220,7 @@ def check(doc, v1):
     for r in doc["hands"]:
         w = f"손 {r['key']}"
         needs(w, r)
-        if r["zone"] != "out":
+        if r["zone"] not in ("out", "any"):   # any — 「자연스럽게」, 어느 컷이든
             ref(w, r["zone"], zones, "부위")
         for p in r.get("postures", []):
             ref(w, p, postures, "자세")
@@ -352,7 +352,7 @@ def check(doc, v1):
             err.append(f"{w} — 소품 동작 꼴이 있는데 소품을 쓰는 손이 없다")
         if p.get("prop_kind") and n_prop and KINDS.get(p["prop_kind"]) != ("both" if n_prop == 2 else "one"):
             err.append(f"{w} — 소품 동작 {p['prop_kind']} 와 소품 쓰는 손 {n_prop} 개가 안 맞는다")
-        if sides[0] == sides[1] and sides[0] not in ("out", "prop") and not hands[sides[0]].get("both"):
+        if sides[0] == sides[1] and sides[0] != "prop" and hands[sides[0]]["zone"] not in ("out", "any") and not hands[sides[0]].get("both"):
             err.append(f"{w} — 두 손이 같은 자세 {sides[0]} (같은 데를 두 손이 쓴다)")
         if sum(1 for s in sides if s.startswith("chin_")) > 1 and not (sides[0] == sides[1]):
             err.append(f"{w} — 두 손이 다 턱을 괸다")
@@ -364,7 +364,9 @@ def check(doc, v1):
             other = p["left" if s == "right" else "right"]
             if h.get("both") and other != k:
                 err.append(f"{w} — 두 손 자세 {k} 인데 다른 손이 {other}")
-            if h["zone"] == "out":
+            if h["zone"] == "any":
+                pass
+            elif h["zone"] == "out":
                 if not fr["close"]:
                     err.append(f"{w} — {s} 손 「화면 밖」 은 가까운 컷만(지금 {p['frame']})")
             elif h["zone"] not in fr["zones"]:

@@ -159,6 +159,34 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     await p.selectOption('#head', 'over_shoulder');
     assert.equal(await p.$eval('#expression', e => e.disabled), false); assert((await opts('gaze')).includes('camera'));
     assert((await out(p)).includes('LOOK-BACK:'), '어깨 너머로 돌리면 돌아보기 줄');
+    /* 손 칸 AUTO · 자연스럽게(사용자 2026-10-30) — 오른손만 고르고 왼손은 지시문에 싣지 않는다 */
+    await p.selectOption('#era', 'now'); await p.selectOption('#place', 'home_living'); await p.selectOption('#ofam', 'everyday');
+    await p.selectOption('#posture', 'stand'); await p.selectOption('#frame', 'waist_up'); await p.selectOption('#body', 'front'); await p.selectOption('#head', 'with_body');
+    await p.selectOption('#hand-right', 'hip'); await p.selectOption('#hand-left', '');
+    assert.equal(await val('hand-left'), '', '왼손 AUTO');
+    sc = await scene();
+    assert(sc.includes('RIGHT HAND: her own right hand rests on her hip') && !sc.includes('LEFT HAND:'), 'AUTO 손은 줄이 없다 ' + sc);
+    assert((await opts('hand-left')).includes('natural'), '자연스럽게');
+    await p.selectOption('#hand-left', 'natural');
+    assert((await scene()).includes('LEFT HAND: her own left hand rests naturally for the posture'), '자연스럽게 줄');
+    await p.selectOption('#hand-right', ''); await p.selectOption('#hand-left', 'arms_crossed');
+    assert.equal(await val('hand-right'), 'arms_crossed', '오른손 AUTO 면 왼손에서 두 손 자세를 고르면 오른손도');
+    await p.selectOption('#hand-right', 'hip');
+    /* 해방 — 트리 밖 값을 까닭과 함께 보이고, 고르면 그 칸은 고치지 않는다 */
+    assert(!(await opts('posture')).includes('swim'), '거실엔 헤엄이 없다');
+    await p.check('#unlock-v2');
+    const label = await p.$eval('#posture option[value="swim"]', e => e.textContent);
+    assert(label.startsWith('🔓') && label.includes('받침'), '트리 밖 값과 까닭 ' + label);
+    await p.selectOption('#posture', 'swim');
+    assert.equal(await val('posture'), 'swim', '해방한 값은 다시 검사가 고치지 않는다');
+    const un = await p.$eval('#unlocked-note', e => e.textContent);
+    assert(un.includes('몸 자세') && un.includes('받침'), '해방 표시 — 헤엄의 물 받침도 따라 해방 ' + un);
+    assert((await scene()).includes('POSTURE: swimming breaststroke'), '해방한 값이 지시문에');
+    assert.equal(await p.$eval('#copy-prompt', e => e.disabled), false, '해방 칸은 복사를 막지 않는다');
+    await p.uncheck('#unlock-v2');
+    assert.equal(await val('posture'), 'swim', '해방을 꺼도 고른 값은 남는다');
+    await p.selectOption('#posture', 'stand');
+    assert.equal(!!(await p.$('#unlocked-note')), false, '트리 안 값으로 돌아오면 해방 표시가 없다');
     /* 추가 연출 글에 손·소품 말 — 경고만, 복사는 된다 */
     await p.fill('#custom', 'holding a cup in both hands');
     assert(await p.$('#v2-hand-warn'), '손·소품 말 경고');

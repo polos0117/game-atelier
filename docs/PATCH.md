@@ -11,6 +11,15 @@
 
 
 
+## 2026-10-30 · claude · 일상컷 버전2 — 손 칸 AUTO · 자연스럽게 · 트리 밖 고르기(해방)
+- lib/casual-tree-v2.js — 오른손 · 왼손은 꼭 있어야 하는 칸이 아니다(비우면 AUTO). 두 손 자세는 한쪽만 골라도 다른 쪽이 따라온다. 손 「자연스럽게」(zone any). 해방 칸은 고치지 않고, 그 때문에 꼭 있어야 하는 뒤 칸이 비면 장소 받침만 빼고 골라 따라 해방(unlockedAuto — 매번 새로 정한다). candidates 를 밖에 내놓는다(화면의 트리 밖 목록)
+- data/casual-tree-v2.json — 손 natural · tools/casual-tree-v2.py — zone any
+- lib/prompt-ui.js — 손 칸 맨 앞 「AUTO — 이 손은 지시문에 싣지 않는다」(다른 손이 두 손 자세면 그 값만), 「🔓 해방」 칸 — 켜면 칸마다 트리 밖 값과 까닭, 고른 칸은 「🔓 트리 밖에서 고른 칸」 으로 표시. lib/words.js — 그 말과 까닭 스물셋
+- lib/prompt-game.js — 비운 손은 줄을 싣지 않는다, unlockedAuto 를 넘긴다
+- prompt.html — casual-tree-v2 v=5 · prompt-game v=21 · prompt-ui v=14 · words v=11
+- tests — AUTO · 자연스럽게 · 왼손 두 손 자세 · 해방(거실 헤엄 → 물 받침도 따라 해방, 되돌리면 풀림), 화면 시험
+- docs/CASUAL_TREE_V2.md — 7-1-1
+
 ## 2026-10-30 · claude · 일상컷 트리 버전2 6단계 — 메탈 기어 솔리드 시범 다섯 장과 그 결과로 고친 것
 - (그림 저장소) 메탈 기어 솔리드 타이틀(A · B 중 사용자가 B) + 일상컷 시범 다섯 — 시범 표대로 칸을 정해 버전2 로 그렸다, 사용자가 다 그대로
 - data/casual-tree-v2.json — 시선 「소품을 들여다봄」(into_prop — 망원경 · 카메라. 「든 것을 바라본다」 에 망원경 옆을 봤다), 머리 「옆으로 돌림」 은 몸 옆모습과 같이 못 고른다(not_bodies — 카메라 쪽으로 몸까지 돌았다), 몸 옆모습 profile_face. 몸 옆모습 + 머리 옆으로 돌림이던 추천 일곱은 머리 「몸과 같이」, 두 손 소품 추천 둘의 시선은 비웠다(동작이 정한다)

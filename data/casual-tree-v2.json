@@ -631,6 +631,12 @@
    "en": "her own {side} hand stays outside the frame"
   },
   {
+   "key": "natural",
+   "ko": "자연스럽게",
+   "zone": "any",
+   "en": "her own {side} hand rests naturally for the posture, relaxed and empty"
+  },
+  {
    "key": "down",
    "ko": "옆으로 내림",
    "zone": "hips",

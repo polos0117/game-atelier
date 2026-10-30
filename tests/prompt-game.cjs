@@ -327,6 +327,10 @@ assert(block(cas2(g, { ...rooftop, use: '', right: 'down', left: 'down', frame: 
 assert(!block(cas2(g, { ...rooftop, head: 'tilt' }), 'SCENE').includes('face in profile too'), '머리를 돌리면 얼굴 말을 안 붙인다');
 const fc = cas2(g, { ...pick('shush_close'), axes: { skin_exposure: 'bold' } });
 assert(fc.includes('the crop stays exactly where CROP sets it and never moves down') && !fc.includes('neckline and upper-back exposure'), '클로즈업 노출 말');
+// 손 칸 AUTO — 그 손 줄이 없다, 둘 다 AUTO 면 손 줄이 하나도 없다(HANDS 해부학 줄은 남는다)
+assert(!block(cas2(g, { ...jeans, left: '' }), 'SCENE').includes('LEFT HAND:') && block(cas2(g, { ...jeans, left: '' }), 'SCENE').includes('RIGHT HAND:'), '왼손 AUTO');
+const noHands = cas2(g, { ...jeans, right: '', left: '' });
+assert(!/RIGHT HAND:|LEFT HAND:|BOTH HANDS:/.test(noHands) && noHands.includes(T.handsV2), '두 손 AUTO');
 const hs = spots.find(sc => sc.preset === 'sip_close');
 assert(block(cas2(g, { ...hs, expr: 'pensive' }), 'SCENE').includes('EXPRESSION: slightly furrowed brow'), '표정 줄');
 /* 버전1 기록은 표가 와도 버전1 그대로, 옮기면 버전2 */
