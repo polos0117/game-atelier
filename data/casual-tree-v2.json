@@ -156,7 +156,8 @@
   {
    "key": "side",
    "ko": "옆모습",
-   "en": "body in side profile"
+   "en": "body in side profile",
+   "profile_face": true
   },
   {
    "key": "rear_3q",
@@ -191,7 +192,10 @@
   {
    "key": "turn_side",
    "ko": "옆으로 돌림",
-   "en": "head turned to the side"
+   "en": "head turned to the side",
+   "not_bodies": [
+    "side"
+   ]
   }
  ],
  "camera": [
@@ -221,6 +225,11 @@
    "key": "at_prop",
    "ko": "소품",
    "en": "her eyes rest on what she holds"
+  },
+  {
+   "key": "into_prop",
+   "ko": "소품을 들여다봄",
+   "en": "one eye is set close to the eyepiece or viewfinder of what she holds, looking through it"
   },
   {
    "key": "window",
@@ -2282,7 +2291,7 @@
     "kneel",
     "squat"
    ],
-   "gaze": "at_prop"
+   "gaze": "into_prop"
   },
   {
    "key": "umbrella_hold",
@@ -2677,7 +2686,7 @@
     "lean_rail",
     "sit_chair"
    ],
-   "gaze": "at_prop"
+   "gaze": "into_prop"
   },
   {
    "key": "bouquet_hold",
@@ -3486,7 +3495,7 @@
    "support": "none",
    "frame": "face_close",
    "body": "side",
-   "head": "turn_side",
+   "head": "with_body",
    "camera": "eye",
    "right": "hair_tuck",
    "left": "out",
@@ -3686,7 +3695,7 @@
    "support": "none",
    "frame": "waist_up",
    "body": "side",
-   "head": "turn_side",
+   "head": "with_body",
    "camera": "eye",
    "right": "prop",
    "left": "rail",
@@ -3758,7 +3767,7 @@
    "support": "back_seat",
    "frame": "three_quarter",
    "body": "side",
-   "head": "turn_side",
+   "head": "with_body",
    "camera": "eye",
    "right": "prop",
    "left": "lap",
@@ -3836,7 +3845,7 @@
    "left": "prop",
    "prop_kind": "both",
    "legs": "stand_relaxed",
-   "gaze": "at_prop"
+   "gaze": ""
   },
   {
    "key": "kneel_clasp",
@@ -3888,7 +3897,7 @@
    "support": "none",
    "frame": "full_body",
    "body": "side",
-   "head": "turn_side",
+   "head": "with_body",
    "camera": "low",
    "right": "wave",
    "left": "down",
@@ -3917,7 +3926,7 @@
    "support": "back_seat",
    "frame": "full_body",
    "body": "side",
-   "head": "turn_side",
+   "head": "with_body",
    "camera": "eye",
    "right": "prop",
    "left": "lap",
@@ -3960,7 +3969,7 @@
    "support": "hip_edge",
    "frame": "full_body",
    "body": "side",
-   "head": "turn_side",
+   "head": "with_body",
    "camera": "eye",
    "right": "edge_brace_both",
    "left": "edge_brace_both",
@@ -4018,7 +4027,7 @@
    "support": "none",
    "frame": "environmental",
    "body": "side",
-   "head": "turn_side",
+   "head": "with_body",
    "camera": "high",
    "right": "lap",
    "left": "floor_brace",
@@ -4053,7 +4062,7 @@
    "left": "prop",
    "prop_kind": "both",
    "legs": "stand_relaxed",
-   "gaze": "at_prop"
+   "gaze": ""
   },
   {
    "key": "bench_sit",

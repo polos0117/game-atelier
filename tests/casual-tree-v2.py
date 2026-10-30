@@ -73,6 +73,10 @@ fails(lambda d: pre(d, 'walk_away').update(gaze='camera'), '고개를 안 돌리
 fails(lambda d: d['expressions'].update(flustered='raised inner brows, darting or averted eyes'), '표정 flustered 에 시선')
 fails(lambda d: d.pop('expressions'), '표정 표(expressions)가 없다')
 fails(lambda d: row(d, 'legs', 'cross_legged')['postures'].append('stand'), '다리 cross_legged 의 자세 stand 가 다리 계열 밖')
+fails(lambda d: pre(d, 'floor_horizon').update(head='turn_side'), '머리 turn_side 는 몸 방향 side 와 같이 못 고른다')
+fails(lambda d: pre(d, 'shush_close').update(gaze='into_prop'), '「소품을 들여다봄」 인데 소품 동작이 없다')
+fails(lambda d: row(d, 'head', 'turn_side').update(not_bodies=['sideways']), '몸 방향 sideways')
+assert not T.use_fits(doc, row(doc, 'prop_uses', 'cup_hold'), dict(pre(doc, 'prop_detail'), gaze='into_prop'))
 sip = dict(pre(doc, 'sip_close'), left='shush')
 assert not T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), sip) and T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), pre(doc, 'sip_close'))
 assert 'spa_footbath' not in T.preset_places(doc, v1, pre(doc, 'swim_close')) if any(p['key'] == 'swim_close' for p in doc['presets']) else True

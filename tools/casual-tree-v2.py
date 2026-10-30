@@ -77,6 +77,9 @@ def use_fits(doc, use, pre):
         return False
     if pre.get("gaze") and use.get("gaze") and use["gaze"] != pre["gaze"]:
         return False
+    # 「소품을 들여다봄」 은 들여다보는 동작(망원경 · 카메라)만
+    if pre.get("gaze") == "into_prop" and use.get("gaze") != "into_prop":
+        return False
     # 입 주변 같은 공간을 손 자세와 소품 동작이 같이 쓰지 않는다(입술에 검지 + 잔을 입에)
     hands = by_key(doc["hands"])
     if use.get("space") and any(hands.get(pre.get(s), {}).get("space") == use["space"] for s in SIDES):
@@ -153,6 +156,9 @@ def check(doc, v1):
                 ref(where, k.lstrip("!"), places1, "장소")
 
     body, head, camera, gaze = (keys(n, doc[n]) for n in ("body", "head", "camera", "gaze"))
+    for r in doc["head"]:
+        for b in r.get("not_bodies", []):
+            ref(f"머리 {r['key']}", b, body, "몸 방향")
     supports, postures, hands, legs, props, uses = (keys(n, doc[n]) for n in ("supports", "postures", "hands", "legs", "props", "prop_uses"))
     presets = keys("presets", doc["presets"])
     for name in ("body", "head", "camera", "gaze", "supports", "postures", "hands", "legs", "props", "prop_uses"):
@@ -331,6 +337,10 @@ def check(doc, v1):
             err.append(f"{w} — 자세 {p['posture']} 는 프레이밍 {p['frame']} 를 받지 않는다")
         if p["support"] not in po["supports"]:
             err.append(f"{w} — 자세 {p['posture']} 에 받침 {p['support']} 가 붙지 않는다")
+        if p["body"] in head[p["head"]].get("not_bodies", []):
+            err.append(f"{w} — 머리 {p['head']} 는 몸 방향 {p['body']} 와 같이 못 고른다(옆모습 몸에서 옆으로 돌리면 카메라 쪽이다)")
+        if p.get("gaze") == "into_prop" and not p.get("prop_kind"):
+            err.append(f"{w} — 시선 「소품을 들여다봄」 인데 소품 동작이 없다")
         if body[p["body"]].get("far") and p["frame"] in far:
             err.append(f"{w} — 가까운 컷 {p['frame']} 에 뒤쪽 몸 방향 {p['body']}")
         # 손 칸 둘

@@ -174,4 +174,13 @@ for (const g of games) for (let i = 0; i < 40; i++) {
   if (u && u.space) assert(![sc.right, sc.left].some(k => (C.hand(t, k) || {}).space === u.space), g.key + ' 입 공간 겹침');
 }
 
+/* 10. 시범(MGS 일상컷, 2026-10-30) 고정 사례 — 옆모습 몸 + 머리 옆으로 돌림, 들여다보는 동작의 시선 */
+assert.equal(C.why(t, fx({ body: 'side' }), 'head', 'turn_side').code, 'body', '옆모습 몸에 머리 옆으로 돌림 X');
+assert.equal(C.why(t, fx({ body: 'front' }), 'head', 'turn_side'), null);
+const scope = fx({ era: 'now', place: 'night_rooftop', frame: 'waist_up', right: 'prop', left: 'prop', use: 'scope_look' });
+assert.equal(C.why(t, scope, 'gaze', 'into_prop'), null, '망원경은 들여다본다');
+assert.equal(C.why(t, scope, 'gaze', 'at_prop').code, 'use', '망원경에 「든 것을 바라본다」 X');
+assert.equal(C.why(t, fx({ right: 'prop', left: 'down', frame: 'waist_up', use: 'cup_hold' }), 'gaze', 'into_prop').code, 'noprop', '잔은 들여다보지 않는다');
+assert(!C.uses(t, Object.assign({}, scope, { gaze: 'into_prop', left: 'down' }), 1).length, '들여다보기 시선이면 한 손 동작은 없다');
+
 console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 2000 · 바꾸기 1500');

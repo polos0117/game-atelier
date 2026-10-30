@@ -319,6 +319,14 @@ const jeans = { treeV: 2, era: 'now', place: 'home_living', ofam: 'everyday', it
 assert(/RIGHT HAND: [^\n]*pocket/.test(block(cas2(g, jeans), 'SCENE')), '청바지면 주머니 손');
 const dr = block(cas2(g, { ...jeans, outfit: 'a strapless satin dress with no pockets' }), 'SCENE');
 assert(!/RIGHT HAND: [^\n]*pocket/.test(dr) && dr.includes('Outfit: a strapless satin dress'), '자유 의상 + 주머니 손');
+// 시범(MGS) — 옆모습 몸이면 얼굴도 옆모습, 망원경은 들여다보기, 가까운 컷 노출 말은 컷을 끌어내리지 않는다
+const rooftop = { treeV: 2, era: 'now', place: 'night_rooftop', ofam: 'everyday', item: 'trench_coat', posture: 'stand', support: 'none', frame: 'waist_up', body: 'side', head: 'with_body', camera: 'eye', right: 'prop', left: 'prop', use: 'scope_look', gaze: '' };
+const rs = block(cas2(g, rooftop), 'SCENE');
+assert(rs.includes('body in side profile, her face in profile too, not turned toward the camera') && rs.includes('GAZE: ' + tree2.gaze.find(x => x.key === 'into_prop').en), '옥상 망원경 ' + rs);
+assert(block(cas2(g, { ...rooftop, use: '', right: 'down', left: 'down', frame: 'full_body', gaze: 'camera' }), 'SCENE').includes('only her eyes turn toward the camera'), '옆모습 + 카메라 응시는 눈만');
+assert(!block(cas2(g, { ...rooftop, head: 'tilt' }), 'SCENE').includes('face in profile too'), '머리를 돌리면 얼굴 말을 안 붙인다');
+const fc = cas2(g, { ...pick('shush_close'), axes: { skin_exposure: 'bold' } });
+assert(fc.includes('the crop stays exactly where CROP sets it and never moves down') && !fc.includes('neckline and upper-back exposure'), '클로즈업 노출 말');
 const hs = spots.find(sc => sc.preset === 'sip_close');
 assert(block(cas2(g, { ...hs, expr: 'pensive' }), 'SCENE').includes('EXPRESSION: slightly furrowed brow'), '표정 줄');
 /* 버전1 기록은 표가 와도 버전1 그대로, 옮기면 버전2 */
