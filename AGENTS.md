@@ -12,6 +12,7 @@
 | `data/game-design.json` | 게임 설계표. 게임 한 편 = 한 칸 |
 | `IMAGE_RULES.md` | 그림 만들기·파일 이름·기록·올리기 — 그림 작업 전에 |
 | `data/style.json` | 화풍 판 — 폼·개방은 `text`, 일상컷은 `casual` |
+| `docs/CASUAL_TREE_V2.md` | 일상컷 트리 버전2 설계 — 시대 → 장소 → 의상 → 구도 → 손(오른손·왼손) → 소품 → 다리, 자세 추천 (만드는 중) |
 | `docs/PORT_NOTES.md` | 어디서 무엇을 가져왔고, 무엇을 아직 안 가져왔나 |
 | `docs/PATCH.md` | 무엇을 고쳤나 — 고친 쪽이 직접 적는다 (아래 규칙 6) |
 
