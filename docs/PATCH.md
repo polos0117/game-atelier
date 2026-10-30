@@ -11,6 +11,13 @@
 
 
 
+## 2026-10-30 · claude · 랑그릿사 II · 카트라이더 다시 넣기, 버전2 표 겹친 자세
+- data/game-design.json — 잠시 뺀 두 편을 games 에 되돌려 넣었다(35편). 폼 지시문 충돌 0
+- data/wikidata/langrisser_2.json · data/wikidata/kartrider.json — 사실 칸(Q665393 · Q488178, Wikidata 장애가 풀려 받았다)
+- docs/GAME_CONCEPT.md — 6-4 를 10편으로, 표에 두 줄 · docs/held/kartrider-langrisser_2.json — 지웠다(설계표로 돌아갔다)
+- data/casual-tree-v2.json — 컵 감싸기 · 카메라 화면 보기 · 꽃다발 안기의 자세 목록에 sit_lean · lean_counter 가 두 번 있었다
+- tools/casual-tree-v2.py — 목록 칸에 같은 값이 두 번 있으면 걸린다 · tests/casual-tree-v2.py — 그 사례
+
 ## 2026-10-30 · claude · 일상컷 버전2 넓히기 — 소품 · 작업대 · 자세 · 의상 · 장소 · 날씨 · 안경
 - data/casual-tree-v2.json — 받침 worktable, 새 소품 아홉(휴대용 게임기 since 1989, 아케이드 조작반 fixed), 소품 동작 열여섯(needs_any), 자세 lean_counter · sit_lean, 다리 ankles_crossed, 손 glasses_adjust, 새 장소 여덟(extra_places), 날씨 일곱 · 날씨 ⚠, 추천 다섯(사용자 — 검토 제안 그대로)
 - data/casual-tree.json — 의상 여덟(제빵사 · 꽃집 · 정비 · 터틀넥 조끼 · 플리스 · 스키 · 턱시도 캐미 · 90년대 트랙)

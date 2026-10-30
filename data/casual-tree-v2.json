@@ -3562,9 +3562,7 @@
     "lie_side",
     "lie_front",
     "lean_counter",
-    "sit_lean",
-    "sit_lean",
-    "lean_counter"
+    "sit_lean"
    ]
   },
   {
@@ -3702,7 +3700,6 @@
     "sit_floor",
     "kneel",
     "sit_lean",
-    "lean_counter",
     "squat"
    ],
    "gaze": "at_prop"
@@ -3773,8 +3770,7 @@
     "sit_edge",
     "sit_floor",
     "kneel",
-    "sit_lean",
-    "lean_counter"
+    "sit_lean"
    ],
    "gaze": "at_prop"
   },

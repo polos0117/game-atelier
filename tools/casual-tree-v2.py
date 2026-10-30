@@ -143,6 +143,9 @@ def check(doc, v1):
             if r["key"] in seen:
                 err.append(f"{name} 열쇠 {r['key']} 가 겹친다")
             seen.add(r["key"])
+            for k, v in r.items():
+                if isinstance(v, list) and len(v) != len(set(map(str, v))):
+                    err.append(f"{name} {r['key']} 의 {k} 에 같은 값이 두 번 있다")
             if not r.get("ko"):
                 err.append(f"{name} {r['key']} 에 한국어 이름(ko)이 없다")
         return by_key(rows)

@@ -79,6 +79,7 @@ fails(lambda d: row(d, 'head', 'turn_side').update(not_bodies=['sideways']), '�
 assert not T.use_fits(doc, row(doc, 'prop_uses', 'cup_hold'), dict(pre(doc, 'prop_detail'), gaze='into_prop'))
 fails(lambda d: d['extra_places'].append(dict(d['extra_places'][0], key='home_bedroom')), '새 장소 home_bedroom 가 버전1 장소와 겹친다')
 fails(lambda d: d['weather_awkward'][0]['weather'].append('hail'), '날씨 hail')
+fails(lambda d: row(d, 'prop_uses', 'cup_wrap')['postures'].append('stand'), 'cup_wrap 의 postures 에 같은 값이 두 번')
 fails(lambda d: row(d, 'props', 'handheld').update(since=1700), 'since')
 fails(lambda d: row(d, 'prop_uses', 'book_turn').update(needs_any=['sofa_arm']), '받침 sofa_arm')
 assert 'street_park' not in T.preset_places(doc, v1, pre(doc, 'counter_work')) and 'bakery_kitchen' in T.preset_places(doc, v1, pre(doc, 'counter_work'))
