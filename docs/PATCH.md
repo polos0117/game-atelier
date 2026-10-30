@@ -11,6 +11,13 @@
 
 
 
+## 2026-10-30 · claude · 일상컷 버전2 — 표정 칸을 시선 밑으로, 뒤 3/4 에서도 표정
+- lib/prompt-ui.js — 표정 칸을 버전2 칸 안 시선 바로 밑으로(맨 아래에 있어 안 보였다, 사용자). 꺼지는 것은 몸 「뒤」 + 고개 그대로일 때만
+- data/casual-tree-v2.json — 몸 「뒤」 에 face_hidden. 뒤 3/4 는 옆얼굴이 보여 표정을 고른다(사용자). 카메라 응시는 그대로 — 뒤 · 뒤 3/4 는 고개를 돌려야
+- lib/prompt-game.js · tools/casual-plan.cjs — 표정을 빼는 조건을 face_hidden 으로 · lib/words.js — 꺼진 까닭 말
+- prompt.html — prompt-ui v=15 · words v=12 · prompt-game v=22
+- tests/prompt-game.cjs · tests/prompt-screen.cjs — 뒤 3/4 는 표정, 뒤는 없음, 표정 칸 자리
+
 ## 2026-10-30 · claude · 일상컷 버전2 — 손 칸 AUTO · 자연스럽게 · 트리 밖 고르기(해방)
 - lib/casual-tree-v2.js — 오른손 · 왼손은 꼭 있어야 하는 칸이 아니다(비우면 AUTO). 두 손 자세는 한쪽만 골라도 다른 쪽이 따라온다. 손 「자연스럽게」(zone any). 해방 칸은 고치지 않고, 그 때문에 꼭 있어야 하는 뒤 칸이 비면 장소 받침만 빼고 골라 따라 해방(unlockedAuto — 매번 새로 정한다). candidates 를 밖에 내놓는다(화면의 트리 밖 목록)
 - data/casual-tree-v2.json — 손 natural · tools/casual-tree-v2.py — zone any

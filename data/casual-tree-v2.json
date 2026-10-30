@@ -169,7 +169,8 @@
    "key": "back",
    "ko": "뒤",
    "en": "back to the camera",
-   "far": true
+   "far": true,
+   "face_hidden": true
   }
  ],
  "head": [

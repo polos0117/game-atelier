@@ -155,6 +155,11 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     /* 등만 돌리면 표정 칸이 꺼진다, 카메라 응시도 없다 */
     await p.selectOption('#frame', 'full_body'); await p.selectOption('#body', 'back');
     assert.equal(await p.$eval('#expression', e => e.disabled), true, '얼굴이 안 보이면 표정 칸이 꺼진다');
+    assert(await p.$('#casual-tree-v2 #expression'), '표정 칸은 버전2 칸 안 — 시선 밑');
+    await p.selectOption('#body', 'rear_3q');
+    assert.equal(await p.$eval('#expression', e => e.disabled), false, '뒤 3/4 는 표정을 고른다');
+    assert((await opts('expression')).length > 20, '표정 목록');
+    await p.selectOption('#body', 'back');
     assert(!(await opts('gaze')).includes('camera'), '등 돌림 + 고개 그대로면 카메라 응시 없음');
     await p.selectOption('#head', 'over_shoulder');
     assert.equal(await p.$eval('#expression', e => e.disabled), false); assert((await opts('gaze')).includes('camera'));

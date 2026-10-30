@@ -331,6 +331,9 @@ assert(fc.includes('the crop stays exactly where CROP sets it and never moves do
 assert(!block(cas2(g, { ...jeans, left: '' }), 'SCENE').includes('LEFT HAND:') && block(cas2(g, { ...jeans, left: '' }), 'SCENE').includes('RIGHT HAND:'), '왼손 AUTO');
 const noHands = cas2(g, { ...jeans, right: '', left: '' });
 assert(!/RIGHT HAND:|LEFT HAND:|BOTH HANDS:/.test(noHands) && noHands.includes(T.handsV2), '두 손 AUTO');
+// 표정 — 몸 「뒤」 + 고개 그대로만 싣지 않는다. 뒤 3/4 는 옆얼굴이 보여 싣는다(사용자 2026-10-30)
+const backish = b => block(cas2(g, { ...jeans, frame: 'full_body', right: 'down', left: 'down', body: b, head: 'with_body', expr: 'soft_smile' }), 'SCENE');
+assert(backish('rear_3q').includes('EXPRESSION: ') && !backish('back').includes('EXPRESSION: '), '뒤 3/4 는 표정, 뒤는 없음');
 const hs = spots.find(sc => sc.preset === 'sip_close');
 assert(block(cas2(g, { ...hs, expr: 'pensive' }), 'SCENE').includes('EXPRESSION: slightly furrowed brow'), '표정 줄');
 /* 버전1 기록은 표가 와도 버전1 그대로, 옮기면 버전2 */

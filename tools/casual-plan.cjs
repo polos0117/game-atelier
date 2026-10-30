@@ -202,7 +202,7 @@ function randomSlot2(r, game, reqType, sigProp, { frame = '', wantSig = false } 
   sc = C2.repair(T2, sc, game, rp);
   if (wantSig && !sigProp2(sc)) return null;
   const body = by(tree2.body, sc.body), head = by(tree2.head, sc.head);
-  sc.expr = body.far && !head.look_back ? '' : pick(r, EXPRS);
+  sc.expr = body.face_hidden && !head.look_back ? '' : pick(r, EXPRS);
   sc.axes = { ...FIXED_AXES };
   for (const k of S.LOCAL_AXES) if (!sc.axes[k]) sc.axes[k] = pick(r, S.ADVANCED_OPTIONS[k].filter(v => v && v !== 'AUTO'));
   return sc;
