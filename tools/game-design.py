@@ -62,6 +62,11 @@ def check(doc):
             bad("알아볼 거리(signature)는 셋이나 넷")
         elif len(set(sig)) != len(sig):
             bad("알아볼 거리(signature)가 겹친다")
+        # 손에 들 수 있는 알아볼 거리의 번호 — 일상컷 버전2 소품(sig_hold · sig_raise · sig_both)은 이것만. 장소 · 풍경은 배경에 남는다
+        # (데이브 더 다이브 「블루 홀의 깊고 푸른 바다」 를 가슴 높이에 들었다, 검토 2026-10-30). 비어 있으면 알아볼 거리를 소품으로 들지 않는다
+        hold = g.get("signature_hold")
+        if not isinstance(hold, list) or not all(isinstance(i, int) and 0 <= i < len(sig) for i in hold) or len(set(hold)) != len(hold):
+            bad("손에 들 알아볼 거리(signature_hold)는 signature 번호 목록 — 없으면 []")
         if not [a for a in (g.get("avoid") or []) if str(a).strip()]:
             bad("그리지 않을 것(avoid — 게임 속 캐릭터·로고·UI)을 적는다")
         v = g.get("voice")

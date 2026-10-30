@@ -75,68 +75,100 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     await fixed('장면 랜덤 뒤');
     await p.selectOption('#casual-n', '3');
     assert.match(await p.$eval('#file-name code', e => e.textContent), /tetris_glossy_kr_game_f_casual3\.webp/);
-    /* 일상컷 트리 — 시대 → 장소 → 하는 일 → 의상 → 구도. 갈래·예시 칸은 없다(2026-10-29) */
-    assert.equal(await p.$('#category'), null, '갈래 칸이 없다');
-    assert.equal(await p.$('#example'), null, '예시 칸이 없다');
-    const vals = () => p.evaluate(() => Object.fromEntries(['preset', 'era', 'place', 'act', 'ofam', 'item', 'pose', 'orientation'].map(id => [id, document.querySelector('#' + id).value])));
+    /* 일상컷 트리 버전2(docs/CASUAL_TREE_V2.md) — 새 장면은 버전2: 하는 일·자세·방향·렌즈·자유 카메라 칸이 없고,
+       시대 → 장소 → 의상 → 자세 추천 → 몸 자세·받침 → 구도 → 오른손·왼손 → 소품 동작 → 다리 → 시선 */
+    assert(await p.$('#casual-tree-v2'), '버전2 칸');
+    for (const id of ['category', 'example', 'act', 'pose', 'orientation', 'lens', 'camera']) assert.equal(!!(await p.$('#' + id)), false, id + ' 칸이 없다');
+    const tree2 = JSON.parse(fs.readFileSync('data/casual-tree-v2.json', 'utf8'));
+    const val = id => p.$eval('#' + id, e => e.value);
     const opts = id => p.$$eval('#' + id + ' option', os => os.map(o => o.value));
+    const scene = async () => (await out(p)).split('\n\n').find(l => l.startsWith('SCENE')) || '';
     assert.deepEqual(await opts('era'), ['now', 'release', 'in_game', 'fantasy'], '시대 넷');
     await p.selectOption('#era', 'now');
-    await p.selectOption('#frame', 'full_body');   // 가까운 컷이면 허리 아래 옷(반바지)은 비워진다
-    await p.selectOption('#preset', 'arc_cabinet');
-    let v = await vals();
-    assert.deepEqual([v.era, v.place, v.act, v.ofam, v.item], ['now', 'arcade_hall', 'play_cabinet', 'everyday', 'bomber_shorts'], '추천 조합이 길을 채운다');
+    await p.selectOption('#place', 'arcade_hall');
     t = await out(p);
-    assert(t.includes('SCREENS:') && t.includes('Place: an arcade hall') && t.includes('Activity: leaning into an upright cabinet') && !t.includes('WORLD:') && !t.includes('ERA:'), '오락실·화면 줄');
+    assert(t.includes('SCREENS:') && t.includes('Place: an arcade hall') && t.includes('POSTURE: ') && t.includes('COMPOSITION: ') && !t.includes('Activity:') && !t.includes('HAND TASK'), '버전2 줄 · 오락실 화면 줄');
     assert(t.includes('fabric and accessory'), '일상컷 화풍');
     await p.selectOption('#era', 'release');
-    assert.equal((await vals()).place, 'arcade_hall', '출시 당시에도 있는 장소는 그대로');
+    assert.equal(await val('place'), 'arcade_hall', '출시 당시에도 있는 장소는 그대로');
     assert((await out(p)).includes('ERA: set this scene in the real world around her release'), '출시 당시');
     assert(!(await opts('place')).includes('arcade_pcbang') && !(await opts('place')).includes('fx_studio'), '그 해에 없던 곳·환상 무대는 빠진다');
     await p.selectOption('#era', 'in_game');
     assert((await opts('place')).every(k => k.startsWith('game_')), '게임 세계 안은 그 세계의 장소만');
     t = await out(p);
     assert(t.includes('WORLD: this scene happens inside the world of «테트리스»') && !t.includes('ERA:'), '게임 세계 안 줄');
-    /* 앞 칸을 잠그면 랜덤은 뒤 칸만 — 시대를 잠그고 돌려도 그대로 */
+    /* 앞 칸을 잠그면 랜덤은 그 안에서 — 시대를 잠그고 돌려도 그대로 */
     await p.click('#lock-era');
     for (let i = 0; i < 5; i++) await p.click('#random-scene');
-    v = await vals();
-    assert.equal(v.era, 'in_game', '잠근 시대는 그대로');
-    assert(v.place.startsWith('game_'), '랜덤 장소도 그 시대 안에서');
+    assert.equal(await val('era'), 'in_game', '잠근 시대는 그대로');
+    assert((await val('place')).startsWith('game_'), '랜덤 장소도 그 시대 안에서');
     await fixed('트리 랜덤 뒤');
-    /* 하는 일이 자세를 거른다 — 앉아 기다리기엔 걷기 자세가 없다 */
     await p.click('#lock-era');
-    await p.selectOption('#era', 'now');
-    await p.selectOption('#preset', 'travel_station');
-    await p.selectOption('#frame', 'full_body');
-    assert(!(await opts('pose')).includes('walking') && (await opts('pose')).includes('sitting'), '앉기 계열 자세만');
-    assert(!(await opts('orientation')).includes('walking_away'), '앉기 계열 방향만');
-    /* 칸끼리 규칙 — 앉는 자리(식탁 만찬에 방석 책상다리 X), 손(잔 든 하는 일에 머리 만지기 X), 가까운 컷의 자세·옷·렌즈, 등 돌림엔 표정 X */
-    await p.selectOption('#place', 'evening_gala');
-    await p.selectOption('#act', 'gala_dinner');
-    let po = await opts('pose');
-    assert(po.includes('sitting') && !po.includes('cross_legged') && !po.includes('perched_seat') && !po.includes('hands_in_hair'), '식탁 만찬 — 의자 자세만, 손 쓰는 자세 없음 ' + po);
-    assert((await opts('lens')).includes('wide24'), '전신엔 광각도');
-    await p.selectOption('#lens', 'wide24');
+    /* 자세 추천 — 칸이 한 번에 채워지고, 프레이밍을 클로즈업으로 바꾸면 다리 칸이 사라지고 무릎 위 손은 고쳐진다(컷은 그대로) */
+    await p.selectOption('#era', 'now'); await p.selectOption('#place', 'home_living'); await p.selectOption('#ofam', 'everyday');
+    assert((await opts('preset')).includes('side_chair_cross'), '거실에서 쓸 수 있는 추천');
+    await p.selectOption('#preset', 'side_chair_cross');
+    assert.deepEqual([await val('posture'), await val('frame'), await val('hand-right'), await val('hand-left'), await val('legs')], ['sit_chair', 'full_body', 'prop', 'lap', 'cross_legs'], '추천이 칸을 채운다');
+    assert(await p.$('#use'), '소품을 쓰는 손이 있으면 소품 동작 칸');
+    let sc = await scene();
+    assert(sc.includes('PROP: with her own right hand she') && sc.includes('LEGS: legs crossed at the knee') && sc.includes('LEFT HAND: her own left hand rests on her knee'), '추천 지시문');
     await p.selectOption('#frame', 'face_close');
-    assert.equal(await p.$eval('#lens', e => e.value), '', '클로즈업으로 바꾸면 광각은 비운다');
-    assert(!(await opts('lens')).includes('wide24') && !(await opts('lens')).includes('documentary35'), '클로즈업엔 광각 없음');
-    assert(!(await opts('pose')).includes('sitting'), '클로즈업엔 다리 자세 없음');
+    assert.equal(await val('frame'), 'face_close', '컷은 넓히지 않는다');
+    assert.equal(!!(await p.$('#legs')), false, '다리가 안 보이는 컷엔 다리 칸이 없다');
+    assert.notEqual(await val('hand-left'), 'lap', '무릎 위 손은 고쳐진다');
+    assert.equal(await val('preset'), '', '칸이 바뀌면 추천 표시는 지운다');
+    assert(!(await opts('body')).includes('back') && !(await opts('body')).includes('rear_3q'), '가까운 컷엔 뒤쪽 몸 방향 없음');
+    assert((await opts('hand-right')).includes('out'), '가까운 컷엔 화면 밖 손');
+    sc = await scene();
+    assert(!sc.includes('LEGS:') && sc.includes('COMPOSITION: a close-up'), '클로즈업 지시문');
     await p.selectOption('#frame', 'full_body');
-    await p.selectOption('#era', 'now'); await p.selectOption('#place', 'water_pool'); await p.selectOption('#act', 'swim');
-    assert.equal(await p.$eval('#frame', e => e.value), '', '수영으로 바꾸면 전신 프레이밍은 비운다');
-    assert(!(await opts('frame')).includes('full_body') && (await opts('frame')).includes('waist_up'), '수영엔 전신·환경 컷 없음');
-    await p.selectOption('#act', 'sunbed'); await p.selectOption('#frame', 'full_body'); await p.selectOption('#ofam', 'swimwear');
-    assert((await opts('item')).includes('cutout_onepiece'), '전신엔 허리 컷아웃 수영복도');
-    await p.selectOption('#frame', 'face_close');
-    assert(!(await opts('item')).includes('cutout_onepiece') && (await opts('item')).includes('asymmetric_swim'), '클로즈업엔 허리 아래로 알아보는 옷 없음');
-    assert.equal(await p.$eval('#expression', e => e.disabled), false, '앞을 보면 표정을 고른다');
-    await p.selectOption('#frame', 'full_body');
-    await p.selectOption('#era', 'now'); await p.selectOption('#place', 'stage_redcarpet'); await p.selectOption('#act', 'opera_stairs');
-    await p.selectOption('#orientation', 'back_to_camera');
-    assert.equal(await p.$eval('#expression', e => e.disabled), true, '등을 보이면 표정 칸이 꺼진다');
+    assert((await opts('body')).includes('back') && !(await opts('hand-right')).includes('out'), '전신엔 뒤쪽 몸 방향, 화면 밖 손 없음');
+    /* 두 손 자세는 다른 손도 — 팔짱 */
+    await p.selectOption('#posture', 'stand'); await p.selectOption('#frame', 'waist_up');
+    await p.selectOption('#hand-right', 'arms_crossed');
+    assert.equal(await val('hand-left'), 'arms_crossed', '두 손 자세는 다른 손도 같이(두 손 자세는 오른손 칸에서 고른다)');
+    assert.deepEqual(await opts('hand-left'), ['arms_crossed'], '두 손 자세면 왼손 칸이 잠긴다');
+    assert((await scene()).includes('BOTH HANDS: '), '두 손 자세 줄');
+    await p.selectOption('#hand-right', 'hip');
+    assert.notEqual(await val('hand-left'), 'arms_crossed', '두 손 자세를 풀면 다른 손은 다시 고른다');
+    assert.equal(!!(await p.$('#use')), false, '소품을 쓰는 손이 없으면 소품 동작 칸도 없다');
+    /* 장소의 받침이 자세를 거른다 — 벽 없는 곳엔 벽에 기대기 없음 */
+    const nowall = Object.keys(tree2.places).find(k => !tree2.places[k].includes('wall') && k.startsWith('water_'));
+    await p.selectOption('#place', nowall);
+    assert(!(await opts('posture')).includes('lean_wall'), nowall + ' 벽 없음');
+    /* 어색한 조합은 ⚠ 만 — 고를 수는 있다 */
+    const spa = JSON.parse(fs.readFileSync('data/casual-tree.json', 'utf8')).places.find(x => x.group === 'spa' && x.eras.includes('now')).key;
+    await p.selectOption('#place', spa);
+    assert((await p.$eval('#ofam option[value="bridal"]', e => e.textContent)).includes('⚠'), '웨딩 × 스파 ⚠');
+    await p.selectOption('#ofam', 'bridal');
+    assert.equal(await val('ofam'), 'bridal', '⚠ 도 고를 수 있다');
+    /* 옷 직접 쓰기 — 고른 옷의 주머니로 검사하지 않는다. 글의 옷에 주머니를 표시하면 주머니 손이 돌아온다 */
+    await p.selectOption('#era', 'now'); await p.selectOption('#place', 'home_living'); await p.selectOption('#ofam', 'everyday');
+    await p.selectOption('#item', 'jeans_tee'); await p.selectOption('#posture', 'stand'); await p.selectOption('#frame', 'waist_up');
+    assert((await opts('hand-right')).includes('pocket'), '청바지 + 티면 주머니 손');
+    await p.fill('#outfit', 'a strapless satin dress with no pockets');
+    assert(await p.$('#ofeat') && !(await opts('hand-right')).includes('pocket'), '직접 쓴 옷이면 주머니 손이 빠진다');
+    await p.check('#ofeat-pocket');
+    assert((await opts('hand-right')).includes('pocket'), '주머니를 표시하면 돌아온다');
+    await p.fill('#outfit', '');
+    assert.equal(!!(await p.$('#ofeat')), false);
+    /* 등만 돌리면 표정 칸이 꺼진다, 카메라 응시도 없다 */
+    await p.selectOption('#frame', 'full_body'); await p.selectOption('#body', 'back');
+    assert.equal(await p.$eval('#expression', e => e.disabled), true, '얼굴이 안 보이면 표정 칸이 꺼진다');
+    assert(!(await opts('gaze')).includes('camera'), '등 돌림 + 고개 그대로면 카메라 응시 없음');
+    await p.selectOption('#head', 'over_shoulder');
+    assert.equal(await p.$eval('#expression', e => e.disabled), false); assert((await opts('gaze')).includes('camera'));
+    assert((await out(p)).includes('LOOK-BACK:'), '어깨 너머로 돌리면 돌아보기 줄');
+    /* 추가 연출 글에 손·소품 말 — 경고만, 복사는 된다 */
+    await p.fill('#custom', 'holding a cup in both hands');
+    assert(await p.$('#v2-hand-warn'), '손·소품 말 경고');
+    assert.equal(await p.$eval('#copy-prompt', e => e.disabled), false, '경고는 복사를 막지 않는다');
+    await p.fill('#custom', '');
+    assert.equal(!!(await p.$('#v2-hand-warn')), false);
+    assert.equal(!!(await p.$('#v2-invalid')), false, '맞지 않는 칸이 없다');
     await p.selectOption('#era', 'in_game');
     await p.selectOption('#place', 'game_bath');
+    await p.selectOption('#ofam', 'homewear');
     assert.match(await p.$eval('#required-note', e => e.textContent), /★/, '게임 세계 안 목욕 — 필수 갈래');
     /* 7. 복사·기록 */
     await p.click('#copy-prompt');
@@ -148,7 +180,9 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert.equal(rec.game, 'tetris');
     assert.equal(rec.storage.cards.tetris.scenes.casual.era, 'in_game');
     assert.equal(rec.storage.cards.tetris.scenes.casual.place, 'game_bath');
-    assert(!('cat' in rec.storage.cards.tetris.scenes.casual), '기록에 옛 갈래 칸이 없다');
+    assert(!('cat' in rec.storage.cards.tetris.scenes.casual) && !('act' in rec.storage.cards.tetris.scenes.casual), '기록에 옛 갈래·하는 일 칸이 없다');
+    assert.equal(rec.storage.cards.tetris.scenes.casual.treeV, 2, '기록에 버전2 표시');
+    assert(rec.prompt.includes('POSTURE: '), '기록 지시문도 버전2');
     /* 8. 저장·직전 게임 외형 */
     await p.reload(); await p.waitForSelector('#prompt-output');
     assert.equal(await p.$eval('#mode-casual', e => e.getAttribute('aria-pressed')), 'true', '새로고침해도 일상컷');
@@ -164,12 +198,29 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     await p.setViewportSize(FOLD.cover);
     assert(await p.evaluate(() => document.body.scrollWidth <= innerWidth + 1), '덮개 화면에서 가로로 넘친다');
     await a.close();
+    /* 9. 버전1 기록 — 하는 일·자세로 고른 장면은 버전1 그대로 열고, 「버전2로 다시 고르기」 로 옮긴다 */
+    const d = await h.open('prompt.html?game=tetris&mode=casual', opt()), q1 = d.page;
+    await q1.waitForSelector('#prompt-output');
+    await q1.evaluate(() => localStorage.setItem('game_prompt_v1', JSON.stringify({ last: 'tetris', cards: { tetris: { mode: 'casual', scenes: { casual: {
+      era: 'now', place: 'travel_rural_station', act: 'wait_train', ofam: 'everyday', item: '', pose: 'sitting', orient: 'front', frame: 'full_body', lens: 'natural50', expr: 'calm', custom: 'a paper ticket' } } } } })));
+    await q1.reload(); await q1.waitForSelector('#v1-record');
+    assert(await q1.$('#casual-tree') && !(await q1.$('#casual-tree-v2')), '버전1 기록은 버전1 칸');
+    t = await out(q1);
+    assert(t.includes('Activity: ') && !t.includes('POSTURE: '), '버전1 기록은 지시문도 버전1');
+    await q1.click('#to-v2');
+    await q1.waitForSelector('#casual-tree-v2');
+    t = await out(q1);
+    assert(t.includes('POSTURE: ') && !t.includes('Activity: ') && t.includes('Place: ') && t.includes('Note: a paper ticket'), '옮기면 버전2 — 장소·추가 연출은 그대로');
+    assert.equal(await q1.$eval('#frame', e => e.value), 'full_body', '프레이밍도 그대로');
+    assert.equal(!!(await q1.$('#v1-record')), false);
+    assert.deepEqual(d.errors, []);
+    await d.close();
     const c = await h.open('prompt.html?game=starcraft&mode=open', opt());
     await c.page.waitForSelector('#prompt-output');
     assert.equal(await c.page.$eval('#source', e => e.value), 'starcraft', '주소의 게임');
     assert.equal(await c.page.$eval('#mode-open', e => e.getAttribute('aria-pressed')), 'true', '주소의 모드');
     assert.deepEqual(c.errors, []);
     await c.close();
-    console.log('PASS 생성기: 게임 표시 ✓◐· · 시범 폼 · 파일 이름 · 게임 줄(캐릭터 아님·능력·시대) · 외형·되돌리기·잠금 · 이어가기 · 개방 · 일상컷 트리(추천 조합·시대가 장소를 거름·잠근 앞 칸·자세 계열·필수 갈래)·출시 당시·잠금 · 복사·기록 · 저장·직전 게임 외형');
+    console.log('PASS 생성기: 게임 표시 ✓◐· · 시범 폼 · 파일 이름 · 게임 줄(캐릭터 아님·능력·시대) · 외형·되돌리기·잠금 · 이어가기 · 개방 · 일상컷 트리 버전2(시대가 장소를 거름·잠근 앞 칸·자세 추천·컷 안 넓힘·두 손·받침·⚠·손 말 경고·필수 갈래)·버전1 기록·출시 당시·잠금 · 복사·기록 · 저장·직전 게임 외형');
   } finally { await h.stop(); }
 })().catch(e => { console.error(e); process.exit(1); });

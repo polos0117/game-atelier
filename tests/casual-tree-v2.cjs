@@ -128,4 +128,50 @@ n = C.fromV1(t, { cat: 'everyday', ex: '' });
 assert(n.place && n.treeV === 2 && !('cat' in n)); valid(n, '아주 예전 갈래');
 for (const row of Object.values(t.v2.legacy.orients)) for (const [k, v] of Object.entries(row)) assert.equal(C.why(t, { frame: 'full_body' }, k, v), null, k + ' ' + v);
 
+/* 9. 고정 사례 — 규칙에 없던 충돌을 「이 조합은 빠져야 한다」 로 못 박는다(검토 2026-10-30). 랜덤 시험은 why() 가 맞다고 보는 것만 보므로 따로 */
+const games = JSON.parse(fs.readFileSync(path.join(R, 'data/game-design.json'), 'utf8')).games, game = k => games.find(g => g.key === k);
+const fx = (x) => Object.assign({ era: 'now', place: 'home_living', ofam: 'everyday', posture: 'stand', support: 'none', frame: 'full_body', body: 'front', head: 'with_body', camera: 'eye', right: 'down', left: 'down' }, x);
+// 무릎 꿇기 + 책상다리 — 다리 세부는 그 자세에서만
+assert.equal(C.why(t, fx({ place: 'home_bedroom', posture: 'kneel', support: 'none' }), 'legs', 'cross_legged').code, 'posture');
+assert.equal(C.why(t, fx({ place: 'home_bedroom', posture: 'sit_floor', support: 'none' }), 'legs', 'cross_legged'), null);
+// 족욕탕 + 평영 · 몸 담그기 — 물의 쓰임(발만 · 담그기 · 헤엄)
+assert.equal(C.why(t, fx({ place: 'spa_footbath' }), 'posture', 'swim').code, 'place');
+assert.equal(C.why(t, fx({ place: 'spa_footbath' }), 'posture', 'soak').code, 'place');
+assert.equal(C.why(t, fx({ place: 'spa_onsen' }), 'posture', 'swim').code, 'place', '온천에서 헤엄 X');
+assert.equal(C.why(t, fx({ place: 'water_pool' }), 'posture', 'swim'), null);
+assert.equal(C.why(t, fx({ place: 'spa_footbath', posture: 'sit_edge', support: 'hip_edge' }), 'legs', 'feet_in_water'), null, '족욕은 발을 물에');
+// 두 팔뚝으로 받치기 + 머리 뒤 · 손 흔들기 — 받침이 팔을 쓴다
+const prone = fx({ place: 'home_bedroom', posture: 'lie_front', support: 'front_floor' });
+for (const k of ['behind_head', 'wave', 'thumbs_up']) assert(C.why(t, prone, 'right', k), '엎드려 두 팔뚝으로 받치면 ' + k + ' 없음');
+assert.equal(C.why(t, prone, 'right', 'behind_head').code, 'support');
+assert.equal(C.why(t, prone, 'right', 'chin_both'), null);
+// 입술에 검지 + 잔을 입에 — 입 주변 공간
+const sip = fx({ frame: 'chest_up', posture: 'sit_chair', support: 'none', right: 'prop', left: 'shush' });
+assert(!C.uses(t, sip, 1).some(u => u.space === 'mouth'), '입술에 검지면 입에 대는 동작이 없다');
+assert(C.uses(t, Object.assign({}, sip, { left: 'cheek' }), 1).some(u => u.key === 'cup_sip'), '볼에 손이면 잔을 입에');
+// 등 돌림 + 머리는 몸과 같이 + 카메라 응시 — 얼굴이 안 보인다
+assert.equal(C.why(t, fx({ body: 'back' }), 'gaze', 'camera').code, 'back');
+assert.equal(C.why(t, fx({ body: 'rear_3q' }), 'gaze', 'camera').code, 'back');
+assert.equal(C.why(t, fx({ body: 'rear_3q', head: 'over_shoulder' }), 'gaze', 'camera'), null, '어깨 너머로 돌리면 카메라를 본다');
+assert.equal(C.why(t, fx({ body: 'back' }), 'gaze', 'horizon'), null);
+// 옷 직접 쓰기 — 고른 옷(청바지 + 티)의 주머니로 검사하지 않는다
+const dress = fx({ item: 'jeans_tee', outfit: 'a strapless satin dress with no pockets' });
+assert.equal(C.why(t, dress, 'right', 'pocket').code, 'outfit');
+assert.equal(C.why(t, Object.assign({}, dress, { ofeat: ['pocket'] }), 'right', 'pocket'), null, '특징을 표시하면');
+assert.equal(C.why(t, fx({ item: 'jeans_tee' }), 'right', 'pocket'), null);
+assert.notEqual(C.repair(t, Object.assign({}, dress, { right: 'pocket' })).right, 'pocket', '다시 검사가 주머니 손을 고친다');
+// 알아볼 거리 소품 — 손에 들 수 있는 것만(데이브 더 다이브의 0번은 바다)
+const sigUses = (g, x) => C.uses(t, fx(Object.assign({ frame: 'waist_up', right: 'prop', left: 'down' }, x)), 1, g).filter(u => u.prop === 'signature');
+assert(sigUses(game('dave_the_diver'), { prop: '' }).length, '고르지 않으면 들 수 있는 것으로');
+assert.equal(sigUses(game('dave_the_diver'), { prop: '0' }).length, 0, '장소를 고르면 소품으로 들지 않는다');
+assert(sigUses(game('dave_the_diver'), { prop: '2' }).length, '작살총은 든다');
+assert.equal(sigUses(game('street_fighter_2'), { prop: '' }).length, 0, '들 것이 없는 게임');
+assert.equal(sigUses(game('dave_the_diver'), { prop: 'none' }).length, 0);
+for (const g of games) for (let i = 0; i < 40; i++) {
+  const sc = C.random(t, { prop: i % 3 ? '' : String(i % g.signature.length) }, g, seeded(i + 1));
+  const u = C.use(t, sc.use);
+  if (u && u.prop === 'signature') assert((g.signature_hold || []).length && sc.prop !== 'none', g.key + ' 들 수 없는 알아볼 거리');
+  if (u && u.space) assert(![sc.right, sc.left].some(k => (C.hand(t, k) || {}).space === u.space), g.key + ' 입 공간 겹침');
+}
+
 console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 2000 · 바꾸기 1500');

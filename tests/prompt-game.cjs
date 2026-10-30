@@ -269,8 +269,8 @@ const spots = tree2.presets.map(pr => {
   assert.fail(pr.key + ' 쓸 장소가 없다');
 });
 let longestV2 = 0, v2n = 0;
-for (const game of G) for (const sc of spots) {
-  const txt = cas2(game, sc), scene = block(txt, 'SCENE (chosen):'), f = C2.frame(t2, sc.frame), u = C2.use(t2, sc.use), pr = u && C2.prop(t2, u.prop);
+for (const game of G) for (const sc0 of spots) {
+  const sc = C2.repair(t2, sc0, game), txt = cas2(game, sc), scene = block(txt, 'SCENE (chosen):'), f = C2.frame(t2, sc.frame), u = C2.use(t2, sc.use), pr = u && C2.prop(t2, u.prop);
   const w = sc.preset + ' ' + game.key;
   assert(!/^(Activity|Pose|Orientation|Framing): /m.test(scene) && !txt.includes(T.handsCasual) && !txt.includes(T.casualOutput), w + ' 버전1 줄이 없다');
   assert(scene.includes('POSTURE: ') && scene.includes('COMPOSITION: ' + f.en) && txt.includes(T.bodyV2) && txt.includes(T.handsV2) && txt.includes(T.casualOutputV2), w + ' 버전2 줄');
@@ -278,11 +278,13 @@ for (const game of G) for (const sc of spots) {
   assert(sc.right === sc.left && C2.hand(t2, sc.right) && C2.hand(t2, sc.right).both ? scene.includes('BOTH HANDS: ') && !scene.includes('RIGHT HAND: ') : /RIGHT HAND: her own right\b/.test(scene) && /LEFT HAND: her own left\b/.test(scene), w + ' 손 줄');
   assert.equal(scene.includes('PROP: '), !!u, w + ' 소품 줄은 소품 동작이 있을 때만');
   if (u && u.hands === 'both') assert(scene.includes(u.grip.right) && scene.includes(u.grip.left), w + ' 두 손 소품은 손마다');
-  if (pr && pr.signature) assert(!txt.includes('SIGNATURE (') && scene.includes('"' + q(game.signature[0]) + '"'), w + ' 알아볼 거리를 들면 SIGNATURE 대신 PROP');
+  if (pr && pr.signature) assert(!txt.includes('SIGNATURE (') && game.signature_hold.length && scene.includes('"' + q(game.signature[game.signature_hold[0]]) + '"'), w + ' 알아볼 거리를 들면 SIGNATURE 대신 PROP — 들 수 있는 것만');
   else assert(txt.includes('SIGNATURE ('), w + ' 알아볼 거리 줄');
   assert.equal(scene.includes('LEGS: '), !!(sc.legs && f.legs), w + ' 다리 줄은 다리가 보이는 컷만');
   assert.equal(/looks into the camera/.test(txt), sc.gaze === 'camera', w + ' 카메라 응시는 고른 때만');
-  assert.equal(txt.includes(T.casualLookBack), !!(tree2.body.find(b => b.key === sc.body) || {}).far, w + ' 뒤돌아보기 줄은 등이 카메라 쪽일 때');
+  const bd = tree2.body.find(b => b.key === sc.body) || {}, hd = tree2.head.find(x => x.key === sc.head) || {};
+  assert(!txt.includes(T.casualLookBack), w + ' 버전1 돌아보기 줄(눈은 카메라 쪽)은 없다');
+  assert.equal(txt.includes(T.casualLookBackV2), !!(bd.far && hd.look_back), w + ' 돌아보기 줄은 등이 카메라 쪽이고 고개를 어깨 너머로 돌렸을 때만');
   if (f.close) assert(txt.includes(T.casualCropV2.split('{edge}')[0]) && txt.includes(T.anatomyClose) && !txt.includes('7.5 heads'), w + ' 가까운 컷 CROP · 몸 줄');
   assert(!/[가-힣]/.test(txt.replace(/"[^"]*"/g, '').replace(/«[^»]*»/g, '').replace(/STYLE: [^\n]*/, '')), w + ' 따옴표 밖은 영어');
   longestV2 = Math.max(longestV2, P.words(txt)); v2n++;
@@ -298,6 +300,25 @@ for (const [k, v] of Object.entries(S.EXPRESSION_DETAIL)) {
   const e = P.exprNoGaze(v);
   assert(!/to the side|away|past the camera|off camera|forward gaze|direct \w+ gaze|gaze direct|directed[^,]*upward|angled down|fixed on/.test(e) && e.length > 10, k + ' 표정에 시선 말: ' + e);
 }
+/* 고정 사례(검토 2026-10-30) */
+const pick = k => spots.find(sc => sc.preset === k);
+// 멀어지며 걷기 — 등만 돌린 컷에 돌아보기 · 카메라 응시 · 표정이 붙지 않는다
+const away = cas2(g, { ...pick('walk_away'), expr: 'soft_smile' });
+assert(!away.includes('LOOK-BACK') && !/looks into the camera|toward the camera/.test(block(away, 'SCENE')) && !block(away, 'SCENE').includes('EXPRESSION:'), '멀어지며 걷기');
+assert(cas2(g, pick('rail_lookback')).includes(T.casualLookBackV2) && !cas2(g, pick('rail_lookback')).includes('swing toward the camera'), '난간에서 돌아보기 — 눈은 GAZE 가');
+// 데이브 더 다이브 — 바다를 손에 들지 않는다
+const dave = G.find(x => x.key === 'dave_the_diver');
+for (const sc of spots) { const tx = cas2(dave, sc); assert(!/PROP: [^\n]*블루 홀/.test(tx), sc.preset + ' 바다를 든다'); }
+// 표정 — 버전2 표는 생성기 표정을 다 덮고, 시선 · 고개 말이 없다
+assert.deepEqual(Object.keys(tree2.expressions).sort(), Object.keys(S.EXPRESSION_DETAIL).sort(), '버전2 표정 표가 표정을 다 덮는다');
+for (const [k, e] of Object.entries(tree2.expressions)) assert(!/\bgaze\b|looking|\baway\b|averted|darting|camera|\bhead\b|\bchin\b|to the side/.test(e), k + ' 버전2 표정에 시선 · 고개 말');
+const fl = block(cas2(g, { ...pick('sip_close'), expr: 'flustered' }), 'SCENE');
+assert(fl.includes('EXPRESSION: ' + tree2.expressions.flustered) && !/averted|darting/.test(fl), '당황 — 눈 돌리기 말이 없다');
+// 옷 직접 쓰기 — 주머니 없는 드레스 글이면 주머니 손이 남지 않는다
+const jeans = { treeV: 2, era: 'now', place: 'home_living', ofam: 'everyday', item: 'jeans_tee', posture: 'stand', support: 'none', frame: 'waist_up', right: 'pocket', left: 'hip' };
+assert(/RIGHT HAND: [^\n]*pocket/.test(block(cas2(g, jeans), 'SCENE')), '청바지면 주머니 손');
+const dr = block(cas2(g, { ...jeans, outfit: 'a strapless satin dress with no pockets' }), 'SCENE');
+assert(!/RIGHT HAND: [^\n]*pocket/.test(dr) && dr.includes('Outfit: a strapless satin dress'), '자유 의상 + 주머니 손');
 const hs = spots.find(sc => sc.preset === 'sip_close');
 assert(block(cas2(g, { ...hs, expr: 'pensive' }), 'SCENE').includes('EXPRESSION: slightly furrowed brow'), '표정 줄');
 /* 버전1 기록은 표가 와도 버전1 그대로, 옮기면 버전2 */

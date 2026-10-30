@@ -32,8 +32,16 @@
    "en": "a table at seated elbow height"
   },
   "water": {
-   "ko": "물에 들어가는 곳",
-   "en": "water deep enough to wade or soak in"
+   "ko": "몸을 담글 물",
+   "en": "water deep enough to soak in up to the chest"
+  },
+  "deep_water": {
+   "ko": "헤엄칠 물",
+   "en": "open water deep and wide enough to swim in"
+  },
+  "shallow_water": {
+   "ko": "발·손만 담글 물",
+   "en": "shallow water for feet or hands only (footbath, bathtub edge)"
   }
  },
  "frames": {
@@ -292,7 +300,17 @@
    "needs_any": [
     "lie",
     "floor"
-   ]
+   ],
+   "hands": [
+    "chin_both",
+    "cheek",
+    "shush",
+    "v_sign",
+    "hair_tuck",
+    "prop",
+    "out"
+   ],
+   "note": "두 팔뚝이 몸을 받친다 — 팔꿈치를 바닥에 둔 채 할 수 있는 손만"
   },
   {
    "key": "hip_edge",
@@ -565,7 +583,7 @@
    "key": "soak",
    "ko": "물에 몸 담그기",
    "family": "swim",
-   "en": "standing chest-deep in the water",
+   "en": "chest-deep in the water",
    "needs": [
     "water"
    ],
@@ -585,7 +603,7 @@
    "family": "swim",
    "en": "swimming breaststroke, head and shoulders above the water",
    "needs": [
-    "water"
+    "deep_water"
    ],
    "supports": [
     "water"
@@ -701,7 +719,8 @@
    "key": "shush",
    "ko": "입술에 검지",
    "zone": "face",
-   "en": "her own {side} index finger rests against her lips in a hush"
+   "en": "her own {side} index finger rests against her lips in a hush",
+   "space": "mouth"
   },
   {
    "key": "v_sign",
@@ -827,8 +846,10 @@
    "ko": "물에 손 담그기",
    "zone": "waist",
    "en": "her own {side} fingertips trail across the water surface",
-   "needs": [
-    "water"
+   "needs_any": [
+    "water",
+    "deep_water",
+    "shallow_water"
    ],
    "postures": [
     "soak",
@@ -875,11 +896,9 @@
    "both": true,
    "en": "both hands cup her chin, her forearms propped beneath her",
    "postures": [
-    "lie_front",
-    "sit_chair"
+    "lie_front"
    ],
    "needs_any": [
-    "table",
     "lie",
     "floor"
    ]
@@ -959,6 +978,10 @@
    "families": [
     "sit"
    ],
+   "postures": [
+    "sit_chair",
+    "sit_edge"
+   ],
    "feet": false,
    "en": "legs crossed at the knee"
   },
@@ -967,6 +990,9 @@
    "ko": "다리 늘어뜨림",
    "families": [
     "sit"
+   ],
+   "postures": [
+    "sit_edge"
    ],
    "feet": true,
    "en": "legs dangling loosely over the edge"
@@ -978,6 +1004,12 @@
     "sit",
     "low"
    ],
+   "postures": [
+    "sit_chair",
+    "sit_edge",
+    "sit_floor",
+    "kneel"
+   ],
    "feet": false,
    "en": "knees together, feet slightly apart"
   },
@@ -986,6 +1018,9 @@
    "ko": "책상다리",
    "families": [
     "low"
+   ],
+   "postures": [
+    "sit_floor"
    ],
    "feet": true,
    "en": "legs folded cross-legged"
@@ -997,6 +1032,11 @@
     "low",
     "lie"
    ],
+   "postures": [
+    "sit_floor",
+    "recline",
+    "lie_side"
+   ],
    "feet": false,
    "en": "one knee drawn up, the other leg resting flat"
   },
@@ -1006,6 +1046,9 @@
    "families": [
     "low"
    ],
+   "postures": [
+    "kneel"
+   ],
    "feet": true,
    "en": "kneeling, sitting back on her heels"
   },
@@ -1014,6 +1057,9 @@
    "ko": "쪼그려 앉기",
    "families": [
     "low"
+   ],
+   "postures": [
+    "squat"
    ],
    "feet": true,
    "en": "crouched on the balls of her feet, knees bent"
@@ -1025,6 +1071,12 @@
     "lie",
     "low"
    ],
+   "postures": [
+    "sit_floor",
+    "recline",
+    "lie_side",
+    "lie_front"
+   ],
    "feet": true,
    "en": "legs stretched out long"
   },
@@ -1035,6 +1087,10 @@
     "lie",
     "low"
    ],
+   "postures": [
+    "sit_floor",
+    "lie_side"
+   ],
    "feet": false,
    "en": "legs bent together to one side"
   },
@@ -1043,6 +1099,9 @@
    "ko": "엎드려 발 올리기",
    "families": [
     "lie"
+   ],
+   "postures": [
+    "lie_front"
    ],
    "feet": true,
    "en": "lower legs raised behind her, ankles loosely crossed"
@@ -1053,9 +1112,14 @@
    "families": [
     "sit"
    ],
+   "postures": [
+    "sit_edge"
+   ],
    "feet": true,
-   "needs": [
-    "water"
+   "needs_any": [
+    "water",
+    "deep_water",
+    "shallow_water"
    ],
    "en": "feet dipped in the water below the edge"
   }
@@ -1069,7 +1133,7 @@
   ],
   "home_bath": [
    "edge",
-   "water",
+   "shallow_water",
    "wall"
   ],
   "home_kitchen": [
@@ -1202,6 +1266,7 @@
   ],
   "water_pool": [
    "water",
+   "deep_water",
    "edge",
    "lie",
    "chair"
@@ -1209,18 +1274,21 @@
   "water_beach": [
    "floor",
    "lie",
-   "water"
+   "water",
+   "deep_water"
   ],
   "water_river": [
    "edge",
    "rail_waist",
-   "water"
+   "water",
+   "deep_water"
   ],
   "water_resort": [
    "lie",
    "chair",
    "edge",
-   "water"
+   "water",
+   "deep_water"
   ],
   "water_yacht": [
    "rail_waist",
@@ -1230,11 +1298,13 @@
   ],
   "water_waterfall": [
    "water",
+   "deep_water",
    "edge",
    "floor"
   ],
   "water_infinity": [
    "water",
+   "deep_water",
    "edge",
    "lie"
   ],
@@ -1270,7 +1340,7 @@
   ],
   "spa_footbath": [
    "edge",
-   "water"
+   "shallow_water"
   ],
   "sports_gym": [
    "wall",
@@ -1447,6 +1517,7 @@
    "edge",
    "floor",
    "water",
+   "deep_water",
    "lie"
   ],
   "travel_lookout": [
@@ -4000,6 +4071,39 @@
    "gaze": "screen_left"
   }
  ],
+ "expressions": {
+  "calm": "relaxed brow, softly open eyes, lips closed and unstrained, no smile",
+  "focused": "slightly drawn brow, narrowed steady eyes, mouth firmly closed",
+  "soft_smile": "faint upward pull at the mouth corners, lips together, warmth reaching the lower eyelids",
+  "half_smile": "one mouth corner lifted higher than the other, lips closed",
+  "playful": "asymmetric grin with teeth just showing, one brow raised, eyes narrowed with amusement",
+  "confident": "level brow, calm unhurried eyes, mouth closed and composed",
+  "sensual": "heavy-lidded eyes, lips slightly parted and relaxed, brow smooth",
+  "provocative": "challenging eyes under lowered lids, one brow raised, mouth corner tugged in a slight smirk",
+  "sleepy": "heavy drooping eyelids, soft unfocused eyes, softened slack mouth, brow low and relaxed",
+  "candid": "an unposed in-between expression, mouth caught mid-shape, brows natural",
+  "mildly_annoyed": "inner brows drawn together, one eye slightly narrowed, mouth pressed flat to one side",
+  "surprised": "raised brows, widened eyes with visible upper white, mouth open in a small round shape",
+  "curious": "one brow raised higher, eyes wide and attentive, lips slightly parted",
+  "serious": "level lowered brow, steady unblinking eyes, mouth closed in a straight line, jaw set",
+  "amused": "crinkled lower eyelids, closed-lip smile pushing the cheeks up, brows relaxed",
+  "bored": "lidded half-open eyes, slack mouth, brows flat and unengaged",
+  "pensive": "slightly furrowed brow, softened eyes, lips lightly pressed together",
+  "smug": "one mouth corner lifted, lids lowered in a knowing look",
+  "gentle": "softly lowered brows, warm relaxed eyes, faint closed-lip smile, no tension anywhere",
+  "determined": "brows pulled down and in, hard steady eyes, jaw clenched, mouth a tight line",
+  "exhausted": "drooping lids and brows, dull tired eyes, mouth slightly open and slack",
+  "nostalgic": "soft distant eyes, faint wistful half-smile, brows gently raised at the inner ends",
+  "unimpressed": "flat level brows, half-lidded deadpan eyes, mouth in a straight unmoved line",
+  "flustered": "raised inner brows, wide unsettled eyes, mouth slightly open, faint blush across the cheeks and nose",
+  "proud": "brows level, eyes bright and steady, closed-lip smile with a firm mouth",
+  "wistful": "softened eyes, faint sad smile, inner brows raised",
+  "mischievous": "narrowed sparkling eyes, one brow up, closed-lip grin pushed to one side",
+  "relieved": "brows released upward and outward, eyes half closed, breath-out mouth slightly open, whole face loosened",
+  "cold_smile": "mouth smiling while the eyes stay flat and unsmiling, brows level",
+  "laughing": "eyes squeezed nearly shut, mouth open wide with teeth showing, cheeks raised high",
+  "laughing_open": "mouth open wide in a laugh with teeth showing and cheeks raised, eyes open and engaged with lids only slightly narrowed"
+ },
  "legacy": {
   "note": "버전1 기록(하는 일 act · 자세 pose · 방향 orient) → 버전2 칸. 시대 · 장소 · 의상 · 옷 · 프레이밍 · 표정은 같은 열쇠라 그대로 둔다. 렌즈는 버린다(자동)",
   "families": {

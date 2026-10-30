@@ -77,6 +77,10 @@ def use_fits(doc, use, pre):
         return False
     if pre.get("gaze") and use.get("gaze") and use["gaze"] != pre["gaze"]:
         return False
+    # 입 주변 같은 공간을 손 자세와 소품 동작이 같이 쓰지 않는다(입술에 검지 + 잔을 입에)
+    hands = by_key(doc["hands"])
+    if use.get("space") and any(hands.get(pre.get(s), {}).get("space") == use["space"] for s in SIDES):
+        return False
     return True
 
 
@@ -219,11 +223,27 @@ def check(doc, v1):
         if not r.get("both") and "{side}" not in r["en"]:
             err.append(f"{w} 의 영어 문장에 {{side}} 자리가 없다")
 
-    # 다리
+    # 다리 — postures 가 있으면 그 자세에서만(무릎 꿇기에 책상다리 X)
     for r in doc["legs"]:
         needs(f"다리 {r['key']}", r)
         for fam in r["families"]:
             ref(f"다리 {r['key']}", fam, fams, "자세 계열")
+        for po in r.get("postures", []):
+            ref(f"다리 {r['key']}", po, postures, "자세")
+            if po in postures and postures[po]["family"] not in r["families"]:
+                err.append(f"다리 {r['key']} 의 자세 {po} 가 다리 계열 밖")
+    # 받침이 손을 가리면(배를 대고 — 두 팔뚝이 몸을 받친다) 그 손만
+    for r in doc["supports"]:
+        for k in r.get("hands", []):
+            if k != "prop":
+                ref(f"받침 {r['key']}", k, hands, "손")
+    # 표정 — 눈썹 · 눈꺼풀 · 입 · 볼만. 시선 · 고개 말이 없다
+    for k, text in doc.get("expressions", {}).items():
+        english(f"표정 {k}", text)
+        if re.search(r"\bgaze\b|\blooking\b|\blooks\b|\baway\b|\baside\b|camera|\bhead\b|\bchin\b|averted|darting|glanc|to the side|\bstare|directed", text):
+            err.append(f"표정 {k} 에 시선 · 고개 말: {text}")
+    if not doc.get("expressions"):
+        err.append("버전2 표정 표(expressions)가 없다")
 
     # 소품 · 쓰는 동작
     for r in doc["props"]:
@@ -341,9 +361,18 @@ def check(doc, v1):
                 err.append(f"{w} — {s} 손 {k} 의 자리 {h['zone']} 가 {p['frame']} 에 안 보인다")
             if h.get("postures") and p["posture"] not in h["postures"]:
                 err.append(f"{w} — {s} 손 {k} 는 자세 {p['posture']} 에서 못 한다")
+        su = supports[p["support"]]
+        for s in SIDES:
+            if su.get("hands") and p[s] not in su["hands"]:
+                err.append(f"{w} — 받침 {p['support']} 이 {s} 손 {p[s]} 를 못 하게 한다(두 팔뚝이 몸을 받친다)")
+        # 등이 카메라 쪽인데 고개를 돌리지 않으면 카메라를 볼 수 없다
+        if body[p["body"]].get("far") and not head[p["head"]].get("look_back") and p.get("gaze") == "camera":
+            err.append(f"{w} — 등이 카메라 쪽({p['body']})인데 고개를 안 돌리고 카메라를 본다")
         # 다리
         if p.get("legs"):
             lg = legs[p["legs"]]
+            if lg.get("postures") and p["posture"] not in lg["postures"]:
+                err.append(f"{w} — 다리 {p['legs']} 는 자세 {p['posture']} 에서 못 한다")
             if not fr["legs"]:
                 err.append(f"{w} — 다리 {p['legs']} 는 다리가 안 보이는 {p['frame']} 에서 못 고른다")
             if lg["feet"] and not fr["feet"]:

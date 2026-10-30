@@ -11,6 +11,18 @@
 
 
 
+## 2026-10-30 · claude · 일상컷 트리 버전2 4단계 — 생성기 화면 + 검토 반영
+- lib/prompt-ui.js — 일상 갈래: 새 장면 · 버전2 기록은 버전2 칸(시대 → 장소 → 의상 ⚠ → 자세 추천 → 몸 자세 · 받침 → 프레이밍 · 몸 방향 · 머리 · 카메라 높이 → 오른손 · 왼손 → 소품 동작 → 다리 → 시선, 렌즈는 자동 표시). 다리 칸은 다리가 보이는 컷만, 소품 동작 칸은 소품을 쓰는 손이 있을 때만. 맞지 않는 칸이 남으면 경고하고 복사를 막는다, 추가 연출 글의 손 · 소품 말은 경고만. 옷 직접 쓰기면 주머니 · 어깨끈 · 옷깃 표시 칸. 얼굴이 안 보이면 표정 칸이 꺼진다. 버전1 기록(하는 일 · 자세 · 방향)은 버전1 그대로 열고 「버전2로 다시 고르기」
+- lib/prompt-random.js — 버전2 장면 랜덤(칸 하나는 set 으로 뒤 칸을 고치고, 다 뽑기는 자세 추천 하나 + 표정 · 알아볼 거리 · 축)
+- lib/casual-tree-v2.js — 검토 반영: 받침의 손(hands), 손 자세의 공간(space — 입술에 검지 + 잔을 입에 X), 다리의 자세(postures), 등 돌림 + 머리 그대로면 카메라 응시 X, 옷 직접 쓰기면 표시한 특징만(sceneFeatures), 알아볼 거리는 들 수 있는 것만(signatureHold). set 뒤에 추천 표시를 다시 본다
+- data/casual-tree-v2.json — 물 셋(shallow_water · water · deep_water — 족욕탕에서 헤엄 · 몸 담그기 X), 다리 postures, 엎드림 받침 hands, 입술에 검지 space, 두 손 턱 괴기는 엎드려서만, 버전2 표정 표(expressions — 눈썹 · 눈꺼풀 · 입 · 볼만)
+- data/game-design.json · docs/held/kartrider-langrisser_2.json — 손에 들 수 있는 알아볼 거리 번호(signature_hold). 장소 · 풍경 · 건물 · 「농구공과 골대」 · 「벽에 꽂힌 횃불」 은 넣지 않았다. 들 것이 없는 게임 8편(스트리트 파이터 II · 심시티 · 창세기전 3 · 조조전 · 히어로즈 3 · 워크래프트 III · 스타듀 밸리 · 프리스타일)
+- tools/game-design.py — signature_hold 검사
+- lib/prompt-game.js · lib/prompt-spec.js — 버전2 돌아보기 줄(눈은 GAZE 가)은 등이 카메라 쪽 + 머리 어깨 너머일 때만, 표정은 버전2 표 · 얼굴이 안 보이면 싣지 않는다, 소품 알아볼 거리는 들 수 있는 것
+- tools/casual-tree-v2.py · tests — 같은 규칙과 고정 사례(무릎 꿇기 + 책상다리, 족욕탕 + 평영, 엎드림 + 머리 뒤 손, 입술에 검지 + 잔, 등 돌림 + 카메라 응시, 멀어지며 걷기, 블루 홀, 당황 표정, 주머니 없는 드레스). tests/prompt-screen.cjs 일상 갈래를 버전2 로 다시 썼다(없어야 할 칸을 핸들로 견주면 실패 글을 만들며 메모리를 다 썼다 — 참 · 거짓으로 견준다)
+- prompt.html — casual-tree-v2 v=2 · prompt-spec v=39 · prompt-game v=19 · prompt-random v=7 · prompt-ui v=13 · words v=10
+- docs/CASUAL_TREE_V2.md — 7-1 검토 반영 표 · 4단계 · docs/GAME_CONCEPT.md — signature_hold · AGENTS.md
+
 ## 2026-10-30 · claude · 지시문 길이 상한 900 → 1200 낱말
 - tests/prompt-game.cjs — 상한 하나(LIMIT 1200)로 폼 · 일상컷(버전1 720 이던 것도) · 버전2 를 본다. 가장 긴 표정 · 축 다섯 · 모티프를 다 얹은 버전2 일상컷도 33편 × 추천 43 전부 본다. 그 꼴의 클로즈업이 버전1 1006 · 버전2 1018 로 900 을 넘었다 — 사용자 결정으로 늘렸다
 - docs/CASUAL_TREE_V2.md — 5절 상한 · 7절 검사 칸 · 8절에서 정할 것을 지웠다

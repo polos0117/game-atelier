@@ -57,6 +57,7 @@ book-atelier(책이 사람이 된 세계)의 엔진을 바탕으로 만든다. �
 | `persona` · `voice` · `desire` · `conflict` | 한 줄 인격, 폼마다 하는 한마디, 욕망, 갈등 | 같다 |
 | `symbols` | 캐릭터가 아닌 상징 소품 셋(블록·화톳불·열쇠 …) | symbols |
 | `signature` | 팬이 바로 알아볼 원작 소품·장소·색·진영 문장 셋~넷 — 게임에 나오는 모양대로(2026-10-28) | 없음 |
+| `signature_hold` | 그중 손에 들 수 있는 것의 번호(0부터) — 일상컷 버전2 가 알아볼 거리를 소품으로 들 때 이것만 쓴다. 장소·풍경·건물은 넣지 않는다(데이브 더 다이브 「블루 홀의 깊고 푸른 바다」 를 가슴 높이에 들었다, 2026-10-30) | 없음(`[]` — 들지 않는다) |
 | `mechanic` · `rule` | 핵심 조작 한 문장(카드 능력의 원리)·폼별 쓰임 셋·상대의 대응 | rule.principle · rule |
 | `forms` · `opens` | 세 폼의 모습·역할·자세·배경(`setting`)·원작풍 장비(`homage` — 직업·진영 장비 느낌), 폼마다 명장면 | forms · opens(배경·장비 칸은 게임 몫) |
 | `silhouette` · `face` · `ethnicity` | 실루엣 축 6(대표 색 포함)과 머리색(`silhouette.hair_color`), 얼굴 5와 눈 색(`face.eye_color`), 얼굴 계통 | 같다 |

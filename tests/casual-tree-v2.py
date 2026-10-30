@@ -65,6 +65,18 @@ fails(lambda d: [d['places'].update({k: [h for h in v if h != 'table']}) for k, 
 fails(lambda d: [u.update(postures=['stand']) for u in d['prop_uses'] if u['kind'] == 'raise'], '맞는 소품 동작(raise)이 없다')
 fails(lambda d: d['presets'].__setitem__(slice(None), [p for p in d['presets'] if p['frame'] != 'detail']), '프레이밍 detail 의 자세 추천이 없다')
 
+# 고정 사례(검토 2026-10-30) — 무릎 꿇기 + 책상다리, 헤엄칠 물, 두 팔뚝 받침 + 머리 뒤 손, 등 돌림 + 카메라 응시, 표정의 시선 말, 입 공간
+fails(lambda d: pre(d, 'kneel_clasp').update(legs='cross_legged'), '자세 kneel 에서 못 한다')
+fails(lambda d: [d['places'].update({k: [h for h in v if h != 'deep_water']}) for k, v in list(d['places'].items())], '자세 swim 를 받는 장소가 없다')
+fails(lambda d: pre(d, 'lie_front_full').update(right='behind_head', left='out', frame='chest_up', legs=''), '받침 front_floor 이 right 손 behind_head')
+fails(lambda d: pre(d, 'walk_away').update(gaze='camera'), '고개를 안 돌리고 카메라를 본다')
+fails(lambda d: d['expressions'].update(flustered='raised inner brows, darting or averted eyes'), '표정 flustered 에 시선')
+fails(lambda d: d.pop('expressions'), '표정 표(expressions)가 없다')
+fails(lambda d: row(d, 'legs', 'cross_legged')['postures'].append('stand'), '다리 cross_legged 의 자세 stand 가 다리 계열 밖')
+sip = dict(pre(doc, 'sip_close'), left='shush')
+assert not T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), sip) and T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), pre(doc, 'sip_close'))
+assert 'spa_footbath' not in T.preset_places(doc, v1, pre(doc, 'swim_close')) if any(p['key'] == 'swim_close' for p in doc['presets']) else True
+
 # 길 — 장소 펼치기 · 추천 장소
 assert T.expand(v1, ['@water', '!water_pool']) and 'water_pool' not in T.expand(v1, ['@water', '!water_pool'])
 assert len(T.expand(v1, ['*'])) == len(v1['places'])
