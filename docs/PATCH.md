@@ -11,6 +11,11 @@
 
 
 
+## 2026-10-30 · claude · 지시문 길이 상한 900 → 1200 낱말
+- tests/prompt-game.cjs — 상한 하나(LIMIT 1200)로 폼 · 일상컷(버전1 720 이던 것도) · 버전2 를 본다. 가장 긴 표정 · 축 다섯 · 모티프를 다 얹은 버전2 일상컷도 33편 × 추천 43 전부 본다. 그 꼴의 클로즈업이 버전1 1006 · 버전2 1018 로 900 을 넘었다 — 사용자 결정으로 늘렸다
+- docs/CASUAL_TREE_V2.md — 5절 상한 · 7절 검사 칸 · 8절에서 정할 것을 지웠다
+- lib/prompt-game.js — 주석의 900 낱말
+
 ## 2026-10-30 · claude · 일상컷 트리 버전2 3단계 — 지시문 줄
 - lib/prompt-game.js — 장면이 버전2(treeV 2)이고 표 tree2 가 오면 버전2 로 조립: SCENE 에 POSTURE · SUPPORT · COMPOSITION(프레이밍 · 몸 · 머리 · 카메라) · 렌즈 자동 · RIGHT HAND · LEFT HAND(또는 BOTH HANDS) · PROP(손과 소품은 이 줄에서만, 두 손이면 손마다) · LEGS(다리가 보이는 컷만) · GAZE · EXPRESSION(표정 문장의 시선 말을 뗀다). 하는 일 · HAND TASK 줄은 없다. 알아볼 거리를 소품으로 들면 SIGNATURE 줄 대신 PROP. LOOK-BACK 은 몸이 뒤쪽일 때만. 버전1 기록은 버전1 그대로
 - lib/prompt-spec.js — 버전2 줄(OUTPUT · FRAME · CROP · BODY 「본인 기준 좌우」 · HANDS · 손 · 소품)

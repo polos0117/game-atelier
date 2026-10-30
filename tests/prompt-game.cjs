@@ -12,6 +12,8 @@ const style = JSON.parse(fs.readFileSync('data/style.json', 'utf8'));
 const gs = style.styles[style.default], cur = gs.versions.find(v => v.v === gs.current), text = cur.text;
 const V = design.vocab, G = design.games, STAGES = Object.keys(V.form_key);
 const q = s => String(s).replace(/"/g, "'");
+/* 지시문 길이 상한 — 900 이던 것을 사용자 결정으로 1200 으로(2026-10-30). 가장 긴 표정 · 축 다섯 · 모티프를 다 얹은 클로즈업이 1018 낱말이었다 */
+const LIMIT = 1200;
 
 /* 1. 정한 말이 다 영어로 — 설계표에 새 말을 더하고 표를 안 고치면 여기서 걸린다 */
 for (const axis of ['genre', 'era', 'role', 'body', 'hair', 'garment', 'material', 'pose', 'palette', 'face_shape', 'eyes', 'brows', 'nose', 'lips'])
@@ -52,7 +54,7 @@ for (const g of G) for (const stage of STAGES) {
   }
 }
 // 몸 개수 줄 BODY 와 일상컷 HAND TASK 로 40낱말쯤 늘었다(2026-10-27). 원작 알아볼 거리 SIGNATURE·GEAR 줄로 45낱말쯤 더(2026-10-28) · 머리·눈 색으로 4낱말 더, notes 줄을 줄여 맞췄다(2026-10-29)
-assert(longest <= 900, '가장 긴 프롬프트가 900 낱말을 넘는다: ' + longest);
+assert(longest <= LIMIT, '가장 긴 프롬프트가 ' + LIMIT + ' 낱말을 넘는다: ' + longest);
 
 /* 2-1. 폼마다 다른 장면 — 배경(설계표 setting)·빛·구도·카메라가 단계마다 다르고, 이어가기는 첨부 그림의 배경을 쓰지 않는다.
    셋 다 같은 유리 정육면체 벽·반사 바닥·낮은 카메라로 나왔다(2026-10-26 테트리스 시범) */
@@ -188,7 +190,7 @@ for (const pr of tree.presets) {
   assert(!/[가-힣]/.test(t.replace(/"[^"]*"/g, '').replace(/«[^»]*»/g, '').replace(/STYLE: [^\n]*/, '')), pr.key + ' 따옴표 밖은 영어');
   longestCasual = Math.max(longestCasual, P.words(t));
 }
-assert(longestCasual <= 720, '가장 긴 일상컷이 720 낱말을 넘는다: ' + longestCasual);
+assert(longestCasual <= LIMIT, '가장 긴 일상컷이 ' + LIMIT + ' 낱말을 넘는다: ' + longestCasual);
 assert.throws(() => P.buildCasual({ game: g, styleText: text }), /Casual tree is required/);
 assert(!/Pok[eé]mon|포켓몬|Gundam|건담/.test(JSON.stringify(S)), '표에 포켓몬·건담 말이 남았다');
 
@@ -285,7 +287,12 @@ for (const game of G) for (const sc of spots) {
   assert(!/[가-힣]/.test(txt.replace(/"[^"]*"/g, '').replace(/«[^»]*»/g, '').replace(/STYLE: [^\n]*/, '')), w + ' 따옴표 밖은 영어');
   longestV2 = Math.max(longestV2, P.words(txt)); v2n++;
 }
-assert(longestV2 <= 900, '가장 긴 버전2 일상컷이 900 낱말을 넘는다: ' + longestV2);
+assert(longestV2 <= LIMIT, '가장 긴 버전2 일상컷이 ' + LIMIT + ' 낱말을 넘는다: ' + longestV2);
+/* 가장 무거운 꼴 — 가장 긴 표정 · 축 다섯 · 모티프를 다 얹어도 상한 안 */
+const heavy = { expr: 'laughing_open', motifs: 'frost runes, a tavern lantern', axes: { overall_intensity: 'strong', skin_exposure: 'bold', action_level: 'mostly active', source_influence: 'balanced', separates_preference: 'prefer separates' } };
+let heaviest = 0;
+for (const game of G) for (const sc of spots) heaviest = Math.max(heaviest, P.words(cas2(game, sc, heavy)));
+assert(heaviest <= LIMIT, '표정 · 축을 다 얹은 버전2 일상컷이 ' + LIMIT + ' 낱말을 넘는다: ' + heaviest);
 /* 표정의 시선 말은 떼고 GAZE 줄 하나가 정한다 */
 for (const [k, v] of Object.entries(S.EXPRESSION_DETAIL)) {
   const e = P.exprNoGaze(v);
@@ -300,6 +307,6 @@ const moved = C2.fromV1(t2, v1sc);
 assert(cas2(g, moved).includes('POSTURE: ') && !cas2(g, moved).includes('Activity: '), '옮긴 기록은 버전2 줄');
 assert.throws(() => P.buildCasual({ game: g, tree2, treeV: 2, styleText: text }), /Casual tree is required|Casual tree v2/);
 
-console.log(`PASS 일상컷 버전2: ${G.length}편 × 추천 ${spots.length} = ${v2n}개 · 가장 긴 것 ${longestV2}낱말 · 버전1 줄 없음 · 손 줄 · 소품 · 다리 · 시선 · 뒤돌아보기 · 가까운 컷 · 표정 시선 말`);
+console.log(`PASS 일상컷 버전2: ${G.length}편 × 추천 ${spots.length} = ${v2n}개 · 가장 긴 것 ${longestV2}낱말(다 얹으면 ${heaviest}) · 상한 ${LIMIT} · 버전1 줄 없음 · 손 줄 · 소품 · 다리 · 시선 · 뒤돌아보기 · 가까운 컷 · 표정 시선 말`);
 console.log(`PASS 게임 프롬프트: ${G.length}편 × 폼 3 × (새 인물·이어가기·개방) ${n}개 · 가장 긴 것 ${longest}낱말 · 정한 말 영어 · 캐릭터 아님·그리지 않을 것 · 핵심 조작·시대 · 사실은 받은 것만 · `
   + `일상컷 트리(시대·장소·하는 일·옷·자세 계열·화면 줄·CROP·알아볼 거리·예전 기록) · 추천 조합 ${tree.presets.length}개 가장 긴 것 ${longestCasual}낱말 · 일상컷 화풍 문장 · 화풍 앞·점검 끝 · 노출·나이·자세`);
