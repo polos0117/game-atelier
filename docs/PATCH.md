@@ -11,6 +11,10 @@
 
 
 
+## 2026-10-30 · claude · 일상컷 묶음 — 시대는 한 가지 두 번까지 · 네 시대 다(랑그릿사 II)
+- tools/casual-plan.cjs — 버전2 묶음 규칙: 시대 한 가지는 두 번까지(전엔 세 번), 네 장 이상이면 네 시대(지금 · 출시 당시 · 게임 세계 안 · 무대·환상)가 다. 칸마다 시대를 먼저 나눠 준다(이미 있는 컷까지 세어 덜 쓴 시대부터). 사용자 「시대 분포가 너무 적어」 — 첫 판이 지금 셋 · 출시 당시 둘
+- tests/casual-plan.cjs — 서른다섯 편 × 씨앗 셋 다섯 장 묶음에 시대 넷 · IMAGE_RULES.md — 묶음 짜기 줄
+
 ## 2026-10-30 · claude · 일상컷 버전2 모듈 · 검사기 — 공방마다 다른 칸(pkm 으로 옮기기 1단계)
 - lib/casual-tree-v2.js — 표의 칸을 읽는 일반 규칙: banned(몸 방향 · 프레이밍, 버전1 banned.frames 도) · 프레이밍 not_required(필수 갈래엔 안 씀, 버전1 frame_rules) · companion(동료 묶음에서만 쓰는 손 · 동작, 동료 묶음에서 안 쓰는 프레이밍) · 동작의 places(그 장소에서만). game 표엔 이 칸이 없어 그대로다. pkm 이 같은 파일을 쓴다
 - tools/casual-tree-v2.py — 같은 규칙 · 역할(role · role_ko) 영어 · 한국어 · tests/casual-tree-v2.py — 그 칸을 적으면 거는지

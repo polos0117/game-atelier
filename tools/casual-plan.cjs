@@ -180,11 +180,12 @@ function presetsAt(sc, game) {
 }
 /* 한 칸 — 시대 · 장소 · 의상 · 옷, 그 장소에서 쓸 수 있는 자세 추천 하나(frame 을 주면 그 프레이밍의 추천만), 소품 동작은 다시 검사가 고른다(랜덤).
    wantSig 면 소품 동작을 알아볼 거리로(들 수 있는 것 — 없으면 null). 표정은 얼굴이 보일 때만 */
-function randomSlot2(r, game, reqType, sigProp, { frame = '', wantSig = false } = {}) {
+function randomSlot2(r, game, reqType, sigProp, { frame = '', wantSig = false, era: wantEra = '' } = {}) {
   let sc;
-  if (reqType) sc = { ...pick(r, requiredPaths2(reqType, game)) };
+  if (reqType) { const paths = requiredPaths2(reqType, game).filter(x => !wantEra || x.era === wantEra); if (!paths.length) return null; sc = { ...pick(r, paths) }; }
   else {
-    const era = weighted(r, ERA_WEIGHT), place = pick(r, C2.choices(T2, { era }, 'place', game));
+    const era = wantEra || weighted(r, ERA_WEIGHT), place = pick(r, C2.choices(T2, { era }, 'place', game));
+    if (!place) return null;
     sc = { era, place, ofam: pick(r, C2.choices(T2, { era, place }, 'ofam', game)) };
   }
   sc.treeV = 2; sc.prop = sigProp || '';
@@ -221,7 +222,9 @@ function check2(cuts, game, base = [], free = []) {
   over('장소 묶음', c => (C2.place(T2, c.place) || {}).group, 2);
   over('의상 계열', c => c.ofam !== 'everyday' && c.ofam, 1);
   over('평상복', c => c.ofam === 'everyday' && c.ofam, 2);
-  over('시대', c => c.era, 3);
+  /* 시대 — 한 가지가 두 번까지, 네 장 이상 묶음엔 네 시대(지금 · 출시 당시 · 게임 세계 안 · 무대·환상)가 다(사용자 2026-10-30, 랑그릿사 II 「시대 분포가 너무 적어」 — 지금 셋 · 출시 당시 둘) */
+  over('시대', c => c.era, 2);
+  if (cuts.length >= 4) { const eras = new Set(every.map(c => c.era)), want = Math.min(tree.eras.length, every.length); if (eras.size < want) errs.push(`시대가 ${eras.size} 가지뿐이다(${want} 가지 다)`); }
   /* 칸이 프레이밍 가짓수보다 많으면(이미 있는 다섯 장 위에 세 장) 한 가지가 두 번까지 — 버전1 과 같다 */
   over('프레이밍', c => c.frame, Math.max(1, Math.ceil(all.length / FRAMES.length)));
   over('자세 추천', c => c.preset, 1, v2);
@@ -245,7 +248,7 @@ function check2(cuts, game, base = [], free = []) {
 }
 /* 버전2 묶음 — 통째로 뽑아 거르면 규칙이 많아 거의 안 맞는다(다섯 장에 수만 번). 한 장씩 쌓는다:
    프레이밍을 먼저 나눠 주고(먼 컷 · 가까운 컷 하나씩), 알아볼 거리를 들 칸 하나를 정하고, 칸마다 앞 칸들과 겹치지 않는 것을 고른다 */
-const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|알아볼 거리를 든 컷이 없다)/;
+const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|알아볼 거리를 든 컷이 없다|시대가 )/;
 function plan2(game, slots, old, { seed = Date.now(), required = '' } = {}) {
   const r = rng(seed), oldReq = old.some(c => requiredType(c));
   const gi = design.games.findIndex(g => g.key === game.key);
@@ -261,6 +264,15 @@ function plan2(game, slots, old, { seed = Date.now(), required = '' } = {}) {
     frames = frames.slice(0, slots.length);
     const hasFar = [...old, ...frames.map(frame => ({ frame }))].some(c => FAR.includes(c.frame)), hasNear = [...old, ...frames.map(frame => ({ frame }))].some(c => NEAR.includes(c.frame));
     if (slots.length + old.length >= 3 && (!hasFar || !hasNear)) continue;
+    /* 시대 — 칸마다 먼저 나눠 준다. 이미 있는 컷까지 세어 가장 덜 쓴 시대부터(같으면 무게대로) */
+    const ERAS = tree.eras.map(e => e.key), cnt = Object.fromEntries(ERAS.map(e => [e, 0]));
+    old.forEach(c => { if (c.era in cnt) cnt[c.era]++; });
+    let eras = [];
+    for (let i = 0; i < slots.length; i++) {
+      const lo = Math.min(...ERAS.map(e => cnt[e])), e = weighted(r, Object.fromEntries(ERAS.filter(x => cnt[x] === lo).map(x => [x, ERA_WEIGHT[x] || 1])));
+      eras.push(e); cnt[e]++;
+    }
+    eras = eras.sort(() => r() - 0.5);
     const sigAt = needSig ? Math.floor(r() * slots.length) : -1, sigProp = needSig ? pick(r, holds) : '';
     const rest = freeProps.filter(p => p !== sigProp), off = Math.floor(r() * Math.max(1, rest.length));
     const cuts = [];
@@ -268,7 +280,7 @@ function plan2(game, slots, old, { seed = Date.now(), required = '' } = {}) {
       const prop = i === sigAt ? sigProp : rest.length ? rest[(i + off) % rest.length] : '';
       let got = null;
       for (let k = 0; k < 60 && !got; k++) {
-        const sc = randomSlot2(r, game, i === 0 ? want : '', prop, { frame: frames[i], wantSig: i === sigAt });
+        const sc = randomSlot2(r, game, i === 0 ? want : '', prop, { frame: frames[i], wantSig: i === sigAt, era: eras[i] });
         if (!sc) continue;
         const cand = { n: slots[i], ...sc };
         if (!check2([...cuts, cand], game, old).filter(e => !MUST.test(e)).length) got = cand;

@@ -86,6 +86,7 @@ for (const g2 of design.games) for (const seed of [1, 2, 3]) {
   assert(res.cuts.some(c => C.requiredType(c) === res.required), w + ' 필수 갈래');
   assert.equal(new Set(res.cuts.map(c => c.preset)).size, 5, w + ' 자세 추천은 서로 다르게');
   assert.equal(new Set(res.cuts.map(c => c.frame)).size, 5, w + ' 프레이밍은 서로 다르게');
+  assert.equal(new Set(res.cuts.map(c => c.era)).size, 4, w + ' 시대 넷이 다(사용자 2026-10-30 — 한 가지는 두 번까지)');
   const sig = res.cuts.filter(c => (C2.use(T2, c.use) || {}).prop === 'signature');
   assert(g2.signature_hold.length ? sig.length >= 1 && sig.length <= 2 : !sig.length, w + ' 알아볼 거리 소품 한두 장(들 것이 있는 게임만)');
   for (const c of sig) assert(g2.signature_hold.includes(Number(c.prop)) || c.prop === '', w + ' 든 알아볼 거리는 들 수 있는 것');
