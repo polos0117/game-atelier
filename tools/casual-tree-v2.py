@@ -16,6 +16,7 @@
 
     python3 tools/casual-tree-v2.py check
     python3 tools/casual-tree-v2.py places <추천>     # 그 추천을 쓸 수 있는 장소
+    python3 tools/casual-tree-v2.py places-all       # 추천마다 쓸 수 있는 장소(JSON — tests/casual-tree-v2.cjs 가 lib/casual-tree-v2.js 와 견준다)
 """
 import json, os, re, sys
 
@@ -357,6 +358,31 @@ def check(doc, v1):
     for f in frames:
         if not any(p["frame"] == f for p in doc["presets"]):
             err.append(f"프레이밍 {f} 의 자세 추천이 없다")
+
+    # 버전1 기록 → 버전2 칸
+    L = doc.get("legacy", {})
+    fields = {"posture": postures, "support": supports, "legs": legs, "right": hands, "left": hands,
+              "body": body, "head": head, "camera": camera, "gaze": gaze}
+
+    def fill(where, row):
+        for k, v in row.items():
+            if k not in fields:
+                err.append(f"{where} 의 칸 {k} 는 버전2 에 없다")
+            else:
+                ref(where, v, fields[k], k)
+    for k, v in L.get("families", {}).items():
+        ref("예전 기록 자세 계열", k, v1["families"], "버전1 자세 계열")
+        ref(f"예전 기록 자세 계열 {k}", v, postures, "자세")
+    for k in v1["families"]:
+        if k not in L.get("families", {}):
+            err.append(f"버전1 자세 계열 {k} 를 옮길 몸 자세가 없다")
+    acts1 = {a["key"] for a in v1["activities"]}
+    poses1 = {p for f in v1["families"].values() for p in f["poses"]}
+    orients1 = {o for f in v1["families"].values() for o in f["orients"]}
+    for part, pool, what in (("acts", acts1, "하는 일"), ("poses", poses1, "자세"), ("orients", orients1, "방향")):
+        for k, row in L.get(part, {}).items():
+            ref(f"예전 기록 {what}", k, pool, f"버전1 {what}")
+            fill(f"예전 기록 {what} {k}", row)
     return err
 
 
@@ -373,6 +399,9 @@ def main():
     if cmd == "places":
         pre = by_key(doc["presets"])[sys.argv[2]]
         print(" ".join(preset_places(doc, v1, pre)))
+        return
+    if cmd == "places-all":
+        print(json.dumps({p["key"]: preset_places(doc, v1, p) for p in doc["presets"]}, ensure_ascii=False))
         return
     sys.exit(__doc__)
 

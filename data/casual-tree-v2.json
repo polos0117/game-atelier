@@ -3992,5 +3992,167 @@
    "legs": "knees_together",
    "gaze": "screen_left"
   }
- ]
+ ],
+ "legacy": {
+  "note": "버전1 기록(하는 일 act · 자세 pose · 방향 orient) → 버전2 칸. 시대 · 장소 · 의상 · 옷 · 프레이밍 · 표정은 같은 열쇠라 그대로 둔다. 렌즈는 버린다(자동)",
+  "families": {
+   "stand": "stand",
+   "walk": "walk",
+   "sit": "sit_chair",
+   "low": "sit_floor",
+   "lie": "recline",
+   "move": "stand"
+  },
+  "acts": {
+   "swim": {
+    "posture": "swim"
+   },
+   "soak": {
+    "posture": "soak"
+   },
+   "float_ring": {
+    "posture": "soak"
+   },
+   "bath_edge": {
+    "posture": "sit_edge"
+   },
+   "footbath": {
+    "posture": "sit_edge",
+    "legs": "feet_in_water"
+   },
+   "sunbed": {
+    "posture": "recline"
+   }
+  },
+  "poses": {
+   "standing_relaxed": {
+    "legs": "stand_relaxed"
+   },
+   "contrapposto": {
+    "legs": "contrapposto"
+   },
+   "hand_on_hip": {
+    "right": "hip"
+   },
+   "arms_crossed": {
+    "right": "arms_crossed",
+    "left": "arms_crossed"
+   },
+   "leaning_wall": {
+    "posture": "lean_wall",
+    "support": "back_wall"
+   },
+   "leaning_furniture": {
+    "posture": "lean_rail",
+    "right": "rail"
+   },
+   "hands_in_hair": {
+    "right": "hair_tuck"
+   },
+   "waving": {
+    "right": "wave"
+   },
+   "finger_to_lips": {
+    "right": "shush"
+   },
+   "thumbs_up": {
+    "right": "thumbs_up"
+   },
+   "on_tiptoe": {
+    "legs": "tiptoe"
+   },
+   "walking": {
+    "posture": "walk",
+    "legs": "walk_stride"
+   },
+   "mid_stride": {
+    "posture": "walk",
+    "legs": "walk_stride"
+   },
+   "perched_seat": {
+    "posture": "sit_edge",
+    "support": "hip_edge"
+   },
+   "side_sitting": {
+    "posture": "sit_floor",
+    "legs": "legs_bent_side"
+   },
+   "cross_legged": {
+    "posture": "sit_floor",
+    "legs": "cross_legged"
+   },
+   "one_knee_up": {
+    "posture": "sit_floor",
+    "legs": "knee_up"
+   },
+   "sitting_floor": {
+    "posture": "sit_floor"
+   },
+   "kneeling": {
+    "posture": "kneel"
+   },
+   "squatting": {
+    "posture": "squat",
+    "legs": "squat_heels"
+   }
+  },
+  "orients": {
+   "front": {
+    "body": "front"
+   },
+   "front_3q": {
+    "body": "front_3q"
+   },
+   "side": {
+    "body": "side"
+   },
+   "profile_close": {
+    "body": "side"
+   },
+   "rear_3q": {
+    "body": "rear_3q"
+   },
+   "three_quarter_back": {
+    "body": "rear_3q"
+   },
+   "back": {
+    "body": "back"
+   },
+   "back_to_camera": {
+    "body": "back"
+   },
+   "walking_away": {
+    "body": "back",
+    "gaze": "horizon"
+   },
+   "over_shoulder": {
+    "body": "rear_3q",
+    "head": "over_shoulder"
+   },
+   "seated_twist": {
+    "body": "front_3q",
+    "head": "turn_side"
+   },
+   "turning_midmotion": {
+    "body": "front_3q",
+    "head": "over_shoulder"
+   },
+   "low_angle": {
+    "camera": "low"
+   },
+   "high_angle": {
+    "camera": "high"
+   },
+   "looking_down": {
+    "camera": "high",
+    "gaze": "down"
+   },
+   "looking_away": {
+    "gaze": "screen_left"
+   },
+   "reaching_up": {
+    "gaze": "up"
+   }
+  }
+ }
 }
