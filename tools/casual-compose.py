@@ -8,6 +8,7 @@
   - 프레이밍(frame)도 서로 다르며, 먼 컷(전신·환경) 하나와 가까운 컷(가슴 위·클로즈업) 하나가 꼭 있고
   - 렌즈(lens)는 같은 것이 두 번까지다.
 뒤돌아보기 쪽 방향은 생성기의 LOOK-BACK 줄이 목을 지킨다.
+버전2 장면(treeV 2)은 몸 방향 · 머리 방향 · 자세 추천으로 본다(아래 V2_KEYS).
 
     python3 tools/casual-compose.py <그림 저장소>/records/<게임>
     python3 tools/casual-compose.py a/casual1-ui.json a/casual2-ui.json …
@@ -26,17 +27,35 @@ def scene(rec):
     return card["scenes"]["casual"]
 
 
+# 일상컷 트리 버전2 장면(treeV 2, docs/CASUAL_TREE_V2.md) — 방향은 몸 방향(body) · 머리 방향(head)으로 나뉘고 렌즈는 프레이밍을 따라 자동이다.
+# 몸 방향 한 가지는 두 번까지, 머리 「어깨 너머」 는 한 장까지, 자세 추천은 서로 다르게(묶음 계획기 --v2 와 같은 규칙)
+V1_KEYS = (("orient", "방향", 1), ("frame", "프레이밍", 1), ("lens", "렌즈", LENS_MAX))
+V2_KEYS = (("body", "몸 방향", 2), ("frame", "프레이밍", 1), ("preset", "자세 추천", 1))
+
+
 def check(scenes):
-    """scenes: [(이름, 장면 칸)] → 틀린 것 목록"""
+    """scenes: [(이름, 장면 칸)] → 틀린 것 목록. 버전1 · 버전2 장면이 섞이면 각자의 칸끼리, 프레이밍은 다 같이"""
     errs = []
-    for key, what in (("orient", "방향"), ("frame", "프레이밍"), ("lens", "렌즈")):
-        empty = [n for n, s in scenes if not s.get(key)]
-        if empty:
-            errs.append("%s 이(가) 비었다 — %s" % (what, ", ".join(empty)))
-    for key, what, most in (("orient", "방향", 1), ("frame", "프레이밍", 1), ("lens", "렌즈", LENS_MAX)):
-        for v, c in Counter(s.get(key) for _, s in scenes if s.get(key)).items():
-            if c > most:
-                errs.append("%s %s 이(가) %d 번 — %d 번까지" % (what, v, c, most))
+    v1 = [(n, s) for n, s in scenes if s.get("treeV") != 2]
+    v2 = [(n, s) for n, s in scenes if s.get("treeV") == 2]
+    for group, keys in ((v1, V1_KEYS), (v2, V2_KEYS)):
+        for key, what, _ in keys:
+            empty = [n for n, s in group if not s.get(key) and key != "preset"]
+            if empty:
+                errs.append("%s 이(가) 비었다 — %s" % (what, ", ".join(empty)))
+    for group, keys in ((v1, V1_KEYS), (v2, V2_KEYS)):
+        for key, what, most in keys:
+            if key == "frame":
+                continue
+            for v, c in Counter(s.get(key) for _, s in group if s.get(key)).items():
+                if c > most:
+                    errs.append("%s %s 이(가) %d 번 — %d 번까지" % (what, v, c, most))
+    for v, c in Counter(s.get("frame") for _, s in scenes if s.get("frame")).items():
+        if c > 1:
+            errs.append("프레이밍 %s 이(가) %d 번 — 1 번까지" % (v, c))
+    over = [n for n, s in v2 if s.get("head") == "over_shoulder"]
+    if len(over) > 1:
+        errs.append("머리 어깨 너머가 %d 장 — 한 장까지(%s)" % (len(over), ", ".join(over)))
     frames = {s.get("frame") for _, s in scenes}
     if len(scenes) >= 3:
         if not frames & FAR:
@@ -63,7 +82,10 @@ def main(argv):
     if not scenes:
         print("일상컷 기록이 없다"); return 2
     for n, s in scenes:
-        print("  %s · %s · %s · %s" % (n, s.get("orient"), s.get("frame"), s.get("lens")))
+        if s.get("treeV") == 2:
+            print("  %s · 버전2 · %s · %s · %s · %s" % (n, s.get("preset") or "—", s.get("frame"), s.get("body"), s.get("head")))
+        else:
+            print("  %s · %s · %s · %s" % (n, s.get("orient"), s.get("frame"), s.get("lens")))
     errs = check(scenes)
     for e in errs:
         print("  X " + e)

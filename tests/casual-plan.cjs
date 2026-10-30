@@ -74,4 +74,51 @@ const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'plan-'));
 fs.writeFileSync(path.join(dir, 'casual1-ui.json'), JSON.stringify({ game: g.key, storage: { cards: { [g.key]: { scenes: { casual: { cat: 'travel_exploration', ex: 'travel_station', frame: 'face_close', orient: 'looking_down', lens: 'telephoto135' } } } } } }));
 const old = C.oldCuts(dir, g);
 assert(old.length === 1 && old[0].place === 'travel_rural_station' && old[0].n === 1, '예전 기록 → 트리 길');
+/* 버전2(--v2, docs/CASUAL_TREE_V2.md 6절) — 서른세 편 × 씨앗 셋: 묶음 규칙 · 트리 위 · 기록 · 지시문 */
+for (const f of ['lib/casual-tree-v2.js']) vm.runInContext(read(f), ctx);
+const C2 = ctx.window.AtelierCasualTreeV2, tree2 = JSON.parse(read('data/casual-tree-v2.json')), T2 = C2.make(tree2, tree);
+let n2 = 0, t0 = Date.now();
+for (const g2 of design.games) for (const seed of [1, 2, 3]) {
+  const res = C.plan2(g2, [1, 2, 3, 4, 5], [], { seed });
+  const w = g2.key + ' ' + seed;
+  assert.deepEqual(C.check2(res.cuts, g2), [], w);
+  assert(res.cuts.every(c => c.treeV === 2 && c.preset && !c.act && !c.pose && !c.orient && !c.lens), w + ' 버전2 칸만');
+  assert(res.cuts.some(c => C.requiredType(c) === res.required), w + ' 필수 갈래');
+  assert.equal(new Set(res.cuts.map(c => c.preset)).size, 5, w + ' 자세 추천은 서로 다르게');
+  assert.equal(new Set(res.cuts.map(c => c.frame)).size, 5, w + ' 프레이밍은 서로 다르게');
+  const sig = res.cuts.filter(c => (C2.use(T2, c.use) || {}).prop === 'signature');
+  assert(g2.signature_hold.length ? sig.length >= 1 && sig.length <= 2 : !sig.length, w + ' 알아볼 거리 소품 한두 장(들 것이 있는 게임만)');
+  for (const c of sig) assert(g2.signature_hold.includes(Number(c.prop)) || c.prop === '', w + ' 든 알아볼 거리는 들 수 있는 것');
+  assert(res.cuts.filter(c => C2.awkward(T2, c.ofam, c.place).length).length <= 1, w + ' ⚠ 한 장까지');
+  assert(res.cuts.filter(c => c.head === 'over_shoulder').length <= 1, w + ' 어깨 너머 한 장까지');
+  for (const c of res.cuts) {
+    const plain = x => JSON.parse(JSON.stringify(x));   // vm 안의 모듈이 만든 객체는 원형이 달라 그대로 견주면 틀린다
+    assert.deepEqual(plain(C2.repair(T2, c, g2)), plain({ ...c, treeV: 2 }), w + ' 칸 ' + c.n + ' 다시 검사가 고칠 것이 없다');
+    const rec = C.record(g2, c), sc = rec.storage.cards[g2.key].scenes.casual;
+    assert(sc.treeV === 2 && sc.axes.overall_intensity === 'strong' && sc.axes.skin_exposure === 'bold' && sc.aspect === '2:3', w + ' 기록 · 고정값');
+    assert(rec.prompt.includes('POSTURE: ') && rec.prompt.includes('COMPOSITION: ') && !rec.prompt.includes('Activity:') && rec.prompt.endsWith('FINAL CHECK: ' + cur.check), w + ' 버전2 지시문');
+  }
+  n2++;
+}
+const took = Date.now() - t0;
+/* 버전1 컷 위에 버전2 로 더 짠다 — 장소 · 의상 · 프레이밍은 섞어서 견준다 */
+const v1first = C.plan(g, [1, 2, 3, 4, 5], [], { seed: 9 }).cuts.map(c => ({ ...c, old: true }));
+const more2 = C.plan2(g, [6, 7, 8], v1first, { seed: 9 });
+assert.deepEqual(C.check2(more2.cuts, g, v1first), [], '버전1 다섯 장 위에 버전2 세 장');
+assert(!more2.cuts.some(c => v1first.some(o => o.place === c.place)), '이미 있는 장소는 피한다');
+/* 버전2 규칙 검사가 건다 */
+const b2 = C.plan2(g, [1, 2, 3, 4, 5], [], { seed: 4 }).cuts, e2 = f => C.check2(f(b2.map(c => ({ ...c }))), g).join(' | ');
+assert.match(e2(cs => { Object.assign(cs[1], { preset: cs[0].preset }); return cs; }), /자세 추천|트리에서 못 고른다/);
+assert.match(e2(cs => { cs.forEach(c => { c.body = 'front'; }); return cs; }), /몸 방향 front/);
+assert.match(e2(cs => cs.filter(c => !C.requiredType(c))), /필수 갈래가 없다/);
+const dave = design.games.find(x => x.key === 'dave_the_diver');
+const d5 = C.plan2(dave, [1, 2, 3, 4, 5], [], { seed: 2 }).cuts;
+assert.match(C.check2(d5.filter(c => (C2.use(T2, c.use) || {}).prop !== 'signature'), dave).join(' | '), /알아볼 거리를 든 컷이 없다/);
+/* 버전2 기록 폴더 읽기 · --check */
+const dir2 = fs.mkdtempSync(path.join(os.tmpdir(), 'plan2-'));
+for (const c of b2) fs.writeFileSync(path.join(dir2, `casual${c.n}-ui.json`), JSON.stringify(C.record(g, c)));
+const back = C.oldCuts(dir2, g);
+assert(back.length === 5 && back.every(c => c.treeV === 2 && c.old), '버전2 기록 → 버전2 컷');
+assert.deepEqual(C.check2(back.map(c => ({ ...c, old: false })), g), [], '읽은 기록도 규칙 그대로');
+console.log(`PASS 일상컷 묶음 계획 버전2: 서른세 편 × 씨앗 셋 ${n2}묶음(${(took / 1000).toFixed(1)}초) 규칙 · 트리 위 · 기록 · 지시문 · 버전1 위에 더 짜기 · 규칙 검사 · 기록 읽기`);
 console.log(`PASS 일상컷 묶음 계획: 스무 편 × 씨앗 셋 ${n}묶음 규칙·기록·고정값 · 필수 갈래 돌리기 · 있는 컷 위에 더 짜기 · 규칙 검사 · 고른 칸 · 예전 기록`);

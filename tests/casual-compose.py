@@ -33,4 +33,16 @@ with tempfile.TemporaryDirectory() as d:
     assert [n for n, _ in C.load([d])] == ['casual1', 'casual2', 'casual3', 'casual4', 'casual5']
     assert C.main([d]) == 0
 
-print('PASS 일상컷 구도: 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷·빈칸·기록 폴더')
+# 버전2 장면 — 몸 방향 두 번까지 · 머리 어깨 너머 한 장 · 자세 추천은 서로 다르게, 렌즈 · 방향 칸은 없어도 된다
+V2 = [dict(treeV=2, preset='p%d' % i, frame=f, body=b, head=h) for i, (f, b, h) in enumerate(
+    [('environmental', 'back', 'with_body'), ('full_body', 'side', 'with_body'), ('three_quarter', 'front', 'tilt'), ('waist_up', 'front', 'with_body'), ('chest_up', 'rear_3q', 'over_shoulder')])]
+v2 = lambda xs: [('casual%d' % (i + 1), x) for i, x in enumerate(xs)]
+assert C.check(v2(V2)) == [], C.check(v2(V2))
+assert '몸 방향 front 이(가) 4 번' in ' | '.join(C.check(v2([dict(x, body='front') if i < 3 else x for i, x in enumerate(V2)])))
+assert '머리 어깨 너머가 2 장' in ' | '.join(C.check(v2([dict(x, head='over_shoulder') if i == 1 else x for i, x in enumerate(V2)])))
+assert '자세 추천 p0 이(가) 2 번' in ' | '.join(C.check(v2([dict(x, preset='p0') if i == 1 else x for i, x in enumerate(V2)])))
+# 버전1 다섯 장 위에 버전2 — 프레이밍은 다 같이 센다
+mixed = sc(GOOD) + [('casual6', dict(V2[0], frame=GOOD[0][1]))]
+assert '프레이밍 ' + GOOD[0][1] in ' | '.join(C.check(mixed))
+
+print('PASS 일상컷 구도: 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷·빈칸·기록 폴더 · 버전2(몸 방향·어깨 너머·자세 추천·섞인 묶음)')

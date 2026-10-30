@@ -3495,7 +3495,7 @@
   },
   {
    "key": "sip_close",
-   "ko": "잔을 입에 댄 클로즈업",
+   "ko": "소품을 얼굴 가까이 든 클로즈업",
    "posture": "sit_chair",
    "support": "back_seat",
    "frame": "face_close",
@@ -3681,7 +3681,7 @@
   },
   {
    "key": "counter_cup",
-   "ko": "카운터에서 잔 보기",
+   "ko": "카운터에서 소품 보기",
    "posture": "lean_rail",
    "support": "none",
    "frame": "waist_up",
@@ -3825,7 +3825,7 @@
   },
   {
    "key": "camera_shot",
-   "ko": "카메라로 찍기",
+   "ko": "두 손으로 소품 쓰기",
    "posture": "stand",
    "support": "none",
    "frame": "three_quarter",
@@ -3897,7 +3897,7 @@
   },
   {
    "key": "side_chair_read",
-   "ko": "옆모습으로 앉아 읽기",
+   "ko": "옆모습으로 앉아 두 손으로 소품 쓰기",
    "posture": "sit_chair",
    "support": "none",
    "frame": "full_body",
@@ -4027,7 +4027,7 @@
   },
   {
    "key": "lounger_drink",
-   "ko": "선베드에 누워 한 잔",
+   "ko": "선베드에 누워 소품 들기",
    "posture": "recline",
    "support": "back_lounger",
    "frame": "environmental",

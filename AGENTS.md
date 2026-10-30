@@ -99,6 +99,7 @@ python3 tools/game-design.py conflicts [key] [--all]   # 폼 지시문 충돌 �
 python3 tests/game-design.py         # 설계표 검사기가 규칙마다 제대로 거는지
 python3 tests/casual-compose.py      # 일상컷 구도 검사기 — 방향·프레이밍 겹침·렌즈 세 번·먼/가까운 컷
 node tools/casual-plan.cjs <게임> --out <폴더>   # 일상컷 묶음 짜기(그릴 때) · --check <기록 폴더> 로 올리기 전 검사
+node tools/casual-plan.cjs <게임> --v2 --out <폴더>   # 일상컷 트리 버전2 로 묶음 짜기(자세 추천 · 몸 방향 · 소품 · 알아볼 거리 소품 규칙) — --check 는 기록이 버전2 면 버전2 규칙
 node tests/casual-plan.cjs           # 묶음 계획기 — 스무 편 × 씨앗 셋이 규칙을 지키고 기록이 생성기 꼴
 node tests/casual-plan-screen.cjs    # 계획기 기록을 생성기 화면에 넣으면 같은 지시문(브라우저)
 python3 tools/casual-tree.py check    # 일상컷 트리 표 — 시대→장소→하는 일→의상 길이 끊긴 데·없는 열쇠·필수 갈래
