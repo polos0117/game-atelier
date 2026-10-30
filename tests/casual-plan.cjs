@@ -91,6 +91,7 @@ for (const g2 of design.games) for (const seed of [1, 2, 3]) {
   assert(g2.signature_hold.length ? sig.length >= 1 && sig.length <= 2 : !sig.length, w + ' 알아볼 거리 소품 한두 장(들 것이 있는 게임만)');
   for (const c of sig) assert(g2.signature_hold.includes(Number(c.prop)) || c.prop === '', w + ' 든 알아볼 거리는 들 수 있는 것');
   assert(res.cuts.filter(c => C2.awkward(T2, c.ofam, c.place).length).length <= 1, w + ' ⚠ 한 장까지');
+  assert(res.cuts.filter(c => C.DRINKS.includes((C2.use(T2, c.use) || {}).prop)).length <= 1, w + ' 마실 것 한 장까지');
   assert(res.cuts.filter(c => c.head === 'over_shoulder').length <= 1, w + ' 어깨 너머 한 장까지');
   for (const c of res.cuts) {
     const plain = x => JSON.parse(JSON.stringify(x));   // vm 안의 모듈이 만든 객체는 원형이 달라 그대로 견주면 틀린다
@@ -107,6 +108,13 @@ const v1first = C.plan(g, [1, 2, 3, 4, 5], [], { seed: 9 }).cuts.map(c => ({ ...
 const more2 = C.plan2(g, [6, 7, 8], v1first, { seed: 9 });
 assert.deepEqual(C.check2(more2.cuts, g, v1first), [], '버전1 다섯 장 위에 버전2 세 장');
 assert(!more2.cuts.some(c => v1first.some(o => o.place === c.place)), '이미 있는 장소는 피한다');
+/* 다른 게임이 쓴 소품 — 많이 쓴 소품(잔)은 덜 나온다 */
+{
+  /* 다른 게임이 잔을 많이 썼으면 마실 것(넷을 한 무리로)이 덜 나온다 */
+  const cnt = heavy => { let n = 0, all = 0; for (const g2 of design.games.slice(0, 12)) for (const seed of [1, 2]) for (const c of C.plan2(g2, [1, 2, 3, 4, 5], [], { seed, usage: heavy }).cuts) { const u = C2.use(T2, c.use); if (u && u.prop !== 'signature') { all++; if (C.DRINKS.includes(u.prop)) n++; } } return [n, all]; };
+  const [free, a1] = cnt({}), [hit, a2] = cnt({ cup: 30 });
+  assert(hit < free / 2 && a2 > 0, '많이 쓴 잔이면 마실 것이 덜 나온다: ' + free + '/' + a1 + ' → ' + hit + '/' + a2);
+}
 /* 버전2 규칙 검사가 건다 */
 const b2 = C.plan2(g, [1, 2, 3, 4, 5], [], { seed: 4 }).cuts, e2 = f => C.check2(f(b2.map(c => ({ ...c }))), g).join(' | ');
 assert.match(e2(cs => { Object.assign(cs[1], { preset: cs[0].preset }); return cs; }), /자세 추천|트리에서 못 고른다/);

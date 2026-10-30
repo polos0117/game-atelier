@@ -19,9 +19,10 @@
 
    --v2 — 일상컷 트리 버전2(docs/CASUAL_TREE_V2.md 6절, lib/casual-tree-v2.js)로 짠다. 하는 일 없이 시대 · 장소 · 의상을 고르고,
    몸 쪽(자세 · 받침 · 구도 · 손 · 소품 동작 · 다리 · 시선)은 그 장소에서 그대로 쓸 수 있는 자세 추천 하나로 채운다. 묶음 규칙:
-     - 장소는 서로 다르게, 장소 묶음은 두 번까지 · 의상 계열은 겹치지 않게(평상복만 두 번) · 시대 세 번까지 · 필수 갈래 한 장 이상 — 버전1 그대로
+     - 장소는 서로 다르게, 장소 묶음은 두 번까지 · 의상 계열은 겹치지 않게(평상복만 두 번) · 시대 두 번까지 · 네 장 이상이면 네 시대 다 · 필수 갈래 한 장 이상
      - 자세 추천은 서로 다르게 · 프레이밍은 서로 다르게(먼 컷 · 가까운 컷 하나씩은 꼭) · 몸 방향 한 가지는 두 번까지 · 머리 「어깨 너머」 는 한 장까지
      - 소품(소품 동작의 소품)은 칸마다 다르게 · 알아볼 거리 소품은 한두 장(들 것이 있는 게임) · ⚠ 어색한 조합은 한 장까지 · SIGNATURE 알아볼 거리는 칸마다 다르게
+     - 마실 것(잔 · 칵테일 잔 · 물병 · 찻주전자)은 한 장까지 · 소품 동작은 다른 게임 기록(--usage, 기본 옆의 game-atelier-img/records)에서 덜 쓴 소품 쪽으로
    --check 는 기록의 장면이 버전2(treeV 2)면 버전2 규칙으로 본다. 이미 있는 버전1 컷과 섞이면 둘 다 가진 칸(장소 · 의상 · 프레이밍 …)끼리만 견준다 */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
@@ -180,7 +181,7 @@ function presetsAt(sc, game) {
 }
 /* 한 칸 — 시대 · 장소 · 의상 · 옷, 그 장소에서 쓸 수 있는 자세 추천 하나(frame 을 주면 그 프레이밍의 추천만), 소품 동작은 다시 검사가 고른다(랜덤).
    wantSig 면 소품 동작을 알아볼 거리로(들 수 있는 것 — 없으면 null). 표정은 얼굴이 보일 때만 */
-function randomSlot2(r, game, reqType, sigProp, { frame = '', wantSig = false, era: wantEra = '' } = {}) {
+function randomSlot2(r, game, reqType, sigProp, { frame = '', wantSig = false, era: wantEra = '', usage = {}, rUse = r } = {}) {
   let sc;
   if (reqType) { const paths = requiredPaths2(reqType, game).filter(x => !wantEra || x.era === wantEra); if (!paths.length) return null; sc = { ...pick(r, paths) }; }
   else {
@@ -201,6 +202,18 @@ function randomSlot2(r, game, reqType, sigProp, { frame = '', wantSig = false, e
   const items = C2.choices(T2, sc, 'item', game);
   sc.item = items.length ? pick(r, items) : '';
   sc = C2.repair(T2, sc, game, rp);
+  /* 소품 동작 — 그 칸에서 쓸 수 있는 것 가운데 덜 쓴 소품 쪽으로(무게 1/(1+횟수)²). 다시 검사가 랜덤으로 고른 것을 그대로 두면 아무 데서나 되는 컵이 남았다 */
+  if (!wantSig && sc.use && !sigProp2(sc)) {
+    const alt = C2.choices(T2, sc, 'use', game).filter(k => C2.use(T2, k).prop !== 'signature');
+    if (alt.length > 1) {
+      /* 마실 것 넷은 한 무리로 센다 — 잔만 세면 찻주전자 · 물병으로 옮겨 갔다 */
+      const n = p => DRINKS.includes(p) ? DRINKS.reduce((a, d) => a + (usage[d] || 0), 0) : (usage[p] || 0);
+      /* 따로 된 난수 흐름(rUse)으로 — 같은 흐름이면 바로 앞의 자세 추천 뽑기와 이어져 이 자리 값이 늘 작게 나왔다(table_lean_use 스물여섯 번에 첫 후보 「책」 스물두 번) */
+      const u = weighted(rUse, Object.fromEntries(alt.map(k => [k, 1 / Math.pow(1 + n(C2.use(T2, k).prop), 2)])));
+      const next = C2.set(T2, sc, 'use', u, game, rp);
+      if (next.use === u) sc = next;
+    }
+  }
   if (wantSig && !sigProp2(sc)) return null;
   const body = by(tree2.body, sc.body), head = by(tree2.head, sc.head);
   sc.expr = body.face_hidden && !head.look_back ? '' : pick(r, EXPRS);
@@ -231,6 +244,7 @@ function check2(cuts, game, base = [], free = []) {
   over('몸 방향', c => c.body, 2, v2);
   over('머리 어깨 너머', c => by(tree2.head, c.head)?.look_back && 'over_shoulder', 1, v2);
   over('소품', c => { const u = C2.use(T2, c.use); return u && u.prop; }, 1, v2);
+  over('마실 것', c => { const u = C2.use(T2, c.use); return u && DRINKS.includes(u.prop) && 'drink'; }, 1, v2);
   over('알아볼 거리 소품', c => sigProp2(c) && 'signature', 2, v2);
   over('어색한 조합', c => C2.awkward(T2, c.ofam, c.place).length && 'awkward', 1, v2);
   /* 칸이 알아볼 거리보다 많으면 한 가지가 두 번까지(버전1 과 같다) */
@@ -249,8 +263,8 @@ function check2(cuts, game, base = [], free = []) {
 /* 버전2 묶음 — 통째로 뽑아 거르면 규칙이 많아 거의 안 맞는다(다섯 장에 수만 번). 한 장씩 쌓는다:
    프레이밍을 먼저 나눠 주고(먼 컷 · 가까운 컷 하나씩), 알아볼 거리를 들 칸 하나를 정하고, 칸마다 앞 칸들과 겹치지 않는 것을 고른다 */
 const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|알아볼 거리를 든 컷이 없다|시대가 )/;
-function plan2(game, slots, old, { seed = Date.now(), required = '' } = {}) {
-  const r = rng(seed), oldReq = old.some(c => requiredType(c));
+function plan2(game, slots, old, { seed = Date.now(), required = '', usage = {} } = {}) {
+  const rUse = rng((seed ^ 0x5bd1e995) >>> 0), r = rng(seed), oldReq = old.some(c => requiredType(c));
   const gi = design.games.findIndex(g => g.key === game.key);
   const want = oldReq ? '' : (required || REQUIRED_TYPES[gi % REQUIRED_TYPES.length]);
   const used = new Set(old.map(c => c.prop)), freeProps = (game.signature || []).map((_, i) => String(i)).filter(p => !used.has(p));
@@ -280,7 +294,9 @@ function plan2(game, slots, old, { seed = Date.now(), required = '' } = {}) {
       const prop = i === sigAt ? sigProp : rest.length ? rest[(i + off) % rest.length] : '';
       let got = null;
       for (let k = 0; k < 60 && !got; k++) {
-        const sc = randomSlot2(r, game, i === 0 ? want : '', prop, { frame: frames[i], wantSig: i === sigAt, era: eras[i] });
+        /* 이 묶음에서 이미 쓴 소품은 묶음 규칙이 다시 막으니 처음부터 크게 센다 */
+        const here = { ...usage }; cuts.forEach(c => { const u = C2.use(T2, c.use); if (u) here[u.prop] = (here[u.prop] || 0) + 10; });
+        const sc = randomSlot2(r, game, i === 0 ? want : '', prop, { frame: frames[i], wantSig: i === sigAt, era: eras[i], usage: here, rUse });
         if (!sc) continue;
         const cand = { n: slots[i], ...sc };
         if (!check2([...cuts, cand], game, old).filter(e => !MUST.test(e)).length) got = cand;
@@ -326,6 +342,22 @@ function oldCuts(dir, game) {
     return { n, ...CT.repair(tree, CT.fromLegacy(tree, sc), game, S.CLOSE_FRAMES), old: true };
   });
 }
+/* 소품을 쓴 횟수 — 그림 저장소의 모든 게임 기록(버전2 컷)에서 센다. 계획기는 덜 쓴 소품부터 고른다(사용자 2026-10-30 「기본 소품이 컵 밖에 없다」 —
+   한 게임 안에서만 겹침을 봐서 게임마다 컵이 또 나왔다). 알아볼 거리는 게임마다 정해진 몫이라 세지 않는다 */
+const DRINKS = ['cup', 'drink_glass', 'water_bottle', 'teapot'];
+function propUsage(dir, skip) {
+  const out = {};
+  if (!dir || !fs.existsSync(dir)) return out;
+  for (const g of fs.readdirSync(dir)) {
+    if (g === skip || !fs.statSync(path.join(dir, g)).isDirectory()) continue;
+    for (const f of fs.readdirSync(path.join(dir, g)).filter(x => /^casual\d+-ui\.json$/.test(x))) {
+      let sc; try { const rec = JSON.parse(fs.readFileSync(path.join(dir, g, f), 'utf8')); sc = rec.storage.cards[rec.game].scenes.casual; } catch (e) { continue; }
+      const u = isV2(sc) && C2.use(T2, sc.use);
+      if (u && u.prop !== 'signature') out[u.prop] = (out[u.prop] || 0) + 1;
+    }
+  }
+  return out;
+}
 function registered(game) {
   const s = read('data/img.json'), re = new RegExp(game.key + '_' + style.default + '_f_casual(\\d+)\\.webp', 'g');
   return [...new Set([...s.matchAll(re)].map(m => Number(m[1])))];
@@ -361,7 +393,10 @@ function main(argv) {
   const slots = opt.slots ? opt.slots.split(',').map(Number) : [...Array(30).keys()].map(i => i + 1).filter(n => !taken.includes(n)).slice(0, 5);
   const old = oldCuts(opt.records, game).filter(c => !slots.includes(c.n));
   const seed = Number(opt.seed || Date.now() % 1e9);
-  const res = (opt.v2 ? plan2 : plan)(game, slots, old, { seed, required: opt.required || '' });
+  /* --usage <그림 저장소>/records — 다른 게임이 쓴 소품을 센다(없으면 옆의 game-atelier-img/records, 'none' 이면 안 센다) */
+  const usageDir = opt.usage === 'none' ? '' : (opt.usage || path.join(ROOT, '..', 'game-atelier-img', 'records'));
+  const usage = propUsage(usageDir, game.key);
+  const res = (opt.v2 ? plan2 : plan)(game, slots, old, { seed, required: opt.required || '', usage });
   console.log(`${game.title} 일상컷 묶음${opt.v2 ? '(버전2)' : ''} — 칸 ${slots.join(',')} · 필수 갈래 ${res.required} · 시도 ${res.attempt} · seed ${seed}`);
   for (const c of [...old, ...res.cuts].sort((a, b) => a.n - b.n)) console.log(line(c));
   if (opt.out) {
@@ -377,5 +412,5 @@ function main(argv) {
   return 0;
 }
 
-module.exports = { plan, check, plan2, check2, randomSlot2, record, requiredType, oldCuts, REQUIRED_TYPES };
+module.exports = { plan, check, plan2, check2, randomSlot2, record, requiredType, oldCuts, propUsage, DRINKS, REQUIRED_TYPES };
 if (require.main === module) process.exit(main(process.argv.slice(2)));
