@@ -11,6 +11,15 @@
 
 
 
+## 2026-10-30 · claude · 일상컷 버전2 넓히기 — 소품 · 작업대 · 자세 · 의상 · 장소 · 날씨 · 안경
+- data/casual-tree-v2.json — 받침 worktable, 새 소품 아홉(휴대용 게임기 since 1989, 아케이드 조작반 fixed), 소품 동작 열여섯(needs_any), 자세 lean_counter · sit_lean, 다리 ankles_crossed, 손 glasses_adjust, 새 장소 여덟(extra_places), 날씨 일곱 · 날씨 ⚠, 추천 다섯(사용자 — 검토 제안 그대로)
+- data/casual-tree.json — 의상 여덟(제빵사 · 꽃집 · 정비 · 터틀넥 조끼 · 플리스 · 스키 · 턱시도 캐미 · 90년대 트랙)
+- tools/casual-tree-v2.py — extra_places · weather · since · needs_any · 안경(ACCESSORY) 검사, 추천 장소에 소품 동작 받침
+- lib/casual-tree-v2.js — 칸 weather, allPlaces, 소품 since, 동작 받침, 안경 특징, weatherAwkward · tools/casual-plan.cjs — 새 장소 이름
+- lib/prompt-game.js — Weather / season 줄, 안경을 옷 줄에 · lib/prompt-ui.js — 날씨 칸(AUTO · ⚠), 안경 켬끔, 새 장소 · lib/prompt-random.js — 날씨 · lib/words.js — 그 말
+- prompt.html — prompt-ui v=16 · words v=13 · casual-tree-v2 v=6 · prompt-game v=23 · prompt-random v=8
+- tests/casual-tree-v2.cjs · tests/casual-tree-v2.py · tests/prompt-game.cjs · tests/prompt-screen.cjs — 넓힌 칸 · docs/CASUAL_TREE_V2.md — 7-3
+
 ## 2026-10-30 · claude · 표정 「윙크」
 - lib/prompt-spec.js — 표정 wink(윙크) — 한쪽 눈을 감고 다른 눈은 또렷이, 입꼬리 하나를 올린 작은 미소(사용자). prompt-spec v=41
 - data/casual-tree-v2.json — 버전2 표정 표에도(눈썹 · 눈꺼풀 · 입만)

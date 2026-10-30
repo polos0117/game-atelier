@@ -25,7 +25,8 @@ DATA = os.path.join(ROOT, "data", "casual-tree-v2.json")
 BASE = os.path.join(ROOT, "data", "casual-tree.json")
 HANGUL = re.compile(r"[가-힣]")
 KINDS = {"hold": "one", "raise": "one", "both": "both"}
-FEATURES = {"pocket", "strap", "collar"}
+FEATURES = {"pocket", "strap", "collar", "glasses"}
+ACCESSORY = {"glasses"}   # 옷이 아니라 장면의 표시(ofeat) — 그 특징을 가진 옷이 없어도 된다
 SIDES = ("right", "left")
 
 
@@ -35,6 +36,13 @@ def load(path=DATA, base=BASE):
     with open(base, encoding="utf-8") as f:
         v1 = json.load(f)
     return doc, v1
+
+
+def merged(doc, v1):
+    """버전2 표의 새 장소(extra_places)까지 더한 버전1 표 — 버전1 표는 그대로 두고 버전2 만 쓴다"""
+    if v1.get("_merged") or not doc.get("extra_places"):
+        return v1
+    return dict(v1, places=v1["places"] + doc["extra_places"], _merged=True)
 
 
 def by_key(rows):
@@ -88,6 +96,7 @@ def use_fits(doc, use, pre):
 
 
 def prop_places(doc, v1, prop):
+    v1 = merged(doc, v1)
     allowed = set(expand(v1, prop["places"]))
     if prop.get("eras"):
         allowed &= {p["key"] for p in v1["places"] if set(p.get("eras", [])) & set(prop["eras"])}
@@ -96,6 +105,7 @@ def prop_places(doc, v1, prop):
 
 def preset_places(doc, v1, pre):
     """그 추천의 자세 · 받침 · 손 · 다리 · 소품 동작이 다 되는 장소"""
+    v1 = merged(doc, v1)
     postures, supports, hands, legs = (by_key(doc[k]) for k in ("postures", "supports", "hands", "legs"))
     rows = [postures.get(pre["posture"]), supports.get(pre["support"])]
     rows += [hands.get(pre[s]) for s in SIDES if pre[s] not in ("prop",)]
@@ -109,7 +119,7 @@ def preset_places(doc, v1, pre):
         has = set(has)
         if not all(place_ok(r, has) for r in rows):
             continue
-        if pre.get("prop_kind") and not any(place in prop_places(doc, v1, props[u["prop"]]) for u in uses if u["prop"] in props):
+        if pre.get("prop_kind") and not any(place in prop_places(doc, v1, props[u["prop"]]) and place_ok(u, has) for u in uses if u["prop"] in props):
             continue
         out.append(place)
     return out
@@ -117,6 +127,8 @@ def preset_places(doc, v1, pre):
 
 def check(doc, v1):
     err = []
+    base_keys = {p["key"] for p in v1["places"]}
+    v1 = merged(doc, v1)
     places1 = by_key(v1["places"])
     groups1 = {g["key"] for g in v1["groups"]}
     eras1 = {e["key"] for e in v1["eras"]}
@@ -193,6 +205,28 @@ def check(doc, v1):
         for k in row.get("needs", []) + row.get("needs_any", []):
             ref(where, k, has_keys, "받침")
 
+    # 새 장소(extra_places) — 버전1 장소와 열쇠가 겹치지 않고, 묶음 · 시대가 있다
+    for r in doc.get("extra_places", []):
+        w = f"새 장소 {r['key']}"
+        if r["key"] in base_keys:
+            err.append(f"{w} 가 버전1 장소와 겹친다")
+        ref(w, r["group"], groups1, "묶음")
+        for e in r["eras"]:
+            ref(w, e, eras1, "시대")
+        if not r.get("ko"):
+            err.append(f"{w} 에 한국어 이름(ko)이 없다")
+        english(w, r.get("en", ""))
+    # 계절 · 날씨와 그 어색한 조합
+    wk = keys("weather", doc.get("weather", []))
+    for r in doc.get("weather", []):
+        english(f"날씨 {r['key']}", r.get("en", ""))
+    for r in doc.get("weather_awkward", []):
+        for x in r["weather"]:
+            ref(f"날씨 어색함 {r.get('ko')}", x, wk, "날씨")
+        for fam in r.get("outfits", []):
+            ref(f"날씨 어색함 {r.get('ko')}", fam, fam1, "의상 계열")
+        for it in r.get("items", []):
+            ref(f"날씨 어색함 {r.get('ko')}", it, items1, "옷")
     # 장소 받침 — 버전1 장소와 같은 열쇠
     for k, has in doc["places"].items():
         ref("장소 받침", k, places1, "장소")
@@ -259,6 +293,8 @@ def check(doc, v1):
             ref(w, e, eras1, "시대")
         if not prop_places(doc, v1, r):
             err.append(f"{w} 이 나오는 장소가 없다")
+        if "since" in r and not (isinstance(r["since"], int) and 1970 <= r["since"] <= 2100):
+            err.append(f"{w} 의 since(나온 해)가 이상하다")
         if not any(u["prop"] == r["key"] for u in doc["prop_uses"]):
             err.append(f"{w} 에 쓰는 동작이 없다")
     for r in doc["prop_uses"]:
@@ -277,6 +313,7 @@ def check(doc, v1):
             ref(w, p, postures, "자세")
         if r.get("gaze"):
             ref(w, r["gaze"], gaze, "시선")
+        needs(w, r)   # 동작의 받침(탁자 · 작업대 …) — needs_any
         if "{prop}" not in r["en"]:
             err.append(f"{w} 의 영어 문장에 {{prop}} 자리가 없다")
         if re.search(r"\band\b", r["en"]):
@@ -296,7 +333,7 @@ def check(doc, v1):
             ref(f"의상 특징 {part}", item, items1, "옷")
             for x in feats:
                 ref(f"의상 특징 {item}", x, FEATURES, "특징")
-    for x in {h["outfit"] for h in doc["hands"] if h.get("outfit")}:
+    for x in {h["outfit"] for h in doc["hands"] if h.get("outfit")} - ACCESSORY:
         if not any(x in v for v in of["defaults"].values()) and not any(x in v for v in of.get("add", {}).values()):
             err.append(f"의상 특징 {x} 를 가진 옷이 없다")
 

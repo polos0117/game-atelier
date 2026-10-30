@@ -192,6 +192,18 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert.equal(await val('posture'), 'swim', '해방을 꺼도 고른 값은 남는다');
     await p.selectOption('#posture', 'stand');
     assert.equal(!!(await p.$('#unlocked-note')), false, '트리 안 값으로 돌아오면 해방 표시가 없다');
+    /* 확장 — 새 장소, 계절·날씨(⚠), 안경 */
+    await p.selectOption('#era', 'now');
+    assert((await opts('place')).includes('library_reading'), '새 장소');
+    await p.selectOption('#place', 'lodge_terrace'); await p.selectOption('#weather', 'snow'); await p.selectOption('#ofam', 'swimwear');
+    assert((await p.$eval('#weather-description', e => e.textContent).catch(() => '')).includes('⚠') || (await p.content()).includes('눈 오는 날 수영복'), '눈 + 수영복 ⚠');
+    assert((await scene()).includes('Weather / season: a snowy day'), '날씨 줄');
+    await p.selectOption('#weather', ''); await p.selectOption('#ofam', 'everyday');
+    await p.selectOption('#posture', 'stand'); await p.selectOption('#frame', 'chest_up');
+    assert(!(await opts('hand-right')).includes('glasses_adjust'), '안경을 안 쓰면 없음');
+    await p.check('#glasses');
+    assert((await opts('hand-right')).includes('glasses_adjust') && (await scene()).includes('she wears thin-framed glasses'), '안경');
+    await p.uncheck('#glasses');
     /* 추가 연출 글에 손·소품 말 — 경고만, 복사는 된다 */
     await p.fill('#custom', 'holding a cup in both hands');
     assert(await p.$('#v2-hand-warn'), '손·소품 말 경고');

@@ -4278,6 +4278,11 @@
      "ko": "물감 묻은 셔츠",
      "en": "a paint-splattered oversized shirt over shorts",
      "low": true
+    },
+    {
+     "key": "turtleneck_quilted_vest",
+     "ko": "터틀넥 + 퀼팅 조끼 + 바지",
+     "en": "a fine knit turtleneck under a quilted vest with straight trousers"
     }
    ],
    "en": "everyday clothes that suit the place and activity"
@@ -4374,6 +4379,11 @@
      "ko": "오버사이즈 티 + 쇼츠",
      "en": "an oversized tee and shorts",
      "low": true
+    },
+    {
+     "key": "fleece_joggers",
+     "ko": "플리스 상의 + 조거 팬츠",
+     "en": "a soft fleece pullover with relaxed jogger pants"
     }
    ],
    "en": "soft homewear or loungewear"
@@ -4813,6 +4823,11 @@
      "key": "esports_jersey",
      "ko": "e스포츠 팀 저지",
      "en": "a fitted esports team jersey with a zip collar, a headset resting around the neck"
+    },
+    {
+     "key": "ski_set",
+     "ko": "스키 재킷 + 스키 팬츠",
+     "en": "a fitted ski jacket and padded ski pants"
     }
    ],
    "en": "activewear made for the activity"
@@ -4891,6 +4906,11 @@
      "ko": "컷아웃 미니",
      "en": "a cut-out mini dress",
      "low": true
+    },
+    {
+     "key": "tuxedo_cami_trousers",
+     "ko": "턱시도 재킷 + 캐미솔 + 정장 바지",
+     "en": "a sharp tuxedo jacket over a silk camisole with tailored trousers"
     }
    ],
    "en": "an evening dress or night-out outfit"
@@ -5170,6 +5190,21 @@
      "ko": "크리스마스 파티",
      "en": "a Christmas party costume — a fur-trimmed red velvet mini dress, a Santa hat and boots",
      "low": true
+    },
+    {
+     "key": "baker_jacket_apron",
+     "ko": "제빵사 재킷 + 허리 앞치마",
+     "en": "a white double-breasted baker's jacket with a short waist apron"
+    },
+    {
+     "key": "florist_apron",
+     "ko": "셔츠 + 플로리스트 앞치마",
+     "en": "a rolled-sleeve shirt under a canvas florist work apron"
+    },
+    {
+     "key": "mechanic_jumpsuit",
+     "ko": "정비용 점프수트",
+     "en": "a fitted mechanic's work jumpsuit with rolled sleeves and no real logos"
     }
    ],
    "en": "a playful adult event costume inspired by an occupation or role — clearly a costume, not a real uniform, no real insignia"
@@ -5650,6 +5685,11 @@
      "ko": "Y2K 로우라이즈",
      "en": "a Y2K low-rise mini skirt, a butterfly halter top and platform sandals",
      "low": true
+    },
+    {
+     "key": "nineties_windbreaker_track",
+     "ko": "90년대 윈드브레이커 + 트랙 팬츠",
+     "en": "a color-blocked 1990s windbreaker with matching track pants"
     }
    ],
    "en": "a period look from a past decade"

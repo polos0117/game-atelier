@@ -334,6 +334,13 @@ assert(!/RIGHT HAND:|LEFT HAND:|BOTH HANDS:/.test(noHands) && noHands.includes(T
 // 표정 — 몸 「뒤」 + 고개 그대로만 싣지 않는다. 뒤 3/4 는 옆얼굴이 보여 싣는다(사용자 2026-10-30)
 const backish = b => block(cas2(g, { ...jeans, frame: 'full_body', right: 'down', left: 'down', body: b, head: 'with_body', expr: 'soft_smile' }), 'SCENE');
 assert(backish('rear_3q').includes('EXPRESSION: ') && !backish('back').includes('EXPRESSION: '), '뒤 3/4 는 표정, 뒤는 없음');
+// 확장 — 계절 · 날씨 줄, 안경, 새 장소 · 동작
+const lib2 = { treeV: 2, era: 'now', place: 'library_reading', ofam: 'everyday', item: 'turtleneck_quilted_vest', posture: 'sit_chair', support: 'none', frame: 'waist_up', body: 'front_3q', head: 'with_body', camera: 'eye', right: 'prop', left: 'prop', use: 'book_turn', weather: 'rain', ofeat: ['glasses'] };
+const ls = block(cas2(g, lib2), 'SCENE');
+assert(ls.includes('Place: a quiet library reading room') && ls.includes('Weather / season: a rainy day') && ls.includes('quilted vest with straight trousers; she wears thin-framed glasses') && ls.includes('turns a page of a book lying open on the table'), '도서관 비 오는 창가 ' + ls);
+assert(!block(cas2(g, { ...lib2, weather: '' }), 'SCENE').includes('Weather'), '날씨 AUTO 는 줄이 없다');
+const arc = block(cas2(g, { ...lib2, place: 'arcade_hall', posture: 'stand', use: 'panel_play', weather: '', ofeat: [] }), 'SCENE');
+assert(arc.includes('plays at the control panel of the arcade cabinet in front of her') && arc.includes('works the joystick'), '오락기 조작대 ' + arc);
 const hs = spots.find(sc => sc.preset === 'sip_close');
 assert(block(cas2(g, { ...hs, expr: 'pensive' }), 'SCENE').includes('EXPRESSION: slightly furrowed brow'), '표정 줄');
 /* 버전1 기록은 표가 와도 버전1 그대로, 옮기면 버전2 */

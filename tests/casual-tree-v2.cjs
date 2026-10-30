@@ -13,7 +13,7 @@ const seeded = s => () => (s = (s * 1103515245 + 12345) % 2147483648) / 21474836
 const feat = pr => [pr.right, pr.left].map(k => C.hand(t, k)).filter(h => h && h.outfit).map(h => h.outfit);
 let pairs = 0;
 for (const pr of t.v2.presets) {
-  for (const pl of t.v1.places) {
+  for (const pl of C.allPlaces(t)) {
     const era = pl.eras.includes('now') ? 'now' : pl.eras[0], e = C.era(t, era);
     const fam = t.v1.outfits.find(o => e.outfits.includes(o.key) && feat(pr).every(x => C.features(t, o.key, '').includes(x)));
     if (!fam) continue;
@@ -197,5 +197,25 @@ assert(au.unlocked.includes('support'), '그 칸도 해방으로 단다');
 const back2 = C.repair(t, Object.assign({}, au, { posture: 'stand', unlocked: au.unlocked.filter(k => k !== 'posture') }));
 assert(!(back2.unlocked || []).includes('support') && back2.support === 'none', '앞 칸을 되돌리면 따라 해방된 칸도 풀린다');
 assert.equal(C.repair(t, fx({ place: 'home_living', posture: 'swim', support: 'none', frame: 'chest_up' })).posture !== 'swim', true, '해방하지 않으면 고친다');
+
+/* 12. 확장(사용자 2026-10-30) — 새 장소 · 작업대 · 새 동작의 받침 · 소품 연도 · 안경 · 계절 날씨 */
+assert(C.place(t, 'library_reading') && C.expand(t, ['@travel']).includes('train_sleeper'), '새 장소는 버전2 표에서');
+assert(!t.v1.places.some(p => p.key === 'library_reading'), '버전1 표는 그대로');
+const lib = fx({ era: 'now', place: 'library_reading', posture: 'sit_chair', support: 'none', frame: 'waist_up', right: 'prop', left: 'prop' });
+assert(C.uses(t, lib, 2).some(u => u.key === 'book_turn'), '열람실 탁자 위 책장 넘기기');
+assert(!C.uses(t, Object.assign({}, lib, { place: 'street_park', posture: 'stand' }), 2).some(u => u.key === 'book_turn'), '탁자 없는 공원엔 없다');
+assert.equal(C.why(t, fx({ place: 'bakery_kitchen' }), 'posture', 'lean_counter'), null, '작업대에 몸 숙이기');
+assert.equal(C.why(t, fx({ place: 'street_park' }), 'posture', 'lean_counter').code, 'place', '받칠 데가 없으면 없다');
+const bake = fx({ era: 'now', place: 'bakery_kitchen', posture: 'lean_counter', support: 'none', frame: 'waist_up', right: 'prop', left: 'prop' });
+assert(C.uses(t, bake, 2).some(u => u.key === 'bowl_mix'), '반죽 섞기');
+const hh = (era, g) => C.uses(t, fx({ era, place: 'home_living', frame: 'waist_up', right: 'prop', left: 'prop' }), 2, g).some(u => u.key === 'handheld_play');
+assert(hh('now', game('pacman')) && !hh('release', game('pacman')) && hh('release', game('metal_gear_solid')), '휴대용 게임기는 1989 년부터');
+assert.equal(C.why(t, fx({ frame: 'chest_up' }), 'right', 'glasses_adjust').code, 'outfit', '안경을 안 쓰면 안경 고쳐 쓰기 없음');
+assert.equal(C.why(t, fx({ frame: 'chest_up', ofeat: ['glasses'] }), 'right', 'glasses_adjust'), null, '안경 표시');
+assert(C.weatherAwkward(t, 'snow', 'swimwear', '').length && !C.weatherAwkward(t, 'rain', 'swimwear', '').length && C.weatherAwkward(t, 'summer', 'active', 'ski_set').length, '날씨 ⚠');
+assert.equal(C.why(t, fx({}), 'weather', 'snow'), null); assert.equal(C.why(t, fx({}), 'weather', 'hail').code, 'unknown');
+assert.equal(C.why(t, fx({ posture: 'kneel', place: 'home_bedroom' }), 'legs', 'ankles_crossed').code, 'family', '무릎 꿇기엔 발목 교차 없음');
+const brush = fx({ frame: 'chest_up', right: 'prop', left: 'hair_tuck', place: 'backstage_dressing' });
+assert(!C.uses(t, brush, 1).some(u => u.key === 'brush_hair'), '머리 넘기는 손이 있으면 빗질 X(머리 주변 공간)');
 
 console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 2000 · 바꾸기 1500');

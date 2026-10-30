@@ -77,6 +77,11 @@ fails(lambda d: pre(d, 'floor_horizon').update(head='turn_side'), '머리 turn_s
 fails(lambda d: pre(d, 'shush_close').update(gaze='into_prop'), '「소품을 들여다봄」 인데 소품 동작이 없다')
 fails(lambda d: row(d, 'head', 'turn_side').update(not_bodies=['sideways']), '몸 방향 sideways')
 assert not T.use_fits(doc, row(doc, 'prop_uses', 'cup_hold'), dict(pre(doc, 'prop_detail'), gaze='into_prop'))
+fails(lambda d: d['extra_places'].append(dict(d['extra_places'][0], key='home_bedroom')), '새 장소 home_bedroom 가 버전1 장소와 겹친다')
+fails(lambda d: d['weather_awkward'][0]['weather'].append('hail'), '날씨 hail')
+fails(lambda d: row(d, 'props', 'handheld').update(since=1700), 'since')
+fails(lambda d: row(d, 'prop_uses', 'book_turn').update(needs_any=['sofa_arm']), '받침 sofa_arm')
+assert 'street_park' not in T.preset_places(doc, v1, pre(doc, 'counter_work')) and 'bakery_kitchen' in T.preset_places(doc, v1, pre(doc, 'counter_work'))
 sip = dict(pre(doc, 'sip_close'), left='shush')
 assert not T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), sip) and T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), pre(doc, 'sip_close'))
 assert 'spa_footbath' not in T.preset_places(doc, v1, pre(doc, 'swim_close')) if any(p['key'] == 'swim_close' for p in doc['presets']) else True

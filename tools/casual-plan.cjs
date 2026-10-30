@@ -218,7 +218,7 @@ function check2(cuts, game, base = [], free = []) {
   };
   if (!every.some(c => requiredType(c))) errs.push('필수 갈래가 없다');
   over('장소', c => c.place, 1);
-  over('장소 묶음', c => CT.place(tree, c.place)?.group, 2);
+  over('장소 묶음', c => (C2.place(T2, c.place) || {}).group, 2);
   over('의상 계열', c => c.ofam !== 'everyday' && c.ofam, 1);
   over('평상복', c => c.ofam === 'everyday' && c.ofam, 2);
   over('시대', c => c.era, 3);
@@ -320,7 +320,7 @@ function registered(game) {
 }
 function line(c) {
   if (isV2(c)) {
-    const p = CT.place(tree, c.place), f = CT.family(tree, c.ofam), it = CT.item(tree, c.ofam, c.item), u = C2.use(T2, c.use), pr = by(tree2.presets, c.preset);
+    const p = C2.place(T2, c.place), f = CT.family(tree, c.ofam), it = CT.item(tree, c.ofam, c.item), u = C2.use(T2, c.use), pr = by(tree2.presets, c.preset);
     const ko = (list, k) => (by(list, k) || {}).ko || k || '—', hand = k => k === 'prop' ? '소품' : ko(tree2.hands, k);
     return `${c.old ? '  (있음)' : '  '} ${c.n} ${requiredType(c) ? '★' : ' '}${C2.awkward(T2, c.ofam, c.place).length ? '⚠' : ' '} ${CT.era(tree, c.era).ko} · ${p.ko} · ${f.ko}${it ? '(' + it.ko + ')' : ''} │ ${pr ? pr.ko : '—'} │ ` +
       `${ko(tree2.postures, c.posture)} · ${c.frame} · ${ko(tree2.body, c.body)} · ${ko(tree2.head, c.head)} · 오른손 ${hand(c.right)} · 왼손 ${hand(c.left)}${u ? ' · ' + ko(tree2.props, u.prop) + ' ' + u.ko : ''}${c.legs ? ' · ' + ko(tree2.legs, c.legs) : ''}${c.gaze ? ' · 시선 ' + ko(tree2.gaze, c.gaze) : ''}`;
