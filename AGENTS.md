@@ -105,6 +105,8 @@ python3 tools/casual-tree.py check    # 일상컷 트리 표 — 시대→장소
 python3 tools/casual-tree.py audit    # 하는 일 문장의 고정물(창·부두·식탁 …)이 붙는 장소 문장에 없는 쌍 — 하는 일·장소를 넣었으면 0 인지 본다
 python3 tests/casual-tree.py         # 트리 검사기가 규칙마다 거는지
 node tests/casual-tree.cjs           # 트리 자세 계열의 자세·방향 열쇠가 생성기 표에 있다
+python3 tools/casual-tree-v2.py check # 일상컷 트리 버전2 표(docs/CASUAL_TREE_V2.md) — 없는 열쇠·두 손 칸·보이는 손 자리·다리 칸·다 되는 장소 없는 자세 추천
+python3 tests/casual-tree-v2.py      # 버전2 검사기가 규칙마다 거는지
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기(네트워크 없이, 가짜 응답으로)
 node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 일상컷 트리(시대·장소·하는 일·옷·구도·추천 조합·예전 기록), 출시 당시, 길이
 node tests/words.cjs                 # 낱말 표
