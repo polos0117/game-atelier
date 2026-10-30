@@ -4,7 +4,7 @@
    Run: node tests/prompt-game.cjs */
 const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict');
 const ctx = { window: {}, console }; vm.createContext(ctx);
-for (const f of ['lib/prompt-spec.js', 'lib/casual-tree.js', 'lib/prompt-game.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx);
+for (const f of ['lib/prompt-spec.js', 'lib/casual-tree.js', 'lib/casual-tree-v2.js', 'lib/prompt-game.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx);
 const S = ctx.window.AtelierSpec, P = ctx.window.AtelierPrompt, CT = ctx.window.AtelierCasualTree, T = S.GAME_LINES;
 const tree = JSON.parse(fs.readFileSync('data/casual-tree.json', 'utf8'));
 const design = JSON.parse(fs.readFileSync('data/game-design.json', 'utf8'));
@@ -254,5 +254,52 @@ assert(!P.buildPrompt({ outputMode: 'form', game: sc, stage: '타이틀', styleT
 assert.throws(() => P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: '' }), /Style text/);
 assert.throws(() => P.buildPrompt({ outputMode: 'form', stage: '타이틀', styleText: text }), /Game is required/);
 
+/* 9. 일상컷 트리 버전2(docs/CASUAL_TREE_V2.md 5절) — 장면 treeV 2 + 표 tree2 면 버전2 줄 */
+const C2 = ctx.window.AtelierCasualTreeV2, tree2 = JSON.parse(fs.readFileSync('data/casual-tree-v2.json', 'utf8')), t2 = C2.make(tree2, tree);
+const cas2 = (game, sc, x = {}) => P.buildCasual({ game, tree, tree2, styleText: text, styleCasual: cur.casual, styleCheck: cur.check, ...sc, ...x });
+const block = (txt, head) => txt.split('\n\n').find(l => l.startsWith(head)) || '';
+/* 추천마다 쓸 수 있는 장소 · 시대 · 옷 계열 하나 */
+const spots = tree2.presets.map(pr => {
+  for (const pl of tree.places) {
+    const era = pl.eras.includes('now') ? 'now' : pl.eras[0];
+    for (const ofam of C2.era(t2, era).outfits) if (C2.presetOk(t2, { era, place: pl.key, ofam }, pr.key)) return C2.repair(t2, C2.applyPreset(t2, { era, place: pl.key, ofam }, pr.key));
+  }
+  assert.fail(pr.key + ' 쓸 장소가 없다');
+});
+let longestV2 = 0, v2n = 0;
+for (const game of G) for (const sc of spots) {
+  const txt = cas2(game, sc), scene = block(txt, 'SCENE (chosen):'), f = C2.frame(t2, sc.frame), u = C2.use(t2, sc.use), pr = u && C2.prop(t2, u.prop);
+  const w = sc.preset + ' ' + game.key;
+  assert(!/^(Activity|Pose|Orientation|Framing): /m.test(scene) && !txt.includes(T.handsCasual) && !txt.includes(T.casualOutput), w + ' 버전1 줄이 없다');
+  assert(scene.includes('POSTURE: ') && scene.includes('COMPOSITION: ' + f.en) && txt.includes(T.bodyV2) && txt.includes(T.handsV2) && txt.includes(T.casualOutputV2), w + ' 버전2 줄');
+  assert(scene.includes('Lens / perspective: ' + S.LENS_GUIDES[C2.lens(t2, sc.frame)][1]), w + ' 렌즈 자동');
+  assert(sc.right === sc.left && C2.hand(t2, sc.right) && C2.hand(t2, sc.right).both ? scene.includes('BOTH HANDS: ') && !scene.includes('RIGHT HAND: ') : /RIGHT HAND: her own right\b/.test(scene) && /LEFT HAND: her own left\b/.test(scene), w + ' 손 줄');
+  assert.equal(scene.includes('PROP: '), !!u, w + ' 소품 줄은 소품 동작이 있을 때만');
+  if (u && u.hands === 'both') assert(scene.includes(u.grip.right) && scene.includes(u.grip.left), w + ' 두 손 소품은 손마다');
+  if (pr && pr.signature) assert(!txt.includes('SIGNATURE (') && scene.includes('"' + q(game.signature[0]) + '"'), w + ' 알아볼 거리를 들면 SIGNATURE 대신 PROP');
+  else assert(txt.includes('SIGNATURE ('), w + ' 알아볼 거리 줄');
+  assert.equal(scene.includes('LEGS: '), !!(sc.legs && f.legs), w + ' 다리 줄은 다리가 보이는 컷만');
+  assert.equal(/looks into the camera/.test(txt), sc.gaze === 'camera', w + ' 카메라 응시는 고른 때만');
+  assert.equal(txt.includes(T.casualLookBack), !!(tree2.body.find(b => b.key === sc.body) || {}).far, w + ' 뒤돌아보기 줄은 등이 카메라 쪽일 때');
+  if (f.close) assert(txt.includes(T.casualCropV2.split('{edge}')[0]) && txt.includes(T.anatomyClose) && !txt.includes('7.5 heads'), w + ' 가까운 컷 CROP · 몸 줄');
+  assert(!/[가-힣]/.test(txt.replace(/"[^"]*"/g, '').replace(/«[^»]*»/g, '').replace(/STYLE: [^\n]*/, '')), w + ' 따옴표 밖은 영어');
+  longestV2 = Math.max(longestV2, P.words(txt)); v2n++;
+}
+assert(longestV2 <= 900, '가장 긴 버전2 일상컷이 900 낱말을 넘는다: ' + longestV2);
+/* 표정의 시선 말은 떼고 GAZE 줄 하나가 정한다 */
+for (const [k, v] of Object.entries(S.EXPRESSION_DETAIL)) {
+  const e = P.exprNoGaze(v);
+  assert(!/to the side|away|past the camera|off camera|forward gaze|direct \w+ gaze|gaze direct|directed[^,]*upward|angled down|fixed on/.test(e) && e.length > 10, k + ' 표정에 시선 말: ' + e);
+}
+const hs = spots.find(sc => sc.preset === 'sip_close');
+assert(block(cas2(g, { ...hs, expr: 'pensive' }), 'SCENE').includes('EXPRESSION: slightly furrowed brow'), '표정 줄');
+/* 버전1 기록은 표가 와도 버전1 그대로, 옮기면 버전2 */
+const v1sc = { era: 'now', place: 'travel_rural_station', act: 'wait_train', ofam: 'everyday', frame: 'full_body' };
+assert(cas2(g, v1sc).includes('Activity: ') && !cas2(g, v1sc).includes('POSTURE: '), '버전1 기록은 버전1 줄');
+const moved = C2.fromV1(t2, v1sc);
+assert(cas2(g, moved).includes('POSTURE: ') && !cas2(g, moved).includes('Activity: '), '옮긴 기록은 버전2 줄');
+assert.throws(() => P.buildCasual({ game: g, tree2, treeV: 2, styleText: text }), /Casual tree is required|Casual tree v2/);
+
+console.log(`PASS 일상컷 버전2: ${G.length}편 × 추천 ${spots.length} = ${v2n}개 · 가장 긴 것 ${longestV2}낱말 · 버전1 줄 없음 · 손 줄 · 소품 · 다리 · 시선 · 뒤돌아보기 · 가까운 컷 · 표정 시선 말`);
 console.log(`PASS 게임 프롬프트: ${G.length}편 × 폼 3 × (새 인물·이어가기·개방) ${n}개 · 가장 긴 것 ${longest}낱말 · 정한 말 영어 · 캐릭터 아님·그리지 않을 것 · 핵심 조작·시대 · 사실은 받은 것만 · `
   + `일상컷 트리(시대·장소·하는 일·옷·자세 계열·화면 줄·CROP·알아볼 거리·예전 기록) · 추천 조합 ${tree.presets.length}개 가장 긴 것 ${longestCasual}낱말 · 일상컷 화풍 문장 · 화풍 앞·점검 끝 · 노출·나이·자세`);

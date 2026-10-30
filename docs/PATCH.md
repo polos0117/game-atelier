@@ -11,6 +11,15 @@
 
 
 
+## 2026-10-30 · claude · 일상컷 트리 버전2 3단계 — 지시문 줄
+- lib/prompt-game.js — 장면이 버전2(treeV 2)이고 표 tree2 가 오면 버전2 로 조립: SCENE 에 POSTURE · SUPPORT · COMPOSITION(프레이밍 · 몸 · 머리 · 카메라) · 렌즈 자동 · RIGHT HAND · LEFT HAND(또는 BOTH HANDS) · PROP(손과 소품은 이 줄에서만, 두 손이면 손마다) · LEGS(다리가 보이는 컷만) · GAZE · EXPRESSION(표정 문장의 시선 말을 뗀다). 하는 일 · HAND TASK 줄은 없다. 알아볼 거리를 소품으로 들면 SIGNATURE 줄 대신 PROP. LOOK-BACK 은 몸이 뒤쪽일 때만. 버전1 기록은 버전1 그대로
+- lib/prompt-spec.js — 버전2 줄(OUTPUT · FRAME · CROP · BODY 「본인 기준 좌우」 · HANDS · 손 · 소품)
+- lib/casual-tree-v2.js — 장면 표시 tree:2 → treeV:2(생성기가 넘기는 표 tree 와 겹쳤다), 버전1 기록을 옮길 때 추가 연출 · 축 · 알아볼 거리는 남기고 버전1 camera(자유 글) · preset 은 버린다
+- data/casual-tree-v2.json — 프레이밍마다 짧은 COMPOSITION 말(en), 검사기가 본다
+- prompt.html — prompt-spec v=38 · prompt-game v=18
+- tests/prompt-game.cjs — 33편 × 추천 43 = 1419개: 버전1 줄 없음 · 손 줄 · 소품 · 다리 · 카메라 응시는 고른 때만 · 뒤돌아보기 · 가까운 컷 CROP · 따옴표 밖 영어 · 900 낱말(가장 긴 것 858), 표정 시선 말, 버전1 기록은 버전1 줄
+- docs/CASUAL_TREE_V2.md — 5절을 실제 줄에 맞췄다, 900 낱말을 넘는 경우(가장 긴 표정 · 축을 다 얹은 클로즈업 — 버전1 도 넘는다)를 정할 것에
+
 ## 2026-10-30 · claude · 일상컷 트리 버전2 2단계 — 거르기 모듈
 - lib/casual-tree-v2.js — 칸마다 고를 거리(choices)와 못 고르는 까닭(why), 다시 검사(repair), 칸 바꾸기(set — 두 손 자세는 다른 손도 같은 값, 두 손 소품 동작에서 한 손을 풀면 남은 손은 한 손 동작), 자세 추천(쓸 수 있는 추천만), 랜덤(잠금 · 씨앗), 버전1 기록 알아보기 · 옮기기. 장소 받침 · 보이는 부위 · 자세 계열 · 옷 특징 · 시대 소품 · 시선이 거른다. 프레이밍은 넓혀 맞추지 않고 손 · 다리 칸을 고친다. 아직 화면 · 조립은 버전1(3 · 4단계에서 붙인다)
 - data/casual-tree-v2.json — 예전 기록 변환 표(legacy): 버전1 하는 일 · 자세 계열 · 자세 · 방향 → 몸 자세 · 받침 · 다리 · 손 · 몸 방향 · 머리 · 카메라 · 시선

@@ -36,7 +36,7 @@ function valid(sc, where) {
   if (u) assert.equal(u.hands === 'both', C.propSides(sc) === 2, where + ' 소품 손 수');
   const f = C.frame(t, sc.frame);
   if (!f.legs) assert(!sc.legs, where + ' 안 보이는 다리');
-  assert.equal(sc.tree, 2);
+  assert.equal(sc.treeV, 2);
 }
 const rnd = seeded(7);
 for (let i = 0; i < 2000; i++) {
@@ -116,16 +116,16 @@ assert.deepEqual(C.random(t, {}, null, seeded(5)), C.random(t, {}, null, seeded(
 
 /* 8. 버전1 기록 — 표시하고, 다시 고르면 옮긴다 */
 const old = { era: 'now', place: 'water_pool', act: 'swim', ofam: 'swimwear', frame: 'chest_up', pose: '', orient: 'front', lens: 'portrait85' };
-assert(C.isV1(old)); assert(!C.isV1({ tree: 2, act: 'x' }));
+assert(C.isV1(old)); assert(!C.isV1({ treeV: 2, act: 'x' }));
 let n = C.fromV1(t, old);
-assert.equal(n.posture, 'swim'); assert.equal(n.tree, 2); assert.equal(n.frame, 'chest_up'); assert.equal(n.body, 'front'); assert(!('act' in n) && !('lens' in n));
+assert.equal(n.posture, 'swim'); assert.equal(n.treeV, 2); assert.equal(n.frame, 'chest_up'); assert.equal(n.body, 'front'); assert(!('act' in n) && !('lens' in n));
 valid(n, '버전1 헤엄');
 n = C.fromV1(t, { era: 'now', place: wall, act: (t.v1.activities.find(a => a.family === 'stand') || {}).key, ofam: 'everyday', frame: 'full_body', pose: 'leaning_wall', orient: 'over_shoulder' });
 assert.equal(n.posture, 'lean_wall'); assert.equal(n.head, 'over_shoulder'); assert.equal(n.body, 'rear_3q'); valid(n, '버전1 벽');
 n = C.fromV1(t, { era: 'now', place: 'home_living', act: 'read_book', ofam: 'everyday', frame: 'waist_up', pose: 'arms_crossed' });
 assert.equal(n.right, 'arms_crossed'); assert.equal(n.left, 'arms_crossed'); valid(n, '버전1 팔짱');
 n = C.fromV1(t, { cat: 'everyday', ex: '' });
-assert(n.place && n.tree === 2 && !('cat' in n)); valid(n, '아주 예전 갈래');
+assert(n.place && n.treeV === 2 && !('cat' in n)); valid(n, '아주 예전 갈래');
 for (const row of Object.values(t.v2.legacy.orients)) for (const [k, v] of Object.entries(row)) assert.equal(C.why(t, { frame: 'full_body' }, k, v), null, k + ' ' + v);
 
 console.log('casual-tree-v2 모듈 ok — 추천×장소', pairs, '· 랜덤 2000 · 바꾸기 1500');

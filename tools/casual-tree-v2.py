@@ -169,6 +169,9 @@ def check(doc, v1):
             err.append(f"프레이밍 {f} 는 발이 보이는데 다리가 안 보인다")
         if f not in doc["lens"]:
             err.append(f"프레이밍 {f} 의 렌즈가 없다")
+        if not r.get("en"):
+            err.append(f"프레이밍 {f} 의 COMPOSITION 말(en)이 없다")
+        english(f"프레이밍 {f}", r.get("en", ""))
     for f, lens in doc["lens"].items():
         ref("렌즈", f, frames, "프레이밍")
         if lens == "wide24":

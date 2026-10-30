@@ -182,7 +182,7 @@ game-atelier 에서 먼저 만든다(사용자 2026-10-30). 몇 게임을 그려
 | 시선 `gaze` | 카메라 · 소품 · 창밖 · 수평선 · 아래(바닥·손) · 화면 왼쪽 · 화면 오른쪽 · 위(하늘) |
 | 표정 `expr` | 버전1 31개 — 지시문에선 표정 문장 속 시선 말(「gaze angled down …」)을 떼고 GAZE 줄과 따로 싣는다 |
 
-뒤쪽 몸 방향(뒤 3/4 · 뒤)은 가까운 컷에서 빠진다(버전1 `frame_rules.no_orients`). 머리 「어깨 너머」 는 LOOK-BACK 줄이 목을 지킨다(버전1 그대로).
+뒤쪽 몸 방향(뒤 3/4 · 뒤)은 가까운 컷에서 빠진다(버전1 `frame_rules.no_orients`). LOOK-BACK 줄(버전1 그대로)은 몸이 뒤쪽(뒤 3/4 · 뒤)일 때 목을 지킨다 — 그 줄은 「등이 카메라 쪽」 이라 말하므로, 옆모습에서 어깨 너머로 보는 컷에는 싣지 않는다.
 
 ### 4-6. 어색한 조합(⚠)
 
@@ -195,18 +195,19 @@ game-atelier 에서 먼저 만든다(사용자 2026-10-30). 몇 게임을 그려
 |---|---|
 | `Activity: …` | 없앤다 |
 | `Pose: …` | `POSTURE: …` · `SUPPORT: …`(모든 컷) · `LEGS: …`(다리가 보이는 컷만) |
-| `Orientation: …` · `Framing: …` | `COMPOSITION: <프레이밍>, <몸 방향>, <머리 방향>, <카메라 높이>.` |
-| `HAND TASK: her hands act naturally …` | `RIGHT HAND: her own right hand …` · `LEFT HAND: her own left hand …` (화면 밖이면 「stays outside the frame」) |
-| (SIGNATURE 를 소품으로 들게 되면 손이 하나 더 나왔다) | `PROP: …` — 소품과 손의 관계는 이 줄 하나에서만 정의한다. 알아볼 거리를 소품으로 쓰면 SIGNATURE 줄 대신 이 줄 |
+| `Orientation: …` · `Framing: …` | `COMPOSITION: <프레이밍>; <몸 방향>; <머리 방향>; <카메라 높이>.` — 프레이밍 말은 표 `frames[].en`(버전1 FRAME_GUIDES 보다 짧게, 가까운 컷은 CROP 이 잘리는 선을 정한다), 머리가 몸을 따르면 머리 말은 싣지 않는다 |
+| `HAND TASK: her hands act naturally …` | `RIGHT HAND: her own right hand …` · `LEFT HAND: her own left hand …` (화면 밖이면 「stays outside the frame」, 소품을 쓰는 손은 「is in PROP」, 팔꿈치가 있으면 「her elbow …」). 두 손 자세는 `BOTH HANDS: …` 한 줄 |
+| (SIGNATURE 를 소품으로 들게 되면 손이 하나 더 나왔다) | `PROP: with her own right hand she …; it is all she holds.` · 두 손이면 `PROP: with both hands she … — her own right hand …, her own left hand …` — 소품과 손의 관계는 이 줄 하나에서만 정의한다. 알아볼 거리를 소품으로 쓰면 SIGNATURE 줄 대신 이 줄(고른 알아볼 거리, 없으면 첫째) |
 | `BODY: a normal human body — one head, two arms and two legs …` | 그대로 둔다(해부학 줄). 끝에 「Right and left mean her own right and left, not the viewer's.」 |
-| `HANDS: natural human hands.` | `HANDS: natural human anatomy; no extra or duplicated limbs. Each visible hand connects through its wrist and forearm to the matching shoulder. Hands may stay outside the crop — do not widen the framing to reveal them; fingers may be partly hidden by a grip.` |
-| `CROP: …` | 그대로 + 「Do not widen the framing to show a hidden support, hand or leg.」 |
+| `HANDS: natural human hands.` | `HANDS: natural human hands, no extra or duplicated limbs; each visible hand joins through its wrist and forearm to the matching shoulder. A hand may stay outside the crop, and fingers may be partly hidden by a grip.` (넓히지 말라는 말은 CROP 줄에) |
+| `CROP: …` | 줄여서 + 「Never widen the framing to show a hidden support, hand or leg」. 렌즈 문장은 뺐다(렌즈가 프레이밍을 따라 자동) |
+| `OUTPUT: … Era, place, activity, outfit, pose and camera follow SCENE` | 하는 일을 빼고 「Everything else follows SCENE (chosen).」 · `FRAME:` 줄은 「COMPOSITION in SCENE sets how much of her shows」 |
 | `Lens: …`(고른 값) | 프레이밍에 따라 자동 — 클로즈업·가슴 위 85mm · 허리 위·3/4 50mm · 전신·환경 35mm. 광각 24mm 는 쓰지 않는다 |
 | 시선이 하는 일 · 표정 문장 속에 숨어 있었다 | `GAZE: …` 줄 하나(카메라를 볼 때만 「looks into the camera」) · `EXPRESSION: …`(시선 말을 뗀 표정) |
 
 여러 줄로 나눠도 **확정된 장면 하나에서 한 번에 조립**한다 — 손 · 소품 · 받침의 관계는 한 줄에서만 정의하고, 다른 줄이 행동을 더하지 않는다.
 버전1에서 물려받는 공통 줄(전신 · 카메라 응시 · 손 줄 · ANGLE)도 새 구도와 부딪히지 않는지 시험(`tests/prompt-game.cjs`)이 본다.
-가장 긴 지시문 900 낱말은 상한이다 — 빈 칸 · 겹친 말로 채우지 않는다.
+가장 긴 지시문 900 낱말은 상한이다 — 빈 칸 · 겹친 말로 채우지 않는다. 3단계에서 33편 × 추천 43(화풍 점검 줄 포함, 표정 · 축 없이) 가장 긴 것 858 낱말. 가장 긴 표정(laughing_open)을 얹으면 버전2 926 · 버전1 914, 축 다섯 · 모티프까지 얹으면 1018 · 1006 — 둘 다 900 을 넘는다(월드 오브 워크래프트 클로즈업 · 가드 줄이 긴 게임). 사용자에게 물어 정할 것(8절).
 
 ## 6. 생성기 화면 · 묶음 계획기
 
@@ -218,7 +219,7 @@ game-atelier 에서 먼저 만든다(사용자 2026-10-30). 몇 게임을 그려
   - 자세 추천은 서로 다르게 · 프레이밍은 서로 다르게(먼 컷 하나 · 가까운 컷 하나는 꼭) · 몸 방향은 서로 다르게 · 머리 어깨 너머는 한 장까지
   - 소품은 칸마다 다르게, 알아볼 거리 소품은 한두 장 · ⚠ 조합은 한 장까지
   - 필수 갈래 한 장 이상(앞 게임을 보고 돌린다)
-- **기록**: `casualN-ui.json` 의 `storage` 에 `tree: 2` 를 단다. 버전1 기록은 그대로 읽힌다.
+- **기록**: `casualN-ui.json` 의 `storage` 일상 장면에 `treeV: 2` 를 단다(생성기가 넘기는 표 `tree` 와 겹치지 않게). 버전1 기록은 그대로 읽힌다.
 
 ## 7. 만드는 순서
 
@@ -247,6 +248,8 @@ game-atelier 에서 먼저 만든다(사용자 2026-10-30). 몇 게임을 그려
 | 5 | 전신 + 받침에 기대기 | |
 
 ## 8. 정할 것
+
+- 900 낱말 — 가장 긴 표정 · 축을 다 얹은 클로즈업은 버전1 · 버전2 다 넘는다(5절). 어느 줄을 줄일지
 
 - ⚠ 어색한 조합 표 — 처음은 계열 × 장소 묶음으로 내가 짜고, 그림을 보며 고친다
 - 소품 동작이 다리를 정할 때 다리 칸을 잠글지, 그 안에서만 고르게 할지 — 처음은 「그 안에서만」

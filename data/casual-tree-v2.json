@@ -44,7 +44,8 @@
    ],
    "legs": false,
    "feet": false,
-   "close": true
+   "close": true,
+   "en": "a close-up of her face and hair"
   },
   "detail": {
    "zones": [
@@ -53,7 +54,8 @@
    ],
    "legs": false,
    "feet": false,
-   "close": true
+   "close": true,
+   "en": "a detail shot of her hands and what they touch, with readable contact"
   },
   "chest_up": {
    "zones": [
@@ -63,7 +65,8 @@
    ],
    "legs": false,
    "feet": false,
-   "close": true
+   "close": true,
+   "en": "a chest-up shot of her face, shoulders and expression"
   },
   "waist_up": {
    "zones": [
@@ -74,7 +77,8 @@
    ],
    "legs": false,
    "feet": false,
-   "close": true
+   "close": true,
+   "en": "a waist-up shot of her head, torso and hands"
   },
   "three_quarter": {
    "zones": [
@@ -87,7 +91,8 @@
    ],
    "legs": true,
    "feet": false,
-   "close": false
+   "close": false,
+   "en": "a three-quarter shot from her head to just above the knees"
   },
   "full_body": {
    "zones": [
@@ -101,7 +106,8 @@
    ],
    "legs": true,
    "feet": true,
-   "close": false
+   "close": false,
+   "en": "a full-body shot, her complete head, hands and feet inside the frame with restrained margins"
   },
   "environmental": {
    "zones": [
@@ -115,7 +121,8 @@
    ],
    "legs": true,
    "feet": true,
-   "close": false
+   "close": false,
+   "en": "an environmental long shot, her complete figure and enough of the place around her"
   }
  },
  "lens": {
