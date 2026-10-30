@@ -69,6 +69,20 @@ def place_ok(row, has):
     return set(row.get("needs", [])) <= has and (not row.get("needs_any") or bool(set(row["needs_any"]) & has))
 
 
+def banned(doc, v1, kind):
+    """이 공방이 안 쓰는 값(pkm — 몸 방향 back · 프레이밍 detail). 프레이밍은 버전1 banned.frames 도"""
+    out = set(doc.get("banned", {}).get(kind, []))
+    if kind == "frames":
+        out |= set(v1.get("banned", {}).get("frames", []))
+    return out
+
+
+def companion_places(v1):
+    """동료 묶음(버전1 묶음의 companion — pkm 「동료 포켓몬과 함께」)의 장소"""
+    gs = {g["key"] for g in v1["groups"] if g.get("companion")}
+    return {p["key"] for p in v1["places"] if p["group"] in gs}
+
+
 def far_banned(v1):
     """버전1 frame_rules.no_orients 에 등 쪽이 있는 프레이밍 — 뒤쪽 몸 방향(far)을 받지 않는다"""
     return {f for f, r in v1["frame_rules"].items() if isinstance(r, dict) and "back" in r.get("no_orients", [])}
@@ -114,12 +128,20 @@ def preset_places(doc, v1, pre):
     rows = [r for r in rows if r]
     uses = [u for u in doc["prop_uses"] if use_fits(doc, u, pre)] if pre.get("prop_kind") else []
     props = by_key(doc["props"])
+    comp, not_frames = companion_places(v1), set(doc.get("companion", {}).get("not_frames", []))
     out = []
     for place, has in doc["places"].items():
         has = set(has)
         if not all(place_ok(r, has) for r in rows):
             continue
-        if pre.get("prop_kind") and not any(place in prop_places(doc, v1, props[u["prop"]]) and place_ok(u, has) for u in uses if u["prop"] in props):
+        # 동료를 쓰는 손 · 동작은 동료 묶음에서만, 동료 묶음엔 가슴 위 · 클로즈업을 안 쓴다(pkm)
+        if place in comp and pre["frame"] in not_frames:
+            continue
+        if place not in comp and any(r.get("companion") for r in rows):
+            continue
+        if pre.get("prop_kind") and not any(place in prop_places(doc, v1, props[u["prop"]]) and place_ok(u, has) and (place in comp or not u.get("companion"))
+                                            and (not u.get("places") or place in expand(v1, u["places"]))
+                                            for u in uses if u["prop"] in props):
             continue
         out.append(place)
     return out
@@ -317,10 +339,21 @@ def check(doc, v1):
         if r.get("gaze"):
             ref(w, r["gaze"], gaze, "시선")
         needs(w, r)   # 동작의 받침(탁자 · 작업대 …) — needs_any
+        if r.get("places"):   # 동작이 그 장소에서만(역할이 있는 동작 — 소품의 장소 안에서)
+            place_refs(w, r["places"])
+            if r["prop"] in props and not set(expand(v1, r["places"])) & prop_places(doc, v1, props[r["prop"]]):
+                err.append(f"{w} 의 장소에 소품 {r['prop']} 이 안 나온다")
         if "{prop}" not in r["en"]:
             err.append(f"{w} 의 영어 문장에 {{prop}} 자리가 없다")
         if re.search(r"\band\b", r["en"]):
             err.append(f"{w} 의 영어 문장이 동작 둘을 잇는다(and): {r['en']}")
+        # 역할(pkm 직업 현장 — 「~로 일한다」 는 Role 줄, 동작은 하나)
+        if r.get("role"):
+            english(w, r["role"])
+            if not r.get("role_ko"):
+                err.append(f"{w} 의 역할에 한국어 이름(role_ko)이 없다")
+        elif r.get("role_ko"):
+            err.append(f"{w} 에 역할 한국어(role_ko)만 있다")
 
     # 의상 특징
     of = doc["outfit_features"]
@@ -348,6 +381,20 @@ def check(doc, v1):
             ref(f"어색한 조합 {r.get('ko', i)}", fam, fam1, "의상 계열")
         place_refs(f"어색한 조합 {r.get('ko', i)}", r["places"])
 
+    # 안 쓰는 값 · 동료 묶음
+    bb, bf = banned(doc, v1, "body"), banned(doc, v1, "frames")
+    for k in bb:
+        ref("안 쓰는 몸 방향", k, body, "몸 방향")
+    for k in bf:
+        ref("안 쓰는 프레이밍", k, frames, "프레이밍")
+    comp = companion_places(v1)
+    for k in doc.get("companion", {}).get("not_frames", []):
+        ref("동료 묶음에서 안 쓰는 프레이밍", k, frames, "프레이밍")
+    for name, rows in (("손", doc["hands"]), ("소품 동작", doc["prop_uses"])):
+        for r in rows:
+            if r.get("companion") and not comp:
+                err.append(f"{name} {r['key']} 는 동료가 있어야 하는데 동료 묶음이 없다")
+
     # 자세 추천
     far = far_banned(v1)
     for p in doc["presets"]:
@@ -371,6 +418,9 @@ def check(doc, v1):
         if p.get("prop_kind") and p["prop_kind"] not in KINDS:
             err.append(f"{w} 의 소품 동작 꼴 {p['prop_kind']}")
         if len(err) > n:
+            continue
+        if p["body"] in bb or p["frame"] in bf:
+            err.append(f"{w} — 이 공방이 안 쓰는 값(몸 방향 {p['body']} · 프레이밍 {p['frame']})")
             continue
         fr, po = frames[p["frame"]], postures[p["posture"]]
         if p["frame"] not in po["frames"]:
@@ -440,7 +490,7 @@ def check(doc, v1):
         if not preset_places(doc, v1, p):
             err.append(f"{w} — 자세 · 받침 · 손 · 다리 · 소품이 다 되는 장소가 없다")
     for f in frames:
-        if not any(p["frame"] == f for p in doc["presets"]):
+        if f not in bf and not any(p["frame"] == f for p in doc["presets"]):
             err.append(f"프레이밍 {f} 의 자세 추천이 없다")
 
     # 버전1 기록 → 버전2 칸

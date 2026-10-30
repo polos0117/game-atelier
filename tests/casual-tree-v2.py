@@ -82,6 +82,11 @@ fails(lambda d: d['weather_awkward'][0]['weather'].append('hail'), '날씨 hail'
 fails(lambda d: row(d, 'prop_uses', 'cup_wrap')['postures'].append('stand'), 'cup_wrap 의 postures 에 같은 값이 두 번')
 fails(lambda d: row(d, 'props', 'handheld').update(since=1700), 'since')
 fails(lambda d: row(d, 'prop_uses', 'book_turn').update(needs_any=['sofa_arm']), '받침 sofa_arm')
+# 공방마다 다른 칸(pkm 2026-10-30) — game 표엔 없지만 같은 검사기라 적으면 본다
+fails(lambda d: d.update(banned={'body': ['back']}), '추천 walk_away — 이 공방이 안 쓰는 값')
+fails(lambda d: row(d, 'prop_uses', 'cup_hold').update(role='a barista'), '역할에 한국어 이름(role_ko)')
+fails(lambda d: row(d, 'prop_uses', 'cup_hold').update(places=['moon_base']), '장소 moon_base')
+fails(lambda d: row(d, 'hands', 'wave').update(companion=True), '동료가 있어야 하는데 동료 묶음이 없다')
 assert 'street_park' not in T.preset_places(doc, v1, pre(doc, 'counter_work')) and 'bakery_kitchen' in T.preset_places(doc, v1, pre(doc, 'counter_work'))
 sip = dict(pre(doc, 'sip_close'), left='shush')
 assert not T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), sip) and T.use_fits(doc, row(doc, 'prop_uses', 'cup_sip'), pre(doc, 'sip_close'))
