@@ -11,6 +11,11 @@
 
 
 
+## 2026-10-30 · claude · 일상컷 버전2 — 넓히기 시범에서 어긋난 셋(뒤 3/4 얼굴 · 발목 교차 · 노트 문장)
+- data/casual-tree-v2.json — 몸 「뒤 3/4」 에 turned_face(머리가 몸을 따르면 얼굴도 돌아가 볼선 · 옆선만). 다리 「발목 교차」 영어를 「한쪽 발목을 다른 발목 위에」 로 또렷이. 소품 노트 영어를 「a notebook」, 동작을 「writes in {prop} with a pen」(「writes in a notebook and a pen」 이 됐다). 시범 7(뒤 3/4 를 앞 3/4 로) · 11(발목 교차를 안 했다), 사용자 결정으로 고치고 두 장을 다시 그린다
+- lib/prompt-game.js — 몸의 turned_face 를 COMPOSITION 몸 줄에 · prompt.html — prompt-game v=24
+- tools/casual-tree-v2.py — turned_face 도 영어 칸 검사 · tests/prompt-game.cjs — 뒤 3/4 얼굴, 어깨 너머면 없음, 침대칸 노트 · 발목
+
 ## 2026-10-30 · claude · 랑그릿사 II · 카트라이더 다시 넣기, 버전2 표 겹친 자세
 - data/game-design.json — 잠시 뺀 두 편을 games 에 되돌려 넣었다(35편). 폼 지시문 충돌 0
 - data/wikidata/langrisser_2.json · data/wikidata/kartrider.json — 사실 칸(Q665393 · Q488178, Wikidata 장애가 풀려 받았다)

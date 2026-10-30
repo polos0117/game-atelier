@@ -325,6 +325,12 @@ const rs = block(cas2(g, rooftop), 'SCENE');
 assert(rs.includes('body in side profile, her face in profile too, not turned toward the camera') && rs.includes('GAZE: ' + tree2.gaze.find(x => x.key === 'into_prop').en), '옥상 망원경 ' + rs);
 assert(block(cas2(g, { ...rooftop, use: '', right: 'down', left: 'down', frame: 'full_body', gaze: 'camera' }), 'SCENE').includes('only her eyes turn toward the camera'), '옆모습 + 카메라 응시는 눈만');
 assert(!block(cas2(g, { ...rooftop, head: 'tilt' }), 'SCENE').includes('face in profile too'), '머리를 돌리면 얼굴 말을 안 붙인다');
+// 넓히기 시범(MGS 일상7 · 11) — 뒤 3/4 + 머리 그대로면 얼굴도 돌아간다, 발목 교차는 발을 말한다, 노트 문장
+const green = { treeV: 2, era: 'now', place: 'greenhouse', ofam: 'roleplay', item: 'florist_apron', posture: 'stand', support: 'none', frame: 'environmental', body: 'rear_3q', head: 'with_body', camera: 'eye', right: 'prop', left: 'natural', use: 'can_water', gaze: 'at_prop' };
+assert(block(cas2(g, green), 'SCENE').includes('away from the camera, her face turned away with her body too'), '뒤 3/4 얼굴');
+assert(!block(cas2(g, { ...green, head: 'over_shoulder', gaze: 'camera' }), 'SCENE').includes('face turned away'), '어깨 너머면 얼굴 말 없음');
+const berth = block(cas2(g, { treeV: 2, era: 'now', place: 'train_sleeper', ofam: 'homewear', item: 'fleece_joggers', posture: 'sit_edge', support: 'hip_edge', frame: 'full_body', body: 'front_3q', head: 'with_body', camera: 'eye', right: 'prop', left: 'prop', use: 'notebook_write', legs: 'ankles_crossed', gaze: 'at_prop' }), 'SCENE');
+assert(berth.includes('writes in a notebook with a pen') && berth.includes('one ankle crossed over the other'), '침대칸 ' + berth);
 const fc = cas2(g, { ...pick('shush_close'), axes: { skin_exposure: 'bold' } });
 assert(fc.includes('the crop stays exactly where CROP sets it and never moves down') && !fc.includes('neckline and upper-back exposure'), '클로즈업 노출 말');
 // 손 칸 AUTO — 그 손 줄이 없다, 둘 다 AUTO 면 손 줄이 하나도 없다(HANDS 해부학 줄은 남는다)

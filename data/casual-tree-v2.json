@@ -167,7 +167,8 @@
    "key": "rear_3q",
    "ko": "뒤 3/4",
    "en": "body turned three-quarters away from the camera",
-   "far": true
+   "far": true,
+   "turned_face": "her face turned away with her body too — only her cheek line and the edge of her profile show"
   },
   {
    "key": "back",
@@ -1226,7 +1227,7 @@
     "lean_counter"
    ],
    "feet": true,
-   "en": "legs together with the ankles lightly crossed"
+   "en": "both legs held close together, one ankle crossed over the other at the feet"
   }
  ],
  "places": {
@@ -2162,7 +2163,7 @@
   {
    "key": "notebook",
    "ko": "노트와 펜",
-   "en": "a notebook and a pen",
+   "en": "a notebook",
    "places": [
     "library_reading",
     "train_sleeper",
@@ -3817,7 +3818,7 @@
    "hands": "both",
    "zone": "chest",
    "ko": "노트에 쓴다",
-   "en": "writes in {prop} on the table",
+   "en": "writes in {prop} with a pen on the table",
    "grip": {
     "right": "holds the pen",
     "left": "keeps the page flat"

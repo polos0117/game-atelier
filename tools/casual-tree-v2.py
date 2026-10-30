@@ -179,7 +179,7 @@ def check(doc, v1):
     for name in ("body", "head", "camera", "gaze", "supports", "postures", "hands", "legs", "props", "prop_uses"):
         for r in doc[name]:
             english(f"{name} {r['key']}", r.get("en", ""))
-            for k in ("grip", "elbow"):
+            for k in ("grip", "elbow", "turned_face"):
                 english(f"{name} {r['key']}", r.get(k, ""))
     for k, h in doc["has"].items():
         english(f"has {k}", h.get("en", ""))
