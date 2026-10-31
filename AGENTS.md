@@ -11,6 +11,7 @@
 | `docs/GAME_CONCEPT.md` | 기획 — 원칙·데이터·설계표·폼과 개방·결투 상성·첫 묶음·화풍·만드는 순서 |
 | `data/game-design.json` | 게임 설계표. 게임 한 편 = 한 칸 |
 | `IMAGE_RULES.md` | 그림 만들기·파일 이름·기록·올리기 — 그림 작업 전에 |
+| `docs/IMAGE_AUTOMATION.md` | GPT 세션(사람이 안 지켜보는) 이미지 작업 — 잠금(`tools/image-claim.cjs`) · 지시문 묶음(`tools/prompt-pack.cjs`) · 검수 · 묻지 않고 올리기 |
 | `data/style.json` | 화풍 판 — 폼·개방은 `text`, 일상컷은 `casual` |
 | `docs/CASUAL_TREE_V2.md` | 일상컷 트리 버전2 설계 — 시대 → 장소 → 의상 → 구도 → 손(오른손·왼손) → 소품 → 다리, 자세 추천 (만드는 중) |
 | `docs/PORT_NOTES.md` | 어디서 무엇을 가져왔고, 무엇을 아직 안 가져왔나 |
@@ -102,6 +103,8 @@ node tools/casual-plan.cjs <게임> --out <폴더>   # 일상컷 묶음 짜기(�
 node tools/casual-plan.cjs <게임> --v2 --out <폴더>   # 일상컷 트리 버전2 로 묶음 짜기(자세 추천 · 몸 방향 · 소품 · 알아볼 거리 소품 규칙) — --check 는 기록이 버전2 면 버전2 규칙
 node tests/casual-plan.cjs           # 묶음 계획기 — 스무 편 × 씨앗 셋이 규칙을 지키고 기록이 생성기 꼴
 node tests/casual-plan-screen.cjs    # 계획기 기록을 생성기 화면에 넣으면 같은 지시문(브라우저)
+node tests/prompt-pack-screen.cjs    # 지시문 묶음(tools/prompt-pack.cjs) 열한 자리를 생성기 화면에 넣으면 같은 지시문 · 파일 이름 · 틀린 설정은 안 씀(브라우저)
+node tests/image-claim.cjs           # 이미지 작업 잠금 — bare 저장소로 잡기 · 겹침 · 실행마다 하나 · push 경합 되돌림 · 하루 몫
 python3 tools/casual-tree.py check    # 일상컷 트리 표 — 시대→장소→하는 일→의상 길이 끊긴 데·없는 열쇠·필수 갈래
 python3 tools/casual-tree.py audit    # 하는 일 문장의 고정물(창·부두·식탁 …)이 붙는 장소 문장에 없는 쌍 — 하는 일·장소를 넣었으면 0 인지 본다
 python3 tests/casual-tree.py         # 트리 검사기가 규칙마다 거는지
