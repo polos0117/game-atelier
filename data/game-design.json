@@ -160,7 +160,9 @@
    "racing_nylon",
    "rain_slicker",
    "thief_leather",
-   "sneaking_weave"
+   "sneaking_weave",
+   "painted_brocade",
+   "android_polymer"
   ],
   "pose": [
    "dash_corner",
@@ -197,7 +199,9 @@
    "boost_drift",
    "flashlight_aim",
    "mask_pull",
-   "codec_crouch"
+   "codec_crouch",
+   "parry_riposte",
+   "led_touch"
   ],
   "palette": [
    "neon_yellow_navy",
@@ -234,7 +238,9 @@
    "kart_cherry_checker",
    "umbrella_red_night",
    "phantom_red_black",
-   "arctic_gray_olive"
+   "arctic_gray_olive",
+   "belle_epoque_gold_crimson",
+   "thirium_blue_white"
   ],
   "hair_color": [
    "antique_gold",

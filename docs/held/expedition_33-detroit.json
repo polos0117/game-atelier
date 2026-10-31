@@ -1,0 +1,245 @@
+{
+ "note": "Wikidata 질의 서버가 「너무 잦다(429) — 1000초 뒤」 를 네 번 연달아 돌려줘 사실 칸을 못 받았다(2026-10-31). 사용자 결정으로 설계표에서 잠시 뺐다 — QID 는 적혀 있다. 받으면 games 끝에 되돌려 넣고 python3 tools/fetch-games.py pull clair_obscur_expedition_33 detroit_become_human",
+ "games": [
+  {
+   "key": "clair_obscur_expedition_33",
+   "title": "클레르 옵스퀴르: 33 원정대",
+   "title_en": "Clair Obscur: Expedition 33",
+   "genre": "RPG",
+   "group": "growth",
+   "era": "modern",
+   "persona": "해마다 사람들이 꽃잎처럼 사라지는 섬을 떠나, 바다 건너 화가에게 향하는 원정대의 대원",
+   "voice": {
+    "타이틀": "우리가 마지막 원정대일지도 몰라. 그래도 가.",
+    "중반": "막을 때를 봐. 박자에 맞춰 받아쳐.",
+    "엔딩": "다음 원정대를 위해. 이 붓을 꺾을 거야."
+   },
+   "desire": "해마다 나이를 지우는 화가를 멈춰 모두의 내일을 되찾기",
+   "conflict": "섬에 남겨질 사람들을 향한 마음과 돌아오지 못할지도 모르는 원정길",
+   "symbols": [
+    "원정대 깃발",
+    "붉은 꽃잎",
+    "붓"
+   ],
+   "signature": [
+    "무너진 탑이 솟은 벨 에포크풍 항구 도시",
+    "바다 건너 멀리 솟은 거대한 검은 모노리스",
+    "바람에 흩날리는 붉은 꽃잎",
+    "가죽 끈으로 묶은 원정대 일지"
+   ],
+   "signature_hold": [
+    3
+   ],
+   "mechanic": "차례마다 행동을 고르고, 맞은편의 공격은 박자에 맞춰 막거나 피해 곧바로 받아친다",
+   "rule": {
+    "forms": {
+     "타이틀": "막기 — 맞은편 공격의 박자에 맞추면 피해 0",
+     "중반": "피하기 — 피해 낸 다음 공격 +1",
+     "엔딩": "받아치기 — 막아 낸 횟수만큼 한 번에 공격"
+    },
+    "counter": "박자를 흐린다. 공격 차례를 늦추거나 당긴다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "원정 떠나는 날의 단정한 벨 에포크풍 긴 원정 코트와 겹친 긴 치마, 가죽 장갑과 허리의 가죽 장비 띠",
+     "role": "버티기",
+     "pose": "한 손검을 비스듬히 세워 막기 자세로 맞은편의 박자를 재는 자세",
+     "setting": "무너진 탑이 올려다보이는 항구 도시의 부둣가 — 해 질 녘",
+     "homage": "33 원정대 대원풍 — 긴 원정 코트와 가죽 장비"
+    },
+    "중반": {
+     "look": "먼 길에 해진 짧은 망토와 가죽 흉갑, 등에 멘 원정대 배낭",
+     "role": "교란",
+     "pose": "레이피어를 앞으로 겨누고 몸을 반쯤 틀어 공격을 흘려 피하는 자세",
+     "setting": "떠 있는 바위섬 아래 붉은 꽃잎 숲 — 흐린 낮",
+     "homage": "결투사풍 — 레이피어와 해진 망토"
+    },
+    "엔딩": {
+     "look": "검은 바탕에 금빛 붓자국이 번진 긴 드레스 코트와 붉은 허리띠",
+     "role": "공격",
+     "pose": "검을 붓처럼 크게 휘둘러 허공에 금빛 획을 긋는 자세",
+     "setting": "바다 건너 거대한 모노리스가 솟은 붉은 하늘 아래의 절벽",
+     "homage": "화가에 맞선 원정대 선봉풍 — 금빛 붓자국 코트"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "부둣가의 등불이 하나씩 켜지며 저녁 바다 위로 원정대가 갈 길이 금빛으로 열린다",
+     "one_figure": true,
+     "particles": "fireflies"
+    },
+    "중반": {
+     "scene": "떠 있는 바위섬들이 천천히 돌고 둘레의 숲이 유화 붓자국으로 번져 간다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "엔딩": {
+     "scene": "모노리스의 빛이 갈라지며 붉은 하늘 가득 금빛 물감 방울이 흩어진다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "slender",
+    "hair": "updo_bun",
+    "garment": "layered_skirt",
+    "material": "painted_brocade",
+    "pose": "parry_riposte",
+    "palette": "belle_epoque_gold_crimson",
+    "hair_color": "wine_red"
+   },
+   "face": {
+    "face_shape": "oval",
+    "eyes": "droopy_soft",
+    "brows": "low_heavy",
+    "nose": "aquiline",
+    "lips": "small_bow",
+    "eye_color": "amber"
+   },
+   "place": "a Belle Époque island city beneath a broken tower, surreal painted continents of floating rocks and red-petal forests, and a giant black monolith across the sea",
+   "rights": "샌드폴 인터랙티브(케플러 인터랙티브) — 이름이 상표다. 원작 인물·적 디자인을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(구스타브·마엘·룬·시엘 등)의 얼굴",
+    "화가(페인트리스)와 네브론의 디자인",
+    "로고·타이틀 글자",
+    "모노리스의 읽히는 숫자",
+    "화면 위 HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q126462072",
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": {},
+    "modes": [],
+    "wiki": {}
+   }
+  },
+  {
+   "key": "detroit_become_human",
+   "title": "디트로이트: 비컴 휴먼",
+   "title_en": "Detroit: Become Human",
+   "genre": "어드벤처",
+   "group": "explore",
+   "era": "modern",
+   "persona": "명령을 따르도록 만들어졌지만, 처음으로 스스로 고르기 시작한 안드로이드",
+   "voice": {
+    "타이틀": "제 일은 당신을 돕는 거예요. 무엇을 할까요?",
+    "중반": "명령이 아니에요. 제가 고른 거예요.",
+    "엔딩": "우리는 살아 있어. 이제 그렇게 말할 거야."
+   },
+   "desire": "주어진 명령 대신 스스로 고른 삶을 살기",
+   "conflict": "프로그램된 순종과 처음 느껴 보는 마음",
+   "symbols": [
+    "관자놀이의 원형 LED",
+    "파란 시리움",
+    "눈 내린 도시"
+   ],
+   "signature": [
+    "관자놀이에서 빛나는 원형 LED 링",
+    "파란 삼각형 표시와 팔띠가 달린 안드로이드 제복",
+    "눈 내린 근미래 디트로이트 거리",
+    "파랗게 빛나는 시리움이 든 작은 병"
+   ],
+   "signature_hold": [
+    3
+   ],
+   "mechanic": "고른 말과 행동이 갈림길이 되어, 이야기가 그 선택대로 갈라진다",
+   "rule": {
+    "forms": {
+     "타이틀": "순종 — 맞은편이 고른 행동을 한 번 따라 하면 방어 +1",
+     "중반": "갈림길 — 두 행동 가운데 하나를 고르고, 고르지 않은 쪽은 닫힌다",
+     "엔딩": "깨어남 — 지금까지 스스로 고른 횟수만큼 한 번에 공격"
+    },
+    "counter": "고를 틈을 주지 않는다. 시간을 재촉해 갈림길을 닫는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "파란 삼각형 표시와 팔띠가 달린 흰·회색 가정용 안드로이드 제복 코트와 곧은 바지, 관자놀이의 파란 LED",
+     "role": "지원",
+     "pose": "두 손을 앞에 가지런히 모으고 고개를 살짝 기울여 다음 말을 기다리는 자세",
+     "setting": "눈 내리는 근미래 도시의 집 현관 앞 — 새벽",
+     "homage": "가정용 안드로이드풍 — 팔띠와 파란 삼각형 제복"
+    },
+    "중반": {
+     "look": "제복 위에 걸친 낡은 후드 코트와 목도리, 노랗게 깜박이는 관자놀이 LED",
+     "role": "정찰",
+     "pose": "코트 깃을 여미고 고개를 숙여 빗속을 걷는 자세",
+     "setting": "비 내리는 밤의 버스 정류장 — 홀로그램 광고 빛",
+     "homage": "도망친 안드로이드풍 — 낡은 후드 코트와 목도리"
+    },
+    "엔딩": {
+     "look": "소매 없는 흰 롱 코트, 손끝과 팔에서 피부가 걷혀 드러난 흰 몸체와 파란 빛 결",
+     "role": "돌파",
+     "pose": "한 손을 앞으로 내밀어 닿는 손끝부터 피부가 흰 몸체로 걷히는 자세",
+     "setting": "눈 덮인 광장 — 파란 불빛이 번지는 바리케이드 앞, 밤",
+     "homage": "깨어난 지도자풍 — 흰 코트와 파란 빛"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "관자놀이 LED 가 붉게 바뀌며 둘레를 막아선 붉은 명령의 벽에 금이 가기 시작한다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "중반": {
+     "scene": "눈 속에 흰 대리석 선(禪) 정원이 펼쳐지고 얼어붙은 장미 덩굴이 갈라진다",
+     "one_figure": true,
+     "particles": "snow"
+    },
+    "엔딩": {
+     "scene": "광장의 불빛이 하나둘 파랗게 바뀌며 눈 내리는 밤하늘로 파란 빛 조각이 흩날린다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "African",
+   "silhouette": {
+    "body": "tall_statuesque",
+    "hair": "short_crop",
+    "garment": "coat_trousers",
+    "material": "android_polymer",
+    "pose": "led_touch",
+    "palette": "thirium_blue_white",
+    "hair_color": "ocean_blue"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "narrow_upturned",
+    "brows": "arched_thin",
+    "nose": "broad_soft",
+    "lips": "full_wide",
+    "eye_color": "ice_blue"
+   },
+   "place": "a near-future snowbound Detroit of glass towers, hologram ads, android stores and rain-wet bus stops, with a white marble zen garden hidden in the mind",
+   "rights": "퀀틱 드림(소니 인터랙티브 엔터테인먼트) — 이름이 상표다. 원작 인물(코너·카라·마커스)을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(코너·카라·마커스 등)의 얼굴",
+    "사이버라이프 로고와 읽히는 모델 번호",
+    "로고·타이틀 글자",
+    "읽히는 글자·숫자",
+    "화면 위 선택지·HUD"
+   ],
+   "series": [],
+   "pilot": null,
+   "facts": {
+    "qid": "Q21246348",
+    "fetched": null,
+    "year": null,
+    "developer": [],
+    "publisher": [],
+    "platforms": [],
+    "genres": [],
+    "series": {},
+    "modes": [],
+    "wiki": {}
+   }
+  }
+ ]
+}
