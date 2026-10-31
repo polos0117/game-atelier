@@ -1,6 +1,7 @@
 {
  "img": {
   "civilization_v": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["civilization_v_glossy_kr_game_f_casual1.webp", "civilization_v_glossy_kr_game_f_casual2.webp", "civilization_v_glossy_kr_game_f_casual3.webp", "civilization_v_glossy_kr_game_f_casual4.webp", "civilization_v_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "civilization_v_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "civilization_v_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "civilization_v_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "civilization_v_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "civilization_v_title_glossy_kr_game_f.webp"}, "title_open": {"f": "civilization_v_title_open_glossy_kr_game_f.webp"}}}}},
+  "clair_obscur_expedition_33": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["clair_obscur_expedition_33_glossy_kr_game_f_casual1.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual2.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual3.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual4.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "clair_obscur_expedition_33_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "clair_obscur_expedition_33_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "clair_obscur_expedition_33_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "clair_obscur_expedition_33_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "clair_obscur_expedition_33_title_glossy_kr_game_f.webp"}, "title_open": {"f": "clair_obscur_expedition_33_title_open_glossy_kr_game_f.webp"}}}}},
   "dark_souls": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["dark_souls_glossy_kr_game_f_casual1.webp", "dark_souls_glossy_kr_game_f_casual2.webp", "dark_souls_glossy_kr_game_f_casual3.webp", "dark_souls_glossy_kr_game_f_casual4.webp", "dark_souls_glossy_kr_game_f_casual5.webp"]}, "byForm": {"title": {"f": "dark_souls_title_glossy_kr_game_f.webp"}, "title_open": {"f": "dark_souls_title_open_glossy_kr_game_f.webp"}, "middle": {"f": "dark_souls_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "dark_souls_middle_open_glossy_kr_game_f.webp"}, "ending": {"f": "dark_souls_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "dark_souls_ending_open_glossy_kr_game_f.webp"}}}}},
   "dave_the_diver": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["dave_the_diver_glossy_kr_game_f_casual1.webp", "dave_the_diver_glossy_kr_game_f_casual2.webp", "dave_the_diver_glossy_kr_game_f_casual3.webp", "dave_the_diver_glossy_kr_game_f_casual4.webp", "dave_the_diver_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "dave_the_diver_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "dave_the_diver_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "dave_the_diver_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "dave_the_diver_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "dave_the_diver_title_glossy_kr_game_f.webp"}, "title_open": {"f": "dave_the_diver_title_open_glossy_kr_game_f.webp"}}}}},
   "diablo_2": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["diablo_2_glossy_kr_game_f_casual1.webp", "diablo_2_glossy_kr_game_f_casual2.webp", "diablo_2_glossy_kr_game_f_casual3.webp", "diablo_2_glossy_kr_game_f_casual4.webp", "diablo_2_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "diablo_2_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "diablo_2_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "diablo_2_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "diablo_2_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "diablo_2_title_glossy_kr_game_f.webp"}, "title_open": {"f": "diablo_2_title_open_glossy_kr_game_f.webp"}}}}},
@@ -42,6 +43,17 @@
   "civilization_v_middle_open_glossy_kr_game_f.webp": "2026-10-29",
   "civilization_v_title_glossy_kr_game_f.webp": "2026-10-29",
   "civilization_v_title_open_glossy_kr_game_f.webp": "2026-10-29",
+  "clair_obscur_expedition_33_ending_glossy_kr_game_f.webp": "2026-10-31",
+  "clair_obscur_expedition_33_ending_open_glossy_kr_game_f.webp": "2026-10-31",
+  "clair_obscur_expedition_33_glossy_kr_game_f_casual1.webp": "2026-10-31",
+  "clair_obscur_expedition_33_glossy_kr_game_f_casual2.webp": "2026-10-31",
+  "clair_obscur_expedition_33_glossy_kr_game_f_casual3.webp": "2026-10-31",
+  "clair_obscur_expedition_33_glossy_kr_game_f_casual4.webp": "2026-10-31",
+  "clair_obscur_expedition_33_glossy_kr_game_f_casual5.webp": "2026-10-31",
+  "clair_obscur_expedition_33_middle_glossy_kr_game_f.webp": "2026-10-31",
+  "clair_obscur_expedition_33_middle_open_glossy_kr_game_f.webp": "2026-10-31",
+  "clair_obscur_expedition_33_title_glossy_kr_game_f.webp": "2026-10-31",
+  "clair_obscur_expedition_33_title_open_glossy_kr_game_f.webp": "2026-10-31",
   "dark_souls_ending_glossy_kr_game_f.webp": "2026-10-26",
   "dark_souls_ending_open_glossy_kr_game_f.webp": "2026-10-26",
   "dark_souls_glossy_kr_game_f_casual1.webp": "2026-10-26",
@@ -366,5 +378,5 @@
   "world_of_warcraft_title_glossy_kr_game_f.webp": "2026-10-28",
   "world_of_warcraft_title_open_glossy_kr_game_f.webp": "2026-10-28"
  },
- "count": 29
+ "count": 30
 }
