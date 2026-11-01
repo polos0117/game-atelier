@@ -60,7 +60,7 @@ node tools/prompt-pack.cjs init <게임> --dir $W/pack --plan $W/plan/plan.json 
 node tools/prompt-pack.cjs build --dir $W/pack                                  # 자리마다 <자리>-prompt.txt · <자리>-ui.json · INDEX.md
 ```
 
-- 일상컷은 **트리 버전2**(`--v2`, `docs/CASUAL_TREE_V2.md`)로 짠다. 계획기가 묶음 규칙(필수 갈래 · 시대 넷 · 먼/가까운 컷 · 소품 고르게 …, `IMAGE_RULES.md` 2절)을 지킨다.
+- 일상컷은 **트리 버전2**(`--v2`, `docs/CASUAL_TREE_V2.md`)로 짠다. 계획기가 묶음 규칙(필수 갈래 · 시대 넷 · 먼/가까운 컷 · 소품 고르게 · 게임 사이 안 쓴 장소 · 옷 · 자세 · 표정 먼저 …, `IMAGE_RULES.md` 2절)을 지킨다. 그림 저장소 기록을 읽어야 하니 `--usage none` 은 쓰지 않는다.
   GPT 세션은 계획을 사람에게 보이지 않는다 — 계획기 출력 그대로 간다. 이미 있는 컷의 기록(`--records`)은 겹침 검사에만 쓴다.
 - `settings.json` 은 **비워 둔 채** build 하는 것이 기본이다. 고칠 때만 칸을 채우고, 직접 입력(글 칸 · 표에 없는 값)엔 `why` 를 적는다.
   틀린 칸이 하나라도 있으면 build 가 아무것도 안 쓴다. 고칠 수 있는 칸은 `tools/prompt-pack.cjs` 머리말에.

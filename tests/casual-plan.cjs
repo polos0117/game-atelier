@@ -115,6 +115,21 @@ assert(!more2.cuts.some(c => v1first.some(o => o.place === c.place)), '이미 �
   const [free, a1] = cnt({}), [hit, a2] = cnt({ cup: 30 });
   assert(hit < free / 2 && a2 > 0, '많이 쓴 잔이면 마실 것이 덜 나온다: ' + free + '/' + a1 + ' → ' + hit + '/' + a2);
 }
+/* 게임 사이 안 쓴 트리 먼저(2026-11-01, element 와 같게) — 장소 · 자세 추천 · 표정을 많이 쓴 것으로 채운 횟수를 주면 안 쓴 값이 훨씬 자주 나온다 */
+{
+  const S = ctx.window.AtelierSpec, places = Object.keys(tree2.places).filter(k => k !== 'note'), presets = tree2.presets.map(x => x.key), exprs = S.EXPRESSION_OPTIONS.map(r => r[0]).filter(Boolean);
+  const third = list => new Set(list.filter((k, i) => i % 3 === 0)), fP = third(places), fR = third(presets), fE = third(exprs);
+  const heavy = (all, keep) => Object.fromEntries(all.filter(k => !keep.has(k)).map(k => [k, 12]));
+  const usage = { prop: {}, place: heavy(places, fP), item: {}, preset: heavy(presets, fR), posture: {}, expr: heavy(exprs, fE) };
+  const share = (u, f, set) => { let hit = 0, all = 0; for (const g2 of design.games.slice(0, 10)) for (const seed of [3, 11]) for (const c of C.plan2(g2, [1, 2, 3, 4, 5], [], { seed, usage: u }).cuts) { if (!c[f]) continue; all++; if (set.has(c[f])) hit++; } return hit / all; };
+  for (const [f, set, name] of [['place', fP, '장소'], ['preset', fR, '자세 추천'], ['expr', fE, '표정']]) {
+    const base = share({}, f, set), lean = share(usage, f, set);
+    assert(lean > 0.6 && lean > base * 1.5, name + ' — 안 쓴 값 비율 ' + lean.toFixed(2) + ' (횟수 없이 ' + base.toFixed(2) + ')');
+  }
+  assert.deepEqual(C.plan2(g, [1, 2, 3], [], { seed: 7, usage }).cuts, C.plan2(g, [1, 2, 3], [], { seed: 7, usage }).cuts, '같은 입력 · 씨앗이면 같은 답');
+  const img = path.join(__dirname, '../../game-atelier-img/records');
+  if (fs.existsSync(img)) { const u = C.sceneUsage(img, g.key); assert(Object.keys(u.place).length > 10 && Object.keys(u.expr).length > 5, '그림 저장소 기록에서 센다'); }
+}
 /* 버전2 규칙 검사가 건다 */
 const b2 = C.plan2(g, [1, 2, 3, 4, 5], [], { seed: 4 }).cuts, e2 = f => C.check2(f(b2.map(c => ({ ...c }))), g).join(' | ');
 assert.match(e2(cs => { Object.assign(cs[1], { preset: cs[0].preset }); return cs; }), /자세 추천|트리에서 못 고른다/);
