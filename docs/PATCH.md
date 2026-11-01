@@ -11,6 +11,11 @@
 
 
 
+## 2026-11-01 · claude · 뒷모습 돌아보기 — 돌아보는 어깨 · 손의 화면 쪽 · 얼굴 손의 팔
+- lib/casual-tree-v2.js(공용, game 원본 · book · element · pkm 같은 파일) — backLook: 몸이 뒤쪽(far)이고 머리가 어깨 너머(look_back)면 돌아보는 어깨를 얼굴에 닿는 손(zone face)의 쪽으로(없으면 왼쪽) 정하고, 손 줄에 붙일 화면 쪽 말과 얼굴 손의 팔 줄을 준다. 「어깨 너머」 만 적으니 모델이 아무 쪽으로 돌렸고 뒷모습에서 「her own right hand」 를 자주 뒤집어, 얼굴 쪽과 반대 팔이 귀를 만지려 머리 뒤를 가로질렀다(element 「난간에서 돌아보기」 — 사용자 「지속적으로 뒷태에서 머리 만지는 컷이 팔 구조 해석이 잘못됐는지」). 시험 세 장(o-blood 메카 일상1 두 번 · c 판타지 일상1)에서 팔이 같은 쪽 어깨에서 올라갔다
+- lib/prompt-game.js — COMPOSITION 의 머리 말을 「her own left shoulder — the shoulder on the image's left side」 로, 손 줄 끝에 「on the image's … side, since her back is to the camera」, 얼굴 손이면 ARM 줄(같은 쪽 어깨에서 · 팔꿈치는 옆으로 · 머리 · 목 뒤를 가로지르지 않는다). 앞모습은 그대로. 생성기 캐시 번호 올림
+- tests/prompt-game.cjs — 난간에서 돌아보기: 왼쪽 어깨 · 손의 화면 쪽 · 팔 줄, 앞모습엔 안 붙음
+
 ## 2026-11-01 · claude · 할로윈 코스튬 의상 · 주인공·마스코트 성인 코스튬 필수 컷
 - data/casual-tree.json · data/casual-tree-v2.json — 의상 계열 둘: 할로윈 코스튬(halloween, 열여섯 벌 — 수위 있게) · 주인공·마스코트 코스튬(hero_costume, costume: true — 네 가지 재단, 옷 문장의 {costume} 을 게임마다 채움). 시대는 지금 · 무대·환상(출시 당시 줄 「그 시대 평상복만」 과 부딪혀 뺐다), 무대 의상 받는 곳 + 거실 · 바 · 옥상 파티 · 축제 거리(코스튬은 코스프레 행사 · 오락실 · 방송 책상 · 거실 · 침실 · 클럽 · 화보 스튜디오 · 별빛 무대). costume_required 칸. 버전2 어색한 조합에 목욕 · 운동 · 물가. 사용자 「각 공방에 일상컷 의상중에 할로윈 코스튬 의상 등 좀 더 추가해줘. 수위가 좀 있는걸로」 「게임공방에는 의상 중에 해당 게임의 주인공이나, 마스코트를 성인 코스튬 버전으로 추가해서 필수 컷에 포함시켜줘」
 - data/game-design.json · tools/game-design.py — 게임마다 costume(who 이름 · en 차림 조각 — 얼굴 · 몸 · 로고 · 글자 없이). 검사기가 비었거나 한글 · 로고면 건다. 창세기전 3 · 랑그릿사 II · 카트라이더 · 리니지 · 대항해시대 4 처럼 확인할 자료가 없던 것은 겉에 드러나는 조각만 일반적으로 적었다

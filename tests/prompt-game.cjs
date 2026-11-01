@@ -368,6 +368,16 @@ const moved = C2.fromV1(t2, v1sc);
 assert(cas2(g, moved).includes('POSTURE: ') && !cas2(g, moved).includes('Activity: '), '옮긴 기록은 버전2 줄');
 assert.throws(() => P.buildCasual({ game: g, tree2, treeV: 2, styleText: text }), /Casual tree is required|Casual tree v2/);
 
+/* 뒷모습 돌아보기(2026-11-01 — 「난간에서 돌아보기」 의 머리 만지는 팔이 머리 뒤를 가로질렀다): 돌아보는 어깨 = 얼굴 손 쪽, 손 줄에 화면 쪽, 얼굴 손엔 팔 줄 */
+{
+  const rl = spots[tree2.presets.findIndex(p => p.key === 'rail_lookback')], sc = block(cas2(G[0], rl), 'SCENE (chosen):');
+  assert(rl.left === 'hair_tuck' && rl.right === 'rail', '추천 그대로');
+  assert(sc.includes("head turned back over her own left shoulder — the shoulder on the image's left side") && !sc.includes('back over her shoulder;'), '돌아보는 어깨');
+  assert(sc.includes("RIGHT HAND: her own right hand rests on the railing — on the image's right side, since her back is to the camera") && sc.includes("LEFT HAND: her own left hand tucks hair behind her ear — on the image's left side"), '손의 화면 쪽');
+  assert(/\nARM: her own left arm rises from her left shoulder[^\n]*never crosses behind her head/.test(sc), '팔 줄');
+  const front = block(cas2(G[0], { ...rl, body: 'front_3q', head: 'with_body' }), 'SCENE (chosen):');
+  assert(!front.includes("image's") && !front.includes('ARM: '), '앞모습엔 안 붙는다');
+}
 console.log(`PASS 일상컷 버전2: ${G.length}편 × 추천 ${spots.length} = ${v2n}개 · 가장 긴 것 ${longestV2}낱말(다 얹으면 ${heaviest}) · 상한 ${LIMIT} · 버전1 줄 없음 · 손 줄 · 소품 · 다리 · 시선 · 뒤돌아보기 · 가까운 컷 · 표정 시선 말`);
 /* 폼 표정(2026-11-01 — 단계마다 표정이 비슷했다) — 설계표 forms.<단계>.expr 가 단계마다 다르고, 고르지 않으면 그 표정 줄, 고르면 고른 것만. AGE 줄에 미소가 없다 */
 {
