@@ -19,7 +19,9 @@
     "subculture",
     "bridal",
     "retro",
-    "costume"
+    "costume",
+    "halloween",
+    "hero_costume"
    ]
   },
   {
@@ -70,7 +72,9 @@
     "retro",
     "traditional",
     "subculture",
-    "roleplay"
+    "roleplay",
+    "halloween",
+    "hero_costume"
    ]
   }
  ],
@@ -144,7 +148,8 @@
     "homewear",
     "lingerie",
     "everyday",
-    "evening"
+    "evening",
+    "hero_costume"
    ]
   },
   {
@@ -189,7 +194,9 @@
     "homewear",
     "lingerie",
     "everyday",
-    "active"
+    "active",
+    "halloween",
+    "hero_costume"
    ],
    "screens": true
   },
@@ -361,7 +368,8 @@
     "everyday",
     "subculture",
     "retro",
-    "roleplay"
+    "roleplay",
+    "hero_costume"
    ]
   },
   {
@@ -408,7 +416,8 @@
     "everyday",
     "subculture",
     "retro",
-    "roleplay"
+    "roleplay",
+    "hero_costume"
    ]
   },
   {
@@ -423,7 +432,8 @@
    "outfits": [
     "everyday",
     "subculture",
-    "retro"
+    "retro",
+    "hero_costume"
    ],
    "since": 1995
   },
@@ -439,7 +449,8 @@
    "outfits": [
     "everyday",
     "subculture",
-    "roleplay"
+    "roleplay",
+    "hero_costume"
    ]
   },
   {
@@ -469,7 +480,8 @@
    "outfits": [
     "everyday",
     "homewear",
-    "subculture"
+    "subculture",
+    "hero_costume"
    ],
    "since": 2005
   },
@@ -813,7 +825,8 @@
     "evening",
     "subculture",
     "everyday",
-    "retro"
+    "retro",
+    "halloween"
    ]
   },
   {
@@ -830,7 +843,9 @@
     "subculture",
     "everyday",
     "retro",
-    "costume"
+    "costume",
+    "halloween",
+    "hero_costume"
    ]
   },
   {
@@ -893,7 +908,8 @@
     "evening",
     "subculture",
     "everyday",
-    "retro"
+    "retro",
+    "halloween"
    ]
   },
   {
@@ -924,7 +940,8 @@
     "traditional",
     "roleplay",
     "retro",
-    "subculture"
+    "subculture",
+    "halloween"
    ]
   },
   {
@@ -971,7 +988,8 @@
     "active",
     "evening",
     "traditional",
-    "costume"
+    "costume",
+    "halloween"
    ]
   },
   {
@@ -1012,7 +1030,9 @@
    ],
    "outfits": [
     "roleplay",
-    "costume"
+    "costume",
+    "halloween",
+    "hero_costume"
    ]
   },
   {
@@ -1027,7 +1047,9 @@
    "outfits": [
     "roleplay",
     "subculture",
-    "costume"
+    "costume",
+    "halloween",
+    "hero_costume"
    ],
    "since": 1990
   },
@@ -1363,7 +1385,9 @@
     "costume",
     "lingerie",
     "swimwear",
-    "evening"
+    "evening",
+    "halloween",
+    "hero_costume"
    ]
   },
   {
@@ -1391,7 +1415,8 @@
    "outfits": [
     "costume",
     "evening",
-    "retro"
+    "retro",
+    "halloween"
    ]
   },
   {
@@ -1404,7 +1429,9 @@
    ],
    "outfits": [
     "costume",
-    "editorial"
+    "editorial",
+    "halloween",
+    "hero_costume"
    ]
   },
   {
@@ -1418,7 +1445,8 @@
    "outfits": [
     "costume",
     "bridal",
-    "traditional"
+    "traditional",
+    "halloween"
    ]
   },
   {
@@ -1445,7 +1473,8 @@
    "outfits": [
     "costume",
     "editorial",
-    "evening"
+    "evening",
+    "halloween"
    ]
   },
   {
@@ -1458,7 +1487,8 @@
    ],
    "outfits": [
     "costume",
-    "roleplay"
+    "roleplay",
+    "halloween"
    ]
   },
   {
@@ -1473,7 +1503,8 @@
     "costume",
     "evening",
     "bridal",
-    "retro"
+    "retro",
+    "halloween"
    ]
   },
   {
@@ -1487,7 +1518,8 @@
    "outfits": [
     "costume",
     "subculture",
-    "bridal"
+    "bridal",
+    "halloween"
    ]
   },
   {
@@ -1587,7 +1619,8 @@
    "outfits": [
     "editorial",
     "retro",
-    "costume"
+    "costume",
+    "halloween"
    ]
   }
  ],
@@ -4008,7 +4041,9 @@
    "en": "wrapped in aerial silks, holding a pose in mid-air",
    "outfits": [
     "active",
-    "costume"
+    "costume",
+    "halloween",
+    "hero_costume"
    ],
    "prefer": [
     "unitard"
@@ -5426,6 +5461,121 @@
     }
    ],
    "en": "a stage or fantasy costume"
+  },
+  {
+   "key": "halloween",
+   "ko": "할로윈 코스튬",
+   "en": "a daring adult Halloween costume",
+   "items": [
+    {
+     "key": "hw_witch",
+     "ko": "마녀",
+     "en": "a dark witch costume — a plunging black velvet bodysuit under a sheer black chiffon cape, a crooked wide-brimmed pointed hat and sheer thigh-high stockings"
+    },
+    {
+     "key": "hw_vampire",
+     "ko": "뱀파이어",
+     "en": "a vampire costume — a plunging blood-red satin corset dress with a thigh-high slit under a high-collared black cape"
+    },
+    {
+     "key": "hw_black_cat",
+     "ko": "검은 고양이",
+     "en": "a black cat costume — a glossy black strapless bodysuit, sheer black tights, a cat-ear headband, a curling tail and a bell choker"
+    },
+    {
+     "key": "hw_devil",
+     "ko": "악마",
+     "en": "a she-devil costume — a glossy red corset mini dress with a sweetheart neckline, small curved horns and a pointed tail"
+    },
+    {
+     "key": "hw_succubus",
+     "ko": "서큐버스",
+     "en": "a succubus costume — a black strappy bralette and a high-waisted lace mini skirt with garter straps, small bat wings and curled horns"
+    },
+    {
+     "key": "hw_mummy",
+     "ko": "미라",
+     "en": "a mummy costume — a fitted bandage-wrap mini dress of layered cream gauze strips, bare shoulders and loose trailing wrap ends"
+    },
+    {
+     "key": "hw_ghost_bride",
+     "ko": "유령 신부",
+     "en": "a ghost bride costume — a tattered off-shoulder white lace mini dress with a torn trailing veil and a wilted bouquet corsage"
+    },
+    {
+     "key": "hw_skeleton",
+     "ko": "해골",
+     "en": "a skeleton costume — a black stretch catsuit printed with white bones, worn with a red-rose flower crown"
+    },
+    {
+     "key": "hw_pumpkin",
+     "ko": "호박",
+     "en": "a pumpkin costume — an orange satin corset with a puffed tulle mini skirt, black-and-orange striped thigh-high stockings and a tiny green stem headband"
+    },
+    {
+     "key": "hw_wolf",
+     "ko": "늑대",
+     "en": "a she-wolf costume — a grey faux-fur crop top and mini skirt, a wolf-ear headband, a fluffy tail and fingerless gloves"
+    },
+    {
+     "key": "hw_pirate",
+     "ko": "해적",
+     "en": "a pirate costume — a laced black corset over an off-shoulder white blouse, a ragged mini skirt, thigh-high boots and a tricorn hat"
+    },
+    {
+     "key": "hw_spider",
+     "ko": "거미 여왕",
+     "en": "a black widow costume — a sheer-sleeved black mini dress with a web-patterned lace overlay and a spiked spider-leg collar"
+    },
+    {
+     "key": "hw_dark_angel",
+     "ko": "타락 천사",
+     "en": "a dark angel costume — a black feather-trimmed corset mini dress with large black feathered wings"
+    },
+    {
+     "key": "hw_bat",
+     "ko": "박쥐",
+     "en": "a bat costume — a black satin bustier mini dress with scalloped bat-wing sleeves and a small bat-ear headband"
+    },
+    {
+     "key": "hw_sheer_ghost",
+     "ko": "시스루 유령",
+     "en": "a sheer ghost costume — layers of translucent white chiffon draped over a short white satin slip"
+    },
+    {
+     "key": "hw_medusa",
+     "ko": "메두사",
+     "en": "a Medusa costume — a gold-trimmed emerald one-shoulder draped mini dress, a coiled-serpent headpiece and snake arm cuffs"
+    }
+   ]
+  },
+  {
+   "key": "hero_costume",
+   "ko": "주인공·마스코트 코스튬",
+   "costume": true,
+   "en": "a daring adult costume version of her game's hero or mascot",
+   "items": [
+    {
+     "key": "hc_mini_dress",
+     "ko": "미니 드레스형",
+     "en": "a daring adult costume version of {costume}, cut as a fitted strapless mini dress"
+    },
+    {
+     "key": "hc_bodysuit",
+     "ko": "바디수트형",
+     "en": "a daring adult costume version of {costume}, cut as a high-cut bodysuit with sheer thigh-high stockings"
+    },
+    {
+     "key": "hc_crop_set",
+     "ko": "크롭 투피스형",
+     "en": "a daring adult costume version of {costume}, cut as a cropped top and a micro skirt or hot pants that bare the midriff"
+    },
+    {
+     "key": "hc_corset",
+     "ko": "코르셋형",
+     "en": "a daring adult costume version of {costume}, cut as a laced corset bustier with a short flared skirt"
+    }
+   ]
   },
   {
    "key": "editorial",
@@ -10554,5 +10704,9 @@
    "key": "wildcard",
    "ko": "와일드카드"
   }
- ]
+ ],
+ "costume_required": {
+  "outfit": "hero_costume",
+  "note": "한 게임 일상컷 묶음에 주인공·마스코트 성인 코스튬 한 장(필수 갈래와 따로, 2026-11-01 사용자). 옷 문장의 {costume} 은 설계표 게임마다 costume.en 으로 채운다"
+ }
 }

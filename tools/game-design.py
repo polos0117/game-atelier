@@ -69,6 +69,12 @@ def check(doc):
             bad("손에 들 알아볼 거리(signature_hold)는 signature 번호 목록 — 없으면 []")
         if not [a for a in (g.get("avoid") or []) if str(a).strip()]:
             bad("그리지 않을 것(avoid — 게임 속 캐릭터·로고·UI)을 적는다")
+        # 주인공·마스코트 성인 코스튬(2026-11-01) — 일상컷 묶음에 한 장 꼭. who 는 사람이 보는 이름, en 은 옷 문장의 {costume} 자리(그 차림의 조각만 — 얼굴·몸·글자 없이)
+        cos = g.get("costume") if isinstance(g.get("costume"), dict) else {}
+        if not str(cos.get("who") or "").strip() or not str(cos.get("en") or "").strip():
+            bad("주인공·마스코트 코스튬(costume — who · en)을 적는다")
+        elif re.search(r"\b(logo|lettering)\b", cos["en"], re.I) or re.search(r"[가-힣]", cos["en"]):
+            bad("코스튬 문장(costume.en)은 영어로, 로고·글자 없이")
         v = g.get("voice")
         for k in STAGES:
             if not str((v if isinstance(v, dict) else {}).get(k) or "").strip():

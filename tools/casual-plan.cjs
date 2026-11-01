@@ -56,6 +56,18 @@ function rng(seed) { let a = seed >>> 0; return () => { a = (a + 0x6D2B79F5) >>>
 const pick = (r, list) => list[Math.floor(r() * list.length)];
 function weighted(r, weights) { const keys = Object.keys(weights), sum = keys.reduce((s, k) => s + weights[k], 0); let x = r() * sum; for (const k of keys) { x -= weights[k]; if (x < 0) return k; } return keys[0]; }
 
+/* 주인공·마스코트 성인 코스튬(2026-11-01 사용자 「게임의 주인공이나 마스코트를 성인 코스튬 버전으로 … 필수 컷에 포함」) — 필수 갈래와 따로 한 묶음에 한 장 꼭.
+   이미 있는 컷에 없으면 칸 하나가 'costume' 길(그 의상 계열)로 간다. 다섯 장이 다 있는 옛 게임은 --slots 없이 부르면 그 한 장만 짠다 */
+const COSTUME = (tree.costume_required || {}).outfit || '';
+const isCostume = c => !!COSTUME && !!c && c.ofam === COSTUME;
+const pathOk = (sc, type) => type === 'costume' ? isCostume(sc) : requiredType(sc) === type;
+/* 묶음에서 필수 갈래 · 코스튬 칸 — 필수 갈래는 첫 칸, 코스튬은 그다음 칸(필수 갈래가 이미 있으면 첫 칸) */
+function slotTypes(n, want, needCostume) {
+  const out = Array(n).fill('');
+  if (want) out[0] = want;
+  if (needCostume) { const i = want ? 1 : 0; if (i >= n) throw new Error('필수 갈래와 코스튬 컷을 함께 짤 칸이 모자라다 — 칸을 둘 이상'); out[i] = 'costume'; }
+  return out;
+}
 /* 필수 갈래 종류 — 옷 계열이 곧 필수면 그 계열, 게임 세계 안 섹시 일상이면 in_game */
 function requiredType(sc) {
   if ((tree.required.outfits || []).includes(sc.ofam)) return sc.ofam;
@@ -70,7 +82,7 @@ function requiredPaths(type, game) {
   for (const e of tree.eras) for (const p of CT.places(tree, e.key, game)) for (const a of CT.acts(tree, e.key, p.key))
     for (const f of CT.outfitFamilies(tree, e.key, p.key, a.key)) {
       const sc = { era: e.key, place: p.key, act: a.key, ofam: f.key };
-      if (requiredType(sc) === type) out.push(sc);
+      if (pathOk(sc, type)) out.push(sc);
     }
   PATH_CACHE.set(ck, out);
   return out;
@@ -118,6 +130,7 @@ function check(cuts, game, base = [], free = []) {
     Object.entries(m).forEach(([k, n]) => { if (n > Math.max(cap, b[k] || 0)) errs.push(`${name} ${k} 가 ${n} 번(${cap} 번까지)`); });
   };
   if (!every.some(c => requiredType(c))) errs.push('필수 갈래가 없다');
+  if (COSTUME && !every.some(isCostume)) errs.push('주인공·마스코트 코스튬 컷이 없다');
   over('방향', c => c.orient, 1);
   over('프레이밍', c => c.frame, 1, FRAMES.length);
   over('렌즈', c => c.lens, 2, LENSES.length);
@@ -145,9 +158,9 @@ function plan(game, slots, old, { seed = Date.now(), required = '' } = {}) {
   const r = rng(seed), oldReq = old.some(c => requiredType(c));
   const gi = design.games.findIndex(g => g.key === game.key);
   const want = oldReq ? '' : (required || REQUIRED_TYPES[gi % REQUIRED_TYPES.length]);
-  const props = (game.signature || []).map((_, i) => String(i));
+  const props = (game.signature || []).map((_, i) => String(i)), types = slotTypes(slots.length, want, COSTUME && !old.some(isCostume));
   for (let attempt = 1; attempt <= 20000; attempt++) {
-    const cuts = slots.map((n, i) => ({ n, ...randomSlot(r, game, i === 0 ? want : '') }));
+    const cuts = slots.map((n, i) => ({ n, ...randomSlot(r, game, types[i]) }));
     const free = props.filter(p => !old.some(c => c.prop === p));
     cuts.forEach((c, i) => { c.prop = free.length ? free[(i + Math.floor(r() * free.length)) % free.length] : ''; });
     const errs = check(cuts, game, old);
@@ -169,7 +182,8 @@ function requiredPaths2(type, game) {
   for (const e of tree.eras) for (const place of C2.choices(T2, { era: e.key }, 'place', game))
     for (const ofam of C2.choices(T2, { era: e.key, place }, 'ofam', game)) {
       const sc = { era: e.key, place, ofam };
-      if (requiredType(sc) === type) out.push(sc);
+      /* 코스튬 칸은 어색한 조합(목욕 · 운동 · 물가)이 아닌 곳에서만 */
+      if (pathOk(sc, type) && !(type === 'costume' && C2.awkward(T2, ofam, place).length)) out.push(sc);
     }
   PATH2.set(ck, out);
   return out;
@@ -249,6 +263,7 @@ function check2(cuts, game, base = [], free = []) {
     Object.entries(m).forEach(([k, n]) => { if (n > Math.max(most, b[k] || 0)) errs.push(`${name} ${k} 가 ${n} 번(${most} 번까지)`); });
   };
   if (!every.some(c => requiredType(c))) errs.push('필수 갈래가 없다');
+  if (COSTUME && !every.some(isCostume)) errs.push('주인공·마스코트 코스튬 컷이 없다');
   over('장소', c => c.place, 1);
   over('장소 묶음', c => (C2.place(T2, c.place) || {}).group, 2);
   over('의상 계열', c => c.ofam !== 'everyday' && c.ofam, 1);
@@ -280,7 +295,7 @@ function check2(cuts, game, base = [], free = []) {
 }
 /* 버전2 묶음 — 통째로 뽑아 거르면 규칙이 많아 거의 안 맞는다(다섯 장에 수만 번). 한 장씩 쌓는다:
    프레이밍을 먼저 나눠 주고(먼 컷 · 가까운 컷 하나씩), 알아볼 거리를 들 칸 하나를 정하고, 칸마다 앞 칸들과 겹치지 않는 것을 고른다 */
-const MUST = /^(필수 갈래가 없다|먼 컷|가까운 컷|알아볼 거리를 든 컷이 없다|시대가 )/;
+const MUST = /^(필수 갈래가 없다|주인공·마스코트 코스튬|먼 컷|가까운 컷|알아볼 거리를 든 컷이 없다|시대가 )/;
 function plan2(game, slots, old, { seed = Date.now(), required = '', usage = {} } = {}) {
   const rUse = rng((seed ^ 0x5bd1e995) >>> 0), r = rng(seed), oldReq = old.some(c => requiredType(c));
   const gi = design.games.findIndex(g => g.key === game.key);
@@ -288,7 +303,7 @@ function plan2(game, slots, old, { seed = Date.now(), required = '', usage = {} 
   const used = new Set(old.map(c => c.prop)), freeProps = (game.signature || []).map((_, i) => String(i)).filter(p => !used.has(p));
   const holds = (game.signature_hold || []).map(String).filter(p => !used.has(p));
   const needSig = holds.length > 0 && !old.some(c => isV2(c) && sigProp2(c)) && slots.length >= 3;
-  const oldFrames = new Set(old.map(c => c.frame));
+  const oldFrames = new Set(old.map(c => c.frame)), types = slotTypes(slots.length, want, COSTUME && !old.some(isCostume));
   for (let attempt = 1; attempt <= 400; attempt++) {
     /* 프레이밍 — 이미 있는 컷이 쓴 것은 피하고, 먼 컷 · 가까운 컷이 없으면 하나씩 */
     let frames = FRAMES.filter(f => !oldFrames.has(f)).sort(() => r() - 0.5);
@@ -305,16 +320,34 @@ function plan2(game, slots, old, { seed = Date.now(), required = '', usage = {} 
       eras.push(e); cnt[e]++;
     }
     eras = eras.sort(() => r() - 0.5);
+    /* 코스튬 칸은 코스튬을 입을 수 있는 시대(지금 · 무대·환상)로 — 다른 칸과 바꾸거나 그 시대로 */
+    const ci = types.indexOf('costume'), cosEras = tree.eras.filter(e => e.outfits.includes(COSTUME)).map(e => e.key);
+    if (ci >= 0 && !cosEras.includes(eras[ci])) {
+      const j = eras.findIndex((e, k) => k !== ci && cosEras.includes(e));
+      if (j >= 0) [eras[ci], eras[j]] = [eras[j], eras[ci]]; else eras[ci] = pick(r, cosEras);
+    }
     const sigAt = needSig ? Math.floor(r() * slots.length) : -1, sigProp = needSig ? pick(r, holds) : '';
     const rest = freeProps.filter(p => p !== sigProp), off = Math.floor(r() * Math.max(1, rest.length));
     const cuts = [];
+    /* 알아볼 거리 칸 — 남은 것을 돌려 주되 한 가지가 한도(칸 수 ÷ 알아볼 거리 수)를 넘으면 다른 것, 다 찼으면 자동('').
+       남은 것이 하나뿐이면 새 칸 셋이 다 그것을 받아 묶음 규칙에 늘 걸렸다(버전1 다섯 장 위에 세 장 — 2026-11-01) */
+    const sigN = (game.signature || []).length, cap = Math.max(1, Math.ceil((old.length + slots.length) / Math.max(1, sigN))), pc = {};
+    old.forEach(c => { if (c.prop && c.prop !== 'none') pc[c.prop] = (pc[c.prop] || 0) + 1; });
+    if (sigProp) pc[sigProp] = (pc[sigProp] || 0) + 1;
+    const props = slots.map((_, i) => {
+      if (i === sigAt) return sigProp;
+      const want = rest.length ? rest[(i + off) % rest.length] : '';
+      const p = want && (pc[want] || 0) < cap ? want : ((game.signature || []).map((_, k) => String(k)).find(k => (pc[k] || 0) < cap) || '');
+      if (p) pc[p] = (pc[p] || 0) + 1;
+      return p;
+    });
     for (let i = 0; i < slots.length; i++) {
-      const prop = i === sigAt ? sigProp : rest.length ? rest[(i + off) % rest.length] : '';
+      const prop = props[i];
       let got = null;
       for (let k = 0; k < 60 && !got; k++) {
         /* 이 묶음에서 이미 쓴 소품은 묶음 규칙이 다시 막으니 처음부터 크게 센다 */
         const U0 = usageOf(usage), here = { ...U0, prop: { ...U0.prop } }; cuts.forEach(c => { const u = C2.use(T2, c.use); if (u) here.prop[u.prop] = (here.prop[u.prop] || 0) + 10; });
-        const sc = randomSlot2(r, game, i === 0 ? want : '', prop, { frame: frames[i], wantSig: i === sigAt, era: eras[i], usage: here, rUse });
+        const sc = randomSlot2(r, game, types[i], prop, { frame: frames[i], wantSig: i === sigAt, era: eras[i], usage: here, rUse });
         if (!sc) continue;
         const cand = { n: slots[i], ...sc };
         if (!check2([...cuts, cand], game, old).filter(e => !MUST.test(e)).length) got = cand;
@@ -414,9 +447,11 @@ function main(argv) {
     console.log(errs.length ? `일상컷 묶음 ${errs.length} 가지 걸림` : `일상컷 묶음 통과 — ${cuts.length} 장`);
     return errs.length ? 1 : 0;
   }
-  const taken = registered(game);
-  const slots = opt.slots ? opt.slots.split(',').map(Number) : [...Array(30).keys()].map(i => i + 1).filter(n => !taken.includes(n)).slice(0, 5);
-  const old = oldCuts(opt.records, game).filter(c => !slots.includes(c.n));
+  const taken = registered(game), recs = oldCuts(opt.records, game);
+  /* 다섯 장이 다 있고 코스튬 컷만 없으면 그 한 장만(2026-11-01) */
+  const onlyCostume = !opt.slots && COSTUME && taken.length >= 5 && recs.length >= 5 && !recs.some(isCostume);
+  const slots = opt.slots ? opt.slots.split(',').map(Number) : [...Array(30).keys()].map(i => i + 1).filter(n => !taken.includes(n)).slice(0, onlyCostume ? 1 : 5);
+  const old = recs.filter(c => !slots.includes(c.n));
   const seed = Number(opt.seed || Date.now() % 1e9);
   /* --usage <그림 저장소>/records — 다른 게임이 쓴 소품을 센다(없으면 옆의 game-atelier-img/records, 'none' 이면 안 센다) */
   const usageDir = opt.usage === 'none' ? '' : (opt.usage || path.join(ROOT, '..', 'game-atelier-img', 'records'));
@@ -437,5 +472,5 @@ function main(argv) {
   return 0;
 }
 
-module.exports = { plan, check, plan2, check2, randomSlot2, record, requiredType, oldCuts, propUsage, sceneUsage, DRINKS, REQUIRED_TYPES, WEIGHT_UNUSED };
+module.exports = { plan, check, plan2, check2, randomSlot2, record, requiredType, isCostume, COSTUME, oldCuts, propUsage, sceneUsage, DRINKS, REQUIRED_TYPES, WEIGHT_UNUSED };
 if (require.main === module) process.exit(main(process.argv.slice(2)));

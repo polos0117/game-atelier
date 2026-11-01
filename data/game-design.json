@@ -673,7 +673,11 @@
     "입 벌린 노란 원형 캐릭터",
     "유령 넷의 모양과 빨강·분홍·하늘·주황 조합",
     "타이틀 글자"
-   ]
+   ],
+   "costume": {
+    "who": "팩맨(마스코트)",
+    "en": "Pac-Man's look — glossy bright yellow with a wedge-shaped cut-out motif, rows of small white pellet dots as trim and a pair of red cherries as an accessory"
+   }
   },
   {
    "key": "tetris",
@@ -937,6 +941,10 @@
    "pilot": {
     "form": "타이틀",
     "open": "중반"
+   },
+   "costume": {
+    "who": "테트로미노 블록",
+    "en": "the falling Tetris blocks — bold colour-blocked squares in cyan, yellow, purple, green, red, blue and orange set as interlocking four-square shapes with glossy bevelled edges"
    }
   },
   {
@@ -1100,7 +1108,11 @@
     "콧수염 난 얼굴",
     "얼굴 있는 버섯·거북 캐릭터",
     "로고·타이틀 글자"
-   ]
+   ],
+   "costume": {
+    "who": "마리오",
+    "en": "Mario's outfit — a red cap with a plain white circle badge, a red top, blue overalls with big yellow buttons, white gloves and brown boots"
+   }
   },
   {
    "key": "legend_of_zelda",
@@ -1268,7 +1280,11 @@
    "avoid": [
     "원작 주인공·공주·적 캐릭터의 얼굴",
     "로고·타이틀 글자"
-   ]
+   ],
+   "costume": {
+    "who": "링크",
+    "en": "Link's outfit — a green belted tunic, a long pointed green cap, brown leather belts and bracers, pale tights and brown boots"
+   }
   },
   {
    "key": "dragon_quest",
@@ -1491,6 +1507,10 @@
    "pilot": {
     "form": "타이틀",
     "open": "중반"
+   },
+   "costume": {
+    "who": "슬라임(마스코트)",
+    "en": "the blue Slime mascot's look — glossy translucent sky-blue in a rounded teardrop shape with a little curled tip as a headpiece, without its face"
    }
   },
   {
@@ -1751,7 +1771,11 @@
     "원작 격투가들의 얼굴",
     "손에서 쏘는 기공 구체",
     "VS·KO 글자"
-   ]
+   ],
+   "costume": {
+    "who": "류",
+    "en": "Ryu's outfit — a white karate gi with torn-off sleeves, a red headband with long trailing ends, a black belt and red fingerless gloves"
+   }
   },
   {
    "key": "simcity",
@@ -2055,7 +2079,11 @@
    "avoid": [
     "재난 괴물",
     "타이틀 글자"
-   ]
+   ],
+   "costume": {
+    "who": "시장(플레이어)",
+    "en": "the SimCity mayor's look — colour-blocked residential green, commercial blue and industrial yellow zoning panels, a white construction hard hat and a rolled blueprint sash"
+   }
   },
   {
    "key": "starcraft",
@@ -2243,7 +2271,11 @@
     "사이오닉 종족의 얼굴",
     "원작 인물(레이너·케리건 등)의 얼굴",
     "로고·타이틀 글자"
-   ]
+   ],
+   "costume": {
+    "who": "테란 해병",
+    "en": "a Terran Marine's power armour — chunky cobalt-blue armoured shoulder plates, an armoured breastplate, armoured gauntlets and heavy armoured boots with an amber visor headpiece"
+   }
   },
   {
    "key": "minecraft",
@@ -2560,7 +2592,11 @@
    "avoid": [
     "정사각 몸·정육면체 머리의 인물",
     "초록 폭발 괴물 얼굴"
-   ]
+   ],
+   "costume": {
+    "who": "스티브",
+    "en": "Steve's outfit — a cyan short-sleeved top and indigo-blue bottoms with crisp pixel-square edges, grey shoes and a pixel pickaxe accessory"
+   }
   },
   {
    "key": "dark_souls",
@@ -2767,6 +2803,10 @@
    "pilot": {
     "form": "타이틀",
     "open": "타이틀"
+   },
+   "costume": {
+    "who": "선택받은 불사자(상급 기사)",
+    "en": "the Elite Knight armour — a fitted steel breastplate, a short faded rust-red tabard, steel pauldrons, gauntlets and greaves, with a frayed cloth scarf"
    }
   },
   {
@@ -2953,6 +2993,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EC%9B%94%EB%93%9C_%EC%98%A4%EB%B8%8C_%EC%9B%8C%ED%81%AC%EB%9E%98%ED%94%84%ED%8A%B8",
      "en": "https://en.wikipedia.org/wiki/World_of_Warcraft"
     }
+   },
+   "costume": {
+    "who": "멀록(마스코트)",
+    "en": "the murloc mascot's look — teal-green scaled fabric, a fin-crested hood and fin-shaped trims at the hips and wrists, without its face"
    }
   },
   {
@@ -3104,6 +3148,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EC%B0%BD%EC%84%B8%EA%B8%B0%EC%A0%84_3",
      "en": "https://en.wikipedia.org/wiki/The_War_of_Genesis_III"
     }
+   },
+   "costume": {
+    "who": "창세기전 3의 주인공 기사",
+    "en": "the hero knight's look from The War of Genesis III — a dark high-collared coat over light silver armour, a long red scarf and a sword belt"
    }
   },
   {
@@ -3259,6 +3307,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EC%82%BC%EA%B5%AD%EC%A7%80_%EC%A1%B0%EC%A1%B0%EC%A0%84",
      "en": "https://en.wikipedia.org/wiki/Sangokushi_S%C5%8Ds%C5%8Dden"
     }
+   },
+   "costume": {
+    "who": "조조",
+    "en": "Cao Cao's warlord look — dark lacquered lamellar armour with gold trim, a deep blue silk robe beneath, a crested helmet circlet and a long war cape"
    }
   },
   {
@@ -3513,6 +3565,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EA%B7%B8%EB%9E%9C%EB%93%9C_%ED%85%8C%ED%94%84%ED%8A%B8_%EC%98%A4%ED%86%A0_V",
      "en": "https://en.wikipedia.org/wiki/Grand_Theft_Auto_V"
     }
+   },
+   "costume": {
+    "who": "주인공 셋의 강도 차림",
+    "en": "the heist crew's look — a black tactical vest, fingerless gloves, a loose bandana scarf at the neck and aviator sunglasses"
    }
   },
   {
@@ -3718,7 +3774,11 @@
    },
    "conflicts_ok": [
     "look_pose:팔찌"
-   ]
+   ],
+   "costume": {
+    "who": "포로(마스코트)",
+    "en": "the Poro mascot's look — fluffy white faux fur with little curved horns and a fuzzy pom tail, without its face"
+   }
   },
   {
    "key": "witcher_3",
@@ -3920,6 +3980,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%8D%94_%EC%9C%84%EC%B3%90_3:_%EC%99%80%EC%9D%BC%EB%93%9C_%ED%97%8C%ED%8A%B8",
      "en": "https://en.wikipedia.org/wiki/The_Witcher_3:_Wild_Hunt"
     }
+   },
+   "costume": {
+    "who": "게롤트(위처)",
+    "en": "the witcher's look — dark studded leather armour, crossed sword-belt straps for two swords, a silver wolf-head medallion and tall riding boots"
    }
   },
   {
@@ -4107,6 +4171,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%AC%B8%EB%AA%85_V",
      "en": "https://en.wikipedia.org/wiki/Civilization_V"
     }
+   },
+   "costume": {
+    "who": "개척자(정착민 유닛)",
+    "en": "the settler unit's look — a homespun linen tunic with a woven sash, a rolled map and a small founding-flag accessory in parchment and blue"
    }
   },
   {
@@ -4301,7 +4369,11 @@
    "conflicts_ok": [
     "sig_open:금화·보물·상자",
     "sig_open:깃발·문장"
-   ]
+   ],
+   "costume": {
+    "who": "성 진영 영웅 기사",
+    "en": "the Castle hero knight's look — polished silver plate with blue-and-gold heraldic trim, a griffin-crest helm circlet and a long blue cape"
+   }
   },
   {
    "key": "dave_the_diver",
@@ -4488,6 +4560,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%EB%B8%8C_%EB%8D%94_%EB%8B%A4%EC%9D%B4%EB%B2%84",
      "en": "https://en.wikipedia.org/wiki/Dave_the_Diver"
     }
+   },
+   "costume": {
+    "who": "데이브(잠수부)",
+    "en": "Dave's diving look — a blue-and-yellow wetsuit, an orange air tank harness, a round dive mask pushed up on the head and short fins"
    }
   },
   {
@@ -4623,6 +4699,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%8C%80%ED%95%AD%ED%95%B4%EC%8B%9C%EB%8C%80_4",
      "en": null
     }
+   },
+   "costume": {
+    "who": "주인공 선장",
+    "en": "the age-of-sail captain's look — a navy frock coat with brass buttons, a tricorn hat, a white ruffled shirt and a rapier belt"
    }
   },
   {
@@ -4824,7 +4904,11 @@
    "conflicts_ok": [
     "sig_open:금빛·문양·상자·호라드림",
     "sig_open:모닥불·야영지"
-   ]
+   ],
+   "costume": {
+    "who": "아마존",
+    "en": "the Amazon hero's look — a leather-and-bronze armoured breastplate, a short pleated battle skirt, bracers, greaves and a javelin quiver"
+   }
   },
   {
    "key": "warcraft_3",
@@ -5007,7 +5091,11 @@
    },
    "conflicts_ok": [
     "sig_open:얼어붙·얼어붙은·얼음·왕좌"
-   ]
+   ],
+   "costume": {
+    "who": "제이나 프라우드무어",
+    "en": "Jaina Proudmoore's sorceress look — a white-and-violet mage robe with gold trim, a high collar and flowing open sleeves"
+   }
   },
   {
    "key": "lineage",
@@ -5179,7 +5267,11 @@
    },
    "conflicts_ok": [
     "sig_open:깃발·성벽·혈맹"
-   ]
+   ],
+   "costume": {
+    "who": "군주",
+    "en": "the Lineage monarch's look — a regal crimson cape over burnished plate armour, a gold circlet and a long sword belt"
+   }
   },
   {
    "key": "stardew_valley",
@@ -5482,7 +5574,11 @@
    "conflicts_ok": [
     "sig_open:마을·센터·커뮤니티",
     "sig_open:광산·광석"
-   ]
+   ],
+   "costume": {
+    "who": "농부(플레이어)",
+    "en": "the Stardew farmer's look — denim overalls, a plaid shirt, a wide straw hat and a little seed pouch"
+   }
   },
   {
    "key": "trails_of_cold_steel",
@@ -5681,6 +5777,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EC%98%81%EC%9B%85%EC%A0%84%EC%84%A4_%EC%84%AC%EC%9D%98_%EA%B6%A4%EC%A0%81",
      "en": "https://en.wikipedia.org/wiki/The_Legend_of_Heroes:_Trails_of_Cold_Steel"
     }
+   },
+   "costume": {
+    "who": "린 슈바르처(VII반)",
+    "en": "the Class VII look — a fitted crimson uniform jacket with white trim and gold buttons, a dark pleated skirt and a katana scabbard at the hip"
    }
   },
   {
@@ -5873,6 +5973,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%ED%95%98%EC%8A%A4%EC%8A%A4%ED%86%A4",
      "en": "https://en.wikipedia.org/wiki/Hearthstone"
     }
+   },
+   "costume": {
+    "who": "여관 주인",
+    "en": "the tavern innkeeper's look — a laced leather bodice, a rolled-sleeve linen shirt, a short apron and a hearth-glow stone pendant"
    }
   },
   {
@@ -6015,6 +6119,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%ED%94%84%EB%A6%AC%EC%8A%A4%ED%83%80%EC%9D%BC_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
      "en": "https://en.wikipedia.org/wiki/FreeStyle_Street_Basketball"
     }
+   },
+   "costume": {
+    "who": "길거리 농구 선수",
+    "en": "the street baller's look — an oversized mesh basketball jersey with no numbers, a sweatband, a backwards cap and high-top sneakers without logos"
    }
   },
   {
@@ -6210,6 +6318,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%B4%EB%84%90_%ED%8C%90%ED%83%80%EC%A7%80_VII",
      "en": "https://en.wikipedia.org/wiki/Final_Fantasy_VII"
     }
+   },
+   "costume": {
+    "who": "클라우드 스트라이프",
+    "en": "Cloud Strife's SOLDIER look — a sleeveless navy turtleneck, a single silver shoulder guard, a brown leather belt harness and heavy boots"
    }
   },
   {
@@ -6440,6 +6552,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%ED%81%AC%EB%A1%9C%EB%85%B8_%ED%8A%B8%EB%A6%AC%EA%B1%B0",
      "en": "https://en.wikipedia.org/wiki/Chrono_Trigger"
     }
+   },
+   "costume": {
+    "who": "크로노",
+    "en": "Crono's look — a blue tunic with a yellow sash belt, a white headband, wristbands and a katana scabbard"
    }
   },
   {
@@ -6627,6 +6743,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%A9%94%EC%9D%B4%ED%94%8C%EC%8A%A4%ED%86%A0%EB%A6%AC",
      "en": "https://en.wikipedia.org/wiki/MapleStory"
     }
+   },
+   "costume": {
+    "who": "단풍잎",
+    "en": "MapleStory's maple-leaf look — warm orange and red maple-leaf motifs, a leafy tiered skirt and a maple-leaf hair clip"
    }
   },
   {
@@ -6827,6 +6947,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%B0%94%EC%9D%B4%EC%98%A4%ED%95%98%EC%9E%90%EB%93%9C_2",
      "en": "https://en.wikipedia.org/wiki/Resident_Evil_2"
     }
+   },
+   "costume": {
+    "who": "클레어 레드필드",
+    "en": "Claire Redfield's look — a red leather biker vest over a black top, cut-off bike shorts and fingerless gloves"
    }
   },
   {
@@ -6998,6 +7122,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%ED%8E%98%EB%A5%B4%EC%86%8C%EB%82%98_5",
      "en": "https://en.wikipedia.org/wiki/Persona_5"
     }
+   },
+   "costume": {
+    "who": "조커(괴도단)",
+    "en": "the Phantom Thief Joker's look — a long black tailcoat, a grey high-collared waistcoat, red gloves and a white domino mask"
    }
   },
   {
@@ -7173,6 +7301,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%A9%94%ED%83%88_%EA%B8%B0%EC%96%B4_%EC%86%94%EB%A6%AC%EB%93%9C",
      "en": "https://en.wikipedia.org/wiki/Metal_Gear_Solid_(video_game)"
     }
+   },
+   "costume": {
+    "who": "솔리드 스네이크",
+    "en": "Solid Snake's sneaking-suit look — a fitted dark blue-grey tactical bodysuit, a load-bearing harness and a long black bandana tied at the forehead"
    }
   },
   {
@@ -7353,6 +7485,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%9E%91%EA%B7%B8%EB%A6%BF%EC%82%AC_II",
      "en": "https://en.wikipedia.org/wiki/Langrisser_II"
     }
+   },
+   "costume": {
+    "who": "엘윈",
+    "en": "the wandering swordsman hero's look from Langrisser II — a light breastplate over a blue tunic, a long red scarf and a sword belt"
    }
   },
   {
@@ -7514,6 +7650,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%ED%81%AC%EB%A0%88%EC%9D%B4%EC%A7%80%EB%A0%88%EC%9D%B4%EC%8B%B1_%EC%B9%B4%ED%8A%B8%EB%9D%BC%EC%9D%B4%EB%8D%94",
      "en": "https://en.wikipedia.org/wiki/Crazyracing_KartRider"
     }
+   },
+   "costume": {
+    "who": "다오(마스코트)",
+    "en": "the Kartrider racer mascot's look — a bright racing jumpsuit with chequered trims, racing gloves and a round helmet with goggles"
    }
   },
   {
@@ -7695,6 +7835,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%ED%81%B4%EB%A0%88%EB%A5%B4_%EC%98%B5%EC%8A%A4%ED%80%B4%EB%A5%B4:_33_%EC%9B%90%EC%A0%95%EB%8C%80",
      "en": "https://en.wikipedia.org/wiki/Clair_Obscur:_Expedition_33"
     }
+   },
+   "costume": {
+    "who": "원정대원(구스타브·마엘)",
+    "en": "the Expedition 33 look — a belle-epoque expedition coat in faded blue with brass buckles, a high collar and a painted-brush sash"
    }
   },
   {
@@ -7876,6 +8020,10 @@
      "ko": "https://ko.wikipedia.org/wiki/%EB%94%94%ED%8A%B8%EB%A1%9C%EC%9D%B4%ED%8A%B8:_%EB%B9%84%EC%BB%B4_%ED%9C%B4%EB%A8%BC",
      "en": "https://en.wikipedia.org/wiki/Detroit:_Become_Human"
     }
+   },
+   "costume": {
+    "who": "카라(안드로이드)",
+    "en": "the android housekeeper Kara's look — a fitted grey-and-white android uniform with a glowing blue armband triangle and a blue LED temple ring, without readable model numbers"
    }
   }
  ]

@@ -17,6 +17,7 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
   assert.deepEqual(C.check(res.cuts, g), [], g.key + ' ' + seed);
   assert(res.cuts.some(c => C.requiredType(c) === res.required), g.key + ' 필수 갈래 ' + res.required);
   assert(res.cuts.every(c => c.item), g.key + ' 옷은 구체적으로');
+  assert.equal(res.cuts.filter(C.isCostume).length, 1, g.key + ' 주인공·마스코트 코스튬 한 장(2026-11-01)');
   for (const c of res.cuts) { const lowOff = (tree.frame_rules[c.frame] || {}).low === false, pf = (tree.activities.find(a => a.key === c.act).prefer || []).filter(k => tree.outfits.find(o => o.key === c.ofam).items.some(i => i.key === k && !(lowOff && i.low))); if (pf.length) assert(pf.includes(c.item), g.key + ' ' + c.act + ' 에 맞는 옷'); }
   /* 칸끼리 규칙(트리 표) — 자세는 앉는 자리·손·보이는 부위가 맞고 물건 드는 자세·돌아보기는 안 고른다, 표정은 하는 일·방향이 허락할 때만,
      가까운 컷·3/4 엔 광각 없음, 가슴 위·클로즈업엔 허리 아래로 알아보는 옷 없음 */
@@ -61,6 +62,11 @@ const errs = f => C.check(f(base.map(c => ({ ...c, axes: { ...c.axes } }))), g).
 assert.match(errs(cs => { cs[1].frame = cs[0].frame; return cs; }), /프레이밍/);
 assert.match(errs(cs => { cs[1].place = cs[0].place; cs[1].era = cs[0].era; cs[1].act = cs[0].act; cs[1].ofam = cs[0].ofam; cs[1].item = cs[0].item; return cs; }), /장소/);
 assert.match(errs(cs => cs.filter(c => !C.requiredType(c))), /필수 갈래가 없다/);
+assert.match(errs(cs => cs.filter(c => !C.isCostume(c))), /주인공·마스코트 코스튬 컷이 없다/);
+/* 다섯 장이 다 있고 코스튬만 없으면 — 코스튬 한 장(버전2) */
+{ const five = C.plan2(g, [1, 2, 3, 4, 5], [], { seed: 21 }).cuts.filter(c => !C.isCostume(c)).map(c => ({ ...c, old: true }));
+  const one = C.plan2(g, [6], five, { seed: 21 });
+  assert(one.cuts.length === 1 && C.isCostume(one.cuts[0]) && !C.check2(one.cuts, g, five).length, '코스튬 한 장만 더 짠다'); }
 /* 사용자가 고른 칸(free)은 겹침엔 안 세도 「있어야 할 것」엔 센다 — 문명 5 일상1(하나뿐인 란제리·전신 컷, 방향만 2번과 겹침) */
 const keep = base.filter(c => C.requiredType(c) || ['full_body', 'environmental', 'chest_up', 'face_close'].includes(c.frame)).map(c => c.n);
 assert.deepEqual(C.check(base, g, [], keep), [], '고른 칸도 필수 갈래·먼 컷·가까운 컷으로 센다');
@@ -84,6 +90,9 @@ for (const g2 of design.games) for (const seed of [1, 2, 3]) {
   assert.deepEqual(C.check2(res.cuts, g2), [], w);
   assert(res.cuts.every(c => c.treeV === 2 && c.preset && !c.act && !c.pose && !c.orient && !c.lens), w + ' 버전2 칸만');
   assert(res.cuts.some(c => C.requiredType(c) === res.required), w + ' 필수 갈래');
+  assert.equal(res.cuts.filter(C.isCostume).length, 1, w + ' 주인공·마스코트 코스튬 한 장');
+  for (const c of res.cuts.filter(C.isCostume)) { assert(['now', 'fantasy'].includes(c.era) && !C2.awkward(T2, c.ofam, c.place).length, w + ' 코스튬은 지금 · 무대·환상, 어색하지 않은 곳');
+    const t = C.record(g2, c).prompt; assert(t.includes(g2.costume.en) && t.includes('In this cut her game shows in the outfit itself') && !t.includes('source_influence:') && !t.includes('her game belongs in accessories and props, never in the clothes'), w + ' 코스튬 지시문'); }
   assert.equal(new Set(res.cuts.map(c => c.preset)).size, 5, w + ' 자세 추천은 서로 다르게');
   assert.equal(new Set(res.cuts.map(c => c.frame)).size, 5, w + ' 프레이밍은 서로 다르게');
   assert.equal(new Set(res.cuts.map(c => c.era)).size, 4, w + ' 시대 넷이 다(사용자 2026-10-30 — 한 가지는 두 번까지)');

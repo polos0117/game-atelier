@@ -191,6 +191,18 @@ for (const pr of tree.presets) {
   longestCasual = Math.max(longestCasual, P.words(t));
 }
 assert(longestCasual <= LIMIT, '가장 긴 일상컷이 ' + LIMIT + ' 낱말을 넘는다: ' + longestCasual);
+/* 할로윈 코스튬 · 주인공·마스코트 코스튬(2026-11-01) — 할로윈은 다른 옷처럼, 코스튬은 게임마다 costume.en 을 옷 문장에 넣고 「옷에는 게임을 안 싣는다」 줄을 바꾼다 */
+{
+  const hw = cas({ era: 'now', place: 'night_club', ofam: 'halloween', item: 'hw_vampire', axes: { source_influence: 'subtle' } });
+  assert(sceneOf(hw).includes('Outfit: ' + CT.item(tree, 'halloween', 'hw_vampire').en) && hw.includes("her game belongs in accessories and props, never in the clothes") && hw.includes('source_influence: subtle'), '할로윈은 보통 옷 줄');
+  for (const g3 of design.games) {
+    assert(g3.costume && g3.costume.en && g3.costume.who, g3.key + ' 코스튬 설계');
+    const t = P.buildCasual({ game: g3, tree, styleText: text, styleCasual: cur.casual, era: 'now', place: 'stage_convention', act: 'photozone_pose', ofam: 'hero_costume', item: 'hc_bodysuit', axes: { source_influence: 'subtle' } });
+    assert(sceneOf(t).includes('Outfit: a daring adult costume version of ' + g3.costume.en + ', cut as a high-cut bodysuit'), g3.key + ' 코스튬 옷 문장');
+    assert(t.includes('In this cut her game shows in the outfit itself') && t.includes('not the character') && !t.includes('never in the clothes') && !t.includes('source_influence:'), g3.key + ' 코스튬 OUTPUT · WARDROBE · 축 줄');
+    assert(!/[가-힣]/.test(sceneOf(t)), g3.key + ' 코스튬 문장은 영어');
+  }
+}
 assert.throws(() => P.buildCasual({ game: g, styleText: text }), /Casual tree is required/);
 assert(!/Pok[eé]mon|포켓몬|Gundam|건담/.test(JSON.stringify(S)), '표에 포켓몬·건담 말이 남았다');
 

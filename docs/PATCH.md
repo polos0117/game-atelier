@@ -11,6 +11,14 @@
 
 
 
+## 2026-11-01 · claude · 할로윈 코스튬 의상 · 주인공·마스코트 성인 코스튬 필수 컷
+- data/casual-tree.json · data/casual-tree-v2.json — 의상 계열 둘: 할로윈 코스튬(halloween, 열여섯 벌 — 수위 있게) · 주인공·마스코트 코스튬(hero_costume, costume: true — 네 가지 재단, 옷 문장의 {costume} 을 게임마다 채움). 시대는 지금 · 무대·환상(출시 당시 줄 「그 시대 평상복만」 과 부딪혀 뺐다), 무대 의상 받는 곳 + 거실 · 바 · 옥상 파티 · 축제 거리(코스튬은 코스프레 행사 · 오락실 · 방송 책상 · 거실 · 침실 · 클럽 · 화보 스튜디오 · 별빛 무대). costume_required 칸. 버전2 어색한 조합에 목욕 · 운동 · 물가. 사용자 「각 공방에 일상컷 의상중에 할로윈 코스튬 의상 등 좀 더 추가해줘. 수위가 좀 있는걸로」 「게임공방에는 의상 중에 해당 게임의 주인공이나, 마스코트를 성인 코스튬 버전으로 추가해서 필수 컷에 포함시켜줘」
+- data/game-design.json · tools/game-design.py — 게임마다 costume(who 이름 · en 차림 조각 — 얼굴 · 몸 · 로고 · 글자 없이). 검사기가 비었거나 한글 · 로고면 건다. 창세기전 3 · 랑그릿사 II · 카트라이더 · 리니지 · 대항해시대 4 처럼 확인할 자료가 없던 것은 겉에 드러나는 조각만 일반적으로 적었다
+- lib/prompt-game.js · lib/prompt-spec.js — 코스튬 컷은 casualOutputCostume · casualWardrobeCostume(옷 자체에 게임이 드러난다 · 코스튬을 입은 그녀이지 그 캐릭터가 아니다) 로 바꾸고 source_influence 축 줄을 싣지 않는다(「게임은 장신구로만」 과 부딪혔다). prompt-spec v=44 · prompt-game v=26
+- tools/casual-plan.cjs — 코스튬 한 장 꼭(필수 갈래와 따로 — 필수 갈래 다음 칸, 지금 · 무대·환상 시대, 어색하지 않은 곳). check · check2 가 없으면 건다. 다섯 장이 다 있고 코스튬만 없으면 --slots 없이 한 장만. 버전2 알아볼 거리 칸 돌리기 — 남은 것이 하나뿐이면 새 칸이 다 그것을 받아 늘 걸렸다(버전1 다섯 장 위에 세 장 시험) → 한도를 넘으면 다른 것 · 자동
+- lib/words.js · IMAGE_RULES.md 2절 — 코스튬 한 장 꼭 · 할로윈 계열 설명
+- tests/casual-plan.cjs · tests/prompt-game.cjs — 묶음마다 코스튬 한 장(버전1 · 버전2) · 없으면 걸림 · 한 장만 더 짜기 · 서른일곱 편 코스튬 지시문 · 할로윈은 보통 옷 줄
+
 ## 2026-11-01 · claude · 폼 표정 — 타이틀 · 중반 · 엔딩 단계마다 다른 기본 표정
 - data/game-design.json — 폼마다 expr(표정 표 열쇠)를 게임 성격대로 적었다: 타이틀 — 첫 화면의 설렘 · 자신감(curious · calm · confident …), 중반 — 한창 플레이의 투지 · 집중(determined · focused · serious …), 엔딩 — 클리어 뒤의 해방감 · 여운(proud · laughing_open · wistful …). 사용자 「element 작업했던것 중 표정 관련된 내용을 game,book 공방도 공방 성격에 맞게 반영해줘. book 은 발단, 전개, 결말 / game 은 타이틀, 중반, 엔딩의 표정이 다 비슷비슷해보여」
 - lib/prompt-game.js · lib/prompt-spec.js — 표정을 고르지 않으면 EXPRESSION 줄(이어가기 폼은 첨부 그림의 표정을 바꾼다). AGE 줄에서 「soft full cheeks · soft smile」 을 뺐다(첫 폼에 미소가 박혀 다음 폼까지 따라갔다)
