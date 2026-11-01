@@ -11,6 +11,10 @@
 
 
 
+## 2026-11-02 · gpt · 갤러그 타이틀 등록과 생성 중단 기록
+- data/img.json — 갤러그 타이틀 1장 자동 등록 확인.
+- game-atelier-img/records/galaga — 첫 기준 이미지·지시문·검수 기록을 보존. 중반 생성 응답을 확보하지 못해 IMAGE_AUTOMATION 0절에 따라 blocked로 남김; 나머지 10장은 미완료.
+
 ## 2026-11-01 · claude · 여섯째 묶음 다섯 편 — 갤러그·철권 3·소닉 더 헤지혹·오버워치·슈퍼로봇대전 OG
 - data/game-design.json — 다섯 편 설계표(반사 넷 — 반사 묶음이 넷뿐이었다, 성장 하나). 처음 쓰는 장르 슈팅(갤러그·오버워치). 정한 말 열다섯(재료 starfighter_vinyl·iron_fist_canvas·speed_mesh·hardlight_plating·mech_pilot_weave, 자세 sky_aim·launcher_kick·dash_start·rally_point·finisher_call, 팔레트 starfield_white_red·tournament_red_steel·cobalt_ring_gold·payload_white_orange·wind_green_white). 주인공·마스코트 코스튬(costume)도 처음부터. 폼 지시문 충돌 0(알아볼 거리와 개방이 같은 말 · 복식 구조 말 · 운동화 상표 금지). 철권 3 머리색을 bright_red 로(창세기전 3 과 머리·눈 색이 둘 다 같았다). 사용자 「갤러그, 철권3, 소닉 더 헤지혹, 오버워치은 넣고」
 - 슈퍼로봇대전 — 사용자 결정으로 OG 한 편(2002, 반프레스토 오리지널 로봇·인물만 — 권리사가 하나). 원작 로봇은 그림자로만, 다른 작품에서 빌려 온 로봇은 이름을 대지 않고 생김새로 avoid 에
