@@ -225,8 +225,8 @@ for (const t of [P.buildPrompt({ ...full, styleRef: false, outputMode: 'form', i
   assert(t.includes(S.AGE_KEEP) && !t.includes(S.AGE_LINES['20s']), '첨부 그림이 정하는 갈래는 나이를 지킨다');
 const pf = P.buildPrompt({ outputMode: 'form', game: g, stage: '타이틀', styleText: text, exposure: 'bold' }).split('\n\n');
 const pi = pf.indexOf(T.presentation);
-const po = pf[pi + 2].startsWith('LOOK-BACK') ? pi + 3 : pi + 2;
-assert(pi > 0 && pf[pi - 1].startsWith('EXPOSURE') && pf[pi + 1].startsWith('STANCE') && pf[po].startsWith('OUTPUT:'), '노출 → 연출 → 자세 → (돌아보기) → 출력');
+let po = pi + 2; while (/^(LOOK-BACK|EXPRESSION \()/.test(pf[po] || '')) po++;
+assert(pi > 0 && pf[pi - 1].startsWith('EXPOSURE') && pf[pi + 1].startsWith('STANCE') && pf[po].startsWith('OUTPUT:'), '노출 → 연출 → 자세 → (돌아보기) → (폼 표정) → 출력');
 /* 폼 자세가 돌아보기면 LOOK-BACK 줄 — 히어로즈 3 중반이 몸은 뒤로·얼굴은 정면으로 목이 꺾였다 */
 for (const game of design.games) for (const stage of ['타이틀', '중반', '엔딩']) {
   const t = P.buildPrompt({ outputMode: 'form', game, stage, styleText: text, identityMode: stage === '타이틀' ? 'create' : 'reference', baseStage: '타이틀', params: [] });
@@ -357,5 +357,26 @@ assert(cas2(g, moved).includes('POSTURE: ') && !cas2(g, moved).includes('Activit
 assert.throws(() => P.buildCasual({ game: g, tree2, treeV: 2, styleText: text }), /Casual tree is required|Casual tree v2/);
 
 console.log(`PASS 일상컷 버전2: ${G.length}편 × 추천 ${spots.length} = ${v2n}개 · 가장 긴 것 ${longestV2}낱말(다 얹으면 ${heaviest}) · 상한 ${LIMIT} · 버전1 줄 없음 · 손 줄 · 소품 · 다리 · 시선 · 뒤돌아보기 · 가까운 컷 · 표정 시선 말`);
+/* 폼 표정(2026-11-01 — 단계마다 표정이 비슷했다) — 설계표 forms.<단계>.expr 가 단계마다 다르고, 고르지 않으면 그 표정 줄, 고르면 고른 것만. AGE 줄에 미소가 없다 */
+{
+  const D2 = JSON.parse(fs.readFileSync('data/game-design.json', 'utf8')), stages = Object.keys(D2.vocab.form_key);
+  const S2 = ctx.window.AtelierSpec, T2 = S2.GAME_LINES;
+  assert(!S2.AGE_LINES['20s'].includes('smile') && !S2.AGE_LINES['20s'].includes('soft full cheeks'), 'AGE 줄에 미소 · 볼 말이 없다');
+  let fe = 0;
+  for (const x of D2.games) {
+    assert.equal(new Set(stages.map(s => x.forms[s].expr)).size, stages.length, x.key + ' 단계마다 다른 표정');
+    for (const stage of stages) {
+      const e = x.forms[stage].expr, ref = stage !== stages[0];
+      assert(S2.EXPRESSION_DETAIL[e], x.key + ' ' + stage + ' 표정 ' + e + ' 이 표에 없다');
+      const base = { game: x, stage, baseStage: stages[0], styleText: 'X', outputMode: 'form', identityMode: ref ? 'reference' : 'create', params: [], exposure: 'bold', faceDesignOn: true, silhouetteOn: true };
+      const t = P.buildPrompt(base), line = t.split('\n\n').find(l => l.startsWith('EXPRESSION ('));
+      assert(line && line.includes(S2.EXPRESSION_DETAIL[e]) && line.includes(ref ? "replaces the attached image's" : 'on her own face') && !/soft smile/.test(t), x.key + ' ' + stage + ' 표정 줄');
+      const picked = P.buildPrompt({ ...base, expr: e === 'calm' ? 'curious' : 'calm' });
+      assert(!picked.split('\n\n').some(l => l.startsWith('EXPRESSION (')) && picked.includes('Expression: ' + S2.EXPRESSION_DETAIL[e === 'calm' ? 'curious' : 'calm']), x.key + ' ' + stage + ' 고른 표정이 이긴다');
+      fe++;
+    }
+  }
+  console.log('PASS 폼 표정: ' + D2.games.length + ' × ' + stages.length + ' = ' + fe + ' — 단계마다 다른 표정 · 그 표정 줄(이어가기는 첨부 그림 표정을 바꾼다) · 고르면 고른 것 · AGE 줄에 미소 없음');
+}
 console.log(`PASS 게임 프롬프트: ${G.length}편 × 폼 3 × (새 인물·이어가기·개방) ${n}개 · 가장 긴 것 ${longest}낱말 · 정한 말 영어 · 캐릭터 아님·그리지 않을 것 · 핵심 조작·시대 · 사실은 받은 것만 · `
   + `일상컷 트리(시대·장소·하는 일·옷·자세 계열·화면 줄·CROP·알아볼 거리·예전 기록) · 추천 조합 ${tree.presets.length}개 가장 긴 것 ${longestCasual}낱말 · 일상컷 화풍 문장 · 화풍 앞·점검 끝 · 노출·나이·자세`);

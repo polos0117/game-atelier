@@ -119,6 +119,8 @@ def check(doc):
         forms, opens = g.get("forms") or {}, g.get("opens") or {}
         if sorted(forms) != sorted(STAGES) or sorted(opens) != sorted(STAGES):
             bad("폼·개방은 타이틀·중반·엔딩 셋씩")
+        if len({(forms.get(s) or {}).get("expr") for s in STAGES}) < len(STAGES):
+            bad("폼 셋의 표정(expr)이 서로 달라야 한다")
         for s in STAGES:
             fm = forms.get(s) or {}
             if not str(fm.get("look") or "").strip():
@@ -135,6 +137,9 @@ def check(doc):
                 bad("%s 폼의 배경(setting)이 비었다" % s)
             elif str(fm.get("setting")).strip() == str((opens.get(s) or {}).get("scene") or "").strip():
                 bad("%s 폼의 배경이 개방 명장면과 같다 — 명장면은 개방 그림 몫이다" % s)
+            # 표정 — 단계마다 다른 기본 표정(2026-11-01 — 타이틀 · 중반 · 엔딩 표정이 비슷했다). 값 대조는 tests/prompt-game.cjs(EXPRESSION_DETAIL)
+            if not re.fullmatch(r"[a-z_]+", str(fm.get("expr") or "")):
+                bad("%s 폼의 표정(expr)이 비었거나 열쇠 꼴이 아니다" % s)
             o = opens.get(s) or {}
             if not str(o.get("scene") or "").strip():
                 bad("%s 개방의 장면이 비었다" % s)

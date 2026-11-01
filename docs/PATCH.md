@@ -11,6 +11,12 @@
 
 
 
+## 2026-11-01 · claude · 폼 표정 — 타이틀 · 중반 · 엔딩 단계마다 다른 기본 표정
+- data/game-design.json — 폼마다 expr(표정 표 열쇠)를 게임 성격대로 적었다: 타이틀 — 첫 화면의 설렘 · 자신감(curious · calm · confident …), 중반 — 한창 플레이의 투지 · 집중(determined · focused · serious …), 엔딩 — 클리어 뒤의 해방감 · 여운(proud · laughing_open · wistful …). 사용자 「element 작업했던것 중 표정 관련된 내용을 game,book 공방도 공방 성격에 맞게 반영해줘. book 은 발단, 전개, 결말 / game 은 타이틀, 중반, 엔딩의 표정이 다 비슷비슷해보여」
+- lib/prompt-game.js · lib/prompt-spec.js — 표정을 고르지 않으면 EXPRESSION 줄(이어가기 폼은 첨부 그림의 표정을 바꾼다). AGE 줄에서 「soft full cheeks · soft smile」 을 뺐다(첫 폼에 미소가 박혀 다음 폼까지 따라갔다)
+- tools/game-design.py — 폼마다 expr 이 있고 셋이 다르다. tests/prompt-game.cjs — 단계마다 표정 줄 · 고른 표정이 이긴다 · AGE 줄에 미소 없음
+- IMAGE_RULES.md 2절 · html 판 올림. 이미 그린 그림은 그대로 둔다
+
 ## 2026-11-01 · gpt · 바이오하자드 2 이미지 11장 생성·등록
 - game-atelier-img/img/resident_evil_2_*.webp — 타이틀·중반·엔딩 폼 3장, 폼별 개방 3장, 일상컷 5장. 첫 타이틀을 정본으로 첨부, 1024×1536 WebP(품질 90)로 저장.
 - game-atelier-img/records/resident_evil_2/ — 생성기 기록·일상컷 계획·원본 SHA256·AI 검수·재시도 기록. 중반과 개방의 비옷 잔존·붕대의 혈흔처럼 보이는 얼룩, 일상 1·3의 손 좌우 및 프레이밍, 일상 4의 카메라 거리, 일상 5의 눕기 자세 차이를 passed:false로 기록. 일상 2·3은 필터 거절 후 노출 보통, 일상 3은 계획기 재계획 1회.
