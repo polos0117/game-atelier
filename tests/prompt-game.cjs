@@ -317,7 +317,7 @@ const pick = k => spots.find(sc => sc.preset === k);
 // 멀어지며 걷기 — 등만 돌린 컷에 돌아보기 · 카메라 응시 · 표정이 붙지 않는다
 const away = cas2(g, { ...pick('walk_away'), expr: 'soft_smile' });
 assert(!away.includes('LOOK-BACK') && !/looks into the camera|toward the camera/.test(block(away, 'SCENE')) && !block(away, 'SCENE').includes('EXPRESSION:'), '멀어지며 걷기');
-assert(cas2(g, pick('rail_lookback')).includes(T.casualLookBackV2) && !cas2(g, pick('rail_lookback')).includes('swing toward the camera'), '난간에서 돌아보기 — 눈은 GAZE 가');
+assert(cas2(g, pick('walk_lookback')).includes(T.casualLookBackV2) && !cas2(g, pick('walk_lookback')).includes('swing toward the camera'), '걸으며 돌아보기 — 눈은 GAZE 가');
 // 데이브 더 다이브 — 바다를 손에 들지 않는다
 const dave = G.find(x => x.key === 'dave_the_diver');
 for (const sc of spots) { const tx = cas2(dave, sc); assert(!/PROP: [^\n]*블루 홀/.test(tx), sc.preset + ' 바다를 든다'); }
@@ -368,15 +368,15 @@ const moved = C2.fromV1(t2, v1sc);
 assert(cas2(g, moved).includes('POSTURE: ') && !cas2(g, moved).includes('Activity: '), '옮긴 기록은 버전2 줄');
 assert.throws(() => P.buildCasual({ game: g, tree2, treeV: 2, styleText: text }), /Casual tree is required|Casual tree v2/);
 
-/* 뒷모습 돌아보기(2026-11-01 — 「난간에서 돌아보기」 의 머리 만지는 팔이 머리 뒤를 가로질렀다): 돌아보는 어깨 = 얼굴 손 쪽, 손 줄에 화면 쪽, 얼굴 손엔 팔 줄 */
+/* 뒷모습 돌아보기(2026-11-01) — 「난간에서 돌아보기」(머리 만지는 손)는 팔이 늘 이상해 뺐다(사용자 「그냥 지금 구도는 갈래에서 없애줘」).
+   뒷모습으로 돌아볼 땐 얼굴 · 머리에 대는 손을 못 고르고, 돌아보는 어깨는 왼쪽 · 손 줄에 화면 쪽 */
 {
-  const rl = spots[tree2.presets.findIndex(p => p.key === 'rail_lookback')], sc = block(cas2(G[0], rl), 'SCENE (chosen):');
-  assert(rl.left === 'hair_tuck' && rl.right === 'rail', '추천 그대로');
-  assert(sc.includes("head turned back over her own left shoulder — the shoulder on the image's left side") && !sc.includes('back over her shoulder;'), '돌아보는 어깨');
-  assert(sc.includes("RIGHT HAND: her own right hand rests on the railing — on the image's right side, since her back is to the camera") && sc.includes("LEFT HAND: her own left hand tucks hair behind her ear — on the image's left side"), '손의 화면 쪽');
-  assert(/\nARM: her own left arm rises from her left shoulder[^\n]*never crosses behind her head/.test(sc), '팔 줄');
-  const front = block(cas2(G[0], { ...rl, body: 'front_3q', head: 'with_body' }), 'SCENE (chosen):');
-  assert(!front.includes("image's") && !front.includes('ARM: '), '앞모습엔 안 붙는다');
+  assert(!tree2.presets.some(p => p.key === 'rail_lookback'), '추천을 뺐다');
+  const wl = pick('walk_lookback'), sc0 = { ...wl, left: '' };
+  assert.equal((C2.why(t2, sc0, 'left', 'hair_tuck', G[0]) || {}).code, 'lookback', '뒷모습 돌아보기에 머리 넘기기는 못 고른다');
+  assert.equal(C2.why(t2, { ...sc0, body: 'front_3q', head: 'with_body' }, 'left', 'hair_tuck', G[0]), null, '앞모습이면 고른다');
+  const sc = block(cas2(G[0], wl), 'SCENE (chosen):');
+  assert(sc.includes("head turned back over her own left shoulder — the shoulder on the image's left side") && /RIGHT HAND: [^\n]*on the image's right side/.test(sc) && !sc.includes('ARM: '), '돌아보는 어깨 · 손의 화면 쪽');
 }
 console.log(`PASS 일상컷 버전2: ${G.length}편 × 추천 ${spots.length} = ${v2n}개 · 가장 긴 것 ${longestV2}낱말(다 얹으면 ${heaviest}) · 상한 ${LIMIT} · 버전1 줄 없음 · 손 줄 · 소품 · 다리 · 시선 · 뒤돌아보기 · 가까운 컷 · 표정 시선 말`);
 /* 폼 표정(2026-11-01 — 단계마다 표정이 비슷했다) — 설계표 forms.<단계>.expr 가 단계마다 다르고, 고르지 않으면 그 표정 줄, 고르면 고른 것만. AGE 줄에 미소가 없다 */

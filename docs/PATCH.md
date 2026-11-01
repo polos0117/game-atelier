@@ -11,6 +11,13 @@
 
 
 
+## 2026-11-01 · claude · 「난간에서 돌아보기」 빼기 — 뒷모습으로 돌아보며 얼굴 · 머리에 손 안 대기
+- data/casual-tree-v2.json — 자세 추천 rail_lookback(뒤 3/4 · 어깨 너머 · 오른손 난간 · 왼손 머리 넘기기)을 뺐다. 좌우 · 팔 줄을 적은 시험 세 장도 사용자가 「아니 지금도 이상해. 그냥 지금 구도는 갈래에서 없애줘」
+- lib/casual-tree-v2.js(공용) — 몸이 뒤쪽(far)이고 머리가 어깨 너머(look_back)면 얼굴 · 머리에 대는 손(zone face)을 못 고른다(why lookback — 화면 · 랜덤 · 계획기가 같이 막는다). backLook 은 팔 줄 없이 왼쪽 어깨 · 손의 화면 쪽만. 예전 기록의 그 손은 다시 검사(repair)가 비운다
+- tools/casual-tree-v2.py — 추천이 그 조합이면 건다
+- lib/words.js — 못 고르는 까닭 낱말 lookback. 생성기 캐시 번호 올림
+- tests/prompt-game.cjs — 추천이 없다 · 뒷모습 돌아보기엔 머리 넘기기를 못 고른다(앞모습은 된다) · 걸으며 돌아보기의 왼쪽 어깨 · 손의 화면 쪽
+
 ## 2026-11-01 · claude · 뒷모습 돌아보기 — 돌아보는 어깨 · 손의 화면 쪽 · 얼굴 손의 팔
 - lib/casual-tree-v2.js(공용, game 원본 · book · element · pkm 같은 파일) — backLook: 몸이 뒤쪽(far)이고 머리가 어깨 너머(look_back)면 돌아보는 어깨를 얼굴에 닿는 손(zone face)의 쪽으로(없으면 왼쪽) 정하고, 손 줄에 붙일 화면 쪽 말과 얼굴 손의 팔 줄을 준다. 「어깨 너머」 만 적으니 모델이 아무 쪽으로 돌렸고 뒷모습에서 「her own right hand」 를 자주 뒤집어, 얼굴 쪽과 반대 팔이 귀를 만지려 머리 뒤를 가로질렀다(element 「난간에서 돌아보기」 — 사용자 「지속적으로 뒷태에서 머리 만지는 컷이 팔 구조 해석이 잘못됐는지」). 시험 세 장(o-blood 메카 일상1 두 번 · c 판타지 일상1)에서 팔이 같은 쪽 어깨에서 올라갔다
 - lib/prompt-game.js — COMPOSITION 의 머리 말을 「her own left shoulder — the shoulder on the image's left side」 로, 손 줄 끝에 「on the image's … side, since her back is to the camera」, 얼굴 손이면 ARM 줄(같은 쪽 어깨에서 · 팔꿈치는 옆으로 · 머리 · 목 뒤를 가로지르지 않는다). 앞모습은 그대로. 생성기 캐시 번호 올림
