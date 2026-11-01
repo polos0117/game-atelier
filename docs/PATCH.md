@@ -11,6 +11,14 @@
 
 
 
+## 2026-11-01 · claude · 여섯째 묶음 다섯 편 — 갤러그·철권 3·소닉 더 헤지혹·오버워치·슈퍼로봇대전 OG
+- data/game-design.json — 다섯 편 설계표(반사 넷 — 반사 묶음이 넷뿐이었다, 성장 하나). 처음 쓰는 장르 슈팅(갤러그·오버워치). 정한 말 열다섯(재료 starfighter_vinyl·iron_fist_canvas·speed_mesh·hardlight_plating·mech_pilot_weave, 자세 sky_aim·launcher_kick·dash_start·rally_point·finisher_call, 팔레트 starfield_white_red·tournament_red_steel·cobalt_ring_gold·payload_white_orange·wind_green_white). 주인공·마스코트 코스튬(costume)도 처음부터. 폼 지시문 충돌 0(알아볼 거리와 개방이 같은 말 · 복식 구조 말 · 운동화 상표 금지). 철권 3 머리색을 bright_red 로(창세기전 3 과 머리·눈 색이 둘 다 같았다). 사용자 「갤러그, 철권3, 소닉 더 헤지혹, 오버워치은 넣고」
+- 슈퍼로봇대전 — 사용자 결정으로 OG 한 편(2002, 반프레스토 오리지널 로봇·인물만 — 권리사가 하나). 원작 로봇은 그림자로만, 다른 작품에서 빌려 온 로봇은 이름을 대지 않고 생김새로 avoid 에
+- facts — Wikidata 갤러그 Q1043534 · 철권 3 Q1062106 · 소닉 Q37123(1991) · 오버워치 Q18515944(2016 — 「Overwatch」 · 「Overwatch (video game)」 문서는 연도 없는 항목이라 「Overwatch (2016 video game)」 로) · 슈퍼로봇대전 OG Q839015(영어 문서 「Super Robot Taisen: Original Generation」). 질의 서버가 「너무 잦다(429)」 를 여러 번 돌려줘 1000초씩 기다려 받았다
+- lib/prompt-spec.js · prompt.html — 새 정한 말의 영어, prompt-spec v=45
+- docs/GAME_CONCEPT.md 6-6절 — 여섯째 묶음 표와 슈퍼로봇대전을 OG 로 고른 까닭
+- tests/dex-screen.cjs — 테트리스 상세의 일상컷을 「일곱」 으로 박아 두었다 — 그림 저장소 자동 등록으로 여덟이 돼 걸렸다. 등록부(data/img.json)의 테트리스 일상컷 수와 견준다
+
 ## 2026-11-01 · claude · 「난간에서 돌아보기」 빼기 — 뒷모습으로 돌아보며 얼굴 · 머리에 손 안 대기
 - data/casual-tree-v2.json — 자세 추천 rail_lookback(뒤 3/4 · 어깨 너머 · 오른손 난간 · 왼손 머리 넘기기)을 뺐다. 좌우 · 팔 줄을 적은 시험 세 장도 사용자가 「아니 지금도 이상해. 그냥 지금 구도는 갈래에서 없애줘」
 - lib/casual-tree-v2.js(공용) — 몸이 뒤쪽(far)이고 머리가 어깨 너머(look_back)면 얼굴 · 머리에 대는 손(zone face)을 못 고른다(why lookback — 화면 · 랜덤 · 계획기가 같이 막는다). backLook 은 팔 줄 없이 왼쪽 어깨 · 손의 화면 쪽만. 예전 기록의 그 손은 다시 검사(repair)가 비운다

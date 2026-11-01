@@ -6,6 +6,8 @@ const { start, FOLD } = require('./browser-harness.cjs');
 const art = path.resolve(__dirname, '..', '..', 'game-atelier-img');
 const img = JSON.parse(fs.readFileSync('data/img.json', 'utf8')), design = JSON.parse(fs.readFileSync('data/game-design.json', 'utf8'));
 const withArt = Object.keys(img.img);
+/* 테트리스 일상컷 수 — 등록부 그대로(일곱 장이던 것이 그림 저장소 자동 등록으로 늘었다, 2026-11-01) */
+const tetrisCasual = new Set((JSON.stringify(img).match(/tetris_[a-z_]+_f_casual\d+\.webp/g) || [])).size;
 (async () => {
   const h = await start();
   try {
@@ -24,7 +26,7 @@ const withArt = Object.keys(img.img);
       await p.click('.grid .cell[data-card=tetris]'); await p.waitForSelector('#detail-title');
       assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('game')), 'tetris', name + ' 주소');
       assert.equal(await p.$$eval('.fcell:not(:disabled)', es => es.length), 6, name + ' 폼 셋·개방 셋');
-      assert.equal(await p.locator('.gal .cell[data-cut=casual]').count(), 7, name + ' 일상컷 일곱');
+      assert.equal(await p.locator('.gal .cell[data-cut=casual]').count(), tetrisCasual, name + ' 일상컷 ' + tetrisCasual + '장(등록부대로)');
       const story = await p.$eval('.reading-notes', e => e.textContent);
       for (const want of ['자리 셋을 모두 채우면', '격자선만 그어진 고요한 우물', 'TETRIS 로고', '1984']) assert(story.includes(want), name + ' 게임 글: ' + want);
       assert.equal(await p.$eval('#dex-to-prompt', e => e.getAttribute('href')), 'prompt.html?game=tetris');
@@ -48,6 +50,6 @@ const withArt = Object.keys(img.img);
     await b.page.waitForSelector('.first-title');
     assert.equal(await b.page.$eval('.first-title', e => e.getAttribute('href')), 'dex.html?game=' + design.games[0].key);
     await b.close();
-    console.log('PASS 도감: ' + design.games.length + '편 · 그림 있는 게임만 · 진척 ' + design.games.length * 6 + ' · 최근 추가 · 장르 · 상세 여섯 칸·일상컷 일곱·게임 글 · 크게 보기 · 다음 게임·뒤로 가기 · 첫 화면 바로가기 · 세 크기');
+    console.log('PASS 도감: ' + design.games.length + '편 · 그림 있는 게임만 · 진척 ' + design.games.length * 6 + ' · 최근 추가 · 장르 · 상세 여섯 칸·일상컷(등록부대로)·게임 글 · 크게 보기 · 다음 게임·뒤로 가기 · 첫 화면 바로가기 · 세 크기');
   } finally { await h.stop(); }
 })().catch(e => { console.error(e); process.exit(1); });

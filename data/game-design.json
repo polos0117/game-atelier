@@ -162,7 +162,12 @@
    "thief_leather",
    "sneaking_weave",
    "painted_brocade",
-   "android_polymer"
+   "android_polymer",
+   "starfighter_vinyl",
+   "iron_fist_canvas",
+   "speed_mesh",
+   "hardlight_plating",
+   "mech_pilot_weave"
   ],
   "pose": [
    "dash_corner",
@@ -201,7 +206,12 @@
    "mask_pull",
    "codec_crouch",
    "parry_riposte",
-   "led_touch"
+   "led_touch",
+   "sky_aim",
+   "launcher_kick",
+   "dash_start",
+   "rally_point",
+   "finisher_call"
   ],
   "palette": [
    "neon_yellow_navy",
@@ -240,7 +250,12 @@
    "phantom_red_black",
    "arctic_gray_olive",
    "belle_epoque_gold_crimson",
-   "thirium_blue_white"
+   "thirium_blue_white",
+   "starfield_white_red",
+   "tournament_red_steel",
+   "cobalt_ring_gold",
+   "payload_white_orange",
+   "wind_green_white"
   ],
   "hair_color": [
    "antique_gold",
@@ -8024,6 +8039,1042 @@
    "costume": {
     "who": "카라(안드로이드)",
     "en": "the android housekeeper Kara's look — a fitted grey-and-white android uniform with a glowing blue armband triangle and a blue LED temple ring, without readable model numbers"
+   }
+  },
+  {
+   "key": "galaga",
+   "title": "갤러그",
+   "title_en": "Galaga",
+   "facts": {
+    "qid": "Q1043534",
+    "year": 1981,
+    "developer": [
+     {
+      "qid": "Q309996",
+      "ko": "남코",
+      "en": "Namco"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q149947",
+      "ko": "미드웨이 게임즈",
+      "en": "Midway Games"
+     },
+     {
+      "qid": "Q309996",
+      "ko": "남코",
+      "en": "Namco"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q100047",
+      "ko": "아미가",
+      "en": null
+     },
+     {
+      "qid": "Q1136956",
+      "ko": "SG-1000",
+      "en": "SG-1000"
+     },
+     {
+      "qid": "Q135321",
+      "ko": "패밀리 컴퓨터 디스크 시스템",
+      "en": "Famicom Disk System"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q172742",
+      "ko": "패밀리컴퓨터",
+      "en": "Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q3870048",
+      "ko": null,
+      "en": "Namco Galaga"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q753600",
+      "ko": "아타리 7800",
+      "en": "Atari 7800"
+     },
+     {
+      "qid": "Q853547",
+      "ko": "MSX",
+      "en": "MSX"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     },
+     {
+      "qid": "Q99775",
+      "ko": "코모도어 64",
+      "en": "Commodore 64"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1044478",
+      "ko": "진행형 슈팅 게임",
+      "en": "shoot 'em up"
+     }
+    ],
+    "series": {
+     "qid": "Q16527345",
+     "ko": null,
+     "en": "Galaxian"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EA%B0%A4%EB%9F%AC%EA%B0%80",
+     "en": "https://en.wikipedia.org/wiki/Galaga"
+    },
+    "fetched": "2026-11-01"
+   },
+   "genre": "슈팅",
+   "group": "reflex",
+   "era": "arcade",
+   "series": [],
+   "persona": "끝없이 내려오는 편대를 전투기 한 대로 맞받아치고, 붙잡힌 짝을 되찾아 두 대로 쏘는 조종사",
+   "voice": {
+    "타이틀": "동전 넣었지? 편대가 내려온다.",
+    "중반": "붙잡혔어도 괜찮아 — 되찾으면 두 대야.",
+    "엔딩": "한 발도 안 놓쳤어. 퍼펙트."
+   },
+   "desire": "한 발도 흘리지 않고 편대를 모두 떨어뜨리기",
+   "conflict": "붙잡힐 위험과 두 배의 화력",
+   "symbols": [
+    "흰 전투기 날개",
+    "두 대 편대",
+    "아래로 흐르는 별"
+   ],
+   "signature": [
+    "두 대가 나란히 붙은 흰 전투기 모형",
+    "조종석 옆의 작은 빨간 별 휘장",
+    "아래로 흐르는 별무늬 밤하늘",
+    "오락실 캐비닛의 레버와 단추 하나"
+   ],
+   "signature_hold": [
+    0
+   ],
+   "mechanic": "편대를 쏘아 떨어뜨리고, 붙잡혔던 전투기를 되찾으면 두 대로 쏜다",
+   "rule": {
+    "forms": {
+     "타이틀": "들어올 때 맞은편을 한 번 더 쏜다 — 편대 사격",
+     "중반": "내 서가에 닫힌 아군이 있으면 하나를 되찾아(손패로) 이 장 동안 타격 +1 — 두 대",
+     "엔딩": "엔딩에 들 때 이 판에 닫은 상대 책이 둘 이상이면 퍼펙트 — 아군 모두 힘 +2"
+    },
+    "counter": "먼저 닫아 버리면 되찾을 짝이 없다 — 아군이 닫히지 않게 지키는 상대에겐 두 대가 안 된다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "흰 날개 모양 어깨 장식의 조종사 점프슈트, 빨간 선이 들어간 헬멧 고글",
+     "role": "정찰",
+     "pose": "한 팔을 들어 위를 겨누고 다른 손은 조종간을 쥔 듯 주먹을 쥔 자세",
+     "setting": "어두운 오락실, 별이 흐르는 캐비닛 화면 빛이 그녀를 비춘다",
+     "homage": "흰 날개 휘장과 빨간 조종석 선이 들어간 점프슈트",
+     "expr": "determined"
+    },
+    "중반": {
+     "look": "푸른 빛이 스민 은색 비행복, 가슴에 두 개 겹친 날개 배지",
+     "role": "공격",
+     "pose": "몸을 옆으로 틀어 두 손을 앞으로 모아 연달아 쏘듯 겨누는 자세",
+     "setting": "위에서 푸른 견인 빛이 쏟아지는 별 밭",
+     "homage": "두 대 편대를 뜻하는 쌍날개 문장",
+     "expr": "focused"
+    },
+    "엔딩": {
+     "look": "금빛 줄무늬가 들어간 짧은 비행 재킷, 반짝이는 별 휘장",
+     "role": "지원",
+     "pose": "헬멧을 옆구리에 끼고 한 손으로 엄지를 세우는 자세",
+     "setting": "편대가 사라진 고요한 별하늘, 발밑에 오락실 불빛",
+     "homage": "퍼펙트를 뜻하는 금빛 별 휘장",
+     "expr": "proud"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "검은 하늘 위로 빛점 편대가 소용돌이치며 내려온다",
+     "one_figure": true,
+     "particles": "stars"
+    },
+    "중반": {
+     "scene": "위에서 푸른 견인 빛이 기둥처럼 쏟아져 내린다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "텅 빈 별하늘에 금빛 불꽃이 한꺼번에 퍼진다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Japanese",
+   "silhouette": {
+    "body": "slender",
+    "hair": "bob",
+    "garment": "flight_suit",
+    "material": "starfighter_vinyl",
+    "pose": "sky_aim",
+    "palette": "starfield_white_red",
+    "hair_color": "navy"
+   },
+   "face": {
+    "face_shape": "oval",
+    "eyes": "narrow_upturned",
+    "brows": "low_heavy",
+    "nose": "small_button",
+    "lips": "heart_full",
+    "eye_color": "crimson"
+   },
+   "place": "a dark 1980s arcade with a glowing upright cabinet, its starfield screen light washing over the room",
+   "rights": "반다이남코 — 이름과 적 캐릭터가 상표다. 적 편대의 벌레 모양을 따라 그리지 않는다",
+   "avoid": [
+    "벌레 모양 적 편대(보스·나비·벌 모양)의 생김새",
+    "GALAGA 로고·타이틀 글자",
+    "점수·스테이지 숫자"
+   ],
+   "costume": {
+    "who": "흰 전투기(마스코트)",
+    "en": "the white Galaga starfighter's look — glossy white wing-shaped shoulder panels, red cockpit stripes, a small blue thruster glow at the back and a starfield-print sash"
+   }
+  },
+  {
+   "key": "tekken_3",
+   "title": "철권 3",
+   "title_en": "Tekken 3",
+   "facts": {
+    "qid": "Q1062106",
+    "year": 1996,
+    "developer": [
+     {
+      "qid": "Q309996",
+      "ko": "남코",
+      "en": "Namco"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q309996",
+      "ko": "남코",
+      "en": "Namco"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q192851",
+      "ko": "아케이드 비디오 게임",
+      "en": "arcade video game machine"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q130270628",
+      "ko": null,
+      "en": "3D fighting game"
+     }
+    ],
+    "series": {
+     "qid": "Q219623",
+     "ko": "철권",
+     "en": "Tekken"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%B2%A0%EA%B6%8C_3",
+     "en": "https://en.wikipedia.org/wiki/Tekken_3"
+    },
+    "fetched": "2026-11-01"
+   },
+   "genre": "격투",
+   "group": "reflex",
+   "era": "early_3d",
+   "series": [],
+   "persona": "철권 토너먼트 원형 무대에 오른, 두 손 두 발을 단추 넷처럼 따로 쓰는 격투가",
+   "voice": {
+    "타이틀": "왼손, 오른손, 왼발, 오른발 — 넷이면 충분해.",
+    "중반": "띄웠으면 떨어지기 전에 끝내야지.",
+    "엔딩": "토너먼트 끝에 누가 기다리든 상관없어."
+   },
+   "desire": "철권 토너먼트의 마지막 무대에 서기",
+   "conflict": "띄우는 한 방과 이어 치는 공중 연타",
+   "symbols": [
+    "네 개의 손발 단추",
+    "토너먼트 대진표",
+    "원형 돌 무대"
+   ],
+   "signature": [
+    "손등에 철 주먹 문양을 새긴 장갑",
+    "붉은 토너먼트 대진표",
+    "사방이 트인 원형 돌 무대",
+    "오락실 캐비닛의 네 단추"
+   ],
+   "signature_hold": [
+    1
+   ],
+   "mechanic": "네 손발로 띄우고, 떠오른 상대를 떨어지기 전에 이어 친다",
+   "rule": {
+    "forms": {
+     "타이틀": "들어올 때 맞은편을 띄운다 — 띄운 책은 이 장 동안 방패가 없다",
+     "중반": "띄운 상대 책을 칠 때 이어 치기 +2",
+     "엔딩": "엔딩에 들 때 띄운 상대 책이 판에 있으면 그 책을 한 번 더 친다"
+    },
+    "counter": "띄우기는 들어올 때 한 번뿐이다 — 맞은편 자리를 비워 두면 띄울 것이 없다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "검은 격투 탱크톱 위에 걸친 짧은 트랙 재킷과 무릎 보호대가 달린 트레이닝 바지, 손등에 철 주먹 문양 장갑",
+     "role": "공격",
+     "pose": "한쪽 무릎을 들어 올리며 팔꿈치를 앞으로 내지르는 자세",
+     "setting": "해 질 녘 사원 마당의 원형 돌 무대 — 붉은 기둥과 흩날리는 먼지",
+     "homage": "토너먼트 출전 번호 없는 흰 천 띠를 두른 탱크톱",
+     "expr": "serious"
+    },
+    "중반": {
+     "look": "소매가 찢긴 무도가 재킷, 허리에 감은 붉은 띠",
+     "role": "돌파",
+     "pose": "몸을 낮춰 아래에서 위로 올려 차는 띄우기 발차기 자세",
+     "setting": "비 내리는 밤 시가지 공터의 무대 — 젖은 바닥에 빗방울이 튄다",
+     "homage": "공중 연타를 뜻하는 위로 솟는 화살 문양 띠",
+     "expr": "provocative"
+    },
+    "엔딩": {
+     "look": "금빛 수가 놓인 챔피언 롱코트, 어깨의 철 주먹 문양",
+     "role": "버티기",
+     "pose": "두 팔을 가슴 앞에 교차하고 다리를 넓게 벌려 버티는 자세",
+     "setting": "번개가 치는 고대 유적의 원형 무대, 깨진 돌기둥",
+     "homage": "우승자의 철 주먹 문양 코트",
+     "expr": "cold_smile"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "사원 마당 둘레의 등불이 차례로 켜지며 먼지가 피어오른다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "중반": {
+     "scene": "올려 찬 발끝을 따라 떠오른 낙엽이 소용돌이친다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "엔딩": {
+     "scene": "번개가 유적 무대를 가르며 불꽃이 흩어진다",
+     "one_figure": true,
+     "particles": "sparks"
+    }
+   },
+   "ethnicity": "Korean",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "braids",
+    "garment": "track_set",
+    "material": "iron_fist_canvas",
+    "pose": "launcher_kick",
+    "palette": "tournament_red_steel",
+    "hair_color": "bright_red"
+   },
+   "face": {
+    "face_shape": "diamond",
+    "eyes": "monolid_long",
+    "brows": "low_heavy",
+    "nose": "upturned",
+    "lips": "full_wide",
+    "eye_color": "amber"
+   },
+   "place": "a circular stone fighting stage in an old temple courtyard at dusk, red pillars standing around it",
+   "rights": "반다이남코 — 이름과 캐릭터가 상표다. 원작 격투가들의 얼굴·차림을 따라 그리지 않는다",
+   "avoid": [
+    "원작 격투가들(진·폴·화랑 등)의 얼굴",
+    "철권 로고·타이틀 글자",
+    "체력 바·라운드 글자"
+   ],
+   "costume": {
+    "who": "카자마 진",
+    "en": "Jin Kazama's look — black karate-gi trousers printed with red flames, an open red-trimmed sleeveless jacket, red fingerless fight gloves and wrapped shins"
+   }
+  },
+  {
+   "key": "sonic_the_hedgehog",
+   "title": "소닉 더 헤지혹",
+   "title_en": "Sonic the Hedgehog",
+   "facts": {
+    "qid": "Q37123",
+    "year": 1991,
+    "developer": [
+     {
+      "qid": "Q1140960",
+      "ko": "소닉 팀",
+      "en": "Sonic Team"
+     },
+     {
+      "qid": "Q45700",
+      "ko": "코나미",
+      "en": "Konami"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q122741",
+      "ko": "세가",
+      "en": null
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10676",
+      "ko": "메가 드라이브",
+      "en": null
+     },
+     {
+      "qid": "Q10680",
+      "ko": "플레이스테이션 2",
+      "en": null
+     },
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q132020",
+      "ko": "엑스박스",
+      "en": null
+     },
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q16203668",
+      "ko": "아마존 파이어 TV",
+      "en": "Amazon Fire TV"
+     },
+     {
+      "qid": "Q170323",
+      "ko": "닌텐도 DS",
+      "en": "Nintendo DS"
+     },
+     {
+      "qid": "Q170325",
+      "ko": "플레이스테이션 포터블",
+      "en": "PlayStation Portable"
+     },
+     {
+      "qid": "Q171819",
+      "ko": "블랙베리",
+      "en": "BlackBerry"
+     },
+     {
+      "qid": "Q17517",
+      "ko": "휴대 전화",
+      "en": "mobile phone"
+     },
+     {
+      "qid": "Q182172",
+      "ko": "닌텐도 게임큐브",
+      "en": "Nintendo GameCube"
+     },
+     {
+      "qid": "Q184198",
+      "ko": "드림캐스트",
+      "en": null
+     },
+     {
+      "qid": "Q188642",
+      "ko": "게임보이 어드밴스",
+      "en": null
+     },
+     {
+      "qid": "Q192851",
+      "ko": "아케이드 비디오 게임",
+      "en": "arcade video game machine"
+     },
+     {
+      "qid": "Q193828",
+      "ko": "자바 플랫폼, 마이크로 에디션",
+      "en": "Java Platform, Micro Edition"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q200912",
+      "ko": "세가 새턴",
+      "en": null
+     },
+     {
+      "qid": "Q203597",
+      "ko": "닌텐도 3DS",
+      "en": "Nintendo 3DS"
+     },
+     {
+      "qid": "Q270285",
+      "ko": "애플 TV",
+      "en": "Apple TV"
+     },
+     {
+      "qid": "Q388",
+      "ko": "리눅스",
+      "en": "Linux"
+     },
+     {
+      "qid": "Q48263",
+      "ko": "엑스박스 360",
+      "en": null
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q8079",
+      "ko": "Wii",
+      "en": "Wii"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q828322",
+      "ko": "플랫폼 게임",
+      "en": "platform game"
+     }
+    ],
+    "series": {
+     "qid": "Q1046812",
+     "ko": "소닉 더 헤지호그",
+     "en": "Sonic the Hedgehog"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%86%8C%EB%8B%89_%EB%8D%94_%ED%97%A4%EC%A7%80%ED%98%B9_(1991%EB%85%84_%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/Sonic_the_Hedgehog_(1991_video_game)"
+    },
+    "fetched": "2026-11-01"
+   },
+   "genre": "플랫폼",
+   "group": "reflex",
+   "era": "16bit",
+   "series": [],
+   "persona": "푸른 바람처럼 황금 고리를 모으며 달리고, 멈춰 서는 걸 제일 싫어하는 이",
+   "voice": {
+    "타이틀": "기다리는 건 질색이야. 따라올 수 있으면 따라와!",
+    "중반": "고리만 쥐고 있으면 한 번쯤은 괜찮아.",
+    "엔딩": "끝까지 왔네. 한 바퀴 더 돌까?"
+   },
+   "desire": "누구보다 빨리 끝까지 달리기",
+   "conflict": "속도와 흘린 고리",
+   "symbols": [
+    "황금 고리",
+    "빨간 운동화",
+    "루프 길"
+   ],
+   "signature": [
+    "고리 모양 금빛 팔찌",
+    "푸른 하늘 아래 바둑판무늬 흙벽",
+    "용수철 발판",
+    "빙글 도는 중간 지점 기둥"
+   ],
+   "signature_hold": [
+    0
+   ],
+   "mechanic": "달릴수록 빨라지고, 고리를 쥐고 있으면 한 번 맞아도 버틴다",
+   "rule": {
+    "forms": {
+     "타이틀": "내 턴마다 고리 +1(셋까지)",
+     "중반": "맞을 때 고리를 모두 흘리고 그 피해를 막는다 — 흘린 고리는 다시 못 줍는다",
+     "엔딩": "엔딩에 들 때 남은 고리마다 힘 +2 — 스핀 대시"
+    },
+    "counter": "작게 여러 번 쳐서 고리를 먼저 흘리게 한다 — 엔딩에 남은 고리가 없으면 스핀 대시도 없다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "코발트 블루 크롭 재킷과 짧은 러닝 쇼츠, 흰 장갑, 흰 띠를 두른 빨간 운동화",
+     "role": "정찰",
+     "pose": "한 발을 내딛고 몸을 앞으로 숙여 막 달려 나가려는 자세",
+     "setting": "푸른 하늘 아래 바둑판무늬 언덕과 야자수, 멀리 보이는 루프 길",
+     "homage": "흰 장갑과 빨간 운동화",
+     "expr": "confident"
+    },
+    "중반": {
+     "look": "고리 모양 금빛 장식이 달린 바람막이, 뒤로 날리는 뾰족한 머리",
+     "role": "돌파",
+     "pose": "몸을 둥글게 웅크려 앞으로 굴러 나가기 직전의 자세",
+     "setting": "루프 길 한가운데, 바람에 휘는 야자수와 뒤로 흐르는 바둑판 언덕",
+     "homage": "고리 무늬 바람막이",
+     "expr": "mischievous"
+    },
+    "엔딩": {
+     "look": "에메랄드빛 장식이 달린 금빛 레이싱 재킷, 흰 장갑",
+     "role": "공격",
+     "pose": "엄지를 세우고 한쪽 눈을 찡긋하며 비스듬히 서 있는 자세",
+     "setting": "해 지는 바다 위 절벽 끝, 멀리 반짝이는 고리들",
+     "homage": "에메랄드빛 일곱 보석 장식",
+     "expr": "wink"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "아침 햇살 속에 야자수 잎이 흔들리고 푸른 바람 자국이 들판을 가로지른다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "중반": {
+     "scene": "루프 길을 따라 푸른 바람 자국이 휘감아 돈다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "흩어진 황금 고리가 한꺼번에 하늘로 튀어 오른다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "African",
+   "silhouette": {
+    "body": "petite",
+    "hair": "voluminous",
+    "garment": "jacket_shorts",
+    "material": "speed_mesh",
+    "pose": "dash_start",
+    "palette": "cobalt_ring_gold",
+    "hair_color": "royal_blue"
+   },
+   "face": {
+    "face_shape": "heart",
+    "eyes": "almond_wide",
+    "brows": "soft_round",
+    "nose": "upturned",
+    "lips": "wide_smile",
+    "eye_color": "emerald"
+   },
+   "place": "a sunny green hillside with checkered earth cliffs, palm trees and a loop track in the distance",
+   "rights": "세가 — 이름과 캐릭터가 상표다. 파란 고슴도치 캐릭터의 얼굴과 몸을 그리지 않는다",
+   "avoid": [
+    "파란 고슴도치 캐릭터의 얼굴과 몸",
+    "악당 박사·동물 로봇의 모습",
+    "SEGA·타이틀 글자",
+    "상표 로고가 붙은 운동화(신발 혀·옆면의 글자와 곡선 로고)"
+   ],
+   "costume": {
+    "who": "소닉(마스코트)",
+    "en": "Sonic's look — cobalt blue with spiky quill-shaped panels as a hood or hair pieces, white gloves and red sneakers with a white strap and gold buckle, without his face"
+   }
+  },
+  {
+   "key": "overwatch",
+   "title": "오버워치",
+   "title_en": "Overwatch",
+   "facts": {
+    "qid": "Q18515944",
+    "year": 2016,
+    "developer": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q178824",
+      "ko": "블리자드 엔터테인먼트",
+      "en": "Blizzard Entertainment"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q104830011",
+      "ko": null,
+      "en": "hero shooter"
+     },
+     {
+      "qid": "Q185029",
+      "ko": "1인칭 슈팅 게임",
+      "en": "first-person shooter"
+     },
+     {
+      "qid": "Q27670585",
+      "ko": "공상과학 게임",
+      "en": "science fiction video game"
+     }
+    ],
+    "series": {
+     "qid": "Q99569678",
+     "ko": null,
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%98%A4%EB%B2%84%EC%9B%8C%EC%B9%98",
+     "en": "https://en.wikipedia.org/wiki/Overwatch_(2016_video_game)"
+    },
+    "fetched": "2026-11-01"
+   },
+   "genre": "슈팅",
+   "group": "reflex",
+   "era": "hd",
+   "series": [],
+   "persona": "세계가 다시 부를 때 흩어진 영웅들을 모아, 역할을 맞춰 한 팀을 짜는 이",
+   "voice": {
+    "타이틀": "세상엔 아직 영웅이 필요해.",
+    "중반": "앞에서 막고, 옆에서 치고, 뒤에서 살려 — 자리를 맞추면 이겨.",
+    "엔딩": "궁극기 준비됐어. 지금이야!"
+   },
+   "desire": "흩어진 영웅들을 다시 한 팀으로",
+   "conflict": "역할 조합과 궁극기의 때",
+   "symbols": [
+    "화물 호위 수레",
+    "충전되는 빛 고리",
+    "방패·칼·십자의 역할 표식"
+   ],
+   "signature": [
+    "천천히 굴러가는 화물 호위 수레",
+    "바닥에 빛나는 점령 원",
+    "빛나는 회복 팩",
+    "푸른 빛 펄스 권총"
+   ],
+   "signature_hold": [
+    2,
+    3
+   ],
+   "mechanic": "돌격·공격·지원 역할을 맞춰 팀을 짜고, 모은 궁극기를 한꺼번에 터뜨린다",
+   "rule": {
+    "forms": {
+     "타이틀": "판 위 아군의 역할이 서로 다를수록 — 가짓수마다 아군 모두 힘 +1(셋까지)",
+     "중반": "내 턴마다 궁극기 +1(셋까지)",
+     "엔딩": "엔딩에 들 때 궁극기가 셋이면 상대 책 모두를 한 번씩 친다"
+    },
+    "counter": "같은 역할만 남게 몰아 조합을 깬다. 궁극기가 차기 전에 이 책을 닫는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "흰 바탕에 주황 장식선의 전술 재킷과 가벼운 판금 어깨 갑주, 짧은 전투 바지, 허리의 장비 벨트",
+     "role": "지원",
+     "pose": "한 손을 들어 동료를 부르듯 앞을 가리키는 자세",
+     "setting": "해 뜨는 미래 도시의 광장 — 유리 탑과 공중 보행로",
+     "homage": "흰·주황 장식선 전술복",
+     "expr": "calm"
+    },
+    "중반": {
+     "look": "가벼운 장갑판을 덧댄 하늘색 강화 슈트, 손목의 회복 장치",
+     "role": "공격",
+     "pose": "몸을 낮추고 두 손으로 펄스 권총을 겨누는 자세",
+     "setting": "화물 수레가 지나는 좁은 골목, 바닥에 빛나는 점령 원",
+     "homage": "역할 표식을 새긴 손목 장치",
+     "expr": "focused"
+    },
+    "엔딩": {
+     "look": "궁극기 빛이 흐르는 금빛 장갑 망토, 등에 빛나는 날개 장치",
+     "role": "돌파",
+     "pose": "공중으로 뛰어올라 한 손을 높이 들어 빛을 모으는 자세",
+     "setting": "노을빛 하늘 아래 점령 거점 위",
+     "homage": "빛나는 궁극기 고리 문양",
+     "expr": "determined"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "유리 탑 사이 공중 보행로 위로 아침 햇살이 번쩍 퍼진다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "중반": {
+     "scene": "좁은 골목 벽을 따라 파란 불꽃이 연달아 튄다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "엔딩": {
+     "scene": "노을 하늘에서 금빛 빛줄기가 한꺼번에 쏟아져 내린다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Southeast Asian",
+   "silhouette": {
+    "body": "tall_statuesque",
+    "hair": "ponytail",
+    "garment": "armor_layered",
+    "material": "hardlight_plating",
+    "pose": "rally_point",
+    "palette": "payload_white_orange",
+    "hair_color": "teal"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "round_large",
+    "brows": "angled_sharp",
+    "nose": "small_button",
+    "lips": "heart_full",
+    "eye_color": "sky_blue"
+   },
+   "place": "a sunlit near-future city plaza with glass towers, sky bridges and a glowing capture circle on the ground",
+   "rights": "블리자드 — 이름·영웅·로고가 상표다. 원작 영웅의 얼굴·차림·무기 모양을 따라 그리지 않는다",
+   "avoid": [
+    "원작 영웅(트레이서·메르시 등)의 얼굴",
+    "원형 로고·타이틀 글자",
+    "화면 위 HUD·궁극기 숫자"
+   ],
+   "costume": {
+    "who": "트레이서",
+    "en": "Tracer's look — an orange-and-white flight jumpsuit with a glowing blue round chest harness, a brown bomber-jacket top, orange leggings and round flight goggles"
+   }
+  },
+  {
+   "key": "super_robot_wars_og",
+   "title": "슈퍼로봇대전 OG",
+   "title_en": "Super Robot Wars: Original Generation",
+   "facts": {
+    "qid": "Q839015",
+    "year": 2002,
+    "developer": [
+     {
+      "qid": "Q1371744",
+      "ko": "반프레스토",
+      "en": "Banpresto"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q1194689",
+      "ko": "반다이 남코 엔터테인먼트",
+      "en": "Bandai Namco Entertainment"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q188642",
+      "ko": "게임보이 어드밴스",
+      "en": null
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q124365333",
+      "ko": null,
+      "en": "mecha video game"
+     },
+     {
+      "qid": "Q1529437",
+      "ko": "전략 롤플레잉 게임",
+      "en": "tactical role-playing game"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": null,
+     "en": "https://en.wikipedia.org/wiki/Super_Robot_Taisen:_Original_Generation"
+    },
+    "fetched": "2026-11-01"
+   },
+   "genre": "전략 RPG",
+   "group": "growth",
+   "era": "early_3d",
+   "series": [],
+   "persona": "격자 위 전장에서 개조한 기체들을 이끌고, 싸울수록 오르는 기력으로 필살기 한 방에 판을 뒤집는 지휘관 파일럿",
+   "voice": {
+    "타이틀": "출격 준비 완료. 이번에도 전원 살아서 돌아온다.",
+    "중반": "기력이 차올랐어 — 이제 필살기다.",
+    "엔딩": "합체 공격, 간다! 이게 마지막 일격이야."
+   },
+   "desire": "모든 기체를 살려 최종 결전까지 데려가기",
+   "conflict": "아껴 둔 기력과 지금 쏘는 필살기",
+   "symbols": [
+    "격자 전술 지도",
+    "기체 개조 도면",
+    "바람의 날개 문장"
+   ],
+   "signature": [
+    "푸른 격자 전술 지도",
+    "기체 개조 도면 두루마리",
+    "격납고의 붉은 경고등",
+    "커다란 칼자루"
+   ],
+   "signature_hold": [
+    1,
+    3
+   ],
+   "mechanic": "격자 위에서 부대를 움직이고, 싸울수록 오르는 기력으로 필살기와 합체 공격을 쓴다",
+   "rule": {
+    "forms": {
+     "타이틀": "내 턴마다 기력 +1(셋까지) — 싸울수록 오른다",
+     "중반": "기력이 셋이면 이 장에 한 번 필살기 — 맞은편을 타격 +3 으로 친다",
+     "엔딩": "엔딩에 들 때 아군이 둘 이상이면 합체 공격 — 이 책과 아군 하나가 같은 상대 책을 함께 친다"
+    },
+    "counter": "기력이 차기 전에 깎는다. 엔딩에 아군을 하나만 남기면 합체 공격이 없다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "격납고의 파일럿 — 흰 바탕에 푸른 선이 들어간 파일럿 슈트, 어깨의 개조 단계 표식",
+     "role": "정찰",
+     "pose": "철제 계단 난간에 한 손을 얹고 헬멧을 옆구리에 낀 채 위를 올려다보는 자세",
+     "setting": "거대한 기체가 그림자로만 보이는 밤의 격납고, 붉은 경고등 불빛",
+     "homage": "푸른 선 파일럿 슈트",
+     "expr": "calm"
+    },
+    "중반": {
+     "look": "기력이 오른 출격 차림 — 초록 바람 문양 망토를 두른 장갑 파일럿 슈트, 빛나는 손목 조종 장치",
+     "role": "공격",
+     "pose": "한 팔을 앞으로 뻗어 손바닥을 펼치고 필살기를 외치는 자세",
+     "setting": "격자 선이 빛나는 하늘 위 전장, 구름을 가르는 바람",
+     "homage": "바람의 날개 문장 망토",
+     "expr": "confident"
+    },
+    "엔딩": {
+     "look": "최종 결전 — 금빛 장갑판을 덧댄 붉은 결전 슈트, 등 뒤의 날개 모양 추진기",
+     "role": "돌파",
+     "pose": "커다란 칼자루를 두 손으로 잡고 머리 위로 치켜든 자세",
+     "setting": "붉게 타는 우주 결전장, 멀리 부서진 요새",
+     "homage": "합체 공격을 뜻하는 겹친 날개 문장",
+     "expr": "determined"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "격납고 문이 열리며 출격 신호 빛이 한꺼번에 쏟아진다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "중반": {
+     "scene": "하늘을 가르며 초록 바람 칼날이 휘몰아친다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "엔딩": {
+     "scene": "우주 결전장에서 거대한 칼날 빛이 하늘을 가르고, 거대한 기체는 그림자로만 보인다",
+     "one_figure": true,
+     "particles": "embers"
+    }
+   },
+   "ethnicity": "East Asian",
+   "silhouette": {
+    "body": "tall_statuesque",
+    "hair": "side_swept",
+    "garment": "flight_suit",
+    "material": "mech_pilot_weave",
+    "pose": "finisher_call",
+    "palette": "wind_green_white",
+    "hair_color": "grass_green"
+   },
+   "face": {
+    "face_shape": "heart",
+    "eyes": "deep_set",
+    "brows": "straight_thick",
+    "nose": "small_button",
+    "lips": "thin_long",
+    "eye_color": "gold"
+   },
+   "place": "a vast mech hangar at night with red warning lights, catwalks and the shadowed outline of a giant robot",
+   "rights": "반다이남코(반프레스토) — 이름과 오리지널 로봇·인물이 상표다. 원작 로봇의 생김새와 인물의 얼굴을 따라 그리지 않는다",
+   "avoid": [
+    "원작 로봇(사이바스터·휴케바인·게슈펜스트 등)의 또렷한 생김새 — 그림자로만",
+    "다른 작품에서 빌려 온 로봇의 생김새",
+    "원작 인물의 얼굴",
+    "로고·타이틀 글자",
+    "격자 칸 숫자·체력 HUD"
+   ],
+   "costume": {
+    "who": "사이바스터(마스코트 기체)",
+    "en": "the Cybuster mech's look — gleaming white armour plates with emerald-green wing panels, gold trim and a glowing green chest crest, rebuilt as wearable costume pieces"
    }
   }
  ]
