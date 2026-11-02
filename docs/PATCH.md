@@ -11,6 +11,12 @@
 
 
 
+## 2026-11-02 · gpt · 악마성 드라큘라 월하의 야상곡 이미지 11장
+- game-atelier-img — castlevania_sotn 폼 셋·개방 셋·일상 다섯(알루카드 성인 코스튬 포함)을 1024×1536 WebP로 추가. 이미지·기록 커밋 a6b4327.
+- records/castlevania_sotn — 생성기 선택값·일상 계획·지시문 해시·원본 PNG 해시·AI 검수를 기록. 엔딩/엔딩 개방의 왼손 중복, 일부 손 방향·복식·프레이밍 편차를 검수 실패로 남기고 자동 작업 규칙에 따라 등록한다.
+- data/img.json — 자동 등록 da1acb0으로 11장 반영 확인. Git CLI push 인증 실패로 GitHub 연결 도구의 force:false fast-forward 갱신을 사용했다.
+- records/castlevania_sotn/ending_open-transfer-repair.json — 최초 전송의 빈 WebP를 보존된 원본 PNG에서 복구(62c5364). 원본 해시·빈 blob·복구 파일 해시를 남기고 썸네일 워크플로를 다시 실행한다. 기존 사용자의 작업은 보존했다.
+
 ## 2026-11-02 · gpt · 둠 이미지 11장
 - game-atelier-img — 둠 타이틀·중반·엔딩, 개방 셋, 일상 다섯(해병 코스튬 포함)을 1024×1536 WebP로 추가. 커밋 81f293c.
 - records/doom — 생성기 지시문·일상 계획·원본 해시·AI 검수·노출 낮춤 이력을 기록. 실사풍 편향과 일부 손 방향·프레이밍 편차는 검수 실패로 명시하고 자동화 규칙에 따라 등록한다.
