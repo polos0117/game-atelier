@@ -11,6 +11,12 @@
 
 
 
+## 2026-11-02 · gpt · 블레이드 앤 소울 이미지 11장과 검수 기록
+- game-atelier-img/img/blade_and_soul* — 타이틀·중반·엔딩과 각 개방, 일상 5장. 타이틀 정본과 각 폼 원본을 참조했으며 홍문파 제자 코스튬을 포함했다. 원본 11장은 모두 1024×1536이고 WebP 품질 90·method 6으로 변환했다.
+- game-atelier-img/records/blade_and_soul — 생성기 UI·프롬프트, 원본 SHA256, 버전2 일상 계획과 실제 시각 검수. 중반 효과·검 프레이밍, 엔딩 어깨 노출, 일상컷의 프레이밍·방향·장신구·다리 자세 차이는 QA false로 남겼다. 일상1은 출력 필터 거절 두 번 뒤 노출 보통으로 생성됐으며 시도별 결과를 기록했다. 자동화 승인에 따라 임의 재생성하지 않았다.
+- game-atelier-img/records/automation/claims/blade_and_soul.json — 사용자의 「제한 해제할게. 다시 작업해줘」를 이 작업의 일일 한도 예외로 기록했다. 공통 한도와 다른 작업 기록은 바꾸지 않았다.
+- 공용 bare 저장소·별도 브랜치·sparse worktree를 재사용했다. Git CLI 쓰기 인증이 없어 연결된 GitHub의 커밋과 force:false 참조 갱신으로 main에 반영했다. 기존 작업 삭제·강제 push 없음.
+
 ## 2026-11-02 · gpt · 배틀그라운드 이미지 11장과 검수 기록
 - game-atelier-img/img/pubg_battlegrounds* — 타이틀·중반·엔딩과 각 개방, 일상 5장. 타이틀을 인물 정본으로 쓰고 개방은 해당 폼만 참조했다. 필수 생존자 코스튬 포함, 원본은 모두 1024×1536이며 WebP 품질 90·method 6으로 변환했다.
 - game-atelier-img/records/pubg_battlegrounds — 생성기 UI·프롬프트, 원본 SHA256, AI 검수 및 버전2 일상 계획. 타이틀의 실사 질감·장갑, 중반의 소총·자세, 일상컷의 의상·프레이밍·손 좌우·소품 차이는 해당 QA를 false로 유지했다. 수영복 컷은 출력 필터 거절 후 같은 지시문 재시도에서 생성됐다. 자동화 승인대로 임의 재생성하지 않았다.
