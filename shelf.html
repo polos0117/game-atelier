@@ -18,12 +18,12 @@
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
 <link rel="stylesheet" href="lib/workspace.css?v=3">
 <script src="lib/workspace-theme.js?v=3"></script>
-<script src="lib/words.js?v=16"></script>
+<script src="lib/words.js?v=17"></script>
 <script src="lib/fresh.js?v=1"></script>
 <script src="lib/img.js?v=1"></script>
 <script src="lib/shelf.js?v=2"></script>
 <script src="https://cdn.jsdelivr.net/npm/motion@14.3.1/dist/motion.js"></script>
-<link rel="stylesheet" href="lib/shelf.css?v=2">
+<link rel="stylesheet" href="lib/shelf.css?v=3">
 </head>
 <body class="shelf-page">
 <div id="app"></div>
@@ -72,13 +72,18 @@ function Cover({file,cls}){
   if(!file)return null;
   return h('img',{class:cls||'cover',src:IMG.thumbURL(file),alt:'',loading:'lazy',decoding:'async',onError:e=>{e.target.onerror=null;e.target.src=IMG.imgURL(file);}});
 }
+/* 팝업의 큰 겉그림 — 원본, 못 받으면 썸네일 */
+function BigCover({file}){
+  if(!file)return null;
+  return h('img',{class:'cover',src:IMG.imgURL(file),alt:'',decoding:'async',onError:e=>{e.target.onerror=null;e.target.src=IMG.thumbURL(file);}});
+}
 /* 진열장의 패키지 하나 — 매체마다 몸이 다르다(lib/shelf.css 의 [data-media]). 그림이 없으면 빈 상자 */
 function Package({it,sel,pick,art}){
   const ref=useRef(null),on=sel===it.key,sh=S.SHELLS[it.media],shelled=!!(sh&&art[sh.file]);
   useEffect(()=>{anim(ref.current,{transform:on?'translateY(-10px) scale(1.06)':'translateY(0px) scale(1)'},{type:'spring',stiffness:420,damping:24});},[on]);
   return h('button',{type:'button',ref,class:'pkg'+(it.drawn?'':' sealed'),'data-media':it.media,'data-game':it.key,'aria-pressed':on,
       'aria-label':W('shelf.pick',{title:it.game.title})+(it.drawn?'':' — '+W('shelf.sealed')),title:it.game.title,onClick:()=>pick(it.key)},
-    h('span',{class:'pkg-body','data-shell':shelled?'1':'0',style:shelled?{width:sh.w+'px',aspectRatio:String(sh.ar)}:null},
+    h('span',{class:'pkg-body','data-shell':shelled?'1':'0',style:shelled?{width:'calc('+sh.w+'px * var(--pkg-scale,1))',aspectRatio:String(sh.ar)}:null},
       shelled&&h('img',{class:'pkg-shell',src:S.ART+sh.file,alt:'','aria-hidden':'true',decoding:'async'}),
       h('span',{class:'pkg-art',style:shelled?rectStyle(sh.label):null},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('b',null,it.game.title),h('small',null,W('shelf.sealed.short')))),
       shelled&&sh.marquee&&h('span',{class:'pkg-marquee',style:rectStyle(sh.marquee)},it.drawn?h(Cover,{file:it.cover}):h('b',null,it.game.title)),
@@ -98,42 +103,62 @@ function Icon({it,sel,pick,start}){
     h('span',{class:'icon-pic'},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('small',null,W('shelf.sealed.short')))),
     h('span',{class:'icon-name'},it.game.title));
 }
-function PC({doc,sel,pick,start,art}){
-  const [open,setOpen]=useState(()=>doc.lay.pc.download.some(it=>it.key===sel)),win=useRef(null);
-  useEffect(()=>{if(open)anim(win.current,{opacity:[0,1],transform:['scale(.92)','scale(1)']},{duration:.22});},[open]);
+function PC({doc,sel,pick,start,art,folder,openFolder}){
+  const desk=useRef(null);
+  /* 폰에선 아이콘이 옆으로 이어진다 — 끝까지 안 밀었으면 오른쪽을 흐리게(data-more) */
+  useEffect(()=>{const d=desk.current;if(!d)return;const f=()=>{d.dataset.more=d.scrollWidth-d.clientWidth-d.scrollLeft>4?'1':'0';};f();
+    d.addEventListener('scroll',f,{passive:true});addEventListener('resize',f);const t=setTimeout(f,600);return ()=>{clearTimeout(t);d.removeEventListener('scroll',f);removeEventListener('resize',f);};},[art[S.MONITOR.file]]);
   return h('section',{class:'pc','aria-label':W('shelf.pc')},
     h('div',{class:'monitor'+(art[S.MONITOR.file]?' shelled':''),style:art[S.MONITOR.file]?{aspectRatio:String(S.MONITOR.ar)}:null},
       art[S.MONITOR.file]&&h('img',{class:'monitor-shell',src:S.ART+S.MONITOR.file,alt:'','aria-hidden':'true',decoding:'async'}),
       h('div',{class:'screen',style:art[S.MONITOR.file]?rectStyle(S.MONITOR.screen):null},
-        h('div',{class:'desktop',role:'list'},
-          doc.lay.pc.download.length>0&&h('span',{role:'listitem'},h('button',{type:'button',class:'icon folder','aria-expanded':open,onClick:()=>setOpen(v=>!v),'aria-label':W('shelf.folder.n',{n:doc.lay.pc.download.length})},
-            h('span',{class:'icon-pic folder-pic','aria-hidden':'true'}),h('span',{class:'icon-name'},W('shelf.folder')))),   /* 폴더가 맨 앞 — 화면이 작으면 아래 줄이 작업 표시줄에 가린다 */
+        h('div',{class:'desktop',role:'list',ref:desk},
+          doc.lay.pc.download.length>0&&h('span',{role:'listitem'},h('button',{type:'button',class:'icon folder','aria-expanded':folder,'aria-haspopup':'dialog',onClick:openFolder,'aria-label':W('shelf.folder.n',{n:doc.lay.pc.download.length})},
+            h('span',{class:'icon-pic folder-pic','aria-hidden':'true'}),h('span',{class:'icon-name'},W('shelf.folder')))),   /* 폴더가 맨 앞 — 화면이 작으면 뒤 아이콘은 옆으로 밀어 본다 */
           doc.lay.pc.online.map(it=>h('span',{key:it.key,role:'listitem'},h(Icon,{it,sel,pick,start})))),
-        open&&h('div',{class:'window',ref:win,role:'dialog','aria-label':W('shelf.folder.n',{n:doc.lay.pc.download.length})},
-          h('div',{class:'window-bar'},h('b',null,W('shelf.folder')),h('button',{type:'button',class:'window-x','aria-label':W('shelf.folder.close'),onClick:()=>setOpen(false)},'×')),
-          h('div',{class:'window-body',role:'list'},doc.lay.pc.download.map(it=>h('span',{key:it.key,role:'listitem'},h(Icon,{it,sel,pick,start}))))),
         h('div',{class:'taskbar','aria-hidden':'true'},h('span',{class:'tb-start'},W('shelf.taskbar.start')),h('span',{class:'tb-name'},W('shelf.pc.title')))),
       h('div',{class:'stand','aria-hidden':'true'})));
 }
-/* 고른 게임 — 겉그림 · 이름 · 사실 · 시작 */
-function Info({doc,it,start,close}){
-  const ref=useRef(null);
-  useEffect(()=>{anim(ref.current,{opacity:[0,1],transform:['translateY(12px)','translateY(0px)']},{duration:.28});},[it&&it.key]);
-  if(!it)return h('aside',{class:'info empty'},h('p',null,W('shelf.info.empty')));
+/* 「게임」 폴더 창 — 화면 위에 크게 뜬다(모니터 안에 띄우면 폰에선 너무 작았다). 고르면 창을 닫고 그 게임 팝업 */
+function Folder({doc,sel,pick,start,close}){
+  const win=useRef(null),x=useRef(null);
+  useLayoutEffect(()=>{const k=e=>{if(e.key==='Escape')close();};addEventListener('keydown',k);return ()=>removeEventListener('keydown',k);},[]);
+  useEffect(()=>{anim(win.current,{opacity:[0,1],transform:['scale(.92)','scale(1)']},{duration:.22});if(x.current)x.current.focus({preventScroll:true});},[]);
+  const choose=k=>{close();pick(k);};
+  return h('div',{class:'pop win-pop',onClick:e=>{if(e.target===e.currentTarget)close();}},
+    h('div',{class:'window',ref:win,role:'dialog','aria-modal':'true','aria-label':W('shelf.folder.n',{n:doc.lay.pc.download.length})},
+      h('div',{class:'window-bar'},h('b',null,W('shelf.folder.n',{n:doc.lay.pc.download.length})),h('button',{type:'button',ref:x,class:'window-x','aria-label':W('shelf.folder.close'),onClick:close},'×')),
+      h('div',{class:'window-body',role:'list'},doc.lay.pc.download.map(it=>h('span',{key:it.key,role:'listitem'},h(Icon,{it,sel,pick:choose,start}))))));
+}
+/* 고른 게임 — 팝업(2026-11-02 사용자 「게임 클릭했을때 팝업으로 뜨게」). 큰 겉그림 · 이름 · 사실 · 시작. ×, 바깥 누르기, Esc 로 닫는다.
+   열리면 시작(빈 상자면 ×)에 초점, 닫히면 누른 패키지·아이콘으로 돌려준다 */
+function Info({it,start,close}){
+  const card=useRef(null),first=useRef(null),back=useRef(null);
+  useLayoutEffect(()=>{const k=e=>{if(e.key==='Escape')close();};addEventListener('keydown',k);return ()=>removeEventListener('keydown',k);},[it.key]);
+  useEffect(()=>{
+    back.current=document.activeElement;
+    anim(card.current,{opacity:[0,1],transform:['translateY(18px) scale(.97)','translateY(0px) scale(1)']},{type:'spring',stiffness:380,damping:30});
+    if(first.current)first.current.focus({preventScroll:true});
+    /* 돌려줄 곳 — 연 버튼, 없으면(켰다 끄고 돌아온 팝업) 진열장 패키지 · 바탕화면 아이콘, 폴더 안 게임이면 폴더 */
+    const key=it.key;
+    return ()=>{let b=back.current;if(!b||!b.isConnected||b===document.body||!b.focus)b=document.querySelector('.pkg[data-game="'+key+'"],.desktop .icon[data-game="'+key+'"]')||document.querySelector('.icon.folder');
+      if(b)setTimeout(()=>{if(b.isConnected)b.focus({preventScroll:true});},0);};
+  },[it.key]);
   const g=it.game,f=g.facts||{},dev=(f.developer||[]).map(x=>x.ko||x.en).filter(Boolean).slice(0,2).join(', ');
-  return h('aside',{class:'info',ref,'data-game':g.key,'aria-label':g.title},
-    h('div',{class:'info-cover','data-media':it.media},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('small',null,W('shelf.sealed')))),
-    h('div',{class:'info-text'},
-      h('p',{class:'info-kicker'},W('game.era.'+g.era)+' · '+W('shelf.media.'+it.media)),
-      h('h2',null,g.title,h('small',null,g.title_en)),
-      (f.year||dev)&&h('p',{class:'info-facts'},[f.year?W('game.year',{y:f.year}):'',dev].filter(Boolean).join(' · ')),
-      h('p',{class:'info-persona'},g.persona),
-      h('div',{class:'info-acts'},
-        h('button',{type:'button',class:'start',id:'shelf-start',disabled:!it.drawn,title:it.drawn?'':W('shelf.start.sealed'),onClick:()=>start(g.key)},'▶ '+W('shelf.start')),
-        h('a',{class:'act',href:'dex.html?game='+encodeURIComponent(g.key)},W('shelf.dex')),
-        !it.drawn&&h('a',{class:'act',href:'prompt.html?game='+encodeURIComponent(g.key)},W('shelf.prompt')),
-        h('button',{type:'button',class:'act',onClick:close},W('shelf.info.close'))),
-      !it.drawn&&h('p',{class:'info-note'},W('shelf.start.sealed'))));
+  return h('div',{class:'pop',onClick:e=>{if(e.target===e.currentTarget)close();}},
+    h('aside',{class:'info',ref:card,role:'dialog','aria-modal':'true','data-game':g.key,'aria-label':g.title},
+      h('button',{type:'button',class:'info-x',ref:it.drawn?null:first,'aria-label':W('shelf.info.close'),onClick:close},'×'),
+      h('div',{class:'info-cover','data-media':it.media},it.drawn?h(BigCover,{file:it.cover}):h('span',{class:'pkg-blank'},h('small',null,W('shelf.sealed')))),
+      h('div',{class:'info-text'},
+        h('p',{class:'info-kicker'},W('game.era.'+g.era)+' · '+W('shelf.media.'+it.media)),
+        h('h2',null,g.title,h('small',null,g.title_en)),
+        (f.year||dev)&&h('p',{class:'info-facts'},[f.year?W('game.year',{y:f.year}):'',dev].filter(Boolean).join(' · ')),
+        h('p',{class:'info-persona'},g.persona),
+        h('div',{class:'info-acts'},
+          h('button',{type:'button',class:'start',id:'shelf-start',ref:it.drawn?first:null,disabled:!it.drawn,title:it.drawn?'':W('shelf.start.sealed'),onClick:()=>start(g.key)},'▶ '+W('shelf.start')),
+          h('a',{class:'act',href:'dex.html?game='+encodeURIComponent(g.key)},W('shelf.dex')),
+          !it.drawn&&h('a',{class:'act',href:'prompt.html?game='+encodeURIComponent(g.key)},W('shelf.prompt'))),
+        !it.drawn&&h('p',{class:'info-note'},W('shelf.start.sealed')))));
 }
 /* 켜기 — 로딩 → 본편(폼 · 개방) → 엔딩 크레딧(일상컷 · 사실 칸) */
 function Loading({it,done}){
@@ -211,22 +236,25 @@ function Bar(){
     h('nav',{class:'s-pages','aria-label':W('shelf.nav')},PAGES.filter(k=>k!=='shelf').map(k=>h('a',{key:k,href:k+'.html'},W('nav.'+k)))));
 }
 function App(){
-  const doc=useDocs(),art=useArt(),[st,setSt]=useState(readURL);
+  const doc=useDocs(),art=useArt(),[st,setSt]=useState(readURL),[folder,setFolder]=useState(false);
   useEffect(()=>{const pop=()=>setSt(readURL());addEventListener('popstate',pop);return ()=>removeEventListener('popstate',pop);},[]);
   const set=(patch,push)=>setSt(s=>{const n=Object.assign({},s,patch);writeURL(n,push);return n;});
   if(!doc)return h('p',{class:'s-wait'},W('shelf.loading'));
   if(doc.failed)return h('p',{class:'s-wait'},W('shelf.fail'));
   const items=allItems(doc.lay),it=items.find(x=>x.key===st.g)||null;
-  const pick=k=>set({g:st.g===k?'':k,play:false},false);
+  const pick=k=>set({g:k,play:false},false);
   const start=k=>{const x=items.find(y=>y.key===k);if(x&&x.drawn)set({g:k,play:true},true);};
   const exit=()=>{if(history.state&&history.state.shelf)history.back();else set({play:false},false);};
-  const playing=st.play&&it&&it.drawn;
+  const playing=st.play&&it&&it.drawn,popup=!!it&&!playing;
   return h('div',{class:'s-shell'+(playing?' playing':'')},
     h('div',{class:'s-backdrop','aria-hidden':'true'}),
     h(Bar),
-    h('main',{class:'s-room'},
+    /* 팝업 · 폴더 창이 떠 있으면 뒤 진열장은 못 누른다(inert) */
+    h('main',{class:'s-room',inert:popup||folder||playing},
       h(Cabinet,{doc,sel:st.g,pick,art}),
-      h('div',{class:'s-side'},h(PC,{doc,sel:st.g,pick,start,art}),h(Info,{doc,it,start,close:()=>set({g:'',play:false},false)}))),
+      h('div',{class:'s-side'},h(PC,{doc,sel:st.g,pick,start,art,folder,openFolder:()=>setFolder(true)}))),
+    folder&&!popup&&!playing&&h(Folder,{doc,sel:st.g,pick,start,close:()=>setFolder(false)}),
+    popup&&h(Info,{it,start,close:()=>set({g:'',play:false},false),key:'info'}),
     playing&&h(Play,{doc,it,exit,key:it.key}));
 }
 render(h(App),document.getElementById('app'));

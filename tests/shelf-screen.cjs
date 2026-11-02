@@ -1,4 +1,4 @@
-/* 진열장(shelf.html) — 시대 칸의 패키지 · PC 바탕화면 · 「게임」 폴더 · 빈 상자 · 고르기 · 켜기(로딩 → 본편 → 엔딩 크레딧) · 끄기 · 뒤로 가기 · 도감 바로가기.
+/* 진열장(shelf.html) — 시대 칸의 패키지 · PC 바탕화면 · 「게임」 폴더 창 · 빈 상자 · 고르면 팝업(×·Esc·바깥 누르기) · 켜기(로딩 → 본편 → 엔딩 크레딧) · 끄기 · 뒤로 가기 · 도감 바로가기 · 폰에서 PC 크기.
    옆에 그림 저장소(../game-atelier-img)가 있으면 그림도 받는다. Motion 사본은 ESM_DIR 의 motion/dist/motion.js(없어도 화면은 돈다).
    ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/shelf-screen.cjs */
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path');
@@ -25,8 +25,15 @@ const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = 
       assert.equal(await p.locator('.cabinet .pkg').count(), lay.shelves.reduce((n, r) => n + r.items.length, 0), name + ' 진열장 패키지 수');
       assert.equal(await p.locator('.desktop .icon[data-game]').count(), lay.pc.online.length, name + ' 바탕화면 아이콘 = 온라인 게임');
       assert.equal(await p.locator('.window').count(), 0, name + ' 폴더는 닫혀 있다');
+      /* PC 크기(2026-11-02 「모니터 크기랑 폴더크기, 게임 이미지를 더 크게 — 모바일에서 너무 작아」) — 모니터는 칸 너비 가득, 아이콘 그림 48px 이상 */
+      const pcSize = await p.evaluate(() => ({ mon: document.querySelector('.monitor').getBoundingClientRect().width, icon: document.querySelector('.desktop .icon[data-game] .icon-pic').getBoundingClientRect().width,
+        folder: document.querySelector('.icon.folder .icon-pic').getBoundingClientRect().width, vw: innerWidth }));
+      assert(pcSize.icon >= 48 && pcSize.folder >= 48, name + ' 바탕화면 아이콘 크기 ' + JSON.stringify(pcSize));
+      if (mobile) assert(pcSize.mon >= Math.min(pcSize.vw - 32, 720) - 1, name + ' 폰에선 모니터가 칸 너비 가득 ' + JSON.stringify(pcSize));
       await p.click('.icon.folder'); await p.waitForSelector('.window');
       assert.deepEqual(await p.$$eval('.window .icon', es => es.map(e => e.dataset.game)), lay.pc.download.map(x => x.key), name + ' 「게임」 폴더 = 내려받는 게임');
+      assert(await p.$eval('.window', e => e.getAttribute('aria-modal') === 'true' && e.closest('main') === null), name + ' 폴더 창은 화면 위 팝업');
+      assert(await p.$eval('.window .icon-pic', e => e.getBoundingClientRect().width >= 64), name + ' 폴더 창 아이콘은 크게');
       await p.click('.window-x'); await p.waitForSelector('.window', { state: 'detached' });
       /* 진열장 그림(BACKGROUND_DIR 에 shelf-*.webp 가 있을 때) — 껍데기 · 모니터 · 칸. 없으면 CSS 모양 그대로 */
       if (ART) {
@@ -48,10 +55,17 @@ const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = 
         await p.click('.pkg[data-game="' + box.key + '"]'); await p.waitForSelector('.info[data-game="' + box.key + '"]');
         assert(await p.$eval('#shelf-start', e => e.disabled), name + ' 빈 상자는 시작이 막혀 있다');
         assert.equal(await p.$eval('.info a[href^="prompt.html"]', e => e.getAttribute('href')), 'prompt.html?game=' + box.key, name + ' 빈 상자는 생성기로');
+        await p.click('.info-x'); await p.waitForSelector('.info', { state: 'detached' });
+        assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('g')), null, name + ' × 로 닫으면 고른 것이 풀린다');
       }
       /* 고르기 — 주소 ?g= · 사실 · 도감 바로가기 */
       await p.click('.pkg[data-game="' + hero.key + '"]'); await p.waitForSelector('.info[data-game="' + hero.key + '"]');
-      assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('g')), hero.key, name + ' 주소');
+      /* 팝업 — 화면 위에 뜨고 뒤 진열장은 못 누른다, 초점은 시작, 겉그림은 크게 */
+      assert(await p.$eval('.info', e => e.getAttribute('role') === 'dialog' && e.getAttribute('aria-modal') === 'true' && getComputedStyle(e.closest('.pop')).position === 'fixed'), name + ' 고르면 팝업');
+      assert(await p.$eval('main.s-room', e => e.inert), name + ' 팝업 뒤는 못 누른다');
+      assert.equal(await p.evaluate(() => document.activeElement && document.activeElement.id), 'shelf-start', name + ' 팝업 초점은 시작');
+      const cov = await p.$eval('.info-cover', e => ({ h: e.getBoundingClientRect().height, w: e.getBoundingClientRect().width, vh: innerHeight }));
+      assert(cov.h >= Math.min(cov.vh * 0.4, 380), name + ' 팝업 겉그림 크게 ' + JSON.stringify(cov));
       assert.equal(await p.$eval('.pkg[data-game="' + hero.key + '"]', e => e.getAttribute('aria-pressed')), 'true');
       assert((await p.$eval('.info-facts', e => e.textContent)).includes(String(hero.game.facts.year)), name + ' 받은 발매 연도');
       assert.equal(await p.$eval('.info a[href^="dex.html"]', e => e.getAttribute('href')), 'dex.html?game=' + hero.key);
@@ -75,6 +89,10 @@ const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = 
       /* 끄기 — 뒤로 가기와 같다 */
       await p.click('#shelf-back'); await p.waitForSelector('.play', { state: 'detached' });
       assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('play')), null, name + ' 끄면 주소에서 play 가 빠진다');
+      /* 끄면 그 게임 팝업으로 돌아오고, Esc 로 닫는다 */
+      await p.waitForSelector('.info[data-game="' + hero.key + '"]');
+      await p.keyboard.press('Escape'); await p.waitForSelector('.info', { state: 'detached' });
+      await p.waitForFunction(k => document.activeElement && document.activeElement.dataset.game === k, hero.key, { timeout: 2000 }).catch(() => assert.fail(name + ' 닫으면 초점은 고른 패키지로'));
       /* PC 아이콘에서 켜고 Esc 로 끄기 · 뒤로 가기로 끄기 */
       if (online) {
         await p.click('.desktop .icon[data-game="' + online.key + '"]'); await p.waitForSelector('.info[data-game="' + online.key + '"]');
@@ -83,8 +101,12 @@ const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = 
         await p.click('#shelf-start'); await p.waitForSelector('.play');
         await p.goBack(); await p.waitForSelector('.play', { state: 'detached' });
         assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('g')), online.key, name + ' 뒤로 가기면 고른 채 진열장');
+        /* 바깥(어두운 막)을 누르면 닫힌다 */
+        await p.click('.pop', { position: { x: 4, y: 4 } }); await p.waitForSelector('.info', { state: 'detached' });
       }
-      if (dl) { await p.click('.icon.folder'); await p.click('.window .icon[data-game="' + dl.key + '"]'); await p.waitForSelector('.info[data-game="' + dl.key + '"]'); }
+      if (dl) { await p.click('.icon.folder'); await p.click('.window .icon[data-game="' + dl.key + '"]'); await p.waitForSelector('.info[data-game="' + dl.key + '"]');
+        assert.equal(await p.locator('.window').count(), 0, name + ' 폴더에서 고르면 창은 닫히고 팝업'); }
+      if (process.env.SHOT_DIR) await p.screenshot({ path: path.join(process.env.SHOT_DIR, 'shelf-' + name + '-popup.png') });
       assert(await p.evaluate(() => document.documentElement.scrollWidth <= innerWidth + 1), name + ' 가로로 넘친다');
       assert.deepEqual(a.errors, [], name + ' 화면 오류');
       assert.deepEqual(await p.evaluate(() => window.AtelierWords.missing()), [], name + ' 낱말 표에 없는 열쇠');
@@ -100,6 +122,6 @@ const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = 
     assert.equal(await d.page.$eval('#dex-to-shelf', e => e.getAttribute('href')), 'shelf.html?g=' + hero.key);
     await d.close();
     console.log('PASS 진열장 화면: 시대 칸 ' + lay.shelves.length + ' · 패키지 · 바탕화면 ' + lay.pc.online.length + ' · 「게임」 폴더 ' + lay.pc.download.length + ' · 빈 상자 ' + sealed.length +
-      ' · 고르기·주소 · 로딩 → 본편 여섯 → 크레딧(일상컷·사실 칸) · 끄기·Esc·뒤로 가기 · 도감 바로가기 · 세 크기' + (ART ? ' · 진열장 그림(껍데기 · 모니터 · 칸)' : ' · 그림 없이 CSS 모양'));
+      ' · 고르면 팝업(×·Esc·바깥) · 폴더 창 · 폰 PC 크기 · 고르기·주소 · 로딩 → 본편 여섯 → 크레딧(일상컷·사실 칸) · 끄기·Esc·뒤로 가기 · 도감 바로가기 · 세 크기' + (ART ? ' · 진열장 그림(껍데기 · 모니터 · 칸)' : ' · 그림 없이 CSS 모양'));
   } finally { await h.stop(); }
 })().catch(e => { console.error(e); process.exit(1); });

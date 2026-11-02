@@ -20,9 +20,10 @@
 .s-pages a {color:var(--s-dim);text-decoration:none;font-size:13px;padding:0 12px;min-height:44px;display:flex;align-items:center;border-radius:6px}
 .s-pages a:hover,.s-pages a:focus-visible {color:var(--s-ink);background:#ffffff10}
 
-.s-room {display:grid;grid-template-columns:minmax(0,1fr) 400px;gap:20px;align-items:start}
+.s-room {display:grid;grid-template-columns:minmax(0,1fr) 480px;gap:20px;align-items:start}
 .s-side {display:grid;gap:16px;position:sticky;top:12px}
-@media (max-width:980px){ .s-room {grid-template-columns:minmax(0,1fr)} .s-side {position:static} }
+@media (min-width:1280px){ .s-room {grid-template-columns:minmax(0,1fr) 540px} }
+@media (max-width:980px){ .s-room {grid-template-columns:minmax(0,1fr)} .s-side {position:static} .pc {width:100%;max-width:720px;margin:0 auto} }
 
 /* 나무 진열장 */
 .cabinet {background:linear-gradient(90deg,var(--s-wood) 0 12px,transparent 12px calc(100% - 12px),var(--s-wood) calc(100% - 12px)),linear-gradient(#1c1411,#120d0b);
@@ -88,42 +89,59 @@
 .monitor {background:#1d2029;border-radius:12px;padding:12px 12px 18px;box-shadow:0 14px 30px #000a;border:1px solid #333a4b}
 .screen {position:relative;aspect-ratio:4/3;border-radius:4px;overflow:hidden;
   background:radial-gradient(90% 90% at 70% 20%,#3c6fb6 0%,#1f3f73 45%,#0f1f3d 100%)}
-.desktop {position:absolute;inset:8px 8px 34px;display:grid;grid-template-columns:repeat(auto-fill,minmax(64px,1fr));grid-auto-rows:min-content;gap:6px;align-content:start}
+.desktop {position:absolute;inset:8px 8px 34px;display:grid;grid-template-columns:repeat(auto-fill,minmax(76px,1fr));grid-auto-rows:min-content;gap:6px;align-content:start}
 .icon {display:flex;flex-direction:column;align-items:center;gap:3px;border:0;background:none;color:#fff;font:inherit;padding:4px 2px;border-radius:4px;cursor:pointer;width:100%;min-height:44px}
 .icon:hover,.icon:focus-visible,.icon[aria-pressed="true"] {background:#ffffff26;outline:none}
 .icon[aria-pressed="true"] {box-shadow:inset 0 0 0 1px #ffffff80}
-.icon-pic {position:relative;display:block;width:40px;height:40px;border-radius:9px;overflow:hidden;box-shadow:0 2px 6px #0008;background:#2b2f3a}
+.icon-pic {position:relative;display:block;flex:none;width:50px;height:50px;border-radius:11px;overflow:hidden;box-shadow:0 2px 6px #0008;background:#2b2f3a}
 .icon-pic .pkg-blank b {display:none}
 .icon-name {font-size:10px;line-height:1.2;text-align:center;text-shadow:0 1px 2px #000;max-width:72px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
 .folder-pic {background:linear-gradient(#f6cf5b,#e3ad2c);border-radius:4px 10px 6px 6px}
-.folder-pic::before {content:"";position:absolute;left:0;top:-1px;width:18px;height:8px;background:#e9b93b;border-radius:3px 3px 0 0}
-.window {position:absolute;left:12%;right:12%;top:12%;bottom:40px;background:#eef1f7;color:#1b1f29;border-radius:6px;box-shadow:0 12px 30px #0009;display:flex;flex-direction:column;z-index:3}
-.window-bar {display:flex;align-items:center;justify-content:space-between;padding:4px 4px 4px 10px;background:#d5dbe7;border-radius:6px 6px 0 0;font-size:12px}
-.window-x {border:0;background:none;font-size:20px;line-height:1;width:44px;height:36px;cursor:pointer;color:#333}
-.window-body {flex:1;overflow:auto;padding:8px;display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:6px;align-content:start}
-.window .icon {color:#1b1f29}
-.window .icon-name {text-shadow:none}
+.folder-pic {overflow:visible;box-shadow:0 3px 8px #0009}
+.folder-pic::before {content:"";position:absolute;left:0;top:-14%;width:44%;height:22%;background:#e9b93b;border-radius:4px 4px 0 0}
+.window {position:relative;width:min(600px,100%);max-height:min(82dvh,640px);background:#eef1f7;color:#1b1f29;border-radius:10px;box-shadow:0 24px 60px #000c;display:flex;flex-direction:column;overflow:hidden}
+.window-bar {display:flex;align-items:center;justify-content:space-between;padding:4px 4px 4px 14px;background:#d5dbe7;font-size:14px}
+.window-x {border:0;background:none;font-size:26px;line-height:1;width:44px;height:44px;cursor:pointer;color:#333;border-radius:6px}
+.window-x:hover,.window-x:focus-visible {background:#0000001a;outline:none}
+.window-body {flex:1;overflow:auto;padding:14px;display:grid;grid-template-columns:repeat(auto-fill,minmax(104px,1fr));gap:10px;align-content:start}
+.window .icon {color:#1b1f29;padding:8px 4px}
+.window .icon-pic {width:76px;height:76px;border-radius:14px}
+.window .icon-name {text-shadow:none;font-size:13px;max-width:110px}
 .taskbar {position:absolute;left:0;right:0;bottom:0;height:28px;background:#0b1426e6;display:flex;align-items:center;gap:10px;padding:0 8px;font-size:11px;color:#dfe6f5}
 .tb-start {background:#2e7d32;border-radius:3px;padding:2px 8px;font-weight:700}
 .stand {width:90px;height:14px;margin:10px auto 0;background:linear-gradient(#2a2f3b,#14171e);border-radius:0 0 8px 8px}
 
-/* 고른 게임 */
-.info {display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;background:#171a23;border:1px solid var(--s-line);border-radius:10px;padding:14px}
-.info.empty {display:block;color:var(--s-dim);font-size:13px}
-.info-cover {position:relative;aspect-ratio:2/3;border-radius:4px;overflow:hidden;background:#222;box-shadow:0 8px 16px #0009}
-.info-kicker {margin:0 0 4px;font-size:11px;color:var(--s-accent)}
-.info h2 {margin:0 0 6px;font-size:18px;line-height:1.3}
-.info h2 small {display:block;font-size:11px;font-weight:400;color:var(--s-dim)}
-.info-facts {margin:0 0 6px;font-size:12px;color:var(--s-dim)}
-.info-persona {margin:0 0 10px;font-size:13px;line-height:1.55}
-.info-acts {display:flex;flex-wrap:wrap;gap:6px}
-.info-note {margin:8px 0 0;font-size:11px;color:var(--s-dim)}
-.start,.act {min-height:44px;padding:0 16px;border-radius:8px;font:inherit;font-size:13px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none}
+/* 팝업 — 고른 게임 · 「게임」 폴더 창(2026-11-02 「게임 클릭했을때 팝업으로」). 넓은 화면은 가운데, 폰은 아래에서 올라오는 판 */
+.pop {position:fixed;inset:0;z-index:50;display:flex;align-items:center;justify-content:center;padding:16px;background:#05070bcc;-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);overflow:auto}
+.info {position:relative;width:min(700px,100%);max-height:calc(100dvh - 32px);overflow:auto;display:grid;grid-template-columns:minmax(0,260px) minmax(0,1fr);gap:22px;
+  background:#171a23;border:1px solid var(--s-line);border-radius:14px;padding:22px;box-shadow:0 30px 70px #000d}
+.info-x {position:absolute;top:6px;right:6px;z-index:2;width:44px;height:44px;border:0;border-radius:8px;background:#0000;color:var(--s-ink);font-size:28px;line-height:1;cursor:pointer}
+.info-x:hover,.info-x:focus-visible {background:#ffffff1a;outline:none}
+.info-cover {position:relative;aspect-ratio:2/3;border-radius:6px;overflow:hidden;background:#222;box-shadow:0 10px 24px #000a}
+.info-text {padding-top:4px;min-width:0}
+.info-kicker {margin:0 0 6px;font-size:12px;color:var(--s-accent)}
+.info h2 {margin:0 44px 8px 0;font-size:22px;line-height:1.3}
+.info h2 small {display:block;font-size:12px;font-weight:400;color:var(--s-dim)}
+.info-facts {margin:0 0 8px;font-size:13px;color:var(--s-dim)}
+.info-persona {margin:0 0 14px;font-size:14px;line-height:1.6}
+.info-acts {display:flex;flex-wrap:wrap;gap:8px}
+.info-note {margin:10px 0 0;font-size:12px;color:var(--s-dim)}
+.start,.act {min-height:44px;padding:0 18px;border-radius:8px;font:inherit;font-size:14px;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;text-decoration:none}
 .start {border:0;background:var(--s-accent);color:#1b1404;font-weight:700}
 .start:disabled {background:#3a3f4c;color:#8c93a6;cursor:not-allowed}
 .act {border:1px solid #3c4356;background:transparent;color:var(--s-ink)}
 .act:hover,.start:not(:disabled):hover {filter:brightness(1.08)}
-@media (max-width:420px){ .info {grid-template-columns:90px minmax(0,1fr)} }
+.start:focus-visible,.act:focus-visible {outline:2px solid var(--s-ink);outline-offset:2px}
+@media (max-width:600px){
+  .pop {align-items:flex-end;padding:0}
+  .info {grid-template-columns:minmax(0,1fr);gap:14px;width:100%;max-height:94dvh;border-radius:16px 16px 0 0;border-bottom:0;padding:14px 16px calc(18px + env(safe-area-inset-bottom))}
+  .info-cover {height:min(54dvh,460px);width:auto;max-width:100%;margin:0 auto}
+  .info h2 {margin-right:0;font-size:20px}
+  .info-acts .start {flex:1 1 100%}
+  .win-pop {align-items:center;padding:16px}
+  .window-body {grid-template-columns:repeat(auto-fill,minmax(92px,1fr))}
+  .window .icon-pic {width:68px;height:68px}
+}
 
 /* 켜기 — 화면 가득 */
 .play {position:fixed;inset:0;z-index:100;background:#000;color:#fff;overflow:hidden}
@@ -250,9 +268,29 @@
 .monitor-shell {display:block;width:100%;height:100%;pointer-events:none;user-select:none}
 .monitor.shelled .screen {position:absolute;aspect-ratio:auto;border-radius:1px}
 .monitor.shelled .stand {display:none}
-.monitor.shelled .desktop {overflow:auto;grid-template-columns:repeat(auto-fill,minmax(58px,1fr))}
-.monitor.shelled .icon-pic {width:34px;height:34px;border-radius:8px}
-.monitor.shelled .taskbar {height:24px}
-.monitor.shelled .desktop {inset:6px 6px 28px}
+.monitor.shelled .desktop {overflow:auto;grid-template-columns:repeat(auto-fill,minmax(66px,1fr));inset:8px 8px 30px}   /* 한 줄 여섯 — 열한 개가 두 줄에 든다 */
+.monitor.shelled .icon-pic {width:50px;height:50px;border-radius:11px}
+.monitor.shelled .taskbar {height:26px}
+.monitor.shelled .icon-name {font-size:11px}
+/* 폰 — 모니터 화면이 낮아 아이콘을 두 줄로 놓고 옆으로 밀어 본다(아이콘 크게, 이름은 한 줄) */
+@media (max-width:600px){
+  .desktop,.monitor.shelled .desktop {grid-auto-flow:column;grid-template-columns:none;grid-template-rows:repeat(2,min-content);grid-auto-columns:72px;
+    overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scrollbar-width:none;align-content:space-evenly;inset:4px 4px 28px}
+  .desktop::-webkit-scrollbar {display:none}
+  .desktop[data-more="1"] {-webkit-mask-image:linear-gradient(90deg,#000 82%,#0000);mask-image:linear-gradient(90deg,#000 82%,#0000)}   /* 옆에 더 있다 */
+  .monitor.shelled .icon-pic,.icon-pic {width:48px;height:48px;border-radius:11px}
+  .icon {padding:3px 2px;gap:2px}
+  .icon-name,.monitor.shelled .icon-name {font-size:11px;-webkit-line-clamp:1;max-width:70px}
+}
 .pkg-spine {color:#f1e3cf;text-shadow:0 1px 2px #000,0 0 6px #000}
 .sealed .pkg-spine {color:#cdbfa9}
+
+/* 폰 — 진열장 패키지를 크게(가는 DVD 케이스 · 오락실 기기는 한 줄 셋이 들 만큼), 진열장 옆 여백은 줄인다 */
+@media (max-width:600px){
+  .cabinet {padding:12px 12px 4px}
+  .shelf {padding:8px 6px 0}
+  .shelf-board {gap:12px 8px}
+  .pkg {--pkg-scale:1.12}
+  .pkg[data-media="disc_case"],.pkg[data-media="arcade_board"] {--pkg-scale:1.3}
+  .pkg-spine {font-size:11px}
+}

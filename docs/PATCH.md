@@ -11,6 +11,12 @@
 
 
 
+## 2026-11-02 · claude · 진열장 — 고르면 팝업 · 폴더 창 크게 · 폰에서 PC · 패키지 크게
+- shelf.html — 사용자 「게임진열장 게임 클릭했을때 팝업으로 뜨게 해주고, pc게임의 모니터 크기랑 폴더크기, 게임 이미지를 더 크게 그려줘. 모바일에서 너무 작아」. 고른 게임은 옆 칸 대신 화면 위 팝업(넓은 화면은 가운데, 폰은 아래에서 올라오는 판) — 큰 겉그림(원본), 시작에 초점, ×·Esc·바깥 누르기로 닫고 초점은 누른 패키지로, 뒤 진열장은 inert. 켰다 끄면 그 팝업으로 돌아온다. 「게임」 폴더 창도 모니터 안이 아니라 화면 위 창(아이콘 76px), 고르면 창을 닫고 팝업. 고른 것 다시 누르기로 풀던 것은 없앴다(팝업이 가린다)
+- lib/shelf.css — 팝업 · 폴더 창. PC 칸 480px(1280px 넘으면 540px), 바탕화면 아이콘 50px · 한 줄 여섯(열한 개가 두 줄에). 폰은 모니터가 칸 너비 가득, 아이콘 48px 두 줄로 옆으로 밀어 보기(끝까지 안 밀었으면 오른쪽 흐림), 진열장 패키지 1.12배(DVD · 오락실 기기 1.3배), 진열장 여백 줄임. 판 shelf.css ?v=3
+- lib/words.js — shelf.info.close 「닫기」, shelf.info.empty 걷음. 판 words.js ?v=17(dex · index · prompt · shelf)
+- tests/shelf-screen.cjs — 팝업(dialog · inert · 시작 초점 · 큰 겉그림) · ×·Esc·바깥 닫기 · 초점 돌려주기 · 폴더 창(화면 위 · 큰 아이콘 · 고르면 닫힘) · 바탕화면 아이콘 48px 이상 · 폰 모니터 너비
+
 ## 2026-11-02 · claude · 코스튬 컷엔 얼굴 클로즈업 안 씀
 - data/casual-tree.json — costume_required.not_frames [face_close]. 사용자 「포켓몬의 필수코스튬 컷은 얼굴 클로즈업 장면은 빼도록 수정해줘」 · 「아 게임쪽도」 — 얼굴만 남으면 코스튬이 안 보인다
 - lib/casual-tree.js · lib/casual-tree-v2.js — 공용 트리 모듈: costumeNo(표 costume_required.not_frames) — frameOk · why(code costume)가 막아 생성기 화면도 거른다. 여섯 공방(book · element · myth · pkm · sam)에 같이 복사
