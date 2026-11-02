@@ -21,15 +21,15 @@
 <script src="lib/words.js?v=16"></script>
 <script src="lib/fresh.js?v=1"></script>
 <script src="lib/img.js?v=1"></script>
-<script src="lib/shelf.js?v=1"></script>
+<script src="lib/shelf.js?v=2"></script>
 <script src="https://cdn.jsdelivr.net/npm/motion@14.3.1/dist/motion.js"></script>
-<link rel="stylesheet" href="lib/shelf.css?v=1">
+<link rel="stylesheet" href="lib/shelf.css?v=2">
 </head>
 <body class="shelf-page">
 <div id="app"></div>
 <script type="module">
 import {h,render} from 'https://esm.sh/preact@10.24.3';
-import {useState,useEffect,useRef} from 'https://esm.sh/preact@10.24.3/hooks';
+import {useState,useEffect,useLayoutEffect,useRef} from 'https://esm.sh/preact@10.24.3/hooks';
 import {PAGES} from './lib/workspace-ui.js?v=5';
 const W=window.W,IMG=window.AtelierImg,S=window.AtelierShelf;
 const REDUCED=()=>!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -56,6 +56,16 @@ function useDocs(){
   },[]);
   return doc;
 }
+/* 진열장 그림 — 껍데기 · 모니터 · 방 · 칸. 받은 것만 쓰고(art[파일]), 못 받으면 CSS 모양 그대로 */
+function useArt(){
+  const [art,setArt]=useState({});
+  useEffect(()=>{const files=[...Object.values(S.SHELLS).map(x=>x.file),S.MONITOR.file,...Object.values(S.BACKDROPS)];
+    files.forEach(f=>{const i=new Image();i.decoding='async';i.onload=()=>setArt(a=>Object.assign({},a,{[f]:true}));i.src=S.ART+f;});},[]);
+  useEffect(()=>{const r=document.documentElement.style;for(const [k,f] of Object.entries(S.BACKDROPS))if(art[f])r.setProperty('--shelf-'+k,'url("'+S.ART+f+'")');},[art]);
+  return art;
+}
+const pct=v=>v+'%';
+const rectStyle=r=>({left:pct(r[0]),top:pct(r[1]),width:pct(r[2]),height:pct(r[3])});
 const allItems=lay=>[...lay.shelves.flatMap(r=>r.items),...lay.pc.online,...lay.pc.download];
 /* 패키지 겉그림 — 썸네일, 못 받으면 원본 */
 function Cover({file,cls}){
@@ -63,21 +73,23 @@ function Cover({file,cls}){
   return h('img',{class:cls||'cover',src:IMG.thumbURL(file),alt:'',loading:'lazy',decoding:'async',onError:e=>{e.target.onerror=null;e.target.src=IMG.imgURL(file);}});
 }
 /* 진열장의 패키지 하나 — 매체마다 몸이 다르다(lib/shelf.css 의 [data-media]). 그림이 없으면 빈 상자 */
-function Package({it,sel,pick}){
-  const ref=useRef(null),on=sel===it.key;
+function Package({it,sel,pick,art}){
+  const ref=useRef(null),on=sel===it.key,sh=S.SHELLS[it.media],shelled=!!(sh&&art[sh.file]);
   useEffect(()=>{anim(ref.current,{transform:on?'translateY(-10px) scale(1.06)':'translateY(0px) scale(1)'},{type:'spring',stiffness:420,damping:24});},[on]);
   return h('button',{type:'button',ref,class:'pkg'+(it.drawn?'':' sealed'),'data-media':it.media,'data-game':it.key,'aria-pressed':on,
       'aria-label':W('shelf.pick',{title:it.game.title})+(it.drawn?'':' — '+W('shelf.sealed')),title:it.game.title,onClick:()=>pick(it.key)},
-    h('span',{class:'pkg-body'},
-      h('span',{class:'pkg-art'},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('b',null,it.game.title),h('small',null,W('shelf.sealed.short')))),
+    h('span',{class:'pkg-body','data-shell':shelled?'1':'0',style:shelled?{width:sh.w+'px',aspectRatio:String(sh.ar)}:null},
+      shelled&&h('img',{class:'pkg-shell',src:S.ART+sh.file,alt:'','aria-hidden':'true',decoding:'async'}),
+      h('span',{class:'pkg-art',style:shelled?rectStyle(sh.label):null},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('b',null,it.game.title),h('small',null,W('shelf.sealed.short')))),
+      shelled&&sh.marquee&&h('span',{class:'pkg-marquee',style:rectStyle(sh.marquee)},it.drawn?h(Cover,{file:it.cover}):h('b',null,it.game.title)),
       h('span',{class:'pkg-disc','aria-hidden':'true'})),
     h('span',{class:'pkg-spine'},it.game.title));
 }
-function Cabinet({doc,sel,pick}){
+function Cabinet({doc,sel,pick,art}){
   return h('section',{class:'cabinet','aria-label':W('shelf.cabinet')},
     doc.lay.shelves.map(r=>h('div',{key:r.era,class:'shelf','data-era':r.era},
       h('h2',{class:'shelf-label'},W('shelf.row',{era:W('game.era.'+r.era),n:r.items.length})),
-      h('div',{class:'shelf-board',role:'list'},r.items.map(it=>h('span',{key:it.key,role:'listitem',class:'slot'},h(Package,{it,sel,pick})))))));
+      h('div',{class:'shelf-board',role:'list'},r.items.map(it=>h('span',{key:it.key,role:'listitem',class:'slot'},h(Package,{it,sel,pick,art})))))));
 }
 /* PC — 온라인은 바탕화면 아이콘, 내려받기는 「게임」 폴더 */
 function Icon({it,sel,pick,start}){
@@ -86,16 +98,17 @@ function Icon({it,sel,pick,start}){
     h('span',{class:'icon-pic'},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('small',null,W('shelf.sealed.short')))),
     h('span',{class:'icon-name'},it.game.title));
 }
-function PC({doc,sel,pick,start}){
+function PC({doc,sel,pick,start,art}){
   const [open,setOpen]=useState(()=>doc.lay.pc.download.some(it=>it.key===sel)),win=useRef(null);
   useEffect(()=>{if(open)anim(win.current,{opacity:[0,1],transform:['scale(.92)','scale(1)']},{duration:.22});},[open]);
   return h('section',{class:'pc','aria-label':W('shelf.pc')},
-    h('div',{class:'monitor'},
-      h('div',{class:'screen'},
+    h('div',{class:'monitor'+(art[S.MONITOR.file]?' shelled':''),style:art[S.MONITOR.file]?{aspectRatio:String(S.MONITOR.ar)}:null},
+      art[S.MONITOR.file]&&h('img',{class:'monitor-shell',src:S.ART+S.MONITOR.file,alt:'','aria-hidden':'true',decoding:'async'}),
+      h('div',{class:'screen',style:art[S.MONITOR.file]?rectStyle(S.MONITOR.screen):null},
         h('div',{class:'desktop',role:'list'},
-          doc.lay.pc.online.map(it=>h('span',{key:it.key,role:'listitem'},h(Icon,{it,sel,pick,start}))),
           doc.lay.pc.download.length>0&&h('span',{role:'listitem'},h('button',{type:'button',class:'icon folder','aria-expanded':open,onClick:()=>setOpen(v=>!v),'aria-label':W('shelf.folder.n',{n:doc.lay.pc.download.length})},
-            h('span',{class:'icon-pic folder-pic','aria-hidden':'true'}),h('span',{class:'icon-name'},W('shelf.folder'))))),
+            h('span',{class:'icon-pic folder-pic','aria-hidden':'true'}),h('span',{class:'icon-name'},W('shelf.folder')))),   /* 폴더가 맨 앞 — 화면이 작으면 아래 줄이 작업 표시줄에 가린다 */
+          doc.lay.pc.online.map(it=>h('span',{key:it.key,role:'listitem'},h(Icon,{it,sel,pick,start})))),
         open&&h('div',{class:'window',ref:win,role:'dialog','aria-label':W('shelf.folder.n',{n:doc.lay.pc.download.length})},
           h('div',{class:'window-bar'},h('b',null,W('shelf.folder')),h('button',{type:'button',class:'window-x','aria-label':W('shelf.folder.close'),onClick:()=>setOpen(false)},'×')),
           h('div',{class:'window-body',role:'list'},doc.lay.pc.download.map(it=>h('span',{key:it.key,role:'listitem'},h(Icon,{it,sel,pick,start}))))),
@@ -180,7 +193,8 @@ function Credits({doc,it,again,back}){
 }
 function Play({doc,it,exit}){
   const list=S.slides(doc.img[it.key],it.style),[phase,setPhase]=useState('load'),[run,setRun]=useState(0),box=useRef(null);
-  useEffect(()=>{const k=e=>{if(e.key==='Escape')exit();};addEventListener('keydown',k);return ()=>removeEventListener('keydown',k);},[]);
+  /* Esc 는 뜨자마자 듣는다 — useEffect 는 그린 다음 프레임에 붙어 막 켠 순간의 Esc 를 놓쳤다 */
+  useLayoutEffect(()=>{const k=e=>{if(e.key==='Escape')exit();};addEventListener('keydown',k);return ()=>removeEventListener('keydown',k);},[]);
   useEffect(()=>{anim(box.current,{opacity:[0,1]},{duration:.25});},[phase]);
   const again=()=>{setRun(r=>r+1);setPhase('load');};
   return h('div',{class:'play',role:'dialog','aria-modal':'true','aria-label':W('shelf.play',{title:it.game.title}),'data-phase':phase},
@@ -197,7 +211,7 @@ function Bar(){
     h('nav',{class:'s-pages','aria-label':W('shelf.nav')},PAGES.filter(k=>k!=='shelf').map(k=>h('a',{key:k,href:k+'.html'},W('nav.'+k)))));
 }
 function App(){
-  const doc=useDocs(),[st,setSt]=useState(readURL);
+  const doc=useDocs(),art=useArt(),[st,setSt]=useState(readURL);
   useEffect(()=>{const pop=()=>setSt(readURL());addEventListener('popstate',pop);return ()=>removeEventListener('popstate',pop);},[]);
   const set=(patch,push)=>setSt(s=>{const n=Object.assign({},s,patch);writeURL(n,push);return n;});
   if(!doc)return h('p',{class:'s-wait'},W('shelf.loading'));
@@ -208,10 +222,11 @@ function App(){
   const exit=()=>{if(history.state&&history.state.shelf)history.back();else set({play:false},false);};
   const playing=st.play&&it&&it.drawn;
   return h('div',{class:'s-shell'+(playing?' playing':'')},
+    h('div',{class:'s-backdrop','aria-hidden':'true'}),
     h(Bar),
     h('main',{class:'s-room'},
-      h(Cabinet,{doc,sel:st.g,pick}),
-      h('div',{class:'s-side'},h(PC,{doc,sel:st.g,pick,start}),h(Info,{doc,it,start,close:()=>set({g:'',play:false},false)}))),
+      h(Cabinet,{doc,sel:st.g,pick,art}),
+      h('div',{class:'s-side'},h(PC,{doc,sel:st.g,pick,start,art}),h(Info,{doc,it,start,close:()=>set({g:'',play:false},false)}))),
     playing&&h(Play,{doc,it,exit,key:it.key}));
 }
 render(h(App),document.getElementById('app'));

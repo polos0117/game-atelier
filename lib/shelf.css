@@ -214,3 +214,45 @@
   .load-word,.load-disc {animation:none !important}
   .credits-pic {transition:none}
 }
+
+/* ── 진열장 그림(2026-11-02) — 받으면 CSS 모양 위에 얹는다(lib/shelf.js 의 SHELLS · MONITOR · BACKDROPS). 못 받으면 위의 모양 그대로 ── */
+/* 방 — 뒤에 흐릿하게 */
+.s-backdrop {position:fixed;inset:0;z-index:-1;background:var(--shelf-room,none) center/cover no-repeat;opacity:.55;filter:blur(2px) saturate(1.05)}
+.s-backdrop::after {content:"";position:absolute;inset:0;background:radial-gradient(120% 90% at 50% 10%,#10121833 0%,#101218d9 70%)}
+.s-shell {position:relative;z-index:0}
+/* 칸 — 뒷판 그림 · 앞 판자 그림 */
+.cabinet {background-color:#140e0b}
+.shelf {background:var(--shelf-back,none) center/cover no-repeat;border-radius:4px;padding:8px 10px 0;margin-bottom:10px}
+.shelf .shelf-label {text-shadow:0 1px 3px #000}
+.shelf-board {position:relative}
+:root[style*="--shelf-plank"] .shelf-board {border-bottom:0;padding-bottom:22px;background:none;box-shadow:none;margin-bottom:0}
+:root[style*="--shelf-plank"] .shelf-board::after {content:"";position:absolute;left:-10px;right:-10px;bottom:0;height:24px;background:var(--shelf-plank) center/100% 100% no-repeat;
+  box-shadow:0 10px 16px -6px #000c}
+/* 패키지 껍데기 */
+.pkg:has(.pkg-body[data-shell="1"]) {width:auto}
+.pkg-body[data-shell="1"] {height:auto !important;background:none !important;border-radius:0;box-shadow:none;filter:drop-shadow(0 6px 6px #000b)}
+.pkg-body[data-shell="1"]::before,.pkg-body[data-shell="1"]::after {display:none}
+.pkg[aria-pressed="true"] .pkg-body[data-shell="1"] {box-shadow:none;filter:drop-shadow(0 0 3px var(--s-accent)) drop-shadow(0 12px 10px #000c)}
+.pkg-shell {position:relative;display:block;width:100%;height:100%;object-fit:fill;pointer-events:none;user-select:none}
+.pkg-body[data-shell="1"] .pkg-art {position:absolute;inset:auto;border-radius:1px;box-shadow:none;background:transparent}
+.pkg-body[data-shell="1"] .pkg-blank {background:transparent;color:#4b4335}
+.pkg-marquee {position:absolute;overflow:hidden;display:flex;align-items:center;justify-content:center;background:#111}
+.pkg-marquee img {width:100%;height:100%;object-fit:cover;object-position:50% 22%;filter:saturate(1.2) brightness(1.1)}
+.pkg-marquee b {font-size:7px;color:#ffd23f;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding:0 2px}
+/* CD · DVD — 투명 플라스틱 반사를 겉그림 위로 */
+.pkg[data-media="cd_case"] .pkg-body[data-shell="1"] .pkg-art::after,.pkg[data-media="disc_case"] .pkg-body[data-shell="1"] .pkg-art::after {content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(125deg,#ffffff59 0 12%,transparent 26% 70%,#ffffff1f 85%)}
+.pkg[data-media="cd_case"] .pkg-body[data-shell="1"] .pkg-art {box-shadow:inset 0 0 0 1px #ffffff40}
+.pkg[data-media="cd_case"] .pkg-body[data-shell="1"] .pkg-disc {display:none}
+.pkg-body[data-shell="1"] .pkg-art img {object-position:50% 18%}
+/* 모니터 그림 — 검은 화면 칸에 바탕화면 */
+.monitor.shelled {position:relative;background:none;border:0;box-shadow:none;padding:0;filter:drop-shadow(0 14px 18px #000b)}
+.monitor-shell {display:block;width:100%;height:100%;pointer-events:none;user-select:none}
+.monitor.shelled .screen {position:absolute;aspect-ratio:auto;border-radius:1px}
+.monitor.shelled .stand {display:none}
+.monitor.shelled .desktop {overflow:auto;grid-template-columns:repeat(auto-fill,minmax(58px,1fr))}
+.monitor.shelled .icon-pic {width:34px;height:34px;border-radius:8px}
+.monitor.shelled .taskbar {height:24px}
+.monitor.shelled .desktop {inset:6px 6px 28px}
+.pkg-spine {color:#f1e3cf;text-shadow:0 1px 2px #000,0 0 6px #000}
+.sealed .pkg-spine {color:#cdbfa9}

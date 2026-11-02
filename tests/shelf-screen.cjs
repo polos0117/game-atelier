@@ -9,6 +9,7 @@ require('../lib/shelf.js');   /* 이 쪽 세상(globalThis)에 붙는다 — 배
 const S = globalThis.AtelierShelf, style = JSON.parse(fs.readFileSync('data/style.json', 'utf8')).default;
 const lay = S.build(design, imgDoc, style), all = [...lay.shelves.flatMap(r => r.items), ...lay.pc.online, ...lay.pc.download];
 const sealed = all.filter(x => !x.drawn).map(x => x.key).sort();
+const ART = !!(process.env.BACKGROUND_DIR && fs.existsSync(path.join(process.env.BACKGROUND_DIR, 'shelf-cartridge.webp')));
 /* 켜 볼 게임 — 진열장에 있고 폼 여섯 칸이 다 있으며 일상컷이 있는 첫 게임 */
 const hero = lay.shelves.flatMap(r => r.items).find(x => x.drawn && S.slides(imgDoc.img[x.key], x.style).length === 6 && S.casuals(imgDoc.img[x.key], x.style).length);
 const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = lay.shelves.flatMap(r => r.items).find(x => !x.drawn);
@@ -27,12 +28,22 @@ const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = 
       await p.click('.icon.folder'); await p.waitForSelector('.window');
       assert.deepEqual(await p.$$eval('.window .icon', es => es.map(e => e.dataset.game)), lay.pc.download.map(x => x.key), name + ' 「게임」 폴더 = 내려받는 게임');
       await p.click('.window-x'); await p.waitForSelector('.window', { state: 'detached' });
+      /* 진열장 그림(BACKGROUND_DIR 에 shelf-*.webp 가 있을 때) — 껍데기 · 모니터 · 칸. 없으면 CSS 모양 그대로 */
+      if (ART) {
+        await p.waitForFunction(n => document.querySelectorAll('.pkg-body[data-shell="1"]').length === n, lay.shelves.reduce((n, r) => n + r.items.length, 0), { timeout: 10000 });
+        await p.waitForSelector('.monitor.shelled .screen');
+        assert(await p.evaluate(() => getComputedStyle(document.documentElement).getPropertyValue('--shelf-plank').includes('shelf-plank.webp')), name + ' 칸 판자 그림');
+        /* 겉그림은 껍데기의 흰 라벨 칸 안 */
+        const fit = await p.$eval('.pkg[data-media="cartridge"] .pkg-body', b => { const a = b.getBoundingClientRect(), c = b.querySelector('.pkg-art').getBoundingClientRect();
+          return c.left > a.left && c.right < a.right && c.top > a.top && c.bottom < a.bottom; });
+        assert(fit, name + ' 카트리지 겉그림이 라벨 칸 안');
+      } else assert.equal(await p.locator('.pkg-body[data-shell="1"]').count(), 0, name + ' 그림 없으면 CSS 모양');
       /* 매체마다 몸 */
       for (const it of lay.shelves.flatMap(r => r.items).slice(0, 12))
         assert.equal(await p.$eval('.pkg[data-game="' + it.key + '"]', e => e.dataset.media), it.media, name + ' ' + it.key + ' 매체');
       /* 빈 상자 — 그림 없는 게임도 진열, 켜지 않는다 */
       assert.deepEqual((await p.$$eval('.sealed[data-game]', es => es.map(e => e.dataset.game))).sort(), sealed, name + ' 빈 상자 = 그림 없는 게임');
-      assert.equal(await p.locator('.sealed img').count(), 0, name + ' 빈 상자엔 그림이 없다');
+      assert.equal(await p.locator('.sealed .pkg-art img, .sealed .icon-pic img').count(), 0, name + ' 빈 상자엔 겉그림이 없다');
       if (box) {
         await p.click('.pkg[data-game="' + box.key + '"]'); await p.waitForSelector('.info[data-game="' + box.key + '"]');
         assert(await p.$eval('#shelf-start', e => e.disabled), name + ' 빈 상자는 시작이 막혀 있다');
@@ -89,6 +100,6 @@ const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = 
     assert.equal(await d.page.$eval('#dex-to-shelf', e => e.getAttribute('href')), 'shelf.html?g=' + hero.key);
     await d.close();
     console.log('PASS 진열장 화면: 시대 칸 ' + lay.shelves.length + ' · 패키지 · 바탕화면 ' + lay.pc.online.length + ' · 「게임」 폴더 ' + lay.pc.download.length + ' · 빈 상자 ' + sealed.length +
-      ' · 고르기·주소 · 로딩 → 본편 여섯 → 크레딧(일상컷·사실 칸) · 끄기·Esc·뒤로 가기 · 도감 바로가기 · 세 크기');
+      ' · 고르기·주소 · 로딩 → 본편 여섯 → 크레딧(일상컷·사실 칸) · 끄기·Esc·뒤로 가기 · 도감 바로가기 · 세 크기' + (ART ? ' · 진열장 그림(껍데기 · 모니터 · 칸)' : ' · 그림 없이 CSS 모양'));
   } finally { await h.stop(); }
 })().catch(e => { console.error(e); process.exit(1); });
