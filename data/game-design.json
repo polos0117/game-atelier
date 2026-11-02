@@ -23,7 +23,8 @@
    "스포츠",
    "레이싱",
    "호러",
-   "잠입"
+   "잠입",
+   "리듬"
   ],
   "group": {
    "reflex": [
@@ -32,7 +33,8 @@
     "슈팅",
     "플랫폼",
     "스포츠",
-    "레이싱"
+    "레이싱",
+    "리듬"
    ],
    "growth": [
     "RPG",
@@ -167,7 +169,15 @@
    "iron_fist_canvas",
    "speed_mesh",
    "hardlight_plating",
-   "mech_pilot_weave"
+   "mech_pilot_weave",
+   "marine_plate",
+   "gothic_velvet_cape",
+   "neon_tracksuit",
+   "drop_gear_ripstop",
+   "explorer_canvas",
+   "gothic_combat_lace",
+   "wuxia_silk_sash",
+   "patched_robe_overalls"
   ],
   "pose": [
    "dash_corner",
@@ -211,7 +221,15 @@
    "launcher_kick",
    "dash_start",
    "rally_point",
-   "finisher_call"
+   "finisher_call",
+   "corridor_crouch",
+   "cape_leap",
+   "arrow_stomp",
+   "pan_shoulder",
+   "ledge_hang",
+   "blade_draw_turn",
+   "lightfoot_leap",
+   "rune_crouch"
   ],
   "palette": [
    "neon_yellow_navy",
@@ -255,7 +273,15 @@
    "tournament_red_steel",
    "cobalt_ring_gold",
    "payload_white_orange",
-   "wind_green_white"
+   "wind_green_white",
+   "hellfire_olive",
+   "moonlit_crimson_navy",
+   "arcade_neon_five",
+   "zone_blue_khaki",
+   "tomb_teal_sand",
+   "ruin_black_white",
+   "lantern_crimson_jade",
+   "dungeon_torch_violet"
   ],
   "hair_color": [
    "antique_gold",
