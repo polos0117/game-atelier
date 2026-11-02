@@ -1,5 +1,6 @@
 {
  "img": {
+  "castlevania_sotn": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["castlevania_sotn_glossy_kr_game_f_casual1.webp", "castlevania_sotn_glossy_kr_game_f_casual2.webp", "castlevania_sotn_glossy_kr_game_f_casual3.webp", "castlevania_sotn_glossy_kr_game_f_casual4.webp", "castlevania_sotn_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "castlevania_sotn_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "castlevania_sotn_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "castlevania_sotn_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "castlevania_sotn_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "castlevania_sotn_title_glossy_kr_game_f.webp"}, "title_open": {"f": "castlevania_sotn_title_open_glossy_kr_game_f.webp"}}}}},
   "chrono_trigger": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["chrono_trigger_glossy_kr_game_f_casual1.webp", "chrono_trigger_glossy_kr_game_f_casual2.webp", "chrono_trigger_glossy_kr_game_f_casual3.webp", "chrono_trigger_glossy_kr_game_f_casual4.webp", "chrono_trigger_glossy_kr_game_f_casual5.webp", "chrono_trigger_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "chrono_trigger_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "chrono_trigger_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "chrono_trigger_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "chrono_trigger_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "chrono_trigger_title_glossy_kr_game_f.webp"}, "title_open": {"f": "chrono_trigger_title_open_glossy_kr_game_f.webp"}}}}},
   "civilization_v": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["civilization_v_glossy_kr_game_f_casual1.webp", "civilization_v_glossy_kr_game_f_casual2.webp", "civilization_v_glossy_kr_game_f_casual3.webp", "civilization_v_glossy_kr_game_f_casual4.webp", "civilization_v_glossy_kr_game_f_casual5.webp", "civilization_v_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "civilization_v_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "civilization_v_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "civilization_v_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "civilization_v_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "civilization_v_title_glossy_kr_game_f.webp"}, "title_open": {"f": "civilization_v_title_open_glossy_kr_game_f.webp"}}}}},
   "clair_obscur_expedition_33": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["clair_obscur_expedition_33_glossy_kr_game_f_casual1.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual2.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual3.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual4.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual5.webp", "clair_obscur_expedition_33_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "clair_obscur_expedition_33_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "clair_obscur_expedition_33_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "clair_obscur_expedition_33_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "clair_obscur_expedition_33_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "clair_obscur_expedition_33_title_glossy_kr_game_f.webp"}, "title_open": {"f": "clair_obscur_expedition_33_title_open_glossy_kr_game_f.webp"}}}}},
@@ -45,6 +46,17 @@
   "world_of_warcraft": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["world_of_warcraft_glossy_kr_game_f_casual1.webp", "world_of_warcraft_glossy_kr_game_f_casual2.webp", "world_of_warcraft_glossy_kr_game_f_casual3.webp", "world_of_warcraft_glossy_kr_game_f_casual4.webp", "world_of_warcraft_glossy_kr_game_f_casual5.webp", "world_of_warcraft_glossy_kr_game_f_casual6.webp", "world_of_warcraft_glossy_kr_game_f_casual7.webp"]}, "byForm": {"ending": {"f": "world_of_warcraft_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "world_of_warcraft_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "world_of_warcraft_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "world_of_warcraft_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "world_of_warcraft_title_glossy_kr_game_f.webp"}, "title_open": {"f": "world_of_warcraft_title_open_glossy_kr_game_f.webp"}}}}}
  },
  "added": {
+  "castlevania_sotn_ending_glossy_kr_game_f.webp": "2026-11-02",
+  "castlevania_sotn_ending_open_glossy_kr_game_f.webp": "2026-11-02",
+  "castlevania_sotn_glossy_kr_game_f_casual1.webp": "2026-11-02",
+  "castlevania_sotn_glossy_kr_game_f_casual2.webp": "2026-11-02",
+  "castlevania_sotn_glossy_kr_game_f_casual3.webp": "2026-11-02",
+  "castlevania_sotn_glossy_kr_game_f_casual4.webp": "2026-11-02",
+  "castlevania_sotn_glossy_kr_game_f_casual5.webp": "2026-11-02",
+  "castlevania_sotn_middle_glossy_kr_game_f.webp": "2026-11-02",
+  "castlevania_sotn_middle_open_glossy_kr_game_f.webp": "2026-11-02",
+  "castlevania_sotn_title_glossy_kr_game_f.webp": "2026-11-02",
+  "castlevania_sotn_title_open_glossy_kr_game_f.webp": "2026-11-02",
   "chrono_trigger_ending_glossy_kr_game_f.webp": "2026-11-01",
   "chrono_trigger_ending_open_glossy_kr_game_f.webp": "2026-11-01",
   "chrono_trigger_glossy_kr_game_f_casual1.webp": "2026-11-01",
@@ -568,5 +580,5 @@
   "world_of_warcraft_title_glossy_kr_game_f.webp": "2026-10-28",
   "world_of_warcraft_title_open_glossy_kr_game_f.webp": "2026-10-28"
  },
- "count": 43
+ "count": 44
 }
