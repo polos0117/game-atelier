@@ -18,6 +18,7 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
   assert(res.cuts.some(c => C.requiredType(c) === res.required), g.key + ' 필수 갈래 ' + res.required);
   assert(res.cuts.every(c => c.item), g.key + ' 옷은 구체적으로');
   assert.equal(res.cuts.filter(C.isCostume).length, 1, g.key + ' 주인공·마스코트 코스튬 한 장(2026-11-01)');
+  assert(res.cuts.filter(C.isCostume).every(c => c.frame !== 'face_close'), g.key + ' ' + seed + ' 코스튬 컷엔 얼굴 클로즈업 안 씀(2026-11-02)');
   for (const c of res.cuts) { const lowOff = (tree.frame_rules[c.frame] || {}).low === false, pf = (tree.activities.find(a => a.key === c.act).prefer || []).filter(k => tree.outfits.find(o => o.key === c.ofam).items.some(i => i.key === k && !(lowOff && i.low))); if (pf.length) assert(pf.includes(c.item), g.key + ' ' + c.act + ' 에 맞는 옷'); }
   /* 칸끼리 규칙(트리 표) — 자세는 앉는 자리·손·보이는 부위가 맞고 물건 드는 자세·돌아보기는 안 고른다, 표정은 하는 일·방향이 허락할 때만,
      가까운 컷·3/4 엔 광각 없음, 가슴 위·클로즈업엔 허리 아래로 알아보는 옷 없음 */
@@ -63,6 +64,12 @@ assert.match(errs(cs => { cs[1].frame = cs[0].frame; return cs; }), /프레이�
 assert.match(errs(cs => { cs[1].place = cs[0].place; cs[1].era = cs[0].era; cs[1].act = cs[0].act; cs[1].ofam = cs[0].ofam; cs[1].item = cs[0].item; return cs; }), /장소/);
 assert.match(errs(cs => cs.filter(c => !C.requiredType(c))), /필수 갈래가 없다/);
 assert.match(errs(cs => cs.filter(c => !C.isCostume(c))), /주인공·마스코트 코스튬 컷이 없다/);
+/* 코스튬 컷엔 얼굴 클로즈업 안 씀(2026-11-02 사용자 「필수코스튬 컷은 얼굴 클로즈업 장면은 빼도록 · 게임쪽도」 — 표 costume_required.not_frames) */
+assert.deepEqual(tree.costume_required.not_frames, ['face_close']);
+assert.match(errs(cs => { const c = cs.find(C.isCostume); c.frame = 'face_close'; return cs; }), /코스튬 컷의 프레이밍 face_close/);
+{ const v2 = C.plan2(g, [1, 2, 3, 4, 5], [], { seed: 5 }).cuts.map(c => ({ ...c }));
+  v2.find(C.isCostume).frame = 'face_close';
+  assert(C.check2(v2, g).some(e => /코스튬 컷의 프레이밍 face_close/.test(e)), '버전2 검사도 코스튬 얼굴 클로즈업을 막는다'); }
 /* 다섯 장이 다 있고 코스튬만 없으면 — 코스튬 한 장(버전2) */
 { const five = C.plan2(g, [1, 2, 3, 4, 5], [], { seed: 21 }).cuts.filter(c => !C.isCostume(c)).map(c => ({ ...c, old: true }));
   const one = C.plan2(g, [6], five, { seed: 21 });
@@ -91,6 +98,7 @@ for (const g2 of design.games) for (const seed of [1, 2, 3]) {
   assert(res.cuts.every(c => c.treeV === 2 && c.preset && !c.act && !c.pose && !c.orient && !c.lens), w + ' 버전2 칸만');
   assert(res.cuts.some(c => C.requiredType(c) === res.required), w + ' 필수 갈래');
   assert.equal(res.cuts.filter(C.isCostume).length, 1, w + ' 주인공·마스코트 코스튬 한 장');
+  assert(res.cuts.filter(C.isCostume).every(c => c.frame && c.frame !== 'face_close'), w + ' 코스튬 컷엔 얼굴 클로즈업 안 씀');
   for (const c of res.cuts.filter(C.isCostume)) { assert(['now', 'fantasy'].includes(c.era) && !C2.awkward(T2, c.ofam, c.place).length, w + ' 코스튬은 지금 · 무대·환상, 어색하지 않은 곳');
     const t = C.record(g2, c).prompt; assert(t.includes(g2.costume.en) && t.includes('In this cut her game shows in the outfit itself') && !t.includes('source_influence:') && !t.includes('her game belongs in accessories and props, never in the clothes'), w + ' 코스튬 지시문'); }
   assert.equal(new Set(res.cuts.map(c => c.preset)).size, 5, w + ' 자세 추천은 서로 다르게');

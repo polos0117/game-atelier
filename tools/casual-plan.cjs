@@ -60,6 +60,9 @@ function weighted(r, weights) { const keys = Object.keys(weights), sum = keys.re
    이미 있는 컷에 없으면 칸 하나가 'costume' 길(그 의상 계열)로 간다. 다섯 장이 다 있는 옛 게임은 --slots 없이 부르면 그 한 장만 짠다 */
 const COSTUME = (tree.costume_required || {}).outfit || '';
 const isCostume = c => !!COSTUME && !!c && c.ofam === COSTUME;
+/* 코스튬 컷엔 안 쓰는 프레이밍(표 costume_required.not_frames — 얼굴 클로즈업). 2026-11-02 사용자 「필수코스튬 컷은 얼굴 클로즈업 장면은 빼도록 · 게임쪽도」 */
+const COSTUME_NOT_FRAMES = (tree.costume_required || {}).not_frames || [];
+const costumeFrameErrs = cuts => cuts.filter(c => isCostume(c) && COSTUME_NOT_FRAMES.includes(c.frame)).map(c => `칸 ${c.n || '?'}: 코스튬 컷의 프레이밍 ${c.frame} — 코스튬 컷엔 안 쓴다`);
 const pathOk = (sc, type) => type === 'costume' ? isCostume(sc) : requiredType(sc) === type;
 /* 묶음에서 필수 갈래 · 코스튬 칸 — 필수 갈래는 첫 칸, 코스튬은 그다음 칸(필수 갈래가 이미 있으면 첫 칸) */
 function slotTypes(n, want, needCostume) {
@@ -89,7 +92,7 @@ function requiredPaths(type, game) {
 }
 
 function compose(r, sc, game) {
-  sc.frame = pick(r, FRAMES.filter(f => CT.frameOk(tree, sc.act, f)));
+  sc.frame = pick(r, FRAMES.filter(f => CT.frameOk(tree, sc.act, f, sc)));   /* 장면을 넘겨야 코스튬 컷의 안 쓰는 프레이밍(얼굴 클로즈업)까지 거른다 */
   /* 옷 — 이 프레이밍에서 알아볼 수 있는 옷(트리), 그중 하는 일이 먼저 고르라는 옷(prefer)이 있으면 그중에서(자전거 점검엔 사이클 복장) */
   const it = CT.items(tree, sc.ofam, sc.frame), prefer = it.filter(x => (CT.act(tree, sc.act).prefer || []).includes(x.key));
   sc.item = prefer.length ? pick(r, prefer).key : it.length ? pick(r, it).key : '';
@@ -126,11 +129,13 @@ function check(cuts, game, base = [], free = []) {
   const every = [...base, ...cuts], all = every.filter(c => !free.includes(c.n)), errs = [];
   const count = (f, xs) => xs.reduce((m, c) => { const k = f(c); if (k) m[k] = (m[k] || 0) + 1; return m; }, {});
   const over = (name, f, most, kinds) => {
-    const m = count(f, all), b = count(f, base), cap = kinds ? Math.max(most, Math.ceil(all.length / kinds)) : most;
+    /* 한도는 묶음 전체 장수로 센다 — 고른 칸(free)을 빼고 세면 한도가 줄어 고른 칸이 있는 묶음만 걸렸다(2026-11-02) */
+    const m = count(f, all), b = count(f, base), cap = kinds ? Math.max(most, Math.ceil(every.length / kinds)) : most;
     Object.entries(m).forEach(([k, n]) => { if (n > Math.max(cap, b[k] || 0)) errs.push(`${name} ${k} 가 ${n} 번(${cap} 번까지)`); });
   };
   if (!every.some(c => requiredType(c))) errs.push('필수 갈래가 없다');
   if (COSTUME && !every.some(isCostume)) errs.push('주인공·마스코트 코스튬 컷이 없다');
+  errs.push(...costumeFrameErrs(cuts));
   over('방향', c => c.orient, 1);
   over('프레이밍', c => c.frame, 1, FRAMES.length);
   over('렌즈', c => c.lens, 2, LENSES.length);
@@ -264,6 +269,7 @@ function check2(cuts, game, base = [], free = []) {
   };
   if (!every.some(c => requiredType(c))) errs.push('필수 갈래가 없다');
   if (COSTUME && !every.some(isCostume)) errs.push('주인공·마스코트 코스튬 컷이 없다');
+  errs.push(...costumeFrameErrs(cuts));
   over('장소', c => c.place, 1);
   over('장소 묶음', c => (C2.place(T2, c.place) || {}).group, 2);
   over('의상 계열', c => c.ofam !== 'everyday' && c.ofam, 1);
@@ -325,6 +331,12 @@ function plan2(game, slots, old, { seed = Date.now(), required = '', usage = {} 
     if (ci >= 0 && !cosEras.includes(eras[ci])) {
       const j = eras.findIndex((e, k) => k !== ci && cosEras.includes(e));
       if (j >= 0) [eras[ci], eras[j]] = [eras[j], eras[ci]]; else eras[ci] = pick(r, cosEras);
+    }
+    /* 코스튬 칸의 프레이밍 — 안 쓰는 것(얼굴 클로즈업)이 왔으면 다른 칸과 바꾼다(먼 컷 · 가까운 컷 수는 그대로). 바꿀 칸이 없으면 안 쓰는 것 말고 다른 프레이밍 */
+    if (ci >= 0 && COSTUME_NOT_FRAMES.includes(frames[ci])) {
+      const j = frames.findIndex((f, k) => k !== ci && !COSTUME_NOT_FRAMES.includes(f));
+      if (j >= 0) [frames[ci], frames[j]] = [frames[j], frames[ci]];
+      else frames[ci] = pick(r, FRAMES.filter(f => !COSTUME_NOT_FRAMES.includes(f)));
     }
     const sigAt = needSig ? Math.floor(r() * slots.length) : -1, sigProp = needSig ? pick(r, holds) : '';
     const rest = freeProps.filter(p => p !== sigProp), off = Math.floor(r() * Math.max(1, rest.length));

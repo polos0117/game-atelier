@@ -11,6 +11,16 @@
 
 
 
+## 2026-11-02 · claude · 코스튬 컷엔 얼굴 클로즈업 안 씀
+- data/casual-tree.json — costume_required.not_frames [face_close]. 사용자 「포켓몬의 필수코스튬 컷은 얼굴 클로즈업 장면은 빼도록 수정해줘」 · 「아 게임쪽도」 — 얼굴만 남으면 코스튬이 안 보인다
+- lib/casual-tree.js · lib/casual-tree-v2.js — 공용 트리 모듈: costumeNo(표 costume_required.not_frames) — frameOk · why(code costume)가 막아 생성기 화면도 거른다. 여섯 공방(book · element · myth · pkm · sam)에 같이 복사
+- tools/casual-tree.py — 코스튬 필수 옷 계열이 표에 있는지 · not_frames 가 정한 프레이밍인지(book · myth · pkm 에 복사)
+- tools/casual-plan.cjs — 버전1 은 프레이밍을 고를 때 장면을 넘겨 거르고, 버전2 는 코스튬 칸에 클로즈업이 나눠지면 다른 칸과 바꾼다. check · check2 가 「코스튬 컷의 프레이밍 face_close」 를 건다. check 의 겹침 한도를 고른 칸(free)을 뺀 장수가 아니라 묶음 전체 장수로 센다 — 계획이 바뀌자 고른 칸 시험이 알아볼 거리 0 두 번(한도 1)으로 걸렸다
+- lib/words.js — prompt.v2.why.costume
+- tests/casual-plan.cjs — 묶음마다 코스튬 컷 프레이밍 · 두 검사가 막는지
+- IMAGE_RULES.md 코스튬 줄 · AGENTS.md 트리 표 칸 — 규칙
+- 이미 그린 코스튬 컷 가운데 클로즈업은 슈퍼로봇대전 OG 일상2 하나 — 다시 그리지 않았다(사용자에게 물음)
+
 ## 2026-11-02 · claude · 진열장 그림 — 방 · 칸 · 모니터 · 매체 껍데기(그림 저장소 c574253)
 - lib/shelf.js — 그림 표 ART · SHELLS(매체 껍데기 다섯 — 파일 · 진열 너비 · 가로세로 · 그림에서 잰 흰 라벨 칸, 오락실은 위 간판 칸도) · MONITOR(검은 화면 칸) · BACKDROPS(방 · 뒷판 · 판자). 사용자 「진열장 이미지를 이미지 생성기로 좀 더 실감나게 만들어줘」 → 「게임 공방 이미지 올려줘」
 - shelf.html · lib/shelf.css — 그림을 미리 받아 다 오면 껍데기(img) 위 라벨 칸에 겉그림, 모니터 화면 칸에 바탕화면, 방 · 칸 뒷판 · 판자를 CSS 변수로. 못 받은 그림은 CSS 모양 그대로. 등 글씨는 그림 위에서도 읽히게. 판 shelf.js · shelf.css ?v=2
