@@ -1,0 +1,200 @@
+{
+ "qid": "Q1330428",
+ "fetched": "2026-11-02",
+ "source": "https://www.wikidata.org/wiki/Special:EntityData/<qid>.json",
+ "props": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2000-01-31T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2020-02-25T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1422746"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "액션 롤플레잉 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "action role-playing game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q98785807"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Westwood Pacific"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q173941"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "일렉트로닉 아츠"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Electronic Arts"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6895044"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "멀티플레이어 비디오 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1330428"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "녹스"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EB%85%B9%EC%8A%A4_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nox"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Nox_(video_game)"
+   }
+  }
+ ]
+}

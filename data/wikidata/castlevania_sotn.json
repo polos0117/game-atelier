@@ -1,0 +1,286 @@
+{
+ "qid": "Q2007022",
+ "fetched": "2026-11-02",
+ "source": "https://www.wikidata.org/wiki/Special:EntityData/<qid>.json",
+ "props": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1997-03-20T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1422746"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "액션 롤플레잉 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "action role-playing game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q19643088"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "메트로배니아"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Metroidvania"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q42409239"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "판타지 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "fantasy video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10677"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170325"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 포터블"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "PlayStation Portable"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Android"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2515184"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "악마성 드라큘라"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q45700"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코나미"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Konami"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q45700"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코나미"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Konami"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q2007022"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "캐슬바니아: 밤의 교향곡"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EC%BA%90%EC%8A%AC%EB%B0%94%EB%8B%88%EC%95%84:_%EB%B0%A4%EC%9D%98_%EA%B5%90%ED%96%A5%EA%B3%A1"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Castlevania:_Symphony_of_the_Night"
+   }
+  }
+ ]
+}

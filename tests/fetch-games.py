@@ -119,4 +119,24 @@ with tempfile.TemporaryDirectory() as tmp:
         r = subprocess.run([sys.executable, str(t / 'tools' / 'fetch-games.py')] + bad, capture_output=True, text=True)
         assert r.returncode != 0 and why in r.stderr, (bad, r.stderr)   # 질의를 보내기 전에 멈춘다
 
-print('PASS 사실 자료 도구: 질의문·따옴표·위키백과 주소·질의 사이 쉼·응답 풀기(이른 해·겹침·시리즈·위키백과)·채우기·고른 key·명령 끝까지')
+# 항목 JSON 길(pull --entity, 2026-11-02 — 질의 서버 장애) — truthy 값만, 질의 응답과 같은 꼴로 풀린다. 가짜 항목이다
+def st(v, rank='normal', kind='item'):
+    dv = {'type': 'time', 'value': {'time': v}} if kind == 'time' else {'type': 'wikibase-entityid', 'value': {'id': v}}
+    return {'rank': rank, 'mainsnak': {'snaktype': 'value', 'datavalue': dv}}
+ents = {'Q900001': {'labels': {'ko': {'value': '가짜 게임'}, 'en': {'value': 'Fake Game'}},
+                    'sitelinks': {'enwiki': {'title': 'Fake Game (video game)'}, 'kowiki': {'title': '가짜 게임'}},
+                    'claims': {'P577': [st('+1999-05-01T00:00:00Z', kind='time'), st('+1997-01-01T00:00:00Z', kind='time')],
+                               'P178': [st('Q900101', 'preferred'), st('Q900102')],            # 우선이 있으면 그것만
+                               'P400': [st('Q900201'), st('Q900202', 'deprecated'),           # 낮춤은 뺀다
+                                        {'rank': 'normal', 'mainsnak': {'snaktype': 'somevalue'}}],
+                               'P179': [st('Q900301')]}}}
+names = {'Q900101': {'ko': '가짜 개발사', 'en': 'Fake Dev'}, 'Q900201': {'ko': None, 'en': 'Fake Box'}, 'Q900301': {'ko': None, 'en': 'Fake Saga'}}
+pr, lr = F.entity_responses(ents, names)
+pe = F.parse(pr, lr)['Q900001']
+assert pe['year'] == 1997, pe['year']
+assert [x['qid'] for x in pe['developer']] == ['Q900101'] and pe['developer'][0]['ko'] == '가짜 개발사', pe['developer']
+assert [x['qid'] for x in pe['platforms']] == ['Q900201'] and pe['platforms'][0]['ko'] is None, pe['platforms']
+assert pe['series']['qid'] == 'Q900301' and pe['publisher'] == [] and pe['modes'] == []
+assert pe['wiki']['en'] == 'https://en.wikipedia.org/wiki/Fake_Game_(video_game)' and pe['wiki']['ko'].startswith('https://ko.wikipedia.org/wiki/%EA')
+assert F.entity_values(ents)[1] == ['Q900101', 'Q900201', 'Q900301']   # 이름을 받을 값 항목 — 낮춤·버린 우선 아래 값은 안 묻는다
+print('PASS 사실 자료 도구: 질의문·따옴표·위키백과 주소·질의 사이 쉼·응답 풀기(이른 해·겹침·시리즈·위키백과)·채우기·고른 key·명령 끝까지·항목 JSON 길(truthy)')

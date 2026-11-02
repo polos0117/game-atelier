@@ -112,7 +112,7 @@ node tests/casual-tree.cjs           # 트리 자세 계열의 자세·방향 �
 python3 tools/casual-tree-v2.py check # 일상컷 트리 버전2 표(docs/CASUAL_TREE_V2.md) — 없는 열쇠·두 손 칸·보이는 손 자리·다리 칸·다 되는 장소 없는 자세 추천
 python3 tests/casual-tree-v2.py      # 버전2 검사기가 규칙마다 거는지
 node tests/casual-tree-v2.cjs        # 버전2 거르기 모듈(lib/casual-tree-v2.js) — 검사기와 같은 길, 랜덤 · 칸 바꾸기 뒤 걸리는 칸 없음, 두 손 · 넓히지 않기 · 버전1 기록
-python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기(네트워크 없이, 가짜 응답으로)
+python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기·항목 JSON 길(네트워크 없이, 가짜 응답으로)
 node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 일상컷 트리(시대·장소·하는 일·옷·구도·추천 조합·예전 기록), 출시 당시, 길이, 일상컷 버전2 줄(자세·구도·오른손·왼손·소품·다리·시선)
 node tests/words.cjs                 # 낱말 표
 node tests/patch.cjs                 # 패치 기록 모양

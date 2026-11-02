@@ -9102,6 +9102,1712 @@
     "who": "사이바스터(마스코트 기체)",
     "en": "the Cybuster mech's look — gleaming white armour plates with emerald-green wing panels, gold trim and a glowing green chest crest, rebuilt as wearable costume pieces"
    }
+  },
+  {
+   "key": "doom",
+   "title": "둠",
+   "title_en": "Doom",
+   "facts": {
+    "qid": "Q189784",
+    "fetched": "2026-11-02",
+    "year": 1993,
+    "developer": [
+     {
+      "qid": "Q1058704",
+      "ko": null,
+      "en": "Nerve Software"
+     },
+     {
+      "qid": "Q204474",
+      "ko": "이드 소프트웨어",
+      "en": null
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q122741",
+      "ko": "세가",
+      "en": null
+     },
+     {
+      "qid": "Q1403157",
+      "ko": "WMS 인더스트리스",
+      "en": "WMS Industries"
+     },
+     {
+      "qid": "Q1408498",
+      "ko": "오션 소프트웨어",
+      "en": "Ocean Software"
+     },
+     {
+      "qid": "Q200491",
+      "ko": "액티비전 퍼블리싱",
+      "en": null
+     },
+     {
+      "qid": "Q207922",
+      "ko": "아타리",
+      "en": "Atari"
+     },
+     {
+      "qid": "Q930354",
+      "ko": "GT 인터랙티브",
+      "en": "Atari, Inc."
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q1063978",
+      "ko": "슈퍼 32X",
+      "en": null
+     },
+     {
+      "qid": "Q10676",
+      "ko": "메가 드라이브",
+      "en": null
+     },
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q113245462",
+      "ko": null,
+      "en": "Flipper Zero"
+     },
+     {
+      "qid": "Q132020",
+      "ko": "엑스박스",
+      "en": null
+     },
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q13522376",
+      "ko": "맥 OS의 역사",
+      "en": "Classic Mac OS"
+     },
+     {
+      "qid": "Q1353312",
+      "ko": null,
+      "en": "RiscPC"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q14646",
+      "ko": "솔라리스 (운영체제)",
+      "en": "Solaris"
+     },
+     {
+      "qid": "Q170434",
+      "ko": "도스",
+      "en": "DOS"
+     },
+     {
+      "qid": "Q183259",
+      "ko": "슈퍼 패미컴",
+      "en": "Super Nintendo Entertainment System"
+     },
+     {
+      "qid": "Q183505",
+      "ko": "NEC PC-98",
+      "en": "NEC PC-9800 series"
+     },
+     {
+      "qid": "Q188642",
+      "ko": "게임보이 어드밴스",
+      "en": null
+     },
+     {
+      "qid": "Q189794",
+      "ko": "OS/2",
+      "en": null
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q200912",
+      "ko": "세가 새턴",
+      "en": null
+     },
+     {
+      "qid": "Q229429",
+      "ko": "3DO 인터랙티브 멀티플레이어",
+      "en": "3DO"
+     },
+     {
+      "qid": "Q388",
+      "ko": "리눅스",
+      "en": "Linux"
+     },
+     {
+      "qid": "Q41357",
+      "ko": null,
+      "en": "Acorn Archimedes"
+     },
+     {
+      "qid": "Q471094",
+      "ko": "아미가 1200",
+      "en": "Amiga 1200"
+     },
+     {
+      "qid": "Q47604",
+      "ko": "MS-DOS",
+      "en": null
+     },
+     {
+      "qid": "Q48263",
+      "ko": "엑스박스 360",
+      "en": null
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q627611",
+      "ko": "IRIX",
+      "en": "IRIX"
+     },
+     {
+      "qid": "Q650601",
+      "ko": "아타리 재규어",
+      "en": "Atari Jaguar"
+     },
+     {
+      "qid": "Q831367",
+      "ko": "NeXTSTEP",
+      "en": "NeXTSTEP"
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q11338014",
+      "ko": "호러 게임",
+      "en": "horror video game"
+     },
+     {
+      "qid": "Q15613992",
+      "ko": "아케이드 게임",
+      "en": "arcade"
+     },
+     {
+      "qid": "Q185029",
+      "ko": "1인칭 슈팅 게임",
+      "en": "first-person shooter"
+     },
+     {
+      "qid": "Q27670585",
+      "ko": "공상과학 게임",
+      "en": "science fiction video game"
+     }
+    ],
+    "series": {
+     "qid": "Q655219",
+     "ko": "둠",
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q1758804",
+      "ko": "코옵 모드",
+      "en": "co-op mode"
+     },
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%91%A0_(1993%EB%85%84_%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/Doom_(1993_video_game)"
+    }
+   },
+   "genre": "슈팅",
+   "group": "reflex",
+   "era": "early_3d",
+   "series": [],
+   "persona": "화성 위성 기지에 홀로 남아, 열린 지옥문으로 쏟아지는 악마들을 쏘며 멈추지 않고 끝까지 밀고 나가는 해병",
+   "voice": {
+    "타이틀": "기지에 남은 건 나 하나. 그럼 충분해.",
+    "중반": "멈추면 둘러싸인다. 계속 움직여, 계속 쏴.",
+    "엔딩": "지옥 끝까지 왔어. 문은 내가 닫는다."
+   },
+   "desire": "지옥문을 닫고 살아 돌아가기",
+   "conflict": "멈춤과 질주",
+   "symbols": [
+    "초록 전투 장갑",
+    "펌프 산탄총",
+    "색깔 열쇠 카드"
+   ],
+   "signature": [
+    "초록 전투 장갑과 바이저 헬멧",
+    "펌프 산탄총",
+    "빨강·파랑·노랑 열쇠 카드",
+    "붉은 하늘 아래 화성 위성 기지"
+   ],
+   "signature_hold": [
+    2
+   ],
+   "mechanic": "멈추지 않고 달리며 쏘고, 색깔 열쇠로 잠긴 문을 열어 출구까지 간다",
+   "rule": {
+    "forms": {
+     "타이틀": "들어올 때 맞은편을 치고, 그 상대가 닫히면 다른 상대도 한 번 친다 — 질주 사격",
+     "중반": "내 턴마다 열쇠 카드 하나(셋까지) — 셋이 모이면 이 장에 한 번 방패를 무시하고 친다",
+     "엔딩": "엔딩에 들 때 거대한 초록 빛 — 상대 책 모두에게 2"
+    },
+    "counter": "맞은편을 비워 두거나 묶어 질주를 멈춘다. 열쇠 셋이 모이기 전에 친다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "기지 해병 — 초록 판금 전투 갑옷과 갈색 탄띠, 팔에 감은 붕대, 옆구리에 낀 바이저 헬멧",
+     "role": "정찰",
+     "pose": "한쪽 무릎을 세워 웅크린 채 산탄총을 몸 앞에 비스듬히 들고 복도 끝을 노려보는 자세",
+     "setting": "붉은 경고등이 깜빡이는 화성 위성 기지의 금속 복도",
+     "homage": "초록 전투 장갑",
+     "expr": "focused"
+    },
+    "중반": {
+     "look": "열쇠를 쥔 질주 — 그을린 장갑판, 허리 탄띠에 꽂은 빨강·파랑·노랑 열쇠 카드",
+     "role": "돌파",
+     "pose": "한 발을 크게 내딛어 달리면서 몸을 옆으로 틀어 어깨 너머를 돌아보는 자세",
+     "setting": "용암 강이 흐르는 붉은 바위 동굴과 녹슨 금속 다리",
+     "homage": "색깔 열쇠 카드 세 장",
+     "expr": "determined"
+    },
+    "엔딩": {
+     "look": "지옥의 끝 — 불꽃에 그을린 장갑 위로 찢긴 망토, 초록으로 빛나는 에너지 탄창",
+     "role": "공격",
+     "pose": "커다란 에너지 무기를 허리에 받쳐 들고 두 발을 벌려 버티고 선 자세",
+     "setting": "불타는 하늘 아래 무너진 붉은 성벽",
+     "homage": "초록 빛을 모으는 커다란 에너지 무기",
+     "expr": "cold_smile"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "기지 문이 열리며 붉은 하늘에서 불덩이가 비처럼 쏟아진다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "중반": {
+     "scene": "용암 동굴의 숨겨진 벽이 미끄러져 열리며 빛이 새어 나온다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "엔딩": {
+     "scene": "거대한 초록 빛 구가 어둠을 가르며 한꺼번에 터진다",
+     "one_figure": true,
+     "particles": "sparks"
+    }
+   },
+   "ethnicity": "Nordic",
+   "silhouette": {
+    "body": "broad_strong",
+    "hair": "short_crop",
+    "garment": "armor_layered",
+    "material": "marine_plate",
+    "pose": "corridor_crouch",
+    "palette": "hellfire_olive",
+    "hair_color": "bronze"
+   },
+   "face": {
+    "face_shape": "square_soft",
+    "eyes": "deep_set",
+    "brows": "low_heavy",
+    "nose": "broad_soft",
+    "lips": "full_wide",
+    "eye_color": "forest_green"
+   },
+   "place": "a red-lit military base on a Martian moon, metal corridors opening onto a burning red sky",
+   "rights": "id 소프트웨어(베데스다·마이크로소프트) — 이름과 괴물 디자인이 상표다. 주인공 해병의 헬멧 속 얼굴과 괴물을 따라 그리지 않는다",
+   "avoid": [
+    "악마·괴물(임프·카코데몬 등)의 얼굴과 몸",
+    "피·내장 묘사",
+    "주인공 해병의 얼굴",
+    "DOOM 로고·타이틀 글자",
+    "탄약·체력 숫자와 HUD"
+   ],
+   "costume": {
+    "who": "둠 해병(주인공)",
+    "en": "the Doom marine's look — olive-green combat armour plates over a dark padded bodysuit, a brown ammo belt with pouches and a green-visored helmet carried under one arm"
+   }
+  },
+  {
+   "key": "castlevania_sotn",
+   "title": "악마성 드라큘라 X 월하의 야상곡",
+   "title_en": "Castlevania: Symphony of the Night",
+   "facts": {
+    "qid": "Q2007022",
+    "fetched": "2026-11-02",
+    "year": 1997,
+    "developer": [
+     {
+      "qid": "Q45700",
+      "ko": "코나미",
+      "en": "Konami"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q45700",
+      "ko": "코나미",
+      "en": "Konami"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q170325",
+      "ko": "플레이스테이션 포터블",
+      "en": "PlayStation Portable"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1422746",
+      "ko": "액션 롤플레잉 게임",
+      "en": "action role-playing game"
+     },
+     {
+      "qid": "Q19643088",
+      "ko": "메트로배니아",
+      "en": "Metroidvania"
+     },
+     {
+      "qid": "Q42409239",
+      "ko": "판타지 게임",
+      "en": "fantasy video game"
+     }
+    ],
+    "series": {
+     "qid": "Q2515184",
+     "ko": "악마성 드라큘라",
+     "en": null
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EC%BA%90%EC%8A%AC%EB%B0%94%EB%8B%88%EC%95%84:_%EB%B0%A4%EC%9D%98_%EA%B5%90%ED%96%A5%EA%B3%A1",
+     "en": "https://en.wikipedia.org/wiki/Castlevania:_Symphony_of_the_Night"
+    }
+   },
+   "genre": "액션",
+   "group": "reflex",
+   "era": "16bit",
+   "series": [],
+   "persona": "백 년 만에 다시 떠오른 성을 홀로 거닐며, 피로 이어진 아버지의 그림자와 맞서는 고요한 반혈의 검객",
+   "voice": {
+    "타이틀": "성이 다시 떠올랐다. 이번엔 내가 끝을 맺는다.",
+    "중반": "길이 막혔다면 위아래를 뒤집어 보면 된다.",
+    "엔딩": "밤은 끝났다. 이제 그림자로 돌아갈 시간."
+   },
+   "desire": "다시 떠오른 성을 잠재우는 것",
+   "conflict": "피의 유산과 스스로 고른 길",
+   "symbols": [
+    "거꾸로 선 성",
+    "안이 붉은 망토",
+    "보름달"
+   ],
+   "signature": [
+    "달빛 아래 솟은 고딕 성",
+    "안이 붉은 검푸른 긴 망토",
+    "은빛 촛대",
+    "박쥐 떼"
+   ],
+   "signature_hold": [
+    2
+   ],
+   "mechanic": "넓은 성을 이리저리 뛰며 길을 넓히고, 모은 장비와 변신(박쥐·늑대·안개)으로 막힌 곳을 지난다",
+   "rule": {
+    "forms": {
+     "타이틀": "내 턴마다 지도 칸 하나(셋까지) — 성을 넓힌다",
+     "중반": "칸 하나를 써 박쥐·안개로 변신 — 이 장에 한 번 맞는 피해를 없앤다",
+     "엔딩": "엔딩에 들 때 성이 뒤집힌다 — 남은 칸마다 가장 센 상대 힘 −2"
+    },
+    "counter": "칸이 쌓이기 전에 친다. 변신은 장마다 한 번이니 여러 책으로 나눠 친다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "성문 앞 — 안이 붉은 검푸른 긴 망토, 은 장식이 든 높은 깃, 허리의 가는 장검",
+     "role": "정찰",
+     "pose": "망토 자락을 한 팔로 걷어 올리며 무너진 다리 끝에서 어깨 너머로 돌아보는 자세",
+     "setting": "달빛이 비치는 성 입구의 무너진 돌다리",
+     "homage": "안이 붉은 긴 망토",
+     "expr": "calm"
+    },
+    "중반": {
+     "look": "성 안 깊은 곳 — 박쥐 날개 모양 어깨 장식, 은빛 흉갑, 손목에 감은 푸른 리본",
+     "role": "교란",
+     "pose": "공중으로 뛰어올라 몸을 비틀며 망토를 날개처럼 활짝 펼친 자세",
+     "setting": "촛대가 줄지은 긴 회랑과 높은 스테인드글라스 창",
+     "homage": "박쥐 날개 모양 어깨 장식",
+     "expr": "half_smile"
+    },
+    "엔딩": {
+     "look": "거꾸로 선 성 — 은빛이 감도는 검은 예복, 가슴의 붉은 보석 브로치, 달빛에 물든 머리칼",
+     "role": "돌파",
+     "pose": "가는 장검을 아래로 비껴 들고 붉은 카펫 위를 천천히 걸어 나오는 자세",
+     "setting": "하늘과 땅이 뒤집힌 성의 꼭대기 탑, 아래쪽 하늘의 붉은 달",
+     "homage": "붉은 보석 브로치",
+     "expr": "wistful"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "구름 사이로 보름달이 떠오르며 호수 위로 고딕 성이 솟아오른다",
+     "one_figure": true,
+     "particles": "mist"
+    },
+    "중반": {
+     "scene": "회랑의 촛불이 한꺼번에 꺼지며 박쥐 떼가 소용돌이처럼 날아오른다",
+     "one_figure": true,
+     "particles": "bats"
+    },
+    "엔딩": {
+     "scene": "성 전체가 천천히 뒤집히며 발밑 하늘로 붉은 달이 떠오른다",
+     "one_figure": true,
+     "particles": "dust"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "lanky",
+    "hair": "long_straight",
+    "garment": "cloak_wrapped",
+    "material": "gothic_velvet_cape",
+    "pose": "cape_leap",
+    "palette": "moonlit_crimson_navy",
+    "hair_color": "silver_white"
+   },
+   "face": {
+    "face_shape": "long",
+    "eyes": "narrow_upturned",
+    "brows": "angled_sharp",
+    "nose": "aquiline",
+    "lips": "small_bow",
+    "eye_color": "gold"
+   },
+   "place": "a gothic castle rising over a moonlit lake, candlelit marble halls and a library of chained books",
+   "rights": "코나미 — 이름과 인물(알루카드·드라큘라)·괴물이 상표다. 원작 인물의 얼굴과 일러스트 화풍을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(알루카드·드라큘라·리히터)의 얼굴",
+    "괴물(해골·늑대인간 등)의 얼굴과 몸",
+    "피 묘사",
+    "로고·타이틀 글자",
+    "체력·마력 숫자와 성 지도 UI"
+   ],
+   "costume": {
+    "who": "알루카드",
+    "en": "Alucard's look — a long black cape lined in deep crimson with a high stand-up collar, a dark tailored coat with silver filigree and a white cravat"
+   }
+  },
+  {
+   "key": "pump_it_up",
+   "title": "펌프 잇 업",
+   "title_en": "Pump It Up",
+   "facts": {
+    "qid": "Q1322927",
+    "fetched": "2026-11-02",
+    "year": 1999,
+    "developer": [
+     {
+      "qid": "Q489566",
+      "ko": "안다미로",
+      "en": "Andamiro"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q489566",
+      "ko": "안다미로",
+      "en": "Andamiro"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q192851",
+      "ko": "아케이드 비디오 게임",
+      "en": "arcade video game machine"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q584105",
+      "ko": "음악 게임",
+      "en": "music video game"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%ED%8E%8C%ED%94%84_%EC%9E%87_%EC%97%85",
+     "en": "https://en.wikipedia.org/wiki/Pump_It_Up_(video_game_series)"
+    }
+   },
+   "genre": "리듬",
+   "group": "reflex",
+   "era": "arcade",
+   "series": [],
+   "persona": "오락실 한가운데 발판 위에서, 화살표가 차오르는 순간마다 정확히 밟아 콤보를 이어 가는 댄서",
+   "voice": {
+    "타이틀": "발판 다섯 개면 충분해. 음악 틀어!",
+    "중반": "콤보 끊기지 마 — 한 박자만 더!",
+    "엔딩": "마지막 곡이야. 끝까지 하나도 안 놓친다."
+   },
+   "desire": "한 곡을 끝까지 하나도 놓치지 않는 것",
+   "conflict": "속도와 정확함",
+   "symbols": [
+    "다섯 화살표 발판",
+    "네온 화살표",
+    "번쩍이는 스피커 기계"
+   ],
+   "signature": [
+    "모서리 넷과 가운데 하나의 다섯 화살표 발판",
+    "빨강·파랑·노랑 네온 화살표",
+    "뒤에 손잡이 봉이 달린 오락실 춤 기계",
+    "번쩍이는 스테이지 조명"
+   ],
+   "signature_hold": [],
+   "mechanic": "흘러 올라오는 화살표에 맞춰 다섯 발판을 밟고, 끊기지 않은 콤보로 점수를 키운다",
+   "rule": {
+    "forms": {
+     "타이틀": "내 턴마다 콤보 +1(넷까지) — 박자를 탄다",
+     "중반": "칠 때 콤보마다 타격 +1 — 맞으면 콤보가 끊긴다(0)",
+     "엔딩": "엔딩에 들 때 콤보가 셋 이상이면 피날레 — 아군 모두 힘 +2"
+    },
+    "counter": "자주 친다 — 맞을 때마다 콤보가 끊긴다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "오락실 댄서 — 형광 띠를 두른 트랙 재킷과 짧은 반바지, 손목 밴드, 두꺼운 밑창 운동화",
+     "role": "지원",
+     "pose": "발판 가운데에 한 발로 서서 다른 발끝을 대각선 화살표에 올리고 두 팔을 벌린 자세",
+     "setting": "네온 간판이 줄지은 밤의 오락실 입구",
+     "homage": "형광 띠 트랙 재킷",
+     "expr": "playful"
+    },
+    "중반": {
+     "look": "콤보 중 — 민소매 위로 걸친 반사띠 트랙 재킷, 이마의 땀받이 밴드",
+     "role": "공격",
+     "pose": "몸을 낮추고 양발을 앞뒤 대각선으로 벌려 빠르게 밟으며 한 손으로 뒤 손잡이 봉을 잡은 자세",
+     "setting": "화살표 빛이 바닥을 타고 흐르는 춤 기계 앞",
+     "homage": "뒤 손잡이 봉",
+     "expr": "focused"
+    },
+    "엔딩": {
+     "look": "피날레 — 다섯 색 빛 조각을 덧댄 무대 의상, 반짝이는 헤어밴드",
+     "role": "교란",
+     "pose": "마지막 박자에 맞춰 한 발을 높이 차올리고 손가락으로 하늘을 가리키는 자세",
+     "setting": "조명이 쏟아지는 대회 무대와 어두운 관객석",
+     "homage": "다섯 색 화살표 조각",
+     "expr": "laughing_open"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "음악이 터지는 순간 색색의 빛이 발밑에서 사방으로 번쩍인다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "중반": {
+     "scene": "화살표 빛들이 소용돌이처럼 위로 쏟아져 올라간다",
+     "one_figure": true,
+     "particles": "stars"
+    },
+    "엔딩": {
+     "scene": "무대 위로 빛 기둥과 금빛 종이 조각이 한꺼번에 터진다",
+     "one_figure": true,
+     "particles": "gold"
+    }
+   },
+   "ethnicity": "Korean",
+   "silhouette": {
+    "body": "petite",
+    "hair": "ponytail",
+    "garment": "jacket_shorts",
+    "material": "neon_tracksuit",
+    "pose": "arrow_stomp",
+    "palette": "arcade_neon_five",
+    "hair_color": "violet"
+   },
+   "face": {
+    "face_shape": "round",
+    "eyes": "narrow_upturned",
+    "brows": "arched_thin",
+    "nose": "small_button",
+    "lips": "heart_full",
+    "eye_color": "coral"
+   },
+   "place": "a 1999 Korean arcade at night, a glowing dance cabinet with a five-arrow floor pad under coloured stage lights",
+   "rights": "안다미로 — 이름과 기계 디자인이 상표다. 로고와 수록곡의 앨범 그림·가수 얼굴을 따라 그리지 않는다",
+   "avoid": [
+    "PUMP IT UP 로고·타이틀 글자",
+    "수록곡 가수의 얼굴과 앨범 그림",
+    "점수·콤보 숫자와 판정 글자",
+    "기계의 상표 글자",
+    "운동화 상표"
+   ],
+   "costume": {
+    "who": "펌프 춤 기계(마스코트)",
+    "en": "the Pump It Up dance cabinet's look — glossy black panels with glowing red, blue and yellow arrow appliqués, chrome handrail-bar trim at the waist and speaker-grille patterned shorts"
+   }
+  },
+  {
+   "key": "pubg_battlegrounds",
+   "title": "배틀그라운드",
+   "title_en": "PUBG: Battlegrounds",
+   "facts": {
+    "qid": "Q28937399",
+    "fetched": "2026-11-02",
+    "year": 2017,
+    "developer": [
+     {
+      "qid": "Q65124447",
+      "ko": null,
+      "en": "PUBG Studios"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q4035237",
+      "ko": "블루홀 스튜디오",
+      "en": "Krafton"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q63184502",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     },
+     {
+      "qid": "Q98973368",
+      "ko": "엑스박스 시리즈 X 및 시리즈 S",
+      "en": "Xbox Series X and Series S"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q185029",
+      "ko": "1인칭 슈팅 게임",
+      "en": "first-person shooter"
+     },
+     {
+      "qid": "Q30607131",
+      "ko": "배틀 로열 게임",
+      "en": "battle royale game"
+     },
+     {
+      "qid": "Q380266",
+      "ko": "3인칭 슈팅 게임",
+      "en": "third-person shooter"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/PUBG:_BATTLEGROUNDS",
+     "en": "https://en.wikipedia.org/wiki/PUBG:_Battlegrounds"
+    }
+   },
+   "genre": "슈팅",
+   "group": "reflex",
+   "era": "modern",
+   "series": [],
+   "persona": "수송기에서 뛰어내려 맨손으로 시작해, 좁혀 오는 자기장 속에서 마지막 한 명까지 살아남는 생존자",
+   "voice": {
+    "타이틀": "낙하산 펴. 어디로 내릴지는 내가 정해.",
+    "중반": "자기장 줄어든다. 안쪽으로, 조용히.",
+    "엔딩": "마지막 한 명. 오늘 저녁은 내가 산다."
+   },
+   "desire": "마지막 한 명으로 남는 것",
+   "conflict": "숨을 것인가 싸울 것인가",
+   "symbols": [
+    "낙하산",
+    "3레벨 헬멧",
+    "프라이팬"
+   ],
+   "signature": [
+    "수송기에서 펼치는 낙하산",
+    "등에 멘 배낭과 3레벨 헬멧",
+    "엉덩이에 찬 프라이팬",
+    "버려진 시골 마을의 붉은 지붕 창고"
+   ],
+   "signature_hold": [
+    2
+   ],
+   "mechanic": "맨손으로 내려 무기와 장비를 줍고, 좁혀 오는 자기장 안에서 마지막까지 살아남는다",
+   "rule": {
+    "forms": {
+     "타이틀": "내 턴마다 줍기 — 힘 +1(셋까지)",
+     "중반": "장이 끝날 때 자기장 — 판 위 다른 책 모두(양편) 힘 −1",
+     "엔딩": "엔딩에 들 때 상대 책이 하나만 남았으면 그 책을 닫는다 — 마지막 한 명"
+    },
+    "counter": "줍기 전에 친다. 엔딩엔 책을 둘 이상 남겨 둔다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "수송기 낙하 — 비행 고글, 낙하산 하네스를 덧맨 빈 전술 조끼, 빈 배낭, 맨손",
+     "role": "정찰",
+     "pose": "수송기 문가에 한 손을 짚고 몸을 내밀어 아래 섬을 내려다보는 자세",
+     "setting": "프로펠러 소리가 울리는 수송기 화물칸, 열린 뒷문 너머 구름",
+     "homage": "낙하산 하네스",
+     "expr": "curious"
+    },
+    "중반": {
+     "look": "장비를 갖춘 생존자 — 3레벨 헬멧과 방탄조끼, 배낭, 엉덩이에 찬 프라이팬",
+     "role": "버티기",
+     "pose": "낮은 돌담 뒤에 한쪽 무릎을 꿇고 몸을 숨긴 채 어깨 너머를 살피는 자세",
+     "setting": "빈 시골 마을의 낡은 창고와 풀숲",
+     "homage": "3레벨 헬멧과 방탄조끼",
+     "expr": "serious"
+    },
+    "엔딩": {
+     "look": "최후의 원 — 흙먼지 묻은 풀잎 위장 망토를 어깨에 걸치고, 벗은 헬멧을 옆구리에 낀",
+     "role": "공격",
+     "pose": "헬멧을 옆구리에 끼고 다른 손으로 프라이팬을 어깨에 걸친 채 느긋하게 선 자세",
+     "setting": "노을 진 언덕 위 마지막 원, 멀리 일렁이는 푸른 벽",
+     "homage": "풀잎 위장 망토",
+     "expr": "smug"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "수송기 뒷문이 열리며 구름 아래로 섬 전체가 펼쳐진다",
+     "one_figure": true,
+     "particles": "mist"
+    },
+    "중반": {
+     "scene": "섬 위로 거대한 푸른 자기장 벽이 천천히 좁혀 온다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "엔딩": {
+     "scene": "노을 하늘 위로 보급 상자가 붉은 연기를 뿜으며 내려온다",
+     "one_figure": true,
+     "particles": "dust"
+    }
+   },
+   "ethnicity": "Slavic",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "bob",
+    "garment": "shirt_vest",
+    "material": "drop_gear_ripstop",
+    "pose": "pan_shoulder",
+    "palette": "zone_blue_khaki",
+    "hair_color": "ash_gray"
+   },
+   "face": {
+    "face_shape": "oval",
+    "eyes": "monolid_long",
+    "brows": "straight_thick",
+    "nose": "broad_soft",
+    "lips": "thin_long",
+    "eye_color": "leaf_green"
+   },
+   "place": "a deserted Eastern European island of farm villages and a military base, a shimmering blue zone wall closing in",
+   "rights": "크래프톤(PUBG 스튜디오) — 이름과 로고가 상표다. 로고·화면 글자·실존 총기 상표를 따라 그리지 않는다",
+   "avoid": [
+    "로고·타이틀 글자",
+    "승리 화면 글자·숫자·지도 UI",
+    "피 묘사",
+    "실존 총기 상표",
+    "다른 플레이어 인물"
+   ],
+   "costume": {
+    "who": "3레벨 장비 생존자(주인공)",
+    "en": "the PUBG survivor's look — a scuffed level-three military helmet, a tan plate-carrier vest over a plain tee, a canvas backpack and a frying pan clipped at the hip"
+   }
+  },
+  {
+   "key": "tomb_raider",
+   "title": "툼 레이더",
+   "title_en": "Tomb Raider",
+   "facts": {
+    "qid": "Q317620",
+    "fetched": "2026-11-02",
+    "year": 1996,
+    "developer": [
+     {
+      "qid": "Q869104",
+      "ko": "코어 디자인",
+      "en": "Core Design"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q10902322",
+      "ko": null,
+      "en": "Suntendy Interactive Multimedia Co.,Ltd."
+     },
+     {
+      "qid": "Q2748676",
+      "ko": null,
+      "en": "Victor Interactive Software"
+     },
+     {
+      "qid": "Q28416421",
+      "ko": null,
+      "en": "Golden Disc Electronic"
+     },
+     {
+      "qid": "Q679933",
+      "ko": "아이도스 인터랙티브",
+      "en": "Eidos Interactive"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10677",
+      "ko": "플레이스테이션",
+      "en": null
+     },
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q14116",
+      "ko": "macOS",
+      "en": "macOS"
+     },
+     {
+      "qid": "Q170434",
+      "ko": "도스",
+      "en": "DOS"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q200912",
+      "ko": "세가 새턴",
+      "en": null
+     },
+     {
+      "qid": "Q29758",
+      "ko": "포켓 PC",
+      "en": "Pocket PC"
+     },
+     {
+      "qid": "Q336434",
+      "ko": "N-게이지",
+      "en": "N-Gage"
+     },
+     {
+      "qid": "Q47604",
+      "ko": "MS-DOS",
+      "en": null
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     },
+     {
+      "qid": "Q63184502",
+      "ko": null,
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     },
+     {
+      "qid": "Q98973368",
+      "ko": "엑스박스 시리즈 X 및 시리즈 S",
+      "en": "Xbox Series X and Series S"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q343568",
+      "ko": "액션 어드벤처 게임",
+      "en": "action-adventure game"
+     }
+    ],
+    "series": {
+     "qid": "Q270503",
+     "ko": "툼 레이더",
+     "en": "Tomb Raider"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%ED%88%BC%EB%A0%88%EC%9D%B4%EB%8D%94_(1996%EB%85%84_%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/Tomb_Raider_(1996_video_game)"
+    }
+   },
+   "genre": "어드벤처",
+   "group": "explore",
+   "era": "early_3d",
+   "series": [],
+   "persona": "지도에도 없는 무덤을 찾아 세계를 누비며, 맨몸으로 절벽을 오르고 함정을 건너는 고고학자 탐험가",
+   "voice": {
+    "타이틀": "지도에 없는 곳일수록 가 볼 만하지.",
+    "중반": "함정은 피하는 게 아니라 읽는 거야.",
+    "엔딩": "유물은 손에 넣었어. 이제 무사히 나가기만 하면 돼."
+   },
+   "desire": "잃어버린 유물을 찾는 것",
+   "conflict": "탐구와 위험",
+   "symbols": [
+    "피라미드 모양 황금 유물",
+    "허벅지의 권총집",
+    "횃불"
+   ],
+   "signature": [
+    "허벅지의 쌍 권총집",
+    "작은 갈색 가죽 배낭",
+    "횃불",
+    "피라미드 모양 황금 유물"
+   ],
+   "signature_hold": [
+    2,
+    3
+   ],
+   "mechanic": "절벽을 오르고 매달리고 뛰어넘으며, 함정을 읽어 무덤 깊은 곳의 유물을 찾는다",
+   "rule": {
+    "forms": {
+     "타이틀": "내 턴마다 단서 하나(셋까지) — 길을 읽는다",
+     "중반": "맞을 때 단서 하나를 써 그 피해를 피한다 — 함정을 건넌다",
+     "엔딩": "엔딩에 들 때 남은 단서마다 힘 +2 — 유물을 손에 넣는다"
+    },
+    "counter": "단서를 쓰게 자주 나눠 친다. 엔딩 전에 단서를 다 쓰게 만든다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "탐험 출발 — 청록 민소매 상의와 허리에 묶은 얇은 재킷, 갈색 반바지, 작은 가죽 배낭, 손가락 없는 장갑, 길게 땋은 머리",
+     "role": "정찰",
+     "pose": "바위 길 끝에서 한 손으로 이마에 그늘을 지으며 먼 계곡을 살피는 자세",
+     "setting": "눈보라가 그친 높은 산맥의 좁은 바위 길",
+     "homage": "청록 민소매와 가죽 배낭",
+     "expr": "curious"
+    },
+    "중반": {
+     "look": "무덤 속 — 흙먼지 묻은 민소매, 허벅지의 쌍 권총집, 허리에 건 횃불",
+     "role": "교란",
+     "pose": "돌 턱에 두 손으로 매달려 몸을 끌어 올리며 아래를 내려다보는 자세",
+     "setting": "물에 잠긴 신전 지하, 거대한 석상 사이로 드는 빛줄기",
+     "homage": "허벅지의 쌍 권총집",
+     "expr": "determined"
+    },
+    "엔딩": {
+     "look": "탈출 — 찢긴 소매와 그을린 배낭, 손에 든 피라미드 모양 황금 유물",
+     "role": "돌파",
+     "pose": "흔들리는 돌계단을 박차고 앞으로 몸을 던지듯 뛰어오르는 자세",
+     "setting": "용암이 끓는 고대 피라미드 안, 붉은 빛",
+     "homage": "황금 유물",
+     "expr": "confident"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "눈 덮인 계곡 끝에서 거대한 돌문이 천천히 열린다",
+     "one_figure": true,
+     "particles": "snow"
+    },
+    "중반": {
+     "scene": "어둠 속 신전 바닥이 꺼지며 가시 함정이 드러난다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "엔딩": {
+     "scene": "무너지는 피라미드에서 금빛 빛줄기가 하늘로 솟는다",
+     "one_figure": true,
+     "particles": "embers"
+    }
+   },
+   "ethnicity": "European",
+   "silhouette": {
+    "body": "athletic",
+    "hair": "braids",
+    "garment": "jacket_shorts",
+    "material": "explorer_canvas",
+    "pose": "ledge_hang",
+    "palette": "tomb_teal_sand",
+    "hair_color": "bronze"
+   },
+   "face": {
+    "face_shape": "heart",
+    "eyes": "almond_wide",
+    "brows": "arched_thin",
+    "nose": "straight_narrow",
+    "lips": "full_wide",
+    "eye_color": "emerald"
+   },
+   "place": "a snowy mountain pass leading to a hidden tomb, sunlit stone stairs, flooded temples and ancient traps",
+   "rights": "크리스털 다이내믹스(원작 코어 디자인·에이도스) — 이름과 주인공 라라 크로프트가 상표다. 라라의 얼굴을 따라 그리지 않는다",
+   "avoid": [
+    "라라 크로프트의 얼굴",
+    "동물(늑대·곰·공룡)과 괴물의 얼굴",
+    "피 묘사",
+    "로고·타이틀 글자",
+    "체력 막대·숫자"
+   ],
+   "costume": {
+    "who": "라라 크로프트",
+    "en": "Lara Croft's classic look — a teal tank top, brown cargo shorts, fingerless gloves, a small brown leather backpack and twin empty thigh holsters"
+   }
+  },
+  {
+   "key": "nier_automata",
+   "title": "니어 오토마타",
+   "title_en": "Nier: Automata",
+   "facts": {
+    "qid": "Q21078985",
+    "fetched": "2026-11-02",
+    "year": 2017,
+    "developer": [
+     {
+      "qid": "Q1576758",
+      "ko": "플래티넘",
+      "en": null
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q207784",
+      "ko": "스퀘어 에닉스",
+      "en": "Square Enix"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q13361286",
+      "ko": "엑스박스 원",
+      "en": null
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q19610114",
+      "ko": "닌텐도 스위치",
+      "en": null
+     },
+     {
+      "qid": "Q5014725",
+      "ko": "플레이스테이션 4",
+      "en": null
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q113645065",
+      "ko": null,
+      "en": "character-action video game"
+     },
+     {
+      "qid": "Q115101598",
+      "ko": null,
+      "en": "post-apocalyptic video game"
+     },
+     {
+      "qid": "Q1163960",
+      "ko": "핵 앤드 슬래시",
+      "en": "hack and slash"
+     },
+     {
+      "qid": "Q1422746",
+      "ko": "액션 롤플레잉 게임",
+      "en": "action role-playing game"
+     }
+    ],
+    "series": {
+     "qid": "Q16000078",
+     "ko": "드래그 온 드라군과 니어",
+     "en": "Drakengard"
+    },
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%8B%88%EC%96%B4:_%EC%98%A4%ED%86%A0%EB%A7%88%ED%83%80",
+     "en": "https://en.wikipedia.org/wiki/Nier:_Automata"
+    }
+   },
+   "genre": "액션 RPG",
+   "group": "growth",
+   "era": "modern",
+   "series": [],
+   "persona": "버려진 지구의 폐허를 걸으며 기계 생명체와 싸우다, 싸움의 이유를 묻기 시작한 안드로이드 전투원",
+   "voice": {
+    "타이틀": "명령은 단순해. 기계를 쓰러뜨린다. 그다음은 몰라.",
+    "중반": "폐허에도 꽃이 핀다. 기계도 노래를 한다.",
+    "엔딩": "끝이 정해져 있어도 걷는다. 그게 내 선택이야."
+   },
+   "desire": "싸움의 끝에서 의미를 찾는 것",
+   "conflict": "명령과 마음",
+   "symbols": [
+    "검은 눈가리개",
+    "폐허의 하얀 꽃",
+    "떠다니는 보조 기계"
+   ],
+   "signature": [
+    "검은 눈가리개",
+    "등 뒤에 떠다니는 상자 모양 보조 기계",
+    "폐허에 핀 하얀 꽃",
+    "녹슨 놀이공원의 회전목마"
+   ],
+   "signature_hold": [
+    2
+   ],
+   "mechanic": "검을 휘두르며 등 뒤에 떠다니는 보조 기계로 쏘고, 칩을 갈아 끼워 몸을 바꾼다",
+   "rule": {
+    "forms": {
+     "타이틀": "칠 때 보조 기계가 다른 상대 하나를 1 쏜다",
+     "중반": "내 턴마다 칩 하나(셋까지), 칩마다 힘 +1",
+     "엔딩": "엔딩에 들 때 칩을 모두 지운다 — 지운 칩마다 아군 하나씩 힘 +2(데이터를 넘긴다)"
+    },
+    "counter": "칩이 쌓이기 전에 친다. 보조 기계의 사격은 1 이라 큰 책에는 간지럽다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "작전 개시 — 깃털 장식 퍼프 소매의 검은 고딕 전투 드레스, 이마 위로 올린 검은 눈가리개, 흰 장갑",
+     "role": "공격",
+     "pose": "등에 멘 긴 검의 자루를 한 손으로 잡아 뽑으며 몸을 반쯤 돌린 자세",
+     "setting": "덩굴에 덮여 무너진 빌딩 숲과 갈라진 아스팔트",
+     "homage": "검은 눈가리개",
+     "expr": "calm"
+    },
+    "중반": {
+     "look": "사막의 기억 — 검은 드레스 자락을 걷어 묶고, 이마 위로 올린 눈가리개, 등 뒤에 떠 있는 상자 모양 보조 기계",
+     "role": "교란",
+     "pose": "모래 언덕 위로 뛰어오르며 몸을 비틀어 뒤쪽 공중을 겨누는 자세",
+     "setting": "모래에 반쯤 묻힌 빌딩과 노을 진 사막",
+     "homage": "상자 모양 보조 기계",
+     "expr": "pensive"
+    },
+    "엔딩": {
+     "look": "탑의 끝 — 찢긴 검은 드레스 위에 걸친 흰 망토, 손목에 감은 검은 눈가리개",
+     "role": "지원",
+     "pose": "하얀 꽃 한 송이를 두 손으로 감싸 쥐고 고개를 살짝 숙인 자세",
+     "setting": "하늘로 솟은 거대한 흰 탑 꼭대기, 흐린 빛",
+     "homage": "손목에 감은 검은 눈가리개",
+     "expr": "nostalgic"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "무너진 빌딩 숲 위로 바람이 불며 덩굴 잎이 한꺼번에 흩날린다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "중반": {
+     "scene": "사막 위로 거대한 기계 그림자가 일어서고, 모래가 폭포처럼 쏟아진다",
+     "one_figure": true,
+     "particles": "dust"
+    },
+    "엔딩": {
+     "scene": "하늘을 가득 채운 하얀 꽃잎이 무너진 탑 위로 흩날린다",
+     "one_figure": true,
+     "particles": "petals"
+    }
+   },
+   "ethnicity": "East Asian",
+   "silhouette": {
+    "body": "slender",
+    "hair": "bob",
+    "garment": "one_piece_dress",
+    "material": "gothic_combat_lace",
+    "pose": "blade_draw_turn",
+    "palette": "ruin_black_white",
+    "hair_color": "silver_white"
+   },
+   "face": {
+    "face_shape": "oval",
+    "eyes": "almond_wide",
+    "brows": "soft_round",
+    "nose": "small_button",
+    "lips": "thin_long",
+    "eye_color": "sky_blue"
+   },
+   "place": "an overgrown ruined city of collapsed skyscrapers under a pale sky, vines and white flowers in the cracks",
+   "rights": "스퀘어 에닉스(개발 플래티넘게임즈) — 이름과 안드로이드 인물(2B·9S·A2)이 상표다. 원작 인물의 얼굴을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(2B·9S·A2)의 얼굴",
+    "기계 생명체의 얼굴",
+    "로고·타이틀 글자",
+    "피 묘사",
+    "체력 숫자와 HUD"
+   ],
+   "costume": {
+    "who": "2B",
+    "en": "2B's look — a black gothic combat dress with feather-trimmed puffed sleeves and a split skirt, black thigh-high boots, white gloves and a black blindfold pushed up onto the forehead"
+   }
+  },
+  {
+   "key": "blade_and_soul",
+   "title": "블레이드 앤 소울",
+   "title_en": "Blade & Soul",
+   "facts": {
+    "qid": "Q488144",
+    "fetched": "2026-11-02",
+    "year": 2012,
+    "developer": [
+     {
+      "qid": "Q15240959",
+      "ko": null,
+      "en": "Team Bloodlust"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q2994389",
+      "ko": "가레나",
+      "en": "Garena"
+     },
+     {
+      "qid": "Q483036",
+      "ko": "엔씨",
+      "en": "NC"
+     },
+     {
+      "qid": "Q860580",
+      "ko": "텐센트",
+      "en": "Tencent"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q10683",
+      "ko": "플레이스테이션 3",
+      "en": "PlayStation 3"
+     },
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     },
+     {
+      "qid": "Q48493",
+      "ko": "iOS",
+      "en": null
+     },
+     {
+      "qid": "Q94",
+      "ko": null,
+      "en": "Android"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q175173",
+      "ko": "대규모 다중 사용자 온라인 롤 플레잉 게임(MMORPG)",
+      "en": "massively multiplayer online role-playing game"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%B8%94%EB%A0%88%EC%9D%B4%EB%93%9C_%EC%95%A4_%EC%86%8C%EC%9A%B8",
+     "en": "https://en.wikipedia.org/wiki/Blade_%26_Soul"
+    }
+   },
+   "genre": "MMORPG",
+   "group": "growth",
+   "era": "hd",
+   "series": [],
+   "persona": "스승과 동문을 잃은 밤 홀로 살아남아, 검 한 자루와 무공을 품고 복수의 길을 걷는 무림의 제자",
+   "voice": {
+    "타이틀": "스승의 가르침은 아직 손에 남아 있어.",
+    "중반": "막고, 흘리고, 되받아친다. 그게 무공이야.",
+    "엔딩": "복수의 끝에서 칼을 거둔다. 바람이 분다."
+   },
+   "desire": "스승의 원수를 갚는 것",
+   "conflict": "복수와 수련",
+   "symbols": [
+    "도장의 붉은 문",
+    "허리에 감은 긴 비단 띠",
+    "하늘로 오르는 풍등"
+   ],
+   "signature": [
+    "붉은 문이 달린 산 위 도장",
+    "허리에 감은 긴 비단 띠",
+    "곧은 장검",
+    "팔뚝에 감은 붉은 보호대"
+   ],
+   "signature_hold": [],
+   "mechanic": "막기와 반격, 잡기와 띄우기를 이어 콤보를 만들고, 경공으로 하늘을 난다",
+   "rule": {
+    "forms": {
+     "타이틀": "장마다 처음 맞을 때 한 번 막고 맞은편을 1 되받아친다 — 반격",
+     "중반": "칠 때 상대가 묶였으면 피해 +2 — 잡기에서 띄우기",
+     "엔딩": "엔딩에 들 때 경공 — 어느 자리든 가장 센 상대를 3 친다"
+    },
+    "counter": "반격은 장마다 한 번 — 여러 책으로 나눠 친다. 묶이지 않으면 잡기 이음은 그냥 치기다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "홍문파 제자 — 붉은 깃을 여민 흰 도포, 허리에 감은 긴 비단 띠, 손목 보호대",
+     "role": "버티기",
+     "pose": "한 발을 뒤로 빼고 두 손바닥을 앞으로 내밀어 막는 무술 자세",
+     "setting": "구름 위 산꼭대기 도장의 붉은 문 앞 마당",
+     "homage": "붉은 깃 흰 도복",
+     "expr": "serious"
+    },
+    "중반": {
+     "look": "무림 여행 — 몸에 붙는 검은 무복과 짧은 망토, 등에 멘 곧은 장검, 땋아 내린 머리",
+     "role": "공격",
+     "pose": "장검을 등 뒤에서 뽑아 휘두르며 한 발로 회전하는 자세",
+     "setting": "대나무 숲 사이로 흐르는 계곡과 돌다리",
+     "homage": "곧은 장검",
+     "expr": "determined"
+    },
+    "엔딩": {
+     "look": "복수의 끝 — 바람에 찢긴 흰 무복, 흩날리는 붉은 비단 띠",
+     "role": "돌파",
+     "pose": "경공으로 높이 뛰어올라 두 팔을 벌린 채 아래를 내려다보는 자세",
+     "setting": "풍등이 떠오르는 밤하늘 아래 성곽 지붕",
+     "homage": "흩날리는 붉은 비단 띠",
+     "expr": "proud"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "불길이 산꼭대기를 덮치고, 불티가 밤하늘로 오른다",
+     "one_figure": true,
+     "particles": "embers"
+    },
+    "중반": {
+     "scene": "대나무 숲 위로 바람이 갈라지며 푸른 검기가 퍼진다",
+     "one_figure": true,
+     "particles": "leaves"
+    },
+    "엔딩": {
+     "scene": "수천 개의 풍등이 한꺼번에 밤하늘로 떠오른다",
+     "one_figure": true,
+     "particles": "fireflies"
+    }
+   },
+   "ethnicity": "Chinese",
+   "silhouette": {
+    "body": "curvy",
+    "hair": "long_straight",
+    "garment": "robe_overlap",
+    "material": "wuxia_silk_sash",
+    "pose": "lightfoot_leap",
+    "palette": "lantern_crimson_jade",
+    "hair_color": "royal_purple"
+   },
+   "face": {
+    "face_shape": "diamond",
+    "eyes": "monolid_long",
+    "brows": "arched_thin",
+    "nose": "straight_narrow",
+    "lips": "heart_full",
+    "eye_color": "crimson"
+   },
+   "place": "a mist-wrapped mountaintop martial-arts school with red gates, bamboo forests and lantern-lit rooftops below",
+   "rights": "엔씨소프트 — 이름과 인물·종족 디자인이 상표다. 원작 인물의 얼굴과 의상을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(진서연·홍석근 등)의 얼굴",
+    "원작의 노출 큰 의상 그대로",
+    "로고·타이틀 글자",
+    "피 묘사",
+    "스킬 아이콘·숫자·HUD"
+   ],
+   "costume": {
+    "who": "홍문파 제자(주인공)",
+    "en": "the Hongmoon disciple's look — a white martial-arts training robe with a crimson collar, a long crimson silk sash tied at the waist, wrapped forearm guards and soft cloth shoes"
+   }
+  },
+  {
+   "key": "nox",
+   "title": "녹스",
+   "title_en": "Nox",
+   "facts": {
+    "qid": "Q1330428",
+    "fetched": "2026-11-02",
+    "year": 2000,
+    "developer": [
+     {
+      "qid": "Q98785807",
+      "ko": null,
+      "en": "Westwood Pacific"
+     }
+    ],
+    "publisher": [
+     {
+      "qid": "Q173941",
+      "ko": "일렉트로닉 아츠",
+      "en": "Electronic Arts"
+     }
+    ],
+    "platforms": [
+     {
+      "qid": "Q1406",
+      "ko": "마이크로소프트 윈도우",
+      "en": "Microsoft Windows"
+     }
+    ],
+    "genres": [
+     {
+      "qid": "Q1422746",
+      "ko": "액션 롤플레잉 게임",
+      "en": "action role-playing game"
+     }
+    ],
+    "series": null,
+    "modes": [
+     {
+      "qid": "Q208850",
+      "ko": "1인용 비디오 게임",
+      "en": "single-player video game"
+     },
+     {
+      "qid": "Q6895044",
+      "ko": "멀티플레이어 비디오 게임",
+      "en": "multiplayer video game"
+     }
+    ],
+    "wiki": {
+     "ko": "https://ko.wikipedia.org/wiki/%EB%85%B9%EC%8A%A4_(%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)",
+     "en": "https://en.wikipedia.org/wiki/Nox_(video_game)"
+    }
+   },
+   "genre": "액션 RPG",
+   "group": "growth",
+   "era": "early_3d",
+   "series": [],
+   "persona": "텔레비전을 고치다 트레일러째로 판타지 세계에 떨어져, 전사·마법사·소환사 가운데 한 길을 골라 강령술사 여왕에 맞서는 정비공",
+   "voice": {
+    "타이틀": "텔레비전 고치다가 여기까지 왔다고. 믿어져?",
+    "중반": "전사, 마법사, 소환사 — 길은 셋, 고르는 건 나.",
+    "엔딩": "여왕의 마법을 거둔다. 이제 집에 갈 차례야."
+   },
+   "desire": "집으로 돌아가는 것",
+   "conflict": "고향과 새 세상",
+   "symbols": [
+    "은빛 트레일러 하우스",
+    "빛나는 구슬",
+    "바닥의 마법 함정 문양"
+   ],
+   "signature": [
+    "판타지 숲에 떨어진 은빛 트레일러 하우스",
+    "빛나는 구슬",
+    "바닥에 그린 마법 함정 문양",
+    "허리의 공구 벨트와 렌치"
+   ],
+   "signature_hold": [
+    1,
+    3
+   ],
+   "mechanic": "전사·마법사·소환사 가운데 한 길을 고르고, 눈에 보이는 곳만 밝은 전장에서 함정과 주문으로 싸운다",
+   "rule": {
+    "forms": {
+     "타이틀": "내 턴마다 함정 하나(둘까지) — 바닥에 문양을 그려 둔다",
+     "중반": "상대 책이 들어올 때 함정 하나로 그 책을 2 친다",
+     "엔딩": "엔딩에 들 때 시야를 밝힌다 — 숨은 상대를 모두 드러내고 가장 센 상대 힘 −3"
+    },
+    "counter": "함정이 깔리기 전에 책을 먼저 다 낸다. 늦게 낼수록 함정을 밟는다"
+   },
+   "forms": {
+    "타이틀": {
+     "look": "떨어진 날 — 기름 묻은 작업복 위에 걸친 낡은 판타지 망토, 허리의 공구 벨트",
+     "role": "정찰",
+     "pose": "트레일러 문간에 기대 서서 렌치를 어깨에 걸치고 낯선 숲을 둘러보는 자세",
+     "setting": "안개 낀 판타지 숲 한가운데 내려앉은 은빛 트레일러",
+     "homage": "공구 벨트",
+     "expr": "surprised"
+    },
+    "중반": {
+     "look": "세 길의 시험 — 별 무늬 로브와 가죽 갑옷을 반씩 겹친 차림, 손목의 주문 고리",
+     "role": "교란",
+     "pose": "바닥의 마법 문양 가운데 쪼그려 앉아 한 손바닥으로 빛나는 함정을 그리는 자세",
+     "setting": "횃불이 띄엄띄엄 켜진 지하 감옥 통로, 빛 밖은 깜깜한 어둠",
+     "homage": "별 무늬 마법사 로브",
+     "expr": "mischievous"
+    },
+    "엔딩": {
+     "look": "여왕과의 결전 — 빛나는 룬이 새겨진 망토, 손에 든 빛나는 구슬",
+     "role": "공격",
+     "pose": "빛나는 구슬을 높이 들어 올리고 다른 손을 앞으로 뻗어 주문을 내뻗는 자세",
+     "setting": "검은 탑 꼭대기, 보랏빛 번개가 치는 하늘",
+     "homage": "빛나는 구슬",
+     "expr": "determined"
+    }
+   },
+   "opens": {
+    "타이틀": {
+     "scene": "텔레비전 화면에서 빛의 소용돌이가 터져 나와 방을 삼킨다",
+     "one_figure": true,
+     "particles": "sparks"
+    },
+    "중반": {
+     "scene": "어둠 속 횃불이 하나씩 푸른 불꽃으로 바뀌며 통로가 드러난다",
+     "one_figure": true,
+     "particles": "fireflies"
+    },
+    "엔딩": {
+     "scene": "검은 탑 위로 구슬의 빛이 터지며 보랏빛 구름이 걷힌다",
+     "one_figure": true,
+     "particles": "stars"
+    }
+   },
+   "ethnicity": "Middle Eastern",
+   "silhouette": {
+    "body": "lanky",
+    "hair": "voluminous",
+    "garment": "work_overalls",
+    "material": "patched_robe_overalls",
+    "pose": "rune_crouch",
+    "palette": "dungeon_torch_violet",
+    "hair_color": "flame_orange"
+   },
+   "face": {
+    "face_shape": "round",
+    "eyes": "droopy_soft",
+    "brows": "angled_sharp",
+    "nose": "aquiline",
+    "lips": "full_wide",
+    "eye_color": "azure"
+   },
+   "place": "a misty fantasy forest with a silver trailer home crash-landed among the trees, torchlit dungeon tunnels below",
+   "rights": "웨스트우드 스튜디오(일렉트로닉 아츠) — 이름이 상표다. 원작 인물(잭 모워·헤케바)의 얼굴을 따라 그리지 않는다",
+   "avoid": [
+    "원작 인물(잭 모워·헤케바)의 얼굴",
+    "괴물(좀비·오우거 등)의 얼굴과 몸",
+    "로고·타이틀 글자",
+    "피 묘사",
+    "체력·마나 숫자"
+   ],
+   "costume": {
+    "who": "잭 모워(주인공)",
+    "en": "Jack Mower's look — grease-stained blue mechanic overalls with a tool belt, a fantasy cloak thrown over one shoulder and a wrench tucked at the hip"
+   }
   }
  ]
 }

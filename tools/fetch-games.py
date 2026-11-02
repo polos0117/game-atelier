@@ -6,6 +6,10 @@
   python3 tools/fetch-games.py find --wide [<key> ...]         — 문서로 못 찾을 때만. 이름·별칭으로 찾는다(무겁다)
   python3 tools/fetch-games.py pull [<key> ...]                — facts.qid 가 적힌 게임을 받아 facts 를 채운다(빼면 전부)
   python3 tools/fetch-games.py pull --from <file>              — 저장해 둔 응답으로 채운다(검사·네트워크 없는 자리)
+  python3 tools/fetch-games.py pull --entity [<key> ...]       — 질의 서버(SPARQL) 대신 항목 JSON(Special:EntityData)과 wbgetentities 로.
+                                                                 질의 서버가 장애로 막혔을 때(2026-11-02 — 「1분에 한 번」 429 가 몇 시간).
+                                                                 같은 속성의 truthy 값(우선 순위가 있으면 그것만, 없으면 보통 — 낮춤은 뺀다)을
+                                                                 질의 응답과 같은 꼴로 만들어 풀기·채우기·원본 저장은 그대로 쓴다
 
 순서: find 로 후보를 보고(같은 이름의 이식판·리메이크가 많다) 사람이 고른 QID 를 data/game-design.json 의
 facts.qid 에 적는다 → pull. 원본 응답은 data/wikidata/<key>.json 에 두고, 설계표에는 풀어 쓴 값만 넣는다.
@@ -30,6 +34,9 @@ VIDEO_GAME = "Q7889"
 PROPS = [("year", "P577"), ("genres", "P136"), ("platforms", "P400"), ("series", "P179"),
          ("developer", "P178"), ("publisher", "P123"), ("modes", "P404")]
 WIKI = {"ko": "https://ko.wikipedia.org/", "en": "https://en.wikipedia.org/"}
+ENTITY = "https://www.wikidata.org/wiki/Special:EntityData/%s.json"
+API = "https://www.wikidata.org/w/api.php"
+ENTITY_GAP = 2   # 항목 JSON 사이 쉬는 초 — 질의 서버가 아니라 가볍다
 GAP = 65   # 질의 사이 쉬는 초 — 장애 때의 1분에 한 번보다 조금 길게
 _last = [None]   # 마지막 질의를 보낸 때(time.monotonic)
 
@@ -128,6 +135,95 @@ def ask(query):
             time.sleep(wait + 2)
 
 
+def get_json(url):
+    """항목 JSON · wbgetentities 하나. 429 면 Retry-After 만큼 기다렸다 다시(네 번까지)"""
+    req = urllib.request.Request(url, headers={"User-Agent": AGENT, "Accept": "application/json"})
+    ca = os.environ.get("SSL_CERT_FILE") or os.environ.get("REQUESTS_CA_BUNDLE")
+    ctx = ssl.create_default_context(cafile=ca) if ca else ssl.create_default_context()
+    for tries in range(5):
+        time.sleep(ENTITY_GAP)
+        try:
+            with urllib.request.urlopen(req, timeout=120, context=ctx) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or tries == 4:
+                raise
+            wait = int(e.headers.get("Retry-After") or 0) or 65
+            print("  … 너무 잦다(429) — %d초 기다렸다 다시 묻는다" % wait, file=sys.stderr)
+            time.sleep(wait + 2)
+
+
+def truthy(statements):
+    """wdt: 와 같은 값 — 우선(preferred)이 있으면 그것만, 없으면 보통(normal). 낮춤(deprecated)·값 없음·모름은 뺀다"""
+    st = [s for s in statements or [] if s.get("rank") != "deprecated" and (s.get("mainsnak") or {}).get("snaktype") == "value"]
+    best = [s for s in st if s.get("rank") == "preferred"]
+    return best or st
+
+
+def entity_values(entities):
+    """항목 JSON 들에서 PROPS 의 값 — 이름을 받아야 할 항목 QID 목록도 돌려준다"""
+    vals, need = [], set()
+    for q, e in entities.items():
+        for k, p in PROPS:
+            for s in truthy((e.get("claims") or {}).get(p)):
+                dv = s["mainsnak"].get("datavalue") or {}
+                v = dv.get("value")
+                if dv.get("type") == "time":
+                    vals.append((q, k, {"type": "literal", "value": v["time"]}, None))
+                elif dv.get("type") == "wikibase-entityid":
+                    vals.append((q, k, {"type": "uri", "value": "http://www.wikidata.org/entity/" + v["id"]}, v["id"]))
+                    need.add(v["id"])
+    return vals, sorted(need)
+
+
+def lit(text, lang):
+    return {"xml:lang": lang, "type": "literal", "value": text}
+
+
+def entity_responses(entities, value_labels):
+    """항목 JSON({qid: 항목}) · 값 항목의 이름({qid: {ko, en}}) → 질의 응답과 같은 꼴(props · labels)"""
+    pb, lb = [], []
+    vals, _ = entity_values(entities)
+    for q, k, v, vq in vals:
+        b = {"item": {"type": "uri", "value": "http://www.wikidata.org/entity/" + q}, "prop": {"type": "literal", "value": k}, "v": v}
+        for lang in ("ko", "en"):
+            name = (value_labels.get(vq) or {}).get(lang) if vq else None
+            if name:
+                b["v" + lang] = lit(name, lang)
+        pb.append(b)
+    for q, e in entities.items():
+        b = {"item": {"type": "uri", "value": "http://www.wikidata.org/entity/" + q}}
+        for lang in ("ko", "en"):
+            name = ((e.get("labels") or {}).get(lang) or {}).get("value")
+            if name:
+                b[lang] = lit(name, lang)
+            site = ((e.get("sitelinks") or {}).get(lang + "wiki") or {}).get("title")
+            if site:
+                b[lang + "wiki"] = {"type": "uri", "value": wiki_url(site, lang)}
+        lb.append(b)
+    return {"results": {"bindings": pb}}, {"results": {"bindings": lb}}
+
+
+def fetch_entities(qids):
+    """항목 JSON 을 하나씩, 값 항목 이름은 wbgetentities 로 쉰 개씩"""
+    entities = {}
+    for q in qids:
+        j = get_json(ENTITY % q)
+        e = (j.get("entities") or {}).get(q)
+        if e is None:   # 넘겨주기(redirect)면 다른 열쇠로 온다 — 그 QID 로는 못 받은 것으로 둔다
+            print("  ✗ %s — 항목 JSON 에 그 QID 가 없다(넘겨주기?)" % q, file=sys.stderr)
+            continue
+        entities[q] = e
+    _, need = entity_values(entities)
+    names = {}
+    for i in range(0, len(need), 50):
+        j = get_json(API + "?" + urllib.parse.urlencode({"action": "wbgetentities", "ids": "|".join(need[i:i + 50]),
+                                                         "props": "labels", "languages": "ko|en", "format": "json"}))
+        for q, e in (j.get("entities") or {}).items():
+            names[q] = {lang: ((e.get("labels") or {}).get(lang) or {}).get("value") for lang in ("ko", "en")}
+    return entities, names
+
+
 def qid_of(uri):
     return str(uri).rsplit("/", 1)[-1]
 
@@ -187,12 +283,12 @@ def apply(doc, parsed, today, keys=None):
     return done, missing
 
 
-def save_raw(key, qid, today, props, labels):
+def save_raw(key, qid, today, props, labels, source=ENDPOINT):
     os.makedirs(RAW, exist_ok=True)
     pick = lambda resp: [b for b in ((resp or {}).get("results") or {}).get("bindings") or []
                          if qid_of(b.get("item", {}).get("value")) == qid]
     with open(os.path.join(RAW, key + ".json"), "w", encoding="utf-8") as f:
-        json.dump({"qid": qid, "fetched": today, "source": ENDPOINT,
+        json.dump({"qid": qid, "fetched": today, "source": source,
                    "props": pick(props), "labels": pick(labels)}, f, ensure_ascii=False, indent=1)
         f.write("\n")
 
@@ -245,6 +341,8 @@ def main(argv):
         print("고른 QID 를 data/game-design.json 의 <key>.facts.qid 에 적고 pull 한다")
         return
     src = None
+    entity = "--entity" in argv
+    argv = [a for a in argv if a != "--entity"]
     if "--from" in argv:
         i = argv.index("--from")
         src = argv[i + 1]
@@ -261,6 +359,8 @@ def main(argv):
         with open(src, encoding="utf-8") as f:
             saved = json.load(f)
         props, labels = saved["props"], saved["labels"]
+    elif entity:
+        props, labels = entity_responses(*fetch_entities(qids))
     else:
         props, labels = ask(props_query(qids)), ask(labels_query(qids))
     today = datetime.date.today().isoformat()
@@ -268,7 +368,7 @@ def main(argv):
     done, missing = apply(doc, parsed, today, keys)
     for g in todo:
         if g["key"] in done:
-            save_raw(g["key"], g["facts"]["qid"], today, props, labels)
+            save_raw(g["key"], g["facts"]["qid"], today, props, labels, ENTITY % "<qid>" if entity else ENDPOINT)
     save(doc)
     for k in done:
         e = empties(byk[k])

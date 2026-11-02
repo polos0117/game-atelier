@@ -1,0 +1,1410 @@
+{
+ "qid": "Q189784",
+ "fetched": "2026-11-02",
+ "source": "https://www.wikidata.org/wiki/Special:EntityData/<qid>.json",
+ "props": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1993-12-10T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1993-00-00T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1994-11-14T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1994-11-21T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1994-00-00T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1994-11-28T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1994-12-03T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1995-09-01T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1995-10-26T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1995-11-16T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1995-12-00T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1996-03-01T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1996-04-19T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1996-04-26T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1996-08-20T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1996-00-00T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1997-03-31T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1997-07-11T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1997-00-00T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2001-10-28T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2001-11-16T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2006-09-27T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2006-09-28T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2012-01-18T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1995-04-30T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+1996-00-00T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q185029"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인칭 슈팅 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "first-person shooter"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q27670585"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "공상과학 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "science fiction video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q11338014"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "호러 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "horror video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q15613992"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아케이드 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "arcade"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q188642"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "게임보이 어드밴스"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1353312"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "RiscPC"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q229429"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "3DO 인터랙티브 멀티플레이어"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "3DO"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q388"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "리눅스"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Linux"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q132020"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "엑스박스"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q183259"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "슈퍼 패미컴"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Super Nintendo Entertainment System"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10676"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "메가 드라이브"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10677"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q471094"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아미가 1200"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Amiga 1200"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q170434"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "도스"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "DOS"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48263"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "엑스박스 360"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q10683"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 3"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "PlayStation 3"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q200912"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "세가 새턴"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q650601"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아타리 재규어"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Atari Jaguar"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14116"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "macOS"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "macOS"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q627611"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "IRIX"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "IRIX"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q14646"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "솔라리스 (운영체제)"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Solaris"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1063978"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "슈퍼 32X"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q19610114"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "닌텐도 스위치"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q13522376"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "맥 OS의 역사"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Classic Mac OS"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Android"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q47604"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "MS-DOS"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q5014725"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 4"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q13361286"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "엑스박스 원"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q183505"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "NEC PC-98"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "NEC PC-9800 series"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q41357"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Acorn Archimedes"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q113245462"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Flipper Zero"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q831367"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "NeXTSTEP"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "NeXTSTEP"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189794"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "OS/2"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "series"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q655219"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "둠"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q204474"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "이드 소프트웨어"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1058704"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nerve Software"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q930354"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "GT 인터랙티브"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Atari, Inc."
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q200491"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "액티비전 퍼블리싱"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q207922"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "아타리"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Atari"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q122741"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "세가"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1403157"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "WMS 인더스트리스"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "WMS Industries"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1408498"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "오션 소프트웨어"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Ocean Software"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6895044"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "멀티플레이어 비디오 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1758804"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코옵 모드"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "co-op mode"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q189784"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "둠"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EB%91%A0_(1993%EB%85%84_%EB%B9%84%EB%94%94%EC%98%A4_%EA%B2%8C%EC%9E%84)"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Doom_(1993_video_game)"
+   }
+  }
+ ]
+}
