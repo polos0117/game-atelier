@@ -26,6 +26,7 @@
   "metal_gear_solid": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["metal_gear_solid_glossy_kr_game_f_casual1.webp", "metal_gear_solid_glossy_kr_game_f_casual2.webp", "metal_gear_solid_glossy_kr_game_f_casual3.webp", "metal_gear_solid_glossy_kr_game_f_casual4.webp", "metal_gear_solid_glossy_kr_game_f_casual5.webp", "metal_gear_solid_glossy_kr_game_f_casual6.webp", "metal_gear_solid_glossy_kr_game_f_casual7.webp", "metal_gear_solid_glossy_kr_game_f_casual8.webp", "metal_gear_solid_glossy_kr_game_f_casual9.webp", "metal_gear_solid_glossy_kr_game_f_casual10.webp", "metal_gear_solid_glossy_kr_game_f_casual11.webp", "metal_gear_solid_glossy_kr_game_f_casual12.webp", "metal_gear_solid_glossy_kr_game_f_casual13.webp"]}, "byForm": {"title": {"f": "metal_gear_solid_title_glossy_kr_game_f.webp"}, "ending": {"f": "metal_gear_solid_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "metal_gear_solid_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "metal_gear_solid_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "metal_gear_solid_middle_open_glossy_kr_game_f.webp"}, "title_open": {"f": "metal_gear_solid_title_open_glossy_kr_game_f.webp"}}}}},
   "minecraft": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["minecraft_glossy_kr_game_f_casual1.webp", "minecraft_glossy_kr_game_f_casual2.webp", "minecraft_glossy_kr_game_f_casual3.webp", "minecraft_glossy_kr_game_f_casual4.webp", "minecraft_glossy_kr_game_f_casual5.webp", "minecraft_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "minecraft_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "minecraft_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "minecraft_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "minecraft_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "minecraft_title_glossy_kr_game_f.webp"}, "title_open": {"f": "minecraft_title_open_glossy_kr_game_f.webp"}}}}},
   "nier_automata": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["nier_automata_glossy_kr_game_f_casual1.webp", "nier_automata_glossy_kr_game_f_casual2.webp", "nier_automata_glossy_kr_game_f_casual3.webp", "nier_automata_glossy_kr_game_f_casual4.webp", "nier_automata_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "nier_automata_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "nier_automata_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "nier_automata_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "nier_automata_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "nier_automata_title_glossy_kr_game_f.webp"}, "title_open": {"f": "nier_automata_title_open_glossy_kr_game_f.webp"}}}}},
+  "nox": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["nox_glossy_kr_game_f_casual1.webp", "nox_glossy_kr_game_f_casual2.webp", "nox_glossy_kr_game_f_casual3.webp", "nox_glossy_kr_game_f_casual4.webp", "nox_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "nox_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "nox_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "nox_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "nox_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "nox_title_glossy_kr_game_f.webp"}, "title_open": {"f": "nox_title_open_glossy_kr_game_f.webp"}}}}},
   "overwatch": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["overwatch_glossy_kr_game_f_casual1.webp", "overwatch_glossy_kr_game_f_casual2.webp", "overwatch_glossy_kr_game_f_casual3.webp", "overwatch_glossy_kr_game_f_casual4.webp", "overwatch_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "overwatch_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "overwatch_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "overwatch_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "overwatch_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "overwatch_title_glossy_kr_game_f.webp"}, "title_open": {"f": "overwatch_title_open_glossy_kr_game_f.webp"}}}}},
   "pacman": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["pacman_glossy_kr_game_f_casual1.webp", "pacman_glossy_kr_game_f_casual2.webp", "pacman_glossy_kr_game_f_casual3.webp", "pacman_glossy_kr_game_f_casual4.webp", "pacman_glossy_kr_game_f_casual5.webp", "pacman_glossy_kr_game_f_casual6.webp"]}, "byForm": {"title": {"f": "pacman_title_glossy_kr_game_f.webp"}, "title_open": {"f": "pacman_title_open_glossy_kr_game_f.webp"}, "middle": {"f": "pacman_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "pacman_middle_open_glossy_kr_game_f.webp"}, "ending": {"f": "pacman_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "pacman_ending_open_glossy_kr_game_f.webp"}}}}},
   "persona_5": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["persona_5_glossy_kr_game_f_casual1.webp", "persona_5_glossy_kr_game_f_casual2.webp", "persona_5_glossy_kr_game_f_casual3.webp", "persona_5_glossy_kr_game_f_casual4.webp", "persona_5_glossy_kr_game_f_casual5.webp", "persona_5_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "persona_5_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "persona_5_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "persona_5_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "persona_5_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "persona_5_title_glossy_kr_game_f.webp"}, "title_open": {"f": "persona_5_title_open_glossy_kr_game_f.webp"}}}}},
@@ -365,6 +366,17 @@
   "nier_automata_middle_open_glossy_kr_game_f.webp": "2026-11-02",
   "nier_automata_title_glossy_kr_game_f.webp": "2026-11-02",
   "nier_automata_title_open_glossy_kr_game_f.webp": "2026-11-02",
+  "nox_ending_glossy_kr_game_f.webp": "2026-11-02",
+  "nox_ending_open_glossy_kr_game_f.webp": "2026-11-02",
+  "nox_glossy_kr_game_f_casual1.webp": "2026-11-02",
+  "nox_glossy_kr_game_f_casual2.webp": "2026-11-02",
+  "nox_glossy_kr_game_f_casual3.webp": "2026-11-02",
+  "nox_glossy_kr_game_f_casual4.webp": "2026-11-02",
+  "nox_glossy_kr_game_f_casual5.webp": "2026-11-02",
+  "nox_middle_glossy_kr_game_f.webp": "2026-11-02",
+  "nox_middle_open_glossy_kr_game_f.webp": "2026-11-02",
+  "nox_title_glossy_kr_game_f.webp": "2026-11-02",
+  "nox_title_open_glossy_kr_game_f.webp": "2026-11-02",
   "overwatch_ending_glossy_kr_game_f.webp": "2026-11-01",
   "overwatch_ending_open_glossy_kr_game_f.webp": "2026-11-01",
   "overwatch_glossy_kr_game_f_casual1.webp": "2026-11-01",
@@ -640,5 +652,5 @@
   "world_of_warcraft_title_glossy_kr_game_f.webp": "2026-10-28",
   "world_of_warcraft_title_open_glossy_kr_game_f.webp": "2026-10-28"
  },
- "count": 49
+ "count": 50
 }
