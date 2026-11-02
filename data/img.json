@@ -28,6 +28,7 @@
   "overwatch": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["overwatch_glossy_kr_game_f_casual1.webp", "overwatch_glossy_kr_game_f_casual2.webp", "overwatch_glossy_kr_game_f_casual3.webp", "overwatch_glossy_kr_game_f_casual4.webp", "overwatch_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "overwatch_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "overwatch_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "overwatch_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "overwatch_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "overwatch_title_glossy_kr_game_f.webp"}, "title_open": {"f": "overwatch_title_open_glossy_kr_game_f.webp"}}}}},
   "pacman": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["pacman_glossy_kr_game_f_casual1.webp", "pacman_glossy_kr_game_f_casual2.webp", "pacman_glossy_kr_game_f_casual3.webp", "pacman_glossy_kr_game_f_casual4.webp", "pacman_glossy_kr_game_f_casual5.webp", "pacman_glossy_kr_game_f_casual6.webp"]}, "byForm": {"title": {"f": "pacman_title_glossy_kr_game_f.webp"}, "title_open": {"f": "pacman_title_open_glossy_kr_game_f.webp"}, "middle": {"f": "pacman_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "pacman_middle_open_glossy_kr_game_f.webp"}, "ending": {"f": "pacman_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "pacman_ending_open_glossy_kr_game_f.webp"}}}}},
   "persona_5": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["persona_5_glossy_kr_game_f_casual1.webp", "persona_5_glossy_kr_game_f_casual2.webp", "persona_5_glossy_kr_game_f_casual3.webp", "persona_5_glossy_kr_game_f_casual4.webp", "persona_5_glossy_kr_game_f_casual5.webp", "persona_5_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "persona_5_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "persona_5_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "persona_5_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "persona_5_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "persona_5_title_glossy_kr_game_f.webp"}, "title_open": {"f": "persona_5_title_open_glossy_kr_game_f.webp"}}}}},
+  "pubg_battlegrounds": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["pubg_battlegrounds_glossy_kr_game_f_casual1.webp", "pubg_battlegrounds_glossy_kr_game_f_casual2.webp", "pubg_battlegrounds_glossy_kr_game_f_casual3.webp", "pubg_battlegrounds_glossy_kr_game_f_casual4.webp", "pubg_battlegrounds_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "pubg_battlegrounds_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "pubg_battlegrounds_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "pubg_battlegrounds_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "pubg_battlegrounds_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "pubg_battlegrounds_title_glossy_kr_game_f.webp"}, "title_open": {"f": "pubg_battlegrounds_title_open_glossy_kr_game_f.webp"}}}}},
   "pump_it_up": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["pump_it_up_glossy_kr_game_f_casual1.webp", "pump_it_up_glossy_kr_game_f_casual2.webp", "pump_it_up_glossy_kr_game_f_casual3.webp", "pump_it_up_glossy_kr_game_f_casual4.webp", "pump_it_up_glossy_kr_game_f_casual5.webp"]}, "byForm": {"ending": {"f": "pump_it_up_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "pump_it_up_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "pump_it_up_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "pump_it_up_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "pump_it_up_title_glossy_kr_game_f.webp"}, "title_open": {"f": "pump_it_up_title_open_glossy_kr_game_f.webp"}}}}},
   "resident_evil_2": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["resident_evil_2_glossy_kr_game_f_casual1.webp", "resident_evil_2_glossy_kr_game_f_casual2.webp", "resident_evil_2_glossy_kr_game_f_casual3.webp", "resident_evil_2_glossy_kr_game_f_casual4.webp", "resident_evil_2_glossy_kr_game_f_casual5.webp", "resident_evil_2_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "resident_evil_2_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "resident_evil_2_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "resident_evil_2_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "resident_evil_2_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "resident_evil_2_title_glossy_kr_game_f.webp"}, "title_open": {"f": "resident_evil_2_title_open_glossy_kr_game_f.webp"}}}}},
   "sangokushi_sousouden": {"byStyle": {"glossy_kr_game": {"casual": {"f": ["sangokushi_sousouden_glossy_kr_game_f_casual1.webp", "sangokushi_sousouden_glossy_kr_game_f_casual2.webp", "sangokushi_sousouden_glossy_kr_game_f_casual3.webp", "sangokushi_sousouden_glossy_kr_game_f_casual4.webp", "sangokushi_sousouden_glossy_kr_game_f_casual5.webp", "sangokushi_sousouden_glossy_kr_game_f_casual6.webp"]}, "byForm": {"ending": {"f": "sangokushi_sousouden_ending_glossy_kr_game_f.webp"}, "ending_open": {"f": "sangokushi_sousouden_ending_open_glossy_kr_game_f.webp"}, "middle": {"f": "sangokushi_sousouden_middle_glossy_kr_game_f.webp"}, "middle_open": {"f": "sangokushi_sousouden_middle_open_glossy_kr_game_f.webp"}, "title": {"f": "sangokushi_sousouden_title_glossy_kr_game_f.webp"}, "title_open": {"f": "sangokushi_sousouden_title_open_glossy_kr_game_f.webp"}}}}},
@@ -387,6 +388,17 @@
   "persona_5_middle_open_glossy_kr_game_f.webp": "2026-11-01",
   "persona_5_title_glossy_kr_game_f.webp": "2026-11-01",
   "persona_5_title_open_glossy_kr_game_f.webp": "2026-11-01",
+  "pubg_battlegrounds_ending_glossy_kr_game_f.webp": "2026-11-02",
+  "pubg_battlegrounds_ending_open_glossy_kr_game_f.webp": "2026-11-02",
+  "pubg_battlegrounds_glossy_kr_game_f_casual1.webp": "2026-11-02",
+  "pubg_battlegrounds_glossy_kr_game_f_casual2.webp": "2026-11-02",
+  "pubg_battlegrounds_glossy_kr_game_f_casual3.webp": "2026-11-02",
+  "pubg_battlegrounds_glossy_kr_game_f_casual4.webp": "2026-11-02",
+  "pubg_battlegrounds_glossy_kr_game_f_casual5.webp": "2026-11-02",
+  "pubg_battlegrounds_middle_glossy_kr_game_f.webp": "2026-11-02",
+  "pubg_battlegrounds_middle_open_glossy_kr_game_f.webp": "2026-11-02",
+  "pubg_battlegrounds_title_glossy_kr_game_f.webp": "2026-11-02",
+  "pubg_battlegrounds_title_open_glossy_kr_game_f.webp": "2026-11-02",
   "pump_it_up_ending_glossy_kr_game_f.webp": "2026-11-02",
   "pump_it_up_ending_open_glossy_kr_game_f.webp": "2026-11-02",
   "pump_it_up_glossy_kr_game_f_casual1.webp": "2026-11-02",
@@ -616,5 +628,5 @@
   "world_of_warcraft_title_glossy_kr_game_f.webp": "2026-10-28",
   "world_of_warcraft_title_open_glossy_kr_game_f.webp": "2026-10-28"
  },
- "count": 47
+ "count": 48
 }
