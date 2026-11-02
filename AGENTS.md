@@ -23,6 +23,7 @@
 |---|---|---|
 | 첫 화면 | `index.html` · `lib/arcade.js` · `lib/arcade.css` · `lib/home.css` | book 의 서재처럼 — **오락실**: 배경 그림(공간마다 한 장 — 그림 저장소 `backgrounds/arcade-<테마>.webp`, 도트 공방의 그리기로 받은 가로 그림, 기록 `records/backgrounds/`)의 융단 바닥을 도트 인물(`data/sprites.json`)이 거닌다(누르면 그 게임의 도감, 도트가 없으면 띠째 없다). 그 아래 기기 줄 — 게임 한 편에 기기 하나(화면은 타이틀 그림 썸네일, 없으면 꺼진 화면), 누르면 도감. 그 아래 첫 묶음 카드(설계표 그대로)·패치 기록·공간 |
 | 도감 | `dex.html` · `lib/dex-filter.js` · `lib/img.js` · `lib/gallery.css` | book 서가에서 — 최근 추가·새 표·장르·거르기·작업 현황·나란히 보기(폼 셋·개방 셋)·화풍 비교·일상컷·크게 보기·넘기기·즐겨찾기(공방 모음 `a:'game'`)·도트(도트 있는 게임은 목록 칸에 「도트」 표, 상세에 작은 무대 한 줄 — `data/sprites.json`). 게임 글은 능력·폼 배경·그리지 않을 것·Wikidata 사실 칸. 등록부 `data/img.json` 에 적힌 것만 |
+| 진열장 | `shelf.html` · `lib/shelf.js`(셈 — node 로도 돈다) · `lib/shelf.css` | 켜 보는 감상 화면(2026-11-02). 나무 진열장의 시대 칸에 처음 나온 판의 패키지(설계표 `package` — 오락실 기판·카트리지·플로피·CD·DVD/블루레이, 겉그림은 타이틀 폼 그림), 온라인 게임은 PC 바탕화면 아이콘, 내려받는 게임은 바탕화면 「게임」 폴더. 그림 없는 게임은 빈 상자(켜지 않는다 — 생성기로). 고르고 **시작** → 매체마다 다른 로딩 → 본편(폼 · 개방 차례, 한마디·명장면 글) → 엔딩 크레딧(뒤로 일상컷, 앞에 사실 칸만 — 개발·배급·발매·플랫폼 여덟까지·시리즈·장르). 움직임은 Motion 바닐라(`window.Motion`, jsdelivr 의 `motion@14.3.1/dist/motion.js` 한 파일 — 못 받거나 「움직임 줄이기」 면 CSS 만). 주소 `?g=&play=1`, 켜면 한 칸 쌓고 뒤로 가기가 끄기. 도감 상세의 「진열장에서 켜기」 가 여기로 |
 | 프롬프트 | `prompt.html` · `lib/prompt-spec.js`(표) · `data/casual-tree.json` · `lib/casual-tree.js`(일상컷 트리) · `data/casual-tree-v2.json` · `lib/casual-tree-v2.js`(일상컷 트리 버전2 — 생성기 일상 갈래가 쓴다, 묶음 계획기는 아직 버전1) · `lib/prompt-game.js`(조립) · `lib/prompt-random.js` · `lib/prompt-ui.js` · `lib/figures.js` | 생성기 — 폼 초상·개방·일상컷. book 생성기에서 왔다. 게임 몫: 캐릭터 아님·그리지 않을 것 줄, 핵심 조작·시대 줄, 일상컷 게임 갈래 넷(게임 속 장소·오락실·게임 문화·개발실·스피드런·방송), 출시 당시 |
 
 머리·항해·⚙ 설정은 `lib/workspace-ui.js`, 공간(테마)은 `lib/workspace-theme.js`·`lib/workspace.css`·`lib/room.css`.
@@ -114,6 +115,7 @@ python3 tests/casual-tree-v2.py      # 버전2 검사기가 규칙마다 거는�
 node tests/casual-tree-v2.cjs        # 버전2 거르기 모듈(lib/casual-tree-v2.js) — 검사기와 같은 길, 랜덤 · 칸 바꾸기 뒤 걸리는 칸 없음, 두 손 · 넓히지 않기 · 버전1 기록
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기·항목 JSON 길(네트워크 없이, 가짜 응답으로)
 node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 일상컷 트리(시대·장소·하는 일·옷·구도·추천 조합·예전 기록), 출시 당시, 길이, 일상컷 버전2 줄(자세·구도·오른손·왼손·소품·다리·시선)
+node tests/shelf.cjs                 # 진열장의 셈 — 쉰 편 한 자리씩·시대 칸 연도 차례·빈 상자·본편 차례·크레딧은 받은 사실 칸만
 node tests/words.cjs                 # 낱말 표
 node tests/patch.cjs                 # 패치 기록 모양
 python3 tests/register-images.py     # 그림 등록 — 이름 꼴·자리·등록한 날·틀린 이름은 저장 안 함
@@ -123,6 +125,7 @@ node tests/sprite-actor-copy.cjs     # 도트 재생기 — lib/sprite-actor.js�
 
 # 브라우저 — ESM_DIR 에 preact 가 든 node_modules, CHROMIUM_PATH 에 브라우저
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/prompt-screen.cjs   # 생성기 — 일상컷은 버전2 칸(버전1 기록은 버전1 + 옮기기 단추)
+ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/shelf-screen.cjs    # 진열장 — 시대 칸·바탕화면·「게임」 폴더·빈 상자·고르기·로딩 → 본편 여섯 → 크레딧(일상컷·사실 칸)·끄기·뒤로 가기·도감 바로가기·세 크기. ESM_DIR 에 motion@14.3.1 이 있으면 움직임까지
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/dex-screen.cjs      # 도감 — 옆에 ../game-atelier-img 가 있으면 그림까지
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/dot-screen.cjs      # 도트 — 첫 화면 오락실 바닥 띠·도감 상세 무대·목록 「도트」 표(시험 자료)
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/arcade-screen.cjs   # 오락실 — 무대·기기 줄(게임마다 하나·간판·그림/꺼짐·누르면 도감)·첫 묶음 그대로·네 크기. BACKGROUND_DIR 에 backgrounds/ 를 주면 배경 그림까지

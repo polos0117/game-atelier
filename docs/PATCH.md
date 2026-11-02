@@ -11,6 +11,13 @@
 
 
 
+## 2026-11-02 · claude · 진열장 — 시대별 패키지 · PC 바탕화면 → 켜면 로딩 · 본편 · 엔딩 크레딧
+- shelf.html · lib/shelf.js · lib/shelf.css — 새 감상 화면. 사용자 「패키지가 진열되어 있는 장 … 온라인 게임은 pc 에 바탕화면이나 폴더 … 시작을 누르면 loading 화면, 각 폼별의 이미지를 순차적으로, 엔딩 크레딧으로 일상씬」 → 추천안(내려받는 게임은 PC 「게임」 폴더 · 본편에 개방도 · 그림 없는 게임은 빈 상자 — 사용자 「추천대로 진행해주고 3번은 빈 상자 형식으로」). 나무 진열장 시대 칸 여섯(칸 안은 받은 발매 연도 차례, 매체마다 몸 — 기판·카트리지·플로피·CD·DVD), 바탕화면 아이콘 열 · 「게임」 폴더 넷, 빈 상자 여덟. 켜면 매체마다 다른 로딩 → 폼 · 개방 여섯 장(한마디 · 명장면 글) → 크레딧(일상컷 위로 사실 칸만). 움직임은 Motion 바닐라(motion@14.3.1 UMD, 못 받거나 「움직임 줄이기」 면 CSS 만). 주소 ?g=&play=1 · 뒤로 가기가 끄기
+- data/game-design.json · tools/game-design.py · tests/game-design.py — 매체 칸 package(정한 말 vocab.package 일곱, 쉰 편 모두 — 처음 나온 판 기준, 사실 칸 플랫폼은 이식판까지 섞여 사람이 골랐다)와 검사
+- lib/workspace-ui.js(PAGES 에 진열장) · lib/words.js(shelf.* · nav.shelf · dex.toShelf) · dex.html(상세 「진열장에서 켜기」) · 판 words.js ?v=16 · workspace-ui.js ?v=5 · prompt-ui.js ?v=17
+- tests/shelf.cjs · tests/shelf-screen.cjs · tests/browser-harness.cjs(motion 사본 길) — 셈과 화면 세 크기
+- AGENTS.md · docs/GAME_CONCEPT.md 8절 9 — 화면 · 매체 · 켜기 차례
+
 ## 2026-11-02 · claude · 일곱째 묶음 여덟 편을 설계표에 — 사실 칸을 항목 JSON 길로 받았다
 - tools/fetch-games.py — `pull --entity`: SPARQL 질의 서버 대신 항목 JSON(Special:EntityData)과 wbgetentities 로 받는다. truthy 값(우선 › 보통, 낮춤·값 없음 빼고)을 질의 응답과 같은 꼴로 만들어 풀기·채우기·원본 저장은 그대로, 원본의 source 에 어느 길인지. 질의 서버가 장애 규칙(1분에 한 번, 429 — 몇 시간)으로 막혀 사용자가 「wikidata 말고 다른곳에서 받아올 수 있어?」 → 작업 환경에 www.wikidata.org 를 열어 줬다. 갤러그·리니지·테트리스를 두 길로 받아 칸이 다 같은 것을 보고 썼다
 - data/game-design.json · data/wikidata/<여덟 편>.json — docs/held/game-batch7-8.json 에 두었던 여덟 편을 games 끝에 되돌려 넣고 사실 칸을 받았다(50편). 받은 연도가 모두 시대와 맞다(둠 1993 · 월하의 야상곡 1997 · 펌프 잇 업 1999 · 배틀그라운드 2017 · 툼 레이더 1996 · 니어 오토마타 2017 · 블레이드 앤 소울 2012 · 녹스 2000). 보관 파일은 걷었다

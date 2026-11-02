@@ -7,7 +7,7 @@ book-atelier 의 tools/book-design.py 에서 왔다 — 폼 이름·저작권 �
 
 보는 것:
   - 칸이 다 찼나(이름·인격·욕망·갈등·상징 셋·능력 원리·장소·권리사·그리지 않을 것)
-  - 정한 말(vocab)만 썼나 — 장르·묶음·시대·실루엣 축 6·얼굴 5 묶음·역할·얼굴 계통·입자
+  - 정한 말(vocab)만 썼나 — 장르·묶음·시대·매체(package — 진열장)·실루엣 축 6·얼굴 5 묶음·역할·얼굴 계통·입자
   - 묶음(group)이 장르에 맞나 — 결투 상성은 묶음으로 돈다
   - 어느 두 게임도 실루엣 축 6 중 셋 이상, 얼굴 5 묶음 중 둘 이상 다르다
   - 같은 시리즈 자매(series)는 서로를 적고, 얼굴 윤곽(face_shape)이 같다
@@ -87,6 +87,9 @@ def check(doc):
             bad("묶음 %r 에 장르 %r 가 없다 — 결투 상성이 어긋난다" % (g.get("group"), g.get("genre")))
         if g.get("era") not in V.get("era", []):
             bad("시대 %r 는 정한 말이 아니다(%s)" % (g.get("era"), "·".join(V.get("era", []))))
+        # 매체(2026-11-02 진열장) — 처음 나온 판의 몸. 사실 칸의 플랫폼은 이식판까지 섞여 있어 사람이 고른다
+        if g.get("package") not in V.get("package", []):
+            bad("매체 package=%r 는 정한 말이 아니다(%s)" % (g.get("package"), "·".join(V.get("package", []))))
         if g.get("ethnicity") not in V.get("ethnicity", []):
             bad("얼굴 계통 ethnicity=%r 는 정한 말이 아니다" % g.get("ethnicity"))
         for k in SIL:

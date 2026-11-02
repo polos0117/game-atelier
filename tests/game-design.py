@@ -36,6 +36,7 @@ fails(lambda d: d['games'][0]['silhouette'].update(hair_color='black'), '머리�
 fails(lambda d: d['games'][0]['face'].pop('eye_color'), '눈 색')
 fails(lambda d: (d['games'][1]['silhouette'].update(hair_color=d['games'][0]['silhouette']['hair_color']), d['games'][1]['face'].update(eye_color=d['games'][0]['face']['eye_color'])), '머리색·눈 색이 둘 다 같다')
 fails(lambda d: d['games'][0].update(era='ps5'), '시대')
+fails(lambda d: d['games'][0].update(package='vhs'), '매체')   # 진열장의 매체 — 정한 말만
 # 묶음이 장르와 어긋나면 상성이 틀어진다
 fails(lambda d: d['games'][0].update(group='reflex'), '묶음')
 fails(lambda d: d['vocab']['group']['mind'].append('미로'), 'vocab.group')

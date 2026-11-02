@@ -15,6 +15,8 @@ const ESM = {
   'https://esm.sh/preact@10.24.3': 'preact/dist/preact.mjs',
   'https://esm.sh/preact@10.24.3/hooks': 'preact/hooks/dist/hooks.mjs',
   'https://esm.sh/htm@3.1.1': 'htm/dist/htm.mjs',
+  /* 진열장의 움직임(Motion 바닐라 — UMD 한 파일, window.Motion). 사본이 없으면 막혀도 화면은 CSS 로 돈다 — npm i motion@14.3.1 */
+  'https://cdn.jsdelivr.net/npm/motion@14.3.1/dist/motion.js': 'motion/dist/motion.js',
 };
 /* 폴드5 — 덮개 화면과 펼친 화면. 이 저장소 화면이 맞춰 온 두 크기다 */
 const FOLD = { cover: { width: 344, height: 882 }, inner: { width: 690, height: 829 } };

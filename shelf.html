@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive, noimageindex">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#101218">
+<title>게임의 공방</title>
+<!-- 진열장(2026-11-02, 사용자 「패키지가 진열되어 있는 장 — 시대별로 대응하는 팩이나 cd, 온라인 게임은 pc 바탕화면이나 폴더.
+     선택하고 시작을 누르면 loading → 폼별 이미지를 차례로 → 엔딩 크레딧으로 일상씬」 · 「추천대로, 그림 없는 게임은 빈 상자」).
+     도감(dex.html)은 그림을 채우는 작업 화면, 여기는 켜 보는 감상 화면이다. 셈은 lib/shelf.js(node 로도 돈다 — tests/shelf.cjs),
+     모양은 lib/shelf.css, 말은 lib/words.js(shelf.*). 매체는 설계표의 package, 크레딧은 사실 칸(facts)만.
+     움직임은 Motion 바닐라(window.Motion — jsdelivr 의 UMD 한 파일). 못 받거나 「움직임 줄이기」 면 CSS 만으로 그대로 돈다.
+     주소 ?g=<게임>&play=1 — 켜면 한 칸 쌓고, 뒤로 가기는 끄기. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;700&display=swap"></noscript>
+<link rel="stylesheet" href="lib/workspace.css?v=3">
+<script src="lib/workspace-theme.js?v=3"></script>
+<script src="lib/words.js?v=16"></script>
+<script src="lib/fresh.js?v=1"></script>
+<script src="lib/img.js?v=1"></script>
+<script src="lib/shelf.js?v=1"></script>
+<script src="https://cdn.jsdelivr.net/npm/motion@14.3.1/dist/motion.js"></script>
+<link rel="stylesheet" href="lib/shelf.css?v=1">
+</head>
+<body class="shelf-page">
+<div id="app"></div>
+<script type="module">
+import {h,render} from 'https://esm.sh/preact@10.24.3';
+import {useState,useEffect,useRef} from 'https://esm.sh/preact@10.24.3/hooks';
+import {PAGES} from './lib/workspace-ui.js?v=5';
+const W=window.W,IMG=window.AtelierImg,S=window.AtelierShelf;
+const REDUCED=()=>!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+/* 움직임 하나 — Motion 이 있고 움직임을 줄이지 않았으면 그것으로, 아니면 끝 모습만 */
+function anim(el,frames,opts){
+  if(!el)return;
+  const M=window.Motion;
+  if(M&&M.animate&&!REDUCED()){try{return M.animate(el,frames,opts||{});}catch(e){}}
+  for(const k in frames){const v=frames[k];el.style[k]=Array.isArray(v)?v[v.length-1]:v;}
+}
+const LOAD_MS=()=>REDUCED()?500:2600, SLIDE_MS=5200, CASUAL_MS=3600;
+const readURL=()=>{const q=new URLSearchParams(location.search);return {g:q.get('g')||'',play:q.get('play')==='1'};};
+const writeURL=(st,push)=>{const q=new URLSearchParams();if(st.g)q.set('g',st.g);if(st.play)q.set('play','1');const u=location.pathname+(q.toString()?'?'+q:'');try{history[push?'pushState':'replaceState'](push?{shelf:1}:history.state,'',u);}catch(e){}};
+function useDocs(){
+  const [doc,setDoc]=useState(null);
+  useEffect(()=>{
+    Promise.all([
+      fetch('data/game-design.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status)))),
+      fetch('data/style.json',{cache:'no-cache'}).then(r=>r.ok?r.json():Promise.reject(new Error(String(r.status)))),
+      fetch(IMG.DATA||'data/img.json',{cache:'no-cache'}).then(r=>r.ok?r.json():{img:{}}).catch(()=>({img:{}}))
+    ]).then(([d,s,i])=>{if(IMG.setShards)IMG.setShards(i);if(IMG.setAdded)IMG.setAdded(i);
+      const stage={};for(const [ko,en] of Object.entries((d.vocab||{}).form_key||{}))stage[en]=ko;
+      setDoc({d,s,img:i.img||{},stage,lay:S.build(d,i,s.default)});}).catch(()=>setDoc({failed:true}));
+  },[]);
+  return doc;
+}
+const allItems=lay=>[...lay.shelves.flatMap(r=>r.items),...lay.pc.online,...lay.pc.download];
+/* 패키지 겉그림 — 썸네일, 못 받으면 원본 */
+function Cover({file,cls}){
+  if(!file)return null;
+  return h('img',{class:cls||'cover',src:IMG.thumbURL(file),alt:'',loading:'lazy',decoding:'async',onError:e=>{e.target.onerror=null;e.target.src=IMG.imgURL(file);}});
+}
+/* 진열장의 패키지 하나 — 매체마다 몸이 다르다(lib/shelf.css 의 [data-media]). 그림이 없으면 빈 상자 */
+function Package({it,sel,pick}){
+  const ref=useRef(null),on=sel===it.key;
+  useEffect(()=>{anim(ref.current,{transform:on?'translateY(-10px) scale(1.06)':'translateY(0px) scale(1)'},{type:'spring',stiffness:420,damping:24});},[on]);
+  return h('button',{type:'button',ref,class:'pkg'+(it.drawn?'':' sealed'),'data-media':it.media,'data-game':it.key,'aria-pressed':on,
+      'aria-label':W('shelf.pick',{title:it.game.title})+(it.drawn?'':' — '+W('shelf.sealed')),title:it.game.title,onClick:()=>pick(it.key)},
+    h('span',{class:'pkg-body'},
+      h('span',{class:'pkg-art'},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('b',null,it.game.title),h('small',null,W('shelf.sealed.short')))),
+      h('span',{class:'pkg-disc','aria-hidden':'true'})),
+    h('span',{class:'pkg-spine'},it.game.title));
+}
+function Cabinet({doc,sel,pick}){
+  return h('section',{class:'cabinet','aria-label':W('shelf.cabinet')},
+    doc.lay.shelves.map(r=>h('div',{key:r.era,class:'shelf','data-era':r.era},
+      h('h2',{class:'shelf-label'},W('shelf.row',{era:W('game.era.'+r.era),n:r.items.length})),
+      h('div',{class:'shelf-board',role:'list'},r.items.map(it=>h('span',{key:it.key,role:'listitem',class:'slot'},h(Package,{it,sel,pick})))))));
+}
+/* PC — 온라인은 바탕화면 아이콘, 내려받기는 「게임」 폴더 */
+function Icon({it,sel,pick,start}){
+  return h('button',{type:'button',class:'icon'+(it.drawn?'':' sealed'),'data-game':it.key,'data-media':it.media,'aria-pressed':sel===it.key,
+      'aria-label':W('shelf.pick',{title:it.game.title})+(it.drawn?'':' — '+W('shelf.sealed')),onClick:()=>pick(it.key),onDblClick:()=>it.drawn&&start(it.key)},
+    h('span',{class:'icon-pic'},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('small',null,W('shelf.sealed.short')))),
+    h('span',{class:'icon-name'},it.game.title));
+}
+function PC({doc,sel,pick,start}){
+  const [open,setOpen]=useState(()=>doc.lay.pc.download.some(it=>it.key===sel)),win=useRef(null);
+  useEffect(()=>{if(open)anim(win.current,{opacity:[0,1],transform:['scale(.92)','scale(1)']},{duration:.22});},[open]);
+  return h('section',{class:'pc','aria-label':W('shelf.pc')},
+    h('div',{class:'monitor'},
+      h('div',{class:'screen'},
+        h('div',{class:'desktop',role:'list'},
+          doc.lay.pc.online.map(it=>h('span',{key:it.key,role:'listitem'},h(Icon,{it,sel,pick,start}))),
+          doc.lay.pc.download.length>0&&h('span',{role:'listitem'},h('button',{type:'button',class:'icon folder','aria-expanded':open,onClick:()=>setOpen(v=>!v),'aria-label':W('shelf.folder.n',{n:doc.lay.pc.download.length})},
+            h('span',{class:'icon-pic folder-pic','aria-hidden':'true'}),h('span',{class:'icon-name'},W('shelf.folder'))))),
+        open&&h('div',{class:'window',ref:win,role:'dialog','aria-label':W('shelf.folder.n',{n:doc.lay.pc.download.length})},
+          h('div',{class:'window-bar'},h('b',null,W('shelf.folder')),h('button',{type:'button',class:'window-x','aria-label':W('shelf.folder.close'),onClick:()=>setOpen(false)},'×')),
+          h('div',{class:'window-body',role:'list'},doc.lay.pc.download.map(it=>h('span',{key:it.key,role:'listitem'},h(Icon,{it,sel,pick,start}))))),
+        h('div',{class:'taskbar','aria-hidden':'true'},h('span',{class:'tb-start'},W('shelf.taskbar.start')),h('span',{class:'tb-name'},W('shelf.pc.title')))),
+      h('div',{class:'stand','aria-hidden':'true'})));
+}
+/* 고른 게임 — 겉그림 · 이름 · 사실 · 시작 */
+function Info({doc,it,start,close}){
+  const ref=useRef(null);
+  useEffect(()=>{anim(ref.current,{opacity:[0,1],transform:['translateY(12px)','translateY(0px)']},{duration:.28});},[it&&it.key]);
+  if(!it)return h('aside',{class:'info empty'},h('p',null,W('shelf.info.empty')));
+  const g=it.game,f=g.facts||{},dev=(f.developer||[]).map(x=>x.ko||x.en).filter(Boolean).slice(0,2).join(', ');
+  return h('aside',{class:'info',ref,'data-game':g.key,'aria-label':g.title},
+    h('div',{class:'info-cover','data-media':it.media},it.drawn?h(Cover,{file:it.cover}):h('span',{class:'pkg-blank'},h('small',null,W('shelf.sealed')))),
+    h('div',{class:'info-text'},
+      h('p',{class:'info-kicker'},W('game.era.'+g.era)+' · '+W('shelf.media.'+it.media)),
+      h('h2',null,g.title,h('small',null,g.title_en)),
+      (f.year||dev)&&h('p',{class:'info-facts'},[f.year?W('game.year',{y:f.year}):'',dev].filter(Boolean).join(' · ')),
+      h('p',{class:'info-persona'},g.persona),
+      h('div',{class:'info-acts'},
+        h('button',{type:'button',class:'start',id:'shelf-start',disabled:!it.drawn,title:it.drawn?'':W('shelf.start.sealed'),onClick:()=>start(g.key)},'▶ '+W('shelf.start')),
+        h('a',{class:'act',href:'dex.html?game='+encodeURIComponent(g.key)},W('shelf.dex')),
+        !it.drawn&&h('a',{class:'act',href:'prompt.html?game='+encodeURIComponent(g.key)},W('shelf.prompt')),
+        h('button',{type:'button',class:'act',onClick:close},W('shelf.info.close'))),
+      !it.drawn&&h('p',{class:'info-note'},W('shelf.start.sealed'))));
+}
+/* 켜기 — 로딩 → 본편(폼 · 개방) → 엔딩 크레딧(일상컷 · 사실 칸) */
+function Loading({it,done}){
+  const bar=useRef(null),kind=S.loading(it.game);
+  useEffect(()=>{const ms=LOAD_MS();anim(bar.current,{width:['0%','100%']},{duration:ms/1000,ease:'easeInOut'});const t=setTimeout(done,ms);return ()=>clearTimeout(t);},[]);
+  return h('div',{class:'load','data-kind':kind,onClick:done},
+    h('div',{class:'load-art','aria-hidden':'true'},h('span',{class:'load-disc'}),h(Cover,{file:it.cover,cls:'load-cover'})),
+    h('p',{class:'load-word'},W('shelf.load.'+kind)),
+    kind==='arcade_board'&&h('p',{class:'load-word sub'},W('shelf.load.arcade_board.2')),
+    h('div',{class:'load-track'},h('span',{class:'load-bar',ref:bar})),
+    h('p',{class:'load-title'},it.game.title),
+    h('button',{type:'button',class:'skip',onClick:e=>{e.stopPropagation();done();}},W('shelf.skip')));
+}
+function Show({doc,it,list,done}){
+  const [i,setI]=useState(0),[paused,setPaused]=useState(false),pic=useRef(null),line=useRef(null);
+  const s=list[i],stage=doc.stage[s.form],g=it.game;
+  const next=()=>{if(i+1<list.length)setI(i+1);else done();};
+  const prev=()=>setI(v=>Math.max(0,v-1));
+  useEffect(()=>{if(paused)return;const t=setTimeout(next,REDUCED()?SLIDE_MS*1.4:SLIDE_MS);return ()=>clearTimeout(t);},[i,paused]);
+  useEffect(()=>{anim(pic.current,s.open?{opacity:[0,1],transform:['scale(1.08)','scale(1)']}:{opacity:[0,1],transform:['translateX(24px)','translateX(0px)']},{duration:s.open?.9:.6,ease:'easeOut'});
+    anim(line.current,{opacity:[0,1],transform:['translateY(10px)','translateY(0px)']},{duration:.5,delay:.35});
+    const k=list[i+1];if(k){const im=new Image();im.decoding='async';im.src=IMG.imgURL(k.file);}},[i]);
+  useEffect(()=>{const k=e=>{if(e.key==='ArrowRight'){e.preventDefault();next();}else if(e.key==='ArrowLeft'){e.preventDefault();prev();}else if(e.key===' '){e.preventDefault();setPaused(p=>!p);}};addEventListener('keydown',k);return ()=>removeEventListener('keydown',k);},[i]);
+  const text=s.open?((g.opens||{})[stage]||{}).scene:(g.voice||{})[stage];
+  return h('div',{class:'show','data-form':s.form,'data-open':s.open?'1':'0'},
+    h('div',{class:'show-bg','aria-hidden':'true',style:{backgroundImage:'url("'+IMG.thumbURL(s.file)+'")'}}),
+    h('img',{class:'show-pic',ref:pic,key:s.file,src:IMG.imgURL(s.file),alt:g.title+' — '+stage,decoding:'async',style:{backgroundImage:'url("'+IMG.thumbURL(s.file)+'")'}}),
+    h('div',{class:'show-hud'},
+      h('p',{class:'show-stage'},stage+(s.open?' · '+W('shelf.scene'):'')),
+      h('ol',{class:'show-dots','aria-hidden':'true'},list.map((x,j)=>h('li',{key:j,class:j===i?'on':j<i?'past':''})))),
+    text&&h('div',{class:'show-line',ref:line,key:'l'+i},h('b',null,g.title),h('p',null,text)),
+    h('div',{class:'show-ctl'},
+      h('button',{type:'button',class:'ctl','aria-label':W('shelf.prev'),disabled:i===0,onClick:prev},'‹'),
+      h('button',{type:'button',class:'ctl',id:'shelf-pause','aria-label':W(paused?'shelf.resume':'shelf.pause'),onClick:()=>setPaused(p=>!p)},paused?'▶':'❚❚'),
+      h('button',{type:'button',class:'ctl',id:'shelf-next','aria-label':W('shelf.next'),onClick:next},'›')));
+}
+function Credits({doc,it,again,back}){
+  const g=it.game,pics=S.casuals(doc.img[g.key],it.style),rows=S.credits(g),[k,setK]=useState(0),roll=useRef(null),[end,setEnd]=useState(false);
+  useEffect(()=>{if(pics.length<2)return;const t=setInterval(()=>setK(v=>(v+1)%pics.length),CASUAL_MS);return ()=>clearInterval(t);},[]);
+  useEffect(()=>{const ms=Math.max(16000,pics.length*CASUAL_MS);const t=setTimeout(()=>setEnd(true),REDUCED()?1200:ms);
+    const el=roll.current;if(el&&!REDUCED()){anim(el,{transform:['translateY(70vh)','translateY(-'+(el.scrollHeight)+'px)']},{duration:ms/1000,ease:'linear'});}
+    return ()=>clearTimeout(t);},[]);
+  return h('div',{class:'credits'},
+    h('div',{class:'credits-pics','aria-hidden':'true'},pics.map((f,j)=>h('img',{key:f,class:'credits-pic'+(j===k?' on':''),src:IMG.imgURL(f),alt:'',loading:j<2?'eager':'lazy',decoding:'async'}))),
+    h('div',{class:'credits-mask','aria-hidden':'true'}),
+    h('div',{class:'credits-roll'+(REDUCED()?' still':''),ref:roll,'aria-label':W('shelf.credits')},
+      h('p',{class:'credits-kicker'},W('shelf.credits')),
+      h('h2',null,g.title,h('small',null,g.title_en)),
+      rows.length?rows.map(r=>h('dl',{key:r.role,class:'credits-row'},h('dt',null,W('shelf.credits.role.'+r.role)),
+        r.names.map((n,j)=>h('dd',{key:j},n)),r.more>0&&h('dd',{class:'more'},W('shelf.credits.more',{n:r.more})))):h('p',{class:'credits-none'},W('shelf.credits.none')),
+      rows.length>0&&h('p',{class:'credits-src'},W('shelf.credits.source')),
+      h('p',{class:'credits-end'},W('shelf.credits.end'))),
+    h('div',{class:'credits-acts'+(end?' on':'')},
+      h('button',{type:'button',class:'start',onClick:again},W('shelf.again')),
+      h('a',{class:'act',href:'dex.html?game='+encodeURIComponent(g.key)},W('shelf.dex')),
+      h('button',{type:'button',class:'act',id:'shelf-back',onClick:back},W('shelf.back'))));
+}
+function Play({doc,it,exit}){
+  const list=S.slides(doc.img[it.key],it.style),[phase,setPhase]=useState('load'),[run,setRun]=useState(0),box=useRef(null);
+  useEffect(()=>{const k=e=>{if(e.key==='Escape')exit();};addEventListener('keydown',k);return ()=>removeEventListener('keydown',k);},[]);
+  useEffect(()=>{anim(box.current,{opacity:[0,1]},{duration:.25});},[phase]);
+  const again=()=>{setRun(r=>r+1);setPhase('load');};
+  return h('div',{class:'play',role:'dialog','aria-modal':'true','aria-label':W('shelf.play',{title:it.game.title}),'data-phase':phase},
+    h('button',{type:'button',class:'exit',id:'shelf-exit',onClick:exit},W('shelf.exit')),
+    h('div',{class:'play-box',ref:box,key:phase+run},
+      phase==='load'?h(Loading,{it,done:()=>setPhase(list.length?'show':'credits')}):
+      phase==='show'?h(Show,{doc,it,list,done:()=>setPhase('credits')}):
+      h(Credits,{doc,it,again,back:exit})));
+}
+function Bar(){
+  return h('header',{class:'s-bar'},
+    h('a',{class:'s-home',href:'index.html'},h('span',{'aria-hidden':'true'},'◆'),h('b',null,W('app.title'))),
+    h('h1',null,W('shelf.title')),
+    h('nav',{class:'s-pages','aria-label':W('shelf.nav')},PAGES.filter(k=>k!=='shelf').map(k=>h('a',{key:k,href:k+'.html'},W('nav.'+k)))));
+}
+function App(){
+  const doc=useDocs(),[st,setSt]=useState(readURL);
+  useEffect(()=>{const pop=()=>setSt(readURL());addEventListener('popstate',pop);return ()=>removeEventListener('popstate',pop);},[]);
+  const set=(patch,push)=>setSt(s=>{const n=Object.assign({},s,patch);writeURL(n,push);return n;});
+  if(!doc)return h('p',{class:'s-wait'},W('shelf.loading'));
+  if(doc.failed)return h('p',{class:'s-wait'},W('shelf.fail'));
+  const items=allItems(doc.lay),it=items.find(x=>x.key===st.g)||null;
+  const pick=k=>set({g:st.g===k?'':k,play:false},false);
+  const start=k=>{const x=items.find(y=>y.key===k);if(x&&x.drawn)set({g:k,play:true},true);};
+  const exit=()=>{if(history.state&&history.state.shelf)history.back();else set({play:false},false);};
+  const playing=st.play&&it&&it.drawn;
+  return h('div',{class:'s-shell'+(playing?' playing':'')},
+    h(Bar),
+    h('main',{class:'s-room'},
+      h(Cabinet,{doc,sel:st.g,pick}),
+      h('div',{class:'s-side'},h(PC,{doc,sel:st.g,pick,start}),h(Info,{doc,it,start,close:()=>set({g:'',play:false},false)}))),
+    playing&&h(Play,{doc,it,exit,key:it.key}));
+}
+render(h(App),document.getElementById('app'));
+if(window.AtelierFresh)window.AtelierFresh.watch();
+</script>
+</body>
+</html>
