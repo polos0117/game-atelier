@@ -88,7 +88,7 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     await p.selectOption('#place', 'arcade_hall');
     t = await out(p);
     assert(t.includes('SCREENS:') && t.includes('Place: an arcade hall') && t.includes('POSTURE: ') && t.includes('COMPOSITION: ') && !t.includes('Activity:') && !t.includes('HAND TASK'), '버전2 줄 · 오락실 화면 줄');
-    assert(t.includes('fabric and accessory'), '일상컷 화풍');
+    assert(t.includes("STYLE: keep the attached image's rendering exactly") && !t.includes('fabric and accessory'), '일상컷 화풍은 첨부 그림 그대로(2026-11-03)');
     await p.selectOption('#era', 'release');
     assert.equal(await val('place'), 'arcade_hall', '출시 당시에도 있는 장소는 그대로');
     assert((await out(p)).includes('ERA: set this scene in the real world around her release'), '출시 당시');

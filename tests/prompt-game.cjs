@@ -103,7 +103,9 @@ const plain = cas();
 assert(!/\nCategory: |\nExample scene: /.test(plain), '갈래 설명·예시 문장이 남았다');
 assert(sceneOf(plain).startsWith('Place: ' + CT.place(tree, 'street_cafe').en + '\nActivity: ' + CT.act(tree, 'coffee_takeout').en + '\nOutfit: ' + CT.family(tree, 'everyday').en), '기본 길 — 카페·커피·평상복');
 assert(plain.includes(T.trademark) && plain.includes('NEVER DRAW for this game:') && !plain.includes('WORLD:') && !plain.includes('SCREENS:') && !plain.includes('ERA:'), '지금 현실 기본');
-assert(plain.includes('STYLE: ' + cur.casual) && !plain.includes('STYLE: ' + text), '일상컷 화풍 문장');
+/* 일상컷 얼굴 · 화풍은 첨부 그림에 맡긴다(2026-11-03) — 판의 일상 문장 · 점검 대신 「첨부 그림 그대로」 · FACE 줄 · 표정은 얼굴 안에서만 */
+assert(plain.includes("STYLE: keep the attached image's rendering exactly") && !plain.includes(cur.casual) && !plain.includes('STYLE: ' + text) && !plain.includes('FINAL CHECK') && plain.includes('FACE: exactly the face of the attached image'), '일상컷 화풍 · 얼굴은 첨부 그림 그대로');
+assert(!/EXPRESSION: /.test(plain) || /EXPRESSION: [^\n]*Show it mildly/.test(plain), '일상컷 표정은 얼굴 안에서만');
 assert(cur.casual.includes('fabric and accessory') && text.includes('costume and accessory'), '화풍 판 — 폼은 costume, 일상은 fabric');
 assert(plain.includes(T.casualWardrobe) && plain.includes(T.casualPose) && plain.includes(T.casualOutput), '옷·각도·출력 줄');
 assert(plain.includes(T.figureCasual) && !plain.includes(T.figure), '일상컷은 배경 인물 허용 줄(붐비는 장소) — 폼·개방은 한 명만');
@@ -211,8 +213,12 @@ const full = { game: g, tree, stage: '타이틀', styleText: text, styleCasual: 
 for (const [name, t] of [['새 인물', P.buildPrompt({ ...full, outputMode: 'form' })], ['이어가기', P.buildPrompt({ ...full, outputMode: 'form', identityMode: 'reference', baseStage: '타이틀' })],
   ['개방', P.buildPrompt({ ...full, outputMode: 'open' })], ['일상', P.buildCasual({ ...full, era: 'in_game', place: 'game_place', act: 'stroll', ofam: 'everyday' })]]) {
   const parts = t.split('\n\n');
+  if (name === '일상') {   // 일상컷 얼굴 · 화풍은 첨부 그림에 맡긴다(2026-11-03) — 판 문장 · 점검 대신 「첨부 그림 그대로」 · FACE 줄
+    assert(t.includes("STYLE: keep the attached image's rendering exactly") && !t.includes('FINAL CHECK') && t.includes('FACE: exactly the face of the attached image'), name + ' — 화풍 · 얼굴은 첨부 그림 그대로');
+  } else {
   assert(parts.findIndex(x => x.startsWith('STYLE: ')) <= 4, name + ' — 화풍 블록이 앞쪽(입력·게임·캐릭터 아님 다음)');
   assert(parts[parts.length - 1].startsWith('FINAL CHECK: '), name + ' — 맨 끝에 화풍 점검');
+  }
   assert(t.includes('STYLE REFERENCE:') && /style reference image/.test(parts[0]), name + ' — 참고 그림은 그리는 방식만');
 }
 assert(!P.buildPrompt({ ...full, outputMode: 'form', styleRef: false, styleCheck: '' }).includes('FINAL CHECK'), '점검이 없는 판은 그 줄도 없다');

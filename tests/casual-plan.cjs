@@ -41,7 +41,7 @@ for (const g of design.games) for (const seed of [1, 2, 3]) {
     const rec = C.record(g, c), sc = rec.storage.cards[g.key].scenes.casual;
     assert.equal(rec.file, `${g.key}_glossy_kr_game_f_casual${c.n}.webp`);
     assert.equal(rec.record, `records/${g.key}/casual${c.n}-ui.json`);
-    assert(rec.prompt.includes('STYLE: ' + cur.casual) && rec.prompt.endsWith('FINAL CHECK: ' + cur.check), '화풍 판의 일상 문장·점검');
+    assert(rec.prompt.includes("STYLE: keep the attached image's rendering exactly") && !rec.prompt.includes('FINAL CHECK'), '일상컷 화풍은 첨부 그림 그대로(2026-11-03)');
     assert(sc.axes.overall_intensity === 'strong' && sc.axes.skin_exposure === 'bold' && sc.aspect === '2:3', '일상컷 고정값');
     assert(rec.prompt.includes('SCENE (chosen):\n') && rec.prompt.includes('overall_intensity: strong'), '지시문');
   }
@@ -115,7 +115,7 @@ for (const g2 of design.games) for (const seed of [1, 2, 3]) {
     assert.deepEqual(plain(C2.repair(T2, c, g2)), plain({ ...c, treeV: 2 }), w + ' 칸 ' + c.n + ' 다시 검사가 고칠 것이 없다');
     const rec = C.record(g2, c), sc = rec.storage.cards[g2.key].scenes.casual;
     assert(sc.treeV === 2 && sc.axes.overall_intensity === 'strong' && sc.axes.skin_exposure === 'bold' && sc.aspect === '2:3', w + ' 기록 · 고정값');
-    assert(rec.prompt.includes('POSTURE: ') && rec.prompt.includes('COMPOSITION: ') && !rec.prompt.includes('Activity:') && rec.prompt.endsWith('FINAL CHECK: ' + cur.check), w + ' 버전2 지시문');
+    assert(rec.prompt.includes('POSTURE: ') && rec.prompt.includes('COMPOSITION: ') && !rec.prompt.includes('Activity:') && !rec.prompt.includes('FINAL CHECK') && rec.prompt.includes("STYLE: keep the attached image's rendering exactly"), w + ' 버전2 지시문');
   }
   n2++;
 }
