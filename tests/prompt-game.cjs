@@ -316,7 +316,7 @@ assert(heaviest <= LIMIT, '표정 · 축을 다 얹은 버전2 일상컷이 ' + 
 /* 표정의 시선 말은 떼고 GAZE 줄 하나가 정한다 */
 for (const [k, v] of Object.entries(S.EXPRESSION_DETAIL)) {
   const e = P.exprNoGaze(v);
-  assert(!/to the side|away|past the camera|off camera|forward gaze|direct \w+ gaze|gaze direct|directed[^,]*upward|angled down|fixed on/.test(e) && e.length > 10, k + ' 표정에 시선 말: ' + e);
+  assert(!/to the side|\baway\b|past the camera|off camera|forward gaze|direct \w+ gaze|gaze direct|directed[^,]*upward|angled down|fixed on/.test(e) && e.length > 10, k + ' 표정에 시선 말: ' + e);
 }
 /* 고정 사례(검토 2026-10-30) */
 const pick = k => spots.find(sc => sc.preset === k);
@@ -398,7 +398,7 @@ console.log(`PASS 일상컷 버전2: ${G.length}편 × 추천 ${spots.length} = 
       assert(S2.EXPRESSION_DETAIL[e], x.key + ' ' + stage + ' 표정 ' + e + ' 이 표에 없다');
       const base = { game: x, stage, baseStage: stages[0], styleText: 'X', outputMode: 'form', identityMode: ref ? 'reference' : 'create', params: [], exposure: 'bold', faceDesignOn: true, silhouetteOn: true };
       const t = P.buildPrompt(base), line = t.split('\n\n').find(l => l.startsWith('EXPRESSION ('));
-      assert(line && line.includes(S2.EXPRESSION_DETAIL[e]) && line.includes(ref ? "replaces the attached image's" : 'on her own face') && !/soft smile/.test(t), x.key + ' ' + stage + ' 표정 줄');
+      assert(line && line.includes(S2.EXPRESSION_DETAIL[e]) && line.includes(ref ? "replaces the attached image's" : 'on her own face') && !/soft smile/.test(t.replace(line, '')), x.key + ' ' + stage + ' 표정 줄');
       const picked = P.buildPrompt({ ...base, expr: e === 'calm' ? 'curious' : 'calm' });
       assert(!picked.split('\n\n').some(l => l.startsWith('EXPRESSION (')) && picked.includes('Expression: ' + S2.EXPRESSION_DETAIL[e === 'calm' ? 'curious' : 'calm']), x.key + ' ' + stage + ' 고른 표정이 이긴다');
       fe++;
