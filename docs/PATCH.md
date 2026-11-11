@@ -12,6 +12,9 @@
 
 
 
+## 2026-11-11 · claude · core v5 블록
+- core 블록 판만 v5(표식 red_lip 을 연하게) — 이 공방엔 표식 표가 없어 지시문 변화 없음
+
 ## 2026-11-11 · claude · 연출 줄의 광택 · 보석을 재질 마감으로(감사 G1 일부)
 - PRESENTATION(칸 꼴 1칸 Presentation): 「a dense, high-detail costume with glossy trim, clasps and jewelry framing her game's material(광택 테두리 · 잠금쇠 · 보석이 빽빽한 고밀도 의상)」 → 「a dense, high-detail costume with trim, clasps and ornaments framing her game's material in that material's own finish(테두리 · 잠금쇠 · 장식, 그 게임 재질 자체의 마감으로)」 — 다크 소울 · 위쳐 3 같은 낡은 철 · 해진 천 게임에도 광택 · 보석이 붙었다
 - 화려함(glamorous · 고밀도 · 빛나는 윤곽광 · 강한 대비)과 HD 시대 줄은 그대로 — 사용자 2026-11-11 「g1,b1은 일부만」. 폼 150 · 개방 지시문의 그 한 토막만. prompt.html prompt-spec ?v 올림, 검사 — 원래 깨진 셋 + 들쭉날쭉한 dot-screen 말고 통과
