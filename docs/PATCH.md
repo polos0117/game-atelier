@@ -12,6 +12,10 @@
 
 
 
+## 2026-11-11 · claude · 연출 줄의 광택 · 보석을 재질 마감으로(감사 G1 일부)
+- PRESENTATION(칸 꼴 1칸 Presentation): 「a dense, high-detail costume with glossy trim, clasps and jewelry framing her game's material(광택 테두리 · 잠금쇠 · 보석이 빽빽한 고밀도 의상)」 → 「a dense, high-detail costume with trim, clasps and ornaments framing her game's material in that material's own finish(테두리 · 잠금쇠 · 장식, 그 게임 재질 자체의 마감으로)」 — 다크 소울 · 위쳐 3 같은 낡은 철 · 해진 천 게임에도 광택 · 보석이 붙었다
+- 화려함(glamorous · 고밀도 · 빛나는 윤곽광 · 강한 대비)과 HD 시대 줄은 그대로 — 사용자 2026-11-11 「g1,b1은 일부만」. 폼 150 · 개방 지시문의 그 한 토막만. prompt.html prompt-spec ?v 올림, 검사 — 원래 깨진 셋 + 들쭉날쭉한 dot-screen 말고 통과
+
 ## 2026-11-11 · claude · 폼 · 개방 지시문을 칸 꼴로(3단계)
 - lib/prompt-game.js buildSections · lib/prompt-spec.js SECTIONS — 폼(새 인물 · 이어가기) · 개방 지시문을 화풍공방 core 칸 틀(CORE_FRAME)의 머리말 + 다섯 칸으로 짓는다. 글은 옛 꼴 그대로이고 자리만 옮겼다. 일상컷은 그대로
 - 칸 대조 — 머리말: INPUT · OUTPUT 첫 문장 · GAME · SUBJECT 첫 문장 · 따옴표 읽는 법 / 1 STYLE: STYLE · STYLE REFERENCE · PRESENTATION / 2 CHARACTER: 「첨부 그림의 그 사람」 문장(이어가기 · 개방) · AGE · FACE · SILHOUETTE 의 몸과 머리 · IDENTITY · EXPRESSION · Persona · CORE PLAY · ANATOMY(Proportions) · BODY · 해부 줄 / 3 COSTUME — 단계(TITLE · MIDGAME · ENDING): FORM(Costume · Battle role · Stage of play) · GEAR · FORM NOTE · SILHOUETTE 의 복식 · 재료(Silhouette) · 팔레트(Colours) · 상징 문장 · MOTIFS · ERA LOOK · GARMENT · 「옷을 다시 쓰지 않는다」 · SIGNATURE · EXPOSURE / 4 SCENE: SETTING(Place) · 배경 문장 · STANCE(Pose) · LOOK-BACK · 손이 할 일(Hands) · 카드 구도(Composition) · 고른 장면 값 묶음, 개방은 명장면 문장 · 메모 · FRAME 첫 문장(Composition) / 5 CONSTRAINTS: ONE FIGURE ONLY · NOT ITS CHARACTERS · NEVER DRAW · HOLD BACK · 개방 「NEVER include … CLOSED image」 · FINAL CHECK · Avoid
