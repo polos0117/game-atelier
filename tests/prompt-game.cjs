@@ -1,6 +1,7 @@
 /* 게임 프롬프트 — 설계표 열 편 × 세 폼 × (새 인물·이어가기·개방) + 일상컷이 다 조립되고, 정한 말이 다 영어로 풀린다.
    book-atelier 의 tests/prompt-book.cjs 에서 왔다. 책 몫(보호 중인 책·한복·이야기 속 장소·각색)은 빼고 게임 몫을 더했다:
    캐릭터 아님·그리지 않을 것 줄, 핵심 조작·시대 줄, 일상컷 트리(시대·장소·하는 일·의상·구도), 출시 당시, 사실 칸은 받은 것만.
+   여기는 옛 줄 꼴(칸 꼴 스위치를 끈 판 — buildPrompt 에 sections 를 주지 않는다)을 본다. 칸 꼴(data/style.json sections)은 tests/prompt-sections.cjs 가 옛 꼴과 견준다.
    Run: node tests/prompt-game.cjs */
 const fs = require('node:fs'), vm = require('node:vm'), assert = require('node:assert/strict');
 const ctx = { window: {}, console }; vm.createContext(ctx);

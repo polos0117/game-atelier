@@ -9,10 +9,10 @@ book-atelier 의 `IMAGE_RULES.md` 에서 왔다(한 게임 = 폼 셋 + 개방 �
 
 - **게임 속 캐릭터를 그리지 않는다.** 그리는 것은 게임이라는 작품 자체를 사람으로 만든 원작 여성 한 명이다.
   게임 속 캐릭터·괴물의 얼굴과 몸(디자인), 로고, 타이틀 글자, 박스 아트, 그림 위에 겹친 HUD(체력 바·미니맵 화면),
-  읽히는 글자·숫자, 실제 상표가 보이면 다시 만든다. 게임마다 설계표의 `avoid` 를 본다 — 생성기가 NEVER DRAW 줄로 싣는다.
+  읽히는 글자·숫자, 실제 상표가 보이면 다시 만든다. 게임마다 설계표의 `avoid` 를 본다 — 생성기가 NEVER DRAW 줄(칸 꼴에선 5칸 「Never draw for this game」)로 싣는다.
 - **원작은 알아보게 그린다(2026-10-28).** 상징을 일반화하니 어느 게임인지 티가 안 났다(사용자, WoW 12장).
   설계표 `signature`(팬이 바로 알아볼 소품·장소·색·진영 문장 셋~넷)는 게임에 나오는 모양대로, 폼 의상은
-  `forms.<폼>.homage`(그 게임의 직업·진영 장비 느낌)대로 그린다 — 생성기가 SIGNATURE·GEAR 줄로 싣는다.
+  `forms.<폼>.homage`(그 게임의 직업·진영 장비 느낌)대로 그린다 — 생성기가 SIGNATURE·GEAR 줄(칸 꼴에선 3칸 「Signature …」 · 「Gear in the game's own style」)로 싣는다.
   물음표 블록·트라이포스·늑대 메달·나선 검 화톳불처럼 인물이 아닌 원작 물건은 이제 그려도 된다. 일상컷은 그중 하나만 작게.
   일상컷의 「하나만」 은 그녀가 지니는 장신구·소품 얘기다 — 배경에 게임 장식(문장 깃발·그림)이 더 보이는 것은 괜찮다(사용자 2026-10-29, 위쳐 3 일상2).
   원작 인물의 차림새(얼굴은 그녀 것)와 글자 없는 UI 모양(체력 바 색 띠를 장식으로, 느낌표를 브로치로 — 무늬·소품으로)도
@@ -23,6 +23,16 @@ book-atelier 의 `IMAGE_RULES.md` 에서 왔다(한 게임 = 폼 셋 + 개방 �
   생성기의 "폼 세부 요청·명장면 세부 요청·추가 연출 요청" 칸에 적는다. 화면 대신 지시문 묶음(`tools/prompt-pack.cjs` — 같은 조립부 · 같은 기록)도 된다.
 - 화풍은 **한국형 글로시 게임 일러스트(`glossy_kr_game`)** 하나다. 파일 이름에 그 열쇠를 넣고, 판(`v1`)은 기록에 남긴다.
   폼·개방은 판의 `text`, 일상컷은 판의 `casual` 문장을 싣는다(`data/style.json`).
+- **폼 · 개방 지시문은 칸 꼴**(2026-11-11 — 사용자 「초안 없이 다 진행해줘」, 3단계 칸 꼴 통일): 옛 줄 꼴과 같은 글을 화풍공방 core 칸 틀(`AtelierSpec.CORE_FRAME` — 삼국지 · 원소와 같은 틀)의 머리말 + 다섯 칸에 나눈다.
+  머리말(Input · Output 첫 문장 · Game · 새 인물은 Subject 첫 문장 · 따옴표 읽는 법) → **1 STYLE**(화풍 판 문장 · 참고 그림 줄 · 폼은 마감 줄 Presentation)
+  → **2 CHARACTER**(이어가기 · 개방은 맨 위에 「첨부 그림의 그 사람」 문장 · Age · Face · Body and hair · 고른 외형 Identity · Expression · Persona · Core play · Proportions · Body · 해부 줄)
+  → **3 COSTUME — 단계**(TITLE · MIDGAME · ENDING: Costume(폼 모습) · Battle role · Stage of play · Gear · Silhouette(복식 구조 · 재료) · Colours(팔레트) · 상징 모티프 · Era look · 이어가기는 Garment · 「옷을 다시 쓰지 않는다」 · Signature · Exposure, 개방은 Signature 만)
+  → **4 SCENE**(Place(폼 배경 + 단계의 빛 · 구도) · 배경 문장 · Pose(폼 자세 + 단계 카메라) · Look-back · Hands · Composition(카드 2:3) · 고른 장면 값 묶음, 개방은 명장면 문장 · 메모 · Composition)
+  → **5 CONSTRAINTS**(One figure only · Not its characters · Never draw for this game · Hold back · 개방은 「NEVER include … CLOSED image」 · Final check · 맨 끝 `Avoid:`).
+  규칙 줄(Not its characters · Never draw · Hold back · Final check)은 글 그대로 5칸에, 「No a, b …」 나열 문장만 `Avoid:` 한 줄로 모은다. 카메라 · 구도 글(단계의 빛 · 구도 · 카메라, 기본 자세의 낮은 카메라)은 장면 연출이라 글자 그대로 4칸에 둔다.
+  옛 줄 이름(FORM · SETTING · STANCE · FACE)을 가리키던 말은 「the costume above」 · 「the place above」 · 「the pose above」 · 「her face structure below」 같은 자리 말로, core 해부 줄과 겹치는 「one head, two arms …」 · 「natural human hands.」 는 한 번만.
+  표 `lib/prompt-spec.js` SECTIONS, 조립 `lib/prompt-game.js` buildSections. 켜는 곳은 `data/style.json` 꼭대기 `"sections": true` — `false` 로 바꾸면(또는 판에 `"sections": false`) 옛 줄 꼴 그대로, core 칸 틀이 없어도 옛 꼴.
+  화면 · 지시문 묶음(`tools/prompt-pack.cjs`) · 기록이 같은 스위치를 본다. 검사 `node tests/prompt-sections.cjs`(쉰 편 × 폼 셋 × 세 갈래 + 다 얹은 꼴 — 옛 꼴 문장을 하나도 잃지 않았는지 견준다). **일상컷은 칸 꼴이 아니다**(아래 2절 그대로).
 - 그림은 세로 2:3, **1024×1536** 이다. 주인공은 그녀 한 명. 틀은 그림에 그리지 않는다.
   배경 속 사람(흐릿한 손님·행인·객석)은 나와도 괜찮다(사용자 2026-10-27). 다시 만드는 것은 그녀와 크기·초점이 비슷해
   주인공을 다투는 사람, 그녀 몸에 닿거나 겹친 사람, 그녀와 같은 얼굴이 하나 더 나온 경우다. 개방 명장면은 그대로 그녀 한 명이다.

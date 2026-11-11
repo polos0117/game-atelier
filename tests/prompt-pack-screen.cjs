@@ -30,6 +30,8 @@ const design = JSON.parse(fs.readFileSync(path.join(__dirname, '../data/game-des
       for (const s of list) {
         const rec = JSON.parse(fs.readFileSync(path.join(dir, s.slot + '-ui.json'), 'utf8'));
         assert.equal(fs.readFileSync(path.join(dir, s.slot + '-prompt.txt'), 'utf8'), rec.prompt);
+        /* 폼 · 개방은 칸 꼴(data/style.json sections, 2026-11-11), 일상은 옛 줄 꼴 그대로 */
+        assert.equal(/^Input: [^\n]+\nOutput: [\s\S]+\n\n1\. STYLE\n[\s\S]+\n\n5\. CONSTRAINTS\n[\s\S]+\nAvoid: [^\n]+\.$/.test(rec.prompt), s.mode !== 'casual', key + ' ' + s.slot + ' 칸 꼴은 폼 · 개방만');
         if (edit && s.slot === 'casual3') assert(/skin_exposure: moderate/.test(rec.prompt) && !/skin_exposure: bold/.test(rec.prompt), '일상 노출 낮추기가 지시문에');
         const { page: p } = await h.open('index.html', { viewport: FOLD.inner, mobile: true });
         await p.evaluate(st => localStorage.setItem('game_prompt_v1', JSON.stringify(st)), rec.storage);

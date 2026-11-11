@@ -1,5 +1,6 @@
 /* 생성기 화면 — 게임 고르기(✓·◐ 표시)·세 갈래·시범 폼에서 시작·파일 이름·외형 잠금과 무작위·되돌리기·
    게임 갈래(게임 속 장소·오락실)·출시 당시·장면 랜덤과 잠금·복사·기록·저장·직전 게임 외형. book 의 같은 검사에서 왔다.
+   폼 · 개방 지시문은 칸 꼴(data/style.json sections, 2026-11-11)로 보고, 맨 끝에 스위치를 끈 판으로 옛 줄 꼴을 본다.
    ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/prompt-screen.cjs */
 const assert = require('node:assert/strict'), fs = require('node:fs');
 const { start, FOLD } = require('./browser-harness.cjs');
@@ -24,9 +25,11 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     /* 2. 처음 연 게임은 시범 폼(테트리스 = 타이틀)에서, 새 인물 */
     assert.equal(await p.$eval('#form', e => e.value), 'title');
     let t = await out(p);
-    assert(t.startsWith('INPUT: text only') && t.includes('FORM — TITLE (타이틀)') && t.includes('SILHOUETTE:') && t.includes('FACE ('));
-    assert(t.includes('STYLE: Glossy Korean mobile-game character art') && t.includes('costume and accessory') && t.includes('FINAL CHECK:'), '화풍 판 v1');
-    assert(t.includes('NOT ITS CHARACTERS:') && t.includes('NEVER DRAW for this game:') && t.includes('CORE PLAY:') && t.includes('ERA LOOK: 8-bit era'), '게임 줄');
+    /* 폼 · 개방은 칸 꼴(data/style.json sections — 2026-11-11 3단계): 머리말 + 다섯 칸. 옛 줄 꼴은 맨 끝에서 스위치를 끈 판으로 본다 */
+    assert.deepEqual(t.split('\n\n').slice(1).map(b => b.split('\n')[0]), ['1. STYLE', '2. CHARACTER', '3. COSTUME — TITLE', '4. SCENE', '5. CONSTRAINTS'], '칸 머리 다섯');
+    assert(t.startsWith('Input: text only') && t.includes('\n3. COSTUME — TITLE\nCostume: "') && t.includes('\nBody and hair: ') && t.includes('\nSilhouette: garment structure: ') && t.includes('\nFace — her own structure'));
+    assert(t.includes('\n1. STYLE\nGlossy Korean mobile-game character art') && t.includes('costume and accessory') && t.includes('\nFinal check: '), '화풍 판 v1');
+    assert(t.includes('\nNot its characters: ') && t.includes('\nNever draw for this game: ') && t.includes('\nCore play: ') && t.includes('\nEra look: 8-bit era') && /\nAvoid: [^\n]+\.$/.test(t), '게임 줄 · Avoid 맨 끝');
     assert.equal(await p.$eval('#style-version', e => e.value), 'v1');
     assert.equal(await p.$eval('#exposure', e => e.value), 'bold', '노출 기본은 과감');
     assert.match(await p.$eval('#file-name code', e => e.textContent), /^tetris_title_glossy_kr_game_f\.webp$/);
@@ -36,9 +39,9 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     /* 3. 외형 — 고르면 IDENTITY 에, 얼굴 설계 끄기, 되돌리기·다시 하기, 잠금 */
     await p.selectOption('#param-apparent-age', '20s');
     await p.click('#face-design-on');
-    assert(!(await out(p)).includes('FACE ('), '얼굴 설계를 끄면 FACE 줄이 빠진다');
+    assert(!(await out(p)).includes('\nFace — '), '얼굴 설계를 끄면 얼굴 줄이 빠진다');
     await p.click('#undo');
-    assert((await out(p)).includes('FACE ('), '되돌리기');
+    assert((await out(p)).includes('\nFace — '), '되돌리기');
     await p.click('#redo'); await p.click('#undo');
     await p.click('button.param-lock[aria-label$="외관상 나이"]');
     await p.click('#randomize');
@@ -48,7 +51,7 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     await p.selectOption('#identity-mode', 'reference');
     assert.equal(await p.$eval('#base-form', e => e.value), 'title', '첨부할 확정 그림은 시범 폼');
     t = await out(p);
-    assert(t.includes('approved character (title form)') && t.includes('FORM — MIDGAME') && !t.includes('SILHOUETTE:'), '이어가기');
+    assert(t.includes('approved character (title form)') && t.includes('\n3. COSTUME — MIDGAME\nCostume: "') && !t.includes('\nBody and hair: ') && !t.includes('\nSilhouette: ') && t.includes('\n2. CHARACTER\nKeep her face, eye and hair colors'), '이어가기');
     /* 5. 개방 */
     await p.click('#mode-open');
     const q = () => p.evaluate(() => Object.fromEntries(new URLSearchParams(location.search)));
@@ -56,7 +59,7 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     await p.waitForFunction(() => new URLSearchParams(location.search).get('mode') === 'open');
     assert.deepEqual(await q(), { game: 'tetris', mode: 'open' }, '고른 게임·모드가 주소에');
     t = await out(p);
-    assert(t.includes('빈틈없이 맞은 층이 빛으로 터지며') && t.startsWith("INPUT: attach this game's midgame form card image"));
+    assert(t.includes('빈틈없이 맞은 층이 빛으로 터지며') && t.startsWith("Input: attach this game's midgame form card image") && t.includes('\n2. CHARACTER\nKeep the same character, face, hair, body, costume, pose') && t.includes('\n3. COSTUME — MIDGAME\n'));
     assert.match(await p.$eval('#file-name code', e => e.textContent), /tetris_middle_open_glossy_kr_game_f\.webp/);
     /* 6. 일상컷 — 트리(시대·장소·하는 일·의상·구도), 출시 당시·게임 세계 안, 잠금 */
     await p.click('#mode-casual');
@@ -266,6 +269,26 @@ const out = p => p.$eval('#prompt-output', e => e.value);
     assert.equal(await c.page.$eval('#mode-open', e => e.getAttribute('aria-pressed')), 'true', '주소의 모드');
     assert.deepEqual(c.errors, []);
     await c.close();
-    console.log('PASS 생성기: 게임 표시 ✓◐· · 시범 폼 · 파일 이름 · 게임 줄(캐릭터 아님·능력·시대) · 외형·되돌리기·잠금 · 이어가기 · 개방 · 일상컷 트리 버전2(시대가 장소를 거름·잠근 앞 칸·자세 추천·컷 안 넓힘·두 손·받침·⚠·손 말 경고·필수 갈래)·버전1 기록·출시 당시·잠금 · 복사·기록 · 저장·직전 게임 외형');
+    /* 스위치를 끈 판(data/style.json 의 sections 를 false 로) — 폼 · 개방이 옛 줄 꼴 그대로(칸 꼴 전의 검사를 여기서 계속 본다) */
+    const styleOff = { ...JSON.parse(fs.readFileSync('data/style.json', 'utf8')), sections: false };
+    const o = await h.open('prompt.html?game=tetris', opt({ files: { 'data/img.json': imgjson, 'data/style.json': styleOff } })), po = o.page;
+    await po.waitForSelector('#prompt-output');
+    t = await out(po);
+    assert(t.startsWith('INPUT: text only') && t.includes('FORM — TITLE (타이틀)') && t.includes('SILHOUETTE:') && t.includes('FACE ('), '끄면 옛 꼴 — 새 인물');
+    assert(t.includes('STYLE: Glossy Korean mobile-game character art') && t.includes('costume and accessory') && t.includes('FINAL CHECK:') && !t.includes('1. STYLE'), '끄면 옛 꼴 — 화풍 판 v1');
+    assert(t.includes('NOT ITS CHARACTERS:') && t.includes('NEVER DRAW for this game:') && t.includes('CORE PLAY:') && t.includes('ERA LOOK: 8-bit era'), '끄면 옛 꼴 — 게임 줄');
+    await po.click('#face-design-on');
+    assert(!(await out(po)).includes('FACE ('), '끄면 옛 꼴 — 얼굴 설계를 끄면 FACE 줄이 빠진다');
+    await po.click('#face-design-on');
+    await po.selectOption('#form', 'middle');
+    await po.selectOption('#identity-mode', 'reference');
+    t = await out(po);
+    assert(t.includes('approved character (title form)') && t.includes('FORM — MIDGAME') && !t.includes('SILHOUETTE:'), '끄면 옛 꼴 — 이어가기');
+    await po.click('#mode-open');
+    t = await out(po);
+    assert(t.includes('빈틈없이 맞은 층이 빛으로 터지며') && t.startsWith("INPUT: attach this game's midgame form card image"), '끄면 옛 꼴 — 개방');
+    assert.deepEqual(o.errors, []);
+    await o.close();
+    console.log('PASS 생성기: 폼 · 개방 칸 꼴(끄면 옛 꼴) · 게임 표시 ✓◐· · 시범 폼 · 파일 이름 · 게임 줄(캐릭터 아님·능력·시대) · 외형·되돌리기·잠금 · 이어가기 · 개방 · 일상컷 트리 버전2(시대가 장소를 거름·잠근 앞 칸·자세 추천·컷 안 넓힘·두 손·받침·⚠·손 말 경고·필수 갈래)·버전1 기록·출시 당시·잠금 · 복사·기록 · 저장·직전 게임 외형');
   } finally { await h.stop(); }
 })().catch(e => { console.error(e); process.exit(1); });

@@ -12,6 +12,16 @@
 
 
 
+## 2026-11-11 · claude · 폼 · 개방 지시문을 칸 꼴로(3단계)
+- lib/prompt-game.js buildSections · lib/prompt-spec.js SECTIONS — 폼(새 인물 · 이어가기) · 개방 지시문을 화풍공방 core 칸 틀(CORE_FRAME)의 머리말 + 다섯 칸으로 짓는다. 글은 옛 꼴 그대로이고 자리만 옮겼다. 일상컷은 그대로
+- 칸 대조 — 머리말: INPUT · OUTPUT 첫 문장 · GAME · SUBJECT 첫 문장 · 따옴표 읽는 법 / 1 STYLE: STYLE · STYLE REFERENCE · PRESENTATION / 2 CHARACTER: 「첨부 그림의 그 사람」 문장(이어가기 · 개방) · AGE · FACE · SILHOUETTE 의 몸과 머리 · IDENTITY · EXPRESSION · Persona · CORE PLAY · ANATOMY(Proportions) · BODY · 해부 줄 / 3 COSTUME — 단계(TITLE · MIDGAME · ENDING): FORM(Costume · Battle role · Stage of play) · GEAR · FORM NOTE · SILHOUETTE 의 복식 · 재료(Silhouette) · 팔레트(Colours) · 상징 문장 · MOTIFS · ERA LOOK · GARMENT · 「옷을 다시 쓰지 않는다」 · SIGNATURE · EXPOSURE / 4 SCENE: SETTING(Place) · 배경 문장 · STANCE(Pose) · LOOK-BACK · 손이 할 일(Hands) · 카드 구도(Composition) · 고른 장면 값 묶음, 개방은 명장면 문장 · 메모 · FRAME 첫 문장(Composition) / 5 CONSTRAINTS: ONE FIGURE ONLY · NOT ITS CHARACTERS · NEVER DRAW · HOLD BACK · 개방 「NEVER include … CLOSED image」 · FINAL CHECK · Avoid
+- 바뀐 글 — 줄 머리(대문자 머리는 첫 글자만 대문자, FACE (…) → Face — …, FORM — 단계 (…) → Costume, SETTING (this form) → Place, STANCE → Pose, ANATOMY → Proportions, 개방 FRAME → Composition, palette → Colours, attitude → Attitude, STYLE: 머리는 칸 머리로) · 옛 줄 이름(FORM · SETTING · STANCE · FACE)을 가리키던 말 열한 곳은 the costume above / below · the place above · the pose above / below · her face structure below · her own face structure 로 · core 해부 줄과 겹친 「one head, two arms and two legs, each joined at its natural joint」 · 「natural human hands.」 는 한 번만 · 「No …」 나열 문장(한 사람 줄 · 비율 줄 · 외형 풀이의 No stereotyped features)은 5칸 Avoid 한 줄로
+- 그대로 둔 글 — 카메라 · 구도 글(단계의 빛 · 구도 · 카메라, 기본 자세의 낮은 카메라)은 장면 연출이라 글자 그대로 4칸에. 규칙 줄(Not its characters · Never draw for this game · Hold back · Final check)은 글 그대로 5칸에
+- 켜는 곳 — data/style.json 꼭대기 sections: true. false 로 바꾸면(또는 판에 sections: false) 옛 줄 꼴 그대로(옛 조립 코드는 남겼다), core 칸 틀이 없어도 옛 꼴. lib/prompt-ui.js · tools/prompt-pack.cjs 가 같은 스위치(sectionsOn)를 본다. 화풍 판에 avoid 목록이 생기면 Avoid 줄에 합친다
+- 검사 — tests/prompt-sections.cjs(새로): 쉰 편 × 폼 셋 × 세 갈래 450장 + 고른 칸을 다 얹은 꼴 600장이 여섯 덩어리 · 칸 머리 = CORE_FRAME · 2칸 끝 해부 줄 · Avoid 맨 끝 · 옛 줄 이름 없음 · 옛 꼴 문장을 하나도 잃지 않음. tests/prompt-screen.cjs 는 칸 꼴 기준으로 고치고 스위치를 끈 판으로 옛 꼴도 본다, tests/prompt-pack-screen.cjs 는 폼 · 개방만 칸 꼴인지 더 본다, tests/prompt-game.cjs 는 옛 꼴(스위치 없이) 그대로
+- IMAGE_RULES.md 1절 칸 꼴 단락 · docs/IMAGE_AUTOMATION.md 3절 한 줄 · AGENTS.md 검사 줄 · prompt.html ?v=(prompt-spec 51 · prompt-game 28 · prompt-ui 18)
+- 사용자 2026-11-11 「초안 없이 다 진행해줘」(3단계 — 칸 꼴 통일)
+
 ## 2026-11-11 · claude · core v4 블록
 - core 블록 판을 v4 로 — 칸 꼴 틀(CORE_FRAME)이 같이 오지만 이 공방 지시문은 아직 제 구조라 바뀐 것 없음. 칸 꼴로 옮길 땐 대조표 초안 먼저(사용자 2026-11-11 3단계)
 

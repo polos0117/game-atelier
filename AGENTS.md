@@ -12,7 +12,7 @@
 | `data/game-design.json` | 게임 설계표. 게임 한 편 = 한 칸 |
 | `IMAGE_RULES.md` | 그림 만들기·파일 이름·기록·올리기 — 그림 작업 전에 |
 | `docs/IMAGE_AUTOMATION.md` | GPT 세션(사람이 안 지켜보는) 이미지 작업 — 잠금(`tools/image-claim.cjs`) · 지시문 묶음(`tools/prompt-pack.cjs`) · 검수 · 묻지 않고 올리기 |
-| `data/style.json` | 화풍 판 — 폼·개방은 `text`, 일상컷은 `casual` |
+| `data/style.json` | 화풍 판 — 폼·개방은 `text`, 일상컷은 `casual`. 꼭대기 `sections` 가 폼·개방 지시문의 칸 꼴을 켠다(IMAGE_RULES 1절) |
 | `docs/CASUAL_TREE_V2.md` | 일상컷 트리 버전2 설계 — 시대 → 장소 → 의상 → 구도 → 손(오른손·왼손) → 소품 → 다리, 자세 추천 (만드는 중) |
 | `docs/PORT_NOTES.md` | 어디서 무엇을 가져왔고, 무엇을 아직 안 가져왔나 |
 | `docs/PATCH.md` | 무엇을 고쳤나 — 고친 쪽이 직접 적는다 (아래 규칙 6) |
@@ -115,6 +115,7 @@ python3 tests/casual-tree-v2.py      # 버전2 검사기가 규칙마다 거는�
 node tests/casual-tree-v2.cjs        # 버전2 거르기 모듈(lib/casual-tree-v2.js) — 검사기와 같은 길, 랜덤 · 칸 바꾸기 뒤 걸리는 칸 없음, 두 손 · 넓히지 않기 · 버전1 기록
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기·항목 JSON 길(네트워크 없이, 가짜 응답으로)
 node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 일상컷 트리(시대·장소·하는 일·옷·구도·추천 조합·예전 기록), 출시 당시, 길이, 일상컷 버전2 줄(자세·구도·오른손·왼손·소품·다리·시선)
+node tests/prompt-sections.cjs       # 칸 꼴 폼 · 개방 지시문(data/style.json sections) — 머리말 + 다섯 칸 · 칸 머리 = core 칸 틀 · Avoid 맨 끝 · 옛 줄 이름 없음 · 옛 꼴 문장 잃은 것 없음 · 끄면 옛 꼴
 node tests/shelf.cjs                 # 진열장의 셈 — 쉰 편 한 자리씩·시대 칸 연도 차례·빈 상자·본편 차례·크레딧은 받은 사실 칸만
 node tests/words.cjs                 # 낱말 표
 node tests/patch.cjs                 # 패치 기록 모양
