@@ -12,6 +12,10 @@
 
 
 
+## 2026-11-13 · claude · core v6 · 체형 두 열쇠(슬림 근육형 · 아담한 풍만형)
+- lib/prompt-spec.js VOCAB_EN.body · data/game-design.json vocab.body — lean_toned · petite_voluptuous(삼국지에서 만든 글, core v6). 사용자 「공통으로 다 넣어주면 돼」 — 게임 설계표 체형은 그대로(새 캐릭터부터). 체형을 자동으로 고르는 도구는 없다(game-design.py 는 검사만)
+- lib/prompt-spec.js — core:v6 블록 · prompt.html ?v= 올림
+
 ## 2026-11-12 · claude · 검사 정리 — 늘 실패 · 겹침 둘 지우고 느린 다섯 줄임
 - tests/image-claim.cjs — 지움. 실제 data/img.json 에 빈 자리 셋을 바라는데 쉰 편이 다 채워져 늘 실패한다(잠금 도구 tools/image-claim.cjs 는 그대로). AGENTS 검사 줄도 뺐다
 - tests/core-sync.cjs — 지움. 화풍공방 tests/core.cjs 가 옆 공방(game 포함) core 블록을 같은 sync.cjs --check 로 대조한다
