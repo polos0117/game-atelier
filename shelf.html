@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="theme-color" content="#101218">
 <title>게임의 공방</title>
+<style>@media (prefers-reduced-motion: no-preference) { @view-transition { navigation: auto; } }</style><script>addEventListener('pageswap', e => { const t = e.viewTransition; if (t) { t.skipTransition(); t.ready.catch(() => {}); } }); addEventListener('pagereveal', e => { const t = e.viewTransition; if (t) t.ready.catch(() => {}); });</script>   <!-- 공방 지도(polos0117.github.io)의 문에서 넘어올 때 페이드로 들어온다(2026-11-12 — 그쪽 README 「방에 들어가는 연출」). 여기서 나갈 때는 전환을 걸지 않아 공방 안에서 쪽을 옮길 때는 전과 같다. 모르는 브라우저는 그냥 넘어온다 -->
 <!-- 진열장(2026-11-02, 사용자 「패키지가 진열되어 있는 장 — 시대별로 대응하는 팩이나 cd, 온라인 게임은 pc 바탕화면이나 폴더.
      선택하고 시작을 누르면 loading → 폼별 이미지를 차례로 → 엔딩 크레딧으로 일상씬」 · 「추천대로, 그림 없는 게임은 빈 상자」).
      도감(dex.html)은 그림을 채우는 작업 화면, 여기는 켜 보는 감상 화면이다. 셈은 lib/shelf.js(node 로도 돈다 — tests/shelf.cjs),
