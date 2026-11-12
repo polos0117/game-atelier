@@ -128,6 +128,7 @@ node tests/sprite-actor-copy.cjs     # 도트 재생기 — lib/sprite-actor.js�
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/prompt-screen.cjs   # 생성기 — 일상컷은 버전2 칸(버전1 기록은 버전1 + 옮기기 단추)
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/shelf-screen.cjs    # 진열장 — 시대 칸·바탕화면·「게임」 폴더·빈 상자·고르기·로딩 → 본편 여섯 → 크레딧(일상컷·사실 칸)·끄기·뒤로 가기·도감 바로가기·세 크기. ESM_DIR 에 motion@14.3.1 이 있으면 움직임까지
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/dex-screen.cjs      # 도감 — 옆에 ../game-atelier-img 가 있으면 그림까지
+ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/dex-favorites.cjs   # 도감 크게 보기 하트 — 상세와 같은 칸·넘기면 그 그림 상태·닫으면 상세와 같음·44px·저장 막힘(폴드 덮개)
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/dot-screen.cjs      # 도트 — 첫 화면 오락실 바닥 띠·도감 상세 무대·목록 「도트」 표(시험 자료)
 ESM_DIR=<node_modules> CHROMIUM_PATH=<chrome> node tests/arcade-screen.cjs   # 오락실 — 무대·기기 줄(게임마다 하나·간판·그림/꺼짐·누르면 도감)·첫 묶음 그대로·네 크기. BACKGROUND_DIR 에 backgrounds/ 를 주면 배경 그림까지
 ```
