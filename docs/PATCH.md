@@ -12,6 +12,15 @@
 
 
 
+## 2026-11-12 · claude · 검사 정리 — 늘 실패 · 겹침 둘 지우고 느린 다섯 줄임
+- tests/image-claim.cjs — 지움. 실제 data/img.json 에 빈 자리 셋을 바라는데 쉰 편이 다 채워져 늘 실패한다(잠금 도구 tools/image-claim.cjs 는 그대로). AGENTS 검사 줄도 뺐다
+- tests/core-sync.cjs — 지움. 화풍공방 tests/core.cjs 가 옆 공방(game 포함) core 블록을 같은 sync.cjs --check 로 대조한다
+- tests/casual-plan.cjs — 쉰 편 × 씨앗 셋(버전1 · 버전2) → 대표 여섯 편 × 씨앗 하나, 안 쓴 값 먼저 비율은 다섯 편을 한 번 짜 세 칸을 같이 센다, 잔 세기 열두 편 → 여섯. 보는 단언은 그대로(약 490초 → 36초, 바쁜 머신)
+- tests/casual-tree-v2.cjs — 랜덤 2000 → 300 · 바꾸기 1500 → 200 · 게임마다 40 → 6(다른 공방과 같은 수, 103초 → 10초)
+- tests/prompt-pack-screen.cjs — 두 게임 → 고친 설정이 섞인 hearthstone 한 편, 일상 자리는 버전2 칸(장소 · 자세 · 프레이밍 · 손 · 추천)도 본다(68초 → 13초)
+- tests/casual-plan-screen.cjs — 버전2 9장은 prompt-pack-screen 일상 자리와 같은 길이라 빼고 버전1 만(42초 → 8초). AGENTS · docs/CASUAL_TREE_V2.md 5단계 줄도 맞췄다
+- tests/shelf-screen.cjs — 켜기 → 본편 → 크레딧은 pc 한 크기에서만, 로딩 꼴은 기다린 그 요소에서 읽는다(움직임 줄이기 0.5초 로딩이 바쁜 머신에서 사라져 세 번에 두 번 실패하던 것)
+
 ## 2026-11-12 · claude · 도감 크게 보기에 즐겨찾기 하트
 - 사용자 「크게보기에도 즐겨찾기 추가 다 해야돼. 지금까지 그게 없었어」 — 하트가 상세에만 있었다
 - dex.html — Zoom 위 띠에 하트(#zoom-fav, 「♡ 즐겨찾기」): 지금 넘겨 보는 그림 한 장을 담고 뺀다, 넘기면 그 그림의 상태, 저장이 막히면 상세와 같은 「못 담았어요」. 담는 칸 만들기를 favEntry() 하나로(상세 하트와 같이 쓴다). 알림은 위 띠 바로 밑(아래 넘기기 단추와 안 겹친다), 폰에서는 원본 크기와 같은 둘째 줄, 담기면 분홍

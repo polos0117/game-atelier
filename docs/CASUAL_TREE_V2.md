@@ -230,7 +230,7 @@ game-atelier 에서 먼저 만든다(사용자 2026-10-30). 몇 게임을 그려
 | 2 | `lib/casual-tree-v2.js` — 거르기(보이는 부위 · 받침 · 손 칸 둘 · 다리 계열 · 의상 특징 · 시선) · 다시 검사 · 랜덤 · 예전 기록 표 | `tests/casual-tree-v2.cjs` |
 | 3 | `lib/prompt-game.js` — 버전2 줄(POSTURE · SUPPORT · COMPOSITION · RIGHT HAND · LEFT HAND · PROP · LEGS · GAZE · 렌즈 자동) | `tests/prompt-game.cjs` — 1200 낱말 · 한국어는 따옴표 안만 · 물려받는 공통 줄과 충돌 없음 |
 | 4 | 생성기 화면 일상 갈래 · 경고 · 복사 막기 — 새 장면은 버전2, 버전1 기록은 버전1 그대로 열고 「버전2로 다시 고르기」. 두 손 자세는 오른손 칸에서 고르면 왼손이 잠긴다. 옷 직접 쓰기면 주머니 · 어깨끈 · 옷깃 표시 칸 | `tests/prompt-screen.cjs` |
-| 5 | 묶음 계획기 `--v2` · `--check`(기록이 버전2 면 버전2 규칙, 버전1 컷과 섞이면 둘 다 가진 칸끼리) · 구도 검사 `tools/casual-compose.py` 버전2 | `tests/casual-plan.cjs` · `tests/casual-plan-screen.cjs` · `tests/casual-compose.py` |
+| 5 | 묶음 계획기 `--v2` · `--check`(기록이 버전2 면 버전2 규칙, 버전1 컷과 섞이면 둘 다 가진 칸끼리) · 구도 검사 `tools/casual-compose.py` 버전2 | `tests/casual-plan.cjs` · `tests/prompt-pack-screen.cjs`(버전2 기록 = 화면 — 2026-11-12 casual-plan-screen 에서 옮김) · `tests/casual-compose.py` |
 | 6 | 시범 — 그림 없는 게임 하나로 다섯 장(계획을 먼저 보이고) | 그려 보고 사람이 판단 |
 | 7 | 문서(`IMAGE_RULES.md` 2절 · 이 문서) · 허브 통합 생성기 게임 단계 · 결과가 좋으면 book · myth · pkm | 각 저장소 전체 시험 |
 

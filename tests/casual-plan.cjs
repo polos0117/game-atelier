@@ -1,5 +1,6 @@
 /* 일상컷 묶음 계획기. node tests/casual-plan.cjs
-   - 스무 편 × 씨앗 셋 — 다섯 칸이 묶음 규칙을 다 지키고, 기록·지시문이 생성기 조립과 같다
+   - 대표 여섯 편(알아볼 거리 소품 있는 · 없는 편 섞어) × 씨앗 하나 — 다섯 칸이 묶음 규칙을 다 지키고, 기록·지시문이 생성기 조립과 같다
+     (쉰 편 × 씨앗 셋은 8분 가까이 걸려 줄였다 — 사용자 2026-11-12 「쓸데없이 시간만 잡아먹는 검사들 좀 없애줘」)
    - 이미 있는 컷이 있으면 그 위에 더 짜도 규칙을 지킨다
    - 규칙 검사가 겹침·필수 갈래 없음·트리 밖 값을 건다 */
 const assert = require('node:assert/strict'), fs = require('node:fs'), path = require('node:path'), os = require('node:os'), vm = require('node:vm');
@@ -10,8 +11,9 @@ for (const f of ['lib/prompt-spec.js', 'lib/casual-tree.js', 'lib/prompt-game.js
 const CT = ctx.window.AtelierCasualTree, P = ctx.window.AtelierPrompt, tree = JSON.parse(read('data/casual-tree.json')), design = JSON.parse(read('data/game-design.json'));
 const style = JSON.parse(read('data/style.json')), gs = style.styles[style.default], cur = gs.versions.find(v => v.v === gs.current);
 
+const REP = ['pacman', 'legend_of_zelda', 'street_fighter_2', 'dave_the_diver', 'hearthstone', 'stardew_valley'].map(k => design.games.find(g => g.key === k));
 let n = 0;
-for (const g of design.games) for (const seed of [1, 2, 3]) {
+for (const g of REP) for (const seed of [1]) {
   const res = C.plan(g, [1, 2, 3, 4, 5], [], { seed });
   assert.equal(res.cuts.length, 5);
   assert.deepEqual(C.check(res.cuts, g), [], g.key + ' ' + seed);
@@ -87,11 +89,11 @@ const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'plan-'));
 fs.writeFileSync(path.join(dir, 'casual1-ui.json'), JSON.stringify({ game: g.key, storage: { cards: { [g.key]: { scenes: { casual: { cat: 'travel_exploration', ex: 'travel_station', frame: 'face_close', orient: 'looking_down', lens: 'telephoto135' } } } } } }));
 const old = C.oldCuts(dir, g);
 assert(old.length === 1 && old[0].place === 'travel_rural_station' && old[0].n === 1, '예전 기록 → 트리 길');
-/* 버전2(--v2, docs/CASUAL_TREE_V2.md 6절) — 서른세 편 × 씨앗 셋: 묶음 규칙 · 트리 위 · 기록 · 지시문 */
+/* 버전2(--v2, docs/CASUAL_TREE_V2.md 6절) — 대표 여섯 편 × 씨앗 하나: 묶음 규칙 · 트리 위 · 기록 · 지시문 */
 for (const f of ['lib/casual-tree-v2.js']) vm.runInContext(read(f), ctx);
 const C2 = ctx.window.AtelierCasualTreeV2, tree2 = JSON.parse(read('data/casual-tree-v2.json')), T2 = C2.make(tree2, tree);
 let n2 = 0, t0 = Date.now();
-for (const g2 of design.games) for (const seed of [1, 2, 3]) {
+for (const g2 of REP) for (const seed of [1]) {
   const res = C.plan2(g2, [1, 2, 3, 4, 5], [], { seed });
   const w = g2.key + ' ' + seed;
   assert.deepEqual(C.check2(res.cuts, g2), [], w);
@@ -128,7 +130,7 @@ assert(!more2.cuts.some(c => v1first.some(o => o.place === c.place)), '이미 �
 /* 다른 게임이 쓴 소품 — 많이 쓴 소품(잔)은 덜 나온다 */
 {
   /* 다른 게임이 잔을 많이 썼으면 마실 것(넷을 한 무리로)이 덜 나온다 */
-  const cnt = heavy => { let n = 0, all = 0; for (const g2 of design.games.slice(0, 12)) for (const seed of [1, 2]) for (const c of C.plan2(g2, [1, 2, 3, 4, 5], [], { seed, usage: heavy }).cuts) { const u = C2.use(T2, c.use); if (u && u.prop !== 'signature') { all++; if (C.DRINKS.includes(u.prop)) n++; } } return [n, all]; };
+  const cnt = heavy => { let n = 0, all = 0; for (const g2 of design.games.slice(0, 6)) for (const seed of [1, 2]) for (const c of C.plan2(g2, [1, 2, 3, 4, 5], [], { seed, usage: heavy }).cuts) { const u = C2.use(T2, c.use); if (u && u.prop !== 'signature') { all++; if (C.DRINKS.includes(u.prop)) n++; } } return [n, all]; };
   const [free, a1] = cnt({}), [hit, a2] = cnt({ cup: 30 });
   assert(hit < free / 2 && a2 > 0, '많이 쓴 잔이면 마실 것이 덜 나온다: ' + free + '/' + a1 + ' → ' + hit + '/' + a2);
 }
@@ -138,9 +140,12 @@ assert(!more2.cuts.some(c => v1first.some(o => o.place === c.place)), '이미 �
   const third = list => new Set(list.filter((k, i) => i % 3 === 0)), fP = third(places), fR = third(presets), fE = third(exprs);
   const heavy = (all, keep) => Object.fromEntries(all.filter(k => !keep.has(k)).map(k => [k, 12]));
   const usage = { prop: {}, place: heavy(places, fP), item: {}, preset: heavy(presets, fR), posture: {}, expr: heavy(exprs, fE) };
-  const share = (u, f, set) => { let hit = 0, all = 0; for (const g2 of design.games.slice(0, 10)) for (const seed of [3, 11]) for (const c of C.plan2(g2, [1, 2, 3, 4, 5], [], { seed, usage: u }).cuts) { if (!c[f]) continue; all++; if (set.has(c[f])) hit++; } return hit / all; };
+  /* 횟수 없이 · 있게 한 번씩만 짜고 세 칸(장소 · 자세 추천 · 표정)을 같은 컷에서 센다 */
+  const cutsOf = u => design.games.slice(0, 5).flatMap(g2 => [3].flatMap(seed => C.plan2(g2, [1, 2, 3, 4, 5], [], { seed, usage: u }).cuts));
+  const freeCuts = cutsOf({}), leanCuts = cutsOf(usage);
+  const share = (cuts, f, set) => { let hit = 0, all = 0; for (const c of cuts) { if (!c[f]) continue; all++; if (set.has(c[f])) hit++; } return hit / all; };
   for (const [f, set, name] of [['place', fP, '장소'], ['preset', fR, '자세 추천'], ['expr', fE, '표정']]) {
-    const base = share({}, f, set), lean = share(usage, f, set);
+    const base = share(freeCuts, f, set), lean = share(leanCuts, f, set);
     assert(lean > 0.6 && lean > base * 1.5, name + ' — 안 쓴 값 비율 ' + lean.toFixed(2) + ' (횟수 없이 ' + base.toFixed(2) + ')');
   }
   assert.deepEqual(C.plan2(g, [1, 2, 3], [], { seed: 7, usage }).cuts, C.plan2(g, [1, 2, 3], [], { seed: 7, usage }).cuts, '같은 입력 · 씨앗이면 같은 답');
@@ -161,5 +166,5 @@ for (const c of b2) fs.writeFileSync(path.join(dir2, `casual${c.n}-ui.json`), JS
 const back = C.oldCuts(dir2, g);
 assert(back.length === 5 && back.every(c => c.treeV === 2 && c.old), '버전2 기록 → 버전2 컷');
 assert.deepEqual(C.check2(back.map(c => ({ ...c, old: false })), g), [], '읽은 기록도 규칙 그대로');
-console.log(`PASS 일상컷 묶음 계획 버전2: 서른세 편 × 씨앗 셋 ${n2}묶음(${(took / 1000).toFixed(1)}초) 규칙 · 트리 위 · 기록 · 지시문 · 버전1 위에 더 짜기 · 규칙 검사 · 기록 읽기`);
-console.log(`PASS 일상컷 묶음 계획: 스무 편 × 씨앗 셋 ${n}묶음 규칙·기록·고정값 · 필수 갈래 돌리기 · 있는 컷 위에 더 짜기 · 규칙 검사 · 고른 칸 · 예전 기록`);
+console.log(`PASS 일상컷 묶음 계획 버전2: 대표 ${n2}묶음(${(took / 1000).toFixed(1)}초) 규칙 · 트리 위 · 기록 · 지시문 · 버전1 위에 더 짜기 · 규칙 검사 · 기록 읽기`);
+console.log(`PASS 일상컷 묶음 계획: 대표 ${n}묶음 규칙·기록·고정값 · 필수 갈래 돌리기 · 있는 컷 위에 더 짜기 · 규칙 검사 · 고른 칸 · 예전 기록`);

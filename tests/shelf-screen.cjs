@@ -69,26 +69,29 @@ const online = lay.pc.online.find(x => x.drawn), dl = lay.pc.download[0], box = 
       assert.equal(await p.$eval('.pkg[data-game="' + hero.key + '"]', e => e.getAttribute('aria-pressed')), 'true');
       assert((await p.$eval('.info-facts', e => e.textContent)).includes(String(hero.game.facts.year)), name + ' 받은 발매 연도');
       assert.equal(await p.$eval('.info a[href^="dex.html"]', e => e.getAttribute('href')), 'dex.html?game=' + hero.key);
-      /* 켜기 — 로딩 → 본편 여섯 장 → 크레딧 */
-      await p.click('#shelf-start'); await p.waitForSelector('.play .load');
-      assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('play')), '1', name + ' 켜면 주소에 play');
-      assert.equal(await p.$eval('.load', e => e.dataset.kind), S.loading(hero.game), name + ' 로딩 꼴은 매체대로');
-      await p.waitForSelector('.show', { timeout: 8000 });
-      const stages = [];
-      for (let i = 0; i < 6; i++) {
-        stages.push(await p.$eval('.show', e => e.dataset.form + (e.dataset.open === '1' ? '_open' : '')));
-        if (i === 0) assert((await p.$eval('.show-line p', e => e.textContent)) === hero.game.voice['타이틀'], name + ' 타이틀의 한마디');
-        await p.click('#shelf-next');
+      /* 켜기 — 로딩 → 본편 여섯 장 → 크레딧. 끝까지 켜 보는 것은 pc 한 크기에서만(2026-11-12 — 세 크기 모두 같은 차례를 되풀이했다) */
+      if (name === 'pc') {
+        /* 움직임 줄이기면 로딩이 0.5초라 바쁜 머신에선 다시 찾기 전에 사라진다 — 기다린 그 요소에서 바로 읽는다 */
+        await p.click('#shelf-start'); const load = await p.waitForSelector('.play .load');
+        assert.equal(await load.evaluate(e => e.dataset.kind), S.loading(hero.game), name + ' 로딩 꼴은 매체대로');
+        assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('play')), '1', name + ' 켜면 주소에 play');
+        await p.waitForSelector('.show', { timeout: 8000 });
+        const stages = [];
+        for (let i = 0; i < 6; i++) {
+          stages.push(await p.$eval('.show', e => e.dataset.form + (e.dataset.open === '1' ? '_open' : '')));
+          if (i === 0) assert((await p.$eval('.show-line p', e => e.textContent)) === hero.game.voice['타이틀'], name + ' 타이틀의 한마디');
+          await p.click('#shelf-next');
+        }
+        assert.deepEqual(stages, ['title', 'title_open', 'middle', 'middle_open', 'ending', 'ending_open'], name + ' 본편 차례');
+        await p.waitForSelector('.credits');
+        assert.equal(await p.locator('.credits-pic').count(), S.casuals(imgDoc.img[hero.key], hero.style).length, name + ' 크레딧 뒤는 일상컷');
+        const roll = await p.$eval('.credits-roll', e => e.textContent);
+        for (const r of S.credits(hero.game)) for (const n of r.names.slice(0, 2)) assert(roll.includes(n), name + ' 크레딧 ' + r.role + ': ' + n);
+        await p.waitForSelector('.credits-acts.on', { timeout: 5000 });
+        /* 끄기 — 뒤로 가기와 같다 */
+        await p.click('#shelf-back'); await p.waitForSelector('.play', { state: 'detached' });
+        assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('play')), null, name + ' 끄면 주소에서 play 가 빠진다');
       }
-      assert.deepEqual(stages, ['title', 'title_open', 'middle', 'middle_open', 'ending', 'ending_open'], name + ' 본편 차례');
-      await p.waitForSelector('.credits');
-      assert.equal(await p.locator('.credits-pic').count(), S.casuals(imgDoc.img[hero.key], hero.style).length, name + ' 크레딧 뒤는 일상컷');
-      const roll = await p.$eval('.credits-roll', e => e.textContent);
-      for (const r of S.credits(hero.game)) for (const n of r.names.slice(0, 2)) assert(roll.includes(n), name + ' 크레딧 ' + r.role + ': ' + n);
-      await p.waitForSelector('.credits-acts.on', { timeout: 5000 });
-      /* 끄기 — 뒤로 가기와 같다 */
-      await p.click('#shelf-back'); await p.waitForSelector('.play', { state: 'detached' });
-      assert.equal(await p.evaluate(() => new URLSearchParams(location.search).get('play')), null, name + ' 끄면 주소에서 play 가 빠진다');
       /* 끄면 그 게임 팝업으로 돌아오고, Esc 로 닫는다 */
       await p.waitForSelector('.info[data-game="' + hero.key + '"]');
       await p.keyboard.press('Escape'); await p.waitForSelector('.info', { state: 'detached' });
