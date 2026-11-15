@@ -14,8 +14,9 @@ function check() {
     if (!keys.has(g.key)) bad.push('설계표에 없는 게임 ' + g.key);
     if (!g.en || !g.ko) bad.push(g.key + ' 이름');
     if (g.many ? !(g.roster > 0) : !(g.character && g.outfit)) bad.push(g.key + (g.many ? ' roster' : ' character · outfit'));
+    if (g.many && (!Array.isArray(g.characters) || g.characters.length !== g.roster || new Set(g.characters.map(c => c.name)).size !== g.characters.length || g.characters.some(c => !c.name || typeof c.female !== 'boolean'))) bad.push(g.key + ' characters(이름 · female · 겹침 없음 · roster = 수)');
   }
-  for (const k of ['fixed', 'pick', 'again', 'none']) if (!(d.text || {})[k]) bad.push('글 ' + k);
+  for (const k of ['fixed', 'pick', 'again', 'none', 'assigned']) if (!(d.text || {})[k]) bad.push('글 ' + k);
   if (bad.length) { console.log(bad.join('\n')); process.exit(1); }
   console.log('PASS 게임 코스프레 목록: 게임 ' + d.games.length + '(등장인물 많음 ' + d.games.filter(g => g.many).length + ') · 재단 ' + d.cuts.length);
 }
