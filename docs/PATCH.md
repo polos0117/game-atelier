@@ -12,6 +12,11 @@
 
 
 
+## 2026-11-15 · claude · 게임 코스프레 목록 — 세 공방 일상컷 필수 갈래의 원본
+- 사용자 「pkm,원소,삼국지 공방에 갈래 하나 추가해서 게임공방에 있는 게임 코스프레 의상은 어떨까?」 → 이름 넣기 · 등장인물 많은 게임은 GPT 가 고르고 이미 쓴 캐릭터는 세 공방 합쳐 뺀다 · 재단 열하나 · 필수에서 상황 노출 대신 · 「애매한것도 빼자」 → 게임 열아홉
+- data/game-cosplay.json(새로) — 주인공 하나 열하나(마리오 · 링크 · 다크 소울 · 위처 3 · 데이브 더 다이버 · 바이오하자드 2 · 메탈기어 솔리드 · 캐슬바니아 · 툼레이더 · 니어 오토마타 · 드래곤 퀘스트 슬라임 — 의상 글은 game-design.json costume), 등장인물 많음 여덟(LoL · 오버워치 · 스파2 · WoW · 스타크래프트 · FF7 · 랑그릿사 II · 창세기전 3 과 파트 2 — roster 대략 수), 재단 열하나, 지시문 글 셋(fixed · pick · again)
+- tools/game-cosplay.cjs check · sync — 사본을 ../pkm-atelier · ../element-atelier · ../sam-atelier 의 data/game-cosplay.json 에. 이 공방 자기 주인공 · 마스코트 코스튬은 그대로(사용자 「2는 아직 안해도 돼」)
+
 ## 2026-11-13 · claude · core v6 · 체형 두 열쇠(슬림 근육형 · 아담한 풍만형)
 - lib/prompt-spec.js VOCAB_EN.body · data/game-design.json vocab.body — lean_toned · petite_voluptuous(삼국지에서 만든 글, core v6). 사용자 「공통으로 다 넣어주면 돼」 — 게임 설계표 체형은 그대로(새 캐릭터부터). 체형을 자동으로 고르는 도구는 없다(game-design.py 는 검사만)
 - lib/prompt-spec.js — core:v6 블록 · prompt.html ?v= 올림
