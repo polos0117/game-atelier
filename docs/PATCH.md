@@ -12,6 +12,10 @@
 
 
 
+## 2026-11-17 · claude · 어린 캐릭터를 코스프레 명단에서 뺌
+- 사용자 「그러면 어린케릭터는 빼자. 어차피 원신쪽은 잘 알지도 못하는 케릭터들인데」
+- data/game-cosplay.json — 테일즈위버 셋(나야트레이 · 아나이스 · 벤야) · 원신 아홉 · FF7 유피를 빼고 roster 를 맞춤(테일즈위버 11 · 원신 115 · FF7 18). young · young_cuts · young_cut_en · text.young 없앰, check 의 young 단언도. 이미 그린 유피 한 장(삼국지 맹획 판타지 일상3)은 그대로. 세 공방 사본 sync
+
 ## 2026-11-17 · claude · 어린 캐릭터 코스프레 글 — 다 가리는 앞글 · 재단
 - 사용자 「코스튬의상이라 나이는 상관없는데」 → 어린 캐릭터도 명단에 넣고 노출 재단은 쓰지 않는다 → 「응 그렇게 해줘」. young_cuts 의 재단 글(strapless · off-shoulder)과 앞글(daring adult)이 그 결정과 안 맞아 고침
 - data/game-cosplay.json — text.young(「a modest everyday cosplay … fully covered and nothing revealing」) · young_cut_en(니트 · 아이돌 · 원피스를 긴소매 · 무릎 길이로). 세 공방 사본 sync
