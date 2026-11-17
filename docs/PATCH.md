@@ -12,6 +12,11 @@
 
 
 
+## 2026-11-17 · claude · 코스프레 캐릭터 다른 표기(aka) · 라나 · 뺀 캐릭터 한글
+- 사용자 「응 둘 다 고쳐줘」(코스프레 캐릭터 이름이 명단과 달라 한글이 안 붙던 넷 · 원소 PATCH 차례)
+- data/game-cosplay.json — characters[].aka(다른 표기): 살라딘 Saladin · 쉐리 Cherie. 랑그릿사 II 에 라나(Lana, 리아나의 쌍둥이 — 데어 랑그릿사 플레이 캐릭터) 더함 → 16. retired_ko — 명단에서 뺐지만 이미 그린 유피 키사라기의 한글(색인만 읽음)
+- tools/game-cosplay.cjs check — aka 는 글자 목록, 같은 게임 안 이름 · aka 겹침 없음. 세 공방 sync
+
 ## 2026-11-17 · claude · 어린 캐릭터를 코스프레 명단에서 뺌
 - 사용자 「그러면 어린케릭터는 빼자. 어차피 원신쪽은 잘 알지도 못하는 케릭터들인데」
 - data/game-cosplay.json — 테일즈위버 셋(나야트레이 · 아나이스 · 벤야) · 원신 아홉 · FF7 유피를 빼고 roster 를 맞춤(테일즈위버 11 · 원신 115 · FF7 18). young · young_cuts · young_cut_en · text.young 없앰, check 의 young 단언도. 이미 그린 유피 한 장(삼국지 맹획 판타지 일상3)은 그대로. 세 공방 사본 sync

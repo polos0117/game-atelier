@@ -17,6 +17,9 @@ function check() {
     if (g.many && (!Array.isArray(g.characters) || g.characters.length !== g.roster || new Set(g.characters.map(c => c.name)).size !== g.characters.length || g.characters.some(c => !c.name || typeof c.female !== 'boolean'))) bad.push(g.key + ' characters(이름 · female · 겹침 없음 · roster = 수)');
     /* 한글 이름(2026-11-17 사용자 「캐릭터 한글 이름도 채워줘」) — 허브 일상컷 목록 · 세 공방 색인(cosplay.characterKo)이 읽는다. 주인공 하나는 character_ko */
     if (g.many) for (const c of g.characters || []) if (!String(c.ko || '').trim()) bad.push(g.key + ' ' + c.name + ' 한글 이름(ko)');
+    /* aka — 다른 표기(2026-11-17, 기록 · 계획 이름 맞추기). 문자열 목록이고, 같은 게임의 다른 캐릭터 이름 · aka 와 겹치지 않는다(대소문자 · 빈칸 무시) */
+    if (g.many) { const seen = {}, nk = x => String(x || '').trim().toLowerCase().replace(/\s+/g, ' ');
+      for (const c of g.characters || []) for (const n of [c.name].concat(c.aka || [])) { if (typeof n !== 'string' || !n.trim()) bad.push(g.key + ' ' + c.name + ' aka 는 글자 목록'); else if (seen[nk(n)] && seen[nk(n)] !== c.name) bad.push(g.key + ' 이름 ' + n + ' 가 ' + seen[nk(n)] + ' · ' + c.name + ' 둘에'); else seen[nk(n)] = c.name; } }
     if (!g.many && !String(g.character_ko || '').trim()) bad.push(g.key + ' character_ko');
   }
   const cutKeys = new Set((d.cuts || []).map(c => c.key));
