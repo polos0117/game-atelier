@@ -52,6 +52,7 @@
 결투는 book 의 책장 넘기기(장·자리·맞은편)라서 줄(lane) 말은 못 쓴다.
 어느 두 게임도 실루엣 축 6 중 셋 이상, 얼굴 5 묶음 중 둘 이상 다르다. 같은 시리즈 자매는 얼굴 윤곽이 같다.
 머리색(`silhouette.hair_color`)·눈 색(`face.eye_color`)은 게임의 대표색 — 새 게임도 둘 다 채우고, 검정·갈색은 정한 말에 없다(GAME_CONCEPT 6절).
+새 게임을 설계표에 넣으면 **게임 코스프레도 정한다**(2026-11-16 사용자 「게임공방에 게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」 → 「응 진행해줘」): `data/game-cosplay.json` 의 `games`(주인공 하나 — `character` · `outfit` / 등장인물 많음 — `many: true` · `characters` 이름 · `female` · `roster` = 수) 나 `excluded`(까닭 — 코스튬이 안 되거나 애매하면 뺀다) 가운데 하나를 Claude 가 안으로 내고 사용자가 고른다. 정하지 않으면 `tools/game-cosplay.cjs check`(game-design.py check 가 같이 부른다)가 멈춘다. 정했으면 `node tools/game-cosplay.cjs sync` 로 세 공방(pkm · 원소 · 삼국지)의 사본에 쓰고 각 저장소에서 커밋한다 — 세 공방의 일상컷 계획기는 옆에 이 저장소가 있으면 사본이 다를 때 경고한다.
 설계표를 고치면 `python3 tools/game-design.py check` 를 돌린다. 그 게임을 그리기 전에는 `python3 tools/game-design.py conflicts <key>` 가 0 이어야 한다 — 고치거나, 보고 괜찮으면 그 게임 `conflicts_ok` 에 열쇠를 적는다.
 
 ### 3. 사실은 지어내지 않는다

@@ -344,6 +344,11 @@ def main():
     with open(DATA, encoding="utf-8") as f:
         doc = json.load(f)
     errs = check(doc)
+    # 게임 코스프레 목록(2026-11-16 사용자 「게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」) — 새 게임은 games 나 excluded 에 정해야 한다
+    import subprocess
+    cp = subprocess.run(["node", os.path.join(os.path.dirname(os.path.abspath(__file__)), "game-cosplay.cjs"), "check"], capture_output=True, text=True)
+    if cp.returncode:
+        errs += ["게임 코스프레 목록 — " + l for l in cp.stdout.strip().splitlines()]
     for w in warnings(doc):
         print("  ! " + w)
     n = len(conflicts(doc))
