@@ -1,0 +1,443 @@
+{
+ "qid": "Q65059474",
+ "fetched": "2026-11-17",
+ "source": "https://www.wikidata.org/wiki/Special:EntityData/<qid>.json",
+ "props": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2020-09-28T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2024-11-20T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2025-09-10T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q744038"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "롤플레잉 비디오 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "role-playing video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1422746"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "액션 롤플레잉 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "action role-playing game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48835388"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "가챠 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "gacha game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q48493"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "iOS"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q94"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Android"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q5014725"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "플레이스테이션 4"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q63184502"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q98973368"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "엑스박스 시리즈 X 및 시리즈 S"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Xbox Series X and Series S"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q123469520"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "HarmonyOS NEXT"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "developer"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q28686397"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "miHoYo"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Cognosphere"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q28686397"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "miHoYo"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Cognosphere"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q116189096"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "COGNOSPHERE"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q137735456"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "NIJIGEN GAMES"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q208850"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "1인용 비디오 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "single-player video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q6895044"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "멀티플레이어 비디오 게임"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "multiplayer video game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "modes"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1758804"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "코옵 모드"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "co-op mode"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q65059474"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "원신"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%EC%9B%90%EC%8B%A0"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Genshin Impact"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/Genshin_Impact"
+   }
+  }
+ ]
+}

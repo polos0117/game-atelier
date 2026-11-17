@@ -116,7 +116,7 @@ node tests/casual-tree-v2.cjs        # 버전2 거르기 모듈(lib/casual-tree-
 python3 tests/fetch-games.py         # 사실 자료 도구 — 질의문·응답 풀기·설계표 채우기·항목 JSON 길(네트워크 없이, 가짜 응답으로)
 node tests/prompt-game.cjs           # 프롬프트 — 게임마다 폼 셋 × 갈래, 정한 말 영어, 게임 줄, 일상컷 트리(시대·장소·하는 일·옷·구도·추천 조합·예전 기록), 출시 당시, 길이, 일상컷 버전2 줄(자세·구도·오른손·왼손·소품·다리·시선)
 node tests/prompt-sections.cjs       # 칸 꼴 폼 · 개방 지시문(data/style.json sections) — 머리말 + 다섯 칸 · 칸 머리 = core 칸 틀 · Avoid 맨 끝 · 옛 줄 이름 없음 · 옛 꼴 문장 잃은 것 없음 · 끄면 옛 꼴
-node tests/shelf.cjs                 # 진열장의 셈 — 쉰 편 한 자리씩·시대 칸 연도 차례·빈 상자·본편 차례·크레딧은 받은 사실 칸만
+node tests/shelf.cjs                 # 진열장의 셈 — 설계표 게임 모두 한 자리씩·시대 칸 연도 차례·빈 상자·본편 차례·크레딧은 받은 사실 칸만
 node tests/words.cjs                 # 낱말 표
 node tests/patch.cjs                 # 패치 기록 모양
 python3 tests/register-images.py     # 그림 등록 — 이름 꼴·자리·등록한 날·틀린 이름은 저장 안 함

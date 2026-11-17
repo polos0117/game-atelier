@@ -1,0 +1,119 @@
+{
+ "qid": "Q484913",
+ "fetched": "2026-11-17",
+ "source": "https://www.wikidata.org/wiki/Special:EntityData/<qid>.json",
+ "props": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q484913"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "year"
+   },
+   "v": {
+    "type": "literal",
+    "value": "+2003-01-01T00:00:00Z"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q484913"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "genres"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q175173"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "대규모 다중 사용자 온라인 롤 플레잉 게임(MMORPG)"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "massively multiplayer online role-playing game"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q484913"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "platforms"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q1406"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "마이크로소프트 윈도우"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Microsoft Windows"
+   }
+  },
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q484913"
+   },
+   "prop": {
+    "type": "literal",
+    "value": "publisher"
+   },
+   "v": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q562078"
+   },
+   "vko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "넥슨"
+   },
+   "ven": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Nexon"
+   }
+  }
+ ],
+ "labels": [
+  {
+   "item": {
+    "type": "uri",
+    "value": "http://www.wikidata.org/entity/Q484913"
+   },
+   "ko": {
+    "xml:lang": "ko",
+    "type": "literal",
+    "value": "테일즈위버"
+   },
+   "kowiki": {
+    "type": "uri",
+    "value": "https://ko.wikipedia.org/wiki/%ED%85%8C%EC%9D%BC%EC%A6%88%EC%9C%84%EB%B2%84"
+   },
+   "en": {
+    "xml:lang": "en",
+    "type": "literal",
+    "value": "Talesweaver"
+   },
+   "enwiki": {
+    "type": "uri",
+    "value": "https://en.wikipedia.org/wiki/TalesWeaver"
+   }
+  }
+ ]
+}

@@ -32,7 +32,7 @@ book-atelier 의 `IMAGE_RULES.md` 에서 왔다(한 게임 = 폼 셋 + 개방 �
   규칙 줄(Not its characters · Never draw · Hold back · Final check)은 글 그대로 5칸에, 「No a, b …」 나열 문장만 `Avoid:` 한 줄로 모은다. 카메라 · 구도 글(단계의 빛 · 구도 · 카메라, 기본 자세의 낮은 카메라)은 장면 연출이라 글자 그대로 4칸에 둔다.
   옛 줄 이름(FORM · SETTING · STANCE · FACE)을 가리키던 말은 「the costume above」 · 「the place above」 · 「the pose above」 · 「her face structure below」 같은 자리 말로, core 해부 줄과 겹치는 「one head, two arms …」 · 「natural human hands.」 는 한 번만.
   표 `lib/prompt-spec.js` SECTIONS, 조립 `lib/prompt-game.js` buildSections. 켜는 곳은 `data/style.json` 꼭대기 `"sections": true` — `false` 로 바꾸면(또는 판에 `"sections": false`) 옛 줄 꼴 그대로, core 칸 틀이 없어도 옛 꼴.
-  화면 · 지시문 묶음(`tools/prompt-pack.cjs`) · 기록이 같은 스위치를 본다. 검사 `node tests/prompt-sections.cjs`(쉰 편 × 폼 셋 × 세 갈래 + 다 얹은 꼴 — 옛 꼴 문장을 하나도 잃지 않았는지 견준다). **일상컷은 칸 꼴이 아니다**(아래 2절 그대로).
+  화면 · 지시문 묶음(`tools/prompt-pack.cjs`) · 기록이 같은 스위치를 본다. 검사 `node tests/prompt-sections.cjs`(설계표 게임 모두 × 폼 셋 × 세 갈래 + 다 얹은 꼴 — 옛 꼴 문장을 하나도 잃지 않았는지 견준다). **일상컷은 칸 꼴이 아니다**(아래 2절 그대로).
 - 그림은 세로 2:3, **1024×1536** 이다. 주인공은 그녀 한 명. 틀은 그림에 그리지 않는다.
   배경 속 사람(흐릿한 손님·행인·객석)은 나와도 괜찮다(사용자 2026-10-27). 다시 만드는 것은 그녀와 크기·초점이 비슷해
   주인공을 다투는 사람, 그녀 몸에 닿거나 겹친 사람, 그녀와 같은 얼굴이 하나 더 나온 경우다. 개방 명장면은 그대로 그녀 한 명이다.
