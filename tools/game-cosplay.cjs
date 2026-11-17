@@ -27,6 +27,11 @@ function check() {
   for (const k of ['fixed', 'pick', 'again', 'none', 'assigned']) if (!(d.text || {})[k]) bad.push('글 ' + k);
   /* 설계표의 게임은 목록(games)이나 뺌(excluded — 까닭)에 꼭 있다(2026-11-16 사용자 「게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」).
      새 게임을 설계표에 넣으면 여기서 멈춘다 — 주인공 하나(character · outfit) · 등장인물 많음(characters) · 뺌(까닭) 가운데 하나를 사용자와 정하고 sync */
+  /* 어린 캐릭터(2026-11-17) — 앞글 text.young · 재단 글 young_cut_en(young_cuts 마다) */
+  if ((d.games || []).some(g => (g.characters || []).some(c => c.young))) {
+    if (!(d.text || {}).young || /daring|adult/i.test(d.text.young)) bad.push('text.young — 어린 캐릭터 앞글(daring · adult 없이)');
+    for (const k of d.young_cuts || []) if (!((d.young_cut_en || {})[k] || '').startsWith('cut as ')) bad.push('young_cut_en.' + k);
+  }
   const inList = new Set((d.games || []).map(g => g.key)), ex = d.excluded || {};
   for (const k of keys) if (!inList.has(k) && !(k in ex)) bad.push('코스프레를 정하지 않은 새 게임 ' + k + ' — games(주인공 하나 · 등장인물 많음) 나 excluded(까닭) 에 넣는다');
   for (const [k, why] of Object.entries(ex)) {

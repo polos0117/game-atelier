@@ -12,6 +12,11 @@
 
 
 
+## 2026-11-17 · claude · 어린 캐릭터 코스프레 글 — 다 가리는 앞글 · 재단
+- 사용자 「코스튬의상이라 나이는 상관없는데」 → 어린 캐릭터도 명단에 넣고 노출 재단은 쓰지 않는다 → 「응 그렇게 해줘」. young_cuts 의 재단 글(strapless · off-shoulder)과 앞글(daring adult)이 그 결정과 안 맞아 고침
+- data/game-cosplay.json — text.young(「a modest everyday cosplay … fully covered and nothing revealing」) · young_cut_en(니트 · 아이돌 · 원피스를 긴소매 · 무릎 길이로). 세 공방 사본 sync
+- tools/game-cosplay.cjs check — young 캐릭터가 있으면 text.young(daring · adult 없음) · young_cut_en 이 young_cuts 마다
+
 ## 2026-11-17 · claude · 게임 코스프레 — 캐릭터 한글 이름 · 어린 캐릭터 young 표시
 - 사용자 2026-11-17 「응 캐릭터 한글 이름도 채워줘」 · 「코스튬의상이라 나이는 상관없는데」 → 「응 그렇게 해줘」
 - data/game-cosplay.json — 등장인물 많은 게임 열 곳(리그 오브 레전드 · 오버워치 · 스트리트 파이터 II · 월드 오브 워크래프트 · 스타크래프트 · 파이널 판타지 VII · 랑그릿사 II · DOA5 · KOF 2002 · 원신)의 characters 마다 ko(한국어판 표기 — 나무위키 표제 · 한국 서버). 이름 하나로 둘을 가리키면 서로 다르게(칼날 여왕 케리건 · 유령 요원 사라 케리건), 직업형은 한국어판 용어(블러드 엘프 성기사). 한국판이 다른 이름을 쓰면 그 이름(SF2 M. Bison = 베가 · Vega = 발로그 · Balrog = 마이크 바이슨, FF7 Elena = 이리나 · Tseng = 청, KOF May Lee = 이진주). name · female 은 그대로
