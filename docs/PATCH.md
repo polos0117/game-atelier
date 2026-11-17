@@ -12,6 +12,13 @@
 
 
 
+## 2026-11-17 · claude · 게임 코스프레 — 캐릭터 한글 이름 · 어린 캐릭터 young 표시
+- 사용자 2026-11-17 「응 캐릭터 한글 이름도 채워줘」 · 「코스튬의상이라 나이는 상관없는데」 → 「응 그렇게 해줘」
+- data/game-cosplay.json — 등장인물 많은 게임 열 곳(리그 오브 레전드 · 오버워치 · 스트리트 파이터 II · 월드 오브 워크래프트 · 스타크래프트 · 파이널 판타지 VII · 랑그릿사 II · DOA5 · KOF 2002 · 원신)의 characters 마다 ko(한국어판 표기 — 나무위키 표제 · 한국 서버). 이름 하나로 둘을 가리키면 서로 다르게(칼날 여왕 케리건 · 유령 요원 사라 케리건), 직업형은 한국어판 용어(블러드 엘프 성기사). 한국판이 다른 이름을 쓰면 그 이름(SF2 M. Bison = 베가 · Vega = 발로그 · Balrog = 마이크 바이슨, FF7 Elena = 이리나 · Tseng = 청, KOF May Lee = 이진주). name · female 은 그대로
+- data/game-cosplay.json — 어린 캐릭터를 다시 넣었다: 테일즈위버 나야트레이 · 아나이스 델 카릴 · 벤야(11 → 14), 원신 디오나 · 클레 · 치치 · 요요 · 사유 · 도리 · 나히다 · 시그윈 · 카치나(115 → 124). 이 열둘과 유피 키사라기에 young: true, 맨 위 young_cuts [knit, idol, mini_dress] — young 캐릭터는 이 재단만(노출 재단은 안 씀, 계획기 쪽은 따로)
+- tools/game-cosplay.cjs — check 에 등장인물 많은 게임은 모든 캐릭터에 ko · 주인공 하나는 character_ko · young 은 boolean 이고 many 게임 캐릭터에만 · young_cuts ⊂ cuts
+- 검사: node tools/game-cosplay.cjs check 통과 · python3 tools/game-design.py check 통과 → sync 로 세 공방 사본
+
 ## 2026-11-17 · claude · 여덟째 묶음 다섯 편 — 테일즈위버 · 데드 오어 얼라이브 5 · 더 킹 오브 파이터즈 2002 · 베요네타 · 원신, 게임 코스프레에도
 - 사용자 「테일즈위버랑 DOA 는 KOF를 넣고 이건 코스튬 게임에도 넣어줘」 → 「DOA 는 5, KOF는 2002 로 나머지 두개도 추천대로 해줘」(베요네타 · 원신은 Claude 추천)
 - data/game-design.json · data/wikidata/<다섯 편>.json — 다섯 편 설계표(반사 셋 · 성장 하나 · 탐험 하나, 55편). 사실 칸은 find(질의 하나) → 고른 QID — 테일즈위버 Q484913(2003) · DOA5 Q1168536(2012) · KOF 2002 Q198092(2002) · 베요네타 Q791569(2009 — 「Bayonetta」 문서는 해 없는 시리즈 항목 Q20062305) · 원신 Q65059474(2020). 질의 서버가 「너무 잦다(429) — 1000초」 를 거듭 돌려줘 pull --entity(항목 JSON 길)로 받았다. 테일즈위버는 Wikidata 에 개발사 · 모드 빈칸

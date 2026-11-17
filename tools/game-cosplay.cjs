@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /* 게임 코스프레 목록(data/game-cosplay.json, 2026-11-15) — 원본은 이 저장소. 세 공방(pkm · 원소 · 삼국지)의 data/game-cosplay.json 은 같은 사본.
-   node tools/game-cosplay.cjs check   목록 꼴(게임 열쇠가 설계표에 있다 · many 면 roster · 아니면 character · outfit · 재단 열하나 · 설계표 게임은 games 나 excluded 에 다 있다)
+   node tools/game-cosplay.cjs check   목록 꼴(게임 열쇠가 설계표에 있다 · many 면 roster · 아니면 character · outfit · 한글 이름(ko · character_ko) · young_cuts ⊂ cuts · 재단 열하나 · 설계표 게임은 games 나 excluded 에 다 있다)
    node tools/game-cosplay.cjs sync    옆 저장소 셋(../pkm-atelier · ../element-atelier · ../sam-atelier)에 그대로 쓴다(커밋은 그 저장소에서) */
 'use strict';
 const fs = require('node:fs'), path = require('node:path'), ROOT = path.join(__dirname, '..');
@@ -15,7 +15,15 @@ function check() {
     if (!g.en || !g.ko) bad.push(g.key + ' 이름');
     if (g.many ? !(g.roster > 0) : !(g.character && g.outfit)) bad.push(g.key + (g.many ? ' roster' : ' character · outfit'));
     if (g.many && (!Array.isArray(g.characters) || g.characters.length !== g.roster || new Set(g.characters.map(c => c.name)).size !== g.characters.length || g.characters.some(c => !c.name || typeof c.female !== 'boolean'))) bad.push(g.key + ' characters(이름 · female · 겹침 없음 · roster = 수)');
+    /* 한글 이름(2026-11-17 사용자 「캐릭터 한글 이름도 채워줘」) — 허브 일상컷 목록 · 세 공방 색인(cosplay.characterKo)이 읽는다. 주인공 하나는 character_ko */
+    if (g.many) for (const c of g.characters || []) if (!String(c.ko || '').trim()) bad.push(g.key + ' ' + c.name + ' 한글 이름(ko)');
+    if (!g.many && !String(g.character_ko || '').trim()) bad.push(g.key + ' character_ko');
+    /* 어린 캐릭터(2026-11-17 사용자 「코스튬의상이라 나이는 상관없는데」) — young: true 는 young_cuts 재단만, 등장인물 많은 게임에만 */
+    for (const c of g.characters || []) if ('young' in c && typeof c.young !== 'boolean') bad.push(g.key + ' ' + c.name + ' young 은 true · false');
+    if (!g.many && 'young' in g) bad.push(g.key + ' young 은 등장인물 많은 게임의 캐릭터에만');
   }
+  const cutKeys = new Set((d.cuts || []).map(c => c.key));
+  if (!Array.isArray(d.young_cuts) || !d.young_cuts.length || d.young_cuts.some(k => !cutKeys.has(k))) bad.push('young_cuts 는 cuts 열쇠의 부분집합');
   for (const k of ['fixed', 'pick', 'again', 'none', 'assigned']) if (!(d.text || {})[k]) bad.push('글 ' + k);
   /* 설계표의 게임은 목록(games)이나 뺌(excluded — 까닭)에 꼭 있다(2026-11-16 사용자 「게임 자료를 늘리면 … 게임코스튬 갈래도 더 추가되게」).
      새 게임을 설계표에 넣으면 여기서 멈춘다 — 주인공 하나(character · outfit) · 등장인물 많음(characters) · 뺌(까닭) 가운데 하나를 사용자와 정하고 sync */
