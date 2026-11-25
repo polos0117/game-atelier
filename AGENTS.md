@@ -29,7 +29,7 @@
 머리·항해·⚙ 설정은 `lib/workspace-ui.js`, 공간(테마)은 `lib/workspace-theme.js`·`lib/workspace.css`·`lib/room.css`.
 화면 차례는 `lib/workspace-ui.js` 의 `PAGES` 한 곳이다 — 화면을 붙이면 거기 더한다.
 
-`lib/favorites.js` 는 공방 모음(polos0117.github.io)의 `favorites.js` 를 글자 하나 다르지 않게 복사한 공용 모듈이다(열쇠 `atelier_favorites_v1`).
+`lib/favorites.js` 는 공방 모음(polos0117.github.io)의 `favorites.js` 를 글자 하나 다르지 않게 복사한 공용 모듈이다(열쇠 `atelier_favorites_v1`). 2026-11-25부터 원본은 style-atelier `shared/lib/favorites.js` — `node shared/sync.cjs` 가 덮으니 여기서 고치지 않는다. 3000칸까지, 가득 차면 오래된 것을 빼지 않고 담기를 거절한다(하트 알림은 `FAV.message() || 막힘 말`).
 여기서 따로 고치지 않는다. 서가가 붙을 때 쓴다.
 
 도트 재생기 `lib/sprite-actor.js`·`lib/sprite-actor.css` 도 공방 모음의 `sprite-actor.js`·`.css` 를 글자 하나 다르지 않게 복사한 공용 모듈이다(약속 — `data/sprites.json` 꼴·API — 은 그쪽 README 「도트 재생기」절).

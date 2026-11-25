@@ -190,7 +190,7 @@ body.zoomed {overflow:hidden}
 <script src="lib/img.js?v=1"></script>
 <script src="lib/dex-filter.js?v=1"></script>
 <!-- 즐겨찾기 — lib/favorites.js(공방들과 공방 모음이 글자 하나 다르지 않게 나눠 쓴다) -->
-<script src="lib/favorites.js?v=1"></script>
+<script src="lib/favorites.js?v=2"></script>
 <!-- 도트 — lib/sprite-actor.js(공방 모음의 공용 재생기) · data/sprites.json. 도트가 있는 게임은 목록 칸에 「도트」 표, 상세에 작은 무대 한 줄 -->
 <script src="lib/sprite-actor.js?v=1"></script>
 <link rel="stylesheet" href="lib/sprite-actor.css?v=1">
@@ -446,7 +446,7 @@ function Detail({ card, entry, defs, styleName, selection, nav, onGo, onClose })
   const toggleFav = () => {
     if (!FAV || !shown) return;
     const on = FAV.toggle(favEntry(card, shown, defs));
-    sayFav(W(on ? 'dex.fav.added' : faved ? 'dex.fav.removed' : 'dex.fav.blocked'));
+    sayFav((on ? W('dex.fav.added') : faved ? W('dex.fav.removed') : FAV.message() || W('dex.fav.blocked')));
   };
 
   const head = html`
@@ -631,7 +631,7 @@ function Zoom({ card, defs, shots, at, canPrev, canNext, onMove, onClose }) {
   const toggleFav = () => {
     if (!FAV || !shot) return;
     const on = FAV.toggle(favEntry(card, shot, defs));
-    sayFav(W(on ? 'dex.fav.added' : faved ? 'dex.fav.removed' : 'dex.fav.blocked'));
+    sayFav((on ? W('dex.fav.added') : faved ? W('dex.fav.removed') : FAV.message() || W('dex.fav.blocked')));
   };
   return html`<div ref=${layer} class="zoom-layer" role="dialog" aria-modal="true" aria-label=${W('dex.zoom')}>
     <div class="zoom-bar"><b>${card.name} · ${shotLabel(shot, defs)}</b><span aria-live="polite">${at + 1} / ${shots.length}</span>

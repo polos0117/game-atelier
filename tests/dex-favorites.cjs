@@ -3,6 +3,7 @@
    - 넘기면 그 그림의 상태, 돌아오면 다시 찬 하트, 닫으면 상세 하트도 같다
    - 하트 44px · 화면 안 · 옆으로 안 넘친다 · 알림이 아래 넘기기 단추를 안 덮는다
    - 저장이 막힌 브라우저에서는 담겼다고 하지 않는다
+   - 즐겨찾기가 가득(3000)이면 못 담았다 · 가득 찼다고 말한다 · 오래된 것도 그대로(2026-11-25)
    CHROMIUM_PATH=<chrome> node tests/dex-favorites.cjs */
 const assert = require('node:assert/strict');
 const { start, FOLD } = require('./browser-harness.cjs');
@@ -65,6 +66,17 @@ const STORE = 'atelier_favorites_v1';
     assert.equal(await b.page.locator('.zoom-layer .fav-toast').textContent(), W('dex.fav.blocked'), '막혔다는 알림');
     assert.deepEqual(b.errors, []);
     await b.close();
-    console.log('PASS 도감 크게 보기 하트: 상세와 같은 칸 · 넘기면 그 그림 상태 · 닫으면 상세와 같음 · 44px · 안 넘침 · 알림 자리 · 저장 막힘 (344×882)');
+    /* 가득 찬 즐겨찾기(lib/favorites.js MAX, 2026-11-25) — 오래된 것을 빼지 않고 못 담았다고, 왜인지 말한다 */
+    const c = await h.open('dex.html?game=tetris', { viewport: FOLD.cover, mobile: true,
+      init: () => { if (!sessionStorage.getItem('full')) { sessionStorage.setItem('full', '1'); localStorage.setItem('atelier_favorites_v1', JSON.stringify(Array.from({ length: 3000 }, (_, i) => ({ a: 'book', key: 'k', file: 'x' + i + '.webp', title: 't', at: '2026-11-01T00:00:00Z' })))); } } });
+    await c.page.locator('.big .zoom').waitFor({ timeout: 30000 });
+    await c.page.locator('.big .zoom').tap();
+    await c.page.locator('#zoom-fav').tap(); await c.page.waitForTimeout(150);
+    assert.equal(await c.page.locator('#zoom-fav').getAttribute('aria-pressed'), 'false', '가득이면 안 찬다');
+    assert.match(await c.page.locator('.zoom-layer .fav-toast').textContent(), /가득 찼어요\(3000장\)/, '가득 찼다는 알림');
+    assert.deepEqual(await c.page.evaluate(() => { const l = JSON.parse(localStorage.getItem('atelier_favorites_v1')); return [l.length, l[2999].file]; }), [3000, 'x2999.webp'], '오래된 것도 그대로');
+    assert.deepEqual(c.errors, []);
+    await c.close();
+    console.log('PASS 도감 크게 보기 하트: 상세와 같은 칸 · 넘기면 그 그림 상태 · 닫으면 상세와 같음 · 44px · 안 넘침 · 알림 자리 · 저장 막힘 · 가득 (344×882)');
   } finally { await h.stop(); }
 })().catch(e => { console.error(e); process.exit(1); });
